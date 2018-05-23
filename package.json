@@ -1,0 +1,27 @@
+{
+  "name": "mip-project.github.io",
+  "version": "1.0.0",
+  "description": "mip2 website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mip-project/mip-project.github.io.git"
+  },
+  "keywords": [
+    "mip",
+    "website"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mip-project/mip-project.github.io/issues"
+  },
+  "homepage": "https://github.com/mip-project/mip-project.github.io#readme",
+  "devDependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "kram": "^1.0.9"
+  }
+}
