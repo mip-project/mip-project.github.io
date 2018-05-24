@@ -26,6 +26,6 @@
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span>
 &lt;<span class="hljs-regexp">/mip-data&gt;</span>
 </code></pre><ol start="7"><li>提升为共享态的数据源将在每个页面都能读取和使用到：<strong>如果</strong>页面使用到某个数据而页面自身的初始数据中不存在该数据，将查找共享数据；<strong>如果</strong>页面自身有与共享数据冲突的字段<ol start="8"><li>页面自身的数据没有 <code>#</code> 标识，将优先读取页面数据，不影响共享数据</li><li>页面自身的数据带有 <code>#</code> 标识，提升为共享数据，覆盖之前同样字段的共享数据</li></ol></li></ol></li><li><p>调用 MIP.setData 修改数据时</p><ol start="4"><li>如果需要指定修改共享数据，则在数据前添加 <code>#</code> 标识，如 <code>MIP.setData({&#39;#global&#39;: 1})</code></li><li>其余情况，mip2 会自行判断该数据是共享数据还是当前页面的数据，如果要修改的数据字段既存在于共享也存在于页面的数据源，将优先修改页面的数据源</li></ol></li></ol></li><li><p>如果页面用到了共享数据，而页面本身没有用 <code>&lt;mip-data&gt;&lt;/mip-data&gt;</code> 设置初始数据，仍需要在页面添加 <code>mip-data</code> 的空标签</p></li></ol>
-        <script src="http://bos.nj.bpc.baidu.com/assets/mip/projects/mip.js"></script>
+        <script src="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.js"></script>
     </body>
 </html>

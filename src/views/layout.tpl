@@ -18,6 +18,6 @@
 
     <body>
         ${body|raw}
-        <script src="http://bos.nj.bpc.baidu.com/assets/mip/projects/mip.js"></script>
+        <script src="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.js"></script>
     </body>
 </html>
