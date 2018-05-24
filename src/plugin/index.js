@@ -18,16 +18,16 @@ const Static = require('./static');
 // const Init = require('./init');
 
 module.exports = {
-    description: new Description(),
-    urlMapper: new UrlMapper(),
-    lineNumber: new LineNumber(),
-    defaultDoc: new DefaultDoc(),
-    highlightQuote: new HighlightQuote(),
-    trimBlankLine: new TrimBlankLine(),
-    headingLink: new HeadingLink(),
-    related: new Related(),
-    removeHeadingId: new RemoveHeadingId(),
-    menuInfo: new MenuInfo(),
+    // description: new Description(),
+    // urlMapper: new UrlMapper(),
+    // lineNumber: new LineNumber(),
+    // defaultDoc: new DefaultDoc(),
+    // highlightQuote: new HighlightQuote(),
+    // trimBlankLine: new TrimBlankLine(),
+    // headingLink: new HeadingLink(),
+    // related: new Related(),
+    // removeHeadingId: new RemoveHeadingId(),
+    // menuInfo: new MenuInfo(),
     layout: new Layout(),
     static: new Static()
     // init: new Init()

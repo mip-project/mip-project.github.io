@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html mip>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <title>MIP 2.0</title>
+        <link rel="shortcut icon" href="//www.baidu.com/favicon.ico" >
+        <link rel="canonical" href="对应的原页面地址">
+        <link rel="stylesheet" href="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.css">
+        <style mip-custom>
+        /* 自定义样式 */
+        </style>
+    </head>
+
+    <body>
+        <h1 id="-" data-hash="#组件调试">组件调试</h1><h2 id="-" data-hash="#命令">命令</h2><p>mip-cli 提供了 <code>dev</code> 命令进行组件调试。</p><pre><code class="lang-shell"><span class="hljs-meta">$</span><span class="bash"> mip2 dev</span>
+</code></pre><h2 id="-" data-hash="#引用方式">引用方式</h2><p>该命令会自动将当前目录下的 <code>components/</code> 下的 mip 组件进行编译并且进行改动监听，同时启动 node 服务器，默认端口为 <code>8111</code>，这样就可以通过以下方式去使用编译好的组件啦：</p><pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://127.0.0.1:8111/组件名.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre><p>您可以在自己的项目里通过引入 script 标签的方式去查看组件的实际使用效果。</p><p>同时，mip-cli 的 <code>dev</code> 命令也提供了一个静态服务器，允许开发者在 <code>test/</code> 目录和 <code>components/组件名/test/</code> 目录下写 <code>.html</code> 文件去进行组件调试。</p><p>比如文件路径为 <code>test/mip-example.html</code> 的页面，可以通过 <code>http://127.0.0.1:8111/test/mip-example.html</code> 进行访问，而 <code>components/mip-example/test/test-property.html</code> 则通过 <code>http://127.0.0.1:8111/components/mip-example/test/test-property.html</code> 进行访问。</p><p>在这种调试模式下，mip-cli 会自动注入 <code>livereload</code> 的脚本，让页面在开发时能够自动刷新网页。</p><h2 id="-" data-hash="#参数说明">参数说明</h2><p><code>mip2 dev</code> 可以传入以下参数去修改默认配置：</p><ol><li><code>-p --port</code>: 静态服务器的监听的端口号，默认为 8111；</li><li><code>-d --dir</code>: 项目根目录，默认为 <code>process.cwd()</code>；</li><li><code>-l --livereload</code>: 是否启动自动刷新，默认为 false；</li><li><code>-a --auto</code>: 静态服务器启动后默认打开的网页，默认为空，即不打开任何页面；</li><li><code>-c --config</code>: 读取 mip-cli 配置文件，默认为 <code>process.cwd()/mip.config.js</code>;</li></ol><p>mip-cli 允许通过配置 <code>mip.config.js</code> 去修改默认配置，比如：</p><pre><code class="lang-javascript"><span class="hljs-comment">// mip.config.js</span>
+<span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">'path'</span>);
+
+<span class="hljs-built_in">module</span>.exports = {
+    <span class="hljs-comment">// dev 命令配置</span>
+    dev: {
+        <span class="hljs-attr">port</span>: <span class="hljs-number">8222</span>, <span class="hljs-comment">// 默认端口从 8111 变更为 8222</span>
+        livereload: <span class="hljs-literal">true</span>, <span class="hljs-comment">// 启动自动刷新</span>
+        auto: <span class="hljs-string">'/test/index.html'</span> <span class="hljs-comment">// 默认打开 http://127.0.0.1:8222/test/index.html</span>
+    }
+}
+</code></pre><p>默认配置、mip.config.js、命令行参数的优先级为：</p><pre><code>默认配置 &lt; mip.config.js &lt; 命令行参数
+</code></pre><h2 id="-" data-hash="#例子">例子</h2><p>假设通过 mip-cli init 出来的项目结构如下：</p><pre><code>test-proj
+... components/
+....... mip-example/
+........... test/
+............... index.html
+........... mip-example.vue
+... test/
+....... index.html
+... mip.config.js
+</code></pre><p>其中 <code>mip.config.js</code> 的配置为：</p><pre><code class="lang-javascript"><span class="hljs-built_in">module</span>.exports = {
+    <span class="hljs-attr">dev</span>: {
+        <span class="hljs-attr">port</span>: <span class="hljs-number">8222</span>,
+        <span class="hljs-attr">dir</span>: <span class="hljs-string">'./components'</span>,
+        <span class="hljs-attr">livereload</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">autoopen</span>: <span class="hljs-string">'/test/index.html'</span>
+    }
+};
+</code></pre><p><code>test/index.html</code> 的内容为：</p><pre><code class="lang-html"><span class="hljs-meta">&lt;!DOCTYPE&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">mip</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width,minimum-scale=1,initial-scale=1"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>MIP page<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"canonical"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"对应的原页面地址"</span>&gt;</span>
+        <span class="hljs-comment">&lt;!-- 引入默认 mip 样式 --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.css"</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+        <span class="hljs-comment">&lt;!-- 使用 mip-example 标签 --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">mip-example</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-example</span>&gt;</span>
+        <span class="hljs-comment">&lt;!-- 引入 mip 脚本 --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://bos.nj.bpc.baidu.com/assets/mip/projects/mip.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+        <span class="hljs-comment">&lt;!-- 引入 mip-example 脚本 --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://127.0.0.1:8222/mip-example.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre><p><code>components/mip-example/mip-example.vue</code> 的内容为：</p><pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mip-example"</span>&gt;</span>{{ word }}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">scoped</span>&gt;</span><span class="css">
+    <span class="hljs-selector-class">.mip-example</span> {
+        <span class="hljs-attribute">color</span>: red;
+    }
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+    <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+        data() {
+            <span class="hljs-keyword">return</span> {
+                <span class="hljs-attr">word</span>: <span class="hljs-string">'this is my first mip component!'</span>
+            };
+        }
+    };
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+</code></pre><p>在 <code>test-proj/</code> 目录下敲入命令行并回车：</p><pre><code class="lang-shell">mip2 dev
+</code></pre><p>此时会自动打开 <code>http://127.0.0.1:8222/test/index.html</code>，页面显示如下：</p><p><img src="https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/mip/docs/mip-example-a6d1f6f5.jpg" alt="mip-example.jpg"></p>
+        <script src="http://bos.nj.bpc.baidu.com/assets/mip/projects/mip.js"></script>
+    </body>
+</html>

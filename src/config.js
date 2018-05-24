@@ -9,6 +9,8 @@
 
 const path = require('path');
 const utils = require('./utils/basic');
+const download = require('download-git-repo');
+const fs = require('fs-extra');
 
 let rootDir = path.resolve(__dirname, '..');
 let tmpDir = path.resolve(rootDir, 'tmp');
@@ -20,71 +22,98 @@ module.exports = {
     basePath: docDir,
     sources: [
         {
-            name: 'lavas',
-            // loader: 'local',
-            // from: path.resolve(__dirname, '../../test/lavas'),
-
-            loader: 'downloadGitRepo',
-            from: 'github:lavas-project/lavas-tutorial',
-            to: path.resolve(docDir, './lavas'),
-            tmp: path.resolve(gitDir, './lavas')
+            name: 'mip',
+            loader: 'downloadMipDoc',
+            from: 'github:mip-project/mip',
+            to: path.resolve(docDir, './mip'),
+            tmp: path.resolve(gitDir, './mip')
         }
     ],
+    loader: {
+        downloadMipDoc: function ({from, to, tmp}) {
+            let tmpDir = tmp || to;
+
+            let promise = new Promise((resolve, reject) => {
+                download(from, tmpDir, {clone: false}, err => {
+                    fs.move(path.resolve(tmpDir, './docs'), path.resolve(tmpDir, '../mip-doc'))
+                        .then(function () {
+                            if (err) {
+                                reject(err);
+                            }
+                            else if (tmp) {
+                                fs.move(path.resolve(tmpDir, '../mip-doc'), to, {overwrite: true}).then(resolve);
+                            }
+                            else {
+                                resolve();
+                            }
+                        });
+                });
+            });
+            return promise;
+        }
+    },
     routes: [
         {
-            path(filePath) {
-                return /\.[a-zA-Z0-9]+($|\?|#)/.test(filePath) && !/\.md($|\?|#)/.test(filePath);
-            },
+            path: /^mip/,
             url(filePath) {
-                return `/doc-assets/${filePath}`;
-            }
-        },
-        {
-            path: /^lavas\/vue/,
-            url(filePath) {
-                filePath = filePath.replace(/\.md($|\?|#)/, '$1').replace(/^lavas\/vue/, 'v1');
-                return `/guide/${filePath}`;
-            }
-        },
-        {
-            path: /^lavas\//,
-            url(filePath) {
-                filePath = filePath.replace(/\.md($|\?|#)/, '$1').replace(/^lavas\//, '');
-                return `/guide/${filePath}`;
+                filePath = filePath.replace(/\.md($|\?|#)/, '$1');
+                return filePath;
             }
         }
-    ],
-    menus: [
-        {
-            url: /^\/guide\/v1/,
-            menu(url) {
-                return 'lavas/vue';
-            }
-        },
-        {
-            url: /^\/guide\//,
-            menu(url) {
-                let match = url.match(/^\/guide\/(.+?)(\/|$)/);
-                if (match) {
-                    return `lavas/${match[1]}`;
-                }
-            }
-        }
-    ],
-    alias: [
-        {
-            url: /^\/guide$/,
-            async alias(url, compiler) {
-                let menu = await compiler.getMenu('lavas');
-
-                if (!menu) {
-                    return;
-                }
-
-                menu = menu.filter(item => !!item.children);
-                let node = utils.firstNode(menu);
-                return node && node.url;
-            }
-        }
+        // {
+        //     path(filePath) {
+        //         return /\.[a-zA-Z0-9]+($|\?|#)/.test(filePath) && !/\.md($|\?|#)/.test(filePath);
+        //     },
+        //     url(filePath) {
+        //         return `/doc-assets/${filePath}`;
+        //     }
+        // },
+        // {
+        //     path: /^lavas\/vue/,
+        //     url(filePath) {
+        //         filePath = filePath.replace(/\.md($|\?|#)/, '$1').replace(/^lavas\/vue/, 'v1');
+        //         return `/guide/${filePath}`;
+        //     }
+        // },
+        // {
+        //     path: /^lavas\//,
+        //     url(filePath) {
+        //         filePath = filePath.replace(/\.md($|\?|#)/, '$1').replace(/^lavas\//, '');
+        //         return `/guide/${filePath}`;
+        //     }
+        // }
     ]
+    // menus: [
+    //     {
+    //         url: /^\/guide\/v1/,
+    //         menu(url) {
+    //             return 'lavas/vue';
+    //         }
+    //     },
+    //     {
+    //         url: /^\/guide\//,
+    //         menu(url) {
+    //             let match = url.match(/^\/guide\/(.+?)(\/|$)/);
+    //             if (match) {
+    //                 return `lavas/${match[1]}`;
+    //             }
+    //         }
+    //     }
+    // ],
+    // alias: [
+    //     {
+    //         url: /^\/guide$/,
+    //         async alias(url, compiler) {
+    //             let menu = await compiler.getMenu('lavas');
+
+    //             if (!menu) {
+    //                 return;
+    //             }
+
+    //             menu = menu.filter(item => !!item.children);
+    //             let node = utils.firstNode(menu);
+    //             return node && node.url;
+    //         }
+    //     }
+    // ]
 };

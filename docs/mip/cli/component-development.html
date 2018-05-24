@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html mip>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <title>MIP 2.0</title>
+        <link rel="shortcut icon" href="//www.baidu.com/favicon.ico" >
+        <link rel="canonical" href="对应的原页面地址">
+        <link rel="stylesheet" href="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.css">
+        <style mip-custom>
+        /* 自定义样式 */
+        </style>
+    </head>
+
+    <body>
+        <h1 id="-" data-hash="#组件开发说明">组件开发说明</h1><h2 id="-" data-hash="#内置编译工具">内置编译工具</h2><p>mip-cli 的组件编译模块使用 webpack4 实现，内置了以下 loader：</p><ol><li><p>vue-loader: 默认将 <code>.vue</code> 文件编译成 <code>.js</code>，<code>&lt;style&gt;</code> 样式部分启用 scoped，往 <code>&lt;head&gt;</code> 动态注入样式，<code>&lt;template&gt;</code> 模板部分编译生成 render 函数；</p></li><li><p>babel-loader：默认支持所有 ES6 转 ES5，并支持 async/await 的 ES7 语法。注：由于 babel-polyfill 体积过大，因此默认没有开启，请开发者自行在需要 babel-polyfill 的文件地方自行引入相应的 polyfill 文件；</p></li><li><p>css-loader</p></li><li><p>less-loader：默认支持 <code>.vue</code> 单文件组件的 style 标签使用 <code>lang=&quot;less&quot;</code>；</p></li><li><p>stylus-loader：默认支持 <code>.vue</code> 单文件组件的 style 标签使用 <code>lang=&quot;stylus&quot;</code>；</p></li><li><p>postcss-loader：默认支持 css autoprefixer</p></li><li><p>url-loader：默认支持 <code>.png|.jpg|.jpeg|.gif</code> 等图片资源和 <code>.otf|.ttf|eot|svg|woff|woff2</code> 等字体文件资源的引用，默认小于 1000b 的资源直接生成 base64 字符串。</p></li></ol><h2 id="-" data-hash="#资源引用">资源引用</h2><h3 id="-" data-hash="#后缀省略">后缀省略</h3><p>在进行资源引用的时候，允许省略的后缀有：<code>.js</code>、<code>.json</code>、<code>.vue</code>。</p><p>比如 <code>/common/utils/index.js</code> 可以简写为 <code>/common/utils/index</code> 或 <code>/common/utils</code>；</p><h3 id="-" data-hash="#别名">别名</h3><p>对于样式文件里的本地资源引用建议使用绝对路径，默认提供了 <code>@</code> 别名指向工程目录，假设项目目录结构为：</p><pre><code>test-proj
+... components/
+....... mip-example/
+........... mip-example.vue
+... static/
+....... mip.png
+... mip.config.js
+</code></pre><p>那么 mip-example.vue 文件的 style 标签内引用 mip.png 建议写成：</p><pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">scoped</span>&gt;</span><span class="xml">
+    .class-name {
+        // ...
+        background: url(~@/static/mip.png);
+    }
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="undefined"></span></span>
+</code></pre><h2 id="-" data-hash="#沙盒机制">沙盒机制</h2><p>mip 在组件开发的时候限制使用 <code>window</code>、<code>document</code> 等对象或函数，在组件构建时，会将组件内使用诸如 <code>document.createElement()</code> 会被替换成 <code>mip.sandbox.document.createElement()</code>，在运行时会限制原有的能力，或者是直接抛出错误。</p><p>详情请阅读 <a href="path/to/sandbox">mip 沙盒机制</a> 进行了解。</p>
+        <script src="http://bos.nj.bpc.baidu.com/assets/mip/projects/mip.js"></script>
+    </body>
+</html>

@@ -9,7 +9,7 @@ const path = require('path');
 module.exports = class Static {
     apply(on, app) {
         let cachedChangedFileList = [];
-        let dist = path.resolve(process.cwd(), 'dist');
+        let dist = path.resolve(process.cwd(), 'docs');
 
         on(app.STAGES.CREATE_DOC_STORE_OBJECT, obj => {
             cachedChangedFileList.push(obj);
