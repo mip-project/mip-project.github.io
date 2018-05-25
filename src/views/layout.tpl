@@ -1,23 +1,59 @@
+{{ target: mip-layout }}
+
 <!DOCTYPE html>
 <html mip>
     <head>
-        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta charset="utf-8">
+        <title>${title} | MIP2</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <title>MIP 2.0</title>
-        <link rel="shortcut icon" href="//www.baidu.com/favicon.ico" >
-        <link rel="canonical" href="对应的原页面地址">
+        <meta name="description" content="${description}">
+        <meta name="keywords" content="${keywords}">
+        <meta name="theme-color" content="#2874f0">
+        <link rel="stylesheet" href="http://172.18.24.88:8848/mip.css">
         <link rel="stylesheet" href="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.css">
+        <!-- <link rel="stylesheet" type="text/css" href="https://mipcache.bdstatic.com/static/v1/mip.css"> -->
+        <link rel="canonical" href="${originUrl}">
         <style mip-custom>
-        /* 自定义样式 */
+            ${baseStyle|raw}
+            ${layoutStyle|raw}
+            {{ block: style }}{{ /block }}
         </style>
     </head>
-
     <body>
-        ${body|raw}
+        <div class="mip-nav-wrapper">
+            <mip-nav-slidedown
+                data-id="bs-navbar"
+                class="mip-navbar"
+                data-showbrand="1"
+                data-brandname="MIP2"
+                data-brandhref="/"
+            >
+                <nav id="bs-navbar" class="navbar-collapse collapse navbar navbar-static-top">
+                    <ul class="nav navbar-nav navbar-right">
+                        {{ for: ${tabs} as ${item} }}
+                        <li class="navbar-item {{ if: ${item.url} === ${activeTab} }}in-active{{ /if }}">
+                            <a href="${item.url}" class="navbar-link">${item.name}</a>
+                        </li>
+                        {{ /for }}
+                        <li class="navbar-wise-close">
+                            <span id="navbar-wise-close-btn"></span>
+                        </li>
+                    </ul>
+                </nav>
+            </mip-nav-slidedown>
+        </div>
+        <div id="app" class="application theme--light">
+            <div class="application--wrap">
+                <div class="app-view-container">
+                    {{ block: content }}{{ /block }}
+                </div>
+                {{ block: footer }}{{ /block }}
+            </div>
+        </div>
         <script src="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.js"></script>
+        <!-- <script src="https://mipcache.bdstatic.com/static/v1/mip.js"></script> -->
+        <script src="https://mipcache.bdstatic.com/static/v1/mip-nav-slidedown/mip-nav-slidedown.js"></script>
+        {{ block: script }}{{ /block }}
     </body>
 </html>

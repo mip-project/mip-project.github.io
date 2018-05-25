@@ -56,7 +56,7 @@ module.exports = {
         {
             path: /^mip/,
             url(filePath) {
-                filePath = filePath.replace(/\.md($|\?|#)/, '$1');
+                filePath = '/' + filePath.replace(/\.md($|\?|#)/, '$1') + '.html';
                 return filePath;
             }
         }
@@ -82,6 +82,14 @@ module.exports = {
         //         return `/guide/${filePath}`;
         //     }
         // }
+    ],
+    menus: [
+        {
+            url: /^\/mip/,
+            menu(url) {
+                return 'mip';
+            }
+        }
     ]
     // menus: [
     //     {

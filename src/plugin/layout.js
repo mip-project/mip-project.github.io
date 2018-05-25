@@ -6,27 +6,250 @@
 const etpl = require('etpl');
 const path = require('path');
 const fs = require('fs');
+const markdownCss = fs.readFileSync(path.resolve(__dirname, '../assets/markdown.css'));
+const layoutCss = fs.readFileSync(path.resolve(__dirname, '../assets/layout.css'));
 
 const engine = new etpl.Engine({
     commandOpen: '{{',
     commandClose: '}}',
-    strip: true
+    strip: true,
+    dir: path.resolve(__dirname, '../views')
 });
+
+engine.loadFromFile(path.resolve(__dirname, '../views/infinity-menu.tpl'));
+engine.loadFromFile(path.resolve(__dirname, '../views/infinity-chapters.tpl'));
+engine.loadFromFile(path.resolve(__dirname, '../views/layout.tpl'));
+engine.loadFromFile(path.resolve(__dirname, '../views/document.tpl'));
 
 module.exports = class Layout {
     apply(on, app) {
-        on(app.STAGES.CREATE_DOC_STORE_OBJECT, obj => {
-            const renderer = engine.compile(
-                fs.readFileSync(path.resolve(__dirname, '../views/layout.tpl'), 'utf-8')
-            );
+        let cachedChangedFileList = [];
 
-            let html = renderer({
-                body: obj.html
+        // 只对存在变化的文档对象做 mip 处理
+
+        on(app.STAGES.CREATE_DOC_STORE_OBJECT, obj => {
+            cachedChangedFileList.push(obj);
+        }, 10100);
+
+        on(app.STAGES.DONE, () => Promise.all(cachedChangedFileList.map(async docInfo => {
+                let {html: originalHtml, url, info, chapters, path} = docInfo;
+
+                // 提取样式
+                let {style, html} = extractStyle(originalHtml);
+
+                // html 组件替换
+                html = heading(html);
+                // html = link(html, app);
+                html = await image(html, app);
+                html = video(html, app);
+
+                // 生成 menu 和 chapter
+                let menuInfo = await app.getMenuByUrl(url);
+
+                let menuHtml = menuInfo && engine.render('infinity-menu', {
+                    menu: menuInfo,
+                    level: 0
+                });
+
+                let chapterHtml = chapters && engine.render('infinity-chapters', {
+                    chapters,
+                    level: 0
+                });
+
+                let newhtml = engine.render('mip-document', {
+                    title: info.title || 'MIP2 官网',
+                    description: info.description || '',
+                    keywords: 'MIP2',
+                    originUrl: '',
+                    host: 'https://mip-project.github.io',
+                    content: html,
+                    menu: menuHtml || '',
+                    chapters: chapterHtml || '',
+                    baseStyle: markdownCss,
+                    layoutStyle: layoutCss,
+                });
+
+                docInfo.html = newhtml;
+
+                await app.store.set('doc', docInfo.path, docInfo);
+
+                // await app.store.set();
+
+                // await app.store.set('mip', url, {
+                //     html,
+                //     url,
+                //     style: style.join('/n'),
+                //     menu: menuHtml || '',
+                //     chapters: chapterHtml || '',
+                //     path: path,
+                //     info: Object.assign({
+                //         keywords: 'lavas,pwa,vue,baidu,service wroker'
+                //     }, info)
+                // });
+            }))
+            .then(() => {
+                cachedChangedFileList = [];
             })
 
-            // obj.html = '<html><body>' + obj.html + '</body></html>';
-            obj.html = html;
-            return obj;
-        }, 10100);
+        , 99999);
     }
 };
+
+/**
+ * 将 文档中的 heading 中的 data-hash 替换成 id
+ * 以激活浏览器默认的页面哈希跳转行为
+ *
+ * @param {string} html html
+ * @return {string} 替换好的 html
+ */
+function heading(html) {
+    return html.replace(
+        /<h([1-9])([\s\S]+?)data-hash="#(.+?)">/mg,
+        function (full, level, attr, hash) {
+            return `<h${level} id="${hash}">`;
+        }
+    );
+}
+
+// function link(html, app) {
+
+//     return html.replace(
+//         /<a([\s\S]+?)href="(.+?)"([\s\S]*?)>/mg,
+//         function (full, attr1, href, attr2) {
+//             if (/^\/(guide|pwa|codelab)/.test(href)) {
+//                 // let host = app.config.host;
+//                 // href = `${host}/mip${href}`;
+//                 href = `/mip${href}`;
+//                 return `<a data-type="mip" href="${href}">`;
+//             }
+
+//             return full;
+//         }
+//     );
+// }
+
+/**
+ * 将 文档中的 img 替换成 mip 组件
+ *
+ * @param {string} html html
+ * @param {Kram} app kram 对象
+ * @return {string} 替换好 img 的 html
+ */
+async function image(html, app) {
+    const imgRegExp = /<img([\s\S]+?)src="([^ "]*?)"([\s\S]*?)>/mg;
+
+    let labels = html.match(imgRegExp);
+
+    if (!labels) {
+        return html;
+    }
+
+    let srcs = labels.map(label => label.replace(imgRegExp, '$2').replace(/["']/g, ''));
+    // let sizes = {
+    //     width: 320,
+    //     height: 320
+    // };
+    // let sizes = await Promise.all(srcs.map(
+    //     src => getImageSize(
+    //         src.replace(/^\/doc-assets\//, ''),
+    //         app.config.basePath,
+    //         app.logger
+    //     )
+    // ));
+
+    return html.replace(imgRegExp, (full, attr1, src) => {
+        src = src.replace(/^\/doc-assets\//, '');
+
+        let {width, height} = {
+            width: 320,
+            height: 320
+        };
+
+        // let {width, height} = sizes.shift();
+
+        if (!/^http/.test(src) && !/^\/\//.test(src)) {
+            let host = app.config.host;
+            src = `${host}/doc-assets/${src}`;
+        }
+
+        /* eslint-disable max-len */
+        if (/\.gif($|\?|#)/.test(src)) {
+            return `<mip-anim layout="responsive" width="${width}" height="${height}" src="${src}"></mip-anim>`;
+        }
+
+        return `<mip-img layout="responsive" width="${width}" height="${height}" popup src="${src}"></mip-img>`;
+        /* eslint-enable max-len */
+    });
+}
+
+/**
+ * 将 文档中的 video 替换成 mip 组件
+ *
+ * @param {string} html html
+ * @param {Kram} app kram 对象
+ * @return {string} 替换好 video 的 html
+ */
+function video(html, app) {
+    return html.replace(
+        /<video([\s\S]+?)src="(.+?)"([\s\S]*?)>([\s\S]*?)<\/video>/mg,
+        function (full, attr1, src, attr2, text) {
+            let attr = attr1 + attr2;
+            let widthMatch = attr.match(/width="(.*?)"/m);
+            let heightMatch = attr.match(/height="(.*?)"/m);
+
+            let width = widthMatch && widthMatch.length ? widthMatch[1] : '320';
+            let height = heightMatch && heightMatch.length ? heightMatch[1] : '320';
+
+            if (!/^http/.test(src) && !/^\/\//.test(src)) {
+                let host = app.config.host;
+                src = `${host}${src}`;
+            }
+            /* eslint-disable max-len */
+            return `<mip-video controls loop muted width="${width}" height="${height}" src="${src}">${text}</mip-video>`;
+            /* eslint-enable max-len */
+        }
+    );
+}
+
+/**
+ * 提取 <style> 标签里的 css 进行合并
+ *
+ * @param {string} html html
+ * @return {Object} 去除 style 标签的 html 和提取好的 css
+ */
+function extractStyle(html) {
+    let style = [];
+    html = html.replace(
+        /<style(.*?)>([\s\S]+?)<\/style>/mg,
+        function (str, attr, styleCode) {
+            style.push(styleCode);
+            return '';
+        }
+    );
+
+    return {style, html};
+}
+
+/**
+ * 获取图片尺寸因为 mip 要求
+ *
+ * @param {string} src 图片 url 地址
+ * @param {string} basePath 本地图片的 base path
+ * @param {Object} logger logger
+ * @return {Object} 宽高对象
+ */
+function getImageSize(src, basePath = '', logger) {
+    if (/^http/.test(src)) {
+        return imageSize.getRemoteImageSize(src, logger);
+    }
+
+    if (/\s*/.test(src)) {
+        return {width: 320, height: 320};
+    }
+
+    if (basePath) {
+        src = path.resolve(basePath, src);
+    }
+
+    return imageSize.getLocalImageSize(src, logger);
+}

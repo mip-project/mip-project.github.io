@@ -10,7 +10,7 @@ const DefaultDoc = require('./default-doc');
 const HighlightQuote = require('./highlight-quote');
 const TrimBlankLine = require('./trim-blank-line');
 const HeadingLink = require('./heading-link');
-const Related = require('./related');
+// const Related = require('./related');
 const RemoveHeadingId = require('./remove-heading-id');
 const MenuInfo = require('./menu-info');
 const Layout = require('./layout');
@@ -18,16 +18,16 @@ const Static = require('./static');
 // const Init = require('./init');
 
 module.exports = {
-    // description: new Description(),
-    // urlMapper: new UrlMapper(),
-    // lineNumber: new LineNumber(),
-    // defaultDoc: new DefaultDoc(),
-    // highlightQuote: new HighlightQuote(),
-    // trimBlankLine: new TrimBlankLine(),
-    // headingLink: new HeadingLink(),
+    description: new Description(),
+    urlMapper: new UrlMapper(),
+    lineNumber: new LineNumber(),
+    defaultDoc: new DefaultDoc(),
+    highlightQuote: new HighlightQuote(),
+    trimBlankLine: new TrimBlankLine(),
+    headingLink: new HeadingLink(),
     // related: new Related(),
-    // removeHeadingId: new RemoveHeadingId(),
-    // menuInfo: new MenuInfo(),
+    removeHeadingId: new RemoveHeadingId(),
+    menuInfo: new MenuInfo(),
     layout: new Layout(),
     static: new Static()
     // init: new Init()

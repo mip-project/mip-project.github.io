@@ -1,0 +1,899 @@
+
+<!DOCTYPE html>
+<html mip>
+    <head>
+        <meta charset="utf-8">
+        <title>mip-access | MIP2</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+        <meta name="description" content="&lt;mip-access&gt; 能够根据用户访问页面的情况，协同开发者配置接口返回的数据，对页面内容进行访问权限控制，如文章最多能够访问 n 篇，超过之后不能直接访问，需要通过一些策略，如登陆、付费后才能继续。">
+        <meta name="keywords" content="MIP2">
+        <meta name="theme-color" content="#2874f0">
+        <link rel="stylesheet" href="http://172.18.24.88:8848/mip.css">
+        <link rel="stylesheet" href="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.css">
+        <!-- <link rel="stylesheet" type="text/css" href="https://mipcache.bdstatic.com/static/v1/mip.css"> -->
+        <link rel="canonical" href="">
+        <style mip-custom>
+            /*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}[hidden],template{display:none}.hljs{display:block;overflow-x:auto;padding:.5em;background:#23241f}.hljs,.hljs-subst,.hljs-tag{color:#f8f8f2}.hljs-emphasis,.hljs-strong{color:#a8a8a2}.hljs-bullet,.hljs-link,.hljs-literal,.hljs-number,.hljs-quote,.hljs-regexp{color:#ae81ff}.hljs-code,.hljs-section,.hljs-selector-class,.hljs-title{color:#a6e22e}.hljs-strong{font-weight:700}.hljs-emphasis{font-style:italic}.hljs-attr,.hljs-keyword,.hljs-name,.hljs-selector-tag{color:#f92672}.hljs-attribute,.hljs-symbol{color:#66d9ef}.hljs-class .hljs-title,.hljs-params{color:#f8f8f2}.hljs-addition,.hljs-built_in,.hljs-builtin-name,.hljs-selector-attr,.hljs-selector-id,.hljs-selector-pseudo,.hljs-string,.hljs-template-variable,.hljs-type,.hljs-variable{color:#e6db74}.hljs-comment,.hljs-deletion,.hljs-meta{color:#75715e}.markdown-body{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;color:#24292e;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif;line-height:1.5;word-wrap:break-word}.markdown-body .pl-c{color:#6a737d}.markdown-body .pl-c1,.markdown-body .pl-s .pl-v{color:#005cc5}.markdown-body .pl-e,.markdown-body .pl-en{color:#6f42c1}.markdown-body .pl-s .pl-s1,.markdown-body .pl-smi{color:#24292e}.markdown-body .pl-ent{color:#22863a}.markdown-body .pl-k{color:#d73a49}.markdown-body .pl-pds,.markdown-body .pl-s,.markdown-body .pl-s .pl-pse .pl-s1,.markdown-body .pl-sr,.markdown-body .pl-sr .pl-cce,.markdown-body .pl-sr .pl-sra,.markdown-body .pl-sr .pl-sre{color:#032f62}.markdown-body .pl-smw,.markdown-body .pl-v{color:#e36209}.markdown-body .pl-bu{color:#b31d28}.markdown-body .pl-ii{color:#fafbfc;background-color:#b31d28}.markdown-body .pl-c2{color:#fafbfc;background-color:#d73a49}.markdown-body .pl-c2:before{content:"^M"}.markdown-body .pl-sr .pl-cce{font-weight:700;color:#22863a}.markdown-body .pl-ml{color:#735c0f}.markdown-body .pl-mh,.markdown-body .pl-mh .pl-en,.markdown-body .pl-ms{font-weight:700;color:#005cc5}.markdown-body .pl-mi{font-style:italic;color:#24292e}.markdown-body .pl-mb{font-weight:700;color:#24292e}.markdown-body .pl-md{color:#b31d28;background-color:#ffeef0}.markdown-body .pl-mi1{color:#22863a;background-color:#f0fff4}.markdown-body .pl-mc{color:#e36209;background-color:#ffebda}.markdown-body .pl-mi2{color:#f6f8fa;background-color:#005cc5}.markdown-body .pl-mdr{font-weight:700;color:#6f42c1}.markdown-body .pl-ba{color:#586069}.markdown-body .pl-sg{color:#959da5}.markdown-body .pl-corl{text-decoration:underline;color:#032f62}.markdown-body .octicon{display:inline-block;vertical-align:text-top;fill:currentColor}.markdown-body a{background-color:transparent}.markdown-body a:active,.markdown-body a:hover{outline-width:0}.markdown-body strong{font-weight:inherit;font-weight:bolder}.markdown-body h1{margin:.67em 0}.markdown-body img{border-style:none}.markdown-body code,.markdown-body kbd,.markdown-body pre{font-family:monospace,monospace;font-size:1em}.markdown-body hr{box-sizing:content-box;overflow:visible}.markdown-body input{font:inherit;margin:0;overflow:visible}.markdown-body [type=checkbox]{box-sizing:border-box;padding:0}.markdown-body *{box-sizing:border-box}.markdown-body input{font-family:inherit;font-size:inherit;line-height:inherit}.markdown-body a{color:#0366d6;text-decoration:none}.markdown-body a:hover{text-decoration:underline}.markdown-body strong{font-weight:600}.markdown-body hr{height:0;margin:15px 0;overflow:hidden;background:transparent;border-bottom:1px solid #dfe2e5}.markdown-body hr:after,.markdown-body hr:before{display:table;content:""}.markdown-body hr:after{clear:both}.markdown-body table{border-spacing:0;border-collapse:collapse}.markdown-body td,.markdown-body th{padding:0}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{margin-top:0;margin-bottom:0}.markdown-body h1{font-size:32px;font-weight:600}.markdown-body h2{font-size:24px;font-weight:600}.markdown-body h3{font-size:20px;font-weight:600}.markdown-body h4{font-size:16px;font-weight:600}.markdown-body h5{font-size:14px;font-weight:600}.markdown-body h6{font-size:12px;font-weight:600}.markdown-body p{margin-top:0;margin-bottom:10px}.markdown-body blockquote{margin:0}.markdown-body ol,.markdown-body ul{padding-left:0;margin-top:0;margin-bottom:0}.markdown-body ol ol,.markdown-body ul ol{list-style-type:lower-roman}.markdown-body ol ol ol,.markdown-body ol ul ol,.markdown-body ul ol ol,.markdown-body ul ul ol{list-style-type:lower-alpha}.markdown-body dd{margin-left:0}.markdown-body code,.markdown-body pre{font-family:SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;font-size:12px}.markdown-body pre{margin-top:0;margin-bottom:0}.markdown-body .octicon{vertical-align:text-bottom}.markdown-body .pl-0{padding-left:0!important}.markdown-body .pl-1{padding-left:4px!important}.markdown-body .pl-2{padding-left:8px!important}.markdown-body .pl-3{padding-left:16px!important}.markdown-body .pl-4{padding-left:24px!important}.markdown-body .pl-5{padding-left:32px!important}.markdown-body .pl-6{padding-left:40px!important}.markdown-body:after,.markdown-body:before{display:table;content:""}.markdown-body:after{clear:both}.markdown-body>:first-child{margin-top:0!important}.markdown-body>:last-child{margin-bottom:0!important}.markdown-body a:not([href]){color:inherit;text-decoration:none}.markdown-body .anchor{float:left;padding-right:4px;margin-left:-20px;line-height:1}.markdown-body .anchor:focus{outline:none}.markdown-body blockquote,.markdown-body dl,.markdown-body ol,.markdown-body p,.markdown-body pre,.markdown-body table,.markdown-body ul{margin-top:0;margin-bottom:16px}.markdown-body hr{height:.25em;padding:0;margin:24px 0;background-color:#e1e4e8;border:0}.markdown-body blockquote{padding:0 1em;color:#6a737d;border-left:.25em solid #dfe2e5}.markdown-body blockquote>:first-child{margin-top:0}.markdown-body blockquote>:last-child{margin-bottom:0}.markdown-body kbd{font-size:11px;border:1px solid #c6cbd1;border-bottom-color:#959da5;box-shadow:inset 0 -1px 0 #959da5}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{margin-top:24px;margin-bottom:16px;font-weight:600;line-height:1.25}.markdown-body h1 .octicon-link,.markdown-body h2 .octicon-link,.markdown-body h3 .octicon-link,.markdown-body h4 .octicon-link,.markdown-body h5 .octicon-link,.markdown-body h6 .octicon-link{color:#1b1f23;vertical-align:middle;visibility:hidden}.markdown-body h1:hover .anchor,.markdown-body h2:hover .anchor,.markdown-body h3:hover .anchor,.markdown-body h4:hover .anchor,.markdown-body h5:hover .anchor,.markdown-body h6:hover .anchor{text-decoration:none}.markdown-body h1:hover .anchor .octicon-link,.markdown-body h2:hover .anchor .octicon-link,.markdown-body h3:hover .anchor .octicon-link,.markdown-body h4:hover .anchor .octicon-link,.markdown-body h5:hover .anchor .octicon-link,.markdown-body h6:hover .anchor .octicon-link{visibility:visible}.markdown-body h1{font-size:2em}.markdown-body h1,.markdown-body h2{padding-bottom:.3em;border-bottom:1px solid #eaecef}.markdown-body h2{font-size:1.5em}.markdown-body h3{font-size:1.25em}.markdown-body h4{font-size:1em}.markdown-body h5{font-size:.875em}.markdown-body h6{font-size:.85em;color:#6a737d}.markdown-body ol,.markdown-body ul{padding-left:2em}.markdown-body ol ol,.markdown-body ol ul,.markdown-body ul ol,.markdown-body ul ul{margin-top:0;margin-bottom:0}.markdown-body li{word-wrap:break-all}.markdown-body li>p{margin-top:16px}.markdown-body li+li{margin-top:.25em}.markdown-body dl{padding:0}.markdown-body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:600}.markdown-body dl dd{padding:0 16px;margin-bottom:16px}.markdown-body table{display:block;width:100%;overflow:auto}.markdown-body table th{font-weight:600}.markdown-body table td,.markdown-body table th{padding:6px 13px;border:1px solid #dfe2e5}.markdown-body table tr{background-color:#fff;border-top:1px solid #c6cbd1}.markdown-body table tr:nth-child(2n){background-color:#f6f8fa}.markdown-body img{max-width:100%;box-sizing:content-box;background-color:#fff}.markdown-body img[align=right]{padding-left:20px}.markdown-body img[align=left]{padding-right:20px}.markdown-body code{padding:.2em .4em;margin:0;font-size:85%;background-color:rgba(27,31,35,.05);border-radius:3px}.markdown-body pre{word-wrap:normal}.markdown-body pre>code{padding:0;margin:0;font-size:100%;word-break:normal;white-space:pre;background:transparent;border:0}.markdown-body .highlight{margin-bottom:16px}.markdown-body .highlight pre{margin-bottom:0;word-break:normal}.markdown-body .highlight pre,.markdown-body pre{padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#f6f8fa;border-radius:3px}.markdown-body pre code{display:inline;max-width:auto;margin:0;overflow:visible;line-height:inherit;word-wrap:normal;border:0}.markdown-body .full-commit .btn-outline:not(:disabled):hover{color:#005cc5;border-color:#005cc5}.markdown-body kbd{display:inline-block;padding:3px 5px;font:11px SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;line-height:10px;color:#444d56;vertical-align:middle;background-color:#fafbfc;border:1px solid #d1d5da;border-bottom-color:#c6cbd1;border-radius:3px;box-shadow:inset 0 -1px 0 #c6cbd1}.markdown-body :checked+.radio-label{position:relative;z-index:1;border-color:#0366d6}.markdown-body .task-list-item{list-style-type:none}.markdown-body .task-list-item+.task-list-item{margin-top:3px}.markdown-body .task-list-item input{margin:0 .2em .25em -1.6em;vertical-align:middle}.markdown-body hr{border-bottom-color:#eee}.markdown-body{font-size:16px;line-height:1.68em;color:#263238;font-family:PingFang SC,Helvetica,Helvetica Neue,Hiragino Sans GB,Heiti SC,Microsoft YaHei,WenQuanYi Micro Hei,Arial,sans-serif}.markdown-body h1,.markdown-body h2,.markdown-body h3{line-height:40px;border:none}.markdown-body h4,.markdown-body h5,.markdown-body h6{line-height:20px;margin:10px 0}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{font-weight:500}.markdown-body h1{margin:40px 0}.markdown-body h2{margin:35px 0 20px;font-size:1.625em}.markdown-body h3{margin:20px 0;font-size:1.3125em}.markdown-body h4{font-size:1.125em}.markdown-body li p{margin:0}.markdown-body blockquote{color:#666}.markdown-body blockquote code{background:#e3e9ea}.markdown-body code,.markdown-body kbd{color:inherit}.markdown-body code{font-family:Consolas,Roboto Mono,Monaco,courier,monospace,PingFang SC,Helvetica,Helvetica Neue,Hiragino Sans GB,Heiti SC,Microsoft YaHei,WenQuanYi Micro Hei,Arial,sans-serif!important;padding-top:0;padding-bottom:0;background-color:#f0f5f6;border:none;display:inline;padding:2px;font-size:.875em;font-weight:500!important;box-shadow:none!important}.markdown-body .code-index{float:left;width:34px;text-align:right;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;font-family:Consolas,Roboto Mono,Monaco,courier,monospace,PingFang SC,Helvetica,Helvetica Neue,Hiragino Sans GB,Heiti SC,Microsoft YaHei,WenQuanYi Micro Hei,Arial,sans-serif}.markdown-body .code-index div{height:20px;line-height:20px;color:#666;overflow:hidden}.markdown-body pre{border-radius:0;color:#fff;padding:12px 5px;background:#37474f;position:relative;overflow-x:auto;overflow-y:hidden;border-radius:2px;font-family:Consolas,Roboto Mono,Monaco,courier,monospace,PingFang SC,Helvetica,Helvetica Neue,Hiragino Sans GB,Heiti SC,Microsoft YaHei,WenQuanYi Micro Hei,Arial,sans-serif}.markdown-body pre code{color:#fff;padding:0;display:block;background-color:transparent;margin-left:48px;line-height:20px;border-radius:0;font-family:Consolas,Roboto Mono,Monaco,courier,monospace,PingFang SC,Helvetica,Helvetica Neue,Hiragino Sans GB,Heiti SC,Microsoft YaHei,WenQuanYi Micro Hei,Arial,sans-serif!important}.markdown-body pre code span{font-weight:500!important}.markdown-body pre code:before{display:none!important}.markdown-body pre code .hljs-comment,.markdown-body pre code .hljs-deletion,.markdown-body pre code .hljs-meta{color:#777}.markdown-body pre code .hljs-built_in{color:#66d9ef!important}.markdown-body pre code .hljs-attr{color:#a7e22e!important}#app .app-view{min-height:100vh}@media screen and (min-width:768px){#app .app-view{padding-top:64px}}@media screen and (max-width:767px){#app .app-view{padding-top:56px}}.doc-layout{background:#eee;position:relative;overflow:hidden}.doc-layout .sidebar-home{display:none}.doc-layout #sidebar-left{z-index:1}.doc-layout #sidebar-left .menu-wrapper{padding:40px 20px}.doc-layout #sidebar-left .wd-sidebar-pc{background:#37474f;overflow-x:hidden;overflow-y:auto}.doc-layout #sidebar-left .sidebar-main{background:#37474f}.doc-layout #sidebar-left .version-select-wrapper{display:-ms-flexbox;display:flex;padding:20px 0 10px;z-index:6;width:160px;padding-left:34px}.doc-layout #sidebar-left .version-select-label{width:50px;line-height:70px;font-size:16px;margin-right:5px;color:#fff;font-weight:700}.doc-layout #sidebar-left .version-select{position:relative;-ms-flex:1;flex:1}.doc-layout #sidebar-left .version-select-wrapper+.menu-wrapper,.doc-layout #sidebar-left .wd-infinity-menu{padding-top:0}.doc-layout #sidebar-left .wd-infinity-menu .folder{color:#eee}.doc-layout #sidebar-left .wd-infinity-menu .folder:before{border-color:transparent transparent transparent #999}.doc-layout #sidebar-left .wd-infinity-menu a{color:#ddd}.doc-layout #sidebar-left .wd-infinity-menu a.active{color:#039be5!important}.doc-layout #sidebar-left .wd-infinity-chapters{padding-top:40px}.doc-layout #sidebar-left .wd-infinity-chapters .chapter-title{color:#ddd}.doc-layout #sidebar-left .wd-infinity-chapters .chapter-title.active{color:#1976d2}.doc-layout #sidebar-left .wd-infinity-chapters .wd-infinity-chapters{padding-top:0}.doc-layout #sidebar-left .chapters-wrapper{width:auto;margin:0 auto;padding:20px;box-sizing:border-box;background:#fff}.doc-layout .markdown-wrapper{z-index:2;position:relative;margin-left:300px;max-width:1300px;margin-bottom:40px}.doc-layout .markdown-wrapper .migrate-toast{padding:20px 50px;margin-right:20px;background:#999;font-size:16px;color:#fff}.doc-layout .markdown-wrapper .migrate-toast a{color:#2962ff}.doc-layout .md-content{padding-top:40px;background:#fff;padding-bottom:50px}.doc-layout #sidebar-right .chapter-wrapper{margin:20px 0 40px;background:#fff;padding:20px;position:relative}.doc-layout #sidebar-right .chapter-wrapper:before{display:block;content:"\7AE0\8282";color:#1976d2;border-bottom:1px solid #1976d2;margin:-20px -20px 20px;padding:12px 20px;font-size:15px}@media screen and (max-width:767px){.doc-layout .sidebar-home{display:block;height:64px;line-height:64px;box-sizing:border-box;padding-left:20px;color:#fff;font-size:22px;background:#1976d2}.doc-layout .sidebar-home .material-icons{vertical-align:text-bottom;margin-right:10px}}.doc-layout .markdown-wrapper{margin:20px auto 40px;max-width:1020px}.doc-layout .markdown-wrapper .md-content{margin-right:20px}.doc-layout #sidebar-left .wd-sidebar-pc{top:64px;bottom:0;width:360px}.doc-layout #sidebar-right{z-index:0}.doc-layout #sidebar-right .wd-sidebar-pc{left:0;top:64px;right:0;bottom:0}.doc-layout #sidebar-right .wd-sidebar-mobile{display:none}.doc-layout #sidebar-right .sidebar-right-wrapper{width:1760px;margin:0 auto}.doc-layout #sidebar-right .sidebar-right-inner{margin-left:1400px}@media screen and (max-width:1799px){.doc-layout .markdown-wrapper{width:auto;margin-left:380px;margin-right:400px;max-width:1000px}.doc-layout .markdown-wrapper .md-content,.doc-layout .markdown-wrapper .migrate-toast{margin-right:0}.doc-layout #sidebar-right .wd-sidebar-pc{left:auto;width:400px}.doc-layout #sidebar-right .sidebar-right-wrapper{width:auto;margin:0}.doc-layout #sidebar-right .sidebar-right-inner{margin-left:0}.doc-layout #sidebar-right .chapter-wrapper{margin-left:20px;margin-right:20px}}@media screen and (max-width:1779px){.doc-layout .markdown-wrapper{margin-left:380px;margin-right:auto}.doc-layout #sidebar-right .wd-sidebar-pc{width:auto;left:1380px}}@media screen and (max-width:1669px){.doc-layout .markdown-wrapper{margin-left:auto;margin-right:290px}.doc-layout #sidebar-left .wd-sidebar-pc{width:auto;right:1310px}.doc-layout #sidebar-right .wd-sidebar-pc{width:290px;left:auto}}@media screen and (max-width:1569px){.doc-layout .markdown-wrapper{margin-left:280px;margin-right:290px;width:auto}.doc-layout #sidebar-left .wd-sidebar-pc{width:260px;right:auto}}@media screen and (max-width:1199px){.doc-layout .markdown-wrapper{margin:0 0 0 260px}.doc-layout #sidebar-right .wd-sidebar-pc{display:none}}@media screen and (min-width:768px){.doc-layout #sidebar-left .wd-sidebar-mobile{display:none}}@media screen and (max-width:767px){.doc-layout{padding-top:56px}.doc-layout .markdown-wrapper{z-index:auto;margin:0;padding:0}.doc-layout .markdown-wrapper .md-content{margin:0}.doc-layout #sidebar-left{z-index:8}.doc-layout #sidebar-left .wd-sidebar-pc{display:none}}.wd-infinity-menu .folder,.wd-infinity-menu a{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;font-size:15px;line-height:24px;padding:3px 0;color:#666;white-space:normal;text-decoration:none;display:block}.wd-infinity-menu .folder{color:#2c3e50;font-weight:700;position:relative;padding-left:15px!important;padding-top:20px;margin-top:20px}.wd-infinity-menu .folder:before{position:absolute;left:2px;top:32px;transform:translateY(-50%);margin-top:0;content:"";width:0;height:0;border-style:solid;border-width:4px 0 4px 4px;border-color:transparent transparent transparent gray;transition:transform .1s}.wd-infinity-menu .folder:after{position:absolute;top:0;left:0;right:0;content:"";height:1px;background:hsla(0,0%,100%,.122)}.wd-infinity-menu .active{color:#1976d2}.wd-infinity-menu [class^=children-]{padding-left:14px;display:none}.wd-infinity-menu [class^=children-] .folder{padding-top:0;margin-top:0}.wd-infinity-menu [class^=children-] .folder:before{top:50%}.wd-infinity-menu [class^=children-] .folder:after{display:none}.wd-infinity-menu .show+[class^=children-]{display:block}.wd-infinity-menu .show.folder:before{transform:translateY(-50%) rotate(90deg)}@media screen and (min-width:601px){.wd-infinity-menu a:hover,.wd-infinity-menu p:hover{cursor:pointer;color:#1976d2}}.wd-infinity-chapters{font-size:14px;font-weight:500}.wd-infinity-chapters .chapter-title{display:block;padding:5px 0;color:#263238;position:relative;white-space:normal}.wd-infinity-chapters .chapter-title:hover{cursor:pointer;color:#1976d2!important}.wd-infinity-chapters .chapter-title.active{color:#1976d2!important}.wd-infinity-chapters [class^=children-]{padding-left:28px}.wd-infinity-chapters .children-0 .chapter-title{font-weight:400}.wd-infinity-chapters .children-1 .chapter-title{font-weight:300}.wd-sidebar{position:absolute}@media screen and (max-width:767px){.wd-sidebar .wd-sidebar-pc{display:none}}@media screen and (min-width:768px){.wd-sidebar .wd-sidebar-mobile{display:none}}.wd-sidebar-mobile{z-index:7}.wd-sidebar-mobile .sidebar-main{overflow-y:auto;overflow-x:hidden;box-sizing:border-box;z-index:3;display:none;background:#fff;height:0;top:0}.wd-sidebar-mobile .touch-toggle{position:fixed;top:0;bottom:0;left:0;width:0;z-index:4;opacity:0;transition:opacity .3s}.wd-sidebar-mobile.collapse{margin-top:0!important}.wd-sidebar-mobile.collapse .sidebar-scroller{padding-left:0!important}.wd-sidebar-mobile.collapse .touch-toggle{padding-left:0!important;top:64px}.wd-sidebar-mobile.expand{position:fixed;top:0;right:0;bottom:0;left:0;z-index:5;overflow:hidden}.wd-sidebar-mobile.expand .sidebar-scroller{width:100%;height:100%;white-space:nowrap;position:relative;box-sizing:content-box}.wd-sidebar-mobile.expand .sidebar-main{display:block;height:100%;position:absolute;top:0;right:auto;bottom:0;left:0;overflow:auto}.wd-sidebar-mobile.expand .touch-toggle{position:static;width:100%;height:100%;background:#212121;opacity:.5}.wd-sidebar-pc{position:fixed;overflow:auto}.md-content{padding:0 50px 50px}.md-content .page-turn{margin-top:50px}.md-content .page-turn .material-icons{color:#1976d2}.markdown-body:after{display:none}.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h6{position:relative;padding-bottom:0}.markdown-body h2:hover .heading-link,.markdown-body h3:hover .heading-link,.markdown-body h4:hover .heading-link,.markdown-body h6:hover .heading-link{display:block}.markdown-body h1{border-bottom:1px solid #eee!important;padding-bottom:15px}.markdown-body h1+blockquote{margin-top:-20px;margin-bottom:40px}.markdown-body .heading-link{color:#263238;text-decoration:none;display:none;position:absolute;top:50%;transform:translateY(-50%);left:-25px;padding-right:10px}.markdown-body .heading-link .fa{font-size:16px;color:#263238;margin-left:5px}.markdown-body a[data-path]{color:#0366d6}.markdown-body a[data-path]:hover{cursor:pointer;text-decoration:underline}.markdown-body a .material-icons{vertical-align:middle;font-size:1em;margin-left:2px;margin-top:-2px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-body td,.markdown-body th{min-width:100px;font-size:14px}.markdown-body td{word-wrap:break-word}.markdown-body img{display:block;cursor:zoom-in}.markdown-body blockquote{background:#f0f5f6;padding:12px!important}.markdown-body blockquote.error,.markdown-body blockquote.info,.markdown-body blockquote.success,.markdown-body blockquote.warn{font-weight:500;color:#263238;background:#f0f5f6!important}.markdown-body blockquote.error>p:first-child>strong:only-child,.markdown-body blockquote.info>p:first-child>strong:only-child,.markdown-body blockquote.success>p:first-child>strong:only-child,.markdown-body blockquote.warn>p:first-child>strong:only-child{font-size:1.3em}.markdown-body blockquote.warn{border-left-color:#ff9800}.markdown-body blockquote.error{border-left-color:#e8345a}.markdown-body blockquote.info{border-left-color:#1976d2}.markdown-body blockquote.success{border-left-color:#4caf50}.markdown-body .md-related-wrapper{margin-top:120px}.markdown-body .md-related{font-size:14px;color:#ccc;display:inline-block;padding:5px 15px;position:relative;overflow:hidden;border-radius:3px;text-decoration:none!important}.markdown-body .md-related .material-icons{font-size:1em;margin-right:5px;margin-left:0}.markdown-body .md-related.to-edit{background:#1976d2;color:#fff}.markdown-body .md-related.to-feedback{background:#ccc;color:#263238;margin-left:5px}.markdown-body .md-related.to-feedback .material-icons{color:#263238}.markdown-body .md-related:active{box-shadow:0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12)}.markdown-body .md-related.like-box{background:#fbfbfb;float:right;color:#263238;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-body .md-related.like-box:active{box-shadow:none}.markdown-body .md-related.like-box span{color:#ccc;display:inline-block;padding:0 10px;margin-left:10px;cursor:pointer;transform:scale(1.2)}.markdown-body .md-related.like-box span .material-icons{color:#666}.markdown-body .md-related.like-box span.like.clicked .material-icons{color:#f44336}.markdown-body .md-related.like-box span.unlike.clicked .material-icons{color:#1976d2}.markdown-body .md-related.like-box.unclick span:hover{transform-origin:50% 50%;transform:scale(1.4)}.markdown-body .md-related.like-box.unclick span:hover .material-icons{color:#666}@media screen and (max-width:900px){.markdown-body .md-related.like-box{display:block;margin:20px auto;float:none}}@media screen and (max-width:600px){.md-content{padding:0 25px 50px}.to-github{display:none}}
+            .mip-nav-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+.mip-nav-wrapper,
+.mip-navbar {
+    background: #1976d2;
+}
+/* csshint-disable require-number */
+.mip-navbar .navbar-brand {
+    width: 64px;
+    height: 64px;
+    margin: 4px 0 0 20px;
+    font-size: 18px;
+    background: #0000001f;
+    border-radius: 30px;
+    line-height: 64px;
+    color: #fff;
+    text-align: center;
+}
+/* csshint-enable require-number */
+
+.mip-navbar #bs-navbar {
+    margin-right: 20px;
+}
+
+.mip-navbar #bs-navbar .navbar-nav {
+    margin-right: 0;
+}
+
+#bs-navbar .navbar-item {
+    border-radius: 5px;
+}
+
+#bs-navbar .navbar-item.in-active {
+    background: #0000001f;
+}
+
+#bs-navbar .navbar-item:hover {
+    background: #0000001f;
+}
+
+#bs-navbar .navbar-item:hover .navbar-link {
+    color: #fff;
+}
+
+#bs-navbar .navbar-nav .navbar-link {
+    font-size: 14px;
+    color: #fff;
+}
+
+#bs-navbar .navbar-nav .navbar-link:focus {
+    outline: none;
+}
+
+@media screen and (max-width: 767px) {
+    .mip-nav-wrapper {
+        height: 56px;
+    }
+    /* csshint-disable require-number */
+    .mip-navbar .navbar-brand {
+        width: 46px;
+        height: 46px;
+        margin: 5px 0 0 20px;
+        font-size: 12px;
+        border-radius: 23px;
+        line-height: 46px;
+        font-weight: 600;
+    }
+    /* csshint-enable require-number */
+
+    .mip-navbar .navbar-toggle {
+        margin: 0;
+        padding: 19px 25px;
+    }
+
+    .mip-navbar .navbar-toggle .icon-bar {
+        background: #f2f3f5;
+    }
+
+    .mip-navbar .navbar-toggle:focus {
+        outline: none;
+    }
+
+    #bs-navbar .navbar-item {
+        border-radius: 0;
+    }
+}
+
+
+.doc-layout .markdown-body .md-related.like-box {
+    display: none;
+}
+
+.doc-layout #sidebar-left .version-select-wrapper {
+    margin-top: 20px;
+    display: block;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.mip-version-select-label {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.mip-version-select .version-item {
+    display: block;
+    color: #fff;
+    margin: 5px;
+    text-align: center;
+}
+
+.mip-version-select .version-item.in-active {
+    background: #666;
+}
+
+#sidebar-mip {
+    padding: 20px;
+    background: #37474f;
+}
+
+.doc-layout #sidebar-mip .version-select-wrapper {
+    margin-top: 20px;
+    display: block;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+#sidebar-mip .sidebar .wd-infinity-menu a {
+    color: #ccc;
+}
+
+#sidebar-mip .sidebar .wd-infinity-menu .folder {
+    color: #fff;
+}
+
+.sidebar-toggle-wrapper {
+    z-index: 50!important;
+}
+
+#sidebar-toggle {
+    display: none;
+}
+
+@media screen and (max-width: 767px) {
+    #sidebar-toggle {
+        display: block;
+        background: #37474f;
+        color: #fff;
+        width: 26px;
+        height: 26px;
+        position: relative;
+    }
+
+    #sidebar-toggle::after {
+        content: '';
+        width: 8px;
+        height: 8px;
+        border-top: 2px solid #fff;
+        border-right: 2px solid #fff;
+        display: block;
+        top: 50%;
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+}
+
+        </style>
+    </head>
+    <body>
+        <div class="mip-nav-wrapper">
+            <mip-nav-slidedown
+                data-id="bs-navbar"
+                class="mip-navbar"
+                data-showbrand="1"
+                data-brandname="MIP2"
+                data-brandhref="/"
+            >
+                <nav id="bs-navbar" class="navbar-collapse collapse navbar navbar-static-top">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="navbar-wise-close">
+                            <span id="navbar-wise-close-btn"></span>
+                        </li>
+                    </ul>
+                </nav>
+            </mip-nav-slidedown>
+        </div>
+        <div id="app" class="application theme--light">
+            <div class="application--wrap">
+                <div class="app-view-container">
+
+<div class="doc-layout app-view">
+    <div class="wd-sidebar" id="sidebar-left">
+        <div class="wd-sidebar-pc">
+            <div class="menu-wrapper">
+                <div class="wd-infinity-menu">
+        <div class="l-0">
+            <div class="folder show">basic</div>
+            <div class="children-0">
+<div class="wd-infinity-menu">
+        <div class="l-1">
+            <a data-type="mip" href="/mip/basic/announcement.html">MIP 内容声明</a>
+        </div>
+        <div class="l-1">
+            <a data-type="mip" href="/mip/basic/demo.html">一个完整的例子</a>
+        </div>
+        <div class="l-1">
+            <a data-type="mip" href="/mip/basic/introduction.html">什么是 MIP</a>
+        </div>
+        <div class="l-1">
+            <a data-type="mip" href="/mip/basic/mip-cache.html">mip-cache</a>
+        </div>
+        <div class="l-1">
+            <a data-type="mip" href="/mip/basic/principle-of-mip.html">MIP 加速原理</a>
+        </div>
+</div>
+            </div>
+        </div>
+        <div class="l-0">
+            <div class="folder show">cli</div>
+            <div class="children-0">
+<div class="wd-infinity-menu">
+        <div class="l-1">
+            <a data-type="mip" href="/mip/cli/cli-usage.html">mip2 命令行工具</a>
+        </div>
+        <div class="l-1">
+            <a data-type="mip" href="/mip/cli/component-development.html">组件开发说明</a>
+        </div>
+        <div class="l-1">
+            <a data-type="mip" href="/mip/cli/component-testing.html">组件调试</a>
+        </div>
+        <div class="l-1">
+            <a data-type="mip" href="/mip/cli/contribute-to-official-repo.html">提交组件到官方组件仓库</a>
+        </div>
+        <div class="l-1">
+            <a data-type="mip" href="/mip/cli/start-writing-first-mip.html">快速开始</a>
+        </div>
+</div>
+            </div>
+        </div>
+        <div class="l-0">
+            <div class="folder show">components</div>
+            <div class="children-0">
+<div class="wd-infinity-menu">
+        <div class="l-1">
+            <div class="folder show">builtin</div>
+            <div class="children-1">
+<div class="wd-infinity-menu">
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/builtin/mip-bind.html">mip-bind</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/builtin/mip-carousel.html">mip-carousel 多图轮播</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/builtin/mip-iframe.html">mip-iframe</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/builtin/mip-img.html">mip-img 图片</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/builtin/mip-pix.html">mip-pix 统计</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/builtin/mip-video.html">mip-video</a>
+        </div>
+</div>
+            </div>
+        </div>
+        <div class="l-1">
+            <a data-type="mip" href="/mip/components/components-list.html">MIP 组件列表</a>
+        </div>
+        <div class="l-1">
+            <a data-type="mip" href="/mip/components/data-and-method.html">MIP 2.0 的数据和应用</a>
+        </div>
+        <div class="l-1">
+            <div class="folder show">extensions</div>
+            <div class="children-1">
+<div class="wd-infinity-menu">
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-access.html">mip-access</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-accordion.html">mip-accordion 折叠节点</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-analytics.html">mip-analytics 统计框架</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-anim.html">mip-anim 动图</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-app-banner.html">mip-app-banner App 调起组件</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-appdl.html">mip-appdl App 下载</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-audio.html">mip-audio 音频播放</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-bind.html">mip-bind</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-custom.html">mip-custom</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-experiment.html">mip-experiment 前端抽样实验</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-filter.html">mip-filter 筛选组件</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-fixed.html">mip-fixed 悬浮布局</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-form.html">mip-form 表单</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-gototop.html">mip-gototop 快速回顶</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-history.html">mip-history 历史记录</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-html-os.html">mip-html-os 操作系统</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-infinitescroll.html">mip-infinitescroll 无限滚动</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-install-serviceworker.html">mip-install-serviceworker</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-lightbox.html">mip-lightbox 弹出层</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-link.html">mip-link 跳转链接</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-list.html">mip-list 列表组件</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-login-done.html">mip-login-done</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-map.html">mip-map 地图组件</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-mustache.html">mip-mustache</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-nav-slidedown.html">mip-nav-slidedown 菜单</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-sample.html">mip-sample</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-scrollbox.html">mip-scrollbox</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-semi-fixed.html">mip-semi-fixed 滑动悬浮组件</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-share.html">mip-share 分享</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-showmore.html">mip-showmore 显示更多</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-sidebar.html">mip-sidebar 侧边栏</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-stats-baidu.html">mip-stats-baidu 百度统计</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-stats-cnzz.html">mip-stats-cnzz</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-stats-tianrun.html">mip-stats-tianrun 天润统计</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-story.html">mip-story</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-toggle.html">mip-toggle 显示隐藏</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-vd-baidu.html">mip-vd-baidu</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-vd-tabs.html">mip-vd-tabs tab 切换组件</a>
+        </div>
+</div>
+            </div>
+        </div>
+        <div class="l-1">
+            <a data-type="mip" href="/mip/components/instance-life-cycle.html">MIP 2.0 组件实例生命周期和回调钩子</a>
+        </div>
+        <div class="l-1">
+            <a data-type="mip" href="/mip/components/introduction.html">MIP 2.0 组件化介绍</a>
+        </div>
+        <div class="l-1">
+            <a data-type="mip" href="/mip/components/layout.html">组件布局</a>
+        </div>
+        <div class="l-1">
+            <div class="folder show">mip-ad</div>
+            <div class="children-1">
+<div class="wd-infinity-menu">
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/mip-ad/mip-ad-baidu.html">mip-ad:ad-baidu 百度网盟推广合作</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/mip-ad/mip-ad-baidussp.html">mip-ad:ad-baidussp 百度 SSP 直投广告</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/mip-ad/mip-ad-comm.html">mip-ad:ad-comm 通用广告</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/mip-ad/mip-ad-imageplus.html">mip-ad:ad-imageplus 百度图 + 广告</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/mip-ad/mip-ad-qwang.html">mip-ad:ad-qwang 百度搜索推广合作</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/mip-ad/mip-ad-ssp.html">mip-ad:ad-ssp 百度 Feeds 联盟广告</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/mip-ad/mip-ad.html">mip-ad 广告</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/mip-ad/mip-baidu-wm-ext.html">mip-ad:baidu-wm-ext 百度联盟广告反屏蔽</a>
+        </div>
+</div>
+            </div>
+        </div>
+        <div class="l-1">
+            <a data-type="mip" href="/mip/components/rules.html">MIP 2.0 组件开发规范</a>
+        </div>
+        <div class="l-1">
+            <a data-type="mip" href="/mip/components/syntax.html">MIP-HTML 语法和对应 MIP 组件开发介绍</a>
+        </div>
+</div>
+            </div>
+        </div>
+        <div class="l-0">
+            <div class="folder show">specs</div>
+            <div class="children-0">
+<div class="wd-infinity-menu">
+        <div class="l-1">
+            <a data-type="mip" href="/mip/specs/mip-cache-spec.html">MIP-Cache 规范</a>
+        </div>
+        <div class="l-1">
+            <a data-type="mip" href="/mip/specs/mip-html-spec.html">MIP-HTML 规范</a>
+        </div>
+        <div class="l-1">
+            <a data-type="mip" href="/mip/specs/mip-validate.html">MIP 校验错误列表</a>
+        </div>
+</div>
+            </div>
+        </div>
+        <div class="l-0">
+            <div class="folder show">util</div>
+            <div class="children-0">
+<div class="wd-infinity-menu">
+        <div class="l-1">
+            <a data-type="mip" href="/mip/util/sandbox.html">Sandbox（沙盒）</a>
+        </div>
+</div>
+            </div>
+        </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+
+    <mip-fixed type="left" bottom="50px" class="sidebar-toggle-wrapper">
+        <div id="sidebar-toggle" on="tap:sidebar-mip.open"></div>
+    </mip-fixed>
+
+    <mip-sidebar
+        id="sidebar-mip"
+        layout="nodisplay"
+        class="mip-hidden"
+    >
+        <div class="sidebar">
+            <div class="wd-infinity-menu">
+        <div class="l-0">
+            <div class="folder show">basic</div>
+            <div class="children-0">
+<div class="wd-infinity-menu">
+        <div class="l-1">
+            <a data-type="mip" href="/mip/basic/announcement.html">MIP 内容声明</a>
+        </div>
+        <div class="l-1">
+            <a data-type="mip" href="/mip/basic/demo.html">一个完整的例子</a>
+        </div>
+        <div class="l-1">
+            <a data-type="mip" href="/mip/basic/introduction.html">什么是 MIP</a>
+        </div>
+        <div class="l-1">
+            <a data-type="mip" href="/mip/basic/mip-cache.html">mip-cache</a>
+        </div>
+        <div class="l-1">
+            <a data-type="mip" href="/mip/basic/principle-of-mip.html">MIP 加速原理</a>
+        </div>
+</div>
+            </div>
+        </div>
+        <div class="l-0">
+            <div class="folder show">cli</div>
+            <div class="children-0">
+<div class="wd-infinity-menu">
+        <div class="l-1">
+            <a data-type="mip" href="/mip/cli/cli-usage.html">mip2 命令行工具</a>
+        </div>
+        <div class="l-1">
+            <a data-type="mip" href="/mip/cli/component-development.html">组件开发说明</a>
+        </div>
+        <div class="l-1">
+            <a data-type="mip" href="/mip/cli/component-testing.html">组件调试</a>
+        </div>
+        <div class="l-1">
+            <a data-type="mip" href="/mip/cli/contribute-to-official-repo.html">提交组件到官方组件仓库</a>
+        </div>
+        <div class="l-1">
+            <a data-type="mip" href="/mip/cli/start-writing-first-mip.html">快速开始</a>
+        </div>
+</div>
+            </div>
+        </div>
+        <div class="l-0">
+            <div class="folder show">components</div>
+            <div class="children-0">
+<div class="wd-infinity-menu">
+        <div class="l-1">
+            <div class="folder show">builtin</div>
+            <div class="children-1">
+<div class="wd-infinity-menu">
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/builtin/mip-bind.html">mip-bind</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/builtin/mip-carousel.html">mip-carousel 多图轮播</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/builtin/mip-iframe.html">mip-iframe</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/builtin/mip-img.html">mip-img 图片</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/builtin/mip-pix.html">mip-pix 统计</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/builtin/mip-video.html">mip-video</a>
+        </div>
+</div>
+            </div>
+        </div>
+        <div class="l-1">
+            <a data-type="mip" href="/mip/components/components-list.html">MIP 组件列表</a>
+        </div>
+        <div class="l-1">
+            <a data-type="mip" href="/mip/components/data-and-method.html">MIP 2.0 的数据和应用</a>
+        </div>
+        <div class="l-1">
+            <div class="folder show">extensions</div>
+            <div class="children-1">
+<div class="wd-infinity-menu">
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-access.html">mip-access</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-accordion.html">mip-accordion 折叠节点</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-analytics.html">mip-analytics 统计框架</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-anim.html">mip-anim 动图</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-app-banner.html">mip-app-banner App 调起组件</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-appdl.html">mip-appdl App 下载</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-audio.html">mip-audio 音频播放</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-bind.html">mip-bind</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-custom.html">mip-custom</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-experiment.html">mip-experiment 前端抽样实验</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-filter.html">mip-filter 筛选组件</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-fixed.html">mip-fixed 悬浮布局</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-form.html">mip-form 表单</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-gototop.html">mip-gototop 快速回顶</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-history.html">mip-history 历史记录</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-html-os.html">mip-html-os 操作系统</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-infinitescroll.html">mip-infinitescroll 无限滚动</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-install-serviceworker.html">mip-install-serviceworker</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-lightbox.html">mip-lightbox 弹出层</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-link.html">mip-link 跳转链接</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-list.html">mip-list 列表组件</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-login-done.html">mip-login-done</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-map.html">mip-map 地图组件</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-mustache.html">mip-mustache</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-nav-slidedown.html">mip-nav-slidedown 菜单</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-sample.html">mip-sample</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-scrollbox.html">mip-scrollbox</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-semi-fixed.html">mip-semi-fixed 滑动悬浮组件</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-share.html">mip-share 分享</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-showmore.html">mip-showmore 显示更多</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-sidebar.html">mip-sidebar 侧边栏</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-stats-baidu.html">mip-stats-baidu 百度统计</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-stats-cnzz.html">mip-stats-cnzz</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-stats-tianrun.html">mip-stats-tianrun 天润统计</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-story.html">mip-story</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-toggle.html">mip-toggle 显示隐藏</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-vd-baidu.html">mip-vd-baidu</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/extensions/mip-vd-tabs.html">mip-vd-tabs tab 切换组件</a>
+        </div>
+</div>
+            </div>
+        </div>
+        <div class="l-1">
+            <a data-type="mip" href="/mip/components/instance-life-cycle.html">MIP 2.0 组件实例生命周期和回调钩子</a>
+        </div>
+        <div class="l-1">
+            <a data-type="mip" href="/mip/components/introduction.html">MIP 2.0 组件化介绍</a>
+        </div>
+        <div class="l-1">
+            <a data-type="mip" href="/mip/components/layout.html">组件布局</a>
+        </div>
+        <div class="l-1">
+            <div class="folder show">mip-ad</div>
+            <div class="children-1">
+<div class="wd-infinity-menu">
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/mip-ad/mip-ad-baidu.html">mip-ad:ad-baidu 百度网盟推广合作</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/mip-ad/mip-ad-baidussp.html">mip-ad:ad-baidussp 百度 SSP 直投广告</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/mip-ad/mip-ad-comm.html">mip-ad:ad-comm 通用广告</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/mip-ad/mip-ad-imageplus.html">mip-ad:ad-imageplus 百度图 + 广告</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/mip-ad/mip-ad-qwang.html">mip-ad:ad-qwang 百度搜索推广合作</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/mip-ad/mip-ad-ssp.html">mip-ad:ad-ssp 百度 Feeds 联盟广告</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/mip-ad/mip-ad.html">mip-ad 广告</a>
+        </div>
+        <div class="l-2">
+            <a data-type="mip" href="/mip/components/mip-ad/mip-baidu-wm-ext.html">mip-ad:baidu-wm-ext 百度联盟广告反屏蔽</a>
+        </div>
+</div>
+            </div>
+        </div>
+        <div class="l-1">
+            <a data-type="mip" href="/mip/components/rules.html">MIP 2.0 组件开发规范</a>
+        </div>
+        <div class="l-1">
+            <a data-type="mip" href="/mip/components/syntax.html">MIP-HTML 语法和对应 MIP 组件开发介绍</a>
+        </div>
+</div>
+            </div>
+        </div>
+        <div class="l-0">
+            <div class="folder show">specs</div>
+            <div class="children-0">
+<div class="wd-infinity-menu">
+        <div class="l-1">
+            <a data-type="mip" href="/mip/specs/mip-cache-spec.html">MIP-Cache 规范</a>
+        </div>
+        <div class="l-1">
+            <a data-type="mip" href="/mip/specs/mip-html-spec.html">MIP-HTML 规范</a>
+        </div>
+        <div class="l-1">
+            <a data-type="mip" href="/mip/specs/mip-validate.html">MIP 校验错误列表</a>
+        </div>
+</div>
+            </div>
+        </div>
+        <div class="l-0">
+            <div class="folder show">util</div>
+            <div class="children-0">
+<div class="wd-infinity-menu">
+        <div class="l-1">
+            <a data-type="mip" href="/mip/util/sandbox.html">Sandbox（沙盒）</a>
+        </div>
+</div>
+            </div>
+        </div>
+</div>
+
+        </div>
+    </mip-sidebar>
+
+    <div class="markdown-wrapper">
+        <div class="md-content ui-dep-1">
+            <div class="markdown-body">
+                <h1 id="mipaccess"><a href="#mipaccess" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>mip-access</h1><p><code>&lt;mip-access&gt;</code> 能够根据用户访问页面的情况，协同开发者配置接口返回的数据，对页面内容进行访问权限控制，如文章最多能够访问 n 篇，超过之后不能直接访问，需要通过一些策略，如登陆、付费后才能继续。</p><table><thead><tr><th>标题</th><th>内容</th></tr></thead><tbody><tr><td>类型</td><td>通用</td></tr><tr><td>支持布局</td><td>N/S</td></tr><tr><td>所需脚本</td><td><a href="https://c.mipcdn.com/static/v1/mip-access/mip-access.js">https://c.mipcdn.com/static/v1/mip-access/mip-access.js</a></td></tr></tbody></table><h2 id="示例"><a href="#示例" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>示例</h2><p><a href="https://www.mipengine.org/samples-templates/mip-access/list">mip-access 示例</a></p><h2 id="使用方式"><a href="#使用方式" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>使用方式</h2><p>开发者在使用 <code>&lt;mip-access</code>&gt; 组件实现页面内容访问权限控制时，需要通过脚本引入、表达式书写、参数配置等几个步骤，以下分别对这几步做详细讲解：</p><h3 id="1-脚本引入"><a href="#1-脚本引入" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>1. 脚本引入</h3><pre><div class="code-index"><div>1</div><div>2</div></div><code>&lt;script type="text/javascript" src="https://c.mipcdn.com/static/v1/mip.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="https://c.mipcdn.com/static/v1/mip-access/mip-access.js"&gt;&lt;/script&gt;</code></pre><h3 id="2-表达式书写"><a href="#2-表达式书写" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>2. 表达式书写</h3><p><code>&lt;mip-access&gt;</code> 是通过表达式计算得出的结果来决定一个元素是否能够展示的，如：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div></div><code>&lt;!-- 其中 access 和 subscriber 均为第 3 步中配置的 authorization 接口所返回 --&gt;
+&lt;!-- 假如返回数据中 access=true，subscriber=true，则 access AND subscriber 解析为 true，元素展示；否则为 false，元素不展示 --&gt;
+&lt;div mip-access="access AND subscriber"&gt;展示元素&lt;/div&gt;
+&lt;!-- 假如返回数据中 access=false，subscriber=false，则 access AND subscriber 解析为 false，元素不展示；否则为 true，元素展示 --&gt;
+&lt;div mip-access="access OR subscriber"&gt;展示元素&lt;/div&gt;</code></pre><p>表达式中可以使用的运算符在 <a href="https://github.com/mipengine/mip-extensions/blob/master/src/mip-access/mip-access-expr-impl.jison">access-expr-impl.jison</a> 中全部列举，其中主要运算符如下：</p><h4 id="逻辑运算符"><a href="#逻辑运算符" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>逻辑运算符</h4><table><thead><tr><th>运算符</th><th>描述</th><th>例子</th></tr></thead><tbody><tr><td>AND</td><td>“且”运算</td><td>A AND B</td></tr><tr><td>OR</td><td>“或”运算</td><td>A OR B</td></tr><tr><td>NOT</td><td>“非”运算</td><td>NOT A</td></tr></tbody></table><h4 id="比较运算符"><a href="#比较运算符" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>比较运算符</h4><table><thead><tr><th>运算符</th><th>描述</th><th>例子</th></tr></thead><tbody><tr><td>=</td><td>是否相等</td><td>A = B</td></tr><tr><td>!=</td><td>是否不等</td><td>A != B</td></tr><tr><td>&lt;</td><td>小于</td><td>A &lt; B</td></tr><tr><td>&lt;=</td><td>小于等于</td><td>A &lt;= B</td></tr><tr><td>></td><td>大于</td><td>A &gt; B</td></tr><tr><td>>=</td><td>大于等于</td><td>A &gt;= B</td></tr></tbody></table><h3 id="3-参数配置"><a href="#3-参数配置" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>3. 参数配置</h3><p><code>&lt;mip-access&gt;</code> 使用时需要配置一些参数才能够进行使用，这些参数配置在 <code>&lt;script id=&quot;mip-access&quot; type=&quot;application/json&quot;&gt;&lt;/script&gt;</code>，如：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div></div><code>&lt;script id="mip-access" type="application/json"&gt;
+{
+    "authorization": "https://publisher.com/mip-access/api/mip-authorization.json?rid=READER_ID&url=CANONICAL_URL",
+    "pingback": "https://publisher.com/mip-access/api/mip-pingback?rid=READER_ID",
+    "login": "https://publisher.com/mip-access/login/?rid=READER_ID&url=CANONICAL_URL",
+    "authorizationFallbackResponse": {
+        "error": true,
+        "access": false
+    }
+}
+&lt;/script&gt;</code></pre><p>其中涉及到的参数及其对应的功能描述列举如下：</p><h4 id="authorization"><a href="#authorization" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>authorization</h4><p>授权接口（数据接口）。该接口返回的数据提供给第 2 步中的表达式解析使用，接口返回的数据名可直接写在表达式中，然后 MIP 会自动根据返回数据进行解析，如：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div></div><code>&lt;!-- authorization 接口返回的数据 --&gt;
+{
+    login: true,
+    access: false
+}
+
+&lt;!-- 表达式书写，以下表达式解析为 false，元素不展示 --&gt;
+&lt;div mip-access="login AND access"&gt;展示元素&lt;/div&gt;</code></pre><h4 id="pingback"><a href="#pingback" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>pingback</h4><p>计数接口。该接口触发的时机是在 authorization 接口数据返回成功，同时页面表达式解析完成之后。该接口的作用主要是通知开发者，当前页面（文章）已经访问完成，可以采取策略来控制（为下一篇文章的展现做数据准备），如接到计数接口请求之后，使免费文章总访问减 1，然后访问下一篇文章时再请求 authorization 接口，里面的数据就已是减 1 之后的。</p><h4 id="nopingback"><a href="#nopingback" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>noPingback</h4><p>是否需要在页面表达式解析完成后发出 pingback 请求，设置为 true 则是不需要。</p><h4 id="login"><a href="#login" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>login</h4><p>登陆相关接口，可以是一个字符串，用于配置登录页面地址。也可以是一个对象，其中配置登录和登出的页面地址，如:</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div></div><code>&quot;login&quot;: {
+     &quot;login&quot;: &quot;https://publisher.com/login.html?rid={READER_ID}&quot;,
+     &quot;logout&quot;: &quot;https://publisher.com/logout.html?rid={READER_ID}&quot;
+}</code></pre><h4 id="authorizationfallbackresponse"><a href="#authorizationfallbackresponse" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>authorizationFallbackResponse</h4><p>如果 authorization 接口请求失败，开发者也可以配置备用数据，通过备用数据决定页面内元素的展现，如：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div></div><code>&lt;!-- 备用数据 --&gt;
+"authorizationFallbackResponse": {
+    "error": true,
+    "access": false
+}
+&lt;!-- 表达式书写，以下表达式解析为 false，元素不展现 --&gt;
+&lt;div mip-access="error AND access"&gt;展示元素&lt;/div&gt;</code></pre><h4 id="authorizationtimeout"><a href="#authorizationtimeout" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>authorizationTimeout</h4><p>authorization 接口请求超时时间，默认为 3s。</p><h3 id="url-参数"><a href="#url-参数" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>URL 参数</h3><p><code>&lt;mip-access&gt;</code> 同样为 URL 定制了一些常量，可以允许开发者直接在 URL 中进行使用，如：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div></div><code>&lt;!-- 设置的 URL --&gt;
+https://www.mipengine.org/?rid=READER_ID&url=SOURCE_URL"
+&lt;!-- 解析后的 URL --&gt;
+https://www.mipengine.org/?rid=mip-142313cb090fa43b7ebecee9089f15b0&url=https%3A%2F%2Fwww.mipengine.org%2F"</code></pre><p>具体可使用的参数如下：</p><ul><li>READER_ID: 获取访问用户的 ID，该 ID 是可以理解为区分用户的唯一标示，通过 localStorage 的进行存储（清除 localStorage 后会再次生成）。</li><li>SOURCE_URL: 当前页面 URL，即 <code>window.location.href</code>。</li><li>MIPDOC_URL: MIP 原站点 URL，非 MIP-Cache URL。</li><li>CANONICAL_URL: MIP 站点对应的原 h5 站点 URL，如果 h5 站点不存在，则为当前页面 URL。</li><li>DOCUMENT_REFERRER: 页面访问的 referer。</li><li>RANDOM: 随机数。</li></ul><h2 id="注意点"><a href="#注意点" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>注意点</h2><ul><li><p>请求如何配置？</p><p><code>&lt;mip-access&gt;</code> 中所有接口的请求都依据 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch">cors</a> 方案，需要后端配置 <code>Access-Control-Allow-origin</code> 为允许的 origin，其中包括 <code>mipcache.bdstatic.com</code> 、 <code>*.mipcdn.com</code> 和 站点自身 URL origin。</p></li></ul><h2 id="属性"><a href="#属性" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>属性</h2><h3 id="mipaccess1"><a href="#mipaccess1" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>mip-access</h3><p>说明：控制 DOM 元素展示或隐藏的计算表达式<br>必选项：是<br>类型：字符串<br>单位：无<br>取值：无<br>默认值：无</p><h3 id="mipaccesshide"><a href="#mipaccesshide" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>mip-access-hide</h3><p>说明：DOM 元素在表达式计算完成之前默认是展现的，如果在这段时间里希望隐藏元素，则通过设置该属性即可<br>必选项：否<br>类型：字符串<br>单位：无<br>取值：无<br>默认值：无</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="wd-sidebar" id="sidebar-right">
+        <div class="wd-sidebar-pc">
+            <div class="sidebar-right-wrapper">
+                <div class="sidebar-right-inner">
+                    <div class="chapter-wrapper ui-dep-1">
+                        <div class="wd-infinity-chapters">
+        <a class="chapter-title" href="#mipaccess">mip-access</a>
+        <div class="children-0">
+<div class="wd-infinity-chapters">
+        <a class="chapter-title" href="#示例">示例</a>
+        <a class="chapter-title" href="#使用方式">使用方式</a>
+        <div class="children-1">
+<div class="wd-infinity-chapters">
+        <a class="chapter-title" href="#1-脚本引入">1. 脚本引入</a>
+        <a class="chapter-title" href="#2-表达式书写">2. 表达式书写</a>
+        <div class="children-2">
+<div class="wd-infinity-chapters">
+        <a class="chapter-title" href="#逻辑运算符">逻辑运算符</a>
+        <a class="chapter-title" href="#比较运算符">比较运算符</a>
+</div>
+        </div>
+        <a class="chapter-title" href="#3-参数配置">3. 参数配置</a>
+        <div class="children-2">
+<div class="wd-infinity-chapters">
+        <a class="chapter-title" href="#authorization">authorization</a>
+        <a class="chapter-title" href="#pingback">pingback</a>
+        <a class="chapter-title" href="#nopingback">noPingback</a>
+        <a class="chapter-title" href="#login">login</a>
+        <a class="chapter-title" href="#authorizationfallbackresponse">authorizationFallbackResponse</a>
+        <a class="chapter-title" href="#authorizationtimeout">authorizationTimeout</a>
+</div>
+        </div>
+        <a class="chapter-title" href="#url-参数">URL 参数</a>
+</div>
+        </div>
+        <a class="chapter-title" href="#注意点">注意点</a>
+        <a class="chapter-title" href="#属性">属性</a>
+        <div class="children-1">
+<div class="wd-infinity-chapters">
+        <a class="chapter-title" href="#mipaccess1">mip-access</a>
+        <a class="chapter-title" href="#mipaccesshide">mip-access-hide</a>
+</div>
+        </div>
+</div>
+        </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <script src="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.js"></script>
+        <!-- <script src="https://mipcache.bdstatic.com/static/v1/mip.js"></script> -->
+        <script src="https://mipcache.bdstatic.com/static/v1/mip-nav-slidedown/mip-nav-slidedown.js"></script>
+
+<script src="https://mipcache.bdstatic.com/static/v1/mip-sidebar/mip-sidebar.js"></script>
+<script src="https://mipcache.bdstatic.com/static/v1/mip-fixed/mip-fixed.js"></script>
+
+    </body>
+</html>

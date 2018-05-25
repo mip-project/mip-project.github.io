@@ -82,6 +82,9 @@ Object.assign(compiler, {
 });
 
 async function getAlias(config, url, compiler) {
+    if (!config || !config.length) {
+        return url;
+    }
     for (let i = 0; i < config.length; i++) {
         if (config[i].url.test(url)) {
             let alias = await config[i].alias(url, compiler);
