@@ -463,6 +463,16 @@
             </div>
         </div>
         <div class="l-0">
+            <div class="folder show">page</div>
+            <div class="children-0">
+<div class="wd-infinity-menu">
+        <div class="l-1">
+            <a data-type="mip" href="/mip/page/index.html">Page</a>
+        </div>
+</div>
+            </div>
+        </div>
+        <div class="l-0">
             <div class="folder show">specs</div>
             <div class="children-0">
 <div class="wd-infinity-menu">
@@ -755,6 +765,16 @@
             </div>
         </div>
         <div class="l-0">
+            <div class="folder show">page</div>
+            <div class="children-0">
+<div class="wd-infinity-menu">
+        <div class="l-1">
+            <a data-type="mip" href="/mip/page/index.html">Page</a>
+        </div>
+</div>
+            </div>
+        </div>
+        <div class="l-0">
             <div class="folder show">specs</div>
             <div class="children-0">
 <div class="wd-infinity-menu">
@@ -812,7 +832,7 @@
     <span class="hljs-tag">&lt;<span class="hljs-name">mip-img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://somecdn.baidu.com/xxx/xxx.png"</span> /&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">mip-img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://somecdn.baidu.com/xxx/xxx.png"</span> /&gt;</span>
 rousel&gt;</code></pre><h2 id="数据传入"><a href="#数据传入" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>数据传入</h2><p>customElement 其实就是和我们一只熟悉的 HTML 标签是一样的，但是我们怎么保证 customElement 对应的组件能够明确的执行正确的逻辑呢？说白了，怎么让 MIP 组件实例对象能够顺利的拿到 customElement 的数据呢？</p><h3 id="props"><a href="#props" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>props</h3><p>从技术上角度，在 MIP 1.0 中，MIP 组件实例是通过 DOM 操作读取 customElement 的属性值的方式来获取数据（这符合常规的 HTML 标签书写方式），然后在组件实例内部使用这些 customElement 属性值进行一系列的逻辑处理。</p><p>那么在 MIP 2.0 中，同样还是通过 customElement 的属性值的方式来传递数据，但是在组件中，我们不需要再通过 DOM 操作的方式来读取属性值获取数据了，我们借助了 Vue 组件的 props 机制：</p><p>我们看一下下面的例子：</p><pre><div class="code-index"><div>1</div><div>2</div></div><code class="lang-html"><span class="hljs-comment">&lt;!--mip.html--&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">mip-hello-world</span> <span class="hljs-attr">attr1</span>=<span class="hljs-string">"hello"</span> <span class="hljs-attr">attr2</span>=<span class="hljs-string">"world"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-hello-world</span>&gt;</span></code></pre><p>而对应的组件如下：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div></div><code class="lang-js">mip.customElement(<span class="hljs-string">'mip-hello-world'</span>, {
+<span class="hljs-tag">&lt;<span class="hljs-name">mip-hello-world</span> <span class="hljs-attr">attr1</span>=<span class="hljs-string">"hello"</span> <span class="hljs-attr">attr2</span>=<span class="hljs-string">"world"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-hello-world</span>&gt;</span></code></pre><p>而对应的组件如下：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div></div><code class="lang-js">mip.registerVueCustomElement(<span class="hljs-string">'mip-hello-world'</span>, {
     <span class="hljs-attr">template</span>: <span class="hljs-string">`
         &lt;div class="mip-hello-world-wrap"&gt;
             {{ greet }}, {{ name }}
@@ -856,7 +876,7 @@ rousel&gt;</code></pre><h2 id="数据传入"><a href="#数据传入" class="head
         ]
     }
     </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">mip-demo-list</span>&gt;</span></code></pre><blockquote><p>warn 注意：这个 script 标签必须是 <code>type=&quot;application/json&quot;</code> 的</p></blockquote><p>无论是 props 传递 JSON 的方式，还是 script 标签的方式，组件接收的方式都是一样的，都是通过 props 属性来接受数据：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div></div><code class="lang-js">mip.customElement(<span class="hljs-string">'mip-demo-list'</span>, {
+<span class="hljs-tag">&lt;/<span class="hljs-name">mip-demo-list</span>&gt;</span></code></pre><blockquote><p>warn 注意：这个 script 标签必须是 <code>type=&quot;application/json&quot;</code> 的</p></blockquote><p>无论是 props 传递 JSON 的方式，还是 script 标签的方式，组件接收的方式都是一样的，都是通过 props 属性来接受数据：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div></div><code class="lang-js">mip.registerVueCustomElement(<span class="hljs-string">'mip-demo-list'</span>, {
     <span class="hljs-attr">tempplate</span>: <span class="hljs-string">`
         &lt;div class="mip-demo-list-wrap"&gt;
             &lt;div class="item" v-for="item in listdata"&gt;
@@ -878,7 +898,7 @@ rousel&gt;</code></pre><h2 id="数据传入"><a href="#数据传入" class="head
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre><h2 id="嵌套标签"><a href="#嵌套标签" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>嵌套标签</h2><p>在 MIP-HTML 中还有一种常见的使用方式就是嵌套标签了:</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-demo</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"header"</span>&gt;</span>i am header<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footrt"</span>&gt;</span>i am footer<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">mip-demo</span>&gt;</span></code></pre><p>在 customElement 标签用法上，这种用法太常见了，但是如果将 customElement 和 MIP 组件对应上，在组件开发的时候需要考虑一些问题，假如 <code>mip-demo</code> 对应的组件如下：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div></div><code class="lang-js">mip.customElement(<span class="hljs-string">'mip-demo'</span>, {
+<span class="hljs-tag">&lt;/<span class="hljs-name">mip-demo</span>&gt;</span></code></pre><p>在 customElement 标签用法上，这种用法太常见了，但是如果将 customElement 和 MIP 组件对应上，在组件开发的时候需要考虑一些问题，假如 <code>mip-demo</code> 对应的组件如下：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div></div><code class="lang-js">mip.registerVueCustomElement(<span class="hljs-string">'mip-demo'</span>, {
     <span class="hljs-attr">tempplate</span>: <span class="hljs-string">`
         &lt;div class="mip-demo-wrap"&gt;
             default component content
@@ -888,7 +908,7 @@ rousel&gt;</code></pre><h2 id="数据传入"><a href="#数据传入" class="head
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mip-demo-wrap"</span>&gt;</span>
         default component content
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">mip-demo</span>&gt;</span></code></pre><p>这显然不符合我们的预期，customElement 中的嵌套的内容全丢掉了，如果需要让 customElement 中嵌套的内容也展现出来，需要借助 slot 插槽机制，可以在 MIP 组件模版中假如一个匿名的 slot 标签，这个 slot 就可以控制 customElement 中内容需要最终渲染在什么地方，假设，我们需要将组件的默认内容渲染在 customElement 嵌套内容前面，只需要改动一下 <code>&lt;mip-demo&gt;</code> 组件的模版：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div></div><code class="lang-js">mip.customElement(<span class="hljs-string">'mip-demo'</span>, {
+<span class="hljs-tag">&lt;/<span class="hljs-name">mip-demo</span>&gt;</span></code></pre><p>这显然不符合我们的预期，customElement 中的嵌套的内容全丢掉了，如果需要让 customElement 中嵌套的内容也展现出来，需要借助 slot 插槽机制，可以在 MIP 组件模版中假如一个匿名的 slot 标签，这个 slot 就可以控制 customElement 中内容需要最终渲染在什么地方，假设，我们需要将组件的默认内容渲染在 customElement 嵌套内容前面，只需要改动一下 <code>&lt;mip-demo&gt;</code> 组件的模版：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div></div><code class="lang-js">mip.registerVueCustomElement(<span class="hljs-string">'mip-demo'</span>, {
     <span class="hljs-attr">tempplate</span>: <span class="hljs-string">`
         &lt;div class="mip-demo-wrap"&gt;
             default component content
@@ -910,7 +930,7 @@ rousel&gt;</code></pre><h2 id="数据传入"><a href="#数据传入" class="head
 <span class="hljs-tag">&lt;/<span class="hljs-name">mip-demo</span>&gt;</span></code></pre><p>这时候需要对 customElement 稍微做一下改动，这里需要引入具名 slot 的概念：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-demo</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"header"</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"header"</span>&gt;</span>i am header<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"header"</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"footer"</span>&gt;</span>i am header<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">mip-demo</span>&gt;</span></code></pre><p>而 MIP 组件中，则需要有对应的具名 slot 在正确的位置：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div></div><code class="lang-js">mip.customElement(<span class="hljs-string">'mip-demo'</span>, {
+<span class="hljs-tag">&lt;/<span class="hljs-name">mip-demo</span>&gt;</span></code></pre><p>而 MIP 组件中，则需要有对应的具名 slot 在正确的位置：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div></div><code class="lang-js">mip.registerVueCustomElement(<span class="hljs-string">'mip-demo'</span>, {
     <span class="hljs-attr">tempplate</span>: <span class="hljs-string">`
         &lt;div class="mip-demo-wrap"&gt;
             &lt;slot name="header"&gt;&lt;/slot&gt;
