@@ -3,10 +3,10 @@
 <html mip>
     <head>
         <meta charset="utf-8">
-        <title>mip-fixed 悬浮布局 | MIP</title>
+        <title>MIP 2.0 组件开发规范 | MIP</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
-        <meta name="description" content="悬浮元素整体使用方案。">
+        <meta name="description" content="在本文档中，使用的关键字会以英文表示：&quot;MUST&quot;, &quot;MUST NOT&quot;, &quot;REQUIRED&quot;, &quot;SHALL&quot;, &quot;SHALL NOT&quot;, &quot;SHOULD&quot;, &quot;SHOULD NOT&quot;, &quot;RECOMMENDED&quot;, &quot;MAY&quot;, 和 &quot;OPTIONAL&quot;被定义在 rfc2119 中。">
         <meta name="keywords" content="MIP2">
         <meta name="theme-color" content="#2874f0">
        <!--  <link rel="stylesheet" href="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.css"> -->
@@ -791,37 +791,9 @@
     <div class="markdown-wrapper">
         <div class="md-content ui-dep-1">
             <div class="markdown-body">
-                <h1 id="mipfixed-悬浮布局"><a href="#mipfixed-悬浮布局" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>mip-fixed 悬浮布局</h1><p>悬浮元素整体使用方案。</p><table><thead><tr><th>标题</th><th>内容</th></tr></thead><tbody><tr><td>类型</td><td>通用</td></tr><tr><td>支持布局</td><td>N/S</td></tr><tr><td>所需脚本</td><td><a href="https://c.mipcdn.com/static/v1/mip-fixed/mip-fixed.js">https://c.mipcdn.com/static/v1/mip-fixed/mip-fixed.js</a></td></tr></tbody></table><h2 id="示例"><a href="#示例" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>示例</h2><h3 id="顶部悬浮"><a href="#顶部悬浮" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>顶部悬浮</h3><pre><div class="code-index"><div>1</div><div>2</div><div>3</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-fixed</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"top"</span>&gt;</span>
-    自定义内容，可以嵌套其他组件
-<span class="hljs-tag">&lt;/<span class="hljs-name">mip-fixed</span>&gt;</span></code></pre><h3 id="顶部悬浮-向下滑动隐藏"><a href="#顶部悬浮-向下滑动隐藏" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>顶部悬浮 - 向下滑动隐藏</h3><pre><div class="code-index"><div>1</div><div>2</div><div>3</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-fixed</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"top"</span> <span class="hljs-attr">data-slide</span>&gt;</span>
-    顶部悬浮 - 向下滑动隐藏
-<span class="hljs-tag">&lt;/<span class="hljs-name">mip-fixed</span>&gt;</span></code></pre><h3 id="顶部悬浮-自动隐藏距离"><a href="#顶部悬浮-自动隐藏距离" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>顶部悬浮 - 自动隐藏距离</h3><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div></div><code class="lang-html"><span class="hljs-comment">&lt;!-- 以下代码只是示例 --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
-    <span class="hljs-comment">/*元素顶部距离*/</span>
-    <span class="hljs-selector-class">.mip-fixed-top</span> {
-        <span class="hljs-attribute">top</span>: <span class="hljs-number">300px</span> <span class="hljs-meta">!important</span>;
-    }
-    <span class="hljs-comment">/*自定义元素隐藏时动画*/</span>
-    <span class="hljs-selector-class">.mip-fixed-test-top</span> {
-        <span class="hljs-attribute">-webkit-transform</span>: <span class="hljs-built_in">translate3d</span>(0, -400px, 0);
-                <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translate3d</span>(0, -400px, 0);
-    }
-</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
-
-<span class="hljs-tag">&lt;<span class="hljs-name">mip-fixed</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"top"</span> <span class="hljs-attr">data-slide</span>=<span class="hljs-string">"mip-fixed-test-top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mip-fixed-top"</span>&gt;</span>
-    顶部悬浮 - 自动隐藏距离
-<span class="hljs-tag">&lt;/<span class="hljs-name">mip-fixed</span>&gt;</span></code></pre><h3 id="底部悬浮"><a href="#底部悬浮" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>底部悬浮</h3><pre><div class="code-index"><div>1</div><div>2</div><div>3</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-fixed</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"bottom"</span>&gt;</span>
-    自定义内容，可以嵌套其他组件
-<span class="hljs-tag">&lt;/<span class="hljs-name">mip-fixed</span>&gt;</span></code></pre><h3 id="左边悬浮"><a href="#左边悬浮" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>左边悬浮</h3><p>规则：属性 <code>bottom</code> 或 <code>top</code> 必须有一个</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-fixed</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"left"</span> <span class="hljs-attr">bottom</span>=<span class="hljs-string">"50px"</span>&gt;</span>
-    自定义内容，可以嵌套其他组件
-<span class="hljs-tag">&lt;/<span class="hljs-name">mip-fixed</span>&gt;</span></code></pre><h3 id="右边悬浮"><a href="#右边悬浮" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>右边悬浮</h3><p>规则：属性 <code>bottom</code> 或 <code>top</code> 必须有一个</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-fixed</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"right"</span> <span class="hljs-attr">top</span>=<span class="hljs-string">"50px"</span>&gt;</span>
-    自定义内容，可以嵌套其他组件
-<span class="hljs-tag">&lt;/<span class="hljs-name">mip-fixed</span>&gt;</span></code></pre><h3 id="支持-mipgototop"><a href="#支持-mipgototop" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>支持 <code>&lt;mip-gototop&gt;</code></h3><pre><div class="code-index"><div>1</div><div>2</div><div>3</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-fixed</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"gototop"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">mip-gototop</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-gototop</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">mip-fixed</span>&gt;</span></code></pre><h3 id="关闭悬浮元素的方法"><a href="#关闭悬浮元素的方法" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>关闭悬浮元素的方法</h3><ol><li><p>给 <code>&lt;mip-fixed&gt;</code> 标签添加一个自定义的 <code>id=customid</code>。</p></li><li><p>给需要点击关闭悬浮元素的标签添加属性 <code>on=&quot;tap:customid.close&quot;</code>。</p></li></ol><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-fixed</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"top"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"customid"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>我是顶部的fixed<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>  <span class="hljs-attr">class</span>=<span class="hljs-string">"btn_style"</span> <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:customid.close"</span>&gt;</span>我是关闭按钮<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">mip-fixed</span>&gt;</span></code></pre><h2 id="属性"><a href="#属性" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>属性</h2><h3 id="type"><a href="#type" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>type</h3><p>说明：悬浮类型<br>必选项：是<br>类型：字符串<br>取值范围：<code>top/bottom/right/left</code></p><h3 id="top"><a href="#top" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>top</h3><p>说明：距离屏幕顶部距离<br>必选项: 否<br>类型：字符串<br>取值范围：数值+单位，例如：<code>50(px|em|rem|vh|vw|vmin|vmax|cm|mm|q|in|pc|pt)</code><br>默认值：<code>auto</code></p><h3 id="bottom"><a href="#bottom" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>bottom</h3><p>说明：距离屏幕底部距离<br>必选项: 否<br>取值范围：数值+单位，例如：<code>50(px|em|rem|vh|vw|vmin|vmax|cm|mm|q|in|pc|pt)</code><br>默认值：<code>auto</code></p><h3 id="dataslide"><a href="#dataslide" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>data-slide</h3><p>说明：屏幕向下滑动时元素添加 <code>class</code> 名称去隐藏元素，元素已经添加 <code>transition: transform .5s</code> ，只需要向对应的类添加 <code>transform</code> 即可，只支持 <code>type=&quot;top&quot;</code> 和 <code>type=&quot;bottom&quot;</code><br>必须项：否<br>默认值：<code>type=&quot;top&quot;</code> 时默认取值 <code>mip-fixed-hide-top</code>（<code>translate3d(0, -200%, 0)</code>） ，<code>type=&quot;bottom&quot;</code> 时默认取值 <code>mip-fixed-hide-bottom</code>（<code>translate3d(0, 200%, 0)</code>）</p><h2 id="注意事项"><a href="#注意事项" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>注意事项</h2><h3 id="悬浮类型"><a href="#悬浮类型" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>悬浮类型</h3><ul><li><p><code>type</code> 为 <code>top</code>, <code>bottom</code> 类别不需要添加属性：<code>top/bottom</code>。</p></li><li><p><code>type</code> 为 <code>left</code>, <code>right</code> 类别需要至少添加一个 <code>top/bottom</code> 属性，优先用 <code>bottom</code>。</p></li><li><p><code>type</code> 为 <code>gototop</code> 类别不需要任何属性。</p></li></ul>
+                <h1 id="mip-20-组件开发规范"><a href="#mip-20-组件开发规范" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>MIP 2.0 组件开发规范</h1><p>在本文档中，使用的关键字会以英文表示：<code>&quot;MUST&quot;</code>, <code>&quot;MUST NOT&quot;</code>, <code>&quot;REQUIRED&quot;</code>, <code>&quot;SHALL&quot;</code>, <code>&quot;SHALL NOT&quot;</code>, <code>&quot;SHOULD&quot;</code>, <code>&quot;SHOULD NOT&quot;</code>, <code>&quot;RECOMMENDED&quot;</code>, <code>&quot;MAY&quot;</code>, 和 <code>&quot;OPTIONAL&quot;</code>被定义在 rfc2119 中。</p><h2 id="代码结构规范"><a href="#代码结构规范" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>代码结构规范</h2><ul><li>[MUST] 所有组件目录必须是组件名称</li><li>[MUST] 目录名称（组件名称）必须是 <code>mip-</code> 为前缀的全小写字符串</li><li>[MUST] 所有组件必须是 <code>.vue</code> 后缀的 <a href="https://cn.vuejs.org/v2/guide/single-file-components.html">单文件组件</a> 形式</li><li>[MUST] 必须包含说明组件用途的 <code>README.md</code> 文件</li></ul><p>示例：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div></div><code class="lang-bash">mip-example
+  ├── mip-example.md
+  ├── mip-example.vue</code></pre><h2 id="代码风格规范"><a href="#代码风格规范" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>代码风格规范</h2><ul><li>[MUST] 组件的脚本开发必须遵守 <a href="https://github.com/ecomfe/spec/blob/master/javascript-style-guide.md">JavaScript Style Guide</a></li><li>[MUST] 组件的样式开发必须遵守 <a href="https://github.com/ecomfe/spec/blob/master/css-style-guide.md">CSS Style Guide</a>。如果你使用了 <a href="http://lesscss.org/">LESS</a> ，还 必须遵守 <a href="https://github.com/ecomfe/spec/blob/master/less-code-style.md">LESS Code Style</a>。</li><li>[SHOULD] 组件开发应该遵循 <a href="https://cn.vuejs.org/v2/style-guide/index.html">Vue Style Guide</a></li></ul><p>开发过程中可以通过 <a href="http://fecs.baidu.com/">FECS</a> 工具检查，在组件校验和审核环节要求所有代码必须通过 FECS。</p><h2 id="css-规范"><a href="#css-规范" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>CSS 规范</h2><ul><li>[MUST] 组件所有样式必须 scoped</li><li>[MUST NOT] 组件样式禁止使用 <code>position: fixed</code></li><li>[SHOULD] 组件样式选择器应该使用 <code>mip-组件名</code>，尽量避免对使用方页面产生影响。</li></ul><h2 id="javascript-规范"><a href="#javascript-规范" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>JavaScript 规范</h2><ul><li>[MUST] 仅允许引入白名单（TODO: 白名单列表）中的第三方 javaScript</li></ul><h2 id="template-规范"><a href="#template-规范" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>template 规范</h2><ul><li>[MUST] 沿用 1.0 页面元素使用规范，但不包括 <code>&lt;style&gt;</code> <code>&lt;script&gt;</code> <code>&lt;link&gt;</code> 等标签限制</li></ul><table><thead><tr><th>标签</th><th>使用范围</th><th>备注</th></tr></thead><tbody><tr><td><code>&lt;img&gt;</code></td><td><span class="mipengine-doc-red">禁止使用</span></td><td>需替换为 <code>&lt;mip-img&gt;</code></td></tr><tr><td><code>&lt;video&gt;</code></td><td><span class="mipengine-doc-red">禁止使用</span></td><td>需替换为 <code>&lt;mip-video&gt;</code></td></tr><tr><td><code>&lt;audio&gt;</code></td><td><span class="mipengine-doc-red">禁止使用</span></td><td>需替换为 <code>&lt;mip-audio&gt;</code></td></tr><tr><td><code>&lt;iframe&gt;</code></td><td><span class="mipengine-doc-red">禁止使用</span></td><td>需替换为 <code>&lt;mip-iframe&gt;</code></td></tr><tr><td><code>&lt;form&gt;</code></td><td><span class="mipengine-doc-red">禁止使用</span></td><td>需替换为 <code>&lt;mip-form&gt;</code></td></tr><tr><td><code>&lt;frame&gt;</code></td><td><span class="mipengine-doc-red">禁止使用</span></td><td></td></tr><tr><td><code>&lt;frameset&gt;</code></td><td><span class="mipengine-doc-red">禁止使用</span></td><td></td></tr><tr><td><code>&lt;object&gt;</code></td><td><span class="mipengine-doc-red">禁止使用</span></td><td></td></tr><tr><td><code>&lt;param&gt;</code></td><td><span class="mipengine-doc-red">禁止使用</span></td><td></td></tr><tr><td><code>&lt;applet&gt;</code></td><td><span class="mipengine-doc-red">禁止使用</span></td><td></td></tr><tr><td><code>&lt;embed&gt;</code></td><td><span class="mipengine-doc-red">禁止使用</span></td><td></td></tr><tr><td><code>&lt;svg&gt;</code></td><td><span class="mipengine-doc-green">允许使用</span></td><td></td></tr><tr><td><code>&lt;button&gt;</code></td><td><span class="mipengine-doc-green">允许使用</span></td><td></td></tr><tr><td><code>&lt;a&gt;</code></td><td><span class="mipengine-doc-green">允许使用</span></td><td><ul><li><code>href</code> 属性必填，同时其值不可以 <code>href=&quot;javascript:&quot;</code></li><li>MIP 页之间跳转推荐使用 <a href="/examples/mip-extensions/mip-link.html"><code>&lt;a data-type=&quot;mip&quot;&gt;</code></a></li></ul></td></tr><tr><td><code>&lt;source&gt;</code></td><td><span class="mipengine-doc-green">允许使用</span></td><td>其父元素必须是 <code>&lt;mip-video&gt;</code>、<code>&lt;mip-audio&gt;</code>、<code>&lt;picutre&gt;</code>，其他均不可</td></tr><tr><td>input elements</td><td><span class="mipengine-doc-green">允许使用</span></td><td><ul><li>包括: <code>&lt;select&gt;</code> 、<code>&lt;option&gt;</code> 、 <code>&lt;textarea&gt;</code> 、<code>&lt;input&gt;</code></li><li>父元素必须是 <code>&lt;mip-form&gt;</code></li><li><code>&lt;source&gt;</code> 的 <code>src</code> 必须存在且非 <code>/</code> 开头的相对路径</li></ul></td></tr></tbody></table><ul><li>[MUST] 沿用 1.0 HTML 属性规范<ul><li>MIP-HTML 中所有 <code>on</code> 开头的属性都不允许使用，如：<code>onclick</code>，<code>onmouseover</code> 。</li><li>MIP-HTML 中允许使用 <code>on</code> 属性。</li><li>MIP-HTML 中不允许使用 <code>style</code> 属性。</li></ul></li><li>[MUST] 沿用 1.0 自定义标签规范</li></ul><p>附：<a href="https://www.mipengine.org/doc/2-tech/1-mip-html.html">MIP 1.0-HTML 规范</a></p>
             </div>
         </div>
     </div>
@@ -832,37 +804,14 @@
                 <div class="sidebar-right-inner">
                     <div class="chapter-wrapper ui-dep-1">
                         <div class="wd-infinity-chapters">
-        <a class="chapter-title" href="#mipfixed-悬浮布局">mip-fixed 悬浮布局</a>
+        <a class="chapter-title" href="#mip-20-组件开发规范">MIP 2.0 组件开发规范</a>
         <div class="children-0">
 <div class="wd-infinity-chapters">
-        <a class="chapter-title" href="#示例">示例</a>
-        <div class="children-1">
-<div class="wd-infinity-chapters">
-        <a class="chapter-title" href="#顶部悬浮">顶部悬浮</a>
-        <a class="chapter-title" href="#顶部悬浮-向下滑动隐藏">顶部悬浮 - 向下滑动隐藏</a>
-        <a class="chapter-title" href="#顶部悬浮-自动隐藏距离">顶部悬浮 - 自动隐藏距离</a>
-        <a class="chapter-title" href="#底部悬浮">底部悬浮</a>
-        <a class="chapter-title" href="#左边悬浮">左边悬浮</a>
-        <a class="chapter-title" href="#右边悬浮">右边悬浮</a>
-        <a class="chapter-title" href="#支持-mipgototop">支持 &lt;mip-gototop&gt;</a>
-        <a class="chapter-title" href="#关闭悬浮元素的方法">关闭悬浮元素的方法</a>
-</div>
-        </div>
-        <a class="chapter-title" href="#属性">属性</a>
-        <div class="children-1">
-<div class="wd-infinity-chapters">
-        <a class="chapter-title" href="#type">type</a>
-        <a class="chapter-title" href="#top">top</a>
-        <a class="chapter-title" href="#bottom">bottom</a>
-        <a class="chapter-title" href="#dataslide">data-slide</a>
-</div>
-        </div>
-        <a class="chapter-title" href="#注意事项">注意事项</a>
-        <div class="children-1">
-<div class="wd-infinity-chapters">
-        <a class="chapter-title" href="#悬浮类型">悬浮类型</a>
-</div>
-        </div>
+        <a class="chapter-title" href="#代码结构规范">代码结构规范</a>
+        <a class="chapter-title" href="#代码风格规范">代码风格规范</a>
+        <a class="chapter-title" href="#css-规范">CSS 规范</a>
+        <a class="chapter-title" href="#javascript-规范">JavaScript 规范</a>
+        <a class="chapter-title" href="#template-规范">template 规范</a>
 </div>
         </div>
 </div>
