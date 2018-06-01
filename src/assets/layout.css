@@ -1,9 +1,12 @@
-.mip-nav-wrapper {
+/*.mip-nav-wrapper {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 10;
+}*/
+.mip-nav-wrapper {
+    overflow: visible !important;
 }
 
 .mip-nav-wrapper,

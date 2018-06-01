@@ -3,6 +3,7 @@
  * @author clark-t (clarktanglei@163.com)
  */
 
+const imageSize = require('../utils/image-size');
 const etpl = require('etpl');
 const path = require('path');
 const fs = require('fs');
@@ -39,7 +40,7 @@ module.exports = class Layout {
 
                 // html 组件替换
                 html = heading(html);
-                // html = link(html, app);
+                html = link(html, app);
                 html = await image(html, app);
                 html = video(html, app);
 
@@ -72,20 +73,6 @@ module.exports = class Layout {
                 docInfo.html = newhtml;
 
                 await app.store.set('doc', docInfo.path, docInfo);
-
-                // await app.store.set();
-
-                // await app.store.set('mip', url, {
-                //     html,
-                //     url,
-                //     style: style.join('/n'),
-                //     menu: menuHtml || '',
-                //     chapters: chapterHtml || '',
-                //     path: path,
-                //     info: Object.assign({
-                //         keywords: 'lavas,pwa,vue,baidu,service wroker'
-                //     }, info)
-                // });
             }))
             .then(() => {
                 cachedChangedFileList = [];
@@ -111,22 +98,22 @@ function heading(html) {
     );
 }
 
-// function link(html, app) {
+function link(html, app) {
 
-//     return html.replace(
-//         /<a([\s\S]+?)href="(.+?)"([\s\S]*?)>/mg,
-//         function (full, attr1, href, attr2) {
-//             if (/^\/(guide|pwa|codelab)/.test(href)) {
-//                 // let host = app.config.host;
-//                 // href = `${host}/mip${href}`;
-//                 href = `/mip${href}`;
-//                 return `<a data-type="mip" href="${href}">`;
-//             }
+    return html.replace(
+        /<a([\s\S]+?)href="(.+?)"([\s\S]*?)>/mg,
+        function (full, attr1, href, attr2) {
+            if (/^\/(guide|pwa|codelab)/.test(href)) {
+                // let host = app.config.host;
+                // href = `${host}/mip${href}`;
+                href = `/mip${href}`;
+                return `<a data-type="mip" href="${href}">`;
+            }
 
-//             return full;
-//         }
-//     );
-// }
+            return full;
+        }
+    );
+}
 
 /**
  * 将 文档中的 img 替换成 mip 组件
@@ -149,23 +136,18 @@ async function image(html, app) {
     //     width: 320,
     //     height: 320
     // };
-    // let sizes = await Promise.all(srcs.map(
-    //     src => getImageSize(
-    //         src.replace(/^\/doc-assets\//, ''),
-    //         app.config.basePath,
-    //         app.logger
-    //     )
-    // ));
+    let sizes = await Promise.all(srcs.map(
+        src => getImageSize(
+            src.replace(/^\/doc-assets\//, ''),
+            app.config.basePath,
+            app.logger
+        )
+    ));
 
     return html.replace(imgRegExp, (full, attr1, src) => {
         src = src.replace(/^\/doc-assets\//, '');
 
-        let {width, height} = {
-            width: 320,
-            height: 320
-        };
-
-        // let {width, height} = sizes.shift();
+        let {width, height} = sizes.shift();
 
         if (!/^http/.test(src) && !/^\/\//.test(src)) {
             let host = app.config.host;

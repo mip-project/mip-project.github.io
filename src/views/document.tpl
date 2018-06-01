@@ -86,7 +86,6 @@
 {{ block: script }}
 
 <script src="https://mipcache.bdstatic.com/static/v1/mip-sidebar/mip-sidebar.js"></script>
-<script src="https://mipcache.bdstatic.com/static/v1/mip-fixed/mip-fixed.js"></script>
 
 {{ /block }}
 
@@ -94,11 +93,11 @@
 
 <div class="doc-layout app-view">
     <div class="wd-sidebar" id="sidebar-left">
-        <div class="wd-sidebar-pc">
+        <mip-fixed type="left" top="64px" bottom="0px" class="wd-sidebar-pc">
             <div class="menu-wrapper">
                 ${menu|raw}
             </div>
-        </div>
+        </mip-fixed>
     </div>
 
     <mip-fixed type="left" bottom="50px" class="sidebar-toggle-wrapper">
@@ -124,7 +123,7 @@
     </div>
 
     <div class="wd-sidebar" id="sidebar-right">
-        <div class="wd-sidebar-pc">
+        <mip-fixed type="right" top="64px" bottom="0px" class="wd-sidebar-pc">
             <div class="sidebar-right-wrapper">
                 <div class="sidebar-right-inner">
                     <div class="chapter-wrapper ui-dep-1">
@@ -132,7 +131,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </mip-fixed>
     </div>
 </div>
 

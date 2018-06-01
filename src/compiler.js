@@ -1,6 +1,6 @@
 /**
  * @file doc component
- * @author tanglei (tanglei02@baidu.com)
+ * @author clark-t (clarktanglei@163.com)
  */
 
 const Kram = require('kram').Kram;

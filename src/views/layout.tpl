@@ -12,6 +12,7 @@
         <meta name="theme-color" content="#2874f0">
        <!--  <link rel="stylesheet" href="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.css"> -->
         <link rel="stylesheet" type="text/css" href="https://mipcache.bdstatic.com/static/v1/mip.css">
+        <!-- <link rel="stylesheet" type="text/css" href="http://127.0.0.1:8080/dist/mip.css"> -->
         <link rel="canonical" href="${originUrl}">
         <style mip-custom>
             ${baseStyle|raw}
@@ -20,7 +21,7 @@
         </style>
     </head>
     <body>
-        <div class="mip-nav-wrapper">
+        <mip-fixed type="top" top="0px" left="0px" right="0px" class="mip-nav-wrapper">
             <mip-nav-slidedown
                 data-id="bs-navbar"
                 class="mip-navbar"
@@ -41,7 +42,7 @@
                     </ul>
                 </nav>
             </mip-nav-slidedown>
-        </div>
+        </mip-fixed>
         <div id="app" class="application theme--light">
             <div class="application--wrap">
                 <div class="app-view-container">
@@ -50,8 +51,10 @@
                 {{ block: footer }}{{ /block }}
             </div>
         </div>
+        <!-- <script src="http://127.0.0.1:8080/dist/mip.js"></script> -->
         <!-- <script src="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.js"></script> -->
         <script src="https://mipcache.bdstatic.com/static/v1/mip.js"></script>
+        <script src="https://mipcache.bdstatic.com/static/v1/mip-fixed/mip-fixed.js"></script>
         <script src="https://mipcache.bdstatic.com/static/v1/mip-nav-slidedown/mip-nav-slidedown.js"></script>
         {{ block: script }}{{ /block }}
     </body>
