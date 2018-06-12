@@ -259,6 +259,9 @@
             <a data-type="mip" href="/mip/cli/contribute-to-official-repo.html">提交组件到官方组件仓库</a>
         </div>
         <div class="l-1">
+            <a data-type="mip" href="/mip/cli/contribute-to-site-extensions-repo.html">提交站长组件</a>
+        </div>
+        <div class="l-1">
             <a data-type="mip" href="/mip/cli/start-writing-first-mip.html">快速开始</a>
         </div>
 </div>
@@ -472,6 +475,9 @@
 <div class="wd-infinity-menu">
         <div class="l-1">
             <a data-type="mip" href="/mip/page/index.html">Page</a>
+        </div>
+        <div class="l-1">
+            <a data-type="mip" href="/mip/page/viewer.html">Viewer</a>
         </div>
 </div>
             </div>
@@ -561,6 +567,9 @@
             <a data-type="mip" href="/mip/cli/contribute-to-official-repo.html">提交组件到官方组件仓库</a>
         </div>
         <div class="l-1">
+            <a data-type="mip" href="/mip/cli/contribute-to-site-extensions-repo.html">提交站长组件</a>
+        </div>
+        <div class="l-1">
             <a data-type="mip" href="/mip/cli/start-writing-first-mip.html">快速开始</a>
         </div>
 </div>
@@ -775,6 +784,9 @@
         <div class="l-1">
             <a data-type="mip" href="/mip/page/index.html">Page</a>
         </div>
+        <div class="l-1">
+            <a data-type="mip" href="/mip/page/viewer.html">Viewer</a>
+        </div>
 </div>
             </div>
         </div>
@@ -821,13 +833,17 @@
     │   └── mip-example
     │       ├── mip-example.md          // 组件功能、属性说明
     │       ├── mip-example.vue         // 组件本身
-    │       └── test
+    │       └── example
     │           └── mip-example.html    // 单个组件测试、预览
     ├── mip.config.js                   // 调试服务器配置
     ├── package.json
     ├── static                          // 静态资源，如图片、字体
-    └── test
-        └── index.html                  // 页面测试预览</code></pre><p>我们可以在项目的 <code>components</code> 目录中开发站点所需的自定义组件，然后依据 <code>test/index.html</code> 页面模板，引用官方或自定义组件来实现 MIP 页面。</p><p>通常情况下，官方提供的<a href="https://github.com/mipengine/mip2-extensions">通用组件库</a>已经能满足站点的基本需求。如果站点有使用复杂组件的场景，我们可以<a href="/mip/cli/start-writing-first-mip.html">编写自定义组件</a>，并通过第三方组件仓库（TODO）进行提交，通过审核上线后，即能使用。</p><p>同时，我们也欢迎开发者向官方通用组件库<a href="/mip/cli/contribute-to-official-repo.html">贡献优秀的组件</a>。</p><h3 id="启动调试服务器"><a href="#启动调试服务器" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>启动调试服务器</h3><p>命令行工具内置了简单的调试服务器，方便开发者调试组件和页面。在项目根目录运行</p><pre><div class="code-index"><div>1</div></div><code class="lang-bash">$ mip2 dev</code></pre><p>默认会在 <code>8111</code> 端口启动服务器，并自动调起浏览器打开 <code>test/index.html</code> ，实现预览和调试。在修改组件和页面的代码时，无需手动重启和刷新，服务器内部已经帮我们实现了这一功能。</p><p>了解详细用法：<a href="/mip/cli/component-testing.html">调试组件</a></p><h3 id="组件和页面校验"><a href="#组件和页面校验" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>组件和页面校验</h3><p>MIP 组件和页面都需要遵循特定的<a href="/mip/components/rules.html">开发规范</a>，开发者提交站点 url 和组件代码时，系统会进行审核和校验。命令行工具提供了校验功能，方便我们在开发阶段就能按照相关规范进行开发和调整。</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div></div><code class="lang-bash"><span class="hljs-comment"># 校验 mip 组件，输入组件目录</span>
+    └── example
+        └── index.html                  // 页面测试预览</code></pre><p>我们可以在项目的 <code>components</code> 目录中开发站点所需的自定义组件，然后依据 <code>example/index.html</code> 页面模板，引用官方或自定义组件来实现 MIP 页面。</p><p>通常情况下，官方提供的<a href="https://github.com/mipengine/mip2-extensions">通用组件库</a>已经能满足站点的基本需求。如果站点有使用复杂组件的场景，我们可以<a href="/mip/cli/contribute-to-site-extensions-repo.html">编写站长自定义组件</a>，并通过<a href="https://github.com/mipengine/mip2-extensions-platform">站长组件仓库</a>进行提交，通过审核上线后，即能使用。</p><p>同时，我们也欢迎开发者向官方通用组件库<a href="/mip/cli/contribute-to-official-repo.html">贡献优秀的组件</a>。</p><h3 id="新增一个组件"><a href="#新增一个组件" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>新增一个组件</h3><p>在项目根目录运行 <code>mip2 add</code> 命令，即可快速添加一个新组件</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div></div><code class="lang-bash"><span class="hljs-comment"># 快速添加名为 mip-new 的组件</span>
+$ mip2 add mip-new
+
+<span class="hljs-comment"># 使用 -f 或 --force 参数强制覆盖同名组件</span>
+$ mip2 add mip-new -f</code></pre><h3 id="启动调试服务器"><a href="#启动调试服务器" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>启动调试服务器</h3><p>命令行工具内置了简单的调试服务器，方便开发者调试组件和页面。在项目根目录运行</p><pre><div class="code-index"><div>1</div></div><code class="lang-bash">$ mip2 dev</code></pre><p>默认会在 <code>8111</code> 端口启动服务器，并自动调起浏览器打开 <code>example/index.html</code> ，实现预览和调试。在修改组件和页面的代码时，无需手动重启和刷新，服务器内部已经帮我们实现了这一功能。</p><p>了解详细用法：<a href="/mip/cli/component-testing.html">调试组件</a></p><h3 id="组件和页面校验"><a href="#组件和页面校验" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>组件和页面校验</h3><p>MIP 组件和页面都需要遵循特定的<a href="/mip/components/rules.html">开发规范</a>，开发者提交站点 url 和组件代码时，系统会进行审核和校验。命令行工具提供了校验功能，方便我们在开发阶段就能按照相关规范进行开发和调整。</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div></div><code class="lang-bash"><span class="hljs-comment"># 校验 mip 组件，输入组件目录</span>
 $ mip2 validate -c ./components
 
 <span class="hljs-comment"># 校验 mip 页面，输入页面路径</span>
@@ -851,6 +867,7 @@ $ mip2 validate -p page.html</code></pre><p>我们可以根据校验结果，对
         <div class="children-1">
 <div class="wd-infinity-chapters">
         <a class="chapter-title" href="#创建项目脚手架">创建项目脚手架</a>
+        <a class="chapter-title" href="#新增一个组件">新增一个组件</a>
         <a class="chapter-title" href="#启动调试服务器">启动调试服务器</a>
         <a class="chapter-title" href="#组件和页面校验">组件和页面校验</a>
         <a class="chapter-title" href="#构建组件">构建组件</a>

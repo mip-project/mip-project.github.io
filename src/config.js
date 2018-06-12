@@ -24,7 +24,7 @@ module.exports = {
         {
             name: 'mip',
             loader: 'downloadMipDoc',
-            from: 'github:mip-project/mip',
+            from: 'github:mipengine/mip2',
             to: path.resolve(docDir, './mip'),
             tmp: path.resolve(gitDir, './mip')
         }

@@ -259,6 +259,9 @@
             <a data-type="mip" href="/mip/cli/contribute-to-official-repo.html">提交组件到官方组件仓库</a>
         </div>
         <div class="l-1">
+            <a data-type="mip" href="/mip/cli/contribute-to-site-extensions-repo.html">提交站长组件</a>
+        </div>
+        <div class="l-1">
             <a data-type="mip" href="/mip/cli/start-writing-first-mip.html">快速开始</a>
         </div>
 </div>
@@ -472,6 +475,9 @@
 <div class="wd-infinity-menu">
         <div class="l-1">
             <a data-type="mip" href="/mip/page/index.html">Page</a>
+        </div>
+        <div class="l-1">
+            <a data-type="mip" href="/mip/page/viewer.html">Viewer</a>
         </div>
 </div>
             </div>
@@ -561,6 +567,9 @@
             <a data-type="mip" href="/mip/cli/contribute-to-official-repo.html">提交组件到官方组件仓库</a>
         </div>
         <div class="l-1">
+            <a data-type="mip" href="/mip/cli/contribute-to-site-extensions-repo.html">提交站长组件</a>
+        </div>
+        <div class="l-1">
             <a data-type="mip" href="/mip/cli/start-writing-first-mip.html">快速开始</a>
         </div>
 </div>
@@ -775,6 +784,9 @@
         <div class="l-1">
             <a data-type="mip" href="/mip/page/index.html">Page</a>
         </div>
+        <div class="l-1">
+            <a data-type="mip" href="/mip/page/viewer.html">Viewer</a>
+        </div>
 </div>
             </div>
         </div>
@@ -815,7 +827,7 @@
     <div class="markdown-wrapper">
         <div class="md-content ui-dep-1">
             <div class="markdown-body">
-                <h2 id="page"><a href="#page" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>Page</h2><blockquote><p>wangyisheng (<a href="mailto:wangyisheng@outlook.com">wangyisheng@outlook.com</a>)</p></blockquote><p>熟悉 MIP 的开发者可能了解，MIP 全称 Mobile Instant Pages，因此是以 <strong>页面 (Page)</strong> 为单位来运行的。开发者通过改造/提交一个个页面，继而被百度收录并展示。</p><p>但以页面为单位带来一个问题：当一个 MIP 页面中存在往其他页面跳转的链接时，就会使浏览器使用加载页面的默认行为来加载新页面。这“第二跳”的体验比起从搜索结果页到 MIP 页面的“第一跳”来说相去甚远。</p><p>新版本的 MIP 为了解决这个问题，引入了 Page 模块。它的作用是 <strong>把多个页面以一定的形式组织起来，让它们互相切换时拥有和单页应用一样的切换效果</strong>，而不是浏览器默认的切换效果。这个功能大部分对开发者是透明的，但也需要开发者遵守一些页面的编写规范，这也是本篇文档的主要内容。</p><h3 id="页面结构"><a href="#页面结构" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>页面结构</h3><ol><li><p>所有页面 <strong>必须</strong> 包含 <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code>，组织方式和常规 HTML 相同：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+                <h2 id="page"><a href="#page" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>Page</h2><blockquote><p>wangyisheng (<a href="mailto:wangyisheng@outlook.com">wangyisheng@outlook.com</a>) panyuqi (<a href="mailto:panyuqi@baidu.com">panyuqi@baidu.com</a>)</p></blockquote><p>熟悉 MIP 的开发者可能了解，MIP 全称 Mobile Instant Pages，因此是以 <strong>页面 (Page)</strong> 为单位来运行的。开发者通过改造/提交一个个页面，继而被百度收录并展示。</p><p>但以页面为单位带来一个问题：当一个 MIP 页面中存在往其他页面跳转的链接时，就会使浏览器使用加载页面的默认行为来加载新页面。这“第二跳”的体验比起从搜索结果页到 MIP 页面的“第一跳”来说相去甚远。</p><p>新版本的 MIP 为了解决这个问题，引入了 Page 模块。它的作用是 <strong>把多个页面以一定的形式组织起来，让它们互相切换时拥有和单页应用一样的切换效果</strong>，而不是浏览器默认的切换效果。这个功能大部分对开发者是透明的，但也需要开发者遵守一些页面的编写规范，这也是本篇文档的主要内容。</p><h3 id="页面结构"><a href="#页面结构" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>页面结构</h3><ol><li><p>所有页面 <strong>必须</strong> 包含 <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code>，组织方式和常规 HTML 相同：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
      <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
      <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
  <span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre></li><li><p>所有页面 <strong>必须</strong> 在 <code>&lt;body&gt;</code> 的 <strong>最后</strong> 编写或引用 mip 相关的 js。其中顺序是：</p><ol><li>mip script (MIP.watch)</li><li>mip.js</li><li><p>各组件的 js。如有相互依赖，把被依赖项写在前面。</p><p>举例来说，一个页面引用了两个组件 <code>component-a</code> 和 <code>component-b</code>，并且 <code>component-b</code> 依赖 <code>component-a</code> （例如在 <code>component-b</code> 的模板中出现了 <code>&lt;mip-component-a&gt;</code>），那么这个页面的组织结构应该是：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
@@ -825,12 +837,12 @@
      MIP.watch(<span class="hljs-string">'something'</span>, () =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'something changed.'</span>));
  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 
- <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://somecdn/mip.js"</span>&gt;</span><span class="handlebars"><span class="xml">
+ <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://somecdn/mip.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 
- <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://somecdn/mip-component-a.js"</span>&gt;</span><span class="handlebars"><span class="xml">
- <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://somecdn/mip-component-b.js"</span>&gt;</span><span class="handlebars"><span class="xml">
-<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></span></span></span></span></span></span></code></pre></li></ol></li><li><p>MIP 页面中的链接依然使用 <code>&lt;a&gt;</code>，具体如下：</p><ol><li><p>如果跳转到其他 <strong>同域名的 MIP 页面</strong>，使用 <code>mip-link</code> 属性或者 <code>data-type=&quot;mip&quot;</code>：</p><pre><div class="code-index"><div>1</div><div>2</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"./anotherMIPPage.html"</span> <span class="hljs-attr">mip-link</span>&gt;</span>xxx<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
- <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"./anotherMIPPage.html"</span> <span class="hljs-attr">data-type</span>=<span class="hljs-string">"mip"</span>&gt;</span>xxx<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre><ol><li><code>href</code> 指向当前域名的页面，暂时不允许跨域</li><li>不允许使用 <code>target</code> 属性</li></ol></li><li><p>如果跳转到其他页面 ，不添加 <code>mip-link</code> 属性或者 <code>data-type=&quot;mip&quot;</code>，进行普通跳转：</p><pre><div class="code-index"><div>1</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://www.another-site.com/"</span>&gt;</span></code></pre></li></ol></li><li><p>页面内元素的样式中 <code>z-index</code> 不能超过 10000，否则会引起页面切换时的样式遮盖问题。</p></li></ol><h3 id="mip-shell"><a href="#mip-shell" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>MIP Shell</h3><p>在实际项目中，我们很可能会有一些独立于页面内容之外的相对固定的部分，我们称之为外壳 (Shell)。在页面切换时，Shell 部分一般不跟随页面内容进行过场动画。如果用 Vue 来描述的话，Shell 就是位于 <code>&lt;router-view&gt;</code> 之外的部分。</p><p>一个最典型的 Shell 的例子就是头部标题栏：</p><p><mip-img layout="responsive" width="396" height="686" popup src="http://boscdn.bpc.baidu.com/assets/mip2/mip-shell.png"></mip-img></p><p>开发者可以在每个页面中使用 <code>&lt;mip-shell&gt;</code> 标签来定义 Shell 的各项配置。目前 MIP 仅提供头部 Shell，但后续会陆续提供多种类型，多种样式的 Shell 供开发者选择。</p><h4 id="配置方法"><a href="#配置方法" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>配置方法</h4><p>在页面的 <code>&lt;body&gt;</code> 标签内编写 <code>&lt;mip-shell&gt;</code> 标签，写法如下：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://somecdn/mip-component-a.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://somecdn/mip-component-b.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></code></pre></li></ol></li><li><p>MIP 页面中的链接依然使用 <code>&lt;a&gt;</code>，具体如下：</p><ol><li><p>如果跳转到其他 <strong>同域名的 MIP 页面</strong>，使用 <code>mip-link</code> 属性或者 <code>data-type=&quot;mip&quot;</code>：</p><pre><div class="code-index"><div>1</div><div>2</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://somesite.com/mip/anotherMIPPage.html"</span> <span class="hljs-attr">mip-link</span>&gt;</span>xxx<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://somesite.com/mip/anotherMIPPage.html"</span> <span class="hljs-attr">data-type</span>=<span class="hljs-string">"mip"</span>&gt;</span>xxx<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre><ol><li><code>href</code> 指向当前域名的页面，暂时不允许跨域</li><li>不允许使用 <code>target</code> 属性</li></ol></li><li><p>如果跳转到其他页面 ，不添加 <code>mip-link</code> 属性或者 <code>data-type=&quot;mip&quot;</code>，进行普通跳转：</p><pre><div class="code-index"><div>1</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://www.another-site.com/"</span>&gt;</span>Jump Out<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre></li><li><p><code>href</code> 属性值沿用<a href="https://www.mipengine.org/examples/mip-extensions/mip-link.html">旧版 mip-link 规范</a>，取值范围：<code>https?://.*</code>, <code>mailto:.*</code>, <code>tel:.*</code>，<strong>不允许使用相对路径或者绝对路径</strong>。(如 <code>./relativePage.html</code>, <code>/absolutePage.html</code>)</p></li><li><p>和默认浏览器行为相同， <code>&lt;a&gt;</code> 也可以用作页面内部的快速定位滚动，只需要将 <code>href</code> 中包含 <code>#</code> 即可，如 <code>http://somesite.com/mip/page.html#second</code>。特别地，<code>#second</code> 作为 <code>href</code> 取值范围的例外也被认为合法，可以用作当前页面的快速定位。</p></li><li><p>默认情况下点击链接后会向 History 中 <code>push</code> 一条记录。如果想覆盖当前记录，可以在 <code>&lt;a&gt;</code> 元素上增加 <code>replace</code> 属性。</p></li><li><p>通过 <code>data-title</code> 和 <code>innerHTML</code> 可以设置下一个页面的标题。(详情可见 MIP Shell 头部标题章节)</p></li></ol></li><li><p>页面内元素的样式中 <code>z-index</code> 不能超过 10000，否则会引起页面切换时的样式遮盖问题。</p></li></ol><h3 id="mip-shell"><a href="#mip-shell" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>MIP Shell</h3><p>在实际项目中，我们很可能会有一些独立于页面内容之外的相对固定的部分，我们称之为外壳 (Shell)。在页面切换时，Shell 部分一般不跟随页面内容进行过场动画。如果用 Vue 来描述的话，Shell 就是位于 <code>&lt;router-view&gt;</code> 之外的部分。</p><p>一个最典型的 Shell 的例子就是头部标题栏：</p><p><mip-img layout="responsive" width="396" height="686" popup src="http://boscdn.bpc.baidu.com/assets/mip2/mip-shell.png"></mip-img></p><p>开发者可以在每个页面中使用 <code>&lt;mip-shell&gt;</code> 标签来定义 Shell 的各项配置。目前 MIP 仅提供头部 Shell，但后续会陆续提供多种类型，多种样式的 Shell 供开发者选择。</p><h4 id="配置方法"><a href="#配置方法" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>配置方法</h4><p>在页面的 <code>&lt;body&gt;</code> 标签内编写 <code>&lt;mip-shell&gt;</code> 标签，写法如下：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">mip-shell</span>&gt;</span>
@@ -843,99 +855,102 @@
 
         <span class="hljs-comment">&lt;!-- mip script --&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre><p>注意点：</p><ol><li>一个页面 <strong>至多只允许存在一个</strong> <code>&lt;mip-shell&gt;</code> 配置项。可以不写则使用默认配置项。</li><li><code>&lt;mip-shell&gt;</code> 的位置 <strong>必须</strong> 位于 <code>&lt;body&gt;</code> 内部，并且 <strong>必须</strong> 在 mip script，mip.js 和组件 js 文件(页面级别第二点)之前。</li><li><code>&lt;mip-shell&gt;</code> 内部只允许存在一个 <code>&lt;script&gt;</code> 节点，并且 <code>type</code> 必须设置为 <code>application/json</code>。</li><li><code>&lt;script&gt;</code>内部是一个合法的 JSON 对象。</li></ol><h4 id="配置项"><a href="#配置项" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>配置项</h4><p>目前 <code>&lt;mip-shell&gt;</code> 支持的配置项包括：</p><ol><li><code>view</code> 对象。用以配置整站的一些数据。<strong>每个页面都应当包含相同的 <code>view</code> 配置</strong></li><li><code>header</code> 对象。用以配置头部标题栏的各项内容</li></ol><ul><li><p>view.isIndex <strong>boolean</strong>，默认值：<code>false</code></p><p>指明当前页面是否为首页。站点首页在头部标题栏左边不出现后退按钮。</p></li><li><p>header.show <strong>boolean</strong>，默认值：<code>false</code></p><p>指明当前页面是否需要展现头部标题栏。</p></li><li><p>header.title <strong>string</strong>, 默认值：当前页面 <code>&lt;title&gt;</code> 中的内容</p><p>配置头部中间的标题，这部分将显示在头部标题栏中，超长会自动截断。</p><p><mip-img layout="responsive" width="396" height="56" popup src="http://boscdn.bpc.baidu.com/assets/mip2/mip-title.png"></mip-img></p></li><li><p>header.logo <strong>string</strong>, 默认值：无</p><p>配置头部左侧的 LOGO 的 URL，建议是一个正方形的图片，长宽不小于 64px。如果不配置则不显示 LOGO，<strong>不会留白</strong>。</p><p><mip-img layout="responsive" width="386" height="51" popup src="http://boscdn.bpc.baidu.com/assets/mip2/mip-logo.png"></mip-img></p></li><li><p>header.buttonGroup <strong>Array</strong>, 默认值：<code>[]</code></p><p>配置头部右侧的按钮区域出什么样的按钮及其文字，点击行为等。这个配置项是一个由对象组成的数组。配置顺序从左到右。</p><p><mip-img layout="responsive" width="387" height="53" popup src="http://boscdn.bpc.baidu.com/assets/mip2/mip-button.png"></mip-img></p><p>MIP 内置的按钮分为三种，分别是 <code>icon</code>, <code>button</code>, <code>dropdown</code>，用 <code>type</code> 进行区分。<strong>如果不填写 <code>type</code>，则这个配置对象会被跳过，不进行渲染</strong>。这三种的配置方法不尽相同，下面详细介绍。<code>buttonGroup</code> 内部所有的配置项均 <strong>没有</strong> 默认值。</p><ol><li><p>icon</p><p><code>type</code> 为 <code>icon</code> 时需要额外提供 <code>name</code>，<code>text</code> 和 <code>link</code> 三个属性。</p><ul><li><p>name: <strong>string</strong>。<strong>必填</strong>。标识按钮的名字。在点击按钮后，会向 <strong>当前页面</strong> 触发名为 <code>appheader:click-[name]</code> 的事件供其他组件监听并处理。例如当 <code>name</code> 为 <code>search</code> 时，事件名称为 <code>appheader:click-search</code>。</p></li><li><p>text: <strong>string</strong>。<strong>必填</strong>。标识选用哪种图标。内部使用 material icons，开发者可以在 <a href="https://material.io/tools/icons/?style=baseline">这里</a> 找到所有可用的图标。</p></li><li><p>link: <strong>string</strong>。<strong>选填</strong>。标识点击之后跳转页面的 URL。<strong>只能跳往站内的 MIP 页面</strong>。如果不填，则点击后不跳转。</p><p>icon 正确配置示例：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div></div><code class="lang-json">{
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre><p>注意点：</p><ol><li>一个页面 <strong>至多只允许存在一个</strong> <code>&lt;mip-shell&gt;</code> 配置项。可以不写则使用默认配置项。</li><li><code>&lt;mip-shell&gt;</code> 的位置 <strong>必须</strong> 位于 <code>&lt;body&gt;</code> 内部，并且 <strong>必须</strong> 在 mip script，mip.js 和组件 js 文件之前。(见本文档前半部分 js 文件顺序章节)</li><li><code>&lt;mip-shell&gt;</code> 内部只允许存在一个 <code>&lt;script&gt;</code> 节点，并且 <code>type</code> 必须设置为 <code>application/json</code>。</li><li><code>&lt;script&gt;</code>内部是一个合法的 JSON 对象。</li></ol><h4 id="配置项"><a href="#配置项" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>配置项</h4><p>目前 <code>&lt;mip-shell&gt;</code> 支持包含一个 <strong>基于路由</strong> 的，<strong>全局性</strong> 的配置对象。其中的 <code>routes</code> 存放了各个页面及其对应的配置对象，对应关系通过 <code>pattern</code> 描述。在各个页面切换时，会通过正则匹配页面 URL 和 <code>pattern</code>，应用对应的 App Shell 配置。</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div></div><code class="lang-json">{
+    &quot;routes&quot;: [
+        {
+            &quot;pattern&quot;: &quot;/index.html&quot;,
+            &quot;meta&quot;: {...}
+        },
+        {
+            &quot;pattern&quot;: &quot;*&quot;,
+            &quot;meta&quot;: {...}
+        }
+    ]
+}</code></pre><p>注意点：</p><ul><li><code>*</code> 可以匹配所有 URL，建议放在 <code>routes</code> 数组的最后一项，并且在此设置整个站点的默认配置数据，例如默认标题等等。</li><li><code>pattern</code> 虽然是字符串类型，但其内容实质是一个正则表达式。因此也可以写成 <code>&quot;/\w?detail$&quot;</code> 用以匹配例如 <code>/detail</code>, <code>/productdetail</code> 这样的 URL。</li></ul><p>每个 <code>meta</code> 对象包括：</p><ol><li><code>view</code> 对象。用以配置整站的一些数据。<strong>每个页面都应当包含相同的 <code>view</code> 配置</strong></li><li><code>header</code> 对象。用以配置头部标题栏的各项内容</li></ol><ul><li><p>view.isIndex <strong>boolean</strong>，默认值：<code>false</code></p><p>指明当前页面是否为首页。站点首页在头部标题栏左边不出现后退按钮。</p></li><li><p>header.show <strong>boolean</strong>，默认值：<code>false</code></p><p>指明当前页面是否需要展现头部标题栏。</p></li><li><p>header.bouncy <strong>boolean</strong>，默认值：<code>true</code></p><p>开启头部配合页面滚动方向进行展示隐藏效果</p></li><li><p>header.title <strong>string</strong>, 默认值：当前页面 <code>&lt;title&gt;</code> 中的内容</p><p>配置头部中间的标题，这部分将显示在头部标题栏中，超长会自动截断。</p><p><mip-img layout="responsive" width="320" height="320" popup src="http://boscdn.bpc.baidu.com/assets/mip2/mip-title-2.png"></mip-img></p></li><li><p>header.logo <strong>string</strong>, 默认值：无</p><p>配置头部左侧的 LOGO 的 URL，建议是一个正方形的图片，长宽不小于 64px。如果不配置则不显示 LOGO，<strong>不会留白</strong>。</p><p><mip-img layout="responsive" width="320" height="320" popup src="http://boscdn.bpc.baidu.com/assets/mip2/mip-logo-2.png"></mip-img></p></li><li><p>header.xiongzhang <strong>boolean</strong>, 默认值：<code>false</code></p><p>配置站点为接入熊掌号极速服务的站点。使用熊掌号配置的站点，头部按钮不可配置，由熊掌号负责控制。因此会忽略 <code>header.buttonGroup</code> 配置项。</p></li><li><p>header.buttonGroup <strong>Array</strong>, 默认值：<code>[]</code></p><p>配置头部右侧的按钮区域展开后展现的按钮及其文字，点击行为等。这个配置项是一个由对象组成的数组。<strong>仅当 <code>header.xiongzhang</code> 为 <code>false</code> 或者不配置时生效。熊掌号的按钮不可配置</strong>。</p><p>右侧的关闭按钮在搜索结果页中会自动展现，单独打开时不展现，不需要额外配置。</p><p><mip-img layout="responsive" width="320" height="320" popup src="http://boscdn.bpc.baidu.com/assets/mip2/mip-button-2.png"></mip-img></p><!--TODO 增加一张浮层的图片--><p>每一个配置对象由 3 个属性构成，分别是 <code>name</code>, <code>text</code> 和 <code>link</code>。这三个配置项均 <strong>没有</strong> 默认值，如果缺少某个则被认为非法配置，<strong>会被跳过而不进行渲染</strong>。</p><ul><li><p>name: <strong>string</strong>。<strong>必填</strong>。标识按钮的名字。在点击按钮后，会向 <strong>当前页面</strong> 触发名为 <code>appheader:click-[name]</code> 的事件供其他组件监听并处理。例如当 <code>name</code> 为 <code>search</code> 时，事件名称为 <code>appheader:click-search</code>。</p></li><li><p>text: <strong>string</strong>。<strong>必填</strong>。标识按钮的显示文字。</p></li><li><p>link: <strong>string</strong>。<strong>选填</strong>。标识点击之后跳转页面的 URL。<strong>只能跳往站内的 MIP 页面</strong>，和 mip-link 的规范相同，取值范围：<code>https?://.*</code>, <code>mailto:.*</code>, <code>tel:.*</code>。如果不填，则点击后不跳转。<strong>跳转不影响事件的触发，两者同时进行。</strong></p><p>正确配置示例：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div></div><code class="lang-json">{
   <span class="hljs-attr">"buttonGroup"</span>: [
       {
-          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"icon"</span>,
           <span class="hljs-attr">"name"</span>: <span class="hljs-string">"search"</span>,
           <span class="hljs-attr">"text"</span>: <span class="hljs-string">"search"</span>,
-          <span class="hljs-attr">"link"</span>: <span class="hljs-string">"/anotherMIPPage.html"</span>
+          <span class="hljs-attr">"link"</span>: <span class="hljs-string">"https://somesite.com/mip/anotherMIPPage.html"</span>
       }
   ]
-}</code></pre></li></ul></li><li><p>button</p><p><code>type</code> 为 <code>button</code> 时需要额外提供 <code>name</code>, <code>text</code>, <code>link</code> 和 <code>outline</code> 四个属性。</p><p><code>name</code>,<code>link</code> 两个属性和 <code>icon</code> 的情况类似，不再重复。</p><ul><li><p>text: <strong>string</strong>。<strong>必填</strong>。按钮中的文字内容。</p></li><li><p>outline: <strong>boolean</strong>。<strong>选填</strong>。默认值：<code>false</code>。可以用来配置按钮的两种样式，预览效果如下：（“关注”按钮 <code>outline</code> 为 <code>false</code>，“发消息”按钮 <code>outline</code> 为 <code>true</code>）</p><p><mip-img layout="responsive" width="394" height="57" popup src="http://boscdn.bpc.baidu.com/assets/mip2/mip-button-outline.png"></mip-img></p><p>button 正确配置示例：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div></div><code class="lang-json">{
-  <span class="hljs-attr">"buttonGroup"</span>: [
-      {
-          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"button"</span>,
-          <span class="hljs-attr">"name"</span>: <span class="hljs-string">"chat"</span>,
-          <span class="hljs-attr">"text"</span>: <span class="hljs-string">"发消息"</span>,
-          <span class="hljs-attr">"link"</span>: <span class="hljs-string">"/anotherMIPPage.html"</span>,
-          <span class="hljs-attr">"outline"</span>: <span class="hljs-literal">true</span>
-      }
-  ]
-}</code></pre></li></ul></li><li><p>dropdown</p><p><code>type</code> 为 <code>dropdown</code> 时需要额外提供 <code>items</code> 属性。它又是一个数组，内部可以包裹的对象需要提供 <code>name</code>, <code>text</code>, <code>link</code> 三个属性，用以标明下拉菜单点开后包含哪些按钮。这三个属性和之前 <code>type</code> 等于 <code>button</code> 时完全相同，不再重复。效果预览如下：</p><p><mip-img layout="responsive" width="425" height="134" popup src="http://boscdn.bpc.baidu.com/assets/mip2/mip-button-dropdown.png"></mip-img></p><p>dropdown 正确配置示例：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div></div><code class="lang-json">{
-     <span class="hljs-attr">"buttonGroup"</span>: [
-         {
-             <span class="hljs-attr">"type"</span>: <span class="hljs-string">"dropdown"</span>,
-             <span class="hljs-attr">"items"</span>: [
-                 {
-                     <span class="hljs-attr">"name"</span>: <span class="hljs-string">"subscribe"</span>,
-                     <span class="hljs-attr">"text"</span>: <span class="hljs-string">"关注"</span>,
-                     <span class="hljs-attr">"link"</span>: <span class="hljs-string">"/anotherMIPPage.html"</span>
-                 },
-                 {
-                     <span class="hljs-attr">"name"</span>: <span class="hljs-string">"chat"</span>,
-                     <span class="hljs-attr">"text"</span>: <span class="hljs-string">"发消息"</span>
-                 }
-             ]
-         }
-     ]
- }</code></pre></li></ol></li></ul><h4 id="完整示例"><a href="#完整示例" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>完整示例</h4><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div>32</div><div>33</div><div>34</div><div>35</div><div>36</div><div>37</div><div>38</div><div>39</div><div>40</div><div>41</div><div>42</div><div>43</div><div>44</div><div>45</div><div>46</div><div>47</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-shell</span>&gt;</span>
+}</code></pre></li></ul></li></ul><h4 id="完整示例"><a href="#完整示例" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>完整示例</h4><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div>32</div><div>33</div><div>34</div><div>35</div><div>36</div><div>37</div><div>38</div><div>39</div><div>40</div><div>41</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-shell</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
         {
-            <span class="hljs-string">"header"</span>: {
-                <span class="hljs-string">"title"</span>: <span class="hljs-string">"Mip Index"</span>,
-                <span class="hljs-string">"logo"</span>: <span class="hljs-string">"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3010417400,2137373730&amp;fm=27&amp;gp=0.jpg"</span>,
-                <span class="hljs-string">"buttonGroup"</span>: [
-                    {
-                        <span class="hljs-string">"type"</span>: <span class="hljs-string">"button"</span>,
-                        <span class="hljs-string">"name"</span>: <span class="hljs-string">"subscribe"</span>,
-                        <span class="hljs-string">"text"</span>: <span class="hljs-string">"关注"</span>,
-                        <span class="hljs-string">"link"</span>: <span class="hljs-string">"/anotherMIPPage.html"</span>
-                    },
-                    {
-                        <span class="hljs-string">"type"</span>: <span class="hljs-string">"button"</span>,
-                        <span class="hljs-string">"name"</span>: <span class="hljs-string">"chat"</span>,
-                        <span class="hljs-string">"text"</span>: <span class="hljs-string">"发消息"</span>,
-                        <span class="hljs-string">"outline"</span>: <span class="hljs-literal">true</span>
-                    },
-                    {
-                        <span class="hljs-string">"type"</span>: <span class="hljs-string">"icon"</span>,
-                        <span class="hljs-string">"name"</span>: <span class="hljs-string">"search"</span>,
-                        <span class="hljs-string">"text"</span>: <span class="hljs-string">"search"</span>,
-                        <span class="hljs-string">"link"</span>: <span class="hljs-string">"/searchMIPPage.html"</span>
-                    },
-                    {
-                        <span class="hljs-string">"type"</span>: <span class="hljs-string">"dropdown"</span>,
-                        <span class="hljs-string">"items"</span>: [
-                            {
-                                <span class="hljs-string">"name"</span>: <span class="hljs-string">"subscribe"</span>,
-                                <span class="hljs-string">"text"</span>: <span class="hljs-string">"关注"</span>,
-                                <span class="hljs-string">"link"</span>: <span class="hljs-string">"/anotherMIPPage.html"</span>
-                            },
-                            {
-                                <span class="hljs-string">"name"</span>: <span class="hljs-string">"chat"</span>,
-                                <span class="hljs-string">"text"</span>: <span class="hljs-string">"发消息"</span>
-                            }
-                        ]
+            <span class="hljs-string">"routes"</span>: [
+                {
+                    <span class="hljs-string">"pattern"</span>: <span class="hljs-string">"/index.html"</span>,
+                    <span class="hljs-string">"meta"</span>: {
+                       <span class="hljs-string">"header"</span>: {
+                            <span class="hljs-string">"show"</span>: <span class="hljs-literal">true</span>,
+                            <span class="hljs-string">"title"</span>: <span class="hljs-string">"Mip Index"</span>,
+                            <span class="hljs-string">"logo"</span>: <span class="hljs-string">"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3010417400,2137373730&amp;fm=27&amp;gp=0.jpg"</span>,
+                            <span class="hljs-string">"buttonGroup"</span>: [
+                                {
+                                    <span class="hljs-string">"name"</span>: <span class="hljs-string">"subscribe"</span>,
+                                    <span class="hljs-string">"text"</span>: <span class="hljs-string">"关注"</span>,
+                                    <span class="hljs-string">"link"</span>: <span class="hljs-string">"https://somesite.com/anotherMIPPage.html"</span>
+                                },
+                                {
+                                    <span class="hljs-string">"name"</span>: <span class="hljs-string">"chat"</span>,
+                                    <span class="hljs-string">"text"</span>: <span class="hljs-string">"发消息"</span>,
+                                }
+                            ]
+                        },
+                        <span class="hljs-string">"view"</span>: {
+                            <span class="hljs-string">"isIndex"</span>: <span class="hljs-literal">true</span>
+                        }
                     }
-                ]
-            },
-            <span class="hljs-string">"view"</span>: {
-                <span class="hljs-string">"isIndex"</span>: <span class="hljs-literal">true</span>
-            }
+                },
+                {
+                    <span class="hljs-string">"pattern"</span>: <span class="hljs-string">"*"</span>,
+                    <span class="hljs-string">"meta"</span>: {
+                        <span class="hljs-string">"header"</span>: {
+                            <span class="hljs-string">"show"</span>: <span class="hljs-literal">true</span>
+                            <span class="hljs-string">"title"</span>: <span class="hljs-string">"Default Title"</span>
+                        }
+                    }
+                }
+            ]
         }
     </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">mip-shell</span>&gt;</span></code></pre><h4 id="默认配置"><a href="#默认配置" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>默认配置</h4><p>如果开发者没有在页面中编写 <code>&lt;mip-shell&gt;</code>，那么一套默认配置会被应用。默认配置如下：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div></div><code class="lang-json">{
-    header: {
-        show: false,
-        title: &#39;&#39;,
-        logo: &#39;&#39;,
-        buttonGroup: []
-    },
-    view: {
-        isIndex: false
-    }
-};</code></pre><h3 id="页面切换方案-扩展"><a href="#页面切换方案-扩展" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>页面切换方案 (扩展)</h3><p><em>这一部分为扩展阅读，仅供开发者了解 MIP 内部的运行机制所用。跳过这部分并不影响 MIP 的正常使用</em></p><p>Page 最大的工作在于将多个独立的页面融合在一起，让它们拥有像单页应用(SPA)那样的切换效果和使用体验，解决“第二跳”的问题。这一部分简单讨论一下它的实现方案。</p><p>方案核心主要有以下几点：</p><ol><li>MIP Page 借助 iframe 实现了页面之间的互相隔离</li><li>通过 iframe 和外界的通讯来实现页面之间的通讯和传递数据</li><li>为了加载性能考虑，第一个页面维持原状，不放入 iframe 之中。</li></ol><p>在页面结构上，除了首个页面的 DOM 全部保留之外，后续页面均以 iframe 的形式存在。因为 DOM 结构的原因，在后续说明中，<strong>首个页面</strong> 等价于 <strong>外部页面</strong> 或者 <strong>外部</strong>，<strong>后续页面</strong> 等价于 <strong>内部页面</strong> 或者 <strong>内部</strong>，这里的“内外”指的就是代码执行于 iframe 的内部或者外部。</p><p>我们以第一个页面和后续页面两种情况来分开讨论一下 Page 的工作机理。</p><h4 id="首个页面"><a href="#首个页面" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>首个页面</h4><p>因为 MIP 页面是由普通 HTML 标签(如 <code>&lt;div&gt;</code>, <code>&lt;span&gt;</code> 等)和自定义标签(主要是各类 MIP 组件，如 <code>&lt;mip-data&gt;</code>, <code>&lt;mip-img&gt;</code> 等)组成，因此两者都具有 <strong>加载到 DOM 树中立刻能够由浏览器渲染</strong> 的能力（即无需等待其他 JS 执行。与之相对的如 Vue 的容器 <code>&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;</code> 在 Vue 生命周期执行之前只是一个空节点）。</p><p>正因为这种能力，在 Page 实际运行之前页面已经渲染成功了，因此如果 Page 再将内容放入 iframe 或者重新加载一个 iframe 只会减慢或者重复请求数据，影响页面性能。所以 MIP 采取了第一个页面不在 iframe 中的方案。</p><p>Page 在首个页面加载时，主要做了如下的工作：</p><ol><li><p>初始化路由相关的内容。这其中可分为几个步骤：</p><ol><li>绑定路由变化时的回调函数。在回调函数中，先判断目标页面 iframe 是否存在，如不存在则创建。之后进行切换页面的动画效果。</li><li>监听 iframe 内部发出的 <code>message</code> 事件，根据事件内容选择 <code>history.push</code>, <code>history.replace</code> 和 <code>location.href</code> 的某一种进行操作。</li><li>为所有含有 <code>mip-link</code> 或者 <code>data-type=&quot;mip&quot;</code>属性的 <code>&lt;a&gt;</code> 链接绑定事件，在回调中根据属性来决定使用 <code>router.push</code>, <code>router.replace</code> 或者 <code>location.href</code> 直接跳转。</li></ol></li><li><p>初始化 Shell 相关的内容。这里又分为两步：</p><ol><li>读取 <code>&lt;mip-shell&gt;</code> 的配置，渲染头部标题栏，插入为 <code>&lt;body&gt;</code> 的第一个子节点</li><li>监听 iframe 内部发出的 <code>message</code> 事件，读取内部的配置更新头部导航栏</li></ol></li><li><p>执行 MIP 自定义脚本 (<code>MIP.watch</code>)</p></li><li><p>在 <code>&lt;body&gt;</code> 上设置 <code>mip-ready</code> 属性，以表示初始化完成</p></li></ol><h4 id="后续页面"><a href="#后续页面" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>后续页面</h4><p>在首个页面执行的 Page 会在检测到路由变化时，创建一个 iframe 以加载目标页面。目标页面同时也是一个 MIP 页面，因此也有 Page 代码在其内部执行。在 iframe 内部的 Page 主要做了如下的工作：</p><ol><li><p>将当前页面信息添加到外部(首个页面)的路由信息中。<code>&lt;a&gt;</code> 链接的注册和首个页面类似，差别在于不是用 <code>router.push</code>, <code>router.replace</code> 或者 <code>location.href</code>，而是直接通过 <code>postMessage</code> 向外部通讯，请求外部处理路由变化。</p></li><li><p>读取 <code>&lt;mip-shell&gt;</code> 的配置，将配置通过 <code>postMessage</code> 传递到外部，供外部更新头部标题栏</p></li><li><p>执行 MIP 自定义脚本 (<code>MIP.watch</code>)</p></li><li><p>在 <code>&lt;body&gt;</code> 上设置 <code>mip-ready</code> 属性，以表示初始化完成</p></li></ol>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mip-shell</span>&gt;</span></code></pre><h4 id="默认配置"><a href="#默认配置" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>默认配置</h4><p>如果开发者没有在页面中编写 <code>&lt;mip-shell&gt;</code>，那么一套默认配置会被应用。默认配置如下，效果是隐藏掉头部：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div></div><code class="lang-json">{
+    &quot;routes&quot;: [
+        {
+            &quot;pattern&quot;: &quot;*&quot;,
+            &quot;meta&quot;: {
+                &quot;header&quot;: {
+                    &quot;show&quot;: false,
+                    &quot;title&quot;: &quot;&quot;,
+                    &quot;logo&quot;: &quot;&quot;,
+                    &quot;xiongzhang&quot;: false,
+                    &quot;buttonGroup&quot;: []
+                },
+                &quot;view&quot;: {
+                    &quot;isIndex&quot;: false
+                }
+            }
+        }
+    ]
+};</code></pre><h4 id="头部标题的生效顺序"><a href="#头部标题的生效顺序" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>头部标题的生效顺序</h4><p>MIP 页面总共有 4 处可以配置头部标题，它们的生效顺序依次是：</p><ol><li><code>&lt;a&gt;</code> 链接中的 <code>data-title</code> 属性</li><li><code>&lt;mip-shell&gt;</code> 中每个配置项的 <code>title</code> 属性</li><li><code>&lt;a&gt;</code> 链接的 <code>innerHTML</code></li><li>目标页面的 <code>&lt;title&gt;</code></li></ol><p>举例来说，在 A 页面存在如下配置：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">mip-shell</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
+            {
+                <span class="hljs-string">"routes"</span>: [
+                    {
+                        <span class="hljs-string">"pattern"</span>: <span class="hljs-string">"*"</span>,
+                        <span class="hljs-string">"meta"</span>: {<span class="hljs-string">"header"</span>: {<span class="hljs-string">"title"</span>: <span class="hljs-string">"Set in meta"</span>}}
+                    }
+                ]
+            }
+            </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://somesite.com/B.html"</span> <span class="hljs-attr">data-title</span>=<span class="hljs-string">"Set in data"</span>&gt;</span>Set in HTML<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">mip-shell</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre><p>那么在打开 B 页面时， B 页面的标题(包括 loading 页面) 将会是 <code>&quot;Set in data&quot;</code>。 如果没有设置 <code>data-title</code>，那么标题将是 <code>&quot;Set in meta&quot;</code>。 如果 <code>data-title</code> 和 <code>&lt;mip-shell&gt;</code> 均没有设置，那么标题将是 <code>&quot;Set in HTML&quot;</code>。 最后，如果都没有设置，将从 <code>&lt;title&gt;</code> 中读取，<strong>但 loading 页面将不会展现标题</strong>。</p><h3 id="页面切换方案-扩展"><a href="#页面切换方案-扩展" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>页面切换方案 (扩展)</h3><p><em>这一部分为扩展阅读，仅供开发者了解 MIP 内部的运行机制所用。跳过这部分并不影响 MIP 的正常使用</em></p><p>Page 最大的工作在于将多个独立的页面融合在一起，让它们拥有像单页应用(SPA)那样的切换效果和使用体验，解决“第二跳”的问题。这一部分简单讨论一下它的实现方案。</p><p>方案核心主要有以下几点：</p><ol><li>MIP Page 借助 iframe 实现了页面之间的互相隔离</li><li>通过 iframe 和外界的通讯来实现页面之间的通讯和传递数据</li><li>为了加载性能考虑，第一个页面维持原状，不放入 iframe 之中。</li></ol><p>在页面结构上，除了首个页面的 DOM 全部保留之外，后续页面均以 iframe 的形式存在。因为 DOM 结构的原因，在后续说明中，<strong>首个页面</strong> 等价于 <strong>外部页面</strong> 或者 <strong>外部</strong>，<strong>后续页面</strong> 等价于 <strong>内部页面</strong> 或者 <strong>内部</strong>，这里的“内外”指的就是代码执行于 iframe 的内部或者外部。</p><p>我们以第一个页面和后续页面两种情况来分开讨论一下 Page 的工作机理。</p><h4 id="首个页面"><a href="#首个页面" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>首个页面</h4><p>因为 MIP 页面是由普通 HTML 标签(如 <code>&lt;div&gt;</code>, <code>&lt;span&gt;</code> 等)和自定义标签(主要是各类 MIP 组件，如 <code>&lt;mip-data&gt;</code>, <code>&lt;mip-img&gt;</code> 等)组成，因此两者都具有 <strong>加载到 DOM 树中立刻能够由浏览器渲染</strong> 的能力（即无需等待其他 JS 执行。与之相对的如 Vue 的容器 <code>&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;</code> 在 Vue 生命周期执行之前只是一个空节点）。</p><p>正因为这种能力，在 Page 实际运行之前页面已经渲染成功了，因此如果 Page 再将内容放入 iframe 或者重新加载一个 iframe 只会减慢或者重复请求数据，影响页面性能。所以 MIP 采取了第一个页面不在 iframe 中的方案。</p><p>Page 在首个页面加载时，主要做了如下的工作：</p><ol><li><p>初始化路由相关的内容。这其中可分为几个步骤：</p><ol><li>绑定路由变化时的回调函数。在回调函数中，先判断目标页面 iframe 是否存在，如不存在则创建。之后进行切换页面的动画效果。</li><li>监听 iframe 内部发出的 <code>message</code> 事件，根据事件内容选择 <code>history.push</code>, <code>history.replace</code> 和 <code>location.href</code> 的某一种进行操作。</li><li>为所有含有 <code>mip-link</code> 或者 <code>data-type=&quot;mip&quot;</code>属性的 <code>&lt;a&gt;</code> 链接绑定事件，在回调中根据属性来决定使用 <code>router.push</code>, <code>router.replace</code> 或者 <code>location.href</code> 直接跳转。</li></ol></li><li><p>初始化 Shell 相关的内容。这里又分为两步：</p><ol><li>读取 <code>&lt;mip-shell&gt;</code> 的配置，渲染头部标题栏，插入为 <code>&lt;body&gt;</code> 的第一个子节点</li><li>监听 iframe 内部发出的 <code>message</code> 事件，读取内部的配置更新头部导航栏</li></ol></li><li><p>执行 MIP 自定义脚本 (<code>MIP.watch</code>)</p></li><li><p>在 <code>&lt;body&gt;</code> 上设置 <code>mip-ready</code> 属性，以表示初始化完成</p></li></ol><h4 id="后续页面"><a href="#后续页面" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>后续页面</h4><p>在首个页面执行的 Page 会在检测到路由变化时，创建一个 iframe 以加载目标页面。目标页面同时也是一个 MIP 页面，因此也有 Page 代码在其内部执行。在 iframe 内部的 Page 主要做了如下的工作：</p><ol><li><p>将当前页面信息添加到外部(首个页面)的路由信息中。<code>&lt;a&gt;</code> 链接的注册和首个页面类似，差别在于不是用 <code>router.push</code>, <code>router.replace</code> 或者 <code>location.href</code>，而是直接通过 <code>postMessage</code> 向外部通讯，请求外部处理路由变化。</p></li><li><p>读取 <code>&lt;mip-shell&gt;</code> 的配置，将配置通过 <code>postMessage</code> 传递到外部，供外部更新头部标题栏</p></li><li><p>执行 MIP 自定义脚本 (<code>MIP.watch</code>)</p></li><li><p>在 <code>&lt;body&gt;</code> 上设置 <code>mip-ready</code> 属性，以表示初始化完成</p></li></ol>
             </div>
         </div>
     </div>
@@ -957,6 +972,7 @@
         <a class="chapter-title" href="#配置项">配置项</a>
         <a class="chapter-title" href="#完整示例">完整示例</a>
         <a class="chapter-title" href="#默认配置">默认配置</a>
+        <a class="chapter-title" href="#头部标题的生效顺序">头部标题的生效顺序</a>
 </div>
         </div>
         <a class="chapter-title" href="#页面切换方案-扩展">页面切换方案 (扩展)</a>

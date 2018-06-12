@@ -4,7 +4,7 @@
   "description": "mip2 website",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf docs tmp && node src/index.js",
+    "build": "rm -rf tmp mip && node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

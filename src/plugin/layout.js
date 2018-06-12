@@ -220,18 +220,24 @@ function extractStyle(html) {
  * @param {Object} logger logger
  * @return {Object} 宽高对象
  */
-function getImageSize(src, basePath = '', logger) {
-    if (/^http/.test(src)) {
-        return imageSize.getRemoteImageSize(src, logger);
+async function getImageSize(src, basePath = '', logger) {
+    try {
+        if (/^http/.test(src)) {
+            return await imageSize.getRemoteImageSize(src, logger);
+        }
+    
+        if (/\s*/.test(src)) {
+            return {width: 320, height: 320};
+        }
+    
+        if (basePath) {
+            src = path.resolve(basePath, src);
+        }
+    
+        return await imageSize.getLocalImageSize(src, logger);
     }
-
-    if (/\s*/.test(src)) {
+    catch (e) {
         return {width: 320, height: 320};
     }
 
-    if (basePath) {
-        src = path.resolve(basePath, src);
-    }
-
-    return imageSize.getLocalImageSize(src, logger);
 }

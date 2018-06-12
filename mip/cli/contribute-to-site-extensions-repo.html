@@ -3,10 +3,10 @@
 <html mip>
     <head>
         <meta charset="utf-8">
-        <title>mip-ad:ad-comm 通用广告 | MIP</title>
+        <title>提交站长组件 | MIP</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
-        <meta name="description" content="&lt;mip-ad&gt; 的一种类型：通用广告。">
+        <meta name="description" content="与 MIP 1.0 采用的方式不同，MIP 2.0 以项目（一个站点）的粒度来管理站长组件。每一个项目（使用 mip2 init 命令生成）中包含了这个站点所需的所有自定义组件。">
         <meta name="keywords" content="MIP2">
         <meta name="theme-color" content="#2874f0">
        <!--  <link rel="stylesheet" href="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.css"> -->
@@ -827,42 +827,31 @@
     <div class="markdown-wrapper">
         <div class="md-content ui-dep-1">
             <div class="markdown-body">
-                <h1 id="mipadadcomm-通用广告"><a href="#mipadadcomm-通用广告" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>mip-ad:ad-comm 通用广告</h1><p><code>&lt;mip-ad&gt;</code> 的一种类型：通用广告。</p><table><thead><tr><th>标题</th><th>内容</th></tr></thead><tbody><tr><td>类型</td><td>通用</td></tr><tr><td>支持布局</td><td>reponsive, fixed-height, fixed</td></tr><tr><td>所需脚本</td><td><a href="https://c.mipcdn.com/static/v1/mip-ad/mip-ad.js">https://c.mipcdn.com/static/v1/mip-ad/mip-ad.js</a></td></tr></tbody></table><h2 id="示例"><a href="#示例" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>示例</h2><h3 id="banner-样式"><a href="#banner-样式" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>banner 样式</h3><p><code>layout=&quot;responsive&quot;</code> 为组件布局设定（<a href="/mip/components/layout.html">布局文档</a>）。<code>width</code> 和 <code>height</code> 请根据广告实际宽高填写。</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-ad</span>
-    <span class="hljs-attr">layout</span>=<span class="hljs-string">"responsive"</span>
-    <span class="hljs-attr">width</span>=<span class="hljs-string">"414"</span>
-    <span class="hljs-attr">height</span>=<span class="hljs-string">"80"</span>
-    <span class="hljs-attr">type</span>=<span class="hljs-string">"ad-comm"</span>
-    <span class="hljs-attr">tpl</span>=<span class="hljs-string">"onlyImg"</span>
-    <span class="hljs-attr">href</span>=<span class="hljs-string">"//m.baidu.com/s?word=百度"</span>
-    <span class="hljs-attr">data-size</span>=<span class="hljs-string">"1242 180"</span>
-    <span class="hljs-attr">src</span>=<span class="hljs-string">"https://www.mipengine.org/static/img/sample_01.jpg"</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">mip-ad</span>&gt;</span></code></pre><h3 id="无图样式"><a href="#无图样式" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>无图样式</h3><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-ad</span>
-    <span class="hljs-attr">layout</span>=<span class="hljs-string">"fixed-height"</span>
-    <span class="hljs-attr">height</span>=<span class="hljs-string">"80"</span>
-    <span class="hljs-attr">type</span>=<span class="hljs-string">"ad-comm"</span>
-    <span class="hljs-attr">tpl</span>=<span class="hljs-string">"noneImg"</span>
-    <span class="hljs-attr">href</span>=<span class="hljs-string">"//m.baidu.com/s?word=百度"</span>
-    <span class="hljs-attr">data-title</span>=<span class="hljs-string">"广告标题"</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">mip-ad</span>&gt;</span></code></pre><h3 id="单图样式"><a href="#单图样式" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>单图样式</h3><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-ad</span>
-    <span class="hljs-attr">layout</span>=<span class="hljs-string">"reponsive"</span>
-    <span class="hljs-attr">width</span>=<span class="hljs-string">"414"</span>
-    <span class="hljs-attr">height</span>=<span class="hljs-string">"80"</span>
-    <span class="hljs-attr">type</span>=<span class="hljs-string">"ad-comm"</span>
-    <span class="hljs-attr">tpl</span>=<span class="hljs-string">"oneImg"</span>
-    <span class="hljs-attr">href</span>=<span class="hljs-string">"//m.baidu.com/s?word=百度"</span>
-    <span class="hljs-attr">data-size</span>=<span class="hljs-string">"1242 180"</span>
-    <span class="hljs-attr">src</span>=<span class="hljs-string">"https://www.mipengine.org/static/img/sample_02.jpg"</span>
-    <span class="hljs-attr">data-title</span>=<span class="hljs-string">"广告标题"</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">mip-ad</span>&gt;</span></code></pre><h3 id="多图样式"><a href="#多图样式" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>多图样式</h3><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-ad</span>
-    <span class="hljs-attr">type</span>=<span class="hljs-string">"ad-comm"</span>
-    <span class="hljs-attr">tpl</span>=<span class="hljs-string">"moreImg"</span>
-    <span class="hljs-attr">href</span>=<span class="hljs-string">"//m.baidu.com/s?word=百度"</span>
-    <span class="hljs-attr">data-size</span>=<span class="hljs-string">"1242 180"</span>
-    <span class="hljs-attr">src</span>=<span class="hljs-string">"https://www.mipengine.org/static/img/sample_01.jpg;https://www.mipengine.org/static/img/sample_02.jpg;https://www.mipengine.org/static/img/sample_03.jpg"</span>
-    <span class="hljs-attr">data-ads</span>=<span class="hljs-string">"这里是广告摘要;这里是广告摘要"</span>
-    <span class="hljs-attr">data-txt</span>=<span class="hljs-string">"这里是图片标题;这里是图片标题;这里是图片标题啊啊啊"</span>
-    <span class="hljs-attr">data-title</span>=<span class="hljs-string">"这里是广告标题这里是广告标题标"</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">mip-ad</span>&gt;</span></code></pre><h2 id="属性"><a href="#属性" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>属性</h2><h3 id="type"><a href="#type" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>type</h3><p>说明：广告类型 必选项：是 类型：字符串 取值：ad-comm 默认值：无</p><h3 id="tpl"><a href="#tpl" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>tpl</h3><p>说明：样式 必选项：是 类型：字符串 取值：banner, noneImg, oneImg, moreImg 默认值：无</p><h3 id="href"><a href="#href" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>href</h3><p>说明：跳转地址 必选项：是 类型：URL 默认值：无</p><h3 id="src"><a href="#src" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>src</h3><p>说明：图片地址，在多图类型下，多张图片的地址用半角分号(;)分隔开 必选项：否 类型：字符串 默认值：无</p><h3 id="datasize"><a href="#datasize" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>data-size</h3><p>说明：图片大小，用来设定图片的宽高比，在有图片的情况下需要设置 必选项：否（广告类型为 banner 时，必填） 类型：两数字用空格分开 默认值：无</p><h3 id="datatitle"><a href="#datatitle" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>data-title</h3><p>说明：广告标题，可设置为广告描述 必选项：（banner，多图）否；（无图，单图）是 类型：字符串 默认值：无</p><h3 id="datatxt"><a href="#datatxt" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>data-txt</h3><p>说明：广告子标题，多图时可用 必选项：否 类型：字符串 默认值：无</p><h3 id="dataads"><a href="#dataads" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>data-ads</h3><p>说明：广告摘要，多图时可用 必选项：否 类型：字符串 默认值：无</p>
+                <h1 id="提交站长组件"><a href="#提交站长组件" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>提交站长组件</h1><h2 id="站长组件仓库说明"><a href="#站长组件仓库说明" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>站长组件仓库说明</h2><p>与 MIP 1.0 采用的方式不同，MIP 2.0 以项目（一个站点）的粒度来管理站长组件。每一个项目（使用 <code>mip2 init</code> 命令生成）中包含了这个站点所需的所有自定义组件。</p><p>MIP 2.0 的站长组件托管在 <a href="https://github.com/mipengine/mip2-extensions-platform">Github 站长组件仓库</a>，项目结构大致如下：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div></div><code>├──sites
+    ├── test.a.com
+    │   ├── common
+    │   ├── components
+    │   ├── example
+    │   ├── mip.config.js
+    │   ├── node_modules
+    │   ├── package-lock.json
+    │   ├── package.json
+    │   └── static
+    └── test.b.com
+        ├── common
+        ├── components
+        ├── example
+        ├── mip.config.js
+        ├── package-lock.json
+        ├── package.json
+        └── static
+├── LICENSE
+└── README.md</code></pre><p><code>sites</code> 目录即是站点项目的集合。示例中已经托管了 <code>test.a.com</code> 和 <code>test.b.com</code> 两个站点的自定义组件。站长各自在其 <code>components</code> 目录下<a href="/mip/cli/start-writing-first-mip#编写-mip-组件.html">编写组件</a>。</p><p>本地需求实现并测试无误后，通过 <code>Pull Request</code> 的方式（暂时方案）提交审核，官方通过审核后会定期编译上线。</p><p>供站点使用的最终发布地址为：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div></div><code class="lang-bash">https://c.mipcdn.com/extensions/platform/v2/{站点项目名}/{组件名}/{组件名}.js
+
+<span class="hljs-comment"># 例如 test.a.com 下的 mip-example 组件</span>
+
+https://c.mipcdn.com/extensions/platform/v2/test.a.com/mip-example/mip-example.js</code></pre><h2 id="站长组件开发、提交流程"><a href="#站长组件开发、提交流程" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>站长组件开发、提交流程</h2><p>1.<strong>fork 官方组件仓库</strong></p><p>在 Github fork <code>https://github.com/mipengine/mip2-extensions-platform</code> 仓库，并 <code>clone</code> 到本地。</p><p>2.<strong>开发</strong></p><p>我们进入 <code>sites</code> 目录，如果是第一次提交一个站点的组件，运行命令</p><pre><div class="code-index"><div>1</div></div><code>$ mip2 init</code></pre><p>按照提示输入项目名称，如 <code>cafe.com</code>，新增了一个站点项目。</p><pre><div class="code-index"><div>1</div></div><code>$ cd cafe.com</code></pre><p>切换到站点项目目录即可快速进行组件开发工作了：</p><ul><li><a href="/mip/cli/start-writing-first-mip#2-新建一个自定义组件.html">新增组件</a></li><li><a href="/mip/cli/component-testing.html">调试组件</a></li><li><a href="/mip/cli/cli-usage#组件和页面校验.html">校验组件</a></li></ul><p>3.<strong>发起 Pull Request</strong></p><p>开发完成后，<a href="https://help.github.com/articles/creating-a-pull-request-from-a-fork/">发起 pull Request</a></p><p>4.<strong>官方审核通过，合入上线</strong></p><p>官方审核通过后，代码将合入 <code>master</code> 分支并上线。若不通过，请根据反馈修改后再次提交。</p><p>5.<strong>调用组件脚本</strong></p><pre><div class="code-index"><div>1</div><div>2</div></div><code class="lang-javascript"><span class="hljs-comment">// 页面中引用</span>
+&lt;script src=<span class="hljs-string">"https://c.mipcdn.com/extensions/platform/v2/{站点项目名}/{组件名}/{组件名}.js"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span></code></pre>
             </div>
         </div>
     </div>
@@ -873,31 +862,11 @@
                 <div class="sidebar-right-inner">
                     <div class="chapter-wrapper ui-dep-1">
                         <div class="wd-infinity-chapters">
-        <a class="chapter-title" href="#mipadadcomm-通用广告">mip-ad:ad-comm 通用广告</a>
+        <a class="chapter-title" href="#提交站长组件">提交站长组件</a>
         <div class="children-0">
 <div class="wd-infinity-chapters">
-        <a class="chapter-title" href="#示例">示例</a>
-        <div class="children-1">
-<div class="wd-infinity-chapters">
-        <a class="chapter-title" href="#banner-样式">banner 样式</a>
-        <a class="chapter-title" href="#无图样式">无图样式</a>
-        <a class="chapter-title" href="#单图样式">单图样式</a>
-        <a class="chapter-title" href="#多图样式">多图样式</a>
-</div>
-        </div>
-        <a class="chapter-title" href="#属性">属性</a>
-        <div class="children-1">
-<div class="wd-infinity-chapters">
-        <a class="chapter-title" href="#type">type</a>
-        <a class="chapter-title" href="#tpl">tpl</a>
-        <a class="chapter-title" href="#href">href</a>
-        <a class="chapter-title" href="#src">src</a>
-        <a class="chapter-title" href="#datasize">data-size</a>
-        <a class="chapter-title" href="#datatitle">data-title</a>
-        <a class="chapter-title" href="#datatxt">data-txt</a>
-        <a class="chapter-title" href="#dataads">data-ads</a>
-</div>
-        </div>
+        <a class="chapter-title" href="#站长组件仓库说明">站长组件仓库说明</a>
+        <a class="chapter-title" href="#站长组件开发、提交流程">站长组件开发、提交流程</a>
 </div>
         </div>
 </div>
