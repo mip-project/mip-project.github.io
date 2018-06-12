@@ -847,11 +847,11 @@
   <span class="hljs-tag">&lt;<span class="hljs-name">mip-img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://somecdn.baidu.com/xxx/xxx.png"</span> /&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">mip-img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://somecdn.baidu.com/xxx/xxx.png"</span> /&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">mip-img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://somecdn.baidu.com/xxx/xxx.png"</span> /&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">mip-carousel</span>&gt;</span></code></pre><h2 id="数据传入"><a href="#数据传入" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>数据传入</h2><p>customElement 其实就是和我们一只熟悉的 HTML 标签是一样的，但是我们怎么保证 customElement 对应的组件能够明确的执行正确的逻辑呢？说白了，怎么让 MIP 组件实例对象能够顺利的拿到 customElement 的数据呢？</p><h3 id="props"><a href="#props" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>props</h3><p>从技术上角度，在 MIP 1.0 中，MIP 组件实例是通过 DOM 操作读取 customElement 的属性值的方式来获取数据（这符合常规的 HTML 标签书写方式），然后在组件实例内部使用这些 customElement 属性值进行一系列的逻辑处理。</p><p>那么在 MIP 2.0 中，同样还是通过 customElement 的属性值的方式来传递数据，但是在组件中，我们不需要再通过 DOM 操作的方式来读取属性值获取数据了，我们借助了 Vue 组件的 props 机制：</p><p>我们看一下下面的例子：</p><pre><div class="code-index"><div>1</div><div>2</div></div><code class="lang-html"><span class="hljs-comment">&lt;!--mip.html--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">mip-carousel</span>&gt;</span></code></pre><h2 id="数据传入"><a href="#数据传入" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>数据传入</h2><p>customElement 其实就是和我们一直熟悉的 HTML 标签是一样的，但是我们怎么保证 customElement 对应的组件能够明确的执行正确的逻辑呢？说白了，怎么让 MIP 组件实例对象能够顺利的拿到 customElement 的数据呢？</p><h3 id="props"><a href="#props" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>props</h3><p>从技术上角度，在 MIP 1.0 中，MIP 组件实例是通过 DOM 操作读取 customElement 的属性值的方式来获取数据（这符合常规的 HTML 标签书写方式），然后在组件实例内部使用这些 customElement 属性值进行一系列的逻辑处理。</p><p>那么在 MIP 2.0 中，同样还是通过 customElement 的属性值的方式来传递数据，但是在组件中，我们不需要再通过 DOM 操作的方式来读取属性值获取数据了，我们借助了 Vue 组件的 props 机制：</p><p>我们看一下下面的例子：</p><pre><div class="code-index"><div>1</div><div>2</div></div><code class="lang-html"><span class="hljs-comment">&lt;!--mip.html--&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">mip-hello-world</span> <span class="hljs-attr">attr1</span>=<span class="hljs-string">"hello"</span> <span class="hljs-attr">attr2</span>=<span class="hljs-string">"world"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-hello-world</span>&gt;</span></code></pre><p>而对应的组件如下：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div></div><code class="lang-html"><span class="hljs-comment">&lt;!--mip-hello-world.vue--&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mip-hello-world-wrap"</span>&gt;</span>
-    {{ greet }}, {{ name }}
+    {{ greeting }}, {{ name }}
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
@@ -859,7 +859,7 @@
     <span class="hljs-comment">// 如果开发自定义组件的时候，任何要用到的数据都需要在 props 这里预定义</span>
     props: [<span class="hljs-string">'attr1'</span>, <span class="hljs-string">'attr2'</span>],
     <span class="hljs-attr">computed</span>: {
-      greet() {
+      greeting() {
         <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.attr1;
       },
       name() {
@@ -919,7 +919,7 @@
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre><h2 id="嵌套标签"><a href="#嵌套标签" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>嵌套标签</h2><p>在 MIP-HTML 中还有一种常见的使用方式就是嵌套标签了:</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-demo</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"header"</span>&gt;</span>i am header<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footrt"</span>&gt;</span>i am footer<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer"</span>&gt;</span>i am footer<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">mip-demo</span>&gt;</span></code></pre><p>在 customElement 标签用法上，这种用法太常见了，但是如果将 customElement 和 MIP 组件对应上，在组件开发的时候需要考虑一些问题，假如 <code>mip-demo</code> 对应的组件如下：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div></div><code class="lang-html"><span class="hljs-comment">&lt;!--mip-demo.vue--&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mip-demo-wrap"</span>&gt;</span>
@@ -935,17 +935,17 @@
     default component content
     <span class="hljs-tag">&lt;<span class="hljs-name">slot</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></code></pre><p>这样就回渲染出我们想要的内容了：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-demo</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></code></pre><p>这样就会渲染出我们想要的内容了：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-demo</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mip-demo-wrap"</span>&gt;</span>
     default component content
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"header"</span>&gt;</span>i am header<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footrt"</span>&gt;</span>i am footer<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer"</span>&gt;</span>i am footer<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">mip-demo</span>&gt;</span></code></pre><p>如果我们想实现下面的效果呢？</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-demo</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mip-demo-wrap"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"header"</span>&gt;</span>i am header<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     default component content
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footrt"</span>&gt;</span>i am footer<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer"</span>&gt;</span>i am footer<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">mip-demo</span>&gt;</span></code></pre><p>这时候需要对 customElement 稍微做一下改动，这里需要引入具名 slot 的概念：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-demo</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"header"</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"header"</span>&gt;</span>i am header<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
@@ -957,7 +957,7 @@
     default component content
     <span class="hljs-tag">&lt;<span class="hljs-name">slot</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"footer"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></code></pre><p>这样就能渲染出我们预想的结果了。</p><p>通过了解了 customElement 对应的 MIP 2.0 组件之后，其实可以发现，就是借助 Vue 的组件的一些特性来解决 customElement 复杂交互逻辑的问题。</p><h2 id="常见问题"><a href="#常见问题" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>常见问题</h2><h3 id="q-能不能在-mip2-组件的单-vue-文件中使用其他的-vue-组件？"><a href="#q-能不能在-mip2-组件的单-vue-文件中使用其他的-vue-组件？" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>Q: 能不能在 MIP2 组件的单 Vue 文件中使用其他的 Vue 组件？</h3><p>答：可以的，可以直接通过 component import 的方式直接引入使用，如果不需要通过 custom element 渲染，引入的 Vue 组件可以不通过 <code>mip2 add</code> 添加，可以直接拷贝过去使用，注意：现在 MIP 组件不支持通过 <code>Vue.use</code> 方式引入组件库。</p><h3 id="q-是不是必须写-vue-单文件开发-mip2-组件呢？"><a href="#q-是不是必须写-vue-单文件开发-mip2-组件呢？" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>Q: 是不是必须写 Vue 单文件开发 MIP2 组件呢？</h3><p>答：是的，必须要求每个组件都是 Vue 单文件，不允许出现 <code>template</code> 字段：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div></div><code class="lang-html"><span class="hljs-comment">&lt;!--bad case--&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></code></pre><p>这样就能渲染出我们预想的结果了。</p><p>通过了解了 customElement 对应的 MIP 2.0 组件之后，其实可以发现，就是借助 Vue 的组件的一些特性来解决 customElement 复杂交互逻辑的问题。</p><h2 id="常见问题"><a href="#常见问题" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>常见问题</h2><h3 id="q-能不能在-mip2-组件的单-vue-文件中使用其他的-vue-组件？"><a href="#q-能不能在-mip2-组件的单-vue-文件中使用其他的-vue-组件？" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>Q: 能不能在 MIP2 组件的单 Vue 文件中使用其他的 Vue 组件？</h3><p>答：可以的，可以直接通过 component import 的方式直接引入使用，如果不需要通过 customElement 渲染，引入的 Vue 组件可以不通过 <code>mip2 add</code> 添加，可以直接拷贝过去使用，注意：现在 MIP 组件不支持通过 <code>Vue.use()</code> 方式引入组件库。</p><h3 id="q-是不是必须写-vue-单文件开发-mip2-组件呢？"><a href="#q-是不是必须写-vue-单文件开发-mip2-组件呢？" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>Q: 是不是必须写 Vue 单文件开发 MIP2 组件呢？</h3><p>答：是的，必须要求每个组件都是 Vue 单文件，不允许出现 <code>template</code> 字段：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div></div><code class="lang-html"><span class="hljs-comment">&lt;!--bad case--&gt;</span>
 <span class="hljs-comment">&lt;!--mip-demo.vue--&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="handlebars"><span class="xml">
   export default {
@@ -969,7 +969,7 @@
     `
     // ...
   }
-</span></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre><p>而应该在单文件的 <code>template</code> 标签中写模版，因为 MIP 集成的 Vue 是不包含 compiler 的 runtime 版本，所以不能编译 template 属性，只能执行通过组件 cli 编译 <code>template</code> 标签之后的 <code>render()</code> 方法，所以如果想要模版顺利渲染，必须按照以下方式书写模版：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div></div><code class="lang-html"><span class="hljs-comment">&lt;!--good case--&gt;</span>
+</span></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre><p>而应该在单文件的 <code>template</code> 标签中写模版，因为 MIP 集成的 Vue 是不包含 compiler 的 runtime 版本，所以不能编译 template 属性，只能执行通过组件 cli 工具编译 <code>template</code> 标签之后的 <code>render()</code> 方法，所以如果想要组件模版顺利渲染，必须按照以下单文件的方式书写模版：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div></div><code class="lang-html"><span class="hljs-comment">&lt;!--good case--&gt;</span>
 <span class="hljs-comment">&lt;!--mip-demo.vue--&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wrap"</span>&gt;</span>
@@ -980,7 +980,10 @@
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
   <span class="hljs-comment">// ...</span>
 }
-</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre><blockquote><p>PS: 目前还在持续更新中。。</p></blockquote>
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre><h3 id="q：除了单文件，我还有没有别的方式引入别的组件"><a href="#q：除了单文件，我还有没有别的方式引入别的组件" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>Q：除了单文件，我还有没有别的方式引入别的组件</h3><p>如果你有方法拿到一个 Vue 的 Component 对象，那可以直接引入这个 Component 对象，然后就可以通过 customElement 渲染这个 Vue 的 Component，可以借助于 <code>MIP.registerVueCustomElement()</code> 方法：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div></div><code class="lang-js"><span class="hljs-keyword">let</span> aVueComponentObject = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./a-vue-component-object'</span>);
+<span class="hljs-comment">// 假设 aVueComponentObject 是一个完整的 Vue Component 对象</span>
+
+registerVueCustomElement(<span class="hljs-string">'mip-demo-vue-component'</span>, aVueComponentObject);</code></pre><p>这样就可以直接使用 <code>&lt;mip-demo-vue-component&gt;</code> customElement 标签啦。</p><blockquote><p>PS: 目前常见问题还在持续更新中。。</p></blockquote>
             </div>
         </div>
     </div>
@@ -1009,6 +1012,7 @@
 <div class="wd-infinity-chapters">
         <a class="chapter-title" href="#q-能不能在-mip2-组件的单-vue-文件中使用其他的-vue-组件？">Q: 能不能在 MIP2 组件的单 Vue 文件中使用其他的 Vue 组件？</a>
         <a class="chapter-title" href="#q-是不是必须写-vue-单文件开发-mip2-组件呢？">Q: 是不是必须写 Vue 单文件开发 MIP2 组件呢？</a>
+        <a class="chapter-title" href="#q：除了单文件，我还有没有别的方式引入别的组件">Q：除了单文件，我还有没有别的方式引入别的组件</a>
 </div>
         </div>
 </div>
