@@ -3,10 +3,10 @@
 <html mip>
     <head>
         <meta charset="utf-8">
-        <title>Sandbox（沙盒） | MIP</title>
+        <title>沙盒机制 | MIP</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
-        <meta name="description" content="由于组件是开放的，任何开发者想要使用一个新的功能，都可以写一个新的组件出来。">
+        <meta name="description" content="MIP 允许开发者通过提交 MIP 组件和写 &lt;mip-script&gt; 等方式去写 JS，但是从性能和代码维护的层面考虑，部分 API 是不应该使用的，比如 alert、confirm 等等，因此我们提供了沙盒机制，去屏蔽和限制这类 API/属性 的使用。">
         <meta name="keywords" content="MIP2">
         <meta name="theme-color" content="#2874f0">
        <!--  <link rel="stylesheet" href="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.css"> -->
@@ -300,7 +300,7 @@
             <a data-type="mip" href="/mip/components/components-list.html">MIP 组件列表</a>
         </div>
         <div class="l-1">
-            <a data-type="mip" href="/mip/components/data-and-method.html">MIP 2.0 的数据和应用</a>
+            <a data-type="mip" href="/mip/components/data-and-method.html">MIP 2.0 共享数据的使用</a>
         </div>
         <div class="l-1">
             <div class="folder show">extensions</div>
@@ -506,7 +506,7 @@
             <div class="children-0">
 <div class="wd-infinity-menu">
         <div class="l-1">
-            <a data-type="mip" href="/mip/util/sandbox.html">Sandbox（沙盒）</a>
+            <a data-type="mip" href="/mip/util/sandbox.html">沙盒机制</a>
         </div>
 </div>
             </div>
@@ -608,7 +608,7 @@
             <a data-type="mip" href="/mip/components/components-list.html">MIP 组件列表</a>
         </div>
         <div class="l-1">
-            <a data-type="mip" href="/mip/components/data-and-method.html">MIP 2.0 的数据和应用</a>
+            <a data-type="mip" href="/mip/components/data-and-method.html">MIP 2.0 共享数据的使用</a>
         </div>
         <div class="l-1">
             <div class="folder show">extensions</div>
@@ -814,7 +814,7 @@
             <div class="children-0">
 <div class="wd-infinity-menu">
         <div class="l-1">
-            <a data-type="mip" href="/mip/util/sandbox.html">Sandbox（沙盒）</a>
+            <a data-type="mip" href="/mip/util/sandbox.html">沙盒机制</a>
         </div>
 </div>
             </div>
@@ -827,19 +827,235 @@
     <div class="markdown-wrapper">
         <div class="md-content ui-dep-1">
             <div class="markdown-body">
-                <h2 id="sandbox（沙盒）"><a href="#sandbox（沙盒）" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>Sandbox（沙盒）</h2><blockquote><p>zhangzhiqiang(<a href="mailto:zhiqiangzhang37@163.com">zhiqiangzhang37@163.com</a>)</p></blockquote><p>由于组件是开放的，任何开发者想要使用一个新的功能，都可以写一个新的组件出来。</p><p>为了方便管理，也为了 mip2.0 开发的站点的性能更优考虑，<strong>我们在组件中使用了一个沙盒的机制</strong>。事实上基于性能以及代码维护层面考虑，部分 <code>API</code> 是约定不应使用的，但约定无法从根本上杜绝使用，所以使用了沙盒这种强制的手段。</p><p>沙盒的机制一句话概括就是 —— 在沙盒的环境中运行指定的代码，这个环境限制了部分能力/API的使用</p><h3 id="被限制的能力api列表"><a href="#被限制的能力api列表" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>被限制的能力/API列表</h3><ul><li><p>限制访问全局 <code>window</code> 对象，沙盒环境中 <code>window</code> 对象是局部的</p><ul><li>限制使用 <code>alert</code>、<code>window.alert</code></li><li>限制使用 <code>close</code>、<code>window.close</code></li><li>限制使用 <code>confirm</code>、<code>window.confirm</code></li><li>限制使用 <code>prompt</code>、<code>window.prompt</code></li><li>限制使用 <code>eval</code>、<code>window.eval</code></li><li>限制使用 <code>opener</code>、<code>window.opener</code></li><li>限制使用 <code>customElement</code>、<code>window.customElements</code></li><li><code>parent</code> 对象如果指向当前页面 <code>window</code>、则被重写为指向局部的 <code>window</code> 对象</li><li><code>top</code> 对象如果指向当前页面 <code>window</code>、则被重写为指向局部的 <code>window</code> 对象</li><li><code>self</code> 被指向了局部的 <code>window</code> 对象</li><li><code>setTimeout</code>、 <code>window.setTimeout</code> 被重写过，内部的this指向了局部的 <code>window</code> 对象</li><li><code>setInterval</code>、<code>window.setInterval</code> 被重写过，内部的this指向了局部的 <code>window</code> 对象</li></ul></li><li><p>限制访问全局 <code>document</code> 对象，沙盒中 <code>document</code> 对象是局部的</p><ul><li>限制使用 <code>document.createElement</code></li><li>限制使用 <code>document.createElementNS</code></li><li>限制使用 <code>document.write</code></li><li>限制使用 <code>document.writeln</code></li><li>限制使用 <code>document.registerElement</code></li></ul></li></ul><h3 id="使用详解"><a href="#使用详解" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>使用详解</h3><p>在沙盒中使用了限制的API和正常使用没有区别，但是被限制的API取值是 <code>undefined</code>，所以不管是属性值还是函数都是无法使用的。而 <code>window</code> 对象和 <code>document</code> 对象则因为是局部的，所以无法往这两个原本是全局的对象上挂载全局的变量，其余未被限制的API可以正常使用，例如 <code>window.devicePixelRatio</code>、 <code>window.onresize = () =&gt; {}</code> 等</p><p>示例：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div></div><code class="lang-javascript">alert(<span class="hljs-string">'test'</span>); <span class="hljs-comment">// Uncaught TypeError: alert is not a function</span>
+                <h1 id="沙盒机制"><a href="#沙盒机制" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>沙盒机制</h1><p>MIP 允许开发者通过提交 MIP 组件和写 <code>&lt;mip-script&gt;</code> 等方式去写 JS，但是从性能和代码维护的层面考虑，部分 <code>API</code> 是不应该使用的，比如 <code>alert</code>、<code>confirm</code> 等等，因此我们提供了沙盒机制，去屏蔽和限制这类 API/属性 的使用。</p><h2 id="沙盒注入对象"><a href="#沙盒注入对象" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>沙盒注入对象</h2><p>相关工具：</p><ol><li><a href="https://github.com/mipengine/mip2/tree/master/packages/mip-cli">mip-cli</a></li><li><a href="https://github.com/mipengine/mip2/tree/master/packages/mip-sandbox">mip-sandbox</a></li></ol><p>会被沙盒注入的对象为<strong>全部白名单以外的原生对象</strong>和<strong>全部作用域链上未定义的变量</strong>。我们通过<strong>白名单</strong>的机制对原生对象进行限制，即开发者只能使用白名单上的对象，如果调用白名单以外的，会拿不到对象。在具体实现上，我们使用 MIP 编译工具 mip-cli 在组件调试和编译上线的时候调用 mip-sandbox 工具，将白名单之外的对象代码注入 <code>MIP.sandbox</code> 前缀，比如 <code>window</code> 将会编译得到 <code>MIP.sandbox.window</code>，然后通过控制对 MIP.sandbox 上属性或方法的定义，从而实现沙盒的白名单机制。</p><p>举个例子，假设 js 代码如下所示：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div></div><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sleep</span>(<span class="hljs-params">time</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-params">resolve</span> =&gt;</span> setTimeout(resolve, time))
+}
 
-<span class="hljs-built_in">window</span>.alert(<span class="hljs-string">'test'</span>); <span class="hljs-comment">// Uncaught TypeError: window.alert is not a function</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+  <span class="hljs-keyword">async</span> mounted() {
+    <span class="hljs-keyword">await</span> sleep(<span class="hljs-number">3000</span>)
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'mounted'</span>)
+    <span class="hljs-built_in">window</span>.setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'mounted'</span>)
+    }, <span class="hljs-number">3000</span>)
+    a = <span class="hljs-number">1</span> + <span class="hljs-number">1</span>
+    alert(<span class="hljs-string">'mounted'</span>)
+  }
+}</code></pre><p>将会编译生成：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div></div><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sleep</span>(<span class="hljs-params">time</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-params">resolve</span> =&gt;</span> setTimeout(resolve, time))
+}
 
-<span class="hljs-built_in">document</span>.write(<span class="hljs-string">'test'</span>); <span class="hljs-comment">// Uncaught TypeError: document.write is not a function</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+  <span class="hljs-keyword">async</span> mounted() {
+    <span class="hljs-keyword">await</span> sleep(<span class="hljs-number">3000</span>)
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'mounted'</span>)
+    MIP.sandbox.window.setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'mounted'</span>)
+    }, <span class="hljs-number">3000</span>)
+    MIP.sandbox.a = <span class="hljs-number">1</span> + <span class="hljs-number">1</span>
+    MIP.sandbox.alert(<span class="hljs-string">'mounted'</span>)
+  }
+}</code></pre><p>可以看到 alert window 全被注入了 MIP.sandbox 前缀，a 由于没有在作用域链上声明，因此也被注入 MIP.sandbox 前缀。由于 MIP.sandbox.alert 不在白名单里，因此程序执行到此处将报错并且控制台打印以下错误信息：</p><pre><div class="code-index"><div>1</div></div><code class="lang-shell"><span class="hljs-meta">&gt;</span><span class="bash"> Uncaught TypeError: MIP.sandbox.alert is not a <span class="hljs-keyword">function</span></span></code></pre><h2 id="白名单"><a href="#白名单" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>白名单</h2><p>白名单分为普通模式和严格模式，其中严格模式是普通模式的子集，在开发组件的时候使用普通模式，在 HTML 页面写 mip-script 的时候使用严格模式。</p><h3 id="安全原生对象"><a href="#安全原生对象" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>安全原生对象</h3><p>当原生对象被认为是安全原生对象时，在沙盒注入过程中不会加上任何沙盒前缀，比如：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div></div><code class="lang-javascript"><span class="hljs-keyword">var</span> util = <span class="hljs-built_in">require</span>(<span class="hljs-string">'path/to/util'</span>)
 
-<span class="hljs-comment">// 可正常使用</span>
-<span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">document</span>.origin); <span class="hljs-comment">// http://localhost:8080</span>
+<span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">resolve</span>) </span>{
+  setTimeout(resolve, <span class="hljs-number">3000</span>)
+})
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'after 3s'</span>)
+})</code></pre><p>以上代码使用到了 require、Promise、setTimeout、console 四个原生对象，由于这四个对象均被认为是安全的，所以不做任何沙盒注入的操作。</p><p>以下原生对象被认为是安全的：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div>32</div><div>33</div><div>34</div><div>35</div><div>36</div><div>37</div><div>38</div><div>39</div><div>40</div><div>41</div><div>42</div><div>43</div><div>44</div><div>45</div><div>46</div><div>47</div><div>48</div><div>49</div><div>50</div><div>51</div><div>52</div><div>53</div><div>54</div><div>55</div><div>56</div><div>57</div><div>58</div><div>59</div><div>60</div><div>61</div><div>62</div><div>63</div><div>64</div><div>65</div><div>66</div><div>67</div><div>68</div><div>69</div><div>70</div><div>71</div><div>72</div><div>73</div><div>74</div><div>75</div><div>76</div><div>77</div><div>78</div><div>79</div><div>80</div><div>81</div><div>82</div><div>83</div><div>84</div><div>85</div><div>86</div><div>87</div><div>88</div><div>89</div></div><code class="lang-javascript"><span class="hljs-keyword">var</span> RESERVED = [
+  <span class="hljs-string">'arguments'</span>,
+  <span class="hljs-string">'require'</span>,
+  <span class="hljs-string">'module'</span>,
+  <span class="hljs-string">'exports'</span>,
+  <span class="hljs-string">'define'</span>
+]
 
-<span class="hljs-comment">// 可正常使用</span>
-<span class="hljs-built_in">window</span>.onresize = <span class="hljs-function">(<span class="hljs-params">event</span>) =&gt;</span> {
-    <span class="hljs-built_in">console</span>.log(event);
-};</code></pre>
+<span class="hljs-keyword">var</span> ORIGINAL = [
+  <span class="hljs-string">'Array'</span>,
+  <span class="hljs-string">'ArrayBuffer'</span>,
+  <span class="hljs-string">'Blob'</span>,
+  <span class="hljs-string">'Boolean'</span>,
+  <span class="hljs-string">'DOMError'</span>,
+  <span class="hljs-string">'DOMException'</span>,
+  <span class="hljs-string">'Date'</span>,
+  <span class="hljs-string">'Error'</span>,
+  <span class="hljs-string">'Float32Array'</span>,
+  <span class="hljs-string">'Float64Array'</span>,
+  <span class="hljs-string">'FormData'</span>,
+  <span class="hljs-string">'Headers'</span>,
+  <span class="hljs-string">'Infinity'</span>,
+  <span class="hljs-string">'Int16Array'</span>,
+  <span class="hljs-string">'Int32Array'</span>,
+  <span class="hljs-string">'Int8Array'</span>,
+  <span class="hljs-string">'JSON'</span>,
+  <span class="hljs-string">'Map'</span>,
+  <span class="hljs-string">'Math'</span>,
+  <span class="hljs-string">'NaN'</span>,
+  <span class="hljs-string">'Number'</span>,
+  <span class="hljs-string">'Object'</span>,
+  <span class="hljs-string">'Promise'</span>,
+  <span class="hljs-string">'Proxy'</span>,
+  <span class="hljs-string">'ReadableStream'</span>,
+  <span class="hljs-string">'ReferenceError'</span>,
+  <span class="hljs-string">'Reflect'</span>,
+  <span class="hljs-string">'RegExp'</span>,
+  <span class="hljs-string">'Request'</span>,
+  <span class="hljs-string">'Response'</span>,
+  <span class="hljs-string">'Set'</span>,
+  <span class="hljs-string">'String'</span>,
+  <span class="hljs-string">'Symbol'</span>,
+  <span class="hljs-string">'SyntaxError'</span>,
+  <span class="hljs-string">'TypeError'</span>,
+  <span class="hljs-string">'URIError'</span>,
+  <span class="hljs-string">'URL'</span>,
+  <span class="hljs-string">'URLSearchParams'</span>,
+  <span class="hljs-string">'Uint16Array'</span>,
+  <span class="hljs-string">'Uint32Array'</span>,
+  <span class="hljs-string">'Uint8Array'</span>,
+  <span class="hljs-string">'Uint8ClampedArray'</span>,
+  <span class="hljs-string">'WritableStream'</span>,
+  <span class="hljs-string">'clearInterval'</span>,
+  <span class="hljs-string">'clearTimeout'</span>,
+  <span class="hljs-string">'console'</span>,
+  <span class="hljs-string">'decodeURI'</span>,
+  <span class="hljs-string">'decodeURIComponent'</span>,
+  <span class="hljs-string">'devicePixelRatio'</span>,
+  <span class="hljs-string">'encodeURI'</span>,
+  <span class="hljs-string">'encodeURIComponent'</span>,
+  <span class="hljs-string">'escape'</span>,
+  <span class="hljs-string">'fetch'</span>,
+  <span class="hljs-string">'getComputedStyle'</span>,
+  <span class="hljs-string">'innerHeight'</span>,
+  <span class="hljs-string">'innerWidth'</span>,
+  <span class="hljs-string">'isFinite'</span>,
+  <span class="hljs-string">'isNaN'</span>,
+  <span class="hljs-string">'isSecureContext'</span>,
+  <span class="hljs-string">'localStorage'</span>,
+  <span class="hljs-string">'length'</span>,
+  <span class="hljs-string">'matchMedia'</span>,
+  <span class="hljs-string">'navigator'</span>,
+  <span class="hljs-string">'outerHeight'</span>,
+  <span class="hljs-string">'outerWidth'</span>,
+  <span class="hljs-string">'parseFloat'</span>,
+  <span class="hljs-string">'parseInt'</span>,
+  <span class="hljs-string">'screen'</span>,
+  <span class="hljs-string">'screenLeft'</span>,
+  <span class="hljs-string">'screenTop'</span>,
+  <span class="hljs-string">'screenX'</span>,
+  <span class="hljs-string">'screenY'</span>,
+  <span class="hljs-string">'scrollX'</span>,
+  <span class="hljs-string">'scrollY'</span>,
+  <span class="hljs-string">'sessionStorage'</span>,
+  <span class="hljs-string">'setInterval'</span>,
+  <span class="hljs-string">'setTimeout'</span>,
+  <span class="hljs-string">'undefined'</span>,
+  <span class="hljs-string">'unescape'</span>
+]</code></pre><p>其中 ORIGINAL 数组内的变量会在 MIP.sandbox 上定义一份，而 RESERVED 不会，因此：</p><pre><div class="code-index"><div>1</div><div>2</div></div><code class="lang-javascript"><span class="hljs-keyword">typeof</span> MIP.sandbox.Promise === <span class="hljs-string">'function'</span>
+<span class="hljs-keyword">typeof</span> MIP.sandbox.arguments === <span class="hljs-string">'undefined'</span></code></pre><h3 id="普通模式"><a href="#普通模式" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>普通模式</h3><p>普通模式下的沙盒安全变量包含原生安全变量的全部，并且添加了以下变量：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div></div><code class="lang-javascript"><span class="hljs-keyword">var</span> WHITELIST_ORIGINAL = [
+  ...ORIGINAL,
+  ...RESERVED,
+  <span class="hljs-string">'File'</span>,
+  <span class="hljs-string">'FileList'</span>,
+  <span class="hljs-string">'FileReader'</span>,
+  <span class="hljs-string">'Image'</span>,
+  <span class="hljs-string">'ImageBitmap'</span>,
+  <span class="hljs-string">'MutationObserver'</span>,
+  <span class="hljs-string">'Notification'</span>,
+  <span class="hljs-string">'addEventListener'</span>,
+  <span class="hljs-string">'cancelAnimationFrame'</span>,
+  <span class="hljs-string">'createImageBitmap'</span>,
+  <span class="hljs-comment">// 待定</span>
+  <span class="hljs-string">'history'</span>,
+  <span class="hljs-comment">// 待定</span>
+  <span class="hljs-string">'location'</span>,
+  <span class="hljs-string">'removeEventListener'</span>,
+  <span class="hljs-string">'requestAnimationFrame'</span>,
+  <span class="hljs-string">'scrollBy'</span>,
+  <span class="hljs-string">'scrollTo'</span>,
+  <span class="hljs-string">'scroll'</span>,
+  <span class="hljs-string">'scrollbars'</span>,
+  <span class="hljs-string">'webkitCancelAnimationFrame'</span>,
+  <span class="hljs-string">'webkitRequestAnimationFrame'</span>
+]</code></pre><p>以上对象在普通模式下均不会注入沙盒。</p><p>在普通模式下自定义了以下对象：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div>32</div></div><code class="lang-javascript"><span class="hljs-keyword">var</span> WHITELIST_CUSTOM = [
+  {
+    <span class="hljs-attr">name</span>: <span class="hljs-string">'document'</span>,
+    <span class="hljs-comment">// document 允许使用以下属性或方法</span>
+    properties: [
+      <span class="hljs-string">'head'</span>,
+      <span class="hljs-string">'body'</span>,
+      <span class="hljs-string">'title'</span>,
+      <span class="hljs-string">'cookie'</span>,
+      <span class="hljs-string">'referrer'</span>,
+      <span class="hljs-string">'readyState'</span>,
+      <span class="hljs-string">'documentElement'</span>,
+      <span class="hljs-string">'createElement'</span>,
+      <span class="hljs-string">'createDcoumentFragment'</span>,
+      <span class="hljs-string">'getElementById'</span>,
+      <span class="hljs-string">'getElementsByClassName'</span>,
+      <span class="hljs-string">'getElementsByTagName'</span>,
+      <span class="hljs-string">'querySelector'</span>,
+      <span class="hljs-string">'querySelectorAll'</span>
+    ]
+  },
+  {
+    <span class="hljs-attr">name</span>: <span class="hljs-string">'window'</span>,
+    <span class="hljs-comment">// window 指向 window.MIP.sandbox</span>
+    getter: <span class="hljs-string">'MIP.sandbox'</span>
+  },
+  {
+    <span class="hljs-attr">name</span>: <span class="hljs-string">'MIP'</span>,
+    <span class="hljs-comment">// MIP 指向 window.MIP</span>
+    getter: <span class="hljs-string">'MIP'</span>
+  }
+]</code></pre><p>以上对象会被沙盒注入 MIP.sandbox 前缀，但由于这些对象是存在定义的，因此可以使用自定义后的功能：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div></div><code class="lang-javascript"><span class="hljs-built_in">document</span>.cookie <span class="hljs-comment">// =&gt; MIP.sandbox.document OK</span>
+<span class="hljs-built_in">window</span>.Promise <span class="hljs-comment">// =&gt; MIP.sandbox.Promise OK</span>
+<span class="hljs-built_in">window</span>.eval <span class="hljs-comment">// =&gt; MIP.sandbox.eval undefined</span>
+MIP <span class="hljs-comment">// =&gt; MIP.sandbox.MIP OK</span></code></pre><h3 id="严格模式"><a href="#严格模式" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>严格模式</h3><p>严格模式是普通模式的子集，其安全沙盒变量仅包含了安全原生对象的全部：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div></div><code class="lang-javascript"><span class="hljs-keyword">var</span> WHITELIST_STRICT_ORIGINAL = [
+  ...ORIGINAL,
+  ...RESERVED
+]</code></pre><p>严格模式下自定义了以下对象：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div>32</div><div>33</div><div>34</div><div>35</div><div>36</div><div>37</div><div>38</div><div>39</div><div>40</div><div>41</div><div>42</div><div>43</div></div><code class="lang-javascript"><span class="hljs-comment">// 安全自定义全局变量</span>
+<span class="hljs-keyword">var</span> WHITELIST_STRICT_CUSTOM = [
+  <span class="hljs-comment">// document 只允许访问 document.cookie</span>
+  {
+    <span class="hljs-attr">name</span>: <span class="hljs-string">'document'</span>,
+    <span class="hljs-attr">properties</span>: [
+      <span class="hljs-string">'cookie'</span>
+    ]
+  },
+  <span class="hljs-comment">// location 只放开以下属性的读权限</span>
+  {
+    <span class="hljs-attr">name</span>: <span class="hljs-string">'location'</span>,
+    <span class="hljs-attr">access</span>: <span class="hljs-string">'readonly'</span>,
+    <span class="hljs-attr">properties</span>: [
+      <span class="hljs-string">'href'</span>,
+      <span class="hljs-string">'protocol'</span>,
+      <span class="hljs-string">'host'</span>,
+      <span class="hljs-string">'hostname'</span>,
+      <span class="hljs-string">'port'</span>,
+      <span class="hljs-string">'pathname'</span>,
+      <span class="hljs-string">'search'</span>,
+      <span class="hljs-string">'hash'</span>,
+      <span class="hljs-string">'origin'</span>
+    ]
+  },
+  <span class="hljs-comment">// MIP 对象只开放部分工具函数</span>
+  {
+    <span class="hljs-attr">name</span>: <span class="hljs-string">'MIP'</span>,
+    <span class="hljs-attr">access</span>: <span class="hljs-string">'readonly'</span>,
+    <span class="hljs-attr">properties</span>: [
+      <span class="hljs-string">'watch'</span>,
+      <span class="hljs-string">'setData'</span>,
+      <span class="hljs-string">'viewPort'</span>,
+      <span class="hljs-string">'util'</span>,
+      <span class="hljs-string">'sandbox'</span>
+    ]
+  },
+  <span class="hljs-comment">// 严格模式下的 window 对象指向 MIP.sandbox.strict</span>
+  {
+    <span class="hljs-attr">name</span>: <span class="hljs-string">'window'</span>,
+    <span class="hljs-attr">getter</span>: <span class="hljs-string">'MIP.sandbox.strict'</span>
+  }
+]</code></pre>
             </div>
         </div>
     </div>
@@ -850,11 +1066,18 @@
                 <div class="sidebar-right-inner">
                     <div class="chapter-wrapper ui-dep-1">
                         <div class="wd-infinity-chapters">
-        <a class="chapter-title" href="#sandbox（沙盒）">Sandbox（沙盒）</a>
+        <a class="chapter-title" href="#沙盒机制">沙盒机制</a>
         <div class="children-0">
 <div class="wd-infinity-chapters">
-        <a class="chapter-title" href="#被限制的能力api列表">被限制的能力/API列表</a>
-        <a class="chapter-title" href="#使用详解">使用详解</a>
+        <a class="chapter-title" href="#沙盒注入对象">沙盒注入对象</a>
+        <a class="chapter-title" href="#白名单">白名单</a>
+        <div class="children-1">
+<div class="wd-infinity-chapters">
+        <a class="chapter-title" href="#安全原生对象">安全原生对象</a>
+        <a class="chapter-title" href="#普通模式">普通模式</a>
+        <a class="chapter-title" href="#严格模式">严格模式</a>
+</div>
+        </div>
 </div>
         </div>
 </div>
