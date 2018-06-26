@@ -12,7 +12,10 @@
     </style>
   </head>
   <body>
-    <div>
+    <div class="layout-side-bar">
+      ${siderbar|raw}
+    </div>
+    <div class="layout-main-content">
       ${content|raw}
     </div>
     <script src="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.js"></script>
