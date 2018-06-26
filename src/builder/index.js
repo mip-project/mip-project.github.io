@@ -50,10 +50,32 @@ class Server {
           await this.wait
           let css = this.midd.devMiddleware.fileSystem.readFileSync(cssFilename, 'utf-8')
 
+          etplEngine.loadFromFile(path.resolve(__dirname, './views/markdown-paginator.tpl'))
+          etplEngine.loadFromFile(path.resolve(__dirname, './views/markdown-breadcrumb.tpl'))
+          etplEngine.loadFromFile(path.resolve(__dirname, './views/markdown-toolbar.tpl'))
           let renderer = etplEngine.loadFromFile(path.resolve(__dirname, './views/layout.tpl'))
           ctx.body = renderer({
             css,
-            content: html
+            content: html,
+            last: {
+              url: 'http://www.baidu.com',
+              title: '提交组件到官方组件仓库'
+            },
+            next: {
+              url: 'http://www.baidu.com',
+              title: 'mip-app-banner App 调起组件'
+            },
+            list: [
+              {
+                title: '进阶教程'
+              },
+              {
+                title: 'Service Worker'
+              },
+              {
+                title: '配置缓存文件'
+              }
+            ]
           })
         }
         catch (e) {

@@ -13,7 +13,12 @@
   </head>
   <body>
     <div>
-      ${content|raw}
+      <div class="content-wrapper">
+        {{ use:markdown-breadcrumb(list = ${list}) }}
+        ${content|raw}
+        {{ use:markdown-toolbar() }}
+        {{ use:markdown-paginator(last = ${last}, next = ${next}) }}
+      </div>
     </div>
     <script src="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.js"></script>
   </body>
