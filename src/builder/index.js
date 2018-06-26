@@ -45,7 +45,7 @@ class Server {
 
         try {
           let html = await fs.readFile(filename, 'utf-8')
-          let sidebarHtml = path.resolve(__dirname, 'pages', 'sidebar.html')
+          let sidebarHtml = await fs.readFile(path.resolve(__dirname, 'pages', 'sidebar.html'), 'utf-8')
           let cssFilename = getFilenameFromUrl('/', this.compiler, `/index.css`)
           await this.wait
           let css = this.midd.devMiddleware.fileSystem.readFileSync(cssFilename, 'utf-8')
@@ -75,7 +75,8 @@ class Server {
               {
                 title: '配置缓存文件'
               }
-            ]
+            ],
+            siderbar: sidebarHtml
           })
         }
         catch (e) {
