@@ -22,8 +22,20 @@
   },
   "homepage": "https://github.com/mip-project/mip-project.github.io#readme",
   "devDependencies": {
+    "autoprefixer": "^8.6.3",
     "cheerio": "^1.0.0-rc.2",
-    "kram": "^1.0.9"
+    "css-loader": "^0.28.11",
+    "koa": "^2.5.1",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
+    "koa-webpack": "^5.0.2",
+    "kram": "^1.0.9",
+    "mini-css-extract-plugin": "^0.4.0",
+    "optimize-css-assets-webpack-plugin": "^4.0.2",
+    "postcss-loader": "^2.1.5",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
+    "webpack": "^4.12.1"
   },
   "dependencies": {
     "download-git-repo": "^1.0.2",
