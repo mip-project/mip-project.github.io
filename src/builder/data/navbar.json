@@ -1,0 +1,37 @@
+[
+  {
+    "name": "首页",
+    "url": "/"
+  },
+  {
+    "name": "使用文档",
+    "url": "/usage"
+  },
+  {
+    "name": "组件列表",
+    "url": "/list"
+  },
+  {
+    "name": "Codelab",
+    "url": "/codelab"
+  },
+  {
+    "name": "帮助",
+    "url": "/help"
+  },
+  {
+    "name": "常用链接",
+    "children": [
+      {
+        "name": "MIP 官方博客"
+      },
+      {
+        "name": "MIP 代码校验工具"
+      }
+    ]
+  },
+  {
+    "name": "Github",
+    "url": "/github"
+  }
+]

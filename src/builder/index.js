@@ -13,14 +13,6 @@ const fs = require('fs-extra')
 const etpl = require('etpl')
 const {getFilenameFromUrl} = require('webpack-dev-middleware/lib/util')
 
-let etplEngine = new etpl.Engine({
-    commandOpen: '{{',
-    commandClose: '}}',
-    strip: true,
-    namingConflict: 'override',
-    dir: path.resolve(__dirname, './views')
-})
-
 class Server {
   constructor ({
     port = 8229
@@ -41,43 +33,38 @@ class Server {
   html () {
     return [
       async (ctx, next) => {
-        let filename = path.resolve(__dirname, 'pages', ctx.params.id || 'index.html')
-
         try {
-          let html = await fs.readFile(filename, 'utf-8')
-          let sidebarHtml = await fs.readFile(path.resolve(__dirname, 'pages', 'sidebar.html'), 'utf-8')
-          let cssFilename = getFilenameFromUrl('/', this.compiler, `/index.css`)
           await this.wait
+          let cssFilename = getFilenameFromUrl('/', this.compiler, `/index.css`)
           let css = this.midd.devMiddleware.fileSystem.readFileSync(cssFilename, 'utf-8')
 
-          etplEngine.loadFromFile(path.resolve(__dirname, './views/markdown-paginator.tpl'))
-          etplEngine.loadFromFile(path.resolve(__dirname, './views/markdown-breadcrumb.tpl'))
-          etplEngine.loadFromFile(path.resolve(__dirname, './views/markdown-toolbar.tpl'))
-          let renderer = etplEngine.loadFromFile(path.resolve(__dirname, './views/layout.tpl'))
-          ctx.body = renderer({
+          let filename = path.resolve(__dirname, 'pages', ctx.params.id || 'index.html')
+          let content = await fs.readFile(filename, 'utf-8')
+
+          let navbar = await fs.readFile(path.resolve(__dirname, 'data', 'navbar.json'))
+
+          let data = {
             css,
-            content: html,
-            last: {
-              url: 'http://www.baidu.com',
-              title: '提交组件到官方组件仓库'
-            },
-            next: {
-              url: 'http://www.baidu.com',
-              title: 'mip-app-banner App 调起组件'
-            },
-            list: [
-              {
-                title: '进阶教程'
-              },
-              {
-                title: 'Service Worker'
-              },
-              {
-                title: '配置缓存文件'
-              }
-            ],
-            siderbar: sidebarHtml
+            content,
+            navbar
+          }
+
+          let etplEngine = new etpl.Engine({
+            commandOpen: '{{',
+            commandClose: '}}',
+            strip: true,
+            namingConflict: 'override',
+            dir: path.resolve(__dirname, './views')
           })
+
+          etplEngine.loadFromFile(path.resolve(__dirname, './views/layout-navbar.tpl'))
+          etplEngine.loadFromFile(path.resolve(__dirname, './views/layout.tpl'))
+
+          if (ctx.params.id.indexOf('codelab') === 0) {
+            ctx.body = await this.codelab(etplEngine, {css, content})
+          } else {
+            ctx.body = await this.doc(etplEngine, {css, content})
+          }
         }
         catch (e) {
           ctx.throw(e)
@@ -86,6 +73,46 @@ class Server {
 
       }
     ]
+  }
+
+  async doc (etplEngine, data) {
+    let sidebarHtml = await fs.readFile(path.resolve(__dirname, 'pages', 'sidebar.html'), 'utf-8')
+
+    etplEngine.loadFromFile(path.resolve(__dirname, './views/markdown-paginator.tpl'))
+    etplEngine.loadFromFile(path.resolve(__dirname, './views/markdown-breadcrumb.tpl'))
+    etplEngine.loadFromFile(path.resolve(__dirname, './views/markdown-toolbar.tpl'))
+
+    let renderer = etplEngine.loadFromFile(path.resolve(__dirname, './views/layout-doc.tpl'))
+
+    return renderer(Object.assign({}, data, {
+      last: {
+        url: 'http://www.baidu.com',
+        title: '提交组件到官方组件仓库'
+      },
+      next: {
+        url: 'http://www.baidu.com',
+        title: 'mip-app-banner App 调起组件'
+      },
+      list: [
+        {
+          title: '进阶教程'
+        },
+        {
+          title: 'Service Worker'
+        },
+        {
+          title: '配置缓存文件'
+        }
+      ],
+      siderbar: sidebarHtml
+    }))
+  }
+
+  async codelab (etplEngine, data) {
+    let renderer = etplEngine.loadFromFile(path.resolve(__dirname, './views/layout-codelab.tpl'))
+
+    return renderer(Object.assign({}, data, {
+    }))
   }
 
   pack () {
