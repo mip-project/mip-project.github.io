@@ -17,5 +17,5 @@
       {{ /if }}
     {{ /for }}
   </ul>
-  <button class="navbar-toggle"><span></span><span></span><span></span></button>
+  <div class="navbar-toggle"><i class="iconfont icon-bars"></i></div>
 </div>

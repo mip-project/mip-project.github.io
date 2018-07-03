@@ -41,12 +41,12 @@ class Server {
           let filename = path.resolve(__dirname, 'pages', ctx.params.id || 'index.html')
           let content = await fs.readFile(filename, 'utf-8')
 
-          let navbar = await fs.readFile(path.resolve(__dirname, 'data', 'navbar.json'))
+          let navbar = await fs.readFile(path.resolve(__dirname, 'data', 'navbar.json'), 'utf-8')
 
           let data = {
             css,
             content,
-            navbar
+            navbar: JSON.parse(navbar)
           }
 
           let etplEngine = new etpl.Engine({
@@ -61,9 +61,9 @@ class Server {
           etplEngine.loadFromFile(path.resolve(__dirname, './views/layout.tpl'))
 
           if (ctx.params.id.indexOf('codelab') === 0) {
-            ctx.body = await this.codelab(etplEngine, {css, content})
+            ctx.body = await this.codelab(etplEngine, data)
           } else {
-            ctx.body = await this.doc(etplEngine, {css, content})
+            ctx.body = await this.doc(etplEngine, data)
           }
         }
         catch (e) {
