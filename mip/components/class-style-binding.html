@@ -3,10 +3,10 @@
 <html mip>
     <head>
         <meta charset="utf-8">
-        <title>MIP 2.0 组件实例的生命周期和回调钩子 | MIP</title>
+        <title>Class 与 Style 绑定 | MIP</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
-        <meta name="description" content="为了提升 mip 组件的开发效率，我们允许开发者使用 vue 开发 mip 组件，然后通过 mip-cli 工具编译成 mip 组件，下面是一个用 vue 写的 mip 组件 mip-example：">
+        <meta name="description" content="操作元素的 class 列表和内联样式是数据绑定的一个常见需求。因为它们都是属性，所以我们可以用 m-bind 处理它们：只需要通过表达式计算出字符串结果即可。不过，字符串拼接麻烦且易错。因此，在将 m-bind 用于 class 和 style 时，MIP2 做了专门的增强。表达式结果的类型除了字符串之外，还可以是对象或数组。这个用法，与 Vue 的 v-bind 是一致的。">
         <meta name="keywords" content="MIP2">
         <meta name="theme-color" content="#2874f0">
        <!--  <link rel="stylesheet" href="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.css"> -->
@@ -875,26 +875,90 @@
     <div class="markdown-wrapper">
         <div class="md-content ui-dep-1">
             <div class="markdown-body">
-                <h1 id="mip-20-组件实例的生命周期和回调钩子"><a href="#mip-20-组件实例的生命周期和回调钩子" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>MIP 2.0 组件实例的生命周期和回调钩子</h1><h2 id="创建一个简单的-mip-组件"><a href="#创建一个简单的-mip-组件" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>创建一个简单的 mip 组件</h2><p>为了提升 mip 组件的开发效率，我们允许开发者使用 vue 开发 mip 组件，然后通过 mip-cli 工具编译成 mip 组件，下面是一个用 vue 写的 mip 组件 <code>mip-example</code>：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>MIP 2.0 component example<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
-
-<span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">scoped</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
-
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
-  <span class="hljs-comment">// component options</span>
-}
-</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre><p>然后使用 mip-cli 工具编译打包后大概是这样的：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div></div><code class="lang-js"><span class="hljs-comment">// 创建 style 标签，并为 css 加上 scope</span>
-<span class="hljs-comment">// 将 template 编译成 render 函数</span>
-
-<span class="hljs-comment">// 注册自定义组件</span>
-MIP.registerVueCustomElement(
-  <span class="hljs-string">'mip-example'</span>,
-  componentDefinition <span class="hljs-comment">// component options</span>
-);</code></pre><h2 id="mip-和-vue-的关系"><a href="#mip-和-vue-的关系" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>mip 和 vue 的关系</h2><p>mip 组件是基于<a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements">Web Component</a> 规范实现的一种用于创建自定义 HTML 元素。为了方便开发，mip2 支持开发者使用 vue 的方式开发 mip 组件，而隐藏了自定义元素注册和生命周期回调，开发者可以完全专注 vue 组件的开发。下面是 vue 和 mip 之间的关系示意图：</p><p><mip-img layout="responsive" width="320" height="320" popup src="https://mip-project.github.io/doc-assets//mip/assets/vue-and-mip-component.png.html"></mip-img></p><h2 id="组件实例生命周期"><a href="#组件实例生命周期" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>组件实例生命周期</h2><p>你可以定义以下的生命周期回调钩子,这些回调会在自定义元素的生命周期的不同点回调。所有的生命周期钩子自动绑定 this 上下文到 vue 实例中，因此你可以访问数据，对属性和方法进行运算。这意味着 你不能使用箭头函数来定义一个生命周期方法 (例如 created: () =&gt; this.fetchTodos())。这是因为箭头函数绑定了父上下文，因此 this 与你期待的 Vue 实例不同，this.fetchTodos 的行为未定义。</p><h3 id="beforecreate"><a href="#beforecreate" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>beforeCreate</h3><ul><li>类型：Function</li><li>Context: Vue 组件实例</li><li><p>详细：</p><p>vue 实例生命周期，在 vue 实例初始化之后，数据观测 (data observer) 和 event/watcher 事件配置之前被调用。如果 prerenderAllowed() 为真，在自定义元素的 connectedCallback 中执行， 反之在 firstInviewCallback 中执行。</p></li></ul><h3 id="created"><a href="#created" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>created</h3><ul><li>类型：Function</li><li>Context: Vue 组件实例</li><li><p>详细：</p><p>vue 实例生命周期，在 vue 实例创建完成后被立即调用。在这一步，实例已完成以下的配置：数据观测 (data observer)，属性和方法的运算，watch/event 事件回调。然而，挂载阶段还没开始，$el 属性目前不可见。</p></li></ul><h3 id="beforemount"><a href="#beforemount" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>beforeMount</h3><ul><li>类型：Function</li><li>Context: Vue 组件实例</li><li><p>详细：</p><p>vue 实例生命周期，在挂载开始之前被调用：相关的 render 函数首次被调用。在自定义元素的 connectedCallback 钩子中执行。</p></li></ul><h3 id="mounted"><a href="#mounted" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>mounted</h3><ul><li>类型：Function</li><li>Context: Vue 组件实例</li><li><p>详细：</p><p>vue 实例生命周期，el 被新创建的 vm.$el 替换，并挂载到实例上去之后调用该钩子。如果 root 实例挂载了一个文档内元素，当 mounted 被调用时 vm.$el 也在文档内。在自定义元素的 connectedCallback 钩子中执行，connectedCallback 可能会因为元素从 DOM 结构上移动而触发多次执行，但是 mounted 只会执行一次。</p></li></ul><h3 id="beforeupdate"><a href="#beforeupdate" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>beforeUpdate</h3><ul><li>类型：Function</li><li>Context: Vue 组件实例</li><li><p>详细：</p><p>vue 实例生命周期，数据更新时调用，发生在虚拟 DOM 打补丁之前。这里适合在更新之前访问现有的 DOM，比如手动移除已添加的事件监听器。</p></li></ul><h3 id="updated"><a href="#updated" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>updated</h3><ul><li>类型：Function</li><li>Context: Vue 组件实例</li><li><p>详细：</p><p>vue 实例生命周期，由于数据更改导致的虚拟 DOM 重新渲染和打补丁，在这之后会调用该钩子。</p></li></ul><h3 id="firstinviewcallback"><a href="#firstinviewcallback" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>firstInviewCallback</h3><ul><li>类型：Function</li><li>Context: Vue 组件实例</li><li>参数<ul><li>element <code>{Element}</code> Element 实例</li></ul></li><li><p>详细：</p><p>自定义元素的生命周期钩子，在元素挂载到 DOM 上之后，首次出现在视口内上时执行。适合做懒加载之类的功能。</p></li></ul><h3 id="connectedcallback"><a href="#connectedcallback" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>connectedCallback</h3><ul><li>类型：Function</li><li>Context: CustomElement</li><li>参数<ul><li>element <code>{Element}</code> Element 实例</li></ul></li><li><p>详细：</p><p>自定义元素的生命周期钩子，元素挂载到 DOM 上之后执行，该钩子在执行 mounted 之后执行。</p></li></ul><h3 id="disconnectedcallback"><a href="#disconnectedcallback" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>disconnectedCallback</h3><ul><li>类型：Function</li><li>Context: CustomElement</li><li>参数<ul><li>element <code>{Element}</code> Element 实例</li></ul></li><li><p>详细：</p><p>自定义元素的生命周期钩子，元素从 DOM 上移除之后执行。</p></li></ul><h3 id="生命周期图示"><a href="#生命周期图示" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>生命周期图示</h3><p>下图展示了通过 vue 编写 mip 组件实例的生命周期，其中红色框暴露给开发者的生命周期钩子，可以看到除了 firstInviewCallback / connectedCallback / disconnectCallback 钩子，其他钩子都是 vue 的生命周期，这么做也是为了降低学习成本，提高开发效率。</p><p><mip-img layout="responsive" width="1087" height="1480" popup src="http://bos.nj.bpc.baidu.com/v1/assets/mip/mip2-component-lifecycle.png"></mip-img></p>
+                <h1 id="class-与-style-绑定"><a href="#class-与-style-绑定" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>Class 与 Style 绑定</h1><p>操作元素的 class 列表和内联样式是数据绑定的一个常见需求。因为它们都是属性，所以我们可以用 <code>m-bind</code> 处理它们：只需要通过表达式计算出字符串结果即可。不过，字符串拼接麻烦且易错。因此，在将 <code>m-bind</code> 用于 <code>class</code> 和 <code>style</code> 时，MIP2 做了专门的增强。表达式结果的类型除了字符串之外，还可以是对象或数组。这个用法，与 Vue 的 v-bind 是一致的。</p><h2 id="绑定-html-class"><a href="#绑定-html-class" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>绑定 HTML Class</h2><h3 id="对象语法"><a href="#对象语法" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>对象语法</h3><p>我们可以传给 <code>m-bind:class</code> 一个对象，以动态地切换 class：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
+    {
+      <span class="hljs-string">"isActive"</span>: <span class="hljs-literal">true</span>
+    }
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mip-data</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">m-bind:class</span>=<span class="hljs-string">"{ active: isActive }"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre><p>上面的语法表示 <code>active</code> 这个 class 存在与否将取决于数据属性 <code>isActive</code> 的 <a href="https://developer.mozilla.org/zh-CN/docs/Glossary/Truthy">truthiness</a>。</p><p>你可以在对象中传入更多属性来动态切换多个 class。此外，<code>m-bind:class</code> 指令也可以与普通的 class 属性共存。当有如下模板 和 data:</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
+    {
+      <span class="hljs-string">"isActive"</span>: <span class="hljs-literal">true</span>,
+      <span class="hljs-string">"hasError"</span>: <span class="hljs-literal">false</span>
+    }
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mip-data</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"static"</span>
+     <span class="hljs-attr">m-bind:class</span>=<span class="hljs-string">"{ active: isActive, 'text-danger': hasError }"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre><p>结果渲染为：</p><pre><div class="code-index"><div>1</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"static active"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre><p>当 <code>isActive</code> 或者 <code>hasError</code> 变化时，class 列表将相应地更新。例如，如果 <code>hasError</code> 的值为 true，class 列表将变为 <code>&quot;static active text-danger&quot;</code>。</p><p>绑定的数据对象不必内联定义在模板里：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
+    {
+      <span class="hljs-string">"classObject"</span>: {
+        <span class="hljs-string">"active"</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-string">"text-danger"</span>: <span class="hljs-literal">false</span>
+      }
+    }
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mip-data</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">m-bind:class</span>=<span class="hljs-string">"classObject"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre><p>渲染的结果和上面一样。</p><h3 id="数组语法"><a href="#数组语法" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>数组语法</h3><p>我们可以把一个数组传给 <code>m-bind:class</code>，以应用一个 class 列表：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
+    {
+      <span class="hljs-string">"activeClass"</span>: <span class="hljs-string">"active"</span>,
+      <span class="hljs-string">"errorClass"</span>: <span class="hljs-string">"text-danger"</span>
+    }
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mip-data</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">m-bind:class</span>=<span class="hljs-string">"[activeClass, errorClass]"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre><p>渲染为：</p><pre><div class="code-index"><div>1</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"active text-danger"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre><p>如果你也想根据条件切换列表中的 class，可以用三元表达式：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
+    {
+      <span class="hljs-string">"isActive"</span>: <span class="hljs-literal">true</span>,
+      <span class="hljs-string">"activeClass"</span>: <span class="hljs-string">"active"</span>,
+      <span class="hljs-string">"errorClass"</span>: <span class="hljs-string">"text-danger"</span>
+    }
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mip-data</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">m-bind:class</span>=<span class="hljs-string">"[isActive ? activeClass : '', errorClass]"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre><p>这样写将始终添加 <code>errorClass</code>，但是只有在 <code>isActive</code> 是 <a href="https://developer.mozilla.org/zh-CN/docs/Glossary/Truthy">truthy</a> 时才添加 <code>activeClass</code>。</p><p>不过，当有多个条件 class 时这样写有些繁琐。所以在数组语法中也可以使用对象语法：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
+    {
+      <span class="hljs-string">"isActive"</span>: <span class="hljs-literal">true</span>,
+      <span class="hljs-string">"errorClass"</span>: <span class="hljs-string">"text-danger"</span>
+    }
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mip-data</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">m-bind:class</span>=<span class="hljs-string">"[{ active: isActive }, errorClass]"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre><h3 id="用在组件上"><a href="#用在组件上" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>用在组件上</h3><p>与 Vue 不同的是，当在一个自定义组件上使用 class 属性或 <code>m-bind:class</code> 绑定 class 属性时，这些类将 <strong>不会</strong> 被添加到该组件的根元素上面，只会被添加到自定义标签上。</p><h2 id="绑定内联样式"><a href="#绑定内联样式" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>绑定内联样式</h2><h3 id="对象语法1"><a href="#对象语法1" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>对象语法</h3><p><code>m-bind:style</code> 的对象语法十分直观——看着非常像 CSS，但其实是一个 JavaScript 对象。CSS 属性名可以用驼峰式 (camelCase) 或短横线分隔 (kebab-case，记得用单引号括起来) 来命名：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
+    {
+      <span class="hljs-string">"activeColor"</span>: <span class="hljs-string">"red"</span>,
+      <span class="hljs-string">"fontSize"</span>: <span class="hljs-number">13</span>
+    }
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mip-data</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">m-bind:style</span>=<span class="hljs-string">"{ color: activeColor, fontSize: fontSize + 'px' }"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre><p>直接绑定到一个样式对象通常更好，这会让模板更清晰：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
+    {
+      <span class="hljs-string">"styleObject"</span>: {
+        <span class="hljs-string">"color"</span>: <span class="hljs-string">"red"</span>,
+        <span class="hljs-string">"fontSize"</span>: <span class="hljs-string">"13px"</span>
+      }
+    }
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mip-data</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">m-bind:style</span>=<span class="hljs-string">"styleObject"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre><p>渲染为：</p><pre><div class="code-index"><div>1</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"color:red;font-size:13px;"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre><h3 id="数组语法1"><a href="#数组语法1" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>数组语法</h3><p><code>m-bind:style</code> 的数组语法可以将多个样式对象应用到同一个元素上：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
+    {
+      <span class="hljs-string">"baseStyles"</span>: {
+        <span class="hljs-string">"color"</span>: <span class="hljs-string">"red"</span>,
+        <span class="hljs-string">"fontSize"</span>: <span class="hljs-string">"13px"</span>
+      },
+      <span class="hljs-string">"overridingStyles"</span>: {
+        <span class="hljs-string">"color"</span>: <span class="hljs-string">"blue"</span>
+      }
+    }
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mip-data</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">m-bind:style</span>=<span class="hljs-string">"[baseStyles, overridingStyles]"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre><p>渲染为：</p><pre><div class="code-index"><div>1</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"color:blue;font-size:13px;"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre><h4 id="自动添加前缀"><a href="#自动添加前缀" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>自动添加前缀</h4><p>当 <code>m-bind:style</code> 使用需要添加<a href="https://developer.mozilla.org/zh-CN/docs/Glossary/Vendor_Prefix">浏览器引擎前缀</a>的 CSS 属性时，如 <code>transform</code>，MIP2 会自动侦测并添加相应的前缀。</p><h4 id="多重值"><a href="#多重值" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>多重值</h4><p>你可以为 <code>style</code> 绑定中的属性提供一个包含多个值的数组，常用于提供多个带前缀的值，例如：</p><pre><div class="code-index"><div>1</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">m-bind:style</span>=<span class="hljs-string">"{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre><p>这样写只会渲染数组中最后一个被浏览器支持的值。在本例中，如果浏览器支持不带浏览器前缀的 flexbox，那么就只会渲染 <code>display: flex</code>。</p>
             </div>
         </div>
     </div>
@@ -905,24 +969,28 @@ MIP.registerVueCustomElement(
                 <div class="sidebar-right-inner">
                     <div class="chapter-wrapper ui-dep-1">
                         <div class="wd-infinity-chapters">
-        <a class="chapter-title" href="#mip-20-组件实例的生命周期和回调钩子">MIP 2.0 组件实例的生命周期和回调钩子</a>
+        <a class="chapter-title" href="#class-与-style-绑定">Class 与 Style 绑定</a>
         <div class="children-0">
 <div class="wd-infinity-chapters">
-        <a class="chapter-title" href="#创建一个简单的-mip-组件">创建一个简单的 mip 组件</a>
-        <a class="chapter-title" href="#mip-和-vue-的关系">mip 和 vue 的关系</a>
-        <a class="chapter-title" href="#组件实例生命周期">组件实例生命周期</a>
+        <a class="chapter-title" href="#绑定-html-class">绑定 HTML Class</a>
         <div class="children-1">
 <div class="wd-infinity-chapters">
-        <a class="chapter-title" href="#beforecreate">beforeCreate</a>
-        <a class="chapter-title" href="#created">created</a>
-        <a class="chapter-title" href="#beforemount">beforeMount</a>
-        <a class="chapter-title" href="#mounted">mounted</a>
-        <a class="chapter-title" href="#beforeupdate">beforeUpdate</a>
-        <a class="chapter-title" href="#updated">updated</a>
-        <a class="chapter-title" href="#firstinviewcallback">firstInviewCallback</a>
-        <a class="chapter-title" href="#connectedcallback">connectedCallback</a>
-        <a class="chapter-title" href="#disconnectedcallback">disconnectedCallback</a>
-        <a class="chapter-title" href="#生命周期图示">生命周期图示</a>
+        <a class="chapter-title" href="#对象语法">对象语法</a>
+        <a class="chapter-title" href="#数组语法">数组语法</a>
+        <a class="chapter-title" href="#用在组件上">用在组件上</a>
+</div>
+        </div>
+        <a class="chapter-title" href="#绑定内联样式">绑定内联样式</a>
+        <div class="children-1">
+<div class="wd-infinity-chapters">
+        <a class="chapter-title" href="#对象语法1">对象语法</a>
+        <a class="chapter-title" href="#数组语法1">数组语法</a>
+        <div class="children-2">
+<div class="wd-infinity-chapters">
+        <a class="chapter-title" href="#自动添加前缀">自动添加前缀</a>
+        <a class="chapter-title" href="#多重值">多重值</a>
+</div>
+        </div>
 </div>
         </div>
 </div>

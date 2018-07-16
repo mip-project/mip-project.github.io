@@ -3,10 +3,10 @@
 <html mip>
     <head>
         <meta charset="utf-8">
-        <title>MIP 2.0 组件实例的生命周期和回调钩子 | MIP</title>
+        <title>MIP 页面样式 | MIP</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
-        <meta name="description" content="为了提升 mip 组件的开发效率，我们允许开发者使用 vue 开发 mip 组件，然后通过 mip-cli 工具编译成 mip 组件，下面是一个用 vue 写的 mip 组件 mip-example：">
+        <meta name="description" content="MIP 为所有组件提供了一些常用的样式，避免开发者在编写组件时重复实现。">
         <meta name="keywords" content="MIP2">
         <meta name="theme-color" content="#2874f0">
        <!--  <link rel="stylesheet" href="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.css"> -->
@@ -875,26 +875,23 @@
     <div class="markdown-wrapper">
         <div class="md-content ui-dep-1">
             <div class="markdown-body">
-                <h1 id="mip-20-组件实例的生命周期和回调钩子"><a href="#mip-20-组件实例的生命周期和回调钩子" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>MIP 2.0 组件实例的生命周期和回调钩子</h1><h2 id="创建一个简单的-mip-组件"><a href="#创建一个简单的-mip-组件" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>创建一个简单的 mip 组件</h2><p>为了提升 mip 组件的开发效率，我们允许开发者使用 vue 开发 mip 组件，然后通过 mip-cli 工具编译成 mip 组件，下面是一个用 vue 写的 mip 组件 <code>mip-example</code>：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>MIP 2.0 component example<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+                <h1 id="mip-页面样式"><a href="#mip-页面样式" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>MIP 页面样式</h1><p>MIP 为所有组件提供了一些常用的样式，避免开发者在编写组件时重复实现。</p><h2 id="1-像素边框"><a href="#1-像素边框" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>1 像素边框</h2><p>针对移动端浏览器在高清屏幕显示中最常见的 1 像素边框问题，MIP 给出了通用的解决方案。开发者只需要引入固定的类名即可绘制出真实的 1 像素边框。</p><h3 id="使用方法"><a href="#使用方法" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>使用方法</h3><p>给需要添加边框的元素添加特定的类，如下：</p><ul><li><p><strong>mip-border</strong></p><p>声明使用 MIP 提供的边框样式，<strong>必须添加</strong>。</p></li><li><p><strong>mip-border-top</strong></p><p>使用顶部边框。<strong>可以和其他方向的边框叠加使用</strong>。</p></li><li><p><strong>mip-border-bottom</strong></p><p>使用底部边框。<strong>可以和其他方向的边框叠加使用</strong>。</p></li><li><p><strong>mip-border-left</strong></p><p>使用左边边框。<strong>可以和其他方向的边框叠加使用</strong>。</p></li><li><p><strong>mip-border-right</strong></p><p>使用右边边框。<strong>可以和其他方向的边框叠加使用</strong>。</p></li><li><p><strong>mip-border-all</strong></p><p>使用所有方向的边框。</p></li></ul><h3 id="示例"><a href="#示例" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>示例</h3><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div></div><code class="lang-html"><span class="hljs-comment">&lt;!-- 使用四个方向的边框 --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">mip-fixed</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mip-border mip-border-all"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"top"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-fixed</span>&gt;</span>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">scoped</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
-
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
-  <span class="hljs-comment">// component options</span>
+<span class="hljs-comment">&lt;!-- 使用上下方向的边框，可以和其他自定义类配合使用 --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wrapper mip-border mip-border-top mip-border-bottom"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre><h3 id="修改颜色和圆角"><a href="#修改颜色和圆角" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>修改颜色和圆角</h3><p>默认的边框颜色是 <code>#e1e1e1</code>，没有圆角。但根据业务需求可能会更改两者的属性。</p><p>虽然在 MIP 的源码中使用 less 把两者的修改包装成方法可以直接使用，但到开发者的环境中 less 已经变成了 css，因此自然也无法使用方法。我们可以使用 css 属性覆盖的方法解决这个问题。如果开发者使用了如 less, stylus 等 css 框架，也可根据对应框架的特点进行语法精简和改写。</p><p>我们以如下的 HTML 进行举例：</p><pre><div class="code-index"><div>1</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wrapper mip-border mip-border-top mip-border-bottom"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre><ul><li><p>修改颜色</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div></div><code class="lang-css"><span class="hljs-selector-class">.wrapper</span> {
+  <span class="hljs-attribute">border-color</span>: red;
 }
-</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre><p>然后使用 mip-cli 工具编译打包后大概是这样的：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div></div><code class="lang-js"><span class="hljs-comment">// 创建 style 标签，并为 css 加上 scope</span>
-<span class="hljs-comment">// 将 template 编译成 render 函数</span>
 
-<span class="hljs-comment">// 注册自定义组件</span>
-MIP.registerVueCustomElement(
-  <span class="hljs-string">'mip-example'</span>,
-  componentDefinition <span class="hljs-comment">// component options</span>
-);</code></pre><h2 id="mip-和-vue-的关系"><a href="#mip-和-vue-的关系" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>mip 和 vue 的关系</h2><p>mip 组件是基于<a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements">Web Component</a> 规范实现的一种用于创建自定义 HTML 元素。为了方便开发，mip2 支持开发者使用 vue 的方式开发 mip 组件，而隐藏了自定义元素注册和生命周期回调，开发者可以完全专注 vue 组件的开发。下面是 vue 和 mip 之间的关系示意图：</p><p><mip-img layout="responsive" width="320" height="320" popup src="https://mip-project.github.io/doc-assets//mip/assets/vue-and-mip-component.png.html"></mip-img></p><h2 id="组件实例生命周期"><a href="#组件实例生命周期" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>组件实例生命周期</h2><p>你可以定义以下的生命周期回调钩子,这些回调会在自定义元素的生命周期的不同点回调。所有的生命周期钩子自动绑定 this 上下文到 vue 实例中，因此你可以访问数据，对属性和方法进行运算。这意味着 你不能使用箭头函数来定义一个生命周期方法 (例如 created: () =&gt; this.fetchTodos())。这是因为箭头函数绑定了父上下文，因此 this 与你期待的 Vue 实例不同，this.fetchTodos 的行为未定义。</p><h3 id="beforecreate"><a href="#beforecreate" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>beforeCreate</h3><ul><li>类型：Function</li><li>Context: Vue 组件实例</li><li><p>详细：</p><p>vue 实例生命周期，在 vue 实例初始化之后，数据观测 (data observer) 和 event/watcher 事件配置之前被调用。如果 prerenderAllowed() 为真，在自定义元素的 connectedCallback 中执行， 反之在 firstInviewCallback 中执行。</p></li></ul><h3 id="created"><a href="#created" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>created</h3><ul><li>类型：Function</li><li>Context: Vue 组件实例</li><li><p>详细：</p><p>vue 实例生命周期，在 vue 实例创建完成后被立即调用。在这一步，实例已完成以下的配置：数据观测 (data observer)，属性和方法的运算，watch/event 事件回调。然而，挂载阶段还没开始，$el 属性目前不可见。</p></li></ul><h3 id="beforemount"><a href="#beforemount" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>beforeMount</h3><ul><li>类型：Function</li><li>Context: Vue 组件实例</li><li><p>详细：</p><p>vue 实例生命周期，在挂载开始之前被调用：相关的 render 函数首次被调用。在自定义元素的 connectedCallback 钩子中执行。</p></li></ul><h3 id="mounted"><a href="#mounted" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>mounted</h3><ul><li>类型：Function</li><li>Context: Vue 组件实例</li><li><p>详细：</p><p>vue 实例生命周期，el 被新创建的 vm.$el 替换，并挂载到实例上去之后调用该钩子。如果 root 实例挂载了一个文档内元素，当 mounted 被调用时 vm.$el 也在文档内。在自定义元素的 connectedCallback 钩子中执行，connectedCallback 可能会因为元素从 DOM 结构上移动而触发多次执行，但是 mounted 只会执行一次。</p></li></ul><h3 id="beforeupdate"><a href="#beforeupdate" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>beforeUpdate</h3><ul><li>类型：Function</li><li>Context: Vue 组件实例</li><li><p>详细：</p><p>vue 实例生命周期，数据更新时调用，发生在虚拟 DOM 打补丁之前。这里适合在更新之前访问现有的 DOM，比如手动移除已添加的事件监听器。</p></li></ul><h3 id="updated"><a href="#updated" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>updated</h3><ul><li>类型：Function</li><li>Context: Vue 组件实例</li><li><p>详细：</p><p>vue 实例生命周期，由于数据更改导致的虚拟 DOM 重新渲染和打补丁，在这之后会调用该钩子。</p></li></ul><h3 id="firstinviewcallback"><a href="#firstinviewcallback" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>firstInviewCallback</h3><ul><li>类型：Function</li><li>Context: Vue 组件实例</li><li>参数<ul><li>element <code>{Element}</code> Element 实例</li></ul></li><li><p>详细：</p><p>自定义元素的生命周期钩子，在元素挂载到 DOM 上之后，首次出现在视口内上时执行。适合做懒加载之类的功能。</p></li></ul><h3 id="connectedcallback"><a href="#connectedcallback" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>connectedCallback</h3><ul><li>类型：Function</li><li>Context: CustomElement</li><li>参数<ul><li>element <code>{Element}</code> Element 实例</li></ul></li><li><p>详细：</p><p>自定义元素的生命周期钩子，元素挂载到 DOM 上之后执行，该钩子在执行 mounted 之后执行。</p></li></ul><h3 id="disconnectedcallback"><a href="#disconnectedcallback" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>disconnectedCallback</h3><ul><li>类型：Function</li><li>Context: CustomElement</li><li>参数<ul><li>element <code>{Element}</code> Element 实例</li></ul></li><li><p>详细：</p><p>自定义元素的生命周期钩子，元素从 DOM 上移除之后执行。</p></li></ul><h3 id="生命周期图示"><a href="#生命周期图示" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>生命周期图示</h3><p>下图展示了通过 vue 编写 mip 组件实例的生命周期，其中红色框暴露给开发者的生命周期钩子，可以看到除了 firstInviewCallback / connectedCallback / disconnectCallback 钩子，其他钩子都是 vue 的生命周期，这么做也是为了降低学习成本，提高开发效率。</p><p><mip-img layout="responsive" width="1087" height="1480" popup src="http://bos.nj.bpc.baidu.com/v1/assets/mip/mip2-component-lifecycle.png"></mip-img></p>
+<span class="hljs-selector-class">.wrapper</span><span class="hljs-selector-pseudo">::after</span> {
+  <span class="hljs-attribute">border-color</span>: red;
+}</code></pre></li><li><p>修改圆角</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div></div><code class="lang-css"><span class="hljs-selector-class">.wrapper</span> {
+  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">2px</span>;
+}
+
+<span class="hljs-selector-class">.wrapper</span><span class="hljs-selector-pseudo">::after</span> {
+  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">4px</span>;
+}</code></pre><p>注意因为 scale 的关系，在设置 <code>::after</code> 伪类时需要将圆角尺寸 <strong>乘以 2</strong>。</p></li></ul>
             </div>
         </div>
     </div>
@@ -905,24 +902,15 @@ MIP.registerVueCustomElement(
                 <div class="sidebar-right-inner">
                     <div class="chapter-wrapper ui-dep-1">
                         <div class="wd-infinity-chapters">
-        <a class="chapter-title" href="#mip-20-组件实例的生命周期和回调钩子">MIP 2.0 组件实例的生命周期和回调钩子</a>
+        <a class="chapter-title" href="#mip-页面样式">MIP 页面样式</a>
         <div class="children-0">
 <div class="wd-infinity-chapters">
-        <a class="chapter-title" href="#创建一个简单的-mip-组件">创建一个简单的 mip 组件</a>
-        <a class="chapter-title" href="#mip-和-vue-的关系">mip 和 vue 的关系</a>
-        <a class="chapter-title" href="#组件实例生命周期">组件实例生命周期</a>
+        <a class="chapter-title" href="#1-像素边框">1 像素边框</a>
         <div class="children-1">
 <div class="wd-infinity-chapters">
-        <a class="chapter-title" href="#beforecreate">beforeCreate</a>
-        <a class="chapter-title" href="#created">created</a>
-        <a class="chapter-title" href="#beforemount">beforeMount</a>
-        <a class="chapter-title" href="#mounted">mounted</a>
-        <a class="chapter-title" href="#beforeupdate">beforeUpdate</a>
-        <a class="chapter-title" href="#updated">updated</a>
-        <a class="chapter-title" href="#firstinviewcallback">firstInviewCallback</a>
-        <a class="chapter-title" href="#connectedcallback">connectedCallback</a>
-        <a class="chapter-title" href="#disconnectedcallback">disconnectedCallback</a>
-        <a class="chapter-title" href="#生命周期图示">生命周期图示</a>
+        <a class="chapter-title" href="#使用方法">使用方法</a>
+        <a class="chapter-title" href="#示例">示例</a>
+        <a class="chapter-title" href="#修改颜色和圆角">修改颜色和圆角</a>
 </div>
         </div>
 </div>

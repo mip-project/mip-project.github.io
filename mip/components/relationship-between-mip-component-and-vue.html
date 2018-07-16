@@ -3,10 +3,10 @@
 <html mip>
     <head>
         <meta charset="utf-8">
-        <title>MIP 2.0 组件实例的生命周期和回调钩子 | MIP</title>
+        <title>MIP 组件和 Vue 的关系 | MIP</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
-        <meta name="description" content="为了提升 mip 组件的开发效率，我们允许开发者使用 vue 开发 mip 组件，然后通过 mip-cli 工具编译成 mip 组件，下面是一个用 vue 写的 mip 组件 mip-example：">
+        <meta name="description" content="MIP 组件化的核心是基于 Custom Elements（自定义元素）来实现的。Custom Elements 可以让浏览器识别我们自定义的 HTML 标签，并将我们预先定义的标签内容和结构在网页中渲染出来。Custom Elements 目前已经被纳入 W3C DOM 标准，MIP 采用的是 Custom Elements V1 规范，但考虑到目前并不是所有的浏览器都完全支持该标准，MIP 引入了相关的 polyfill 来兼容暂时不支持 Custom Elements 标准的浏览器。">
         <meta name="keywords" content="MIP2">
         <meta name="theme-color" content="#2874f0">
        <!--  <link rel="stylesheet" href="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.css"> -->
@@ -875,26 +875,127 @@
     <div class="markdown-wrapper">
         <div class="md-content ui-dep-1">
             <div class="markdown-body">
-                <h1 id="mip-20-组件实例的生命周期和回调钩子"><a href="#mip-20-组件实例的生命周期和回调钩子" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>MIP 2.0 组件实例的生命周期和回调钩子</h1><h2 id="创建一个简单的-mip-组件"><a href="#创建一个简单的-mip-组件" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>创建一个简单的 mip 组件</h2><p>为了提升 mip 组件的开发效率，我们允许开发者使用 vue 开发 mip 组件，然后通过 mip-cli 工具编译成 mip 组件，下面是一个用 vue 写的 mip 组件 <code>mip-example</code>：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>MIP 2.0 component example<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+                <h1 id="mip-组件和-vue-的关系"><a href="#mip-组件和-vue-的关系" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>MIP 组件和 Vue 的关系</h1><p>MIP 组件化的核心是基于 Custom Elements（自定义元素）来实现的。Custom Elements 可以让浏览器识别我们自定义的 HTML 标签，并将我们预先定义的标签内容和结构在网页中渲染出来。Custom Elements 目前已经被纳入 W3C DOM 标准，MIP 采用的是 Custom Elements V1 规范，但考虑到目前并不是所有的浏览器都完全支持该标准，MIP 引入了相关的 <a href="https://github.com/WebReflection/document-register-element">polyfill</a> 来兼容暂时不支持 Custom Elements 标准的浏览器。</p><h2 id="定义自定义元素"><a href="#定义自定义元素" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>定义自定义元素</h2><p>如果浏览器支持 Custom Elements 标准，在 window 下就会有 customElements 对象，customElements 对象含有一个 <code>define()</code> 方法用来注册和定义一个 HTML 自定义元素，下面我们展示一段用来创建自定义元素的 JS 代码：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div></div><code class="lang-js"><span class="hljs-built_in">window</span>.customElements.define(<span class="hljs-string">'custom-drawer'</span>, <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">HTMLElement</span> </span>{
+    connectedCallback() {
+        <span class="hljs-keyword">this</span>.innerHTML = <span class="hljs-string">'&lt;p&gt;Hello world.&lt;/p&gt;'</span>
+    }
+});</code></pre><p><code>define</code> 方法接收两个参数，第一个参数为需要创建的 HTML 自定义元素的名称，第二个参数为一个继承 <code>HTMLElement</code> 的类，通过重写 <code>HTMLElement</code> 的一些方法，就可以定制 HTML 自定义元素的内容，从而可以完全的从新创造一个自定义的 HTML 元素。</p><p>如果我们像上面的 JS 代码一样通过 <code>window.customElements.define()</code> 方法注册了一个名为 <code>custom-drawer</code> 的自定义元素，那对应的 HTML 自定义标签为 <code>&lt;custom-drawer&gt;</code>，在 HTML 文档中就可以直接像下面这样使用新的 HTML 自定义标签：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div></div><code class="lang-html"><span class="hljs-comment">&lt;!-- index.html --&gt;</span>
+  <span class="hljs-comment">&lt;!-- 在使用的时候并没有指定 custom-drawer 的内容 --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">custom-drawer</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">custom-drawer</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre><p>HTML 文档通过浏览器的渲染，最终在浏览器渲染后的 DOM 结构如下所示：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div></div><code class="lang-html"><span class="hljs-comment">&lt;!-- 渲染之后 custom-drawer 就包含了内容 --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">custom-drawer</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Hello world.<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">custom-drawer</span>&gt;</span></code></pre><p>我们可以发现自定义标签 <code>&lt;custom-drawer&gt;</code> 被渲染出来了，并且我们在 JS 中定义的 <code>this.innerHTML</code> 的内容也被渲染在自定义元素 <code>&lt;custom-drawer&gt;</code> 的内部。</p><h2 id="mip-组件"><a href="#mip-组件" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>MIP 组件</h2><p>MIP 组件和 Custom Elements 是密不可分的，接下来我们看下 MIP 是如何利用 Custom Elements 实现 MIP 组件的，MIP 暴露了一个注册 MIP 组件的方法 <code>MIP.registerCustomElement()</code> 用来注册 MIP 组件，调用方式如下：</p><pre><div class="code-index"><div>1</div></div><code class="lang-js">MIP.registerCustomElement(<span class="hljs-string">'mip-drawer'</span>, CustomElementClass, css)</code></pre><p>和前面小节讲到的 <code>window.customElements.define</code> 方法用法类似，只是 <code>MIP.registerCustomElement</code> 接收三个参数，第一个参数也是指定一个 MIP 标签的名称，MIP 组件名称都是要求以 <code>mip-</code> 开头，第二个参数为也是一个继承于 <code>HTMLElement</code> 的类，第三个参数可选，为 CSS 代码字符串，可以给 MIP 组件通过注册的时候指定默认 CSS 样式。</p><p><code>MIP.registerCustomElement()</code> 方法精简后的代码实现大体如下：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div>32</div><div>33</div><div>34</div><div>35</div><div>36</div><div>37</div><div>38</div><div>39</div><div>40</div><div>41</div><div>42</div><div>43</div><div>44</div><div>45</div><div>46</div><div>47</div></div><code class="lang-js"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BaseElement</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">HTMLElement</span> </span>{
+  <span class="hljs-keyword">constructor</span> (element) {
+    <span class="hljs-keyword">super</span>(element)
 
-<span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">scoped</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+    <span class="hljs-keyword">let</span> CustomElement = customElementsStore.get(<span class="hljs-keyword">this</span>.tagName.toLowerCase(), <span class="hljs-string">'mip2'</span>)
+    <span class="hljs-keyword">let</span> customElement = <span class="hljs-keyword">this</span>.customElement = <span class="hljs-keyword">new</span> CustomElement(<span class="hljs-keyword">this</span>)
+  }
 
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
-  <span class="hljs-comment">// component options</span>
+  connectedCallback () {
+    <span class="hljs-keyword">this</span>.customElement.connectedCallback()
+  }
+
+  disconnectedCallback () {
+    <span class="hljs-keyword">this</span>.customElement.disconnectedCallback()
+  }
+
+  attributeChangedCallback () {
+    <span class="hljs-keyword">this</span>.customElement.attributeChangedCallback.apply(ele, <span class="hljs-built_in">arguments</span>)
+  }
+  <span class="hljs-comment">// 渲染自定义元素内部结构</span>
+  build () {
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.isBuilt()) {
+      <span class="hljs-keyword">return</span>
+    }
+    <span class="hljs-keyword">this</span>.customElement.build()
+    <span class="hljs-keyword">this</span>._built = <span class="hljs-literal">true</span>
+  }
+
+  isBuilt () {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._built
+  }
 }
-</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre><p>然后使用 mip-cli 工具编译打包后大概是这样的：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div></div><code class="lang-js"><span class="hljs-comment">// 创建 style 标签，并为 css 加上 scope</span>
-<span class="hljs-comment">// 将 template 编译成 render 函数</span>
 
-<span class="hljs-comment">// 注册自定义组件</span>
-MIP.registerVueCustomElement(
-  <span class="hljs-string">'mip-example'</span>,
-  componentDefinition <span class="hljs-comment">// component options</span>
-);</code></pre><h2 id="mip-和-vue-的关系"><a href="#mip-和-vue-的关系" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>mip 和 vue 的关系</h2><p>mip 组件是基于<a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements">Web Component</a> 规范实现的一种用于创建自定义 HTML 元素。为了方便开发，mip2 支持开发者使用 vue 的方式开发 mip 组件，而隐藏了自定义元素注册和生命周期回调，开发者可以完全专注 vue 组件的开发。下面是 vue 和 mip 之间的关系示意图：</p><p><mip-img layout="responsive" width="320" height="320" popup src="https://mip-project.github.io/doc-assets//mip/assets/vue-and-mip-component.png.html"></mip-img></p><h2 id="组件实例生命周期"><a href="#组件实例生命周期" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>组件实例生命周期</h2><p>你可以定义以下的生命周期回调钩子,这些回调会在自定义元素的生命周期的不同点回调。所有的生命周期钩子自动绑定 this 上下文到 vue 实例中，因此你可以访问数据，对属性和方法进行运算。这意味着 你不能使用箭头函数来定义一个生命周期方法 (例如 created: () =&gt; this.fetchTodos())。这是因为箭头函数绑定了父上下文，因此 this 与你期待的 Vue 实例不同，this.fetchTodos 的行为未定义。</p><h3 id="beforecreate"><a href="#beforecreate" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>beforeCreate</h3><ul><li>类型：Function</li><li>Context: Vue 组件实例</li><li><p>详细：</p><p>vue 实例生命周期，在 vue 实例初始化之后，数据观测 (data observer) 和 event/watcher 事件配置之前被调用。如果 prerenderAllowed() 为真，在自定义元素的 connectedCallback 中执行， 反之在 firstInviewCallback 中执行。</p></li></ul><h3 id="created"><a href="#created" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>created</h3><ul><li>类型：Function</li><li>Context: Vue 组件实例</li><li><p>详细：</p><p>vue 实例生命周期，在 vue 实例创建完成后被立即调用。在这一步，实例已完成以下的配置：数据观测 (data observer)，属性和方法的运算，watch/event 事件回调。然而，挂载阶段还没开始，$el 属性目前不可见。</p></li></ul><h3 id="beforemount"><a href="#beforemount" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>beforeMount</h3><ul><li>类型：Function</li><li>Context: Vue 组件实例</li><li><p>详细：</p><p>vue 实例生命周期，在挂载开始之前被调用：相关的 render 函数首次被调用。在自定义元素的 connectedCallback 钩子中执行。</p></li></ul><h3 id="mounted"><a href="#mounted" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>mounted</h3><ul><li>类型：Function</li><li>Context: Vue 组件实例</li><li><p>详细：</p><p>vue 实例生命周期，el 被新创建的 vm.$el 替换，并挂载到实例上去之后调用该钩子。如果 root 实例挂载了一个文档内元素，当 mounted 被调用时 vm.$el 也在文档内。在自定义元素的 connectedCallback 钩子中执行，connectedCallback 可能会因为元素从 DOM 结构上移动而触发多次执行，但是 mounted 只会执行一次。</p></li></ul><h3 id="beforeupdate"><a href="#beforeupdate" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>beforeUpdate</h3><ul><li>类型：Function</li><li>Context: Vue 组件实例</li><li><p>详细：</p><p>vue 实例生命周期，数据更新时调用，发生在虚拟 DOM 打补丁之前。这里适合在更新之前访问现有的 DOM，比如手动移除已添加的事件监听器。</p></li></ul><h3 id="updated"><a href="#updated" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>updated</h3><ul><li>类型：Function</li><li>Context: Vue 组件实例</li><li><p>详细：</p><p>vue 实例生命周期，由于数据更改导致的虚拟 DOM 重新渲染和打补丁，在这之后会调用该钩子。</p></li></ul><h3 id="firstinviewcallback"><a href="#firstinviewcallback" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>firstInviewCallback</h3><ul><li>类型：Function</li><li>Context: Vue 组件实例</li><li>参数<ul><li>element <code>{Element}</code> Element 实例</li></ul></li><li><p>详细：</p><p>自定义元素的生命周期钩子，在元素挂载到 DOM 上之后，首次出现在视口内上时执行。适合做懒加载之类的功能。</p></li></ul><h3 id="connectedcallback"><a href="#connectedcallback" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>connectedCallback</h3><ul><li>类型：Function</li><li>Context: CustomElement</li><li>参数<ul><li>element <code>{Element}</code> Element 实例</li></ul></li><li><p>详细：</p><p>自定义元素的生命周期钩子，元素挂载到 DOM 上之后执行，该钩子在执行 mounted 之后执行。</p></li></ul><h3 id="disconnectedcallback"><a href="#disconnectedcallback" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>disconnectedCallback</h3><ul><li>类型：Function</li><li>Context: CustomElement</li><li>参数<ul><li>element <code>{Element}</code> Element 实例</li></ul></li><li><p>详细：</p><p>自定义元素的生命周期钩子，元素从 DOM 上移除之后执行。</p></li></ul><h3 id="生命周期图示"><a href="#生命周期图示" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>生命周期图示</h3><p>下图展示了通过 vue 编写 mip 组件实例的生命周期，其中红色框暴露给开发者的生命周期钩子，可以看到除了 firstInviewCallback / connectedCallback / disconnectCallback 钩子，其他钩子都是 vue 的生命周期，这么做也是为了降低学习成本，提高开发效率。</p><p><mip-img layout="responsive" width="1087" height="1480" popup src="http://bos.nj.bpc.baidu.com/v1/assets/mip/mip2-component-lifecycle.png"></mip-img></p>
+MIP.registerCustomElement = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">name, CustomElementClass, css</span>) </span>{
+  <span class="hljs-comment">// 检查是否已注册过该自定义元素，避免重复注册</span>
+  <span class="hljs-keyword">if</span> (customElementsStore.get(name)) {
+    <span class="hljs-keyword">return</span>
+  }
+  customElementsStore.set(name, CustomElementClass, <span class="hljs-string">'mip2'</span>)
+  <span class="hljs-comment">// 定义自定义元素</span>
+  <span class="hljs-built_in">window</span>.customElements.define(name, <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">BaseElement</span> </span>{
+    <span class="hljs-comment">// 显式声明需要监听自定义元素属性变化的属性名</span>
+    <span class="hljs-keyword">static</span> get observedAttributes () {
+      <span class="hljs-keyword">return</span> CustomElementClass.observedAttributes
+    }
+  })
+}</code></pre><p>由于 MIP 组件有些公共的逻辑要在生命周期钩子中执行，而自定义组件是通过继承的方式扩展的，如果直接继承 BaseElement 很容易造成自定义组件扩展在重载方法时忘记调用父类的方法，导致 MIP 对自定义元素失去控制，所以 MIP 提供了一个给开发者自定义元素的 <code>CustomElement</code> 实现类。MIP 的自定义元素基类 <code>CustomElement</code> 基类除了提供规范的定义的几个方法外，还提供了 <code>firstInviewCallback()</code>、<code>viewportCallback()</code> 之类的回调方法，详见 <a href="/mip/components/instance-life-cycle.html">MIP 生命周期</a>。</p><p>在引入 MIP 核心代码之后，在 JS 中我们可以通过如下的方式使用 <code>MIP.registerCustomElement()</code> 方法进行注册一个 MIP 组件：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div></div><code class="lang-js">MIP.registerCustomElement(<span class="hljs-string">'mip-drawer'</span>, <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">MIP</span>.<span class="hljs-title">CustomElement</span> </span>{
+    build() {
+        <span class="hljs-keyword">this</span>.element.innerHTML = <span class="hljs-string">'&lt;p&gt;Hello world.&lt;/p&gt;'</span>
+    }
+})</code></pre><p>注册 MIP 组件 <code>mip-drawer</code> 之后，在 HTML 中就可以直接这样使用新的自定义标签 <code>&lt;mip-drawer&gt;</code>：</p><pre><div class="code-index"><div>1</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-drawer</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-drawer</span>&gt;</span></code></pre><p>MIP 标签在浏览器中渲染后的结果如下所示：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div></div><code class="lang-html"><span class="hljs-comment">&lt;!-- mip-drawer 标签上会加一些 mip 相关的 class --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">mip-drawer</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mip-element"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Hello world.<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mip-drawer</span>&gt;</span></code></pre><p>从渲染后的结果看，和 Custom Element 一样，最终渲染后的 MIP 标签中已经包含了我们在组件注册中指定的内容。</p><h2 id="在-mip-组件中使用-vue"><a href="#在-mip-组件中使用-vue" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>在 MIP 组件中使用 Vue</h2><p>考虑到 MIP 组件内部的交互逻辑会非常复杂，通过拼接 HTML 的方式构造渲染后的内容过于繁琐，再遇上各种属性绑定，事件处理等问题就更麻烦了，代码也非常不好维护，于是 MIP 又在 Custom Element 的基础上又封装了一层 Vue，可以直接通过写 Vue 组件的方式来写 MIP 组件，MIP 暴露一个 <code>MIP.registerVueCustomElement()</code> 的方法用来注册 Vue 组件为 Custom Element, 用法如下:</p><pre><div class="code-index"><div>1</div></div><code class="lang-js">MIP.registerVueCustomElement(mipTagName, vueCompnentDefinition)</code></pre><p><code>MIP.registerVueCustomElement()</code> 方法包含两个参数，第一个参数，必填，MIP 标签名，必须以 <code>mip-</code> 开头，第二个参数为 Vue 组件定义对象，可以参考 <a href="https://cn.vuejs.org/v2/guide/instance.html">vue 文档</a></p><p>通过这个接口可以这么写 MIP 组件：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div></div><code class="lang-js">MIP.registerVueCustomElement(<span class="hljs-string">'mip-drawer'</span>, {
+    <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;p&gt;Hello world.&lt;/p&gt;'</span>
+})</code></pre><p>在 HTML 中就可以直接使用 <code>&lt;mip-drawer&gt;</code> 标签：</p><pre><div class="code-index"><div>1</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-drawer</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-drawer</span>&gt;</span></code></pre><p>浏览器渲染后的结果如下：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div></div><code class="lang-html"><span class="hljs-comment">&lt;!-- 内部多了一个 div 标签是因为 vue 实例必须要有一个根元素，而自定义标签不能作为 vue 实例的根元素 --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">mip-drawer</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mip-element"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Hello world.<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mip-drawer</span>&gt;</span></code></pre><p>通过 mip-cli 工具，我们可以使用单文件的方式去开发 MIP 组件，假设我们的 <code>&lt;mip-drawer&gt;</code> 标签对应的 vue 组件文件名为 <code>mip-drawer.,vue</code>，下面是 <code>mip-drawer.vue</code> 文件的代码：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Hello world.<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+    <span class="hljs-comment">// vue 组件定义</span>
+  }
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+<span class="hljs-comment">/* css style*/</span>
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre><p>通过 mip-cli 工具编译后会将 <code>mip-drawer.vue</code> 文件打包成 <code>mip-drawer.js</code> 文件， 并在构建的 JS 文件中自动通过 <code>MIP.registerVueCustomElement()</code> 方法完成了 vue 组件注册成 MIP 组件自定义元素的工作。</p><p>接下来我们可以看下 <code>MIP.registerVueCustomElement()</code> 方法是如何实现的，下面是精简后的代码。</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div></div><code class="lang-js">MIP.registerVueCustomElement = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">tag, vueComponent</span>) </span>{
+  Vue.customElement(tag, vueComponent)
+}</code></pre><p>在 MIP 通过 vue 组件注册一个自定义元素的时候，只是仅仅调用了 <code>Vue.customElement()</code> 方法而已，而 <code>Vue.customElement()</code> 方法的实现代码精简后是如下这样的：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div>32</div><div>33</div><div>34</div><div>35</div><div>36</div><div>37</div><div>38</div><div>39</div></div><code class="lang-js">Vue.customElement = <span class="hljs-function">(<span class="hljs-params">tag, componentDefinition</span>) =&gt;</span> {
+  <span class="hljs-keyword">const</span> props = getProps(componentDefinition)
+
+  <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">VueCustomElement</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">CustomElement</span> </span>{
+    <span class="hljs-comment">// 创建 vue 实例</span>
+    _build () {
+      <span class="hljs-keyword">let</span> vueInstance = <span class="hljs-keyword">this</span>.vueInstance = createVueInstance(
+        <span class="hljs-keyword">this</span>.element, {
+          Vue
+        },
+        componentDefinition,
+        props
+      )
+      <span class="hljs-keyword">this</span>.props = props
+      <span class="hljs-keyword">this</span>.vm = vueInstance.$children[<span class="hljs-number">0</span>]
+    }
+
+    build () {
+      <span class="hljs-keyword">this</span>._build()
+    }
+
+    <span class="hljs-comment">// 自动绑定自定义标签属性的变化，如果发生变化直接映射到 vue props 属性的变化</span>
+    attributeChangedCallback (name, oldValue, value) {
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.vueInstance) {
+        <span class="hljs-keyword">const</span> nameCamelCase = camelize(name)
+        <span class="hljs-keyword">const</span> type = <span class="hljs-keyword">this</span>.props.types[nameCamelCase]
+        <span class="hljs-comment">// 会根据 props 定义的 type 对字符串属性值自动解析</span>
+        <span class="hljs-keyword">this</span>.vueInstance[nameCamelCase] = convertAttributeValue(value, type)
+      }
+    }
+
+    <span class="hljs-comment">// 根据 vue 组件定义 props 关联 CustomElement 的 observedAttributes</span>
+    <span class="hljs-keyword">static</span> get observedAttributes () {
+      <span class="hljs-keyword">return</span> props.hyphenate || []
+    }
+  }
+
+  registerElement(tag, VueCustomElement)
+}</code></pre><p>通过上面的代码，我们可以知道，实际上 vue 实例是在 MIP 组件 build 的回调里创建的，并通过和 Custom Elements 的相关回调钩子传递数据到 vue 实例内部。</p><p>通过以上对 MIP 组件核心源码解析，我们要注意使用 vue 语法写的 MIP 组件需要明确以下几点：</p><ul><li>每个自定元素都创建了一个 vue 实例，只负责渲染自定义元素的内部结构，在 HTML 文档中，MIP 自定义元素跟 vue 是<strong>毫无关系</strong>的。</li><li>MIP 组件定义的自定义元素在 HTML 上完全遵循 HTML 标准，<strong>完全不支持 vue 的语法</strong>，vue 语法只存在组件内部实现。</li><li>组件内部的 vue 组件语法和常规的 vue 语法完全一致。</li></ul><h2 id="使用-vue-组件方式开发的特性"><a href="#使用-vue-组件方式开发的特性" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>使用 vue 组件方式开发的特性</h2><p>虽然在 HTML 语法中不支持 vue 语法，但是 MIP 也提供了很多特性使开发者使用起来更加简单：</p><ul><li>Props 属性传递, 通过 HTML 自定义标签的属性和属性值定义，就可以将自定义标签的属性数据传递给 vue 组件，vue 组件通过 props 属性进行接收。</li><li><a href="/mip/components/slots.html">Slots 内容插槽/分发</a> 可以将 HMTL 自定义元素的内容直接分发到 vue 模板内部的 <code>&lt;slot&gt;</code> 标签</li><li><a href="/mip/basic/actions-and-events.html">Events 事件绑定</a>， 可以通过 $emit 和 $on 方法替代 addEventAction 和 eventAction.execute</li><li><a href="/mip/components/data-and-method.html">数据绑定</a>，HTML 自定义标签上的属性变化会实时反馈到 vue 内部</li></ul>
             </div>
         </div>
     </div>
@@ -905,26 +1006,13 @@ MIP.registerVueCustomElement(
                 <div class="sidebar-right-inner">
                     <div class="chapter-wrapper ui-dep-1">
                         <div class="wd-infinity-chapters">
-        <a class="chapter-title" href="#mip-20-组件实例的生命周期和回调钩子">MIP 2.0 组件实例的生命周期和回调钩子</a>
+        <a class="chapter-title" href="#mip-组件和-vue-的关系">MIP 组件和 Vue 的关系</a>
         <div class="children-0">
 <div class="wd-infinity-chapters">
-        <a class="chapter-title" href="#创建一个简单的-mip-组件">创建一个简单的 mip 组件</a>
-        <a class="chapter-title" href="#mip-和-vue-的关系">mip 和 vue 的关系</a>
-        <a class="chapter-title" href="#组件实例生命周期">组件实例生命周期</a>
-        <div class="children-1">
-<div class="wd-infinity-chapters">
-        <a class="chapter-title" href="#beforecreate">beforeCreate</a>
-        <a class="chapter-title" href="#created">created</a>
-        <a class="chapter-title" href="#beforemount">beforeMount</a>
-        <a class="chapter-title" href="#mounted">mounted</a>
-        <a class="chapter-title" href="#beforeupdate">beforeUpdate</a>
-        <a class="chapter-title" href="#updated">updated</a>
-        <a class="chapter-title" href="#firstinviewcallback">firstInviewCallback</a>
-        <a class="chapter-title" href="#connectedcallback">connectedCallback</a>
-        <a class="chapter-title" href="#disconnectedcallback">disconnectedCallback</a>
-        <a class="chapter-title" href="#生命周期图示">生命周期图示</a>
-</div>
-        </div>
+        <a class="chapter-title" href="#定义自定义元素">定义自定义元素</a>
+        <a class="chapter-title" href="#mip-组件">MIP 组件</a>
+        <a class="chapter-title" href="#在-mip-组件中使用-vue">在 MIP 组件中使用 Vue</a>
+        <a class="chapter-title" href="#使用-vue-组件方式开发的特性">使用 vue 组件方式开发的特性</a>
 </div>
         </div>
 </div>
