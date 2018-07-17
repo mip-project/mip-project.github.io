@@ -24,13 +24,15 @@ class Server {
   run () {
     this.router = new Router()
     this.router
-      .get('/:id([^\\.]+\\.html)', ...this.html())
+      .get('/index.html)', ...this.html('index'))
+      .get('/codelab/:id([^\\.]+\\.html)', ...this.html('codelab'))
+      .get('/docs/:id([^\\.]+\\.html)', ...this.html('docs'))
       .get('*', ...this.pack())
     this.app.use(this.router.routes())
       .listen(this.port)
   }
 
-  html () {
+  html (type) {
     return [
       async (ctx, next) => {
         try {
@@ -38,14 +40,10 @@ class Server {
           let cssFilename = getFilenameFromUrl('/', this.compiler, `/index.css`)
           let css = this.midd.devMiddleware.fileSystem.readFileSync(cssFilename, 'utf-8')
 
-          let filename = path.resolve(__dirname, 'pages', ctx.params.id || 'index.html')
-          let content = await fs.readFile(filename, 'utf-8')
-
           let navbar = await fs.readFile(path.resolve(__dirname, 'data', 'navbar.json'), 'utf-8')
 
           let data = {
             css,
-            content,
             navbar: JSON.parse(navbar)
           }
 
@@ -60,9 +58,19 @@ class Server {
           etplEngine.loadFromFile(path.resolve(__dirname, './views/layout-navbar.tpl'))
           etplEngine.loadFromFile(path.resolve(__dirname, './views/layout.tpl'))
 
-          if (ctx.params.id.indexOf('codelab') === 0) {
+          if (type === 'codelab') {
+            let filename = path.resolve(__dirname, 'pages/codelab', ctx.params.id || 'index.html')
+            let content = await fs.readFile(filename, 'utf-8')
+            data.content = content
+
             ctx.body = await this.codelab(etplEngine, data)
+          } else if (type === 'index') {
+            ctx.body = await this.index(etplEngine, data)
           } else {
+            let filename = path.resolve(__dirname, 'pages/docs', ctx.params.id || 'index.html')
+            let content = await fs.readFile(filename, 'utf-8')
+            data.content = content
+
             ctx.body = await this.doc(etplEngine, data)
           }
         }
@@ -76,7 +84,7 @@ class Server {
   }
 
   async doc (etplEngine, data) {
-    let sidebarHtml = await fs.readFile(path.resolve(__dirname, 'pages', 'sidebar.html'), 'utf-8')
+    let sidebarHtml = await fs.readFile(path.resolve(__dirname, 'pages/docs', 'sidebar.html'), 'utf-8')
 
     etplEngine.loadFromFile(path.resolve(__dirname, './views/markdown-paginator.tpl'))
     etplEngine.loadFromFile(path.resolve(__dirname, './views/markdown-breadcrumb.tpl'))
@@ -111,6 +119,12 @@ class Server {
   async codelab (etplEngine, data) {
     let renderer = etplEngine.loadFromFile(path.resolve(__dirname, './views/layout-codelab.tpl'))
 
+    return renderer(Object.assign({}, data, {
+    }))
+  }
+
+  async index (etplEngine, data) {
+    let renderer = etplEngine.loadFromFile(path.resolve(__dirname, './views/layout-index.tpl'))
     return renderer(Object.assign({}, data, {
     }))
   }

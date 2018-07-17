@@ -62,7 +62,11 @@ module.exports = {
     },
     optimization: {
       minimizer: [
-        new OptimizeCSSAssetsPlugin({})
+        new OptimizeCSSAssetsPlugin({
+          cssProcessorOptions: {
+            safe: true
+          }
+        })
       ]
     }
 };

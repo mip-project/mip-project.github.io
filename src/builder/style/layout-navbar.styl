@@ -1,5 +1,6 @@
 .layout-navbar-fixed
   overflow visible !important
+  z-index 20000 !important
 
 
 .layout-navbar
@@ -9,7 +10,7 @@
   padding 0 100px
 
   @media screen and (max-width: 992px)
-    padding 0 50px
+    padding 0 25px
 
   .navbar-logo
     position absolute
@@ -22,7 +23,7 @@
 
   .navbar-menu
     float right
-    height 62px
+    height 64px
     list-style none
 
     @media screen and (max-width: 768px)
@@ -90,15 +91,16 @@
   .navbar-toggle
     display none
 
-    @media screen and (max-width: 767px)
+    @media screen and (max-width: 768px)
       display block
       // background #000
       position absolute
-      right 50px
+      right 25px
       top 0
       bottom 0
       width 100px
       text-align right
+
       .icon-bars
         font-size 38px
         line-height 64px
