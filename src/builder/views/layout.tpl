@@ -46,6 +46,7 @@
               "width": "0",
               "transform": ""
             },
+            "navSep": 0,
             "navbar": [{
               "width": 32,
               "url": "/"
@@ -218,6 +219,26 @@
         </script>
       </mip-data>
       <mip-script mip-shell>
+        function navIndicate(val) {
+          var navbar = MIP.getData('navbar');
+          var width = navbar[val].width + 'px';
+          var translateX = 0;
+          for (var i = 0; i < val; i++) {
+            translateX += navbar[i].width + MIP.getData('navSep');
+          }
+          var transform = 'translateX(' + translateX + 'px)';
+          MIP.setData({
+            navbarStyle: {
+              width: width,
+              transform: transform
+            }
+          });
+        }
+
+        function getNavSep() {
+          return MIP.viewport.getWidth() > 992 ? 50 : 30
+        }
+
         MIP.watch('active', function () {
           setTimeout(function () {
             MIP.setData({
@@ -228,6 +249,12 @@
 
         MIP.watch('navIndex', function (val) {
           navIndicate(val);
+        })
+
+        MIP.watch('navSep', function (val) {
+          setTimeout(function () {
+            navIndicate(MIP.getData('navIndex'));
+          })
         })
 
         MIP.watch('url', function (val) {
@@ -249,23 +276,14 @@
           }
         })
 
-        function navIndicate(val) {
-          var navbar = MIP.getData('navbar');
-          var width = navbar[val].width + 'px';
-          var translateX = 0;
-          for (var i = 0; i < val; i++) {
-            translateX += navbar[i].width + 50;
-          }
-          var transform = 'translateX(' + translateX + 'px)';
+        MIP.viewport.on('resize', function () {
           MIP.setData({
-            navbarStyle: {
-              width: width,
-              transform: transform
-            }
-          });
-        }
+            navSep: getNavSep()
+          })
+        })
 
         MIP.setData({
+          navSep: getNavSep(),
           url: location.pathname
         })
       </mip-script>
