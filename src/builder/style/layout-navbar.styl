@@ -1,6 +1,6 @@
 .layout-navbar-fixed
   overflow visible !important
-  z-index 20000 !important
+  z-index 20100 !important
 
 
 .layout-navbar
@@ -25,9 +25,20 @@
     float right
     height 64px
     list-style none
+    position relative
+    font-size 0
 
     @media screen and (max-width: 768px)
       display none
+
+  .navbar-indicator
+    background #000
+    height 3px
+    position absolute
+    bottom 0
+    left 0
+    width 50px
+    transition transform .2s
 
   .navbar-item
     display inline-block
@@ -35,17 +46,21 @@
     margin 0 25px
     font-size 16px
     line-height 64px
-
-    @media screen and (max-width: 992px)
-      margin 0 12px
+    a
+      line-height 64px
+      display inline-block
 
     &:first-child
       margin-left 0
     &:last-child
       margin-right 0
 
+    @media screen and (max-width: 992px)
+      margin 0 12px
+
     .menu-name
       color #5a5b5c
+      font-size 16px
       .arrow
         width 0
         height 0

@@ -24,9 +24,9 @@ class Server {
   run () {
     this.router = new Router()
     this.router
-      .get('/index.html)', ...this.html('index'))
-      .get('/codelab/:id([^\\.]+\\.html)', ...this.html('codelab'))
-      .get('/docs/:id([^\\.]+\\.html)', ...this.html('docs'))
+      .get(['/index.html', '/'], ...this.html('index'))
+      .get(['/codelab/:id([^\\.]+\\.html)', '/codelab'], ...this.html('codelab'))
+      .get(['/docs/:id([^\\.]+\\.html)', '/docs'], ...this.html('docs'))
       .get('*', ...this.pack())
     this.app.use(this.router.routes())
       .listen(this.port)

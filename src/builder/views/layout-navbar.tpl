@@ -1,8 +1,9 @@
 {{ target: layout-navbar }}
 <div class="layout-navbar">
   <div class="navbar-logo"></div>
-  <ul class="navbar-menu">
-    {{ for: ${navbar} as ${item} }}
+  <div class="navbar-menu">
+    <ul class="navbar-menu-wrapper">
+    {{ for: ${navbar} as ${item}, ${index} }}
       {{ if: ${item.children} }}
       <li class="navbar-item">
         <span class="menu-name">${item.name}<i class="arrow"></i></span>
@@ -13,9 +14,11 @@
         </ul>
       </li>
       {{ else }}
-      <li class="navbar-item"><a data-type="mip" href="${item.url}" class="menu-name">${item.name}</a></li>
+      <li class="navbar-item" on="tap:MIP.setData({navIndex:${index}})"><a data-type="mip" href="${item.url}" class="menu-name">${item.name}</a></li>
       {{ /if }}
     {{ /for }}
-  </ul>
+    </ul>
+    <div class="navbar-indicator" m-bind:style="navbarStyle"></div>
+  </div>
   <div class="navbar-toggle"><i class="iconfont icon-bars"></i></div>
 </div>

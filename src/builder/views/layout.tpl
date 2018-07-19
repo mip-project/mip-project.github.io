@@ -15,7 +15,7 @@
   </head>
   <body>
     {{ block: content }}{{ /block }}
-    <mip-shell on="ready:MIP.setData({ready:m.ready+1})">
+    <mip-shell on="active:MIP.setData({active:m.active+1})">
       <script type="application/json">
         {
           "routes": [
@@ -33,14 +33,46 @@
       <mip-fixed type="top" class="layout-navbar-fixed" mip-shell>
         {{ use:layout-navbar(navbar = ${navbar}) }}
       </mip-fixed>
-      <mip-fixed type="left" top="50px" class="layout-sidebar" mip-shell>
+      <mip-fixed type="left" top="64px" class="layout-sidebar" mip-shell>
         <mip-sidenav m-bind:menu="menu" m-bind:chapters="chapters" m-bind:url="url">
         </mip-sidenav>
       </mip-fixed>
       <mip-data mip-shell>
         <script type="application/json">
           {
-            "ready": 0,
+            "active": 0,
+            "navIndex": -1,
+            "navbarStyle": {
+              "width": "0",
+              "transform": ""
+            },
+            "navbar": [{
+              "width": 32,
+              "url": "/"
+            },
+            {
+              "width": 64,
+              "url": "/docs"
+            },
+            {
+              "width": 64,
+              "url": "list"
+            },
+            {
+              "width": 60,
+              "url": "/codelab"
+            },
+            {
+              "width": 32,
+              "url": "/help"
+            },
+            {
+              "width": 82
+            },
+            {
+              "width": 50,
+              "url": "/github"
+            }],
             "menu": [{
               "name": "基础教程",
               "path": "docs",
@@ -134,7 +166,6 @@
                 "url": "/guide/v2/more/good-parts"
               }]
             }],
-            "level": 0,
             "chapters": [
               {
               "level": 1,
@@ -155,12 +186,12 @@
                   "text": "渐隐渐现"
                 }, {
                   "level": 3,
-                  "hash": "#左右滑动",
-                  "text": "左右滑动"
+                  "hash": "#内置编译工具",
+                  "text": "内置编译工具"
                 }, {
                   "level": 3,
-                  "hash": "#自定义动画",
-                  "text": "自定义动画"
+                  "hash": "#后缀省略",
+                  "text": "后缀省略"
                 }]
               }, {
                 "level": 2,
@@ -182,14 +213,57 @@
                 }]
               }]
             }],
-            url: "/guide/v2/basic/introduction"
+            url: ""
           }
         </script>
       </mip-data>
       <mip-script mip-shell>
-        MIP.watch('url', function (val) {
-          console.log(val)
+        MIP.watch('active', function () {
+          setTimeout(function () {
+            MIP.setData({
+              url: location.pathname
+            })
+          })
         })
+
+        MIP.watch('navIndex', function (val) {
+          navIndicate(val);
+        })
+
+        MIP.watch('url', function (val) {
+          if (val === '/' || val === '') {
+            MIP.setData({
+              navIndex: 0
+            });
+            return;
+          }
+
+          var navbar = MIP.getData('navbar');
+          for (var i = 0; i < navbar.length; i++) {
+            if (navbar[i].url !== '/' && val.indexOf(navbar[i].url) === 0) {
+              MIP.setData({
+                navIndex: i
+              });
+              return;
+            }
+          }
+        })
+
+        function navIndicate(val) {
+          var navbar = MIP.getData('navbar');
+          var width = navbar[val].width + 'px';
+          var translateX = 0;
+          for (var i = 0; i < val; i++) {
+            translateX += navbar[i].width + 50;
+          }
+          var transform = 'translateX(' + translateX + 'px)';
+          MIP.setData({
+            navbarStyle: {
+              width: width,
+              transform: transform
+            }
+          });
+        }
 
         MIP.setData({
           url: location.pathname
