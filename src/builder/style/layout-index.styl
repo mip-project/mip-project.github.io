@@ -1,0 +1,175 @@
+.layout-sidebar
+    display none !important
+
+.home-wrapper
+    .container
+        margin 0 auto
+
+    .top-section
+        background #fff
+        padding-top 64px
+        height 520px
+        box-sizing border-box
+        .container
+            background url('http://bos.nj.bpc.baidu.com/assets/mip/temp/mip-banner.jpg') no-repeat 100% 100px
+            background-size 50%
+            h1
+                padding-top 128px
+                font-size 56px
+                font-weight 300
+            p
+                font-size 20px
+                line-height 1.8
+                margin 24px 0 32px 0
+            .top-buttons
+                a
+                    font-size 14px
+                    display inline-block
+                    line-height 40px
+                    border 1px solid #000
+                    border-radius 20px
+                    text-align center
+                    width 150px
+                .top-btn
+                    &-start
+                        background #000
+                        color #fff
+                    &-github
+                        background #fff
+                        color #000
+                        margin-left 10px
+
+    .intro-section
+        background #fff
+        text-align center
+        padding-bottom 60px
+        .container
+            h1
+                font-size 26px
+                font-weight 200
+            >p
+                color #a3a3a3
+                letter-spacing 5px
+                margin 15px 0 44px 0
+
+            .mip-parts
+                display flex
+                border 1px solid #ededed
+                >a
+                    flex 1
+                    display block
+                    height 410px
+                    padding 0 34px
+                    background url('https://www.mipengine.org/static/img/icon21_f31573e.png') no-repeat center 80px
+                    background-size 100px 100px
+                    &:not(:last-child)
+                        border-right 1px solid #ededed
+                    h2
+                        font-size 22px
+                        font-weight 200
+                        line-height 1
+                        margin 246px 0 28px 0
+                    p
+                        font-size 16px
+                        line-height 26px
+                        color #696969
+
+    .advantage-section
+        background-color #fbfbfb
+        // background-color gray
+        padding-bottom 100px
+        .container
+            h1
+                padding-top 92px
+                font-size 26px
+                font-weight 200
+                text-align center
+            >p
+                color #a3a3a3
+                letter-spacing 5px
+                margin 15px 0 44px 0
+                text-align center
+            .mip-advan-section
+                display flex
+                margin-bottom 40px
+                >div
+                    flex 1
+                    position relative
+                    background #fff
+                    box-sizing border-box
+                    box-shadow 0px 0px 1px 1px #ededed
+                    height 310px
+                    padding 45px 60px 60px 60px
+                    h2
+                        font-size 22px
+                        font-weight 200
+                        line-height 1
+                        margin-bottom 24px
+                    p
+                        font-size 16px
+                        line-height 26px
+                        color #696969
+                    &:first-child
+                        margin-right 20px
+                &-button
+                    position absolute
+                    bottom 60px
+                    left 60px
+                    font-size 14px
+                    display inline-block
+                    line-height 40px
+                    border 1px solid #000
+                    border-radius 20px
+                    text-align center
+                    width 150px
+                &-img
+                    width 90px
+                    height 90px
+                    position absolute
+                    right 60px
+                    bottom 60px
+                    background url('https://www.mipengine.org/static/img/icon21_f31573e.png') no-repeat
+                    background-size 100% 100%
+
+    .footer-section
+        height 440px
+        box-sizing border-box
+        background #1e1e1e
+        padding 60px 100px
+        position relative
+        .container
+            display flex
+            >div
+                flex 1
+                h2
+                    color #fff
+                    font-size 16px
+                    font-weight normal
+                    margin-bottom 20px
+                a
+                    font-size 14px
+                    display block
+                    color #949494
+                    line-height 34px
+        p
+            position absolute
+            bottom 60px
+            left 50%
+            transform translateX(-50%)
+            text-align center
+            color #949494
+
+@media screen and (min-width: 768px)
+    .container
+        width 750px
+
+@media screen and (min-width: 992px)
+    .container
+        width 970px
+
+@media screen and (min-width: 1200px)
+    .container
+        width 1000px
+
+
+
