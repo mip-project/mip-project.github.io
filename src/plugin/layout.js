@@ -137,7 +137,7 @@ module.exports = class Layout {
                     content: html,
                     css: css,
                     menu: menuInfo,
-                    chapters: chapters,
+                    chapters: chapters || {},
                     breadcrumbs: info.breadcrumbs,
                     url: url
                     // menu: menuHtml || '',

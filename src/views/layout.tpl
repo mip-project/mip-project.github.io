@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <title>MIP page</title>
     <link rel="canonical" href="对应的原页面地址">
-    <!-- <link rel="stylesheet" type="text/css" href="https://c.mipcdn.com/static/v1/mip.css"> -->
+    <link rel="stylesheet" type="text/css" href="https://c.mipcdn.com/static/v2/mip.css">
     <!-- <link rel="stylesheet" href="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.css"> -->
-    <link rel="stylesheet" href="http://172.18.19.102:8080/dist/mip.css">
+    <!-- <link rel="stylesheet" href="http://172.18.19.102:8080/dist/mip.css"> -->
     <style mip-custom>
       ${css|raw}
     </style>
@@ -103,33 +103,19 @@
         navSep: getNavSep()
       })
     </mip-script>
-    <mip-shell on="active:MIP.setData({active:m.active+1})">
-      <script type="application/json">
-        {
-          "routes": [
-            {
-              "pattern": "*",
-              "meta": {
-                 "header": {
-                  "show": false
-                }
-              }
-            }
-          ]
-        }
-      </script>
-      <mip-fixed type="top" class="layout-navbar-fixed">
-        {{ use:layout-navbar(navbar = ${navbar}) }}
-      </mip-fixed>
-      <mip-fixed type="left" top="64px" class="layout-sidebar">
-        <mip-sidenav m-bind:menu="menu" m-bind:chapters="chapters" m-bind:url="url">
-        </mip-sidenav>
-      </mip-fixed>
-    </mip-shell>
-    <script src="http://172.18.19.102:8080/dist/mip.js"></script>
-    <!-- <script src="https://c.mipcdn.com/static/v1/mip.js"></script> -->
+
+    <mip-fixed type="top" class="layout-navbar-fixed">
+      {{ use:layout-navbar(navbar = ${navbar}) }}
+    </mip-fixed>
+    <mip-fixed type="left" top="64px" class="layout-sidebar">
+      <mip-sidenav m-bind:menu="menu" m-bind:chapters="chapters" m-bind:url="url">
+      </mip-sidenav>
+    </mip-fixed>
+
+    <!-- <script src="http://172.18.19.102:8080/dist/mip.js"></script> -->
+    <script src="https://c.mipcdn.com/static/v2/mip.js"></script>
     <!-- <script src="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.js"></script> -->
-    <script src="http://172.18.19.102:8111/mip-sidenav/mip-sidenav.js"></script>
+    <script src="http://127.0.0.1:8111/mip-sidenav/mip-sidenav.js"></script>
     <script src="https://c.mipcdn.com/static/v1/mip-fixed/mip-fixed.js"></script>
     <script src="https://c.mipcdn.com/static/v1/mip-nav-slidedown/mip-nav-slidedown.js"></script>
     <script src="https://c.mipcdn.com/static/v2/mip-script/mip-script.js"></script>

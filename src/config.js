@@ -56,7 +56,7 @@ module.exports = {
       {
         name: 'mip',
         loader: 'local',
-        from: path.resolve(__dirname, '../../mip2/docs'),
+        from: path.resolve(__dirname, '../../mip2/docs/new-doc'),
         to: path.resolve(docDir, 'mip')
       }
     ],
