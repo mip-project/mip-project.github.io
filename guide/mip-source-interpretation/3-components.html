@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html mip>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <title>MIP page</title>
+    <link rel="canonical" href="对应的原页面地址">
+    <link rel="stylesheet" type="text/css" href="https://c.mipcdn.com/static/v2/mip.css">
+    <!-- <link rel="stylesheet" href="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.css"> -->
+    <!-- <link rel="stylesheet" href="http://172.18.19.102:8080/dist/mip.css"> -->
+    <style mip-custom>
+      @font-face{font-family:iconfont;src:url(//gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/mip/site/iconfont.eot?t=1530604074477);src:url(//gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/mip/site/iconfont.eot?t=1530604074477#iefix) format("embedded-opentype"),url("data:application/x-font-woff;charset=utf-8;base64,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") format("woff"),url(//gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/mip/site/iconfont.ttf?t=1530604074477) format("truetype"),url(//gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/mip/site/iconfont.svg?t=1530604074477#iconfont) format("svg")}.iconfont{font-family:iconfont!important;font-size:16px;font-style:normal;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.icon-github:before{content:"\F01CA"}.icon-check:before{content:"\EAD3"}.icon-edit:before{content:"\E65C"}.icon-like:before{content:"\E636"}.icon-bars:before{content:"\E640"}@font-face{font-family:octicons-link;src:url(data:font/woff;charset=utf-8;base64,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) format("woff")}.markdown-body{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;color:#24292e;font-family:PingFang SC,Helvetica,Helvetica Neue,Hiragino Sans GB,Heiti SC,Microsoft YaHei,WenQuanYi Micro Hei,Arial,sans-serif;font-size:16px;line-height:1.5;word-wrap:break-word}.markdown-body .octicon{display:inline-block;vertical-align:text-top;fill:currentColor}.markdown-body p{color:#5a5b5c}.markdown-body a{background-color:transparent}.markdown-body a:active,.markdown-body a:hover{outline-width:0}.markdown-body h1{margin:.67em 0}.markdown-body img{border-style:none}.markdown-body hr{box-sizing:content-box;overflow:visible}.markdown-body input{font:inherit;margin:0;overflow:visible}.markdown-body [type=checkbox]{box-sizing:border-box;padding:0}.markdown-body *{box-sizing:border-box}.markdown-body input{font-family:inherit;font-size:inherit;line-height:inherit}.markdown-body a{color:#0366d6;text-decoration:none}.markdown-body a:hover{text-decoration:underline}.markdown-body strong{font-weight:600}.markdown-body hr{height:0;margin:15px 0;overflow:hidden;background:transparent;border-bottom:1px solid #dfe2e5}.markdown-body hr:after,.markdown-body hr:before{display:table;content:""}.markdown-body hr:after{clear:both}.markdown-body table{border-spacing:0;border-collapse:collapse}.markdown-body td,.markdown-body th{padding:0}.markdown-body blockquote{margin:0}.markdown-body ol,.markdown-body ul{padding-left:0}.markdown-body ol ol,.markdown-body ul ol{list-style-type:lower-roman}.markdown-body ol ol ol,.markdown-body ol ul ol,.markdown-body ul ol ol,.markdown-body ul ul ol{list-style-type:lower-alpha}.markdown-body dd{margin-left:0}.markdown-body code,.markdown-body pre{font-family:Consolas,Roboto Mono,Monaco,courier,monospace,PingFang SC,Helvetica,Helvetica Neue,Hiragino Sans GB,Heiti SC,Microsoft YaHei,WenQuanYi Micro Hei,Arial,sans-serif}.markdown-body code{vertical-align:middle}.markdown-body .octicon{vertical-align:text-bottom}.markdown-body:after,.markdown-body:before{display:table;content:""}.markdown-body:after{clear:both}.markdown-body>:first-child{margin-top:0!important}.markdown-body>:last-child{margin-bottom:0!important}.markdown-body a:not([href]){color:inherit;text-decoration:none}.markdown-body .anchor{float:left;padding-right:4px;margin-left:-20px;line-height:1}.markdown-body .anchor:focus{outline:none}.markdown-body blockquote,.markdown-body dl,.markdown-body ol,.markdown-body p,.markdown-body pre,.markdown-body table,.markdown-body ul{margin-top:0;margin-bottom:16px}.markdown-body hr{height:.25em;padding:0;margin:24px 0;background-color:#e1e4e8;border:0}.markdown-body blockquote{padding:0 1em;color:#6a737d;border-left:.25em solid #dfe2e5}.markdown-body blockquote>:first-child{margin-top:0}.markdown-body blockquote>:last-child{margin-bottom:0}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{margin-top:24px;margin-bottom:16px;font-weight:400;line-height:1.25}.markdown-body h1 .octicon-link,.markdown-body h2 .octicon-link,.markdown-body h3 .octicon-link,.markdown-body h4 .octicon-link,.markdown-body h5 .octicon-link,.markdown-body h6 .octicon-link{color:#1b1f23;vertical-align:middle;visibility:hidden}.markdown-body h1:hover .anchor,.markdown-body h2:hover .anchor,.markdown-body h3:hover .anchor,.markdown-body h4:hover .anchor,.markdown-body h5:hover .anchor,.markdown-body h6:hover .anchor{text-decoration:none}.markdown-body h1:hover .anchor .octicon-link,.markdown-body h2:hover .anchor .octicon-link,.markdown-body h3:hover .anchor .octicon-link,.markdown-body h4:hover .anchor .octicon-link,.markdown-body h5:hover .anchor .octicon-link,.markdown-body h6:hover .anchor .octicon-link{visibility:visible}.markdown-body h1{padding-bottom:.3em;font-size:1.5em;font-weight:500}.markdown-body h2{padding-bottom:.3em;font-size:1.25em}.markdown-body h3{font-size:1.125em}.markdown-body h4{font-size:1em}.markdown-body h5{font-size:.875em}.markdown-body h6{font-size:.85em;color:#6a737d}.markdown-body ol,.markdown-body ul{padding-left:2em}.markdown-body ol ol,.markdown-body ol ul,.markdown-body ul ol,.markdown-body ul ul{margin-top:0;margin-bottom:0}.markdown-body li{word-wrap:break-word}.markdown-body li>p{margin-top:16px}.markdown-body li+li{margin-top:.25em}.markdown-body dl{padding:0}.markdown-body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:600}.markdown-body dl dd{padding:0 16px;margin-bottom:16px}.markdown-body table{display:block;width:100%;overflow:auto}.markdown-body table th{font-weight:600}.markdown-body table td,.markdown-body table th{padding:6px 13px;border:1px solid #dfe2e5}.markdown-body table tr{background-color:#fff;border-top:1px solid #c6cbd1}.markdown-body table tr:nth-child(2n){background-color:#f6f8fa}.markdown-body img{max-width:100%;box-sizing:content-box;background-color:#fff}.markdown-body img[align=right]{padding-left:20px}.markdown-body img[align=left]{padding-right:20px}.markdown-body code{padding:.2em .4em;margin:0;font-size:85%;background-color:rgba(27,31,35,.05);border-radius:3px}.markdown-body pre{word-wrap:normal}.markdown-body .highlight{margin-bottom:16px}.markdown-body .highlight pre{margin-bottom:0;word-break:normal}.markdown-body .highlight pre,.markdown-body pre{padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#f6f8fa;border-radius:3px}.markdown-body pre>code{padding:0;margin:0;font-size:100%;word-break:normal;white-space:pre;background:transparent;border:0}.markdown-body pre code{display:inline;max-width:none;padding:0;margin:0;overflow:visible;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}.markdown-body .full-commit .btn-outline:not(:disabled):hover{color:#005cc5;border-color:#005cc5}.markdown-body :checked+.radio-label{position:relative;z-index:1;border-color:#0366d6}.markdown-body .task-list-item{list-style-type:none}.markdown-body .task-list-item+.task-list-item{margin-top:3px}.markdown-body .task-list-item input{margin:0 .2em .25em -1.6em;vertical-align:middle}.markdown-body hr{border-bottom-color:#eee}.hljs{display:block;background:#fff;padding:.5em;color:#333;overflow-x:auto}.hljs-comment,.hljs-meta{color:#969896}.hljs-emphasis,.hljs-quote,.hljs-string,.hljs-strong,.hljs-template-variable,.hljs-variable{color:#df5000}.hljs-keyword,.hljs-selector-tag,.hljs-type{color:#d73a49}.hljs-attribute,.hljs-bullet,.hljs-literal,.hljs-symbol{color:#005cc5}.hljs-name,.hljs-section{color:#22863a}.hljs-tag{color:#333}.hljs-attr,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-id,.hljs-selector-pseudo,.hljs-title{color:#6f42c1}.hljs-addition{color:#55a532;background-color:#eaffea}.hljs-deletion{color:#bd2c00;background-color:#ffecec}.hljs-link{text-decoration:underline}.markdown-body pre{padding-left:3em;position:relative}.markdown-body .code-index{position:absolute;left:0;width:2em;text-align:right;color:rgba(27,31,35,.3)}.markdown-body h1:before,.markdown-body h2:before,.markdown-body h3:before,.markdown-body h4:before,.markdown-body h5:before,.markdown-body h6:before{content:" ";display:block;height:84px;margin-top:-84px;visibility:hidden}.markdown-body .md-img-wrapper{display:-ms-flexbox;display:flex}.markdown-breadcrumb{font-size:14px;color:rgba(0,0,0,.87);margin-top:54px;margin-bottom:36px}.markdown-breadcrumb span{margin:auto 10px}.markdown-breadcrumb span:first-child{margin-left:0}.markdown-breadcrumb span:last-child{margin-right:0;color:rgba(0,0,0,.38)}.markdown-breadcrumb span.split{margin:0;color:rgba(0,0,0,.38)}.markdown-paginator{display:-ms-flexbox;display:flex;margin-top:24px;margin-bottom:24px}.markdown-paginator-item{-ms-flex:1;flex:1}.markdown-paginator-item:first-child{padding-left:1em;text-align:left}.markdown-paginator-item:first-child a:before{left:-.75em;border-left-color:transparent;border-right-color:#24292e}.markdown-paginator-item:last-child{padding-right:1em;text-align:right}.markdown-paginator-item:last-child a:before{right:-.75em;border-left-color:#24292e;border-right-color:transparent}.markdown-paginator-item p{font-size:12px;line-height:1.2;color:rgba(27,31,35,.3);margin-bottom:10px}.markdown-paginator-item a{position:relative;font-size:20px}.markdown-paginator-item a:before{content:"";display:block;position:absolute;width:0;height:0;top:50%;transform:translateY(-50%);border-width:.25em;border-style:solid;border-top-color:transparent;border-bottom-color:transparent}.markdown-toolbar{padding:48px 0;border-bottom:1px solid #eee}.markdown-toolbar span{display:inline-block;height:32px;padding:0 32px;border-radius:16px;font-size:14px;border:1px solid #eee;margin:0 10px;line-height:32px}.markdown-toolbar span:first-child{margin-left:0}.layout-main-content{float:left;margin-top:64px;width:60%;margin-left:440px}.layout-sidebar{background:#fff;bottom:0;overflow:auto!important;z-index:20000!important}.layout-navbar-fixed{overflow:visible!important;z-index:20100!important}.layout-navbar{background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.04);height:64px;padding:0 100px}@media screen and (max-width:992px){.layout-navbar{padding:0 25px}}.layout-navbar .navbar-logo{position:absolute;width:73px;height:38px;background-image:url(//gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/mip/site/mip-logo.png);background-size:cover;background-position:50%;margin-top:15px}.layout-navbar .navbar-menu{float:right;height:64px;list-style:none;position:relative;font-size:0}@media screen and (max-width:768px){.layout-navbar .navbar-menu{display:none}}.layout-navbar .navbar-indicator{background:#000;height:3px;position:absolute;bottom:0;left:0;width:50px;transition:transform .2s}.layout-navbar .navbar-item{position:relative;margin:0 25px;font-size:16px}.layout-navbar .navbar-item,.layout-navbar .navbar-item a{display:inline-block;line-height:64px}.layout-navbar .navbar-item:first-child{margin-left:0}.layout-navbar .navbar-item:last-child{margin-right:0}@media screen and (max-width:992px){.layout-navbar .navbar-item{margin:0 15px}}.layout-navbar .navbar-item .menu-name{color:#5a5b5c;font-size:16px}.layout-navbar .navbar-item .menu-name .arrow{width:0;height:0;display:inline-block;border-width:.3em;border-top-color:#000;border-bottom-color:transparent;border-right-color:transparent;border-left-color:transparent;border-style:solid;margin-left:.5em;transform:translateY(25%)}@media screen and (min-width:768px){.layout-navbar .navbar-item:hover .menu-name{color:#24292e}.layout-navbar .navbar-item:hover .menu-name .arrow{transform:translateY(-25%) rotate(180deg)}.layout-navbar .navbar-item:hover .navbar-sub-menu{display:block}.layout-navbar .navbar-item:hover .navbar-sub-menu .navbar-sub-item:hover{background:#f2f3f5}}.layout-navbar .navbar-item .navbar-sub-menu{position:absolute;background:#fff;list-style:none;top:60px;left:-30px;box-shadow:0 5px 20px rgba(0,0,0,.1);display:none}.layout-navbar .navbar-item .navbar-sub-item{line-height:50px}.layout-navbar .navbar-item .navbar-sub-item a{padding:0 20px;white-space:nowrap}.layout-navbar .navbar-toggle{display:none}@media screen and (max-width:768px){.layout-navbar .navbar-toggle{display:block;position:absolute;right:25px;top:0;bottom:0;width:100px;text-align:right}.layout-navbar .navbar-toggle .icon-bars{font-size:38px;line-height:64px;font-weight:400;color:#6a6b6c}}.home-wrapper .container{margin:0 auto}.home-wrapper .top-section{background:#fff;padding-top:64px;height:520px;box-sizing:border-box}.home-wrapper .top-section .container{background:url(http://bos.nj.bpc.baidu.com/assets/mip/temp/mip-banner.jpg) no-repeat 100% 100px;background-size:50%}.home-wrapper .top-section .container h1{padding-top:128px;font-size:56px;font-weight:300}.home-wrapper .top-section .container p{font-size:20px;line-height:1.8;margin:24px 0 32px}.home-wrapper .top-section .container .top-buttons a{font-size:14px;display:inline-block;line-height:40px;border:1px solid #000;border-radius:20px;text-align:center;width:150px}.home-wrapper .top-section .container .top-buttons .top-btn-start{background:#000;color:#fff}.home-wrapper .top-section .container .top-buttons .top-btn-github{background:#fff;color:#000;margin-left:10px}.home-wrapper .intro-section{background:#fff;text-align:center;padding-bottom:60px}.home-wrapper .intro-section .container h1{font-size:26px;font-weight:200}.home-wrapper .intro-section .container>p{color:#a3a3a3;letter-spacing:5px;margin:15px 0 44px}.home-wrapper .intro-section .container .mip-parts{display:-ms-flexbox;display:flex;border:1px solid #ededed}.home-wrapper .intro-section .container .mip-parts>a{-ms-flex:1;flex:1;display:block;height:410px;padding:0 34px;background:url(https://www.mipengine.org/static/img/icon21_f31573e.png) no-repeat center 80px;background-size:100px 100px}.home-wrapper .intro-section .container .mip-parts>a:not(:last-child){border-right:1px solid #ededed}.home-wrapper .intro-section .container .mip-parts>a h2{font-size:22px;font-weight:200;line-height:1;margin:246px 0 28px}.home-wrapper .intro-section .container .mip-parts>a p{font-size:16px;line-height:26px;color:#696969}.home-wrapper .advantage-section{background-color:#fbfbfb;padding-bottom:100px}.home-wrapper .advantage-section .container h1{padding-top:92px;font-size:26px;font-weight:200;text-align:center}.home-wrapper .advantage-section .container>p{color:#a3a3a3;letter-spacing:5px;margin:15px 0 44px;text-align:center}.home-wrapper .advantage-section .container .mip-advan-section{display:-ms-flexbox;display:flex;margin-bottom:40px}.home-wrapper .advantage-section .container .mip-advan-section>div{-ms-flex:1;flex:1;position:relative;background:#fff;box-sizing:border-box;box-shadow:0 0 1px 1px #ededed;height:310px;padding:45px 60px 60px}.home-wrapper .advantage-section .container .mip-advan-section>div h2{font-size:22px;font-weight:200;line-height:1;margin-bottom:24px}.home-wrapper .advantage-section .container .mip-advan-section>div p{font-size:16px;line-height:26px;color:#696969}.home-wrapper .advantage-section .container .mip-advan-section>div:first-child{margin-right:20px}.home-wrapper .advantage-section .container .mip-advan-section-button{position:absolute;bottom:60px;left:60px;font-size:14px;display:inline-block;line-height:40px;border:1px solid #000;border-radius:20px;text-align:center;width:150px}.home-wrapper .advantage-section .container .mip-advan-section-img{width:90px;height:90px;position:absolute;right:60px;bottom:60px;background:url(https://www.mipengine.org/static/img/icon21_f31573e.png) no-repeat;background-size:100% 100%}.home-wrapper .footer-section{height:440px;box-sizing:border-box;background:#1e1e1e;padding:60px 100px;position:relative}.home-wrapper .footer-section .container{display:-ms-flexbox;display:flex}.home-wrapper .footer-section .container>div{-ms-flex:1;flex:1}.home-wrapper .footer-section .container>div h2{color:#fff;font-size:16px;font-weight:400;margin-bottom:20px}.home-wrapper .footer-section .container>div a{font-size:14px;display:block;color:#949494;line-height:34px}.home-wrapper .footer-section p{position:absolute;bottom:60px;left:50%;transform:translateX(-50%);text-align:center;color:#949494}@media screen and (min-width:768px){.container{width:750px}}@media screen and (min-width:992px){.container{width:970px}}@media screen and (min-width:1200px){.container{width:1000px}}
+    </style>
+  </head>
+  <body>
+<mip-fixed type="left" top="64px" class="layout-sidebar">
+  <mip-sidenav m-bind:menu="menu" m-bind:chapters="chapters" m-bind:url="url">
+  </mip-sidenav>
+</mip-fixed>
+<div class="layout-main-content">
+  <div class="content-wrapper">
+<p class="markdown-breadcrumb">
+</p>
+    <div class="markdown-body">
+      <h1 id="mip-组件机制详解"><a href="#mip-组件机制详解" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>MIP 组件机制详解</h1><p>自定义组件功能是组件运行的核心部分，MIP会在该模块进行组件注册、组件资源列表管理，并提供对应的工具函数。</p><h2 id="mip-组件注册机制"><a href="#mip-组件注册机制" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>MIP 组件注册机制</h2><p>自定义标签组件注册是组件运行机制最基础的部分，所有组件的注册都会经过该模块的处理，下面通过简单的示例和摘取出部分关键代码来讲解组件注册的具体流程。</p><h3 id="编写组件"><a href="#编写组件" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>编写组件</h3><p>开发者在开发 MIP 组件时编写的实际上是 Vue 组件，在开发组件过程中甚至感觉不到这是在开发 MIP 组件，这正是我们想要达到的效果。我们通过巧妙的设计让 mip-cli 工具配合 MIP runtime 产出自定义标签，如下代码是组件 <code>mip-example</code> 的代码。</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wrapper"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>MIP 2.0 component example<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">scoped</span>&gt;</span><span class="css">
+  <span class="hljs-selector-class">.wrapper</span> {
+    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> auto;
+    <span class="hljs-attribute">text-align</span>: center;
+    <span class="hljs-attribute">color</span>: red;
+  }
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+    mounted() {
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'This is my first custom component !'</span>);
+    }
+  }
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre><h3 id="组件编译"><a href="#组件编译" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>组件编译</h3><p>开发者的组件在上线前均会通过 mip-cli 的编译，将 Vue 文件编译打包成一个 JS 文件，并在最后加入一段注册 MIP 自定义标签的代码，主要作用就是调用核心功能的注册功能，以获得组件生命周期等，以上面提到的 <code>mip-example</code> 组件为例，为了方便理解，这里精简掉了一些 webpack 编译后产生的代码依赖，编译后的代码如下所示：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div>32</div><div>33</div><div>34</div><div>35</div><div>36</div><div>37</div><div>38</div></div><code class="lang-js">(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-comment">// &lt;template&gt; 标签内的模板被编译成了 render 和 staticRenderFns 函数</span>
+  <span class="hljs-keyword">var</span> render = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> _vm = <span class="hljs-keyword">this</span>
+    <span class="hljs-keyword">var</span> _h = _vm.$createElement
+    <span class="hljs-keyword">var</span> _c = _vm._self._c || _h
+    <span class="hljs-keyword">return</span> _vm._m(<span class="hljs-number">0</span>)
+  }
+  <span class="hljs-keyword">var</span> staticRenderFns = [
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">var</span> _vm = <span class="hljs-keyword">this</span>
+      <span class="hljs-keyword">var</span> _h = _vm.$createElement
+      <span class="hljs-keyword">var</span> _c = _vm._self._c || _h
+      <span class="hljs-keyword">return</span> _c(<span class="hljs-string">"div"</span>, {
+        <span class="hljs-attr">staticClass</span>: <span class="hljs-string">"wrapper"</span>
+      }, [
+        _c(<span class="hljs-string">"h1"</span>, [_vm._v(<span class="hljs-string">"MIP 2.0 component example"</span>)])
+      ])
+    }
+  ]
+  render._withStripped = <span class="hljs-literal">true</span>
+
+  <span class="hljs-comment">// __mip_component__ 是用户编写的 vue 组件的定义，通过 webpack 打包导出</span>
+  <span class="hljs-keyword">var</span> __mip_component__ = {
+    <span class="hljs-attr">render</span>: render,
+    <span class="hljs-attr">staticRenderFns</span>: staticRenderFns,
+    <span class="hljs-attr">mounted</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'This is my first custom component !'</span>);
+    }
+  }
+
+  <span class="hljs-comment">// 编译打包时加入的代码</span>
+  __mip_component__ = __mip_component__.default || __mip_component__
+  MIP.registerVueCustomElement(
+    <span class="hljs-string">'mip-example'</span>,
+    __mip_component__
+  );
+}())</code></pre><p>首先，mip-cli 通过 vue-loader 将 Vue 文件编译成 JS，并将 <code>&lt;template&gt;</code> 编译为 render 函数，导出 Vue 组件的定义，最后在底部增加一段代码调用全局变量 MIP 提供注册组件的方法 <code>MIP.registerVueCustomElement()</code> 方法注册自定义标签。</p><h3 id="组件注册"><a href="#组件注册" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>组件注册</h3><p><code>MIP.registerVueCustomElement()</code> 接口实际调用的是 <code>Vue.customElement()</code> 方法，代码如下所示：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div></div><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">registerVueCustomElement</span> (<span class="hljs-params">tag, component</span>) </span>{
+  Vue.customElement(tag, component)
+}</code></pre><p>下面代码是 <code>Vue.customElement()</code> 的实现。</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div>32</div><div>33</div><div>34</div><div>35</div><div>36</div><div>37</div><div>38</div><div>39</div><div>40</div><div>41</div><div>42</div><div>43</div><div>44</div><div>45</div><div>46</div><div>47</div><div>48</div><div>49</div><div>50</div><div>51</div><div>52</div><div>53</div><div>54</div><div>55</div><div>56</div><div>57</div><div>58</div><div>59</div><div>60</div></div><code class="lang-js">Vue.customElement = <span class="hljs-function">(<span class="hljs-params">tag, componentDefinition</span>) =&gt;</span> {
+  <span class="hljs-keyword">const</span> props = getProps(componentDefinition)
+
+  <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">VueCustomElement</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">CustomElement</span> </span>{
+    prerenderAllowed () {
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> componentDefinition.prerenderAllowed === <span class="hljs-string">'function'</span>) {
+        <span class="hljs-keyword">return</span> componentDefinition.prerenderAllowed()
+      }
+      <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>
+    }
+
+    _build () {
+      <span class="hljs-keyword">let</span> vueInstance = <span class="hljs-keyword">this</span>.vueInstance = createVueInstance(
+        <span class="hljs-keyword">this</span>.element, {
+          Vue
+        },
+        componentDefinition,
+        props
+      )
+      <span class="hljs-keyword">this</span>.props = props
+      <span class="hljs-keyword">this</span>.vm = vueInstance.$children[<span class="hljs-number">0</span>]
+    }
+
+    build () {
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.prerenderAllowed()) {
+        <span class="hljs-keyword">this</span>._build()
+      }
+    }
+
+    connectedCallback () {
+      callLifeCycle(<span class="hljs-keyword">this</span>, <span class="hljs-string">'connectedCallback'</span>, <span class="hljs-keyword">this</span>.element)
+    }
+
+    disconnectedCallback () {
+      callLifeCycle(<span class="hljs-keyword">this</span>, <span class="hljs-string">'disconnectedCallback'</span>, <span class="hljs-keyword">this</span>.element)
+    }
+
+    firstInviewCallback () {
+      <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.prerenderAllowed()) {
+        <span class="hljs-keyword">this</span>._build()
+      }
+
+      callLifeCycle(<span class="hljs-keyword">this</span>.vm, <span class="hljs-string">'firstInviewCallback'</span>, <span class="hljs-keyword">this</span>.element)
+    }
+
+    attributeChangedCallback (name, oldValue, value) {
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.vueInstance) {
+        <span class="hljs-keyword">const</span> nameCamelCase = camelize(name)
+        <span class="hljs-keyword">const</span> type = <span class="hljs-keyword">this</span>.props.types[nameCamelCase]
+        <span class="hljs-keyword">this</span>.vueInstance[nameCamelCase] = convertAttributeValue(value, type)
+      }
+    }
+
+    <span class="hljs-keyword">static</span> get observedAttributes () {
+      <span class="hljs-keyword">return</span> props.hyphenate || []
+    }
+  }
+
+  registerElement(tag, VueCustomElement)
+}</code></pre><p>从代码上面代码可以看到函数内部实际是声明了一个继承 <code>CustomElement</code> 的 <code>VueCustomElement</code> 类，而 <code>CustomElement</code> 是自定义元素接口的实现，提供了 <code>connectedCallback</code>、<code>disconnectCallback</code>、<code>attributeChangedCallback</code> 等自定义元素生命周期的回调，并在最后调用 <code>registerElement()</code> 函数注册自定义组件。下面代码是 <code>registerElement()</code> 函数的实现。</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div></div><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">registerElement</span> (<span class="hljs-params">name, elementClass, css</span>) </span>{
+  <span class="hljs-keyword">if</span> (customElementsStore.get(name)) {
+    <span class="hljs-keyword">return</span>
+  }
+
+  <span class="hljs-comment">// store the name-clazz pair</span>
+  customElementsStore.set(name, elementClass, <span class="hljs-string">'mip2'</span>)
+
+  loadCss(css, name)
+  <span class="hljs-built_in">window</span>.customElements.define(name, <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">BaseElement</span> </span>{
+    <span class="hljs-keyword">static</span> get observedAttributes () {
+      <span class="hljs-keyword">return</span> elementClass.observedAttributes
+    }
+  })
+}</code></pre><p>MIP 在注册自定义元素时会先通过判断 <code>customElementsStore.get(name)</code> 是否存在来检查组件是否已经被注册，避免重复注册组件，如果第一次注册，则将 CustomElement 存到 customElementsStore 中，最终调用 <code>window.customElements</code> 上的 <code>define</code> 方法进行标签的注册。<code>customElements</code> 是 Custom Element V1 规范实现的接口，<code>customElements</code> 是 MIP 可以在 HTML 中实现自定义标签的关键。但由于目前customElemets 有一定的兼容性问题，MIP 已在核心代码中引入了相关 polyfill，开发者无需担心兼容性问题。</p><p>看到这里，你可能会感到疑惑，前面提到的 CustomElment 是怎么和 BaseElement 关联的，接下来我们继续深入了解 BaseElement 的实现，具体代码如下所示：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div>32</div><div>33</div><div>34</div><div>35</div><div>36</div><div>37</div><div>38</div><div>39</div><div>40</div><div>41</div><div>42</div><div>43</div><div>44</div><div>45</div><div>46</div><div>47</div><div>48</div><div>49</div><div>50</div><div>51</div><div>52</div><div>53</div><div>54</div><div>55</div><div>56</div><div>57</div><div>58</div><div>59</div><div>60</div><div>61</div><div>62</div><div>63</div><div>64</div><div>65</div><div>66</div><div>67</div><div>68</div><div>69</div><div>70</div><div>71</div><div>72</div></div><code class="lang-js"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BaseElement</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">HTMLElement</span> </span>{
+  <span class="hljs-keyword">constructor</span> (element) {
+    <span class="hljs-keyword">super</span>(element)
+    <span class="hljs-keyword">let</span> name = <span class="hljs-keyword">this</span>.tagName.toLowerCase()
+    <span class="hljs-comment">// 通过标签名获取对应自定义标签的CustomElement 类</span>
+    <span class="hljs-keyword">let</span> CustomElement = customElementsStore.get(name, <span class="hljs-string">'mip2'</span>)
+    <span class="hljs-keyword">this</span>._inViewport = <span class="hljs-literal">false</span>
+    <span class="hljs-keyword">this</span>._firstInViewport = <span class="hljs-literal">false</span>
+    <span class="hljs-keyword">this</span>._resources = resources
+    <span class="hljs-keyword">this</span>.__innerHTML = <span class="hljs-keyword">this</span>.innerHTML
+    <span class="hljs-comment">// 实例化挂载到当前实例的元素上</span>
+    <span class="hljs-keyword">let</span> customElement = <span class="hljs-keyword">this</span>.customElement = <span class="hljs-keyword">new</span> CustomElement(<span class="hljs-keyword">this</span>)
+    <span class="hljs-keyword">if</span> (customElement.hasResources()) {
+      performance.addFsElement(<span class="hljs-keyword">this</span>)
+    }
+  }
+
+  connectedCallback () {
+    <span class="hljs-keyword">this</span>.classList.add(<span class="hljs-string">'mip-element'</span>)
+    <span class="hljs-keyword">this</span>._layout = layout.applyLayout(<span class="hljs-keyword">this</span>)
+    <span class="hljs-keyword">this</span>.customElement.connectedCallback()
+
+    <span class="hljs-keyword">this</span>._resources &amp;&amp; <span class="hljs-keyword">this</span>._resources.add(<span class="hljs-keyword">this</span>)
+  }
+
+  disconnectedCallback () {
+    <span class="hljs-keyword">this</span>.customElement.disconnectedCallback()
+    <span class="hljs-keyword">this</span>._resources &amp;&amp; <span class="hljs-keyword">this</span>._resources.remove(<span class="hljs-keyword">this</span>)
+  }
+
+  attributeChangedCallback () {
+    <span class="hljs-keyword">let</span> ele = <span class="hljs-keyword">this</span>.customElement
+    ele.attributeChangedCallback.apply(ele, <span class="hljs-built_in">arguments</span>)
+  }
+
+  build () {
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.isBuilt()) {
+      <span class="hljs-keyword">return</span>
+    }
+    <span class="hljs-keyword">try</span> {
+      <span class="hljs-keyword">this</span>.customElement.build()
+      <span class="hljs-keyword">this</span>._built = <span class="hljs-literal">true</span>
+    } <span class="hljs-keyword">catch</span> (e) {
+      <span class="hljs-built_in">console</span>.warn(<span class="hljs-string">'build error:'</span>, e)
+    }
+  }
+
+  isBuilt () {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._built
+  }
+
+  inViewport () {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._inViewport
+  }
+
+  viewportCallback (inViewport) {
+    <span class="hljs-keyword">this</span>._inViewport = inViewport
+    <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>._firstInViewport) {
+      <span class="hljs-keyword">this</span>._firstInViewport = <span class="hljs-literal">true</span>
+      <span class="hljs-keyword">this</span>.customElement.firstInviewCallback()
+    }
+    <span class="hljs-keyword">this</span>.customElement.viewportCallback(inViewport)
+  }
+
+  executeEventAction (action) {
+    <span class="hljs-keyword">this</span>.customElement.executeEventAction(action)
+  }
+
+  prerenderAllowed () {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.customElement.prerenderAllowed()
+  }
+}</code></pre><p>BaseElement 继承了 <code>HTMLElement</code> 原生的 HTML 元素类，并重写了生命周期钩子，在自定义标签实例化创建 DOM 会首先调用 <code>constructor()</code> 方法，在这里会将前面 <code>registerElement</code> 保存的标签名对应的 <code>CustomElement</code> 类取出实例化挂载在自定义标签实例上。在自定义标签的每一个生命周期执行过程中都会调用组件重载的钩子进行执行，如下面代码所示:</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div></div><code class="lang-js"><span class="hljs-keyword">this</span>.customElement.connectedCallback()
+<span class="hljs-keyword">this</span>.customElement.disconnectedCallback()
+<span class="hljs-keyword">this</span>.customElement.build()
+<span class="hljs-keyword">this</span>.customElement.attributeChangedCallback()</code></pre><h3 id="vue-组件和-customelement-的绑定"><a href="#vue-组件和-customelement-的绑定" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>Vue 组件和 CustomElement 的绑定</h3><p>考虑到性能问题，内置组件就是直接使用 <code>CustomElement</code> 实现的，只需要在组件中重写生命周期钩子达到定义组件的目的。那么，基于 Vue 的组件又是怎么和 CustomElement 绑定工作的呢？我们再回过头来看 <code>VueCustomElement</code> 的实现，提取 <code>_build</code> 的关键代码如下面代码所示：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div>32</div><div>33</div><div>34</div><div>35</div><div>36</div><div>37</div><div>38</div><div>39</div><div>40</div></div><code class="lang-js"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">VueCustomElement</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">CustomElement</span> </span>{
+  <span class="hljs-comment">// ...</span>
+  _build() {
+    <span class="hljs-comment">// 创建 Vue 实例并挂载到自定义元素上</span>
+    <span class="hljs-keyword">let</span> vueInstance = <span class="hljs-keyword">this</span>.vueInstance = createVueInstance(
+      <span class="hljs-keyword">this</span>.element, {
+        Vue
+      },
+      componentDefinition,
+      props
+    )
+    <span class="hljs-keyword">this</span>.props = props
+    <span class="hljs-keyword">this</span>.vm = vueInstance.$children[<span class="hljs-number">0</span>]
+  }
+
+  build() {
+    <span class="hljs-comment">// 是否直接渲染</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.prerenderAllowed()) {
+      <span class="hljs-keyword">this</span>._build()
+    }
+  }
+
+  <span class="hljs-comment">// 第一次进入视口的回调钩子</span>
+  firstInviewCallback() {
+    <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.prerenderAllowed()) {
+      <span class="hljs-keyword">this</span>._build()
+    }
+    callLifeCycle(<span class="hljs-keyword">this</span>.vm, <span class="hljs-string">'firstInviewCallback'</span>, <span class="hljs-keyword">this</span>.element)
+  }
+
+  <span class="hljs-comment">// 将自定义元素属性和 vue 实例的 props 关联</span>
+  attributeChangedCallback(name, oldValue, value) {
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.vueInstance) {
+      <span class="hljs-keyword">const</span> nameCamelCase = camelize(name)
+      <span class="hljs-keyword">const</span> type = <span class="hljs-keyword">this</span>.props.types[nameCamelCase]
+      <span class="hljs-keyword">this</span>.vueInstance[nameCamelCase] = convertAttributeValue(value, type)
+    }
+  }
+  <span class="hljs-comment">// ...</span>
+}</code></pre><p>实际上，MIP 是在 CustomElement 的 <code>_build</code> 方法里调用 <code>createVueInstance()</code>函数创建一个 Vue 的实例进行内容渲染的，而 <code>_build</code> 方法是根据情况在 <code>build</code> 或 <code>firstInviewCallback</code> 回调钩子中执行。</p><p>MIP 核心代码也是在这里分析 Vue 组件定义的 props 和自定义元素 attributes 进行绑定, 并通过 <code>attributeChangedCallback</code> 实现自定义标签属性变化实时反映到 Vue 组件 prop 变化。由于 HTML 标签属性的值都是字符串，针对传递非字符串的 prop 问题，下面代码根据 Vue 组件定义的 props 调用 <code>convertAttributeValue()</code> 方法做数据转换。</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div></div><code class="lang-js">attributeChangedCallback(name, oldValue, value) {
+  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.vueInstance) {
+    <span class="hljs-keyword">const</span> camelName= camelize(name)
+    <span class="hljs-keyword">const</span> type = <span class="hljs-keyword">this</span>.props.types[nameCamelCase]
+    <span class="hljs-keyword">this</span>.vueInstance[camelName] = convertAttributeValue(value, type)
+  }
+}</code></pre><p>因为要做数据转换，所以在编写 Vue 组件的 props 声明时，针对一个 prop 类型只能是一种，如果写了多种类型会默认取第一个类型进行解析转换。</p><h2 id="mip-组件和-vue-的关系"><a href="#mip-组件和-vue-的关系" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>MIP 组件和 Vue 的关系</h2><p>前面提到了用 Vue 组件的方式写 MIP 组件，实际上 MIP 组件就是自定义元素，组件的内部布局、样式和交互是开发者在自定义元素类的回调钩子中通过 JavaScript 实现，MIP 组件内部通过 Vue 来渲染组件 UI，MIP 组件在这里充当容器的角色，如下面代码所示，通过<code>MIP.registerVueCustomElement()</code> 接口将自定义元素与 Vue 组件结合在一起。</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div></div><code class="lang-js">MIP.registerVueCustomElement('mip-example, {
+  template: '&lt;p&gt;Hello world.&lt;/p&gt;'
+})</code></pre><p>在 HTML 中就可以直接使用 <code>&lt;mip-example&gt;</code> 标签:</p><pre><div class="code-index"><div>1</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-example</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-example</span> &gt;</span></code></pre><p>浏览器渲染后的结果如下所示：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div></div><code class="lang-html"><span class="hljs-comment">&lt;!-- 内部多了一个 div 标签是因为 Vue 实例必须要有一个根元素，而自定义标签不能作为 vue 实例的根元素 --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">mip-example</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mip-element"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Hello world.<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mip-example</span> &gt;</span></code></pre><p>通过前面的介绍，我们很容易总结出以下一些特点：</p><ul><li>每个自定元素都创建了一个 Vue 实例，Vue 实例只负责渲染自定义元素的内部结构，在 HTML 文档中，MIP 自定义元素跟 Vue 语法没有关系，换句话说，你不能在使用 MIP 组件时使用 Vue 语法绑定事件和数据；</li><li>MIP组件定义的自定义元素在 HTML 上完全遵循 HTML 标准，父子自定义元素直接的关系是 DOM 直接的父子关系，不是 Vue 的父子组件关系；</li><li>MIP 组件之间的通信不能直接使用 Vue 的通信机制，需要使用 MIP 的 on 语法的事件和行为的通信机制；</li><li>组件内部的 Vue 组件语法和标准的 Vue 语法完全一致，Vue 模板内使用 MIP 自定义元素完全被当成 HTML 元素处理，由浏览器识别，而不会当成该 Vue 的子组件处理。</li></ul><p>虽然在HTML语法中不支持Vue语法，但是MIP也提供了很多特性使开发者使用起来更加简单：</p><ul><li><strong>Props 属性传递</strong>：通过 HTML 自定义标签的属性和属性值定义，就可以将自定义标签的属性数据传递给 Vue 组件，Vue 组件通过 props 属性进行接收；</li><li><strong>Slots 内容插槽/分发</strong>：可以将 HMTL 自定义元素的内容直接分发到 Vue 模板内部的 <code>&lt;slot&gt;</code> 标签；</li><li><strong>Events 事件绑定</strong>：可以通过 <code>$emit</code> 和 <code>$on</code> 方法替代 <code>addEventAction</code> 和 <code>eventAction.execute</code>；</li><li><strong>数据绑定</strong>：HTML 自定义标签上的属性变化会实时反馈到 Vue 内部。</li></ul><h3 id="自定义元素生命周期"><a href="#自定义元素生命周期" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>自定义元素生命周期</h3><p>MIP 组件是基于 Web Component 机制的，所以也天然地继承了这套机制的生命周期，同时MIP也对生命周期不同阶段采用了不同策略，并扩展额外的钩子函数。但开发者在使用 Vue 组件方式开发的 MIP 组件时，实际上是以 Vue 组件的生命周期为主的，MIP 核心机制刻意隐藏了自定义标签的生命周期回调钩子，目的是让开发者拥有沉浸式的开发体验，但是由于一些特殊的需求，MIP 核心机制还是暴露了部分自定义标签回调。 在 Vue 组件定义中暴露了3个回调钩子，这里需要注意下生命周期回调钩子的上下文，由于 <code>connectedCallback</code> 和 <code>disconnectedCallback</code> 在回调时还没创建 Vue 实例，所以，上下文为 <code>CustomElement</code> 实例，代码如下面所示：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div></div><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">callLifeCycle</span> (<span class="hljs-params">ctx, name</span>) </span>{
+  <span class="hljs-comment">// componentDefinition 为 vue 组件定义项</span>
+  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> componentDefinition[name] === <span class="hljs-string">'function'</span>) {
+    <span class="hljs-keyword">return</span> componentDefinition[name].apply(ctx, [].slice.call(<span class="hljs-built_in">arguments</span>, <span class="hljs-number">2</span>))
+  }
+}
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">VueCustomElement</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">CustomElement</span> </span>{
+  connectedCallback () {
+    callLifeCycle(<span class="hljs-keyword">this</span>, <span class="hljs-string">'connectedCallback'</span>, <span class="hljs-keyword">this</span>.element)
+  }
+  disconnectedCallback () {
+    callLifeCycle(<span class="hljs-keyword">this</span>, <span class="hljs-string">'disconnectedCallback'</span>, <span class="hljs-keyword">this</span>.element)
+  }
+  firstInviewCallback () {
+    <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.prerenderAllowed()) {
+      <span class="hljs-keyword">this</span>._build()
+    }
+    callLifeCycle(<span class="hljs-keyword">this</span>.vm, <span class="hljs-string">'firstInviewCallback'</span>, <span class="hljs-keyword">this</span>.element)
+  }
+}</code></pre><p>下面的流程图展示了 Vue 组件在 MIP 中生命周期。 <div class="md-img-wrapper"><mip-img layout="flex-item" width="320" height="320" src="https://mip-project.github.io/img/guide/mip-source-interpretation/images/components-life-cycle.png"></mip-img></div></p>
+    </div>
+<div class="markdown-toolbar">
+  <span>反馈</span><span>编辑</span>
+</div>
+<div class="markdown-paginator">
+</div>
+  </div>
+  <mip-data>
+    <script type="application/json">
+      {
+        "menu": [{"name":"简介","path":"guide/basic","children":[{"name":"新手指南","path":"guide/basic/01-newbie.md","url":"/guide/basic/01-newbie.html"},{"name":"完整的例子","path":"guide/basic/02-demo.md","url":"/guide/basic/02-demo.html"},{"name":"什么是 MIP","path":"guide/basic/03-what-is-mip.md","url":"/guide/basic/03-what-is-mip.html"},{"name":"MIP 加速原理","path":"guide/basic/04-principle-of-mip.md","url":"/guide/basic/04-principle-of-mip.html"},{"name":"MIP 内容声明","path":"guide/basic/05-announcement.md","url":"/guide/basic/05-announcement.html"}]},{"name":"MIP 开发","path":"guide/mip-cli","children":[{"name":"mip2 命令行工具","path":"guide/mip-cli/01-cli-usage.md","url":"/guide/mip-cli/01-cli-usage.html"},{"name":"使用 mip-cli 快速开始","path":"guide/mip-cli/03-start-writing-first-mip.md","url":"/guide/mip-cli/03-start-writing-first-mip.html"},{"name":"MIP 组件开发","path":"guide/mip-cli/04-component-development.md","url":"/guide/mip-cli/04-component-development.html"},{"name":"组件调试","path":"guide/mip-cli/05-component-testing.md","url":"/guide/mip-cli/05-component-testing.html"},{"name":"组件部署","path":"guide/mip-cli/06-component-deploy.md","url":"/guide/mip-cli/06-component-deploy.html"},{"name":"提交组件到官方组件仓库","path":"guide/mip-cli/07-contribute-to-official-repo.md","url":"/guide/mip-cli/07-contribute-to-official-repo.html"},{"name":"提交站长组件","path":"guide/mip-cli/08-contribute-to-site-extensions-repo.md","url":"/guide/mip-cli/08-contribute-to-site-extensions-repo.html"},{"name":"mip2 CLI 用户自定义扩展","path":"guide/mip-cli/02-cli-user-plugin.md","url":"/guide/mip-cli/02-cli-user-plugin.html"}]},{"name":"开发规范","path":"guide/mip-standard","children":[{"name":"MIP-HTML 规范","path":"guide/mip-standard/01-mip-html-spec.md","url":"/guide/mip-standard/01-mip-html-spec.html"},{"name":"MIP-Cache 规范","path":"guide/mip-standard/02-mip-cache-spec.md","url":"/guide/mip-standard/02-mip-cache-spec.html"},{"name":"MIP 校验规则","path":"guide/mip-standard/03-mip-validate.md","url":"/guide/mip-standard/03-mip-validate.html"},{"name":"Canonical 使用规范","path":"guide/mip-standard/04-mip-canonical.md","url":"/guide/mip-standard/04-mip-canonical.html"},{"name":"组件开发规范","path":"guide/mip-standard/05-mip-components-spec.md","url":"/guide/mip-standard/05-mip-components-spec.html"}]},{"name":"可交互 MIP","path":"guide/interactive-mip","children":[{"name":"可交互 MIP - 概况","path":"guide/interactive-mip/01-introduction.md","url":"/guide/interactive-mip/01-introduction.html"},{"name":"mip-data 设置数据","path":"guide/interactive-mip/02-mip-data.md","url":"/guide/interactive-mip/02-mip-data.html"},{"name":"mip-bind 绑定数据","path":"guide/interactive-mip/03-mip-bind.md","url":"/guide/interactive-mip/03-mip-bind.html"},{"name":"Class 与 Style 绑定","path":"guide/interactive-mip/04-class-style-binding.md","url":"/guide/interactive-mip/04-class-style-binding.html"},{"name":"MIP.setData 修改数据","path":"guide/interactive-mip/05-set-data.md","url":"/guide/interactive-mip/05-set-data.html"},{"name":"MIP.watch 观察数据","path":"guide/interactive-mip/06-watch.md","url":"/guide/interactive-mip/06-watch.html"},{"name":"全局共享数据","path":"guide/interactive-mip/07-global-data.md","url":"/guide/interactive-mip/07-global-data.html"},{"name":"mip-script 自定义 JS","path":"guide/interactive-mip/08-mip-script.md","url":"/guide/interactive-mip/08-mip-script.html"}]},{"name":"全站 MIP","path":"guide/all-sites-mip","children":[{"name":"全站 MIP 介绍","path":"guide/all-sites-mip/01-introduction.md","url":"/guide/all-sites-mip/01-introduction.html"},{"name":"MIP 页面编写规范","path":"guide/all-sites-mip/02-structure.md","url":"/guide/all-sites-mip/02-structure.html"},{"name":"页面切换方案","path":"guide/all-sites-mip/03-switch-page.md","url":"/guide/all-sites-mip/03-switch-page.html"},{"name":"Page API","path":"guide/all-sites-mip/04-page-api.md","url":"/guide/all-sites-mip/04-page-api.html"},{"name":"MIP Shell","path":"guide/all-sites-mip/05-mip-shell.md","url":"/guide/all-sites-mip/05-mip-shell.html"},{"name":"MIP Viewer","path":"guide/all-sites-mip/06-viewer.md","url":"/guide/all-sites-mip/06-viewer.html"},{"name":"MIP 快捷样式","path":"guide/all-sites-mip/07-style.md","url":"/guide/all-sites-mip/07-style.html"}]},{"name":"mip-advanced","path":"guide/mip-advanced","children":[{"name":"MIP 组件通信","path":"guide/mip-advanced/1-components-event.md","url":"/guide/mip-advanced/1-components-event.html"},{"name":"MIP 中与服务端通信","path":"guide/mip-advanced/2-data-from-server.md","url":"/guide/mip-advanced/2-data-from-server.html"},{"name":"Promise 在 MIP 中的使用","path":"guide/mip-advanced/3-promise.md","url":"/guide/mip-advanced/3-promise.html"},{"name":"MIP 加速原理","path":"guide/mip-advanced/4-mip-speed-principle.md","url":"/guide/mip-advanced/4-mip-speed-principle.html"},{"name":"MIP Access 原理剖析","path":"guide/mip-advanced/5-access-principle.md","url":"/guide/mip-advanced/5-access-principle.html"},{"name":"离线可用在 MIP 中的实现","path":"guide/mip-advanced/6-mip-offline.md","url":"/guide/mip-advanced/6-mip-offline.html"}]},{"name":"mip-in-search","path":"guide/mip-in-search","children":[{"name":"搜索识别MIP页","path":"guide/mip-in-search/1-introduction.md","url":"/guide/mip-in-search/1-introduction.html"},{"name":"搜索生效流程","path":"guide/mip-in-search/2-process.md","url":"/guide/mip-in-search/2-process.html"},{"name":"MIP-Cache","path":"guide/mip-in-search/3-mip-cache.md","url":"/guide/mip-in-search/3-mip-cache.html"},{"name":"类原生的MIP页面体验","path":"guide/mip-in-search/4-native-like-mip.md","url":"/guide/mip-in-search/4-native-like-mip.html"}]},{"name":"mip-source-interpretation","path":"guide/mip-source-interpretation","children":[{"name":"源码解析","path":"guide/mip-source-interpretation/1-introduction.md","url":"/guide/mip-source-interpretation/1-introduction.html"},{"name":"MIP 基础模块","path":"guide/mip-source-interpretation/2-basic.md","url":"/guide/mip-source-interpretation/2-basic.html"},{"name":"MIP 组件机制详解","path":"guide/mip-source-interpretation/3-components.md","url":"/guide/mip-source-interpretation/3-components.html"},{"name":"layout 布局规范","path":"guide/mip-source-interpretation/4-layout.md","url":"/guide/mip-source-interpretation/4-layout.html"},{"name":"naboo 动画库","path":"guide/mip-source-interpretation/5-noboo-animation.md","url":"/guide/mip-source-interpretation/5-noboo-animation.html"},{"name":"gesture 手势集合","path":"guide/mip-source-interpretation/6-gesture-sets.md","url":"/guide/mip-source-interpretation/6-gesture-sets.html"},{"name":"hash 通信机制","path":"guide/mip-source-interpretation/7-hash.md","url":"/guide/mip-source-interpretation/7-hash.html"},{"name":"platform 识别","path":"guide/mip-source-interpretation/8-platform.md","url":"/guide/mip-source-interpretation/8-platform.html"}]}],
+        "chapters": [{"level":1,"hash":"#mip-组件机制详解","text":"MIP 组件机制详解","children":[{"level":2,"hash":"#mip-组件注册机制","text":"MIP 组件注册机制","children":[{"level":3,"hash":"#编写组件","text":"编写组件"},{"level":3,"hash":"#组件编译","text":"组件编译"},{"level":3,"hash":"#组件注册","text":"组件注册"},{"level":3,"hash":"#vue-组件和-customelement-的绑定","text":"Vue 组件和 CustomElement 的绑定"}]},{"level":2,"hash":"#mip-组件和-vue-的关系","text":"MIP 组件和 Vue 的关系","children":[{"level":3,"hash":"#自定义元素生命周期","text":"自定义元素生命周期"}]}]}],
+        'url': "/guide/mip-source-interpretation/3-components.html"
+      }
+    </script>
+  </mip-data>
+</div>
+    <mip-data>
+      <script type="application/json">
+        {
+          "navIndex": 1,
+          "navbarStyle": {
+            "width": "0",
+            "transform": ""
+          },
+          "navSep": 0,
+          "navbar": [{"name":"首页","url":"/index.html","width":32},{"name":"使用文档","url":"/guide/index.html","width":64},{"name":"组件列表","url":"/components/index.html","width":64},{"name":"Codelab","url":"/codelab","width":60},{"name":"帮助","url":"/help","width":32},{"name":"常用链接","children":[{"name":"MIP 官方博客"},{"name":"MIP 代码校验工具"}],"width":82},{"name":"GitHub","url":"/github","width":50}]
+        }
+      </script>
+    </mip-data>
+    <mip-script>
+      function navIndicate(val) {
+        var navbar = MIP.getData('navbar');
+        var width = navbar[val].width + 'px';
+        var translateX = 0;
+        for (var i = 0; i < val; i++) {
+          translateX += navbar[i].width + MIP.getData('navSep');
+        }
+        var transform = 'translateX(' + translateX + 'px)';
+        MIP.setData({
+          navbarStyle: {
+            width: width,
+            transform: transform
+          }
+        });
+      }
+
+      function getNavSep() {
+        return MIP.viewport.getWidth() > 992 ? 50 : 30
+      }
+
+      MIP.watch('active', function () {
+        var curUrl = location.pathname;
+        var url = MIP.getData('originalUrl');
+        if (url === curUrl) {
+          return;
+        }
+        MIP.setData({
+          chapters: MIP.getData('originalChapters')
+        })
+      })
+
+      MIP.watch('navIndex', function (val) {
+        navIndicate(val);
+      })
+
+      MIP.watch('navSep', function (val) {
+        navIndicate(MIP.getData('navIndex'));
+      })
+
+      MIP.watch('url', function (val) {
+        console.log('url is watched:' + val)
+
+        if (val === '/' || val === '') {
+          MIP.setData({
+            navIndex: 0
+          });
+          return;
+        }
+
+        var navbar = MIP.getData('navbar');
+        for (var i = 0; i < navbar.length; i++) {
+          if (navbar[i].url !== '/' && val.indexOf(navbar[i].url) === 0) {
+            MIP.setData({
+              navIndex: i
+            });
+            return;
+          }
+        }
+      })
+
+      MIP.viewport.on('resize', function () {
+        MIP.setData({
+          navSep: getNavSep()
+        })
+      })
+
+      MIP.setData({
+        navSep: getNavSep()
+      })
+    </mip-script>
+
+    <mip-fixed type="top" class="layout-navbar-fixed">
+<div class="layout-navbar">
+  <div class="navbar-logo"></div>
+  <div class="navbar-menu">
+    <ul class="navbar-menu-wrapper">
+      <li class="navbar-item" on="tap:MIP.setData({navIndex:0})"><a data-type="mip" href="/index.html" class="menu-name">首页</a></li>
+      <li class="navbar-item" on="tap:MIP.setData({navIndex:1})"><a data-type="mip" href="/guide/index.html" class="menu-name">使用文档</a></li>
+      <li class="navbar-item" on="tap:MIP.setData({navIndex:2})"><a data-type="mip" href="/components/index.html" class="menu-name">组件列表</a></li>
+      <li class="navbar-item" on="tap:MIP.setData({navIndex:3})"><a data-type="mip" href="/codelab" class="menu-name">Codelab</a></li>
+      <li class="navbar-item" on="tap:MIP.setData({navIndex:4})"><a data-type="mip" href="/help" class="menu-name">帮助</a></li>
+      <li class="navbar-item">
+        <span class="menu-name">常用链接<i class="arrow"></i></span>
+        <ul class="navbar-sub-menu">
+          <li class="navbar-sub-item"><a data-type="mip" href="">MIP 官方博客</a></li>
+          <li class="navbar-sub-item"><a data-type="mip" href="">MIP 代码校验工具</a></li>
+        </ul>
+      </li>
+      <li class="navbar-item" on="tap:MIP.setData({navIndex:6})"><a data-type="mip" href="/github" class="menu-name">GitHub</a></li>
+    </ul>
+    <div class="navbar-indicator" m-bind:style="navbarStyle"></div>
+  </div>
+  <div class="navbar-toggle"><i class="iconfont icon-bars"></i></div>
+</div>
+    </mip-fixed>
+
+    <!-- <script src="http://172.18.19.102:8080/dist/mip.js"></script> -->
+    <script src="https://c.mipcdn.com/static/v2/mip.js"></script>
+    <!-- <script src="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.js"></script> -->
+    <script src="/assets/mip-sidenav/mip-sidenav.js"></script>
+    <script src="https://c.mipcdn.com/static/v1/mip-fixed/mip-fixed.js"></script>
+    <script src="https://c.mipcdn.com/static/v1/mip-nav-slidedown/mip-nav-slidedown.js"></script>
+    <script src="https://c.mipcdn.com/static/v2/mip-script/mip-script.js"></script>
+  </body>
+</html>

@@ -40,6 +40,9 @@ module.exports = class DefaultDoc {
                         return;
                     }
 
+                    // 只有在内存里可以这么搞
+                    docInfo.isFirst = true
+
                     await app.store.set('doc', menuPath, docInfo);
                 })
             );

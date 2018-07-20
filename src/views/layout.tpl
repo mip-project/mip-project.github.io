@@ -18,16 +18,13 @@
     <mip-data>
       <script type="application/json">
         {
-          "navIndex": 0,
+          "navIndex": ${navIndex},
           "navbarStyle": {
             "width": "0",
             "transform": ""
           },
           "navSep": 0,
-          "navbar": ${*navbar|json},
-          "menu": ${*menu|json},
-          "chapters": ${*chapters|json},
-          'url': "${url}"
+          "navbar": ${*navbar|json}
         }
       </script>
     </mip-data>
@@ -106,15 +103,11 @@
     <mip-fixed type="top" class="layout-navbar-fixed">
       {{ use:layout-navbar(navbar = ${navbar}) }}
     </mip-fixed>
-    <mip-fixed type="left" top="64px" class="layout-sidebar">
-      <mip-sidenav m-bind:menu="menu" m-bind:chapters="chapters" m-bind:url="url">
-      </mip-sidenav>
-    </mip-fixed>
 
     <!-- <script src="http://172.18.19.102:8080/dist/mip.js"></script> -->
     <script src="https://c.mipcdn.com/static/v2/mip.js"></script>
     <!-- <script src="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.js"></script> -->
-    <script src="http://172.18.24.98:8111/mip-sidenav/mip-sidenav.js"></script>
+    <script src="/assets/mip-sidenav/mip-sidenav.js"></script>
     <script src="https://c.mipcdn.com/static/v1/mip-fixed/mip-fixed.js"></script>
     <script src="https://c.mipcdn.com/static/v1/mip-nav-slidedown/mip-nav-slidedown.js"></script>
     <script src="https://c.mipcdn.com/static/v2/mip-script/mip-script.js"></script>

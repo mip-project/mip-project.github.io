@@ -15,17 +15,17 @@ const css = fs.readFileSync(path.resolve(__dirname, '../builder/dist/index.css')
 const navbar = [
   {
     "name": "首页",
-    "url": "/",
+    "url": "/index.html",
     "width": 32
   },
   {
     "name": "使用文档",
-    "url": "/mip",
+    "url": "/guide/index.html",
     "width": 64
   },
   {
     "name": "组件列表",
-    "url": "/list",
+    "url": "/components/index.html",
     "width": 64
   },
   {
@@ -69,59 +69,63 @@ module.exports = class Layout {
             cachedChangedFileList.push(obj);
         }, 10100);
 
-        on(app.STAGES.DONE, () => Promise.all(cachedChangedFileList.map(async docInfo => {
-                let {html: originalHtml, url, info, chapters, path} = docInfo;
+        on(app.STAGES.DONE, async () => {
+          await Promise.all(cachedChangedFileList.map(async docInfo => {
+            let {html: originalHtml, url, info, chapters, path} = docInfo;
 
-                // 提取样式
-                let {style, html} = extractStyle(originalHtml);
+            // 提取样式
+            let {style, html} = extractStyle(originalHtml);
 
-                // html 组件替换
-                html = heading(html);
-                html = link(html, app);
-                html = await image(html, app);
-                html = video(html, app);
+            // html 组件替换
+            html = heading(html);
+            html = link(html, app);
+            html = await image(html, app);
+            html = video(html, app);
 
-                // 生成 menu 和 chapter
-                let menuInfo = await app.getMenuByUrl(url);
+            // 生成 menu 和 chapter
+            let menuInfo = await app.getMenuByUrl(url);
 
-                // let menuHtml = menuInfo && engine.render('infinity-menu', {
-                //     menu: menuInfo,
-                //     level: 0
-                // });
+            // let menuHtml = menuInfo && engine.render('infinity-menu', {
+            //     menu: menuInfo,
+            //     level: 0
+            // });
 
-                // let chapterHtml = chapters && engine.render('infinity-chapters', {
-                //     chapters,
-                //     level: 0
-                // });
+            // let chapterHtml = chapters && engine.render('infinity-chapters', {
+            //     chapters,
+            //     level: 0
+            // });
 
-                let newhtml = renderer.render('layout-doc', {
-                    title: info.title || 'MIP2 官网',
-                    description: info.description || '',
-                    keywords: 'MIP2',
-                    originUrl: '',
-                    host: 'https://mip-project.github.io',
-                    navbar: navbar,
-                    content: html,
-                    css: css,
-                    menu: menuInfo,
-                    chapters: chapters || {},
-                    breadcrumbs: info.breadcrumbs,
-                    url: url
-                    // menu: menuHtml || '',
-                    // chapters: chapterHtml || '',
-                    // baseStyle: markdownCss,
-                    // layoutStyle: layoutCss,
-                });
+            let newhtml = renderer.render('layout-doc', {
+              title: info.title || 'MIP2 官网',
+              description: info.description || '',
+              keywords: 'MIP2',
+              originUrl: '',
+              host: 'https://mip-project.github.io',
+              navbar: navbar,
+              content: html,
+              css: css,
+              menu: menuInfo,
+              chapters: chapters || {},
+              breadcrumbs: info.breadcrumbs,
+              url: url,
+              navIndex: url.indexOf('/guide') === 0
+                ? 1
+                : url.indexOf('/components') === 0 ? 2 : 0
+              // menu: menuHtml || '',
+              // chapters: chapterHtml || '',
+              // baseStyle: markdownCss,
+              // layoutStyle: layoutCss,
+            });
 
-                docInfo.html = newhtml;
+            docInfo.html = newhtml;
 
-                await app.store.set('doc', docInfo.path, docInfo);
-            }))
-            .then(() => {
-                cachedChangedFileList = [];
-            })
+            await app.store.set('doc', docInfo.path, docInfo);
+          }))
+          .then(() => {
+              cachedChangedFileList = [];
+          })
 
-        , 99999);
+        }, 99999);
     }
 };
 
@@ -181,28 +185,28 @@ async function image(html, app) {
     // };
     let sizes = await Promise.all(srcs.map(
         src => getImageSize(
-            src.replace(/^\/doc-assets\//, ''),
-            app.config.basePath,
+            src.replace(/^\//, ''),
+            app.config.rootDir,
             app.logger
         )
     ));
 
     return html.replace(imgRegExp, (full, attr1, src) => {
-        src = src.replace(/^\/doc-assets\//, '');
+        src = src.replace(/^\//, '');
 
         let {width, height} = sizes.shift();
 
         if (!/^http/.test(src) && !/^\/\//.test(src)) {
             let host = app.config.host;
-            src = `${host}/doc-assets/${src}`;
+            src = `${host}/${src}`;
         }
 
         /* eslint-disable max-len */
         if (/\.gif($|\?|#)/.test(src)) {
-            return `<mip-anim layout="responsive" width="${width}" height="${height}" src="${src}"></mip-anim>`;
+            return `<div class="md-img-wrapper"><mip-anim layout="flex-tem" width="${width}" height="${height}" src="${src}"></mip-anim></div>`;
         }
 
-        return `<mip-img layout="responsive" width="${width}" height="${height}" popup src="${src}"></mip-img>`;
+        return `<div class="md-img-wrapper"><mip-img layout="flex-item" width="${width}" height="${height}" src="${src}"></mip-img></div>`;
         /* eslint-enable max-len */
     });
 }

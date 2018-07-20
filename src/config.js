@@ -20,6 +20,7 @@ let gitDir = path.resolve(tmpDir, 'git');
 module.exports = {
     host: 'https://mip-project.github.io',
     basePath: docDir,
+    rootPath: rootDir,
     // sources: [
     //     {
     //         name: 'mip',
@@ -54,20 +55,73 @@ module.exports = {
     // },
     sources: [
       {
-        name: 'mip',
-        loader: 'local',
+        name: 'guide',
+        loader: 'copy',
         from: path.resolve(__dirname, '../../mip2/docs/new-doc'),
-        to: path.resolve(docDir, 'mip')
+        to: path.resolve(docDir, 'guide'),
+        ignores: [
+          path.resolve(__dirname, '../../mip2/docs/new-doc/components')
+        ]
+      },
+      {
+        name: 'components',
+        loader: 'copy',
+        from: path.resolve(__dirname, '../../mip2/docs/new-doc/components'),
+        to: path.resolve(docDir, 'components')
       }
     ],
-    routes: [
-        {
-            path: /^mip/,
-            url(filePath) {
-                filePath = '/' + filePath.replace(/\.md($|\?|#)/, '$1') + '.html';
-                return filePath;
-            }
+    loader: {
+      copy: async function ({from, to, ignores}) {
+        if (!await fs.exists(from)) {
+          throw new Error(from + '文件夹不存在')
         }
+
+        let stat = await fs.stat(from)
+
+        if (!stat.isDirectory()) {
+          throw new Error(from + '不是文件夹')
+        }
+
+        await fs.remove(to)
+        await fs.copy(from, to)
+
+        if (ignores && ignores.length) {
+          await Promise.all(ignores.map(async ignore => {
+            let newPath = path.resolve(to, path.relative(from, ignore))
+            await fs.remove(newPath)
+          }))
+        }
+      }
+    },
+    routes: [
+      {
+        path: /\.(png|jpg|gif)$/,
+        url (filePath) {
+          try {
+            let dist = path.resolve(rootDir, 'img/' + filePath)
+            fs.ensureDirSync(path.dirname(dist))
+            fs.copySync(path.resolve(docDir, filePath), dist)
+          } catch (e) {
+            console.error(e)
+          }
+          filePath = '/img/' + filePath
+          return filePath
+        }
+      },
+      {
+        path: /^components/,
+        url (filePath) {
+          filePath = '/' + filePath.replace(/\.md($|\?|#)/, '$1') + '.html'
+          return filePath;
+        }
+      },
+      {
+        path: /^guide/,
+        url (filePath) {
+          filePath = '/' + filePath.replace(/\.md($|\?|#)/, '$1') + '.html'
+          return filePath
+        }
+      }
         // {
         //     path(filePath) {
         //         return /\.[a-zA-Z0-9]+($|\?|#)/.test(filePath) && !/\.md($|\?|#)/.test(filePath);
@@ -92,12 +146,18 @@ module.exports = {
         // }
     ],
     menus: [
-        {
-            url: /^\/mip/,
-            menu(url) {
-                return 'mip';
-            }
+      {
+        url: /^\/components/,
+        menu (url) {
+          return 'components'
         }
+      },
+      {
+        url: /^\/guide/,
+        menu (url) {
+          return 'guide'
+        }
+      }
     ]
     // menus: [
     //     {

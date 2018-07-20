@@ -13,17 +13,17 @@ const css = fs.readFileSync(path.resolve(__dirname, '../builder/dist/index.css')
 const navbar = [
   {
     "name": "首页",
-    "url": "/",
+    "url": "/index.html",
     "width": 32
   },
   {
     "name": "使用文档",
-    "url": "/mip",
+    "url": "/guide/index.html",
     "width": 64
   },
   {
     "name": "组件列表",
-    "url": "/list",
+    "url": "/components/index.html",
     "width": 64
   },
   {
@@ -71,6 +71,10 @@ module.exports = class Static {
                 let pathname = path.resolve(dist, obj.url.replace(/^\//, '').replace(/\.html$/, '') + '.html');
                 await fs.ensureDir(path.dirname(pathname));
                 await fs.writeFile(pathname, obj.html, 'utf-8');
+                if (obj.isFirst) {
+                  let indexpath = path.resolve(dist, obj.url.replace(/^\//, '').split('/').slice(0, 1).join('/') + '/index.html');
+                  await fs.writeFile(indexpath, obj.html, 'utf-8');
+                }
             });
 
             // 静态化首页
@@ -84,7 +88,8 @@ module.exports = class Static {
               css: css,
               menu: {},
               chapters: {},
-              url: ''
+              url: '',
+              navIndex: 0
             })
 
             await fs.writeFile(path.resolve(dist, 'index.html'), html, 'utf-8');
