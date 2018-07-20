@@ -4,45 +4,12 @@
  */
 
 const imageSize = require('../utils/image-size')
-const etpl = require('etpl')
 const path = require('path')
 const fs = require('fs')
+const renderer = require('../utils/renderer')
 
 const css = fs.readFileSync(path.resolve(__dirname, '../builder/dist/index.css'))
 
-const viewDir = path.resolve(__dirname, '../views')
-
-const engine = new etpl.Engine({
-  commandOpen: '{{',
-  commandClose: '}}',
-  strip: true,
-  namingConflict: 'override',
-  dir: viewDir,
-  extname: '.tpl'
-})
-
-const tplList = [
-  'layout-navbar.tpl',
-  'layout.tpl',
-  'layout-index.tpl',
-  'layout-doc.tpl',
-  'layout-codelab.tpl',
-  'markdown-breadcrumb.tpl',
-  'markdown-toolbar.tpl',
-  'markdown-paginator.tpl'
-]
-
-for (let i = 0; i < tplList.length; i++) {
-  engine.loadFromFile(path.resolve(viewDir, tplList[i]))
-}
-
-engine.addFilter('json', function (obj) {
-  if (!obj) {
-    return obj
-  }
-  return JSON.stringify(obj)
-  // return JSON.stringify(obj).replace(/\//g, '\\\/')
-})
 
 /* eslint-disable */
 const navbar = [
@@ -127,7 +94,7 @@ module.exports = class Layout {
                 //     level: 0
                 // });
 
-                let newhtml = engine.render('layout-doc', {
+                let newhtml = renderer.render('layout-doc', {
                     title: info.title || 'MIP2 官网',
                     description: info.description || '',
                     keywords: 'MIP2',

@@ -18,7 +18,6 @@
     <mip-data>
       <script type="application/json">
         {
-          "active": 0,
           "navIndex": 0,
           "navbarStyle": {
             "width": "0",
@@ -115,7 +114,7 @@
     <!-- <script src="http://172.18.19.102:8080/dist/mip.js"></script> -->
     <script src="https://c.mipcdn.com/static/v2/mip.js"></script>
     <!-- <script src="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.js"></script> -->
-    <script src="http://127.0.0.1:8111/mip-sidenav/mip-sidenav.js"></script>
+    <script src="http://172.18.24.98:8111/mip-sidenav/mip-sidenav.js"></script>
     <script src="https://c.mipcdn.com/static/v1/mip-fixed/mip-fixed.js"></script>
     <script src="https://c.mipcdn.com/static/v1/mip-nav-slidedown/mip-nav-slidedown.js"></script>
     <script src="https://c.mipcdn.com/static/v2/mip-script/mip-script.js"></script>
