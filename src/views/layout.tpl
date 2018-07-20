@@ -1,61 +1,137 @@
-{{ target: mip-layout }}
-
+{{ target: layout }}
 <!DOCTYPE html>
 <html mip>
-    <head>
-        <meta charset="utf-8">
-        <title>${title} | MIP</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
-        <meta name="description" content="${description}">
-        <meta name="keywords" content="${keywords}">
-        <meta name="theme-color" content="#2874f0">
-       <!--  <link rel="stylesheet" href="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.css"> -->
-        <link rel="stylesheet" type="text/css" href="https://mipcache.bdstatic.com/static/v1/mip.css">
-        <!-- <link rel="stylesheet" type="text/css" href="http://127.0.0.1:8080/dist/mip.css"> -->
-        <link rel="canonical" href="${originUrl}">
-        <style mip-custom>
-            ${baseStyle|raw}
-            ${layoutStyle|raw}
-            {{ block: style }}{{ /block }}
-        </style>
-    </head>
-    <body>
-        <mip-fixed type="top" top="0px" left="0px" right="0px" class="mip-nav-wrapper">
-            <mip-nav-slidedown
-                data-id="bs-navbar"
-                class="mip-navbar"
-                data-showbrand="1"
-                data-brandname="MIP"
-                data-brandhref="/"
-            >
-                <nav id="bs-navbar" class="navbar-collapse collapse navbar navbar-static-top">
-                    <ul class="nav navbar-nav navbar-right">
-                        {{ for: ${tabs} as ${item} }}
-                        <li class="navbar-item {{ if: ${item.url} === ${activeTab} }}in-active{{ /if }}">
-                            <a href="${item.url}" class="navbar-link">${item.name}</a>
-                        </li>
-                        {{ /for }}
-                        <li class="navbar-wise-close">
-                            <span id="navbar-wise-close-btn"></span>
-                        </li>
-                    </ul>
-                </nav>
-            </mip-nav-slidedown>
-        </mip-fixed>
-        <div id="app" class="application theme--light">
-            <div class="application--wrap">
-                <div class="app-view-container">
-                    {{ block: content }}{{ /block }}
-                </div>
-                {{ block: footer }}{{ /block }}
-            </div>
-        </div>
-        <!-- <script src="http://127.0.0.1:8080/dist/mip.js"></script> -->
-        <!-- <script src="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.js"></script> -->
-        <script src="https://mipcache.bdstatic.com/static/v1/mip.js"></script>
-        <script src="https://mipcache.bdstatic.com/static/v1/mip-fixed/mip-fixed.js"></script>
-        <script src="https://mipcache.bdstatic.com/static/v1/mip-nav-slidedown/mip-nav-slidedown.js"></script>
-        {{ block: script }}{{ /block }}
-    </body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <title>MIP page</title>
+    <link rel="canonical" href="对应的原页面地址">
+    <!-- <link rel="stylesheet" type="text/css" href="https://c.mipcdn.com/static/v1/mip.css"> -->
+    <!-- <link rel="stylesheet" href="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.css"> -->
+    <link rel="stylesheet" href="http://172.18.19.102:8080/dist/mip.css">
+    <style mip-custom>
+      ${css|raw}
+    </style>
+  </head>
+  <body>
+    {{ block: content }}{{ /block }}
+    <mip-data>
+      <script type="application/json">
+        {
+          "active": 0,
+          "navIndex": 0,
+          "navbarStyle": {
+            "width": "0",
+            "transform": ""
+          },
+          "navSep": 0,
+          "navbar": ${*navbar|json},
+          "menu": ${*menu|json},
+          "chapters": ${*chapters|json},
+          'url': "${url}"
+        }
+      </script>
+    </mip-data>
+    <mip-script>
+      function navIndicate(val) {
+        var navbar = MIP.getData('navbar');
+        var width = navbar[val].width + 'px';
+        var translateX = 0;
+        for (var i = 0; i < val; i++) {
+          translateX += navbar[i].width + MIP.getData('navSep');
+        }
+        var transform = 'translateX(' + translateX + 'px)';
+        MIP.setData({
+          navbarStyle: {
+            width: width,
+            transform: transform
+          }
+        });
+      }
+
+      function getNavSep() {
+        return MIP.viewport.getWidth() > 992 ? 50 : 30
+      }
+
+      MIP.watch('active', function () {
+        var curUrl = location.pathname;
+        var url = MIP.getData('originalUrl');
+        if (url === curUrl) {
+          return;
+        }
+        MIP.setData({
+          chapters: MIP.getData('originalChapters')
+        })
+      })
+
+      MIP.watch('navIndex', function (val) {
+        navIndicate(val);
+      })
+
+      MIP.watch('navSep', function (val) {
+        navIndicate(MIP.getData('navIndex'));
+      })
+
+      MIP.watch('url', function (val) {
+        console.log('url is watched:' + val)
+
+        if (val === '/' || val === '') {
+          MIP.setData({
+            navIndex: 0
+          });
+          return;
+        }
+
+        var navbar = MIP.getData('navbar');
+        for (var i = 0; i < navbar.length; i++) {
+          if (navbar[i].url !== '/' && val.indexOf(navbar[i].url) === 0) {
+            MIP.setData({
+              navIndex: i
+            });
+            return;
+          }
+        }
+      })
+
+      MIP.viewport.on('resize', function () {
+        MIP.setData({
+          navSep: getNavSep()
+        })
+      })
+
+      MIP.setData({
+        navSep: getNavSep()
+      })
+    </mip-script>
+    <mip-shell on="active:MIP.setData({active:m.active+1})">
+      <script type="application/json">
+        {
+          "routes": [
+            {
+              "pattern": "*",
+              "meta": {
+                 "header": {
+                  "show": false
+                }
+              }
+            }
+          ]
+        }
+      </script>
+      <mip-fixed type="top" class="layout-navbar-fixed">
+        {{ use:layout-navbar(navbar = ${navbar}) }}
+      </mip-fixed>
+      <mip-fixed type="left" top="64px" class="layout-sidebar">
+        <mip-sidenav m-bind:menu="menu" m-bind:chapters="chapters" m-bind:url="url">
+        </mip-sidenav>
+      </mip-fixed>
+    </mip-shell>
+    <script src="http://172.18.19.102:8080/dist/mip.js"></script>
+    <!-- <script src="https://c.mipcdn.com/static/v1/mip.js"></script> -->
+    <!-- <script src="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.js"></script> -->
+    <script src="http://172.18.19.102:8111/mip-sidenav/mip-sidenav.js"></script>
+    <script src="https://c.mipcdn.com/static/v1/mip-fixed/mip-fixed.js"></script>
+    <script src="https://c.mipcdn.com/static/v1/mip-nav-slidedown/mip-nav-slidedown.js"></script>
+    <script src="https://c.mipcdn.com/static/v2/mip-script/mip-script.js"></script>
+  </body>
 </html>

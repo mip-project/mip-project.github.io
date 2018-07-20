@@ -3,24 +3,94 @@
  * @author clark-t (clarktanglei@163.com)
  */
 
-const imageSize = require('../utils/image-size');
-const etpl = require('etpl');
-const path = require('path');
-const fs = require('fs');
-const markdownCss = fs.readFileSync(path.resolve(__dirname, '../assets/markdown.css'));
-const layoutCss = fs.readFileSync(path.resolve(__dirname, '../assets/layout.css'));
+const imageSize = require('../utils/image-size')
+const etpl = require('etpl')
+const path = require('path')
+const fs = require('fs')
+
+const css = fs.readFileSync(path.resolve(__dirname, '../builder/dist/index.css'))
+
+const viewDir = path.resolve(__dirname, '../views')
 
 const engine = new etpl.Engine({
-    commandOpen: '{{',
-    commandClose: '}}',
-    strip: true,
-    dir: path.resolve(__dirname, '../views')
-});
+  commandOpen: '{{',
+  commandClose: '}}',
+  strip: true,
+  namingConflict: 'override',
+  dir: viewDir,
+  extname: '.tpl'
+})
 
-engine.loadFromFile(path.resolve(__dirname, '../views/infinity-menu.tpl'));
-engine.loadFromFile(path.resolve(__dirname, '../views/infinity-chapters.tpl'));
-engine.loadFromFile(path.resolve(__dirname, '../views/layout.tpl'));
-engine.loadFromFile(path.resolve(__dirname, '../views/document.tpl'));
+const tplList = [
+  'layout-navbar.tpl',
+  'layout.tpl',
+  'layout-index.tpl',
+  'layout-doc.tpl',
+  'layout-codelab.tpl',
+  'markdown-breadcrumb.tpl',
+  'markdown-toolbar.tpl',
+  'markdown-paginator.tpl'
+]
+
+for (let i = 0; i < tplList.length; i++) {
+  engine.loadFromFile(path.resolve(viewDir, tplList[i]))
+}
+
+engine.addFilter('json', function (obj) {
+  if (!obj) {
+    return obj
+  }
+  return JSON.stringify(obj)
+  // return JSON.stringify(obj).replace(/\//g, '\\\/')
+})
+
+/* eslint-disable */
+const navbar = [
+  {
+    "name": "首页",
+    "url": "/",
+    "width": 32
+  },
+  {
+    "name": "使用文档",
+    "url": "/mip",
+    "width": 64
+  },
+  {
+    "name": "组件列表",
+    "url": "/list",
+    "width": 64
+  },
+  {
+    "name": "Codelab",
+    "url": "/codelab",
+    "width": 60
+  },
+  {
+    "name": "帮助",
+    "url": "/help",
+    "width": 32
+  },
+  {
+    "name": "常用链接",
+    "children": [
+      {
+        "name": "MIP 官方博客"
+      },
+      {
+        "name": "MIP 代码校验工具"
+      }
+    ],
+    "width": 82
+  },
+  {
+    "name": "GitHub",
+    "url": "/github",
+    "width": 50
+  }
+]
+
+/* eslint-enable */
 
 module.exports = class Layout {
     apply(on, app) {
@@ -47,27 +117,33 @@ module.exports = class Layout {
                 // 生成 menu 和 chapter
                 let menuInfo = await app.getMenuByUrl(url);
 
-                let menuHtml = menuInfo && engine.render('infinity-menu', {
-                    menu: menuInfo,
-                    level: 0
-                });
+                // let menuHtml = menuInfo && engine.render('infinity-menu', {
+                //     menu: menuInfo,
+                //     level: 0
+                // });
 
-                let chapterHtml = chapters && engine.render('infinity-chapters', {
-                    chapters,
-                    level: 0
-                });
+                // let chapterHtml = chapters && engine.render('infinity-chapters', {
+                //     chapters,
+                //     level: 0
+                // });
 
-                let newhtml = engine.render('mip-document', {
+                let newhtml = engine.render('layout-doc', {
                     title: info.title || 'MIP2 官网',
                     description: info.description || '',
                     keywords: 'MIP2',
                     originUrl: '',
                     host: 'https://mip-project.github.io',
+                    navbar: navbar,
                     content: html,
-                    menu: menuHtml || '',
-                    chapters: chapterHtml || '',
-                    baseStyle: markdownCss,
-                    layoutStyle: layoutCss,
+                    css: css,
+                    menu: menuInfo,
+                    chapters: chapters,
+                    breadcrumbs: info.breadcrumbs,
+                    url: url
+                    // menu: menuHtml || '',
+                    // chapters: chapterHtml || '',
+                    // baseStyle: markdownCss,
+                    // layoutStyle: layoutCss,
                 });
 
                 docInfo.html = newhtml;
@@ -225,15 +301,15 @@ async function getImageSize(src, basePath = '', logger) {
         if (/^http/.test(src)) {
             return await imageSize.getRemoteImageSize(src, logger);
         }
-    
+
         if (/\s*/.test(src)) {
             return {width: 320, height: 320};
         }
-    
+
         if (basePath) {
             src = path.resolve(basePath, src);
         }
-    
+
         return await imageSize.getLocalImageSize(src, logger);
     }
     catch (e) {

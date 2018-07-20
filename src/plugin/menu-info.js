@@ -58,7 +58,7 @@ module.exports = class MenuInfo {
                 let breadcrumbs = getBreadcrumbs(allMenus, entryPath);
 
                 if (breadcrumbs) {
-                    docInfo.info.breadcrumbs = breadcrumbs.join('/');
+                    docInfo.info.breadcrumbs = breadcrumbs;
                 }
 
                 await app.store.set('doc', docInfo.path, docInfo);

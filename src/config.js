@@ -20,38 +20,46 @@ let gitDir = path.resolve(tmpDir, 'git');
 module.exports = {
     host: 'https://mip-project.github.io',
     basePath: docDir,
-    sources: [
-        {
-            name: 'mip',
-            loader: 'downloadMipDoc',
-            from: 'github:mipengine/mip2',
-            to: path.resolve(docDir, './mip'),
-            tmp: path.resolve(gitDir, './mip')
-        }
-    ],
-    loader: {
-        downloadMipDoc: function ({from, to, tmp}) {
-            let tmpDir = tmp || to;
+    // sources: [
+    //     {
+    //         name: 'mip',
+    //         loader: 'downloadMipDoc',
+    //         from: 'github:mipengine/mip2',
+    //         to: path.resolve(docDir, './mip'),
+    //         tmp: path.resolve(gitDir, './mip')
+    //     }
+    // ],
+    // loader: {
+    //     downloadMipDoc: function ({from, to, tmp}) {
+    //         let tmpDir = tmp || to;
 
-            let promise = new Promise((resolve, reject) => {
-                download(from, tmpDir, {clone: false}, err => {
-                    fs.move(path.resolve(tmpDir, './docs'), path.resolve(tmpDir, '../mip-doc'))
-                        .then(function () {
-                            if (err) {
-                                reject(err);
-                            }
-                            else if (tmp) {
-                                fs.move(path.resolve(tmpDir, '../mip-doc'), to, {overwrite: true}).then(resolve);
-                            }
-                            else {
-                                resolve();
-                            }
-                        });
-                });
-            });
-            return promise;
-        }
-    },
+    //         let promise = new Promise((resolve, reject) => {
+    //             download(from, tmpDir, {clone: false}, err => {
+    //                 fs.move(path.resolve(tmpDir, './docs'), path.resolve(tmpDir, '../mip-doc'))
+    //                     .then(function () {
+    //                         if (err) {
+    //                             reject(err);
+    //                         }
+    //                         else if (tmp) {
+    //                             fs.move(path.resolve(tmpDir, '../mip-doc'), to, {overwrite: true}).then(resolve);
+    //                         }
+    //                         else {
+    //                             resolve();
+    //                         }
+    //                     });
+    //             });
+    //         });
+    //         return promise;
+    //     }
+    // },
+    sources: [
+      {
+        name: 'mip',
+        loader: 'local',
+        from: path.resolve(__dirname, '../../mip2/docs'),
+        to: path.resolve(docDir, 'mip')
+      }
+    ],
     routes: [
         {
             path: /^mip/,
