@@ -10,7 +10,6 @@ const renderer = require('../utils/renderer')
 
 const css = fs.readFileSync(path.resolve(__dirname, '../builder/dist/index.css'))
 
-
 /* eslint-disable */
 const navbar = [
   {
@@ -110,7 +109,8 @@ module.exports = class Layout {
               url: url,
               navIndex: url.indexOf('/guide') === 0
                 ? 1
-                : url.indexOf('/components') === 0 ? 2 : 0
+                : url.indexOf('/components') === 0 ? 2 : 0,
+              development: process.env.NODE_ENV === 'development'
               // menu: menuHtml || '',
               // chapters: chapterHtml || '',
               // baseStyle: markdownCss,
@@ -192,21 +192,29 @@ async function image(html, app) {
     ));
 
     return html.replace(imgRegExp, (full, attr1, src) => {
-        src = src.replace(/^\//, '');
+        src = src.replace(/^\//, '')
 
-        let {width, height} = sizes.shift();
+        let {width, height} = sizes.shift()
 
         if (!/^http/.test(src) && !/^\/\//.test(src)) {
-            let host = app.config.host;
-            src = `${host}/${src}`;
+          let host = app.config.host
+          src = `${host}/${src}`
+        }
+
+        let layout
+
+        if (width <= 320) {
+          layout = 'fixed'
+        } else {
+          layout = 'responsive'
         }
 
         /* eslint-disable max-len */
         if (/\.gif($|\?|#)/.test(src)) {
-            return `<div class="md-img-wrapper"><mip-anim layout="flex-tem" width="${width}" height="${height}" src="${src}"></mip-anim></div>`;
+            return `<mip-anim layout="${layout}" width="${width}" height="${height}" src="${src}"></mip-anim>`;
         }
 
-        return `<div class="md-img-wrapper"><mip-img layout="flex-item" width="${width}" height="${height}" src="${src}"></mip-img></div>`;
+        return `<mip-img layout="${layout}" width="${width}" height="${height}" src="${src}"></mip-img>`;
         /* eslint-enable max-len */
     });
 }
@@ -273,13 +281,15 @@ async function getImageSize(src, basePath = '', logger) {
             return await imageSize.getRemoteImageSize(src, logger);
         }
 
-        if (/\s*/.test(src)) {
+        if (/\s+/.test(src) || src === '') {
             return {width: 320, height: 320};
         }
 
         if (basePath) {
             src = path.resolve(basePath, src);
         }
+
+        // console.log(src)
 
         return await imageSize.getLocalImageSize(src, logger);
     }

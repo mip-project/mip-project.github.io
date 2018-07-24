@@ -68,14 +68,18 @@ module.exports = class Static {
 
         on(app.STAGES.DONE, async () => {
             cachedChangedFileList.forEach(async obj => {
-                let pathname = path.resolve(dist, obj.url.replace(/^\//, '').replace(/\.html$/, '') + '.html');
-                await fs.ensureDir(path.dirname(pathname));
-                await fs.writeFile(pathname, obj.html, 'utf-8');
+                let pathname = path.resolve(dist, obj.url.replace(/^\//, '').replace(/\.html$/, '') + '.html')
+                await fs.ensureDir(path.dirname(pathname))
+                await fs.writeFile(pathname, obj.html, 'utf-8')
                 if (obj.isFirst) {
-                  let indexpath = path.resolve(dist, obj.url.replace(/^\//, '').split('/').slice(0, 1).join('/') + '/index.html');
-                  await fs.writeFile(indexpath, obj.html, 'utf-8');
+                  let url = obj.url.replace(/^\//, '').split('/').slice(0, 1).join('/') + '/index.html'
+                  let indexpath = path.resolve(dist, url)
+                  let info = await app.getDocByUrl('/' + url)
+                  if (!info) {
+                    await fs.writeFile(indexpath, obj.html, 'utf-8')
+                  }
                 }
-            });
+            })
 
             // 静态化首页
             var html = renderer.render('layout-index', {
@@ -89,7 +93,8 @@ module.exports = class Static {
               menu: {},
               chapters: {},
               url: '',
-              navIndex: 0
+              navIndex: 0,
+              development: process.env.NODE_ENV === 'development'
             })
 
             await fs.writeFile(path.resolve(dist, 'index.html'), html, 'utf-8');

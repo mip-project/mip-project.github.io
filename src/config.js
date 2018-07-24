@@ -18,7 +18,7 @@ let docDir = path.resolve(tmpDir, 'doc');
 let gitDir = path.resolve(tmpDir, 'git');
 
 module.exports = {
-    host: 'https://mip-project.github.io',
+    host: process.env.NODE_ENV === 'development' ? '' : 'https://mip-project.github.io',
     basePath: docDir,
     rootPath: rootDir,
     // sources: [
@@ -56,43 +56,44 @@ module.exports = {
     sources: [
       {
         name: 'guide',
-        loader: 'copy',
-        from: path.resolve(__dirname, '../../mip2/docs/new-doc'),
-        to: path.resolve(docDir, 'guide'),
-        ignores: [
-          path.resolve(__dirname, '../../mip2/docs/new-doc/components')
-        ]
+        loader: 'local',
+        from: path.resolve(__dirname, '../../mip2/docs/guide'),
+        to: path.resolve(docDir, 'guide')
+        // ,
+        // ignores: [
+        //   path.resolve(__dirname, '../../mip2/docs/new-doc/components')
+        // ]
       },
       {
         name: 'components',
-        loader: 'copy',
-        from: path.resolve(__dirname, '../../mip2/docs/new-doc/components'),
+        loader: 'local',
+        from: path.resolve(__dirname, '../../mip2/docs/extensions'),
         to: path.resolve(docDir, 'components')
       }
     ],
-    loader: {
-      copy: async function ({from, to, ignores}) {
-        if (!await fs.exists(from)) {
-          throw new Error(from + '文件夹不存在')
-        }
+    // loader: {
+    //   copy: async function ({from, to, ignores}) {
+    //     if (!await fs.exists(from)) {
+    //       throw new Error(from + '文件夹不存在')
+    //     }
 
-        let stat = await fs.stat(from)
+    //     let stat = await fs.stat(from)
 
-        if (!stat.isDirectory()) {
-          throw new Error(from + '不是文件夹')
-        }
+    //     if (!stat.isDirectory()) {
+    //       throw new Error(from + '不是文件夹')
+    //     }
 
-        await fs.remove(to)
-        await fs.copy(from, to)
+    //     await fs.remove(to)
+    //     await fs.copy(from, to)
 
-        if (ignores && ignores.length) {
-          await Promise.all(ignores.map(async ignore => {
-            let newPath = path.resolve(to, path.relative(from, ignore))
-            await fs.remove(newPath)
-          }))
-        }
-      }
-    },
+    //     if (ignores && ignores.length) {
+    //       await Promise.all(ignores.map(async ignore => {
+    //         let newPath = path.resolve(to, path.relative(from, ignore))
+    //         await fs.remove(newPath)
+    //       }))
+    //     }
+    //   }
+    // },
     routes: [
       {
         path: /\.(png|jpg|gif)$/,
