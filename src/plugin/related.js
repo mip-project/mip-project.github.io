@@ -24,15 +24,13 @@ module.exports = class Related {
                 ${html}
                 <div class="md-related-wrapper">
                     <a class="md-related to-edit ui-dep-2" href="${edit}" target="_blank">
-                        <div class="md-ripple"></div>
-                        <i class="material-icons">mode_edit</i>编辑
+                        <i class="material-icons"></i>编辑
                     </a>
                     <a class="md-related to-feedback ui-dep-2"
                         target="_blank"
                         href="${github}/issues/new?title=反馈：${path}"
                     >
-                        <div class="md-ripple"></div>
-                        <i class="material-icons">feedback</i>反馈
+                        <i class="material-icons"></i>反馈
                     </a>
                 </div>
             `;

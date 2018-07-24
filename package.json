@@ -4,7 +4,7 @@
   "description": "mip2 website",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf mip docs tmp index.html && node src/index.js",
+    "build": "rm -rf guide components img mip docs tmp index.html && node src/index.js",
     "build:css": "webpack --config src/builder/webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node src/builder/index.js",

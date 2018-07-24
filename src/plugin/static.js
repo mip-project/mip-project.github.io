@@ -77,6 +77,8 @@ module.exports = class Static {
                   let info = await app.getDocByUrl('/' + url)
                   if (!info) {
                     await fs.writeFile(indexpath, obj.html, 'utf-8')
+                  } else {
+                    await fs.writeFile(indexpath, info.html, 'utf-8')
                   }
                 }
             })

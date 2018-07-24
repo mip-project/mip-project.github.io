@@ -32,13 +32,13 @@ module.exports = class HighlightParagraph {
       return html.replace(regex, (str, key) => {
         switch (key) {
           case 'info':
-            return '<p class="md-p-info"><i class="iconfont icon-info"></i>'
+            return '<p class="md-p-info"><i class="iconfont icon-info"></i><strong>提示：</strong>'
           case 'notice':
-            return '<p class="md-p-notice"><i class="iconfont icon-warn"></i>'
+            return '<p class="md-p-notice"><i class="iconfont icon-warn"></i><strong>注意：</strong>'
           case 'error':
           case 'warn':
           case 'warning':
-            return '<p class="md-p-warn"><i class="iconfont icon-error"></i>'
+            return '<p class="md-p-warn"><i class="iconfont icon-error"></i><strong>警告：</strong>'
         }
       })
     })
