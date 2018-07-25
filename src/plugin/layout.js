@@ -18,19 +18,29 @@ const navbar = [
     "width": 32
   },
   {
-    "name": "使用文档",
-    "url": "/guide/index.html",
-    "width": 64
-  },
-  {
-    "name": "组件列表",
-    "url": "/components/index.html",
-    "width": 64
-  },
-  {
-    "name": "Codelab",
-    "url": "/codelab",
-    "width": 60
+    "name": "学习",
+    "width": 32,
+    "children": [
+      {
+        "name": "使用文档",
+        "url": "/guide/index.html",
+        "width": 64
+      },
+      {
+        "name": "组件列表",
+        "url": "/components/index.html",
+        "width": 64
+      },
+      {
+        "name": "API",
+        "url": "/api/index.html"
+      },
+      {
+        "name": "Codelab",
+        "url": "/codelab/index.html",
+        "width": 60
+      }
+    ]
   },
   {
     "name": "帮助",
@@ -153,7 +163,7 @@ function link(html, app) {
             if (/^\/(guide|pwa|codelab)/.test(href)) {
                 // let host = app.config.host;
                 // href = `${host}/mip${href}`;
-                href = `/mip${href}`;
+                href = `/${href}`;
                 return `<a data-type="mip" href="${href}">`;
             }
 

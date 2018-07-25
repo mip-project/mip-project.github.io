@@ -55,21 +55,22 @@ module.exports = {
     // },
     sources: [
       {
-        name: 'guide',
+        name: 'docs',
         loader: 'local',
-        from: path.resolve(__dirname, '../../mip2/docs/guide'),
-        to: path.resolve(docDir, 'guide')
+        from: path.resolve(__dirname, '../../mip2/docs'),
+        to: path.resolve(docDir, 'docs')
         // ,
         // ignores: [
         //   path.resolve(__dirname, '../../mip2/docs/new-doc/components')
         // ]
-      },
-      {
-        name: 'components',
-        loader: 'local',
-        from: path.resolve(__dirname, '../../mip2/docs/extensions'),
-        to: path.resolve(docDir, 'components')
       }
+      // ,
+      // {
+      //   name: 'components',
+      //   loader: 'local',
+      //   from: path.resolve(__dirname, '../../mip2/docs/extensions'),
+      //   to: path.resolve(docDir, 'components')
+      // }
     ],
     // loader: {
     //   copy: async function ({from, to, ignores}) {
@@ -99,27 +100,41 @@ module.exports = {
         path: /\.(png|jpg|gif)$/,
         url (filePath) {
           try {
-            let dist = path.resolve(rootDir, 'img/' + filePath)
+            let dist = path.resolve(rootDir, 'assets/img/' + filePath)
             fs.ensureDirSync(path.dirname(dist))
             fs.copySync(path.resolve(docDir, filePath), dist)
           } catch (e) {
             console.error(e)
           }
-          filePath = '/img/' + filePath
+          filePath = '/assets/img/' + filePath
           return filePath
         }
       },
       {
-        path: /^components/,
+        path: /^docs\/extensions/,
         url (filePath) {
-          filePath = '/' + filePath.replace(/\.md($|\?|#)/, '$1') + '.html'
+          filePath = '/components' + filePath.slice(15).replace(/\.md($|\?|#)/, '$1') + '.html'
           return filePath;
         }
       },
       {
-        path: /^guide/,
+        path: /^docs\/guide/,
         url (filePath) {
-          filePath = '/' + filePath.replace(/\.md($|\?|#)/, '$1') + '.html'
+          filePath = '/' + filePath.slice(5).replace(/\.md($|\?|#)/, '$1') + '.html'
+          return filePath
+        }
+      },
+      {
+        path: /^docs\/api/,
+        url (filePath) {
+          filePath = '/' + filePath.slice(5).replace(/\.md($|\?|#)/, '$1') + '.html'
+          return filePath
+        }
+      },
+      {
+        path: /^docs\/codelabs/,
+        url (filePath) {
+          filePath = '/' + filePath.slice(5).replace(/\.md($|\?|#)/, '$1') + '.html'
           return filePath
         }
       }
@@ -150,13 +165,19 @@ module.exports = {
       {
         url: /^\/components/,
         menu (url) {
-          return 'components'
+          return 'docs/extensions'
         }
       },
       {
         url: /^\/guide/,
         menu (url) {
-          return 'guide'
+          return 'docs/guide'
+        }
+      },
+      {
+        url: /^\/api/,
+        menu (url) {
+          return 'docs/api'
         }
       }
     ]

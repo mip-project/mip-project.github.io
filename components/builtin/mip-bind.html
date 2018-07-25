@@ -22,182 +22,302 @@
 <p class="markdown-breadcrumb">
 </p>
     <div class="markdown-body">
-      <h1 id="mipbind"><a href="#mipbind" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>mip-bind</h1><p><code>&lt;mip-bind&gt;</code> 是以数据驱动页面更新的功能，开发者通过配置数据信息，并绑定在相应 DOM 上，就可以轻松做到数据变动后 DOM 元素随之变动的效果，可以通过<a href="https://itoss.me/mip-test/src/mip-bind/view/ecommerce.html">示例</a> 查看效果。</p><table><thead><tr><th>标题</th><th>内容</th></tr></thead><tbody><tr><td>类型</td><td>通用</td></tr><tr><td>支持布局</td><td>N/S</td></tr><tr><td>所需脚本</td><td><a href="https://c.mipcdn.com/static/v2/mip-bind/mip-bind.js">https://c.mipcdn.com/static/v2/mip-bind/mip-bind.js</a></td></tr></tbody></table><h2 id="使用方法"><a href="#使用方法" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>使用方法</h2><h3 id="设置数据"><a href="#设置数据" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>设置数据</h3><p>其中 <code>&lt;mip-data&gt;</code> 元素用于在页面中设置数据源，一个页面中可以指定多个 <code>&lt;mip-data&gt;</code>，最终数据会合并到一个数据源对象上。数据源的设置可以通过以下两种方式：</p><h4 id="固定数据"><a href="#固定数据" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>固定数据</h4><p>不经过异步请求，可通过 <code>application/json</code> 形式写入，如：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div></div><code>&lt;mip-data&gt;
-    &lt;script type="application/json"&gt;
+      <h1 id="mipbind"><a href="#mipbind" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>mip-bind</h1><p><code>&lt;mip-bind&gt;</code> 是以数据驱动页面更新的功能，开发者通过配置数据信息，并绑定在相应 DOM 上，就可以轻松做到数据变动后 DOM 元素随之变动的效果，可以通过<a href="https://itoss.me/mip-test/src/mip-bind/view/ecommerce.html">示例</a> 查看效果。</p><h2 id="使用方法"><a href="#使用方法" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>使用方法</h2><h3 id="设置数据"><a href="#设置数据" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>设置数据</h3><p>其中 <code>&lt;mip-data&gt;</code> 元素用于在页面中设置数据源，一个页面中可以指定多个 <code>&lt;mip-data&gt;</code>，最终数据会合并到一个数据源对象上。数据源的设置可以通过以下两种方式：</p><h4 id="内嵌数据"><a href="#内嵌数据" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>内嵌数据</h4><p>内嵌数据是指直接将数据嵌入到HTML页面中，提供给标签或自定义组件使用。要求符合 <code>JSON</code> 格式，如：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
     {
-        "name": "张三",
-        "age": 25,
-        "job": {
-            "desc": "互联网从业者",
-            "location": "北京"
-        }
-    }
-    &lt;/script&gt;
-&lt;/mip-data&gt;</code></pre><h4 id="异步数据"><a href="#异步数据" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>异步数据</h4><p>如果需要异步数据，则需指定 <code>src</code> 地址（<strong>注：<code>src</code> 需要是 <code>https</code> 或 <code>//</code> 协议开头，否则在 HTTPS 环境下会出现问题</strong>），请求回来的数据会自动合并到数据表里，如：</p><pre><div class="code-index"><div>1</div></div><code>&lt;mip-data src="https://www.example.org/data"&gt;&lt;/mip-data&gt;</code></pre><p>当使用这种方式获取异步数据时，<strong>请注意：需要开发者服务端配置 cors 跨站访问，具体步骤如下</strong>：</p><ul><li>接收到请求后，判断请求头中的 <code>origin</code> 是否是允许的，其中允许的包括 <code>https://mipcache.bdstatic.com</code>, <code>https://站点域名转换的字符串.mipcdn.com</code> 和开发者站点 <code>origin</code>；</li><li><p>如果 <code>origin</code> 在指定的列表中则设置 <code>response header</code> 中的 <code>Access-Control-Allow-origin</code> 为请求接收到的 <code>origin</code>，以 Nodejs 举例，如下所示：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div></div><code>var origins = {
-      &#39;https://mipcache.bdstatic.com&#39;: 1,
-      &#39;https://www-mipengine-org.mipcdn.com&#39;: 1,
-      &#39;https://www.mipengine.org&#39;: 1
-  }
-  app.get(&#39;/bind&#39;, function (req, res) {
-      var ori = req.headers.origin;
-      if (origins[ori]) {
-          res.header(&#39;Access-Control-Allow-Origin&#39;, ori);
-          res.json({});
+      <span class="hljs-string">"name"</span>: <span class="hljs-string">"张三"</span>,
+      <span class="hljs-string">"age"</span>: <span class="hljs-number">25</span>,
+      <span class="hljs-string">"job"</span>: {
+        <span class="hljs-string">"desc"</span>: <span class="hljs-string">"互联网从业者"</span>,
+        <span class="hljs-string">"location"</span>: <span class="hljs-string">"北京"</span>
       }
-  });</code></pre></li></ul><h3 id="绑定指令"><a href="#绑定指令" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>绑定指令</h3><p>目前绑定数据只支持两种功能：</p><h4 id="mbind"><a href="#mbind" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a><code>m-bind</code></h4><p>绑定元素属性信息。具体格式为 <code>m-bind:attrs=value</code>，即：将 attrs 属性值设置为 value，如：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div></div><code class="lang-html"><span class="hljs-comment">&lt;!-- 绑定 placeholder 值 --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
-    {
-        <span class="hljs-string">"placeholder"</span>: <span class="hljs-string">"请输入内容"</span>
     }
-    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mip-data</span>&gt;</span></code></pre><h4 id="异步数据"><a href="#异步数据" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>异步数据</h4><p>如果需要异步数据，则需指定 <code>src</code> 地址，请求回来的数据会自动合并到数据表里，如：</p><pre><div class="code-index"><div>1</div></div><code>&lt;mip-data src="https://www.example.org/data"&gt;&lt;/mip-data&gt;</code></pre><blockquote><p><strong>注意：</strong> <code>src</code> 需要是 <code>https</code> 或 <code>//</code> 协议开头，否则在 HTTPS 环境下会无法正常加载</p></blockquote><p>当使用这种方式获取异步数据时，请注意：<strong>需要开发者服务端配置 cors 跨站访问</strong>，具体步骤如下：</p><ul><li>接收到请求后，判断请求头中的 <code>origin</code> 是否是允许的，其中需要允许的域名包括：<code>https://mipcache.bdstatic.com</code>、开发者的站点<code>origin</code> 、<code>https://站点域名转换的字符串.mipcdn.com</code> 。站点域名转换的字符串是指开发者的站点origin通过一定的规则（点.转换为中横线-）转换的字符串，如下面代码中的origins数组所示：origins[1]为开发者的站点origin，origins[2]为转换后的 origin；</li><li>如果 <code>origin</code> 在指定的列表中则设置 <code>response header</code> 中的 <code>Access-Control-Allow-Origin</code> 为请求接收到的 <code>origin</code>，以 Node.js 举例，如下所示：</li></ul><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div></div><code class="lang-javascript"><span class="hljs-keyword">let</span> origins = {
+  <span class="hljs-string">'https://mipcache.bdstatic.com'</span>: <span class="hljs-number">1</span>,
+  <span class="hljs-string">'https://www-mipengine-org.mipcdn.com'</span>: <span class="hljs-number">1</span>,
+  <span class="hljs-string">'https://www.mipengine.org'</span>: <span class="hljs-number">1</span>
+}
+app.get(<span class="hljs-string">'/bind'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req, res</span>) </span>{
+  <span class="hljs-keyword">let</span> ori = req.headers.origin
+  <span class="hljs-keyword">if</span> (origins[ori]) {
+    res.header(<span class="hljs-string">'Access-Control-Allow-Origin'</span>, ori)
+    res.json({})
+  }
+})</code></pre><h4 id="全局共享数据"><a href="#全局共享数据" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>全局共享数据</h4><p>详情请阅读 <a href="https://mip-project.github.io/guide/interactive-mip/global-data.html">可交互 MIP - 全局共享数据</a></p><h3 id="绑定数据"><a href="#绑定数据" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>绑定数据</h3><p>目前绑定数据只支持两种功能：</p><h4 id="绑定指令-mbind"><a href="#绑定指令-mbind" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>绑定指令 <code>m-bind</code></h4><p>绑定元素属性信息。具体格式为 <code>m-bind:attrs=&quot;value&quot;</code>，即：将 attrs 属性值设置为 value 的值，value 为数据源中的属性名，多层数据可以以 <code>.</code> 连接，如：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div></div><code class="lang-html"><span class="hljs-comment">&lt;!-- 绑定 placeholder 值 --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
+    {
+      <span class="hljs-string">"placeholder"</span>: <span class="hljs-string">"请输入内容"</span>
+    }
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">mip-data</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">mip-form</span> <span class="hljs-attr">url</span>=<span class="hljs-string">"https://www.mipengine.org/"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">m-bind:placeholder</span>=<span class="hljs-string">"placeholder"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">m-bind:placeholder</span>=<span class="hljs-string">"placeholder"</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">mip-form</span>&gt;</span></code></pre><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div></div><code class="lang-html"><span class="hljs-comment">&lt;!-- 变更样式 --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">mip-custom</span>&gt;</span><span class="css">
 <span class="hljs-selector-attr">[data-clicked=true]</span> {
-    <span class="hljs-attribute">background</span>: pink;
+  <span class="hljs-attribute">background</span>: pink;
 }
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
     {
-        <span class="hljs-string">"clicked"</span>: <span class="hljs-literal">false</span>
+      <span class="hljs-string">"clicked"</span>: <span class="hljs-literal">false</span>
     }
-    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">mip-data</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">m-bind:data-clicked</span>=<span class="hljs-string">"clicked"</span> <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:MIP.setData({clicked:!m.clicked})"</span>&gt;</span>来点我呀！<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></code></pre><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div>32</div><div>33</div><div>34</div><div>35</div><div>36</div><div>37</div><div>38</div><div>39</div><div>40</div><div>41</div><div>42</div></div><code class="lang-html"><span class="hljs-comment">&lt;!-- 切换 tab 功能实现 --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">mip-custom</span>&gt;</span><span class="css">
 <span class="hljs-selector-id">#content</span>, <span class="hljs-selector-class">.filter</span> {
-    <span class="hljs-attribute">text-align</span>: center;
-    <span class="hljs-attribute">padding-top</span>: <span class="hljs-number">10px</span>;
+  <span class="hljs-attribute">text-align</span>: center;
+  <span class="hljs-attribute">padding-top</span>: <span class="hljs-number">10px</span>;
 }
 <span class="hljs-selector-id">#content</span> <span class="hljs-selector-tag">span</span>,
 <span class="hljs-selector-id">#content</span> <span class="hljs-selector-tag">mip-img</span>,
 <span class="hljs-selector-id">#content</span> <span class="hljs-selector-tag">mip-video</span> {
-    <span class="hljs-attribute">display</span>: none;
+  <span class="hljs-attribute">display</span>: none;
 }
 <span class="hljs-selector-class">.first</span> <span class="hljs-selector-tag">span</span>,
 <span class="hljs-selector-class">.second</span> <span class="hljs-selector-tag">mip-img</span>,
 <span class="hljs-selector-class">.third</span> <span class="hljs-selector-tag">mip-video</span> {
-    <span class="hljs-attribute">display</span>: block <span class="hljs-meta">!important</span>;
+  <span class="hljs-attribute">display</span>: block <span class="hljs-meta">!important</span>;
 }
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
-    {
-        <span class="hljs-string">"clickedClass"</span>: <span class="hljs-string">"second"</span>
-    }
-    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">mip-data</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">mip-vd-tabs</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">section</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>第一页<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>第二页<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>第三页<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"filter"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:MIP.setData({clickedClass:'first'})"</span>&gt;</span>文字<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:MIP.setData({clickedClass:'second'})"</span>&gt;</span>图片<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:MIP.setData({clickedClass:'third'})"</span>&gt;</span>视频<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">mip-vd-tabs</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"content"</span> <span class="hljs-attr">m-bind:class</span>=<span class="hljs-string">"clickedClass"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>我是文案啦！<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">mip-img</span> <span class="hljs-attr">layout</span>=<span class="hljs-string">"responsive"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"350"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"263"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://www.mipengine.org/static/img/sample_01.jpg"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-img</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">mip-video</span> <span class="hljs-attr">poster</span>=<span class="hljs-string">"https://www.mipengine.org/static/img/sample_04.jpg"</span> <span class="hljs-attr">controls</span> <span class="hljs-attr">layout</span>=<span class="hljs-string">"responsive"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"640"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"360"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://gss0.bdstatic.com/-b1Caiqa0d9Bmcmop9aC2jh9h2w8e4_h7sED0YQ_t9iCPK/mda-gjkt21pkrsd8ae5y/mda-gjkt21pkrsd8ae5y.mp4"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-video</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://c.mipcdn.com/static/v1/mip-vd-tabs/mip-vd-tabs.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre><p class="md-p-info"><i class="iconfont icon-info"></i><strong>提示：</strong> 如果通过 <code>m-bind</code> 绑定的数据为空值，即 &quot;&quot; 时，则删除该属性。</p><h4 id="mtext"><a href="#mtext" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a><code>m-text</code></h4><p>绑定元素 <code>textContent</code>。具体格式为 <code>m-text=value</code>，即：将元素的 <code>textContent</code> 设置为 <code>value</code> 的值，同样 <code>value</code> 为数据源中的属性名，多层数据可以以 <code>.</code> 连接，如：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
-    {
-        <span class="hljs-string">"loc"</span>: <span class="hljs-string">"北京"</span>,
-        <span class="hljs-string">"job"</span>: {
-            <span class="hljs-string">"desc"</span>: <span class="hljs-string">"互联网从业者"</span>
-        }
-    }
-    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">mip-data</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>坐标：<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">m-text</span>=<span class="hljs-string">"loc"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>职位信息：<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">m-text</span>=<span class="hljs-string">"job.desc"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre><h3 id="修改数据"><a href="#修改数据" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>修改数据</h3><p>设置数据也是通过在 HTML 元素中加入事件来完成，方式是在元素中加入 <code>on</code> 属性。</p><h4 id="书写格式"><a href="#书写格式" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>书写格式</h4><p>事件数据修改的绑定形式如下，可支持多个事件同时定义，以空格分隔。</p><pre><div class="code-index"><div>1</div></div><code>on=&quot;事件:MIP.setData({}) 事件:MIP.setData({}) 事件:MIP.setData({})&quot;</code></pre><h4 id="事件类型"><a href="#事件类型" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>事件类型</h4><p>针对所有元素</p><table><thead><tr><th>事件</th><th>描述</th></tr></thead><tbody><tr><td><code>tap</code></td><td>单击事件</td></tr><tr><td><code>doubletap</code></td><td>双击事件</td></tr><tr><td><code>swipe</code></td><td>滑动事件</td></tr></tbody></table><p><code>&lt;input&gt;</code> 元素</p><table><thead><tr><th>事件</th><th>描述</th></tr></thead><tbody><tr><td><code>change</code></td><td>输入框内容发生变化时候触发的事件</td></tr></tbody></table><p><code>&lt;mip-form&gt;</code> 元素</p><table><thead><tr><th>事件</th><th>描述</th></tr></thead><tbody><tr><td><code>submit</code></td><td>提交时触发的事件</td></tr><tr><td><code>submitSuccess</code></td><td>提交成功后触发的事件</td></tr><tr><td><code>submitError</code></td><td>提交失败后触发的事件</td></tr></tbody></table><h4 id="具体操作"><a href="#具体操作" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>具体操作</h4><ul><li><p>修改方式</p><ul><li><p><code>MIP.setData(data)</code></p><p>该方法会将新增数据加入到数据源中，重复数据会进行覆盖。</p></li><li><p>变量赋值</p><p>数据源中所有数据，都可以通过 <code>m.</code> 的形式获取到，可直接在组件中通过 JS 来进行操作，如：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div></div><code>&lt;mip-data&gt;
-      &lt;script type="application/json"&gt;
-      {
-          "name": "张三",
-          "age": 25
-      }
-      &lt;/script&gt;
-  &lt;/mip-data&gt;
-
-  // 以下为组件中使用的示例代码
-  &lt;script type="text/javascript"&gt;
-      // 打印 “张三”
-      console.log(m.name);
-  &lt;/script&gt;</code></pre></li></ul></li><li><p>数据源</p><p>设置的数据按照层级被合并到总的数据源中，后设置的数据会覆盖前者，如：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div></div><code>&lt;mip-data&gt;
-      &lt;script type="application/json"&gt;
-      {
-          "name": "张三",
-          "age": 25
-      }
-      &lt;/script&gt;
-  &lt;/mip-data&gt;
-  &lt;mip-data&gt;
-      &lt;script type="application/json"&gt;
-      {
-          "home": "北京"
-      }
-      &lt;/script&gt;
-  &lt;/mip-data&gt;</code></pre><p>此时页面维护的数据源为：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div></div><code class="lang-json">{
-      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"张三"</span>,
-      <span class="hljs-attr">"age"</span>: <span class="hljs-number">25</span>,
-      <span class="hljs-attr">"home"</span>: <span class="hljs-string">"北京"</span>
-  }</code></pre><p>如果此时在进行数据的设置：</p><pre><div class="code-index"><div>1</div></div><code>&lt;div on="tap:MIP.setData({job:'互联网从业者', home: '上海'})"&gt;&lt;/div&gt;</code></pre><p>此时数据源将变为：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div></div><code class="lang-json">{
-      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"张三"</span>,
-      <span class="hljs-attr">"age"</span>: <span class="hljs-number">25</span>,
-      <span class="hljs-attr">"home"</span>: <span class="hljs-string">"上海"</span>,
-      <span class="hljs-attr">"job"</span>: <span class="hljs-string">"互联网从业者"</span>
-  }</code></pre></li><li><p>数据表达式</p><ul><li><p>支持运算表达式解析，如：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
-  {
-      <span class="hljs-string">"price"</span>: <span class="hljs-number">20</span>,
-      <span class="hljs-string">"count"</span>: <span class="hljs-number">2</span>
-  }
+    {
+      <span class="hljs-string">"clickedClass"</span>: <span class="hljs-string">"second"</span>
+    }
   </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">mip-data</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">mip-vd-tabs</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">section</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>第一页<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>第二页<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>第三页<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"filter"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:MIP.setData({clickedClass:'first'})"</span>&gt;</span>文字<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:MIP.setData({clickedClass:'second'})"</span>&gt;</span>图片<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:MIP.setData({clickedClass:'third'})"</span>&gt;</span>视频<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>    
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>    
+<span class="hljs-tag">&lt;/<span class="hljs-name">mip-vd-tabs</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"content"</span> <span class="hljs-attr">m-bind:class</span>=<span class="hljs-string">"clickedClass"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>我是文案啦！<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-img</span> <span class="hljs-attr">layout</span>=<span class="hljs-string">"responsive"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"350"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"263"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://www.mipengine.org/static/img/sample_01.jpg"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-img</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-video</span> <span class="hljs-attr">poster</span>=<span class="hljs-string">"https://www.mipengine.org/static/img/sample_04.jpg"</span> <span class="hljs-attr">controls</span> <span class="hljs-attr">layout</span>=<span class="hljs-string">"responsive"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"640"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"360"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://gss0.bdstatic.com/-b1Caiqa0d9Bmcmop9aC2jh9h2w8e4_h7sED0YQ_t9iCPK/mda-gjkt21pkrsd8ae5y/mda-gjkt21pkrsd8ae5y.mp4"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-video</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://c.mipcdn.com/static/v1/mip-vd-tabs/mip-vd-tabs.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre><blockquote><p><strong>注意：</strong> 如果通过 <code>m-bind</code> 绑定的数据为空值，即 &quot;&quot; 时，则删除当前元素的该属性 attrs。</p></blockquote><h4 id="绑定指令-mtext"><a href="#绑定指令-mtext" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>绑定指令 <code>m-text</code></h4><p>绑定元素 <code>textContent</code>。具体格式为 <code>m-text=value</code>，即：将元素的 <code>textContent</code> 设置为 <code>value</code> 的值，同样 <code>value</code> 为数据源中的属性名，多层数据可以以 <code>.</code> 连接，如：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
+    {
+      <span class="hljs-string">"loc"</span>: <span class="hljs-string">"北京"</span>,
+      <span class="hljs-string">"job"</span>: {
+        <span class="hljs-string">"desc"</span>: <span class="hljs-string">"互联网从业者"</span>
+      }
+    }
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mip-data</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>坐标：<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">m-text</span>=<span class="hljs-string">"loc"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>职位信息：<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">m-text</span>=<span class="hljs-string">"job.desc"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre><h4 id="class-与-style-绑定"><a href="#class-与-style-绑定" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>Class 与 Style 绑定</h4><p>详情请阅读 <a href="https://mip-project.github.io/guide/interactive-mip/class-style-binding.html">可交互 MIP - Class 与 Style 绑定</a></p><h3 id="修改数据"><a href="#修改数据" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>修改数据</h3><p>MIP 提供了全局方法 <code>MIP.setData(data)</code> 来让开发者修改数据，以完成通过数据驱动 DOM元素更新的交互方案。重复数据会进行覆盖。</p><h4 id="用法"><a href="#用法" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>用法</h4><p>这个方法接受一个对象作为参数，要设置的数据对象将按照层级被合并到总的数据源中，后设置的数据会覆盖前者（支持多层级的复杂对象的 deep 数据覆盖）。</p><p>首次设置数据源如：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
+    {
+      <span class="hljs-string">"name"</span>: <span class="hljs-string">"张三"</span>,
+      <span class="hljs-string">"age"</span>: <span class="hljs-number">25</span>
+    }
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mip-data</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
+    {
+      <span class="hljs-string">"detail"</span>: {
+        <span class="hljs-string">"home"</span>: {
+          <span class="hljs-string">"province"</span>: <span class="hljs-string">"广东"</span>,
+          <span class="hljs-string">"city"</span>: <span class="hljs-string">"深圳"</span>
+        }
+      }
+    }
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mip-data</span>&gt;</span></code></pre><p>此时页面维护的数据源为：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div></div><code class="lang-json">{
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"张三"</span>,
+  <span class="hljs-attr">"age"</span>: <span class="hljs-number">25</span>,
+  <span class="hljs-attr">"detail"</span>: {
+    <span class="hljs-attr">"home"</span>: {
+      <span class="hljs-attr">"province"</span>: <span class="hljs-string">"广东"</span>,
+      <span class="hljs-attr">"city"</span>: <span class="hljs-string">"深圳"</span>
+    }
+  }
+}</code></pre><p>如果此时在进行数据的设置：</p><pre><div class="code-index"><div>1</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:MIP.setData({job:'互联网从业者',age:26,detail:{home:{city:'广州'}}})"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre><p>此时数据源将变为：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div></div><code class="lang-json">{
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"张三"</span>,
+  <span class="hljs-attr">"age"</span>: <span class="hljs-number">26</span>,
+  <span class="hljs-attr">"detail"</span>: {
+    <span class="hljs-attr">"home"</span>: {
+      <span class="hljs-attr">"province"</span>: <span class="hljs-string">"广东"</span>,
+      <span class="hljs-attr">"city"</span>: <span class="hljs-string">"广州"</span>
+    }
+  },
+  <span class="hljs-attr">"job"</span>: <span class="hljs-string">"互联网从业者"</span>
+}</code></pre><blockquote><p><strong>注意</strong> ： 在 mip-data 小节中提到：通过 <code>mip-data</code> 组件设置的数据要求符合标准的 JSON 格式。而 <code>setData</code> 方法虽然没有严格要求传 JSON 格式的对象，但是仅允许传 JSON 对象可以接受的数据，因此是不允许设置为 <strong>function</strong> 的。</p></blockquote><p>调用 <code>MIP.setData</code> 方法修改数据既可以通过在 HTML 元素中加入事件来完成（方式是在元素中加入 <code>on</code> 属性监听事件以触发指定修改，如前面的示例所示）；也可以在组件代码中直接调用 <code>setData</code> 方法。</p><p>后者没有特殊要求，只需要开发者自行确认逻辑和数据即可。而前者的使用，对开发者的要求有两点：</p><ol><li>使用单引号来引用字符串；</li><li>要修改的数据的值，如果是一个变量 <code>var</code>，需要是通过mip-data 组件设置的数据，并且通过 <code>m.var</code> 来获取</li></ol><h4 id="支持数据表达式"><a href="#支持数据表达式" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>支持数据表达式</h4><p>开发者使用 <code>setData</code> 方法时，支持使用数据表达式来修改数据。其中包含以下两种：</p><h5 id="支持运算表达式解析"><a href="#支持运算表达式解析" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>支持运算表达式解析</h5><p>如：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
+    {
+      <span class="hljs-string">"price"</span>: <span class="hljs-number">20</span>,
+      <span class="hljs-string">"count"</span>: <span class="hljs-number">2</span>
+    }
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mip-data</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">m-text</span>=<span class="hljs-string">"price"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:MIP.setData({price:'30'})"</span>&gt;</span>30<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:MIP.setData({price:30*m.count})"</span>&gt;</span>30*m.count<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></code></pre></li><li><p>支持 dom 元素解析</p><p><code>&lt;mip-bind&gt;</code> 支持 DOM 元素解析，在设置的数据中，可通过 DOM 变量来表示当前事件触发的源 DOM 元素，并可通过其获取元素上的属性值等，如：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
-      {
-          <span class="hljs-string">"price"</span>: <span class="hljs-number">20</span>
-      }
-      </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">mip-data</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
-      DOM.value*m.price = <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">m-text</span>=<span class="hljs-string">"price"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">mip-form</span> <span class="hljs-attr">url</span>=<span class="hljs-string">"https://www.mipengine.org/"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'text'</span> <span class="hljs-attr">on</span>=<span class="hljs-string">"change:MIP.setData({price:DOM.value*m.price})"</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">mip-form</span>&gt;</span></code></pre></li></ul></li></ul><h3 id="自定义事件"><a href="#自定义事件" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>自定义事件</h3><p>目前官方只提供部分事件，如果开发者在组件中有需要触发设置数据的时机，可以通过自定义事件来完成，具体实现方式如下：</p><pre><div class="code-index"><div>1</div><div>2</div></div><code>var viewer = require(&#39;viewer&#39;);
-viewer.eventAction.execute(自定义事件名, 事件元素, 事件);</code></pre><p>如：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div></div><code>&lt;mip-data&gt;
-    &lt;script type="application/json"&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:MIP.setData({price:30*m.count})"</span>&gt;</span>30*m.count<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></code></pre><h5 id="支持-dom-元素解析"><a href="#支持-dom-元素解析" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>支持 DOM 元素解析</h5><p><code>&lt;mip-bind&gt;</code> 支持 DOM 元素解析，在设置的数据中，可通过 DOM 变量来表示当前事件触发的源 DOM 元素，并可通过其获取元素上的属性值等，如：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
     {
-        "title": "Hi"
+      <span class="hljs-string">"price"</span>: <span class="hljs-number">20</span>
     }
-    &lt;/script&gt;
-&lt;/mip-data&gt;
-&lt;div m-text="title"&gt;&lt;/div&gt;
-&lt;mip-form url="https://www.mipengine.org/"&gt;
-    &lt;input on="blur:MIP.setData({title:'Hello!'})" id="price" type='text'&gt;
-&lt;/mip-form&gt;
-// 以下为组件中使用的示例代码
-&lt;script type="text/javascript"&gt;
-    var viewer = require('viewer');
-    var ele = document.querySelector('#price');
-    ele.addEventListener('blur', function (event) {
-        viewer.eventAction.execute('blur', event.target, event);
-    });
-&lt;/script&gt;</code></pre>
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mip-data</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+  DOM.value*m.price = <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">m-text</span>=<span class="hljs-string">"price"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">mip-form</span> <span class="hljs-attr">url</span>=<span class="hljs-string">"https://www.mipengine.org/"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'text'</span> <span class="hljs-attr">on</span>=<span class="hljs-string">"change:MIP.setData({price:DOM.value*m.price})"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mip-form</span>&gt;</span></code></pre><h3 id="使用数据"><a href="#使用数据" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>使用数据</h3><h4 id="在-html-页面中"><a href="#在-html-页面中" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>在 HTML 页面中</h4><p>在 HTML 页面中使用数据，可以通过 <code>m-bind</code> 或 <code>m-text</code> 来绑定数据。</p><h4 id="在组件中"><a href="#在组件中" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>在组件中</h4><h5 id="规范"><a href="#规范" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>[规范]</h5><ol><li>仅允许在 HTML 页面使用 <code>m-bind</code> 来绑定数据，以 <code>props</code> 的形式向组件传递数据。</li><li>组件内部 <strong><em>不允许</em></strong> 使用 <code>m-bind</code> 语法来绑定全局数据，也无法直接读取到全局数据 <code>m</code>，仅允许绑定通过 <code>props</code>获得的数据。</li><li>组件内部需要使用 <code>props</code> 预定义所需数据，并且显式指定一种数据类型。如果遵循了Vue语法指定了多种数据类型，MIP将默认取第一种。</li><li>如果组件内部实现存在自定义标签嵌套的情况，传递数据时 应按照 Vue 父子组件的写法来传递数据。</li></ol><p>组件内部可以通过调用 <code>MIP.setData</code> 来修改全局数据，以此触发重新渲染。</p><p>如：</p><p>index.html：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
+    {
+      <span class="hljs-string">"userInfo"</span>: {
+        <span class="hljs-string">"name"</span>: <span class="hljs-string">"baidu"</span>
+      },
+      <span class="hljs-string">"anotherObject"</span>: {
+        <span class="hljs-string">"name"</span>: <span class="hljs-string">"sfe"</span>
+      },
+      <span class="hljs-string">"list"</span>: [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>],
+      <span class="hljs-string">"num"</span>: <span class="hljs-number">2</span>,
+      <span class="hljs-string">"msg"</span>: <span class="hljs-string">"info"</span>,
+      <span class="hljs-string">"loading"</span>: <span class="hljs-literal">false</span>
+    }
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mip-data</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">mip-a</span>
+  <span class="hljs-attr">m-bind:userinfo</span>=<span class="hljs-string">"userInfo"</span>
+  <span class="hljs-attr">m-bind:another-object</span>=<span class="hljs-string">"anotherObject"</span>
+  <span class="hljs-attr">m-bind:list</span>=<span class="hljs-string">"list"</span>
+  <span class="hljs-attr">m-bind:num</span>=<span class="hljs-string">"num"</span>
+  <span class="hljs-attr">m-bind:msg</span>=<span class="hljs-string">"msg"</span>
+  <span class="hljs-attr">m-bind:loading</span>=<span class="hljs-string">"loading"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-a</span>&gt;</span></code></pre><p>mip-a 组件内部：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div>32</div><div>33</div><div>34</div><div>35</div><div>36</div><div>37</div><div>38</div><div>39</div><div>40</div><div>41</div></div><code class="lang-javascript">&lt;template&gt;
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mip-b</span> <span class="hljs-attr">:userinfo</span>=<span class="hljs-string">"userinfo"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-b</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">"changeData"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"loading"</span>&gt;</span>{{msg}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></span>
+
+&lt;script&gt;
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+  <span class="hljs-attr">props</span>: {
+    <span class="hljs-attr">userinfo</span>: {
+      <span class="hljs-attr">type</span>: <span class="hljs-built_in">Object</span>,
+      <span class="hljs-keyword">default</span> () {
+        <span class="hljs-keyword">return</span> {}
+      }
+    },
+    <span class="hljs-attr">anotherObject</span>: {
+      <span class="hljs-attr">type</span>: <span class="hljs-built_in">Object</span>,
+      <span class="hljs-keyword">default</span> () {
+        <span class="hljs-keyword">return</span> {}
+      }
+    },
+    <span class="hljs-attr">list</span>: {
+      <span class="hljs-attr">type</span>: <span class="hljs-built_in">Array</span>
+    },
+    <span class="hljs-attr">num</span>: <span class="hljs-built_in">Number</span>,
+    <span class="hljs-attr">loading</span>: <span class="hljs-built_in">Boolean</span>,
+    <span class="hljs-attr">msg</span>: <span class="hljs-built_in">String</span>
+  },
+  <span class="hljs-attr">methods</span>: {
+    changeData() {
+      MIP.setData({
+        <span class="hljs-attr">userInfo</span>: {
+          <span class="hljs-attr">name</span>: <span class="hljs-string">'baidu2'</span>
+        }
+      })
+    }
+  }
+}
+&lt;<span class="hljs-regexp">/script&gt;</span></code></pre><p>mip-b 组件内部：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div></div><code class="lang-javascript">&lt;template&gt;
+  &lt;p&gt;{{userinfo.name}}&lt;/p&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  props: {
+    userinfo: {
+      type: Object,
+      default () {
+        return {}
+      }
+    }
+  }
+}
+&lt;/script&gt;</code></pre><blockquote><p><strong>注：</strong> 请留意上面例子中 HTML 与 mip-a 组件实现两段代码里面的 userinfo 和 anotherObject 的绑定示例。由于 m-bind 的基本原理是将动态数据绑定到指定 attribute 上，而我们知道，HTML 标签的 attribute 要求小写（即使写了大写也会转换为小写），因此如果开发者想要在组件里使用驼峰命名变量，请使用短横线的方式指定 attribute。</p></blockquote><h4 id="在-mipscript-组件中"><a href="#在-mipscript-组件中" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>在 <code>mip-script</code> 组件中</h4><p><code>mip-script</code> 组件允许开发者编写自定义的 JavaScript 代码，作用类似于 script 标签。其具体用法和规范开发者将在后面的小节了解到。此处我们将借这个组件来向开发者介绍一个读取数据的 API：<code>MIP.getData(value)</code>。<code>value</code> 为数据源中的属性名，多层数据可以以<code>.</code>连接。注意，<code>getData</code> 方法在组件中并不开放使用，请开发者遵循前面的在组件中使用数据的规范。</p><p>在使用 mip-script 自定义 JS 代码时，如有数据操作的需要，开发者可以通过 <code>getData</code> 方法读取和使用数据。下面的例子实现了一个简单的多选功能，最终输出选中的目录序号。例子中使用到的 setData 设置数据方法、watch 监控数据方法均在后面的小节会详细讲解。如:</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
+    {
+      <span class="hljs-string">"i"</span>: <span class="hljs-number">0</span>,
+      <span class="hljs-string">"selectedStr"</span>: <span class="hljs-string">""</span>,
+      <span class="hljs-string">"selected"</span>: []
+    }
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mip-data</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:MIP.setData({i:1})"</span>&gt;</span>目录1<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:MIP.setData({i:2})"</span>&gt;</span>目录2<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:MIP.setData({i:3})"</span>&gt;</span>目录3<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>selected: <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">m-text</span>=<span class="hljs-string">"selectedStr"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">mip-script</span>&gt;</span>
+  MIP.watch('i', function (newVal) {
+    let selected = MIP.getData('selected')
+    let index = selected.indexOf(newVal)
+
+    if (index) {
+      selected.splice(index, 1)
+    } else {
+      selected.push(index)
+    }
+
+    MIP.setData('selectedStr', selected.join(','))
+  })
+<span class="hljs-tag">&lt;/<span class="hljs-name">mip-script</span>&gt;</span></code></pre><h3 id="观察数据"><a href="#观察数据" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>观察数据</h3><p>MIP 提供了全局方法 <code>MIP.watch(value, cb)</code> 供开发者注册观察数据的行为。</p><p>其中 <code>value</code> 为数据源中的属性名，多层数据可以以 <code>.</code> 连接，允许是单个字符串或字符串数组。 <code>cb</code> 为当被观察的属性 value 发生数据变化时要执行的回调函数，接收一个参数，为 <code>newValue</code>，即 value 变化后的值。</p><p>观察数据的前提，是这个数据已经通过 <code>mip-data</code> 组件设置过。假如是通过 <code>mip-data</code> 的异步方式获取数据的，还需要等待异步数据设置完成。 MIP 提供全局变量 <code>mipDataPromises</code>，这是一个获取异步数据的 Promise 对象数组，如果当前没有获取异步数据的任务或任务已完成，则该数组为空。若该数组不为空，同时开发者需要观察的数据即为异步数据时，为确保观察正常执行，需要把 <code>MIP.watch</code> 的执行放到 Promise 的回调函数中。</p><p><strong>示例：</strong></p><p>通过调用 <code>watch</code> 方法，监听 num 和 img.first 的数据变化，并在 num 变化时改变 img.first 的值，从而触发 title 的数据变化。</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div>32</div><div>33</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
+    {
+      <span class="hljs-string">"num"</span>: <span class="hljs-number">1</span>,
+      <span class="hljs-string">"title"</span>: <span class="hljs-string">"Initial num = 1"</span>,
+      <span class="hljs-string">"img"</span>: {
+        <span class="hljs-string">"first"</span>: <span class="hljs-string">""</span>
+      }
+    }
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mip-data</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">m-text</span>=<span class="hljs-string">"title"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+  num = DOM.value = <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">m-text</span>=<span class="hljs-string">"num"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'text'</span> <span class="hljs-attr">on</span>=<span class="hljs-string">"change:MIP.setData({num:DOM.value})"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">mip-script</span> &gt;</span>
+  MIP.watch('num', newValue =&gt; {
+    MIP.setData({
+      img: {
+          first: 'img.first changed due to num changed to' + newValue
+        }
+      })
+    })
+  MIP.watch('img.first', newVal =&gt; {
+    MIP.setData({
+      title: newVal
+    })
+  })
+  MIP.watch(['num', 'img.first'], newVal =&gt; {
+    console.log('multiple')
+  })
+<span class="hljs-tag">&lt;/<span class="hljs-name">mip-script</span>&gt;</span></code></pre>
     </div>
 <div class="markdown-toolbar">
   <span><i class="iconfont icon-edit"></i> 反馈</span><span>编辑</span>
@@ -208,8 +328,8 @@ viewer.eventAction.execute(自定义事件名, 事件元素, 事件);</code></pr
   <mip-data>
     <script type="application/json">
       {
-        "menu": [{"name":"MIP 组件列表","path":"components/index.md","url":"/components/index.html"},{"name":"内置组件","path":"components/builtin","children":[{"name":"mip-bind","path":"components/builtin/mip-bind.md","url":"/components/builtin/mip-bind.html"},{"name":"mip-carousel 多图轮播","path":"components/builtin/mip-carousel.md","url":"/components/builtin/mip-carousel.html"},{"name":"mip-iframe","path":"components/builtin/mip-iframe.md","url":"/components/builtin/mip-iframe.html"},{"name":"mip-img 图片","path":"components/builtin/mip-img.md","url":"/components/builtin/mip-img.html"},{"name":"mip-pix 统计","path":"components/builtin/mip-pix.md","url":"/components/builtin/mip-pix.html"},{"name":"mip-video","path":"components/builtin/mip-video.md","url":"/components/builtin/mip-video.html"}]},{"name":"扩展组件","path":"components/extensions","children":[{"name":"mip-access","path":"components/extensions/mip-access.md","url":"/components/extensions/mip-access.html"},{"name":"mip-accordion 折叠节点","path":"components/extensions/mip-accordion.md","url":"/components/extensions/mip-accordion.html"},{"name":"mip-analytics 统计框架","path":"components/extensions/mip-analytics.md","url":"/components/extensions/mip-analytics.html"},{"name":"mip-anim 动图","path":"components/extensions/mip-anim.md","url":"/components/extensions/mip-anim.html"},{"name":"mip-app-banner App 调起组件","path":"components/extensions/mip-app-banner.md","url":"/components/extensions/mip-app-banner.html"},{"name":"mip-appdl App 下载","path":"components/extensions/mip-appdl.md","url":"/components/extensions/mip-appdl.html"},{"name":"mip-audio 音频播放","path":"components/extensions/mip-audio.md","url":"/components/extensions/mip-audio.html"},{"name":"mip-custom","path":"components/extensions/mip-custom.md","url":"/components/extensions/mip-custom.html"},{"name":"mip-experiment 前端抽样实验","path":"components/extensions/mip-experiment.md","url":"/components/extensions/mip-experiment.html"},{"name":"mip-filter 筛选组件","path":"components/extensions/mip-filter.md","url":"/components/extensions/mip-filter.html"},{"name":"mip-fixed 悬浮布局","path":"components/extensions/mip-fixed.md","url":"/components/extensions/mip-fixed.html"},{"name":"mip-form 表单","path":"components/extensions/mip-form.md","url":"/components/extensions/mip-form.html"},{"name":"mip-gototop 快速回顶","path":"components/extensions/mip-gototop.md","url":"/components/extensions/mip-gototop.html"},{"name":"mip-history 历史记录","path":"components/extensions/mip-history.md","url":"/components/extensions/mip-history.html"},{"name":"mip-html-os 操作系统","path":"components/extensions/mip-html-os.md","url":"/components/extensions/mip-html-os.html"},{"name":"mip-infinitescroll 无限滚动","path":"components/extensions/mip-infinitescroll.md","url":"/components/extensions/mip-infinitescroll.html"},{"name":"mip-install-serviceworker","path":"components/extensions/mip-install-serviceworker.md","url":"/components/extensions/mip-install-serviceworker.html"},{"name":"mip-lightbox 弹出层","path":"components/extensions/mip-lightbox.md","url":"/components/extensions/mip-lightbox.html"},{"name":"mip-link 跳转链接","path":"components/extensions/mip-link.md","url":"/components/extensions/mip-link.html"},{"name":"mip-list 列表组件","path":"components/extensions/mip-list.md","url":"/components/extensions/mip-list.html"},{"name":"mip-login-done","path":"components/extensions/mip-login-done.md","url":"/components/extensions/mip-login-done.html"},{"name":"mip-map 地图组件","path":"components/extensions/mip-map.md","url":"/components/extensions/mip-map.html"},{"name":"mip-mustache","path":"components/extensions/mip-mustache.md","url":"/components/extensions/mip-mustache.html"},{"name":"mip-nav-slidedown 菜单","path":"components/extensions/mip-nav-slidedown.md","url":"/components/extensions/mip-nav-slidedown.html"},{"name":"mip-sample","path":"components/extensions/mip-sample.md","url":"/components/extensions/mip-sample.html"},{"name":"mip-scrollbox","path":"components/extensions/mip-scrollbox.md","url":"/components/extensions/mip-scrollbox.html"},{"name":"mip-semi-fixed 滑动悬浮组件","path":"components/extensions/mip-semi-fixed.md","url":"/components/extensions/mip-semi-fixed.html"},{"name":"mip-share 分享","path":"components/extensions/mip-share.md","url":"/components/extensions/mip-share.html"},{"name":"mip-showmore 显示更多","path":"components/extensions/mip-showmore.md","url":"/components/extensions/mip-showmore.html"},{"name":"mip-sidebar 侧边栏","path":"components/extensions/mip-sidebar.md","url":"/components/extensions/mip-sidebar.html"},{"name":"mip-stats-baidu 百度统计","path":"components/extensions/mip-stats-baidu.md","url":"/components/extensions/mip-stats-baidu.html"},{"name":"mip-stats-cnzz","path":"components/extensions/mip-stats-cnzz.md","url":"/components/extensions/mip-stats-cnzz.html"},{"name":"mip-stats-tianrun 天润统计","path":"components/extensions/mip-stats-tianrun.md","url":"/components/extensions/mip-stats-tianrun.html"},{"name":"mip-story","path":"components/extensions/mip-story.md","url":"/components/extensions/mip-story.html"},{"name":"mip-toggle 显示隐藏","path":"components/extensions/mip-toggle.md","url":"/components/extensions/mip-toggle.html"},{"name":"mip-vd-baidu","path":"components/extensions/mip-vd-baidu.md","url":"/components/extensions/mip-vd-baidu.html"},{"name":"mip-vd-tabs tab 切换组件","path":"components/extensions/mip-vd-tabs.md","url":"/components/extensions/mip-vd-tabs.html"}]},{"name":"mip-ad","path":"components/mip-ad","children":[{"name":"mip-ad:ad-baidu 百度网盟推广合作","path":"components/mip-ad/mip-ad-baidu.md","url":"/components/mip-ad/mip-ad-baidu.html"},{"name":"mip-ad:ad-baidussp 百度 SSP 直投广告","path":"components/mip-ad/mip-ad-baidussp.md","url":"/components/mip-ad/mip-ad-baidussp.html"},{"name":"mip-ad:ad-comm 通用广告","path":"components/mip-ad/mip-ad-comm.md","url":"/components/mip-ad/mip-ad-comm.html"},{"name":"mip-ad:ad-imageplus 百度图 + 广告","path":"components/mip-ad/mip-ad-imageplus.md","url":"/components/mip-ad/mip-ad-imageplus.html"},{"name":"mip-ad:ad-qwang 百度搜索推广合作","path":"components/mip-ad/mip-ad-qwang.md","url":"/components/mip-ad/mip-ad-qwang.html"},{"name":"mip-ad:ad-ssp 百度 Feeds 联盟广告","path":"components/mip-ad/mip-ad-ssp.md","url":"/components/mip-ad/mip-ad-ssp.html"},{"name":"mip-ad 广告","path":"components/mip-ad/mip-ad.md","url":"/components/mip-ad/mip-ad.html"},{"name":"mip-ad:baidu-wm-ext 百度联盟广告反屏蔽","path":"components/mip-ad/mip-baidu-wm-ext.md","url":"/components/mip-ad/mip-baidu-wm-ext.html"}]}],
-        "chapters": [{"level":1,"hash":"#mipbind","text":"mip-bind","children":[{"level":2,"hash":"#使用方法","text":"使用方法","children":[{"level":3,"hash":"#设置数据","text":"设置数据","children":[{"level":4,"hash":"#固定数据","text":"固定数据"},{"level":4,"hash":"#异步数据","text":"异步数据"}]},{"level":3,"hash":"#绑定指令","text":"绑定指令","children":[{"level":4,"hash":"#mbind","text":"m-bind"},{"level":4,"hash":"#mtext","text":"m-text"}]},{"level":3,"hash":"#修改数据","text":"修改数据","children":[{"level":4,"hash":"#书写格式","text":"书写格式"},{"level":4,"hash":"#事件类型","text":"事件类型"},{"level":4,"hash":"#具体操作","text":"具体操作"}]},{"level":3,"hash":"#自定义事件","text":"自定义事件"}]}]}],
+        "menu": [{"name":"MIP 组件列表","path":"docs/extensions/index.md","url":"/components/index.html"},{"name":"内置组件","path":"docs/extensions/builtin","children":[{"name":"mip-bind","path":"docs/extensions/builtin/mip-bind.md","url":"/components/builtin/mip-bind.html"},{"name":"mip-carousel 多图轮播","path":"docs/extensions/builtin/mip-carousel.md","url":"/components/builtin/mip-carousel.html"},{"name":"mip-iframe","path":"docs/extensions/builtin/mip-iframe.md","url":"/components/builtin/mip-iframe.html"},{"name":"mip-img 图片","path":"docs/extensions/builtin/mip-img.md","url":"/components/builtin/mip-img.html"},{"name":"mip-pix 统计","path":"docs/extensions/builtin/mip-pix.md","url":"/components/builtin/mip-pix.html"},{"name":"mip-video","path":"docs/extensions/builtin/mip-video.md","url":"/components/builtin/mip-video.html"}]},{"name":"扩展组件","path":"docs/extensions/extensions","children":[{"name":"mip-access","path":"docs/extensions/extensions/mip-access.md","url":"/components/extensions/mip-access.html"},{"name":"mip-accordion 折叠节点","path":"docs/extensions/extensions/mip-accordion.md","url":"/components/extensions/mip-accordion.html"},{"name":"mip-analytics 统计框架","path":"docs/extensions/extensions/mip-analytics.md","url":"/components/extensions/mip-analytics.html"},{"name":"mip-anim 动图","path":"docs/extensions/extensions/mip-anim.md","url":"/components/extensions/mip-anim.html"},{"name":"mip-app-banner App 调起组件","path":"docs/extensions/extensions/mip-app-banner.md","url":"/components/extensions/mip-app-banner.html"},{"name":"mip-appdl App 下载","path":"docs/extensions/extensions/mip-appdl.md","url":"/components/extensions/mip-appdl.html"},{"name":"mip-audio 音频播放","path":"docs/extensions/extensions/mip-audio.md","url":"/components/extensions/mip-audio.html"},{"name":"mip-custom","path":"docs/extensions/extensions/mip-custom.md","url":"/components/extensions/mip-custom.html"},{"name":"mip-experiment 前端抽样实验","path":"docs/extensions/extensions/mip-experiment.md","url":"/components/extensions/mip-experiment.html"},{"name":"mip-filter 筛选组件","path":"docs/extensions/extensions/mip-filter.md","url":"/components/extensions/mip-filter.html"},{"name":"mip-fixed 悬浮布局","path":"docs/extensions/extensions/mip-fixed.md","url":"/components/extensions/mip-fixed.html"},{"name":"mip-form 表单","path":"docs/extensions/extensions/mip-form.md","url":"/components/extensions/mip-form.html"},{"name":"mip-gototop 快速回顶","path":"docs/extensions/extensions/mip-gototop.md","url":"/components/extensions/mip-gototop.html"},{"name":"mip-history 历史记录","path":"docs/extensions/extensions/mip-history.md","url":"/components/extensions/mip-history.html"},{"name":"mip-html-os 操作系统","path":"docs/extensions/extensions/mip-html-os.md","url":"/components/extensions/mip-html-os.html"},{"name":"mip-infinitescroll 无限滚动","path":"docs/extensions/extensions/mip-infinitescroll.md","url":"/components/extensions/mip-infinitescroll.html"},{"name":"mip-install-serviceworker","path":"docs/extensions/extensions/mip-install-serviceworker.md","url":"/components/extensions/mip-install-serviceworker.html"},{"name":"mip-lightbox 弹出层","path":"docs/extensions/extensions/mip-lightbox.md","url":"/components/extensions/mip-lightbox.html"},{"name":"mip-link 跳转链接","path":"docs/extensions/extensions/mip-link.md","url":"/components/extensions/mip-link.html"},{"name":"mip-list 列表组件","path":"docs/extensions/extensions/mip-list.md","url":"/components/extensions/mip-list.html"},{"name":"mip-login-done","path":"docs/extensions/extensions/mip-login-done.md","url":"/components/extensions/mip-login-done.html"},{"name":"mip-map 地图组件","path":"docs/extensions/extensions/mip-map.md","url":"/components/extensions/mip-map.html"},{"name":"mip-mustache","path":"docs/extensions/extensions/mip-mustache.md","url":"/components/extensions/mip-mustache.html"},{"name":"mip-nav-slidedown 菜单","path":"docs/extensions/extensions/mip-nav-slidedown.md","url":"/components/extensions/mip-nav-slidedown.html"},{"name":"mip-sample","path":"docs/extensions/extensions/mip-sample.md","url":"/components/extensions/mip-sample.html"},{"name":"mip-scrollbox","path":"docs/extensions/extensions/mip-scrollbox.md","url":"/components/extensions/mip-scrollbox.html"},{"name":"mip-semi-fixed 滑动悬浮组件","path":"docs/extensions/extensions/mip-semi-fixed.md","url":"/components/extensions/mip-semi-fixed.html"},{"name":"mip-share 分享","path":"docs/extensions/extensions/mip-share.md","url":"/components/extensions/mip-share.html"},{"name":"mip-showmore 显示更多","path":"docs/extensions/extensions/mip-showmore.md","url":"/components/extensions/mip-showmore.html"},{"name":"mip-sidebar 侧边栏","path":"docs/extensions/extensions/mip-sidebar.md","url":"/components/extensions/mip-sidebar.html"},{"name":"mip-stats-baidu 百度统计","path":"docs/extensions/extensions/mip-stats-baidu.md","url":"/components/extensions/mip-stats-baidu.html"},{"name":"mip-stats-cnzz","path":"docs/extensions/extensions/mip-stats-cnzz.md","url":"/components/extensions/mip-stats-cnzz.html"},{"name":"mip-stats-tianrun 天润统计","path":"docs/extensions/extensions/mip-stats-tianrun.md","url":"/components/extensions/mip-stats-tianrun.html"},{"name":"mip-story","path":"docs/extensions/extensions/mip-story.md","url":"/components/extensions/mip-story.html"},{"name":"mip-toggle 显示隐藏","path":"docs/extensions/extensions/mip-toggle.md","url":"/components/extensions/mip-toggle.html"},{"name":"mip-vd-baidu","path":"docs/extensions/extensions/mip-vd-baidu.md","url":"/components/extensions/mip-vd-baidu.html"},{"name":"mip-vd-tabs tab 切换组件","path":"docs/extensions/extensions/mip-vd-tabs.md","url":"/components/extensions/mip-vd-tabs.html"}]},{"name":"mip-ad","path":"docs/extensions/mip-ad","children":[{"name":"mip-ad:ad-baidu 百度网盟推广合作","path":"docs/extensions/mip-ad/mip-ad-baidu.md","url":"/components/mip-ad/mip-ad-baidu.html"},{"name":"mip-ad:ad-baidussp 百度 SSP 直投广告","path":"docs/extensions/mip-ad/mip-ad-baidussp.md","url":"/components/mip-ad/mip-ad-baidussp.html"},{"name":"mip-ad:ad-comm 通用广告","path":"docs/extensions/mip-ad/mip-ad-comm.md","url":"/components/mip-ad/mip-ad-comm.html"},{"name":"mip-ad:ad-imageplus 百度图 + 广告","path":"docs/extensions/mip-ad/mip-ad-imageplus.md","url":"/components/mip-ad/mip-ad-imageplus.html"},{"name":"mip-ad:ad-qwang 百度搜索推广合作","path":"docs/extensions/mip-ad/mip-ad-qwang.md","url":"/components/mip-ad/mip-ad-qwang.html"},{"name":"mip-ad:ad-ssp 百度 Feeds 联盟广告","path":"docs/extensions/mip-ad/mip-ad-ssp.md","url":"/components/mip-ad/mip-ad-ssp.html"},{"name":"mip-ad 广告","path":"docs/extensions/mip-ad/mip-ad.md","url":"/components/mip-ad/mip-ad.html"},{"name":"mip-ad:baidu-wm-ext 百度联盟广告反屏蔽","path":"docs/extensions/mip-ad/mip-baidu-wm-ext.md","url":"/components/mip-ad/mip-baidu-wm-ext.html"}]}],
+        "chapters": [{"level":1,"hash":"#mipbind","text":"mip-bind","children":[{"level":2,"hash":"#使用方法","text":"使用方法","children":[{"level":3,"hash":"#设置数据","text":"设置数据","children":[{"level":4,"hash":"#内嵌数据","text":"内嵌数据"},{"level":4,"hash":"#异步数据","text":"异步数据"},{"level":4,"hash":"#全局共享数据","text":"全局共享数据"}]},{"level":3,"hash":"#绑定数据","text":"绑定数据","children":[{"level":4,"hash":"#绑定指令-mbind","text":"绑定指令 m-bind"},{"level":4,"hash":"#绑定指令-mtext","text":"绑定指令 m-text"},{"level":4,"hash":"#class-与-style-绑定","text":"Class 与 Style 绑定"}]},{"level":3,"hash":"#修改数据","text":"修改数据","children":[{"level":4,"hash":"#用法","text":"用法"},{"level":4,"hash":"#支持数据表达式","text":"支持数据表达式","children":[{"level":5,"hash":"#支持运算表达式解析","text":"支持运算表达式解析"},{"level":5,"hash":"#支持-dom-元素解析","text":"支持 DOM 元素解析"}]}]},{"level":3,"hash":"#使用数据","text":"使用数据","children":[{"level":4,"hash":"#在-html-页面中","text":"在 HTML 页面中"},{"level":4,"hash":"#在组件中","text":"在组件中","children":[{"level":5,"hash":"#规范","text":"[规范]"}]},{"level":4,"hash":"#在-mipscript-组件中","text":"在 mip-script 组件中"}]},{"level":3,"hash":"#观察数据","text":"观察数据"}]}]}],
         'url': "/components/builtin/mip-bind.html"
       }
     </script>
@@ -224,81 +344,11 @@ viewer.eventAction.execute(自定义事件名, 事件元素, 事件);</code></pr
             "transform": ""
           },
           "navSep": 0,
-          "navbar": [{"name":"首页","url":"/index.html","width":32},{"name":"使用文档","url":"/guide/index.html","width":64},{"name":"组件列表","url":"/components/index.html","width":64},{"name":"Codelab","url":"/codelab","width":60},{"name":"帮助","url":"/help","width":32},{"name":"常用链接","children":[{"name":"MIP 官方博客"},{"name":"MIP 代码校验工具"}],"width":82},{"name":"GitHub","url":"/github","width":50}]
+          "navbar": [{"name":"首页","url":"/index.html","width":32},{"name":"学习","width":32,"children":[{"name":"使用文档","url":"/guide/index.html","width":64},{"name":"组件列表","url":"/components/index.html","width":64},{"name":"API","url":"/api/index.html"},{"name":"Codelab","url":"/codelab/index.html","width":60}]},{"name":"帮助","url":"/help","width":32},{"name":"常用链接","children":[{"name":"MIP 官方博客"},{"name":"MIP 代码校验工具"}],"width":82},{"name":"GitHub","url":"/github","width":50}]
         }
       </script>
     </mip-data>
-    <mip-script>
-      function navIndicate(val) {
-        var navbar = MIP.getData('navbar');
-        var width = navbar[val].width + 'px';
-        var translateX = 0;
-        for (var i = 0; i < val; i++) {
-          translateX += navbar[i].width + MIP.getData('navSep');
-        }
-        var transform = 'translateX(' + translateX + 'px)';
-        MIP.setData({
-          navbarStyle: {
-            width: width,
-            transform: transform
-          }
-        });
-      }
 
-      function getNavSep() {
-        return MIP.viewport.getWidth() > 992 ? 50 : 30
-      }
-
-      MIP.watch('active', function () {
-        var curUrl = location.pathname;
-        var url = MIP.getData('originalUrl');
-        if (url === curUrl) {
-          return;
-        }
-        MIP.setData({
-          chapters: MIP.getData('originalChapters')
-        })
-      })
-
-      MIP.watch('navIndex', function (val) {
-        navIndicate(val);
-      })
-
-      MIP.watch('navSep', function (val) {
-        navIndicate(MIP.getData('navIndex'));
-      })
-
-      MIP.watch('url', function (val) {
-        console.log('url is watched:' + val)
-
-        if (val === '/' || val === '') {
-          MIP.setData({
-            navIndex: 0
-          });
-          return;
-        }
-
-        var navbar = MIP.getData('navbar');
-        for (var i = 0; i < navbar.length; i++) {
-          if (navbar[i].url !== '/' && val.indexOf(navbar[i].url) === 0) {
-            MIP.setData({
-              navIndex: i
-            });
-            return;
-          }
-        }
-      })
-
-      MIP.viewport.on('resize', function () {
-        MIP.setData({
-          navSep: getNavSep()
-        })
-      })
-
-      MIP.setData({
-        navSep: getNavSep()
-      })
-    </mip-script>
 
     <mip-fixed type="top" class="layout-navbar-fixed">
 <div class="layout-navbar">
@@ -306,10 +356,16 @@ viewer.eventAction.execute(自定义事件名, 事件元素, 事件);</code></pr
   <div class="navbar-menu">
     <ul class="navbar-menu-wrapper">
       <li class="navbar-item" on="tap:MIP.setData({navIndex:0})"><a data-type="mip" href="/index.html" class="menu-name">首页</a></li>
-      <li class="navbar-item" on="tap:MIP.setData({navIndex:1})"><a data-type="mip" href="/guide/index.html" class="menu-name">使用文档</a></li>
-      <li class="navbar-item" on="tap:MIP.setData({navIndex:2})"><a data-type="mip" href="/components/index.html" class="menu-name">组件列表</a></li>
-      <li class="navbar-item" on="tap:MIP.setData({navIndex:3})"><a data-type="mip" href="/codelab" class="menu-name">Codelab</a></li>
-      <li class="navbar-item" on="tap:MIP.setData({navIndex:4})"><a data-type="mip" href="/help" class="menu-name">帮助</a></li>
+      <li class="navbar-item">
+        <span class="menu-name">学习<i class="arrow"></i></span>
+        <ul class="navbar-sub-menu">
+          <li class="navbar-sub-item"><a data-type="mip" href="/guide/index.html">使用文档</a></li>
+          <li class="navbar-sub-item"><a data-type="mip" href="/components/index.html">组件列表</a></li>
+          <li class="navbar-sub-item"><a data-type="mip" href="/api/index.html">API</a></li>
+          <li class="navbar-sub-item"><a data-type="mip" href="/codelab/index.html">Codelab</a></li>
+        </ul>
+      </li>
+      <li class="navbar-item" on="tap:MIP.setData({navIndex:2})"><a data-type="mip" href="/help" class="menu-name">帮助</a></li>
       <li class="navbar-item">
         <span class="menu-name">常用链接<i class="arrow"></i></span>
         <ul class="navbar-sub-menu">
@@ -317,7 +373,7 @@ viewer.eventAction.execute(自定义事件名, 事件元素, 事件);</code></pr
           <li class="navbar-sub-item"><a data-type="mip" href="">MIP 代码校验工具</a></li>
         </ul>
       </li>
-      <li class="navbar-item" on="tap:MIP.setData({navIndex:6})"><a data-type="mip" href="/github" class="menu-name">GitHub</a></li>
+      <li class="navbar-item" on="tap:MIP.setData({navIndex:4})"><a data-type="mip" href="/github" class="menu-name">GitHub</a></li>
     </ul>
     <div class="navbar-indicator" m-bind:style="navbarStyle"></div>
   </div>
@@ -331,6 +387,5 @@ viewer.eventAction.execute(自定义事件名, 事件元素, 事件);</code></pr
     <script src="/assets/mip-sidenav/mip-sidenav.js"></script>
     <script src="https://c.mipcdn.com/static/v1/mip-fixed/mip-fixed.js"></script>
     <script src="https://c.mipcdn.com/static/v1/mip-nav-slidedown/mip-nav-slidedown.js"></script>
-    <script src="https://c.mipcdn.com/static/v2/mip-script/mip-script.js"></script>
   </body>
 </html>

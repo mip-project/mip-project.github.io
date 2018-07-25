@@ -125,81 +125,11 @@
             "transform": ""
           },
           "navSep": 0,
-          "navbar": [{"name":"首页","url":"/index.html","width":32},{"name":"使用文档","url":"/guide/index.html","width":64},{"name":"组件列表","url":"/components/index.html","width":64},{"name":"Codelab","url":"/codelab","width":60},{"name":"帮助","url":"/help","width":32},{"name":"常用链接","children":[{"name":"MIP 官方博客"},{"name":"MIP 代码校验工具"}],"width":82},{"name":"GitHub","url":"/github","width":50}]
+          "navbar": [{"name":"首页","url":"/index.html","width":32},{"name":"学习","width":32,"children":[{"name":"使用文档","url":"/guide/index.html","width":64},{"name":"组件列表","url":"/components/index.html","width":64},{"name":"API","url":"/api/index.html"},{"name":"Codelab","url":"/codelab/index.html","width":60}]},{"name":"帮助","url":"/help","width":32},{"name":"常用链接","children":[{"name":"MIP 官方博客"},{"name":"MIP 代码校验工具"}],"width":82},{"name":"GitHub","url":"/github","width":50}]
         }
       </script>
     </mip-data>
-    <mip-script>
-      function navIndicate(val) {
-        var navbar = MIP.getData('navbar');
-        var width = navbar[val].width + 'px';
-        var translateX = 0;
-        for (var i = 0; i < val; i++) {
-          translateX += navbar[i].width + MIP.getData('navSep');
-        }
-        var transform = 'translateX(' + translateX + 'px)';
-        MIP.setData({
-          navbarStyle: {
-            width: width,
-            transform: transform
-          }
-        });
-      }
 
-      function getNavSep() {
-        return MIP.viewport.getWidth() > 992 ? 50 : 30
-      }
-
-      MIP.watch('active', function () {
-        var curUrl = location.pathname;
-        var url = MIP.getData('originalUrl');
-        if (url === curUrl) {
-          return;
-        }
-        MIP.setData({
-          chapters: MIP.getData('originalChapters')
-        })
-      })
-
-      MIP.watch('navIndex', function (val) {
-        navIndicate(val);
-      })
-
-      MIP.watch('navSep', function (val) {
-        navIndicate(MIP.getData('navIndex'));
-      })
-
-      MIP.watch('url', function (val) {
-        console.log('url is watched:' + val)
-
-        if (val === '/' || val === '') {
-          MIP.setData({
-            navIndex: 0
-          });
-          return;
-        }
-
-        var navbar = MIP.getData('navbar');
-        for (var i = 0; i < navbar.length; i++) {
-          if (navbar[i].url !== '/' && val.indexOf(navbar[i].url) === 0) {
-            MIP.setData({
-              navIndex: i
-            });
-            return;
-          }
-        }
-      })
-
-      MIP.viewport.on('resize', function () {
-        MIP.setData({
-          navSep: getNavSep()
-        })
-      })
-
-      MIP.setData({
-        navSep: getNavSep()
-      })
-    </mip-script>
 
     <mip-fixed type="top" class="layout-navbar-fixed">
 <div class="layout-navbar">
@@ -207,10 +137,16 @@
   <div class="navbar-menu">
     <ul class="navbar-menu-wrapper">
       <li class="navbar-item" on="tap:MIP.setData({navIndex:0})"><a data-type="mip" href="/index.html" class="menu-name">首页</a></li>
-      <li class="navbar-item" on="tap:MIP.setData({navIndex:1})"><a data-type="mip" href="/guide/index.html" class="menu-name">使用文档</a></li>
-      <li class="navbar-item" on="tap:MIP.setData({navIndex:2})"><a data-type="mip" href="/components/index.html" class="menu-name">组件列表</a></li>
-      <li class="navbar-item" on="tap:MIP.setData({navIndex:3})"><a data-type="mip" href="/codelab" class="menu-name">Codelab</a></li>
-      <li class="navbar-item" on="tap:MIP.setData({navIndex:4})"><a data-type="mip" href="/help" class="menu-name">帮助</a></li>
+      <li class="navbar-item">
+        <span class="menu-name">学习<i class="arrow"></i></span>
+        <ul class="navbar-sub-menu">
+          <li class="navbar-sub-item"><a data-type="mip" href="/guide/index.html">使用文档</a></li>
+          <li class="navbar-sub-item"><a data-type="mip" href="/components/index.html">组件列表</a></li>
+          <li class="navbar-sub-item"><a data-type="mip" href="/api/index.html">API</a></li>
+          <li class="navbar-sub-item"><a data-type="mip" href="/codelab/index.html">Codelab</a></li>
+        </ul>
+      </li>
+      <li class="navbar-item" on="tap:MIP.setData({navIndex:2})"><a data-type="mip" href="/help" class="menu-name">帮助</a></li>
       <li class="navbar-item">
         <span class="menu-name">常用链接<i class="arrow"></i></span>
         <ul class="navbar-sub-menu">
@@ -218,7 +154,7 @@
           <li class="navbar-sub-item"><a data-type="mip" href="">MIP 代码校验工具</a></li>
         </ul>
       </li>
-      <li class="navbar-item" on="tap:MIP.setData({navIndex:6})"><a data-type="mip" href="/github" class="menu-name">GitHub</a></li>
+      <li class="navbar-item" on="tap:MIP.setData({navIndex:4})"><a data-type="mip" href="/github" class="menu-name">GitHub</a></li>
     </ul>
     <div class="navbar-indicator" m-bind:style="navbarStyle"></div>
   </div>
@@ -232,6 +168,5 @@
     <script src="/assets/mip-sidenav/mip-sidenav.js"></script>
     <script src="https://c.mipcdn.com/static/v1/mip-fixed/mip-fixed.js"></script>
     <script src="https://c.mipcdn.com/static/v1/mip-nav-slidedown/mip-nav-slidedown.js"></script>
-    <script src="https://c.mipcdn.com/static/v2/mip-script/mip-script.js"></script>
   </body>
 </html>

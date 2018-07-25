@@ -32,6 +32,8 @@
         }
       </script>
     </mip-data>
+
+    {{ if: false }}
     <mip-script>
       function navIndicate(val) {
         var navbar = MIP.getData('navbar');
@@ -104,6 +106,8 @@
       })
     </mip-script>
 
+    {{ /if }}
+
     <mip-fixed type="top" class="layout-navbar-fixed">
       {{ use:layout-navbar(navbar = ${navbar}) }}
     </mip-fixed>
@@ -114,6 +118,8 @@
     <script src="/assets/mip-sidenav/mip-sidenav.js"></script>
     <script src="https://c.mipcdn.com/static/v1/mip-fixed/mip-fixed.js"></script>
     <script src="https://c.mipcdn.com/static/v1/mip-nav-slidedown/mip-nav-slidedown.js"></script>
+    {{ if: false }}
     <script src="https://c.mipcdn.com/static/v2/mip-script/mip-script.js"></script>
+    {{ /if }}
   </body>
 </html>
