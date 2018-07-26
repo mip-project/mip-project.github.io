@@ -156,20 +156,22 @@ function heading(html) {
 }
 
 function link(html, app) {
+  return html.replace(
+    /<a([\s\S]+?)href="(.+?)"([\s\S]*?)>/mg,
+    function (full, attr1, href, attr2) {
+      if (/^[a-z.]/.test(href)) {
+        return `<a data-type="mip" href="${href}">`
+      }
+        // if (/^\/(guide|pwa|codelab)/.test(href)) {
+        //     // let host = app.config.host;
+        //     // href = `${host}/mip${href}`;
+        //     // href = `/${href}`;
+        //     return `<a data-type="mip" href="${href}">`;
+        // }
 
-    return html.replace(
-        /<a([\s\S]+?)href="(.+?)"([\s\S]*?)>/mg,
-        function (full, attr1, href, attr2) {
-            if (/^\/(guide|pwa|codelab)/.test(href)) {
-                // let host = app.config.host;
-                // href = `${host}/mip${href}`;
-                href = `/${href}`;
-                return `<a data-type="mip" href="${href}">`;
-            }
-
-            return full;
-        }
-    );
+      return full;
+    }
+  );
 }
 
 /**
