@@ -31,10 +31,14 @@
                     &-start
                         background #000
                         color #fff
+                        &:hover
+                            background #333
                     &-github
                         background #fff
                         color #000
                         margin-left 10px
+                        &:hover
+                            background #fbfbfb
 
     .intro-section
         background #fff
@@ -57,8 +61,14 @@
                     display block
                     height 410px
                     padding 0 34px
-                    background url('https://www.mipengine.org/static/img/icon21_f31573e.png') no-repeat center 80px
-                    background-size 100px 100px
+                    // background-size 100px 100px
+                    &.mip-parts-html
+                        background url('https://bos.nj.bpc.baidu.com/assets/mip/temp/miporg-html.jpg') no-repeat center 55px
+                    &.mip-parts-js
+                        background url('https://bos.nj.bpc.baidu.com/assets/mip/temp/miporg-js.jpg') no-repeat center 55px
+                    &.mip-parts-cache
+                        background url('https://bos.nj.bpc.baidu.com/assets/mip/temp/miporg-cache.jpg') no-repeat center 55px
+                        
                     &:not(:last-child)
                         border-right 1px solid #ededed
                     h2
@@ -125,9 +135,18 @@
                     position absolute
                     right 60px
                     bottom 60px
-                    background url('https://www.mipengine.org/static/img/icon21_f31573e.png') no-repeat
-                    background-size 100% 100%
-
+                    &.advan-1
+                        background url('https://bos.nj.bpc.baidu.com/assets/mip/temp/spec_1.jpg') no-repeat
+                        background-size 100% 100%
+                    &.advan-2
+                        background url('https://bos.nj.bpc.baidu.com/assets/mip/temp/spec_2.jpg') no-repeat
+                        background-size 100% 100%
+                    &.advan-3
+                        background url('https://bos.nj.bpc.baidu.com/assets/mip/temp/spec_3.jpg') no-repeat
+                        background-size 100% 100%                  
+                    &.advan-4
+                        background url('https://bos.nj.bpc.baidu.com/assets/mip/temp/spec_4.jpg') no-repeat
+                        background-size 100% 100%
     .footer-section
         height 440px
         box-sizing border-box
