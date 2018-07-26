@@ -91,7 +91,7 @@
       <span class="hljs-built_in">console</span>.log(mustache.version)
     })
   }
-}</code></pre><p>这样在 mustache 异步加载完毕后，将会在控制台输出 mustache 的版本号。假设多次调用<code>import(&#39;mustache&#39;)</code>，那么只会发送一次资源请求，其余的直接从缓存中读取。</p><h3 id="沙盒机制"><a href="#沙盒机制" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>沙盒机制</h3><p>MIP 允许开发者通过提交 MIP 组件和写 <code>&lt;mip-script&gt;</code> 等方式去写 JS，但从性能和代码维护的层面考虑，MIP 禁止或限制部分 JS 的使用，因此我们通过沙盒机制去限制开发者使用部分全局属性，如禁用 <code>alert</code>、<code>confirm</code> 等等。这一限制过程的实现我们通过 mip-cli 编译组件时注入沙盒代码的方式实现。关于沙盒机制的介绍，可以阅读 <a data-type="mip" href="//guide/component/sandbox.html">沙盒机制</a> 进行了解。总的来说基于以下几个原则：</p><ol><li>禁止阻塞 UI 线程的操作；</li><li>限制直接操作 DOM；</li><li>鼓励数据驱动；</li></ol>
+}</code></pre><p>这样在 mustache 异步加载完毕后，将会在控制台输出 mustache 的版本号。假设多次调用<code>import(&#39;mustache&#39;)</code>，那么只会发送一次资源请求，其余的直接从缓存中读取。</p><h3 id="沙盒机制"><a href="#沙盒机制" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>沙盒机制</h3><p>MIP 允许开发者通过提交 MIP 组件和写 <code>&lt;mip-script&gt;</code> 等方式去写 JS，但从性能和代码维护的层面考虑，MIP 禁止或限制部分 JS 的使用，因此我们通过沙盒机制去限制开发者使用部分全局属性，如禁用 <code>alert</code>、<code>confirm</code> 等等。这一限制过程的实现我们通过 mip-cli 编译组件时注入沙盒代码的方式实现。关于沙盒机制的介绍，可以阅读 <a href="/guide/component/sandbox.html">沙盒机制</a> 进行了解。总的来说基于以下几个原则：</p><ol><li>禁止阻塞 UI 线程的操作；</li><li>限制直接操作 DOM；</li><li>鼓励数据驱动；</li></ol>
     </div>
 <div class="markdown-toolbar">
   <span><i class="iconfont icon-edit"></i> 反馈</span><span>编辑</span>
