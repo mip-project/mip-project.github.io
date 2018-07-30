@@ -60,7 +60,7 @@ const navbar = [
   },
   {
     "name": "GitHub",
-    "url": "/github",
+    "url": "https://github.com/mipengine/mip2",
     "width": 50
   }
 ]

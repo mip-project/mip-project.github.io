@@ -179,6 +179,12 @@ module.exports = {
         menu (url) {
           return 'docs/api'
         }
+      },
+      {
+        url: /^\/codelabs/,
+        menu (url) {
+          return 'docs/codelabs'
+        }
       }
     ]
     // menus: [
