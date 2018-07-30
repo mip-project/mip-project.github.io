@@ -1,11 +1,32 @@
 // .layout-sidebar,
-.layout-main-content
-    float left
-    margin-top 64px
+// .layout-main-content
+    // float left
+    // margin-top 64px
 
 // .layout-side-bar
 //     width 30%
 
 .layout-main-content
-    width 60%
-    margin-left 440px
+    // width 60%
+    margin-left 360px
+    margin-top 64px
+    padding-left 25px
+    padding-right 100px
+    .content-wrapper
+      &:before
+        content "."
+        display block
+        height 0
+        clear both
+        visibility hidden
+
+    @media screen and (max-width: 992px)
+      margin-left 275px
+      padding-left 25px
+      padding-right 25px
+
+    @media screen and (max-width: 768px)
+      width auto
+      margin-left 0
+      padding-left 50px
+      padding-right 50px

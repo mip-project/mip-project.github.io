@@ -115,7 +115,7 @@
     <!-- <script src="http://172.18.19.102:8080/dist/mip.js"></script> -->
     <script src="https://c.mipcdn.com/static/v2/mip.js"></script>
     <!-- <script src="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.js"></script> -->
-    <script src="/assets/mip-sidenav/mip-sidenav.js"></script>
+    <script src="https://bos.nj.bpc.baidu.com/assets/mip/temp/mip-sidenav.js"></script>
     <script src="https://c.mipcdn.com/static/v1/mip-fixed/mip-fixed.js"></script>
     <script src="https://c.mipcdn.com/static/v1/mip-nav-slidedown/mip-nav-slidedown.js"></script>
     {{ if: false }}
