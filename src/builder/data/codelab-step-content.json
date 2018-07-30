@@ -1,0 +1,36 @@
+{
+  "status": 0,
+  "data": {
+    "html": "\n                <h1 data-hash=\"#1-概述\"><a href=\"#1-概述\" class=\"heading-link\"><i class=\"fa fa-link\" aria-hidden=\"true\"></i></a>1. 概述</h1><p>Lavas 是一套基于 Vue 的 PWA 解决方案，可以帮助开发者快速搭建 PWA 应用，解决接入 PWA 的各种问题。如果您对 PWA 和 Lavas 还有任何疑问，可以在<a href=\"https://lavas.baidu.com/\">我们的官方站点</a>上找到二者的教程和文档。</p><p>在前一版 Lavas 的基础上，我们倾听了来自开发者的反馈，并跟随业界最新的技术和规范，升级完成了 Lavas 2.0 版本。您可以安装或升级 Lavas 命令行工具，并跟随本教程完成一个简单却完整的示例站点，享受 PWA 带来的全新浏览体验。让我们快速开始吧！</p><h2 data-hash=\"#lavas-20-的改进点\"><a href=\"#lavas-20-的改进点\" class=\"heading-link\"><i class=\"fa fa-link\" aria-hidden=\"true\"></i></a>Lavas 2.0 的改进点</h2><ul><li>服务端渲染 (SSR) 和客户端渲染 (SPA) 可以快速切换</li><li>自动生成路由规则，避免重复配置</li><li>针对 SSR 提供了更加合理的 AppShell 支持，配合 SPA 下的 Skeleton 保证用户享受更加顺滑和健壮的浏览体验</li></ul><h2 data-hash=\"#通过本教程您可以学到\"><a href=\"#通过本教程您可以学到\" class=\"heading-link\"><i class=\"fa fa-link\" aria-hidden=\"true\"></i></a>通过本教程您可以学到</h2><ul><li>如何使用更新后的 Lavas 命令行工具创建 Lavas 2.0 项目</li><li>如何开发 Lavas 2.0 项目</li></ul><h2 data-hash=\"#学习本教程前您应该掌握\"><a href=\"#学习本教程前您应该掌握\" class=\"heading-link\"><i class=\"fa fa-link\" aria-hidden=\"true\"></i></a>学习本教程前您应该掌握</h2><ul><li>HTML, CSS(less或stylus), JavaScript 等前端编程基础</li><li>ES6/7 部分常用语法，如 Promise, import/export 等</li><li>Vue, Vuex, Vue-router 等基本的开发知识</li><li>Webpack, Node.js 等基本知识 （<strong>推荐</strong>）</li></ul><h2 data-hash=\"#在开发前您需要准备\"><a href=\"#在开发前您需要准备\" class=\"heading-link\"><i class=\"fa fa-link\" aria-hidden=\"true\"></i></a>在开发前您需要准备</h2><ul><li>一台可以正常联网的计算机并已安装较新版本的 Node.js (≥ 5.0) 和 npm (≥ 3.0)</li><li>一个方便调试并支持 Service Worker 的浏览器，推荐使用 Google Chrome</li><li>一个自己习惯的文本编辑器，如 Sublime Text, Web Storm 等等</li></ul>\n                <div class=\"md-related-wrapper\">\n                    <a class=\"md-related to-edit ui-dep-2\" href=\"https://github.com/lavas-project/codelab/edit/master/get-started/introduction.md\" target=\"_blank\">\n                        <div class=\"md-ripple\"></div>\n                        <i class=\"material-icons\">mode_edit</i>编辑\n                    </a>\n                    <a class=\"md-related to-feedback ui-dep-2\"\n                        target=\"_blank\"\n                        href=\"https://github.com/lavas-project/codelab/issues/new?title=反馈：get-started/introduction.md\"\n                    >\n                        <div class=\"md-ripple\"></div>\n                        <i class=\"material-icons\">feedback</i>反馈\n                    </a>\n                    <div class=\"md-related like-box\">\n                        这篇文章对您有帮助吗？\n                        <span class=\"like\">\n                            <i class=\"material-icons\">thumb_up</i>\n                        </span>\n                        <span class=\"unlike\">\n                            <i class=\"material-icons\">thumb_down</i>\n                        </span>\n                    </div>\n                </div>\n            ",
+    "chapters": [{
+      "level": 1,
+      "hash": "#1-概述",
+      "text": "1. 概述",
+      "children": [{
+        "level": 2,
+        "hash": "#lavas-20-的改进点",
+        "text": "Lavas 2.0 的改进点"
+      }, {
+        "level": 2,
+        "hash": "#通过本教程您可以学到",
+        "text": "通过本教程您可以学到"
+      }, {
+        "level": 2,
+        "hash": "#学习本教程前您应该掌握",
+        "text": "学习本教程前您应该掌握"
+      }, {
+        "level": 2,
+        "hash": "#在开发前您需要准备",
+        "text": "在开发前您需要准备"
+      }]
+    }],
+    "info": {
+      "title": "1. 概述",
+      "description": "Lavas 是一套基于 Vue 的 PWA 解决方案，可以帮助开发者快速搭建 PWA 应用，解决接入 PWA 的各种问题。如果您对 PWA 和 Lavas 还有任何疑问，可以在我们的官方站点上找到二者的教程和文档。",
+      "menu": "CODELAB/开发第一个 Lavas 应用",
+      "breadcrumbs": "CODELAB/开发第一个 Lavas 应用/概述"
+    },
+    "url": "/codelab/get-started/introduction",
+    "path": "codelab/get-started/introduction.md"
+  }
+}

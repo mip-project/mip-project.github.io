@@ -36,7 +36,7 @@ const navbar = [
       },
       {
         "name": "Codelab",
-        "url": "/codelab/index.html",
+        "url": "/codelabs/index.html",
         "width": 60
       }
     ]
@@ -77,7 +77,7 @@ module.exports = class Static {
         }, 10150);
 
         on(app.STAGES.DONE, async () => {
-            cachedChangedFileList.forEach(async obj => {
+            await Promise.all(cachedChangedFileList.map(async obj => {
                 let pathname = path.resolve(dist, obj.url.replace(/^\//, '').replace(/\.html$/, '') + '.html')
                 await fs.ensureDir(path.dirname(pathname))
                 await fs.writeFile(pathname, obj.html, 'utf-8')
@@ -91,7 +91,9 @@ module.exports = class Static {
                     await fs.writeFile(indexpath, info.html, 'utf-8')
                   }
                 }
-            })
+            }))
+
+            let menuInfo = await app.getMenuByUrl('/codelabs')
 
             // 静态化首页
             var html = renderer.render('layout-index', {
@@ -109,7 +111,23 @@ module.exports = class Static {
               development: process.env.NODE_ENV === 'development'
             })
 
-            await fs.writeFile(path.resolve(dist, 'index.html'), html, 'utf-8');
+            // codelab 首页
+            var htmlCodelab = renderer.render('layout-codelab', {
+              title: 'MIP2 官网',
+              description: 'MIP2 官网',
+              keywords: 'Codelab',
+              originUrl: '',
+              host: 'https://mip-project.github.io',
+              navbar: navbar,
+              css: css,
+              menu: menuInfo,
+              chapters: {},
+              url: '/codelabs/index.html',
+              navIndex: 3
+            })
+
+            await fs.writeFile(path.resolve(dist, 'index.html'), html, 'utf-8')
+            await fs.writeFile(path.resolve(dist, 'codelabs/index.html'), htmlCodelab, 'utf-8')
 
         }, 999999);
     }

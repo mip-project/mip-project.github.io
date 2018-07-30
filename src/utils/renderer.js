@@ -22,6 +22,7 @@ const tplList = [
   'layout-index.tpl',
   'layout-doc.tpl',
   'layout-codelab.tpl',
+  'layout-codelab-detail.tpl',
   'markdown-breadcrumb.tpl',
   'markdown-toolbar.tpl',
   'markdown-paginator.tpl'

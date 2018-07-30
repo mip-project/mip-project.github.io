@@ -1,0 +1,54 @@
+{
+  "status": 0,
+  "data": {
+    "name": "get-started",
+    "path": "codelab/get-started",
+    "children": [{
+      "name": "概述",
+      "path": "codelab/get-started/introduction.md",
+      "url": "/codelab/get-started/introduction"
+    }, {
+      "name": "准备环境",
+      "path": "codelab/get-started/prepare.md",
+      "url": "/codelab/get-started/prepare"
+    }, {
+      "name": "查看主页",
+      "path": "codelab/get-started/homepage.md",
+      "url": "/codelab/get-started/homepage"
+    }, {
+      "name": "创建新页面和链接",
+      "path": "codelab/get-started/new-page-and-link.md",
+      "url": "/codelab/get-started/new-page-and-link"
+    }, {
+      "name": "发送请求",
+      "path": "codelab/get-started/request.md",
+      "url": "/codelab/get-started/request"
+    }, {
+      "name": "代理 API 请求",
+      "path": "codelab/get-started/proxy-table.md",
+      "url": "/codelab/get-started/proxy-table"
+    }, {
+      "name": "使用 Vuex 管理数据",
+      "path": "codelab/get-started/vuex.md",
+      "url": "/codelab/get-started/vuex"
+    }, {
+      "name": "配置 Manifest",
+      "path": "codelab/get-started/manifest.md",
+      "url": "/codelab/get-started/manifest"
+    }, {
+      "name": "配置 Service Worker",
+      "path": "codelab/get-started/service-worker.md",
+      "url": "/codelab/get-started/service-worker"
+    }, {
+      "name": "构建代码和上线",
+      "path": "codelab/get-started/build-start.md",
+      "url": "/codelab/get-started/build-start"
+    }],
+    "info": {
+      "name": "开发第一个 Lavas 应用",
+      "description": "对于没有使用过 Lavas 的开发者，如何使用 Lavas 2.0 版本开发第一个 Lavas PWA 应用，包含 manifest, Service Worker等 PWA 相关的功能。",
+      "tag": ["Lavas 2.0", "起步教程"],
+      "duration": "2小时"
+    }
+  }
+}

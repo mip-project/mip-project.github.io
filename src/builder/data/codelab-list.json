@@ -1,0 +1,104 @@
+{
+    "status": 0,
+    "data": [{
+        "name": "get-started",
+        "path": "codelab/get-started",
+        "url": "/codelab/get-started",
+        "info": {
+            "name": "开发第一个 Lavas 应用",
+            "description": "对于没有使用过 Lavas 的开发者，如何使用 Lavas 2.0 版本开发第一个 Lavas PWA 应用，包含 manifest, Service Worker等 PWA 相关的功能。 manifest, Service Worker等 PWA 相关的功能。r等 PWA 相关的功能",
+            "tag": ["Lavas 2.0", "起步教程"],
+            "duration": "2小时"
+        }
+    }, {
+        "name": "1-to-2",
+        "path": "codelab/1-to-2",
+        "url": "/codelab/1-to-2",
+        "info": {
+            "name": "从 Lavas 1.0 迁移到 Lavas 2.0",
+            "description": "对于已经采用 Lavas 1.0 版本开发的应用，如何迁移到 Lavas 2.0 版本",
+            "tag": ["Lavas 1.0", "Lavas 2.0"],
+            "duration": "1小时"
+        }
+    }, {
+        "name": "middleware",
+        "path": "codelab/middleware",
+        "url": "/codelab/middleware",
+        "info": {
+            "name": "Middleware 开发和使用",
+            "description": "本示例功能是基于 Lavas 2.0 初始化项目，添加一个用户登录验证的全局中间件，结合文档教程可以快速掌握中间件的开发和使用。",
+            "tag": ["Lavas 2.0", "middleware"],
+            "duration": "30分钟"
+        }
+    }, {
+        "name": "koa",
+        "path": "codelab/koa",
+        "url": "/codelab/koa",
+        "info": {
+            "name": "使用 Koa 作为服务器",
+            "description": "本示例功能基于 Lavas 2.0 初始化项目，将演示如何使用 Koa 作为服务器。",
+            "tag": ["Lavas 2.0", "Koa"],
+            "duration": "10分钟"
+        }
+    }, {
+        "name": "appshell",
+        "path": "codelab/appshell",
+        "url": "/codelab/appshell",
+        "info": {
+            "name": "Lavas 的 Skeleton 和 App Shell",
+            "description": "本示例为不同渲染模式的 Lavas 应用配置 Skeleton 或 App Shell，使其具有更顺滑的加载体验",
+            "tag": ["Lavas 2.0", "Service Worker", "Skeleton", "App Shell"],
+            "duration": "30分钟"
+        }
+    }, {
+        "name": "vuetify",
+        "path": "codelab/vuetify",
+        "url": "/codelab/vuetify",
+        "info": {
+            "name": "实现 Vuetify 组件的按需加载",
+            "description": "本示例功能基于 Lavas 2.0 AppShell 模版项目，将演示如何添加 Babel 插件，实现 Vuetify 组件的按需加载特性。",
+            "tag": ["Lavas 2.0", "Babel plugin", "Vuetify"],
+            "duration": "20分钟"
+        }
+    }, {
+        "name": "core-api",
+        "path": "codelab/core-api",
+        "url": "/codelab/core-api",
+        "info": {
+            "name": "以编程方式使用 Lavas",
+            "description": "本示例功能基于 Lavas 2.0 Basic 模版项目，将演示如何以编程方式使用 Lavas。",
+            "tag": ["Lavas 2.0", "SSR"],
+            "duration": "20分钟"
+        }
+    }, {
+        "name": "svg-loader",
+        "path": "codelab/svg-loader",
+        "url": "/codelab/svg-loader",
+        "info": {
+            "name": "使用 vue-awesome 引入自定义 SVG 图标",
+            "description": "本示例功能基于 Lavas 2.0 Basic 模版项目，将演示如何编写一个简单的 Webpack Loader，实现自定义 SVG 图标的引入。",
+            "tag": ["Lavas 2.0", "Webpack Loader", "SVG Icon"],
+            "duration": "30分钟"
+        }
+    }, {
+        "name": "multi-skeleton",
+        "path": "codelab/multi-skeleton",
+        "url": "/codelab/multi-skeleton",
+        "info": {
+            "name": "SPA 中使用多个 Skeleton",
+            "description": "本示例功能基于 Lavas 2.0 Basic 模版项目，将演示如何在 SPA 中使用多个 Skeleton。",
+            "tag": ["Lavas 2.0", "Skeleton"],
+            "duration": "10分钟"
+        }
+    }, {
+        "name": "eslint",
+        "path": "codelab/eslint",
+        "url": "/codelab/eslint",
+        "info": {
+            "name": "使用 ESLint 增加代码检查",
+            "description": "本示例功能基于 Lavas 2.0 Basic 模版项目，将演示如何在 Lavas 中使用代码检查工具。",
+            "tag": ["Lavas 2.0", "ESLint"],
+            "duration": "5分钟"
+        }
+    }]
+}

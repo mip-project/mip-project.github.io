@@ -37,7 +37,7 @@ const navbar = [
       },
       {
         "name": "Codelab",
-        "url": "/codelab/index.html",
+        "url": "/codelabs/index.html",
         "width": 60
       }
     ]
@@ -124,8 +124,19 @@ module.exports = class Layout {
             //     chapters,
             //     level: 0
             // });
+            //
 
-            let newhtml = renderer.render('layout-doc', {
+            // codelabMenu
+            let codelabMenu = menuInfo.find(item => {
+              let targetPath = 'docs' + url.slice(0, url.lastIndexOf('/'))
+              return item.path === targetPath
+            })
+
+            let layoutName = url.indexOf('/codelabs') !== 0
+              ? 'layout-doc'
+              : 'layout-codelab-detail'
+
+            let newhtml = renderer.render(layoutName, {
               title: info.title || 'MIP2 官网',
               description: info.description || '',
               keywords: 'MIP2',
@@ -135,6 +146,7 @@ module.exports = class Layout {
               content: html,
               css: css,
               menu: menuInfo,
+              codelabMenu: codelabMenu,
               chapters: chapters || {},
               breadcrumbs: info.breadcrumbs,
               url: url,
