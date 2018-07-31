@@ -83,10 +83,6 @@ renderFooter() {
   <a data-type="mip" href="https://github.com/mipengine/mip2/issues/new?title=反馈:docs/codelabs/customize-shell/add-function.md"><span><i class="iconfont icon-edit"></i> 反馈</span></a>
   <a data-type="mip" href="https://github.com/mipengine/mip2/edit/master/docs/codelabs/customize-shell/add-function.md"><span><i class="iconfont icon-edit"></i>编辑</span></a>
 
-  <a data-type="mip" href="#"><span><i class="iconfont icon-Like"></i>123</span></a>
-
-  <a data-type="mip" href="#"><span><i class="iconfont icon-unlike-fill"></i>3</span></a>
-
 
 </div>
 <div class="markdown-paginator">
@@ -163,10 +159,6 @@ renderFooter() {
 }</code></pre><p>这里给整个底部都绑定了点击事件，因此可以直接使用 <code>addEventListener</code>。如果在实际情况中，要给按钮绑定时，需要使用 <strong>事件代理</strong>，因为每次切换页面，底部栏是会重新渲染的，因此直接使用 <code>button.addEventListener</code> 将会失效。</p><h2 id="添加样式"><a href="#添加样式" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>添加样式</h2><p>由于有涉及创建底部栏的工作，势必需要定义底部栏的样式。这里我们就需要引入额外的样式文件。和开发自定义组件一样，只要在 js 文件的头部应用样式文件即可，如下：</p><pre><div class="code-index"><div>1</div></div><code class="lang-javascript"><span class="hljs-keyword">import</span> <span class="hljs-string">'./mip-shell-example.less'</span></code></pre>
     </div>
 <div class="markdown-toolbar">
-
-  <a data-type="mip" href="#"><span><i class="iconfont icon-Like"></i>123</span></a>
-
-  <a data-type="mip" href="#"><span><i class="iconfont icon-unlike-fill"></i>3</span></a>
 
 
 </div>
