@@ -2,7 +2,7 @@
 
 {{ block: content }}
 <!-- lab-item 标题和文案的溢出省略 -->
-<div id="codelab-list-wrapper">
+<div class="codelab-list-wrapper">
 
   <div class="codelab-list-head">
     <div class="head-text">

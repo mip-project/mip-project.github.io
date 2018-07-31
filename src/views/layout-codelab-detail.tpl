@@ -13,7 +13,6 @@
     </div>
   </div>
   {{ /if }}
-
   <div class="step-content-main">
     <mip-stepper-tabs
         m-bind:menu-steps="codelabMenu"
@@ -21,14 +20,14 @@
       >
     </mip-stepper-tabs>
 
-    <div class="step-content-wrapper">
+    <div class="step-content-wrapper layout-main-content">
       <div class="step-content-list">
-          <div class="content-item show">
-            <div class="markdown-body">
-              ${content|raw}
-            </div>
+          <div class="content-item show markdown-body">
+            ${content|raw}
           </div>
       </div>
+      {{ use:markdown-toolbar(editLink = ${editLink}, feedbackLink=${feedbackLink}) }}
+      {{ use:markdown-paginator(last = ${last}, next = ${next}) }}
     </div>
   </div>
 
