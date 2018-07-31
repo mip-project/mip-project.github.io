@@ -20,7 +20,7 @@
       >
     </mip-stepper-tabs>
 
-    <div class="step-content-wrapper layout-main-content">
+    <div class="step-content-wrapper">
       <div class="step-content-list">
           <div class="content-item show markdown-body">
             ${content|raw}
