@@ -1,7 +1,7 @@
 {{ target: layout-navbar }}
 <mip-fixed type="top" class="layout-navbar-fixed">
   <div class="layout-navbar">
-    <div class="navbar-logo"></div>
+    <a data-type="mip" href="/"><div class="navbar-logo"></div></a>
     <div class="navbar-menu">
       <ul class="navbar-menu-wrapper">
       {{ for: ${navbar} as ${item}, ${index} }}

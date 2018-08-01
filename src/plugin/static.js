@@ -97,8 +97,8 @@ module.exports = class Static {
 
             // 静态化首页
             var html = renderer.render('layout-index', {
-              title: 'MIP2 官网',
-              description: 'MIP2 官网',
+              title: 'MIP官网_移动网页加速器_MIP(Mobile Instant Pages)',
+              description: 'MIP（Mobile Instant Pages - 移动网页加速器）是一套应用于移动网页的开放性技术标准，使用 MIP无需等待加载，页面内容将以更友好的方式瞬时到达用户。',
               keywords: 'MIP2',
               originUrl: '',
               host: 'https://mip-project.github.io',
@@ -113,8 +113,8 @@ module.exports = class Static {
 
             // codelab 首页
             var htmlCodelab = renderer.render('layout-codelab', {
-              title: 'MIP2 官网',
-              description: 'MIP2 官网',
+              title: 'MIP 文档_移动网页加速器_MIP(Mobile Instant Pages) | CODELAB',
+              description: '我们在 Codelab 中提供了一系列基于 MIP 的编程小项目，内容包括项目起步、配置教学、功能实现等等',
               keywords: 'Codelab',
               originUrl: '',
               host: 'https://mip-project.github.io',

@@ -166,7 +166,7 @@ module.exports = class Layout {
 
 
             let newhtml = renderer.render(layoutName, {
-              title: info.title || 'MIP2 官网',
+              title: 'MIP 文档_移动网页加速器_MIP(Mobile Instant Pages_)' + (info.title || ''),
               description: info.description || '',
               keywords: 'MIP2',
               originUrl: '',
