@@ -6,7 +6,7 @@
 
 
 // 手机截图需要尺寸限制，需要将图片链接添加在此处，max-width: 400px
-const processList = [
+const processList_400 = [
   'http://bos.nj.bpc.baidu.com/assets/mip/codelab/home-init.png',
   'http://boscdn.bpc.baidu.com/assets/mip/codelab/shell/use-shell.png',
   'http://boscdn.bpc.baidu.com/assets/mip/codelab/shell/transition-forward.png',
@@ -18,6 +18,12 @@ const processList = [
   'http://boscdn.bpc.baidu.com/assets/mip2/page/bottom-shell-2.png',
   'https://mip-project.github.io/assets/img/docs/codelabs/global-data/images/city-selector.png'
 ]
+
+// max-width: 800px
+const processList_800 = [
+  'http://bos.nj.bpc.baidu.com/assets/mip/codelab/project.jpg'
+]
+
 
 
 /**
@@ -32,17 +38,16 @@ function processMipImgStyle(src, width, height) {
   let layout = 'responsive'
   let addClass = ''
 
-  if (processList.includes(src)) {
-
-    if (width <= 320) {
-      layout = 'fixed'
-    }
-    else {
-      // common.style 中限制了图片的宽度为400px, 一般是针对手机截图做的处理
-      addClass = 'mip-layout-responsive-width'
-    }
-
-
+  if (width <= 320) {
+    layout = 'fixed'
+  }
+  else if (processList_400.includes(src)) {
+    // common.style 中限制了图片的宽度为400px, 一般是针对手机截图做的处理
+    addClass = 'mip-layout-responsive-width-400'
+  }
+  else if (processList_800.includes(src)) {
+    // common.style 中限制了图片的宽度为400px, 一般是针对手机截图做的处理
+    addClass = 'mip-layout-responsive-width-800'
   }
 
   return {
