@@ -7,6 +7,7 @@ const imageSize = require('../utils/image-size')
 const path = require('path')
 const fs = require('fs')
 const renderer = require('../utils/renderer')
+const migPageProcess = require('../utils/mip-img-process')
 
 const css = fs.readFileSync(path.resolve(__dirname, '../builder/dist/index.css'))
 
@@ -249,20 +250,14 @@ async function image(html, app) {
           src = `${host}/${src}`
         }
 
-        let layout
-
-        if (width <= 320) {
-          layout = 'fixed'
-        } else {
-          layout = 'responsive'
-        }
+        let {layout, addClass} = migPageProcess.processMipImgStyle(src, width, height)
 
         /* eslint-disable max-len */
         if (/\.gif($|\?|#)/.test(src)) {
             return `<mip-anim layout="${layout}" width="${width}" height="${height}" src="${src}"></mip-anim>`;
         }
 
-        return `<mip-img layout="${layout}" width="${width}" height="${height}" src="${src}"></mip-img>`;
+        return `<mip-img class="${addClass}" layout="${layout}" width="${width}" height="${height}" src="${src}"></mip-img>`;
         /* eslint-enable max-len */
     });
 }
