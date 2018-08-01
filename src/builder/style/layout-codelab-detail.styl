@@ -3,7 +3,7 @@
   .step-head {
     width: 100%;
     background: #f8f8f8;
-    padding: 60px 25px 40px;
+    padding: 60px 100px 40px;
     box-sizing: border-box;
     .step-head-inner {
       // max-width: 1040px;
@@ -76,13 +76,27 @@
 
 }
 
+@media screen and (max-width: 992px) {
+  .step-tabs-wrapper {
+    .step-content-main {
+      .step-content-wrapper {
+        margin-left: 275px;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 767px) {
   .step-tabs-wrapper {
     .step-head {
-      padding: 40px 20px 30px;
+      padding: 40px 25px 30px;
     }
     .step-content-main {
       padding: 20px 0;
+      .step-content-menu {
+        display: none;
+      }
+
       .step-content-wrapper {
         margin: 0 25px 40px;
       }
