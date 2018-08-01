@@ -51,10 +51,24 @@ const navbar = [
     "name": "常用链接",
     "children": [
       {
-        "name": "MIP 官方博客"
+        "name": "MIP 官方博客",
+        "url": "http://www.cnblogs.com/mipengine"
       },
       {
-        "name": "MIP 代码校验工具"
+        "name": "MIP-CLI 本地开发工具",
+        "url": "https://github.com/mipengine/mip2/tree/master/packages/mip-cli"
+      },
+      {
+        "name": "MIP 代码校验工具",
+        "url": "https://www.mipengine.org/validator/validate"
+      },
+      {
+        "name": "MIP 效果预览工具",
+        "url": "https://www.mipengine.org/validator/preview"
+      },
+      {
+        "name": "MIP PATH 转换工具",
+        "url": "https://www.mipengine.org/mippath.html"
       }
     ],
     "width": 82
@@ -114,6 +128,21 @@ module.exports = class Layout {
               console.log('-------------------------')
             }
 
+            let breadcrumbs
+
+            try {
+              breadcrumbs = getBreadcrumbs(path, menuInfo)
+              if (!breadcrumbs.length) {
+                breadcrumbs = undefined
+              }
+
+              // console.log(breadcrumbs.map(i => i.name).join(','))
+            } catch (e) {
+              console.log('==== get breadcrumbs error =====')
+              console.log(path)
+              console.log(e)
+              console.log('-------------------------')
+            }
 
             // let menuHtml = menuInfo && engine.render('infinity-menu', {
             //     menu: menuInfo,
@@ -148,14 +177,15 @@ module.exports = class Layout {
               menu: menuInfo,
               codelabMenu: codelabMenu,
               chapters: chapters || {},
-              breadcrumbs: info.breadcrumbs,
+              // breadcrumbs: info.breadcrumbs,
               url: url,
               navIndex: url.indexOf('/guide') === 0
                 ? 1
                 : url.indexOf('/components') === 0 ? 2 : 0,
               development: process.env.NODE_ENV === 'development',
               last: last,
-              next: next
+              next: next,
+              breadcrumbs: breadcrumbs || []
               // menu: menuHtml || '',
               // chapters: chapterHtml || '',
               // baseStyle: markdownCss,
@@ -450,6 +480,28 @@ function getIndex(path, list) {
     return -1;
 }
 
+function getBreadcrumbs (path, menu) {
+  return path.split('/').map((str, i, arr) => arr.slice(0, i + 1).join('/'))
+    .reduce((obj, key) => {
+      let menu = obj.menu
 
+      let list
+      if (Array.isArray(menu)) {
+        list = menu
+      } else if (menu.children) {
+        list = menu.children
+      }
+
+      let item = getItem(key, list)
+
+      if (item) {
+        obj.list.push(item)
+        obj.menu = item.children
+      }
+
+      return obj
+
+    }, {list: [], menu: menu}).list
+}
 
 

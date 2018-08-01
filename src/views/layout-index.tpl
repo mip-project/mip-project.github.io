@@ -104,4 +104,14 @@
         <p>@2018 mipengine</p>
     </section>
 </div>
+
+<mip-data>
+  <script type="application/json">
+    {
+      "navbar": ${*navbar|json},
+      "sidebarFragment": "nav",
+      "sidebarSecondFragment": "nav"
+    }
+  </script>
+</mip-data>
 {{ /block }}

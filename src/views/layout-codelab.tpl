@@ -29,16 +29,18 @@
       {{ /for }}
     </div>
   </div>
-
-  <mip-data>
-    <script type="application/json">
-      {
-        "codelabStepSelected": "${url}",
-        "menu": ${*menu|json}
-      }
-    </script>
-  </mip-dat
-
 </div>
+
+<mip-data>
+  <script type="application/json">
+    {
+      "navbar": ${*navbar|json},
+      "sidebarFragment": "nav",
+      "sidebarSecondFragment": "nav",
+      "codelabStepSelected": "${url}",
+      "menu": ${*menu|json}
+    }
+  </script>
+</mip-data>
 
 {{ /block }}

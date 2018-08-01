@@ -6,7 +6,7 @@
 .layout-navbar
   background #fff
   box-shadow 0 2px 4px rgba(0, 0, 0, .04)
-  height 64px
+  height 60px
   padding 0 100px
 
   @media screen and (max-width: 992px)
@@ -23,7 +23,7 @@
 
   .navbar-menu
     float right
-    height 64px
+    height 60px
     list-style none
     position relative
     font-size 0
@@ -45,9 +45,9 @@
     position relative
     margin 0 25px
     font-size 16px
-    line-height 64px
+    line-height 60px
     a
-      line-height 64px
+      line-height 60px
       display inline-block
 
     &:first-child
@@ -59,7 +59,7 @@
       margin 0 15px
 
     .menu-name
-      color #5a5b5c
+      color #555
       font-size 16px
       .arrow
         width 0
@@ -78,7 +78,7 @@
     @media screen and (min-width: 768px)
       &:hover
         .menu-name
-          color #24292e
+          color #000
           .arrow
             transform translateY(-25%) rotate(180deg)
         .navbar-sub-menu
@@ -92,7 +92,7 @@
       position absolute
       background #fff
       list-style none
-      top 60px
+      top 58px
       left -30px
       box-shadow 0 5px 20px rgba(0, 0, 0, .1)
       display none
@@ -124,6 +124,48 @@
       // height 100px
 
 
+.nav-sidebar
+  z-index 40100 !important
+  width 70%
+  box-sizing border-box
+  padding 25px
+  background #fff
+  h1
+    font-size 24px
+    margin-bottom 40px
+    user-select none
 
+  .sidebar-nav-wrapper
+    ul
+      list-style none
+      font-size 16px
+      line-height 2
+    a,
+    span
+      display block
+      margin-bottom 20px
+
+    span
+      color #000
+
+    .menu-name
+      color #000
+      font-weight 600
+    .navbar-sub-item
+      a
+        color #555
+        font-weight 500
+
+  .sidenav-wrapper
+    margin-left -10px
+    .wd-infinity-menu
+      .l-0
+        &:first-child
+          padding-top 0
+          .folder
+            padding-top 0
+
+.MIP-SIDEBAR-MASK
+  z-index 40000 !important
 
 

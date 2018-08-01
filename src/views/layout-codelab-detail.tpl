@@ -31,16 +31,19 @@
       </div>
     </div>
   </div>
-
-  <mip-data>
-    <script type="application/json">
-      {
-        "codelabMenu": ${*codelabMenu|json},
-        "codelabStepSelected": "${url}",
-      }
-    </script>
-  </mip-data>
 </div>
+
+<mip-data>
+  <script type="application/json">
+    {
+      "navbar": ${*navbar|json},
+      "sidebarFragment": "nav",
+      "sidebarSecondFragment": "codelabs",
+      "codelabMenu": ${*codelabMenu|json},
+      "codelabStepSelected": "${url}"
+    }
+  </script>
+</mip-data>
 
 <!-- <div class="layout-main-content"> -->
 <!--   <div class="content-wrapper">
@@ -54,3 +57,16 @@
 <!-- </div> -->
 
 {{ /block }}
+
+{{ block: sidebar }}
+<div class="navbar-menu-wrapper"
+  m-bind:class="{hide:sidebarFragment!=='codelabs'}"
+>
+  <h1 on="tap:MIP.setData({sidebarFragment:'nav'})">CODELABS</h1>
+  <mip-stepper-tabs
+    m-bind:menu-steps="codelabMenu"
+    m-bind:codelab-step-selected="codelabStepSelected"
+  ></mip-stepper-tabs>
+</div>
+{{ /block }}
+
