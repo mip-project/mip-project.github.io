@@ -10,7 +10,8 @@
     "dev": "node src/builder/index.js",
     "watch:css": "webpack --config src/builder/webpack.config.js --watch",
     "dev:css": "NODE_ENV=development npm run build && npm run watch:css",
-    "clean": "rm -rf api codelabs guide components extensions img assets/img mip docs tmp index.html"
+    "clean": "rm -rf api codelabs guide components extensions img assets/img mip docs tmp index.html",
+    "server": "npm run build:css && npm run build && edp ws start"
   },
   "repository": {
     "type": "git",

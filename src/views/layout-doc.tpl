@@ -11,7 +11,7 @@
     <div class="markdown-body">
       ${content|raw}
     </div>
-    {{ use:markdown-toolbar() }}
+    {{ use:markdown-toolbar(editLink = ${editLink}, feedbackLink=${feedbackLink}) }}
     {{ use:markdown-paginator(last = ${last}, next = ${next}) }}
   </div>
 </div>
