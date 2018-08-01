@@ -123,7 +123,8 @@ module.exports = class Static {
               menu: menuInfo,
               chapters: {},
               url: '/codelabs/index.html',
-              navIndex: 3
+              navIndex: 3,
+              development: process.env.NODE_ENV === 'development'
             })
 
             await fs.writeFile(path.resolve(dist, 'index.html'), html, 'utf-8')
