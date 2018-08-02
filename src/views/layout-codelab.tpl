@@ -14,7 +14,7 @@
   <div class="codelab-list-main">
     <div class="main-inner-wrapper">
       {{ for: ${menu} as ${item} }}
-      <a data-type="mip" data-title="目标页面标题" href="${item.children[0].url}" class="lab-item">
+      <a data-type="mip" data-title="目标页面标题" href="${item.children[0].url}">
         <div class="lab-item">
           <div class="codelab-name-wrapper">
             <div class="codelab-name">${item.info.name}</div>
