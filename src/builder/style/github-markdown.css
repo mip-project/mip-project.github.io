@@ -7,7 +7,7 @@
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   /*line-height: 1.5;*/
-  color: #24292e;
+  color: #333;
   /*font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";*/
   font-family: "PingFang SC", Helvetica, 'Helvetica Neue', "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", Arial, sans-serif;
   font-size: 16px;
@@ -435,8 +435,8 @@
 
 .markdown-body blockquote {
   padding: 0 1em;
-  color: #6a737d;
-  border-left: 0.25em solid #dfe2e5;
+  color: #555;
+  border-left: 0.25em solid #f8f8f8;
 }
 
 .markdown-body blockquote>:first-child {
@@ -471,6 +471,7 @@
   margin-bottom: 22px;
   font-weight: 400;
   line-height: 1.25;
+  color: #000;
 }
 
 .markdown-body h1 .octicon-link,
@@ -479,7 +480,7 @@
 .markdown-body h4 .octicon-link,
 .markdown-body h5 .octicon-link,
 .markdown-body h6 .octicon-link {
-  color: #1b1f23;
+  color: #000;
   vertical-align: middle;
   visibility: hidden;
 }
@@ -581,29 +582,45 @@
 }
 
 .markdown-body table {
-  display: block;
+  /*display: block;*/
   width: 100%;
   overflow: auto;
-}
-
-.markdown-body table th {
-  font-weight: 600;
+  border: none;
 }
 
 .markdown-body table th,
 .markdown-body table td {
-  padding: 6px 13px;
-  border: 1px solid #dfe2e5;
+  text-align: left;
+  min-width: 95px;
+}
+
+.markdown-body table th {
+  font-weight: 400;
+  background: #f8f8f8;
+  padding: 9px 5px 9px 15px;
+}
+
+.markdown-body table td {
+  padding: 15px 5px 15px 15px;
+  word-break: break-all;
 }
 
 .markdown-body table tr {
   background-color: #fff;
-  border-top: 1px solid #c6cbd1;
+  border-bottom: 1px solid #eee;
 }
 
-.markdown-body table tr:nth-child(2n) {
-  background-color: #f6f8fa;
+.markdown-body thead tr {
+  border: none;
 }
+
+.markdown-body tbody tr:hover {
+  background: #f8f8f8;
+}
+
+/*.markdown-body table tr:nth-child(2n) {
+  background-color: #f6f8fa;
+}*/
 
 .markdown-body img {
   max-width: 100%;
@@ -647,7 +664,7 @@
   overflow: auto;
   font-size: 85%;
   line-height: 1.5;
-  background-color: rgba(0, 0, 0, .04);
+  background-color: #f8f8f8;
   border-radius: 3px;
 }
 
