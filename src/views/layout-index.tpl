@@ -43,13 +43,13 @@
                     <div>
                         <h2>丰富灵活的内置组件</h2>
                         <p>MIP提供实用、强大的基础组件<br/>开发者可以根据需求任意选择</p>
-                        <a class="mip-advan-section-button" data-type="mip" href="#">查看详情</a>
+                        <a class="mip-advan-section-button" data-type="mip" href="#">查看详情<i class="arrow"></i></a>
                         <div class="mip-advan-section-img advan-1"></div>
                     </div>
                     <div>
                         <h2>开放的接入技术</h2>
                         <p>MIP是一项永久的开源计划<br/>提供持续优化的解决方案</p>
-                        <a class="mip-advan-section-button" data-type="mip" href="#">查看详情</a>
+                        <a class="mip-advan-section-button" data-type="mip" href="#">查看详情<i class="arrow"></i></a>
                         <div class="mip-advan-section-img advan-2"></div>
                     </div>
                 </div>
@@ -57,13 +57,13 @@
                     <div>
                         <h2>更好的整站体验</h2>
                         <p>更流畅的页面切换体验<br/>天然的站点离线缓存支持</p>
-                        <a class="mip-advan-section-button" data-type="mip" href="#">查看详情</a>
+                        <a class="mip-advan-section-button" data-type="mip" href="#">查看详情<i class="arrow"></i></a>
                         <div class="mip-advan-section-img advan-3"></div>
                     </div>
                     <div>
                         <h2>简单便捷的开发规范</h2>
                         <p>提供MVVM机制降低组件开发难度<br/>提供更为简单高效的组件互动方式</p>
-                        <a class="mip-advan-section-button" data-type="mip" href="#">查看详情</a>
+                        <a class="mip-advan-section-button" data-type="mip" href="#">查看详情<i class="arrow"></i></a>
                         <div class="mip-advan-section-img advan-4"></div>
                     </div>
                 </div>
@@ -72,33 +72,49 @@
     </section>
     <section class="footer-section">
         <div class="container">
-            <div>
-                <h2>使用文档</h2>
-                <a data-type="mip" href="#">简介</a>
-                <a data-type="mip" href="#">开发规范</a>
-                <a data-type="mip" href="#">组件说明</a>
-                <a data-type="mip" href="#">工具接口</a>
+            <div class="pc">
+                <div>
+                    <h2>使用文档</h2>
+                    <a data-type="mip" href="#">简介</a>
+                    <a data-type="mip" href="#">开发规范</a>
+                    <a data-type="mip" href="#">组件说明</a>
+                    <a data-type="mip" href="#">工具接口</a>
+                    <a data-type="mip" href="#">帮助中心</a>
+                    <a data-type="mip" href="#">成功案例</a>
+                </div>
+                <div>
+                    <h2>组件列表</h2>
+                    <a data-type="mip" href="#">内置组件</a>
+                    <a data-type="mip" href="#">个性化组件</a>
+                    <a data-type="mip" href="#">广告组件</a>
+                </div>
+                <div>
+                    <h2>常用链接</h2>
+                    <a data-type="mip" href="#">MIP 官方博客</a>
+                    <a data-type="mip" href="#">MIP-CLI 本地开发工具</a>
+                    <a data-type="mip" href="#">MIP 升级动态</a>
+                    <a data-type="mip" href="#">MIP 代码校验工具</a>
+                    <a data-type="mip" href="#">MIP 效果预览工具</a>
+                    <a data-type="mip" href="#">MIP 组件审核平台</a>
+                </div>
+                <div>
+                    <h2>联系我们</h2>
+                    <a data-type="mip" href="#">Github</a>
+                    <a data-type="mip" href="#">mipengine@baidu.com</a>
+                    <a data-type="mip" href="#" class="qr-code"></a>
+                    <a data-type="mip" href="#">扫码加入 QQ 群</a>
+                </div>
             </div>
-            <div>
-                <h2>使用文档</h2>
-                <a data-type="mip" href="#">简介</a>
-                <a data-type="mip" href="#">开发规范</a>
-                <a data-type="mip" href="#">组件说明</a>
-                <a data-type="mip" href="#">工具接口</a>
-            </div>
-            <div>
-                <h2>使用文档</h2>
-                <a data-type="mip" href="#">简介</a>
-                <a data-type="mip" href="#">开发规范</a>
-                <a data-type="mip" href="#">组件说明</a>
-                <a data-type="mip" href="#">工具接口</a>
-            </div>
-            <div>
-                <h2>使用文档</h2>
-                <a data-type="mip" href="#">简介</a>
-                <a data-type="mip" href="#">开发规范</a>
-                <a data-type="mip" href="#">组件说明</a>
-                <a data-type="mip" href="#">工具接口</a>
+            <div class="mobile">
+                <div>
+                    <a data-type="mip" href="#" class="qr-code"></a>
+                    <a data-type="mip" href="#">扫码加入 QQ 群</a>
+                    <div class="mobile-contact">
+                        联系我们:
+                        <a data-type="mip" href="#">Github</a>
+                        <a data-type="mip" href="#">mipengine@baidu.com</a>
+                    </div>
+                </div>
             </div>
         </div>
         <p>@2018 mipengine</p>

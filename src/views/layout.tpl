@@ -3,7 +3,7 @@
 <html mip>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
     <title>MIP page</title>
     <link rel="canonical" href="对应的原页面地址">
     <link rel="stylesheet" type="text/css" href="https://c.mipcdn.com/static/v2/mip.css">
