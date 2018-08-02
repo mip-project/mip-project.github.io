@@ -25,12 +25,12 @@
 
     <div class="step-content-wrapper">
       <div class="step-content-list">
-          <div class="content-item show markdown-body">
-            ${content|raw}
-          </div>
+        <div class="content-item show markdown-body">
+          ${content|raw}
+        </div>
+        {{ use:markdown-toolbar(editLink = ${editLink}, feedbackLink=${feedbackLink}) }}
+        {{ use:markdown-paginator(last = ${last}, next = ${next}) }}
       </div>
-      {{ use:markdown-toolbar(editLink = ${editLink}, feedbackLink=${feedbackLink}) }}
-      {{ use:markdown-paginator(last = ${last}, next = ${next}) }}
     </div>
   </div>
 </div>
