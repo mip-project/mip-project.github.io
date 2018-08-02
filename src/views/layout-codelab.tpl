@@ -7,7 +7,7 @@
   <div class="codelab-list-head">
     <div class="head-text">
       <span class="welcom">欢迎来到 Codelab ！</span>
-      <p>我们在 Codelab 中提供了一系列基于 Lavas 的编程小项目，内容包括项目起步、配置教学、功能实现等等</p>
+      <p>我们在 Codelab 中提供了一系列基于 MIP 的编程小项目，内容包括项目起步、配置教学、功能实现等等</p>
     </div>
   </div>
 
