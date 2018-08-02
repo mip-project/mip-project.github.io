@@ -1,16 +1,16 @@
 {{ target: markdown-paginator }}
 <div class="markdown-paginator">
 
-  <div class="markdown-paginator-item">
+  <div class="markdown-paginator-item" data-type="mip" href="${last.url}">
     {{ if: ${last} != null }}
-    <p>上一页</p>
-    <a data-type="mip" href="${last.url}">${last.name}</a>
+    <p class="label">上一页</p>
+    <p class="title">${last.name}</p>
     {{ /if }}
   </div>
-  <div class="markdown-paginator-item">
+  <a class="markdown-paginator-item" data-type="mip" href="${next.url}">
     {{ if: ${next} != null }}
-    <p>下一页</p>
-    <a data-type="mip" href="${next.url}">${next.name}</a>
+    <p class="label">下一页</p>
+    <p class="title">${next.name}</p>
     {{ /if }}
-  </div>
+  </a>
 </div>

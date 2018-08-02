@@ -14,11 +14,14 @@
   </div>
   {{ /if }}
   <div class="step-content-main">
-    <mip-stepper-tabs
+    <div class="step-content-menu">
+      <mip-stepper-tabs
         m-bind:menu-steps="codelabMenu"
         m-bind:codelab-step-selected="codelabStepSelected"
       >
-    </mip-stepper-tabs>
+      </mip-stepper-tabs>
+    </div>
+
 
     <div class="step-content-wrapper">
       <div class="step-content-list">

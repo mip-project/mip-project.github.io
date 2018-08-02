@@ -44,7 +44,7 @@
   .navbar-item
     display inline-block
     position relative
-    margin 0 25px
+    padding 0 25px
     font-size 16px
     line-height 60px
     a
@@ -67,7 +67,7 @@
         height 0
         display inline-block
         // verticals-align middle
-        border-width .3em
+        border-width .22em
         border-top-color #000
         border-bottom-color transparent
         border-right-color transparent
@@ -78,6 +78,7 @@
 
     @media screen and (min-width: 768px)
       &:hover
+        background #f2f3f5
         .menu-name
           color #000
           .arrow
@@ -94,7 +95,8 @@
       background #fff
       list-style none
       top 58px
-      left -30px
+      left 50%
+      transform translateX(-50%)
       box-shadow 0 5px 20px rgba(0, 0, 0, .1)
       display none
 

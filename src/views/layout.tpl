@@ -3,9 +3,16 @@
 <html mip>
   <head>
     <meta charset="utf-8">
+<<<<<<< HEAD
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
     <title>MIP page</title>
     <link rel="canonical" href="对应的原页面地址">
+=======
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <title>${title}</title>
+    <meta name="description" content="${description}">
+    <link rel="canonical" href="${host}${url}">
+>>>>>>> be3fa5a68e2985178755eb0e5c28b1e738e36185
     <link rel="stylesheet" type="text/css" href="https://c.mipcdn.com/static/v2/mip.css">
     <!-- <link rel="stylesheet" href="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.css"> -->
     <!-- <link rel="stylesheet" href="http://172.18.19.102:8080/dist/mip.css"> -->

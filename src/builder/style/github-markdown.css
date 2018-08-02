@@ -213,7 +213,7 @@
 }
 
 .markdown-body a {
-  color: #0366d6;
+  color: #3388ff;
   text-decoration: none;
 }
 
@@ -422,7 +422,7 @@
 .markdown-body table,
 .markdown-body pre {
   margin-top: 0;
-  margin-bottom: 22px;
+  margin-bottom: 10px;
 }
 
 .markdown-body hr {
@@ -551,12 +551,16 @@
   word-wrap: break-word;
 }
 
-.markdown-body li>p {
-  margin-top: 16px;
+.markdown-body li>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body li>:last-child {
+  margin-bottom: 0;
 }
 
 .markdown-body li+li {
-  margin-top: 22px;
+  margin-top: 10px;
 }
 
 .markdown-body dl {
@@ -619,7 +623,7 @@
   padding: 0.2em 0.4em;
   margin: 0;
   font-size: 85%;
-  background-color: rgba(27,31,35,0.05);
+  background-color: rgba(0, 0, 0, .04);
   border-radius: 3px;
 }
 
@@ -627,7 +631,7 @@
   word-wrap: normal;
 }
 
-.markdown-body .highlight {
+/*.markdown-body .highlight {
   margin-bottom: 16px;
 }
 
@@ -636,13 +640,14 @@
   word-break: normal;
 }
 
-.markdown-body .highlight pre,
+.markdown-body .highlight pre,*/
+
 .markdown-body pre {
   padding: 16px;
   overflow: auto;
   font-size: 85%;
   line-height: 1.5;
-  background-color: #f8f8f8;
+  background-color: rgba(0, 0, 0, .04);
   border-radius: 3px;
 }
 
