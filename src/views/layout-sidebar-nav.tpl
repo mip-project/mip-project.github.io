@@ -1,5 +1,5 @@
 {{ target: layout-sidebar-nav }}
-<div class="sidebar-nav-wrapper"
+<div class="sidebar-fragment sidebar-nav-wrapper"
   m-bind:class="{hide:sidebarFragment!=='nav'}"
 >
   <h1 on="tap:MIP.setData({sidebarFragment:m.sidebarSecondFragment})">目录</h1>
@@ -15,7 +15,7 @@
       </ul>
     </li>
     {{ else }}
-    <li class="navbar-item"><a data-type="mip" href="${item.url}" class="menu-name" on="tap:nav-sidebar.close">${item.name}</a></li>
+    <li class="navbar-item"><a data-type="mip" href="${item.url}" class="menu-name">${item.name}</a></li>
     {{ /if }}
   {{ /for }}
   </ul>

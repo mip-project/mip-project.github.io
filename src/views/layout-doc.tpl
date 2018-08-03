@@ -30,7 +30,7 @@
 {{ /block }}
 
 {{ block: sidebar }}
-<div class="navbar-menu-wrapper"
+<div class="sidebar-fragment navbar-menu-wrapper"
   m-bind:class="{hide:sidebarFragment!=='guide'}"
 >
   <h1 on="tap:MIP.setData({sidebarFragment:'nav'})">文档目录</h1>

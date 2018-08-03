@@ -4,8 +4,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
-    <title>MIP page</title>
-    <link rel="canonical" href="对应的原页面地址">
+    <title>${title}</title>
+    <meta name="description" content="${description}">
+    <link rel="canonical" href="${host}${url}">
     <link rel="stylesheet" type="text/css" href="https://c.mipcdn.com/static/v2/mip.css">
     <!-- <link rel="stylesheet" href="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.css"> -->
     <!-- <link rel="stylesheet" href="http://172.18.19.102:8080/dist/mip.css"> -->
@@ -38,7 +39,7 @@
     <!-- <script src="http://127.0.0.1:8111/mip-sidenav/mip-sidenav.js"></script> -->
     <script src="https://bos.nj.bpc.baidu.com/assets/mip/temp/mip-sidenav.js"></script>
     <script src="https://bos.nj.bpc.baidu.com/assets/mip/codelab/mip-stepper-tabs.js"></script>
-    <script src="https://c.mipcdn.com/static/v1/mip-fixed/mip-fixed.js"></script>
+    <!-- <script src="https://c.mipcdn.com/static/v1/mip-fixed/mip-fixed.js"></script> -->
     <script src="https://c.mipcdn.com/static/v1/mip-sidebar/mip-sidebar.js"></script>
   </body>
 </html>

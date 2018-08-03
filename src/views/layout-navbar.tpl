@@ -15,7 +15,7 @@
           </ul>
         </li>
         {{ else }}
-        <li class="navbar-item" on="tap:MIP.setData({navIndex:${index}})"><a data-type="mip" href="${item.url}" class="menu-name">${item.name}</a></li>
+        <li class="navbar-item"><a data-type="mip" href="${item.url}" class="menu-name">${item.name}</a></li>
         {{ /if }}
       {{ /for }}
       </ul>

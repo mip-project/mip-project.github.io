@@ -50,10 +50,24 @@ const navbar = [
     "name": "常用链接",
     "children": [
       {
-        "name": "MIP 官方博客"
+        "name": "MIP 官方博客",
+        "url": "http://www.cnblogs.com/mipengine"
       },
       {
-        "name": "MIP 代码校验工具"
+        "name": "MIP-CLI 本地开发工具",
+        "url": "https://github.com/mipengine/mip2/tree/master/packages/mip-cli"
+      },
+      {
+        "name": "MIP 代码校验工具",
+        "url": "https://www.mipengine.org/validator/validate"
+      },
+      {
+        "name": "MIP 效果预览工具",
+        "url": "https://www.mipengine.org/validator/preview"
+      },
+      {
+        "name": "MIP PATH 转换工具",
+        "url": "https://www.mipengine.org/mippath.html"
       }
     ],
     "width": 82
