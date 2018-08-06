@@ -7,7 +7,7 @@ const imageSize = require('../utils/image-size')
 const path = require('path')
 const fs = require('fs')
 const renderer = require('../utils/renderer')
-const migPageProcess = require('../utils/mip-img-process')
+// const migPageProcess = require('../utils/mip-img-process')
 
 const css = fs.readFileSync(path.resolve(__dirname, '../builder/dist/index.css'))
 
@@ -153,16 +153,17 @@ module.exports = class Layout {
             }
 
 
-            // let menuHtml = menuInfo && engine.render('infinity-menu', {
-            //     menu: menuInfo,
-            //     level: 0
-            // });
+            let secondNavbarTitle
 
-            // let chapterHtml = chapters && engine.render('infinity-chapters', {
-            //     chapters,
-            //     level: 0
-            // });
-            //
+            if (/\/guide\//.test(url)) {
+              secondNavbarTitle = '使用文档'
+            } else if (/\/components\//.test(url)) {
+              secondNavbarTitle = '组件列表'
+            } else if (/\/api\//.test(url)) {
+              secondNavbarTitle = 'API'
+            } else if (/\/codelabs\/(?!(index))/) {
+              secondNavbarTitle = codelabMenu ? codelabMenu.info.name : 'Codelabs'
+            }
 
 
             let newhtml = renderer.render(layoutName, {
@@ -184,7 +185,8 @@ module.exports = class Layout {
               next: next,
               breadcrumbs: breadcrumbs || [],
               editLink: editLink,
-              feedbackLink: feedbackLink
+              feedbackLink: feedbackLink,
+              secondNavbarTitle: secondNavbarTitle
               // menu: menuHtml || '',
               // chapters: chapterHtml || '',
               // baseStyle: markdownCss,
@@ -277,14 +279,41 @@ async function image(html, app) {
           src = `${host}/${src}`
         }
 
-        let {layout, addClass} = migPageProcess.processMipImgStyle(src, width, height)
+        let layout
+
+        if (width <= 320) {
+          layout = 'fixed'
+        } else {
+          layout = 'container'
+        }
+
+        // let {layout, addClass} = migPageProcess.processMipImgStyle(src, width, height)
 
         /* eslint-disable max-len */
         if (/\.gif($|\?|#)/.test(src)) {
-            return `<mip-anim layout="${layout}" width="${width}" height="${height}" src="${src}"></mip-anim>`;
+            return `
+            <mip-anim
+              layout="${layout}"
+              width="${width}"
+              height="${height}"
+              src="${src}"
+            ></mip-anim>
+            `;
         }
 
-        return `<mip-img class="${addClass}" layout="${layout}" width="${width}" height="${height}" src="${src}"></mip-img>`;
+        return `
+        <div class="md-img-wrapper">
+          <div class="md-img-wrapper-child">
+            <mip-img
+              layout="${layout}"
+              width="${width}"
+              height="${height}"
+              src="${src}"
+              popup
+            ></mip-img>
+          </div>
+        </div>
+        `;
         /* eslint-enable max-len */
     });
 }

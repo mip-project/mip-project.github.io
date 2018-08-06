@@ -78,6 +78,10 @@ Object.assign(compiler, {
         );
 
         return list;
+    },
+
+    getFileInfo(path) {
+      return compiler.module.file.fileInfo(path)
     }
 });
 

@@ -1,0 +1,53 @@
+
+            <!DOCTYPE html>
+            <html mip>
+            <head>
+              <meta charset="utf-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+              <title>测试</title>
+              <meta name="description" content="">
+              <link rel="canonical" href="">
+              <link rel="stylesheet" type="text/css" href="https://c.mipcdn.com/static/v2/mip.css">
+            </head>
+            <body>
+              <style>
+button {
+    background-color: black;
+    display: block;
+    margin:10px;
+    padding:20px;
+}
+body[mip-x-button-color=red] #btn01 {
+    background-color: red;
+}
+body[mip-x-button-color=grey] #btn01 {
+    background-color: #888888;
+}
+</style>
+<mip-experiment layout="nodisplay" class="mip-hidden">
+    <script type="application/json" for="mip-experiment">
+        {
+            "button-color6": {
+                "sticky": false,
+                "descri": "设置按钮背景色,红-灰-黑（默认）",
+                "variants": {
+                    "red": 30,
+                    "grey": 30
+                },
+                "baidu-stats": [
+                    ["window", "load"],
+                    ["#btn01", "click"，"2.23"]
+                ]
+            }
+        }
+    </script>
+    <p>设置按钮背景色,红（30%）-灰（30%）-黑（默认40%）</p>
+    <p>每次刷新重新分组</p>
+    <button id="btn01">修改背景色</button>
+</mip-experiment>
+<script src="https://c.mipcdn.com/static/v1/mip-stats-baidu/mip-stats-baidu.js"></script>
+
+              <script src="https://c.mipcdn.com/static/v2/mip.js"></script>
+              <script src="https://c.mipcdn.com/static/v1/mip-experiment/mip-experiment.js"></script>
+            </body>
+          

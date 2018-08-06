@@ -591,7 +591,25 @@
 .markdown-body table th,
 .markdown-body table td {
   text-align: left;
-  min-width: 95px;
+}
+
+@media screen and (max-width: 992px) {
+  .markdown-body table td {
+    min-width: 125px;
+    word-break: break-all;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .markdown-body table td {
+    min-width: 100px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .markdown-body table td {
+    min-width: 160px;
+  }
 }
 
 .markdown-body table th {
@@ -602,7 +620,6 @@
 
 .markdown-body table td {
   padding: 15px 5px 15px 15px;
-  word-break: break-all;
 }
 
 .markdown-body table tr {
@@ -666,6 +683,7 @@
   line-height: 1.5;
   background-color: #f8f8f8;
   border-radius: 3px;
+  margin-top: 10px;
 }
 
 /*.markdown-body pre>code {

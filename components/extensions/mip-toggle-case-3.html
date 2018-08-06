@@ -1,0 +1,24 @@
+
+            <!DOCTYPE html>
+            <html mip>
+            <head>
+              <meta charset="utf-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+              <title>测试</title>
+              <meta name="description" content="">
+              <link rel="canonical" href="">
+              <link rel="stylesheet" type="text/css" href="https://c.mipcdn.com/static/v2/mip.css">
+            </head>
+            <body>
+              <button on="tap:my-mip-toggle-4.show(500)">显示500ms</button>
+<button on="tap:my-mip-toggle-4.show(1000)">显示1s</button>
+<button on="tap:my-mip-toggle-4.show(3000)">显示3s</button>
+<button on="tap:my-mip-toggle-4.show(Infinity)">不自动隐藏（覆盖默认值）</button>
+<mip-toggle id="my-mip-toggle-4" layout="nodisplay" hidetimeout="2000">
+    <p>lorem ipsum</p>
+</mip-toggle>
+
+              <script src="https://c.mipcdn.com/static/v2/mip.js"></script>
+              <script src="https://c.mipcdn.com/static/v1/mip-toggle/mip-toggle.js"></script>
+            </body>
+          

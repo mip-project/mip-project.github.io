@@ -137,12 +137,41 @@
     font-size 24px
     margin-bottom 40px
     user-select none
+    & > span
+      display inline-block
+      position relative
+      &:after
+        content ''
+        display block
+        position absolute
+        width 0
+        height 0
+        // background #24292e
+        top 50%
+        transform translateY(-50%)
+        border-width .25em
+        border-style solid
+        border-top-color transparent
+        border-bottom-color transparent
+        right -.75em
+        border-left-color #333
+        border-right-color transparent
 
-  .sidebar-nav-wrapper
-    ul
+  .sidebar-fragment
+    &:last-child
+      &.sidebar-nav-wrapper
+        h1 > span
+            &:after
+              display none
+
+
+  .navbar-menu-wrapper
+    list-style none
+    font-size 16px
+    line-height 2
+
+    li
       list-style none
-      font-size 16px
-      line-height 2
     a,
     span
       display block
@@ -154,6 +183,7 @@
     .menu-name
       color #000
       font-weight 600
+
     .navbar-sub-item
       a
         color #555
