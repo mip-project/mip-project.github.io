@@ -8,6 +8,7 @@
     <meta name="description" content="${description}">
     <link rel="canonical" href="${host}${url}">
     <link rel="stylesheet" type="text/css" href="https://c.mipcdn.com/static/v2/mip.css">
+    <link rel="icon" href="https://www.mipengine.org/favicon.ico">
     <!-- <link rel="stylesheet" href="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.css"> -->
     <!-- <link rel="stylesheet" href="http://172.18.19.102:8080/dist/mip.css"> -->
     {{ if: ${development} }}
@@ -41,5 +42,7 @@
     <script src="https://bos.nj.bpc.baidu.com/assets/mip/codelab/mip-stepper-tabs.js"></script>
     <!-- <script src="https://c.mipcdn.com/static/v1/mip-fixed/mip-fixed.js"></script> -->
     <script src="https://c.mipcdn.com/static/v1/mip-sidebar/mip-sidebar.js"></script>
+    <script src="https://c.mipcdn.com/static/v1/mip-showmore/mip-showmore.js"></script>
+    <script src="https://c.mipcdn.com/static/v1/mip-toggle/mip-toggle.js"></script>
   </body>
 </html>
