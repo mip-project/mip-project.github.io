@@ -5,17 +5,16 @@
  */
 
 module.exports = class HeadingLink {
-    apply(on, app) {
-        on(app.STAGES.RENDER_HEADING,
-            html => html.replace(
-                /<h([\s\S]+)data-hash="(.+?)">([\s\S]+)<\/h([1-9])>/mg,
-                (full, props, hash, content, level) => ''
-                    + `<h${props}data-hash="${hash}">`
-                    + `<a href="${hash}" class="heading-link">`
-                    + '<i class="fa fa-link" aria-hidden="true"></i>'
-                    + `</a>${content}`
-                    + `</h${level}>`
-            ), 10051);
-
-    }
-};
+  apply (on, app) {
+    on(app.STAGES.RENDER_HEADING,
+      html => html.replace(
+        /<h([\s\S]+)data-hash="(.+?)">([\s\S]+)<\/h([1-9])>/mg,
+        (full, props, hash, content, level) => '' +
+                    `<h${props}data-hash="${hash}">` +
+                    `<a href="${hash}" class="heading-link">` +
+                    '<i class="fa fa-link" aria-hidden="true"></i>' +
+                    `</a>${content}` +
+                    `</h${level}>`
+      ), 10051)
+  }
+}

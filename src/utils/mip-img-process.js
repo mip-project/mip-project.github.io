@@ -4,9 +4,8 @@
  * @description 部分图片显示过大
  */
 
-
 // 手机截图需要尺寸限制，需要将图片链接添加在此处，max-width: 400px
-const processList_400 = [
+const processList400 = [
   'http://bos.nj.bpc.baidu.com/assets/mip/codelab/home-init.png',
   'http://boscdn.bpc.baidu.com/assets/mip/codelab/shell/use-shell.png',
   'http://boscdn.bpc.baidu.com/assets/mip/codelab/shell/transition-forward.png',
@@ -20,32 +19,29 @@ const processList_400 = [
 ]
 
 // max-width: 800px
-const processList_800 = [
+const processList800 = [
   'http://bos.nj.bpc.baidu.com/assets/mip/codelab/project.jpg'
 ]
-
-
 
 /**
  * 处理文档中 mip-img 标签批量替换后，部分手机截图特别大的问题
  * 希望做处理的可以添加到上面的列表，max-width: 400px
- * @param  {[string]} src    [图片链接]
- * @param  {[number]} width  [图片宽度]
- * @param  {[number]} height [图片高度]
- * @return {[Object]}        [description]
+ *
+ * @param  {string} src    [图片链接]
+ * @param  {number} width  [图片宽度]
+ * @param  {number} height [图片高度]
+ * @return {Object}        [description]
  */
-function processMipImgStyle(src, width, height) {
+function processMipImgStyle (src, width, height) {
   let layout = 'responsive'
   let addClass = ''
 
   if (width <= 320) {
     layout = 'fixed'
-  }
-  else if (processList_400.includes(src)) {
+  } else if (processList400.includes(src)) {
     // common.style 中限制了图片的宽度为400px, 一般是针对手机截图做的处理
     addClass = 'mip-layout-responsive-width-400'
-  }
-  else if (processList_800.includes(src)) {
+  } else if (processList800.includes(src)) {
     // common.style 中限制了图片的宽度为400px, 一般是针对手机截图做的处理
     addClass = 'mip-layout-responsive-width-800'
   }
@@ -54,11 +50,8 @@ function processMipImgStyle(src, width, height) {
     layout,
     addClass
   }
-
 }
 
 module.exports = {
   processMipImgStyle
 }
-
-

@@ -9,7 +9,11 @@
     "dev:css": "NODE_ENV=development npm run build:css && npm run build && webpack --config src/builder/webpack.config.js --watch",
     "clean": "rm -rf api codelabs guide components extensions img assets/img mip docs tmp index.html",
     "server": "npm run build:css && npm run build && edp ws start",
-    "deploy": "npm run build:css && npm run build"
+    "deploy": "npm run build:css && npm run build",
+    "lint": "npm run lint:js",
+    "lint:js": "eslint --ext .js .",
+    "fix": "npm run fix:js",
+    "fix:js": "eslint --ext .js . --fix"
   },
   "repository": {
     "type": "git",
@@ -40,7 +44,14 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "webpack": "^4.12.1",
-    "webpack-cli": "^3.1.0"
+    "webpack-cli": "^3.1.0",
+    "eslint": "^4.19.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jsdoc": "^3.7.1",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0"
   },
   "dependencies": {
     "download-git-repo": "^1.0.2",
