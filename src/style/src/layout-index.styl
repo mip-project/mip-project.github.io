@@ -8,35 +8,37 @@
         background #fff
         color #000
         padding-top 64px
-        height 520px
+        // height 520px
         box-sizing border-box
         @media screen and (max-width: 768px)
             height auto
         .container
-            background url('http://bos.nj.bpc.baidu.com/assets/mip/temp/mip-banner.jpg') no-repeat 100% 100%
-            background-size 50%
+            background url('http://bos.nj.bpc.baidu.com/assets/mip/miporg/mip-banner.png') no-repeat 100% 60px
+            background-size 60% auto
+            padding-bottom 195px
             @media screen and (max-width: 768px)
                 background none
+                padding-bottom 0
                 .top-text
                     &::after
                         content: ''
                         display block
                         height 0
                         padding-bottom 58.4%
-                        background url('http://bos.nj.bpc.baidu.com/assets/mip/temp/mip-banner.jpg') no-repeat center 100%
+                        background url('http://bos.nj.bpc.baidu.com/assets/mip/miporg/mip-banner.png') no-repeat center 100%
                         background-size cover
                         margin-top 44px
             h1
                 padding-top 128px
-                font-size 56px
-                font-weight 300
+                font-size 42px
+                font-weight bold
                 @media screen and (max-width: 768px)
                     font-size 44px
                     line-height 1
                     padding-top 54px
 
             p
-                font-size 20px
+                font-size 16px
                 line-height 1.8
                 margin 24px 0 32px 0
                 @media screen and (max-width: 768px)
@@ -92,10 +94,11 @@
                     border none
                 >a
                     flex 1
+                    cursor auto
                     display inline-block
-                    height 410px
+                    height 370px
                     padding 0 34px
-                    // background-size 100px 100px
+                    background-size auto 100px !important
                     @media screen and (max-width: 768px)
                         flex none
                         width 100%
@@ -103,16 +106,16 @@
                         box-sizing border-box
                         text-align left
                         padding 0 34px 0 146px
-                        background-position -25px 55px !important
-                        background-size auto 60% !important
+                        background-position 20px 78px !important
+                        background-size auto 100px !important
                         border-top 1px solid #ededed
 
                     &.mip-parts-html
-                        background url('https://bos.nj.bpc.baidu.com/assets/mip/temp/miporg-html.jpg') no-repeat center 55px
+                        background url('https://bos.nj.bpc.baidu.com/assets/mip/miporg/miporg-html.png') no-repeat center 70px
                     &.mip-parts-js
-                        background url('https://bos.nj.bpc.baidu.com/assets/mip/temp/miporg-js.jpg') no-repeat center 55px
+                        background url('https://bos.nj.bpc.baidu.com/assets/mip/miporg/miporg-js.png') no-repeat center 70px
                     &.mip-parts-cache
-                        background url('https://bos.nj.bpc.baidu.com/assets/mip/temp/miporg-cache.jpg') no-repeat center 55px
+                        background url('https://bos.nj.bpc.baidu.com/assets/mip/miporg/miporg-cache.png') no-repeat center 70px
 
                     &:not(:last-child)
                         border-right 1px solid #ededed
@@ -124,7 +127,7 @@
                         color #000
                         font-weight 200
                         line-height 1
-                        margin 246px 0 28px 0
+                        margin 215px 0 25px 0
                         @media screen and (max-width: 768px)
                             margin 75px 0 30px 0
 
@@ -227,16 +230,16 @@
                     right 60px
                     bottom 60px
                     &.advan-1
-                        background url('https://bos.nj.bpc.baidu.com/assets/mip/temp/spec_1.jpg') no-repeat
+                        background url('https://bos.nj.bpc.baidu.com/assets/mip/miporg/spec_1.png') no-repeat
                         background-size 100% 100%
                     &.advan-2
-                        background url('https://bos.nj.bpc.baidu.com/assets/mip/temp/spec_2.jpg') no-repeat
+                        background url('https://bos.nj.bpc.baidu.com/assets/mip/miporg/spec_2.png') no-repeat
                         background-size 100% 100%
                     &.advan-3
-                        background url('https://bos.nj.bpc.baidu.com/assets/mip/temp/spec_3.jpg') no-repeat
+                        background url('https://bos.nj.bpc.baidu.com/assets/mip/miporg/spec_3.png') no-repeat
                         background-size 100% 100%
                     &.advan-4
-                        background url('https://bos.nj.bpc.baidu.com/assets/mip/temp/spec_4.jpg') no-repeat
+                        background url('https://bos.nj.bpc.baidu.com/assets/mip/miporg/spec_4.png') no-repeat
                         background-size 100% 100%
 
                     @media screen and (max-width: 768px)
