@@ -19,18 +19,18 @@
             <h1>MIP是什么</h1>
             <p>WHAT IS MOBILE INSTANT PAGES</p>
             <div class="mip-parts">
-                <a data-type="mip" class="mip-parts-html" href="#">
+                <div class="mip-parts-html">
                     <h2>MIP-HTML</h2>
                     <p>通过MIP-HTML规范限制HTML以达到提升页面性能的效果</p>
-                </a>
-                <a data-type="mip" class="mip-parts-js" href="#">
+                </div>
+                <div class="mip-parts-js">
                     <h2>MIP-JS</h2>
                     <p>精心设计的组件核心JS确保快速渲染MIP-HTML网页</p>
-                </a>
-                <a data-type="mip" class="mip-parts-cache" href="#">
+                </div>
+                <div class="mip-parts-cache">
                     <h2>MIP-CACHE</h2>
                     <p>给所有符合MIP-HTML规范的网页提供CDN缓存服务，主动提高页面加载速度</p>
-                </a>
+                </div>
             </div>
         </div>
     </section>
