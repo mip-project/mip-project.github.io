@@ -39,7 +39,7 @@
   <script type="application/json">
     {
       "navbar": ${*navbar|json},
-      "sidebarFragment": "nav",
+      "sidebarFragment": "codelabs",
       "sidebarSecondFragment": "codelabs",
       "codelabMenu": ${*codelabMenu|json},
       "codelabStepSelected": "${url}"
@@ -61,10 +61,10 @@
 {{ /block }}
 
 {{ block: sidebar }}
-<div class="navbar-menu-wrapper"
+<div class="sidebar-fragment navbar-secnav-wrapper"
   m-bind:class="{hide:sidebarFragment!=='codelabs'}"
 >
-  <h1 on="tap:MIP.setData({sidebarFragment:'nav'})">CODELABS</h1>
+  <h1 on="tap:MIP.setData({sidebarFragment:'nav'})"><span>${secondNavbarTitle}</span></h1>
   <mip-stepper-tabs
     m-bind:menu-steps="codelabMenu"
     m-bind:codelab-step-selected="codelabStepSelected"

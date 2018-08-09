@@ -50,6 +50,69 @@
     position absolute
     top 1em
     left 1em
+
+
+  .md-fn-wrapper
+    .md-fn-title,
+    .md-fn-preview-toggle
+      height 46px
+      line-height 44px
+      border 1px solid #eee
+      display block !important
+      text-align center
+
+    .md-fn-preview-section,
+    .md-fn-code-section
+      padding 20px
+      border 1px solid #eee
+    .md-fn-preview-section
+      border-top none
+      border-bottom none
+      background #eee
+    .md-fn-code-section
+      border-top none
+    .md-fn-preview-toggle
+      width 375px
+      box-shadow 0 1px 2px rgba(0, 0, 0, .3)
+      border none
+      background #555
+      color #fff
+      margin 0 auto
+    .md-fn-code-title
+      user-select none
+      &:hover
+        color #3388ff
+        cursor pointer
+
+    mip-showmore
+      font-size 0
+      width 375px
+      box-shadow 0 1px 2px rgba(0, 0, 0, .3)
+      margin 0 auto
+      background #fff
+
+  @media screen and (max-width: 768px)
+    .md-fn-wrapper
+      mip-showmore
+        width auto
+      .md-fn-preview-toggle
+        width auto
+
+  // mip-iframe
+    // border 1px solid #dcdcdc
+    // background #dcdcdc
+    // border 10px solid #dcdcdc
+    // border-radius 10px
+
+  @media screen and (min-width: 992px)
+    .md-img-wrapper-child
+      width 70%
+      &:hover
+        cursor pointer
+
+  @media screen and (min-width: 768px)
+    .md-img-wrapper-child
+      width 60%
   // .md-img-wrapper
   //   display flex
 // @import './github-markdown-original.css'

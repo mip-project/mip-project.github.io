@@ -19,7 +19,7 @@
   <script type="application/json">
     {
       "navbar": ${*navbar|json},
-      "sidebarFragment": "nav",
+      "sidebarFragment": "guide",
       "sidebarSecondFragment": "guide",
       "menu": ${*menu|json},
       "chapters": ${*chapters|json},
@@ -30,10 +30,10 @@
 {{ /block }}
 
 {{ block: sidebar }}
-<div class="sidebar-fragment navbar-menu-wrapper"
+<div class="sidebar-fragment navbar-secnav-wrapper"
   m-bind:class="{hide:sidebarFragment!=='guide'}"
 >
-  <h1 on="tap:MIP.setData({sidebarFragment:'nav'})">文档目录</h1>
+  <h1 on="tap:MIP.setData({sidebarFragment:'nav'})"><span>${secondNavbarTitle}</span></h1>
   <mip-sidenav m-bind:menu="menu" m-bind:chapters="chapters" m-bind:url="url"></mip-sidenav>
 </div>
 {{ /block }}

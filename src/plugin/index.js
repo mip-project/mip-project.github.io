@@ -16,10 +16,12 @@ const RemoveHeadingId = require('./remove-heading-id')
 const MenuInfo = require('./menu-info')
 const Layout = require('./layout')
 const Static = require('./static')
+const ComponentPreview = require('./component-preview')
 // const Init = require('./init');
 
 module.exports = {
   description: new Description(),
+  componentPreview: new ComponentPreview(),
   urlMapper: new UrlMapper(),
   lineNumber: new LineNumber(),
   defaultDoc: new DefaultDoc(),

@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npm run clean && node src/index.js",
     "build:css": "webpack --config src/builder/webpack.config.js",
-    "dev:css": "NODE_ENV=development npm run build:css && npm run build && webpack --config src/builder/webpack.config.js --watch",
+    "dev:css": "NODE_ENV=development npm run build && webpack --config src/builder/webpack.config.js --watch",
     "clean": "rm -rf api codelabs guide components extensions img assets/img mip docs tmp index.html",
     "server": "npm run build:css && npm run build && edp ws start",
     "deploy": "npm run build:css && npm run build"
