@@ -3,7 +3,7 @@
  * @author clark-t (clarktanglei@163.com)
  */
 
-const compiler = require('./compiler');
+const compiler = require('./compiler')
 // const fs = require('fs');
 
 // compiler.on(compiler.STAGES.DONE, () => {
@@ -13,7 +13,7 @@ const compiler = require('./compiler');
 //     // console.log(Object.keys(compiler.module.store.storage.map))
 // });
 
-compiler.exec();
+compiler.exec()
 
 // compiler.exec().then(() => {
 //     compiler.getEntryPaths().then(result => {

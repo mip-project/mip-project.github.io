@@ -6,3 +6,4 @@ package-lock.json
 tmp
 dist
 src/builder/dist/
+src/style/dist

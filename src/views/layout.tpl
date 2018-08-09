@@ -12,7 +12,7 @@
     <!-- <link rel="stylesheet" href="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.css"> -->
     <!-- <link rel="stylesheet" href="http://172.18.19.102:8080/dist/mip.css"> -->
     {{ if: ${development} }}
-    <link rel="stylesheet" type="text/css" href="/src/builder/dist/index.css">
+    <link rel="stylesheet" type="text/css" href="/src/style/dist/index.css">
     {{ else }}
     <style mip-custom>
       ${css|raw}

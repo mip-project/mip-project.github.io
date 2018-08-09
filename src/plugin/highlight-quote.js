@@ -31,36 +31,36 @@
  */
 
 module.exports = class HighlightQuote {
-    apply(on, app) {
-        on(app.STAGES.RENDER_BLOCKQUOTE, (html, {args}) => {
-            let quote = args[0];
-            let [one, ...quotes] = quote.split(/<p>({=(.*?)=}|info|error|warn)<\/p>/mg);
+  apply (on, app) {
+    on(app.STAGES.RENDER_BLOCKQUOTE, (html, {args}) => {
+      let quote = args[0]
+      let [one, ...quotes] = quote.split(/<p>({=(.*?)=}|info|error|warn)<\/p>/mg)
 
-            return ''
-                + (one ? tag('blockquote', one) : '')
-                + chunk(quotes, 3)
-                .map(([className, props, content]) => {
-                    props = props !== undefined ? decodeQuote(props) : `class="${className}"`;
-                    return tag('blockquote', content, props);
-                })
-                .join('');
-        });
-    }
-};
-
-function chunk(arr, size) {
-    let output = [];
-    for (let i = 0, max = arr.length; i < max; i += size) {
-        output.push(arr.slice(i, i + size));
-    }
-
-    return output;
+      return '' +
+                (one ? tag('blockquote', one) : '') +
+                chunk(quotes, 3)
+                  .map(([className, props, content]) => {
+                    props = props !== undefined ? decodeQuote(props) : `class="${className}"`
+                    return tag('blockquote', content, props)
+                  })
+                  .join('')
+    })
+  }
 }
 
-function decodeQuote(str) {
-    return str.replace(/&quot;/mg, '"').replace(/&apos;/mg, '\'');
+function chunk (arr, size) {
+  let output = []
+  for (let i = 0, max = arr.length; i < max; i += size) {
+    output.push(arr.slice(i, i + size))
+  }
+
+  return output
 }
 
-function tag(tag, content = '', props = '') {
-    return `<${tag} ${props}>${content}</${tag}>`;
+function decodeQuote (str) {
+  return str.replace(/&quot;/mg, '"').replace(/&apos;/mg, '\'')
+}
+
+function tag (tag, content = '', props = '') {
+  return `<${tag} ${props}>${content}</${tag}>`
 }

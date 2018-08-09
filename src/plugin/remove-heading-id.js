@@ -5,7 +5,7 @@
  */
 
 module.exports = class RemoveHeadingId {
-    apply(on, app) {
-        on(app.STAGES.RENDER_HEADING, html => html.replace(/id=".*?"/, ' '), 10050);
-    }
-};
+  apply (on, app) {
+    on(app.STAGES.RENDER_HEADING, html => html.replace(/id=".*?"/, ' '), 10050)
+  }
+}

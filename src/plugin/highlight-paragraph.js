@@ -27,7 +27,7 @@
 const regex = /<p>\s*\[(info|warn|warning|error|notice)\]/
 
 module.exports = class HighlightParagraph {
-  apply(on, app) {
+  apply (on, app) {
     on(app.STAGES.RENDER_PARAGRAPH, (html, {args}) => {
       return html.replace(regex, (str, key) => {
         switch (key) {

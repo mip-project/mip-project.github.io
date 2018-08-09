@@ -35,4 +35,4 @@ module.exports = {
   layout: new Layout(),
   static: new Static()
   // init: new Init()
-};
+}

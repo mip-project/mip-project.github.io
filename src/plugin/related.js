@@ -5,22 +5,22 @@
  */
 
 module.exports = class Related {
-    apply(on, app) {
-        on(app.STAGES.AFTER_PARSE, (html, fileInfo) => {
-            if (!fileInfo || !fileInfo.source || !fileInfo.source.from) {
-                return;
-            }
+  apply (on, app) {
+    on(app.STAGES.AFTER_PARSE, (html, fileInfo) => {
+      if (!fileInfo || !fileInfo.source || !fileInfo.source.from) {
+        return
+      }
 
-            let from = fileInfo.source.from;
-            if (!/^github:/.test(from)) {
-                return;
-            }
+      let from = fileInfo.source.from
+      if (!/^github:/.test(from)) {
+        return
+      }
 
-            let github = from.replace(/^github:/, 'https://github.com/');
-            let path = fileInfo.path.split('/').slice(1).join('/');
-            let edit = github + `/edit/master/${path}`;
+      let github = from.replace(/^github:/, 'https://github.com/')
+      let path = fileInfo.path.split('/').slice(1).join('/')
+      let edit = github + `/edit/master/${path}`
 
-            return `
+      return `
                 ${html}
                 <div class="md-related-wrapper">
                     <a class="md-related to-edit ui-dep-2" href="${edit}" target="_blank">
@@ -33,7 +33,7 @@ module.exports = class Related {
                         <i class="material-icons"></i>反馈
                     </a>
                 </div>
-            `;
-        });
-    }
-};
+            `
+    })
+  }
+}

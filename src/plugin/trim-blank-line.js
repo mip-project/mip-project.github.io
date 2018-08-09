@@ -5,17 +5,17 @@
  */
 
 module.exports = class TrimBlankLine {
-    apply(on, app) {
-        on(app.STAGES.RENDER_CODE, (html, {args}) => {
-            html = html.replace(
-                /^<pre><code(.*?)>([\s\S]+)<\/code><\/pre>$/mg,
-                function (full, lang, code) {
-                    code = code.replace(/^\s+/, '').replace(/\s+$/, '');
-                    return `<pre><code${lang}>${code}</code></pre>`;
-                }
-            );
+  apply (on, app) {
+    on(app.STAGES.RENDER_CODE, (html, {args}) => {
+      html = html.replace(
+        /^<pre><code(.*?)>([\s\S]+)<\/code><\/pre>$/mg,
+        function (full, lang, code) {
+          code = code.replace(/^\s+/, '').replace(/\s+$/, '')
+          return `<pre><code${lang}>${code}</code></pre>`
+        }
+      )
 
-            return html;
-        });
-    }
-};
+      return html
+    })
+  }
+}

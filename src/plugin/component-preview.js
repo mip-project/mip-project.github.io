@@ -48,13 +48,6 @@ module.exports = class ComponentPreview {
             .replace(/^\s```\s*html\s/, '')
             .replace(/```\s$/, '')
 
-          // let $ = cheerio.load(theCase, {decodeEntities: false})
-          // let length = $('body').children().length
-
-          // if (length === 0) {
-          //   return ''
-          // }
-
           let width = 320
           let height = 568
 
@@ -91,7 +84,7 @@ module.exports = class ComponentPreview {
       )
 
       let index = 0
-      obj.html = obj.html.replace(/<pre><div class="code-index">[\s\S]+?<\/div><code class="lang-html">[\s\S]+?<\/code><\/pre>/g, str => {
+      obj.html = obj.html.replace(/<pre><div class="code-index">((?!<pre>)[\s\S])+?<\/div><code class="lang-html">[\s\S]+?<\/code><\/pre>/g, str => {
         str = `
           <div class="md-fn-wrapper">
             <div class="md-fn-preview-wrapper">
@@ -120,11 +113,9 @@ module.exports = class ComponentPreview {
       // obj.html = htmlBlocks.join('')
 
       return obj
-
     }, 9998)
   }
 }
-
 
 // `
 
