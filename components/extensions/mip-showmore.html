@@ -30,7 +30,6 @@
             <li class="navbar-sub-item"><a data-type="mip" href="/codelabs/index.html">Codelab</a></li>
           </ul>
         </li>
-        <li class="navbar-item"><a data-type="mip" href="/help" class="menu-name">帮助</a></li>
         <li class="navbar-item">
           <span class="menu-name">常用链接<i class="arrow"></i></span>
           <ul class="navbar-sub-menu">
@@ -70,7 +69,6 @@
         <li class="navbar-sub-item"><a data-type="mip" href="/codelabs/index.html">Codelab</a></li>
       </ul>
     </li>
-    <li class="navbar-item"><a data-type="mip" href="/help" class="menu-name">帮助</a></li>
     <li class="navbar-item">
       <span class="menu-name">常用链接</span>
       <ul class="navbar-sub-menu">
@@ -104,7 +102,7 @@
       <h1 id="mipshowmore-显示更多"><a href="#mipshowmore-显示更多" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>mip-showmore 显示更多</h1><p>隐藏过长的文章，点击按钮显示更多内容。</p><table><thead><tr><th>标题</th><th>内容</th></tr></thead><tbody><tr><td>类型</td><td>通用</td></tr><tr><td>支持布局</td><td>responsive, fixed-height, fill, container, fixed</td></tr><tr><td>所需脚本</td><td><a data-type="mip" href="https://c.mipcdn.com/static/v1/mip-showmore/mip-showmore.js">https://c.mipcdn.com/static/v1/mip-showmore/mip-showmore.js</a></td></tr></tbody></table><h2 id="示例"><a href="#示例" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>示例</h2><h3 id="设定像素单位的高度阈值"><a href="#设定像素单位的高度阈值" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>设定像素单位的高度阈值</h3><ul><li>在按钮中增加 <code>on</code> 属性，注意 <code>on</code> 属性中需要填写对应 <code>&lt;mip-showmore&gt;</code> 的 <code>id</code>。</li><li>比如本例中，<code>on</code> 属性需要写成 <code>on=&quot;tap:showmore01.toggle&quot;</code>。</li></ul>
           <div class="md-fn-wrapper">
             <div class="md-fn-preview-wrapper">
-              <div class="md-fn-title">效果预览</div>
+              <!-- <div class="md-fn-title">效果预览</div> -->
               <div class="md-fn-preview-section">
                 <mip-showmore maxheight="160" animatetime=".3" id="fn-showmore-0">
                   <mip-iframe layout="responsive" width="320" height="568" src="https://mip-project.github.io/components/extensions/mip-showmore-case-0.html"></mip-iframe>
@@ -127,7 +125,7 @@
         <h3 id="设定基于可视区域的高度阈值"><a href="#设定基于可视区域的高度阈值" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>设定基于可视区域的高度阈值</h3><ul><li><code>maxheight=&#39;screen:0.5&#39;</code> 可设置基于屏幕可视区域的高度阈值。</li><li>在按钮中增加 <code>on</code> 属性，注意 <code>on</code> 属性中需要填写对应 <code>&lt;mip-showmore&gt;</code> 的 <code>id</code>。比如本例中，<code>&lt;mip-showmore id=&quot;showmore02&quot;&gt;</code>，<code>on</code> 属性需要写成 <code>on=&quot;tap:showmore01.toggle&quot;</code>。</li></ul>
           <div class="md-fn-wrapper">
             <div class="md-fn-preview-wrapper">
-              <div class="md-fn-title">效果预览</div>
+              <!-- <div class="md-fn-title">效果预览</div> -->
               <div class="md-fn-preview-section">
                 <mip-showmore maxheight="160" animatetime=".3" id="fn-showmore-1">
                   <mip-iframe layout="responsive" width="320" height="568" src="https://mip-project.github.io/components/extensions/mip-showmore-case-1.html"></mip-iframe>
@@ -156,7 +154,7 @@
         <h3 id="嵌套使用高度阈值"><a href="#嵌套使用高度阈值" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>嵌套使用-高度阈值</h3><p class="md-p-info"><i class="iconfont icon-info"></i><strong>提示：</strong>嵌套使用时，注意 <code>on</code> 和 <code>&lt;mip-showmore&gt;</code> <code>id</code> 的对应。</p>
           <div class="md-fn-wrapper">
             <div class="md-fn-preview-wrapper">
-              <div class="md-fn-title">效果预览</div>
+              <!-- <div class="md-fn-title">效果预览</div> -->
               <div class="md-fn-preview-section">
                 <mip-showmore maxheight="160" animatetime=".3" id="fn-showmore-2">
                   <mip-iframe layout="responsive" width="320" height="568" src="https://mip-project.github.io/components/extensions/mip-showmore-case-2.html"></mip-iframe>
@@ -183,7 +181,7 @@
         <h3 id="设定字数阈值"><a href="#设定字数阈值" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>设定字数阈值</h3>
           <div class="md-fn-wrapper">
             <div class="md-fn-preview-wrapper">
-              <div class="md-fn-title">效果预览</div>
+              <!-- <div class="md-fn-title">效果预览</div> -->
               <div class="md-fn-preview-section">
                 <mip-showmore maxheight="160" animatetime=".3" id="fn-showmore-3">
                   <mip-iframe layout="responsive" width="320" height="568" src="https://mip-project.github.io/components/extensions/mip-showmore-case-3.html"></mip-iframe>
@@ -206,7 +204,7 @@
         <h3 id="嵌套使用字数"><a href="#嵌套使用字数" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>嵌套使用-字数</h3><p>嵌套使用时，注意 <code>on</code> 和 <code>&lt;mip-showmore&gt;</code> <code>id</code> 的对应。</p>
           <div class="md-fn-wrapper">
             <div class="md-fn-preview-wrapper">
-              <div class="md-fn-title">效果预览</div>
+              <!-- <div class="md-fn-title">效果预览</div> -->
               <div class="md-fn-preview-section">
                 <mip-showmore maxheight="160" animatetime=".3" id="fn-showmore-4">
                   <mip-iframe layout="responsive" width="320" height="568" src="https://mip-project.github.io/components/extensions/mip-showmore-case-4.html"></mip-iframe>
@@ -233,7 +231,7 @@
         <h3 id="设定折叠边界是否渐变"><a href="#设定折叠边界是否渐变" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>设定折叠边界是否渐变</h3><ul><li><code>bottomshadow</code> 设置折叠边界是否透明渐变。</li><li>嵌套使用时，注意 <code>on</code> 和 <code>&lt;mip-showmore&gt;</code> <code>id</code> 的对应。</li></ul>
           <div class="md-fn-wrapper">
             <div class="md-fn-preview-wrapper">
-              <div class="md-fn-title">效果预览</div>
+              <!-- <div class="md-fn-title">效果预览</div> -->
               <div class="md-fn-preview-section">
                 <mip-showmore maxheight="160" animatetime=".3" id="fn-showmore-5">
                   <mip-iframe layout="responsive" width="320" height="568" src="https://mip-project.github.io/components/extensions/mip-showmore-case-5.html"></mip-iframe>
@@ -256,7 +254,7 @@
         <h3 id="展开内容后不再收起"><a href="#展开内容后不再收起" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>展开内容后不再收起</h3><p>要实现展开后不再收起，可以在展开后将隐藏按钮设置为不可见。如下示例，为 <code>mip-showmore-btn-hide</code> 类添加特殊样式。</p><p class="md-p-notice"><i class="iconfont icon-warn"></i><strong>注意：</strong> 在设置 <code>display</code> 属性时，需要加 <code>!important</code>。样式需要写在页面唯一的 <code>&lt;style mip-custom&gt;</code> 中。</p>
           <div class="md-fn-wrapper">
             <div class="md-fn-preview-wrapper">
-              <div class="md-fn-title">效果预览</div>
+              <!-- <div class="md-fn-title">效果预览</div> -->
               <div class="md-fn-preview-section">
                 <mip-showmore maxheight="160" animatetime=".3" id="fn-showmore-6">
                   <mip-iframe layout="responsive" width="320" height="568" src="https://mip-project.github.io/components/extensions/mip-showmore-case-6.html"></mip-iframe>
@@ -285,7 +283,7 @@
         <h3 id="按钮展开样式定制"><a href="#按钮展开样式定制" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>按钮展开样式定制</h3><p>为了能够让按钮在展开和收起状态下能够有不同样式和内容的切换，如修改按钮文案，添加按钮 icon，可以通过在 <code>data-closeclass=&quot;&quot;</code> 属性中设置样式 class 名来解决，组件展开时会将此样式加入到按钮中元素上，收起会删除，设置 <code>data-closeclass</code> 后按钮内部 HTML <strong>不会被替换</strong>，从而就可以根据该样式来定制按钮内容。例如变动按钮中的文案，就可以通过如下方式书写：</p>
           <div class="md-fn-wrapper">
             <div class="md-fn-preview-wrapper">
-              <div class="md-fn-title">效果预览</div>
+              <!-- <div class="md-fn-title">效果预览</div> -->
               <div class="md-fn-preview-section">
                 <mip-showmore maxheight="160" animatetime=".3" id="fn-showmore-7">
                   <mip-iframe layout="responsive" width="320" height="568" src="https://mip-project.github.io/components/extensions/mip-showmore-case-7.html"></mip-iframe>
@@ -380,7 +378,7 @@ MIP HTML 基于HTML中的基础标签制定了全新的规范，通过对一部�
 <mip-data>
   <script type="application/json">
     {
-      "navbar": [{"name":"首页","url":"/index.html","width":32},{"name":"学习","width":32,"children":[{"name":"使用文档","url":"/guide/index.html","width":64},{"name":"组件列表","url":"/components/index.html","width":64},{"name":"API","url":"/api/index.html"},{"name":"Codelab","url":"/codelabs/index.html","width":60}]},{"name":"帮助","url":"/help","width":32},{"name":"常用链接","children":[{"name":"MIP 官方博客","url":"http://www.cnblogs.com/mipengine"},{"name":"MIP-CLI 本地开发工具","url":"https://github.com/mipengine/mip2/tree/master/packages/mip-cli"},{"name":"MIP 代码校验工具","url":"https://www.mipengine.org/validator/validate"},{"name":"MIP 效果预览工具","url":"https://www.mipengine.org/validator/preview"},{"name":"MIP PATH 转换工具","url":"https://www.mipengine.org/mippath.html"}],"width":82},{"name":"GitHub","url":"https://github.com/mipengine/mip2","width":50}],
+      "navbar": [{"name":"首页","url":"/index.html","width":32},{"name":"学习","width":32,"children":[{"name":"使用文档","url":"/guide/index.html","width":64},{"name":"组件列表","url":"/components/index.html","width":64},{"name":"API","url":"/api/index.html"},{"name":"Codelab","url":"/codelabs/index.html","width":60}]},{"name":"常用链接","children":[{"name":"MIP 官方博客","url":"http://www.cnblogs.com/mipengine"},{"name":"MIP-CLI 本地开发工具","url":"https://github.com/mipengine/mip2/tree/master/packages/mip-cli"},{"name":"MIP 代码校验工具","url":"https://www.mipengine.org/validator/validate"},{"name":"MIP 效果预览工具","url":"https://www.mipengine.org/validator/preview"},{"name":"MIP PATH 转换工具","url":"https://www.mipengine.org/mippath.html"}],"width":82},{"name":"GitHub","url":"https://github.com/mipengine/mip2","width":50}],
       "sidebarFragment": "guide",
       "sidebarSecondFragment": "guide",
       "menu": [{"name":"MIP 组件列表","path":"docs/extensions/index.md","url":"/components/index.html"},{"name":"内置组件","path":"docs/extensions/builtin","children":[{"name":"mip-bind","path":"docs/extensions/builtin/mip-bind.md","url":"/components/builtin/mip-bind.html"},{"name":"mip-carousel 多图轮播","path":"docs/extensions/builtin/mip-carousel.md","url":"/components/builtin/mip-carousel.html"},{"name":"mip-iframe","path":"docs/extensions/builtin/mip-iframe.md","url":"/components/builtin/mip-iframe.html"},{"name":"mip-img 图片","path":"docs/extensions/builtin/mip-img.md","url":"/components/builtin/mip-img.html"},{"name":"mip-pix 统计","path":"docs/extensions/builtin/mip-pix.md","url":"/components/builtin/mip-pix.html"},{"name":"MIP Shell","path":"docs/extensions/builtin/mip-shell.md","url":"/components/builtin/mip-shell.html"},{"name":"mip-video","path":"docs/extensions/builtin/mip-video.md","url":"/components/builtin/mip-video.html"}]},{"name":"扩展组件","path":"docs/extensions/extensions","children":[{"name":"mip-access","path":"docs/extensions/extensions/mip-access.md","url":"/components/extensions/mip-access.html"},{"name":"mip-accordion 折叠节点","path":"docs/extensions/extensions/mip-accordion.md","url":"/components/extensions/mip-accordion.html"},{"name":"mip-analytics 统计框架","path":"docs/extensions/extensions/mip-analytics.md","url":"/components/extensions/mip-analytics.html"},{"name":"mip-anim 动图","path":"docs/extensions/extensions/mip-anim.md","url":"/components/extensions/mip-anim.html"},{"name":"mip-app-banner App 调起组件","path":"docs/extensions/extensions/mip-app-banner.md","url":"/components/extensions/mip-app-banner.html"},{"name":"mip-appdl App 下载","path":"docs/extensions/extensions/mip-appdl.md","url":"/components/extensions/mip-appdl.html"},{"name":"mip-audio 音频播放","path":"docs/extensions/extensions/mip-audio.md","url":"/components/extensions/mip-audio.html"},{"name":"mip-custom","path":"docs/extensions/extensions/mip-custom.md","url":"/components/extensions/mip-custom.html"},{"name":"mip-experiment 前端抽样实验","path":"docs/extensions/extensions/mip-experiment.md","url":"/components/extensions/mip-experiment.html"},{"name":"mip-filter 筛选组件","path":"docs/extensions/extensions/mip-filter.md","url":"/components/extensions/mip-filter.html"},{"name":"mip-fixed 悬浮布局","path":"docs/extensions/extensions/mip-fixed.md","url":"/components/extensions/mip-fixed.html"},{"name":"mip-form 表单","path":"docs/extensions/extensions/mip-form.md","url":"/components/extensions/mip-form.html"},{"name":"mip-gototop 快速回顶","path":"docs/extensions/extensions/mip-gototop.md","url":"/components/extensions/mip-gototop.html"},{"name":"mip-history 历史记录","path":"docs/extensions/extensions/mip-history.md","url":"/components/extensions/mip-history.html"},{"name":"mip-html-os 操作系统","path":"docs/extensions/extensions/mip-html-os.md","url":"/components/extensions/mip-html-os.html"},{"name":"mip-infinitescroll 无限滚动","path":"docs/extensions/extensions/mip-infinitescroll.md","url":"/components/extensions/mip-infinitescroll.html"},{"name":"mip-install-serviceworker","path":"docs/extensions/extensions/mip-install-serviceworker.md","url":"/components/extensions/mip-install-serviceworker.html"},{"name":"mip-lightbox 弹出层","path":"docs/extensions/extensions/mip-lightbox.md","url":"/components/extensions/mip-lightbox.html"},{"name":"mip-link 跳转链接","path":"docs/extensions/extensions/mip-link.md","url":"/components/extensions/mip-link.html"},{"name":"mip-list 列表组件","path":"docs/extensions/extensions/mip-list.md","url":"/components/extensions/mip-list.html"},{"name":"mip-login-done","path":"docs/extensions/extensions/mip-login-done.md","url":"/components/extensions/mip-login-done.html"},{"name":"mip-map 地图组件","path":"docs/extensions/extensions/mip-map.md","url":"/components/extensions/mip-map.html"},{"name":"mip-mustache","path":"docs/extensions/extensions/mip-mustache.md","url":"/components/extensions/mip-mustache.html"},{"name":"mip-nav-slidedown 菜单","path":"docs/extensions/extensions/mip-nav-slidedown.md","url":"/components/extensions/mip-nav-slidedown.html"},{"name":"mip-sample","path":"docs/extensions/extensions/mip-sample.md","url":"/components/extensions/mip-sample.html"},{"name":"mip-scrollbox","path":"docs/extensions/extensions/mip-scrollbox.md","url":"/components/extensions/mip-scrollbox.html"},{"name":"mip-semi-fixed 滑动悬浮组件","path":"docs/extensions/extensions/mip-semi-fixed.md","url":"/components/extensions/mip-semi-fixed.html"},{"name":"mip-share 分享","path":"docs/extensions/extensions/mip-share.md","url":"/components/extensions/mip-share.html"},{"name":"mip-showmore 显示更多","path":"docs/extensions/extensions/mip-showmore.md","url":"/components/extensions/mip-showmore.html"},{"name":"mip-sidebar 侧边栏","path":"docs/extensions/extensions/mip-sidebar.md","url":"/components/extensions/mip-sidebar.html"},{"name":"mip-stats-baidu 百度统计","path":"docs/extensions/extensions/mip-stats-baidu.md","url":"/components/extensions/mip-stats-baidu.html"},{"name":"mip-stats-cnzz","path":"docs/extensions/extensions/mip-stats-cnzz.md","url":"/components/extensions/mip-stats-cnzz.html"},{"name":"mip-stats-tianrun 天润统计","path":"docs/extensions/extensions/mip-stats-tianrun.md","url":"/components/extensions/mip-stats-tianrun.html"},{"name":"mip-story","path":"docs/extensions/extensions/mip-story.md","url":"/components/extensions/mip-story.html"},{"name":"mip-toggle 显示隐藏","path":"docs/extensions/extensions/mip-toggle.md","url":"/components/extensions/mip-toggle.html"},{"name":"mip-vd-baidu","path":"docs/extensions/extensions/mip-vd-baidu.md","url":"/components/extensions/mip-vd-baidu.html"},{"name":"mip-vd-tabs tab 切换组件","path":"docs/extensions/extensions/mip-vd-tabs.md","url":"/components/extensions/mip-vd-tabs.html"}]},{"name":"mip-ad","path":"docs/extensions/mip-ad","children":[{"name":"mip-ad:ad-baidu 百度网盟推广合作","path":"docs/extensions/mip-ad/mip-ad-baidu.md","url":"/components/mip-ad/mip-ad-baidu.html"},{"name":"mip-ad:ad-baidussp 百度 SSP 直投广告","path":"docs/extensions/mip-ad/mip-ad-baidussp.md","url":"/components/mip-ad/mip-ad-baidussp.html"},{"name":"mip-ad:ad-comm 通用广告","path":"docs/extensions/mip-ad/mip-ad-comm.md","url":"/components/mip-ad/mip-ad-comm.html"},{"name":"mip-ad:ad-imageplus 百度图 + 广告","path":"docs/extensions/mip-ad/mip-ad-imageplus.md","url":"/components/mip-ad/mip-ad-imageplus.html"},{"name":"mip-ad:ad-qwang 百度搜索推广合作","path":"docs/extensions/mip-ad/mip-ad-qwang.md","url":"/components/mip-ad/mip-ad-qwang.html"},{"name":"mip-ad:ad-ssp 百度 Feeds 联盟广告","path":"docs/extensions/mip-ad/mip-ad-ssp.md","url":"/components/mip-ad/mip-ad-ssp.html"},{"name":"mip-ad 广告","path":"docs/extensions/mip-ad/mip-ad.md","url":"/components/mip-ad/mip-ad.html"},{"name":"mip-ad:baidu-wm-ext 百度联盟广告反屏蔽","path":"docs/extensions/mip-ad/mip-baidu-wm-ext.md","url":"/components/mip-ad/mip-baidu-wm-ext.html"}]}],

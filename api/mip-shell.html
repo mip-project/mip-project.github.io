@@ -30,7 +30,6 @@
             <li class="navbar-sub-item"><a data-type="mip" href="/codelabs/index.html">Codelab</a></li>
           </ul>
         </li>
-        <li class="navbar-item"><a data-type="mip" href="/help" class="menu-name">帮助</a></li>
         <li class="navbar-item">
           <span class="menu-name">常用链接<i class="arrow"></i></span>
           <ul class="navbar-sub-menu">
@@ -70,7 +69,6 @@
         <li class="navbar-sub-item"><a data-type="mip" href="/codelabs/index.html">Codelab</a></li>
       </ul>
     </li>
-    <li class="navbar-item"><a data-type="mip" href="/help" class="menu-name">帮助</a></li>
     <li class="navbar-item">
       <span class="menu-name">常用链接</span>
       <ul class="navbar-sub-menu">
@@ -102,32 +100,32 @@
   <span>MIP Shell</span></p>
     <div class="markdown-body">
       <h1 id="mip-shell"><a href="#mip-shell" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>MIP Shell</h1><p>开发者不能直接使用 MIP Shell 的方法，但可以通过继承的方式实现满足自身业务需求的“个性化 Shell”。</p><p>这里列举几个比较常见的通过个性化 Shell 可以实现的需求，供大家参考：</p><ul><li><p>对于默认的头部标题栏样式或者 DOM 结构不满意，有修改的需求。</p></li><li><p>除了头部，还有底部栏或者侧边栏需要额外渲染和绑定事件。例如下图：</p><p>
-        <div class="md-img-wrapper">
-          <div class="md-img-wrapper-child">
-            <mip-img
-              layout="container"
-              width="666"
-              height="1164"
-              src="http://boscdn.bpc.baidu.com/assets/mip2/page/bottom-shell-2.png"
-              popup
-            ></mip-img>
-          </div>
+      <div class="md-img-wrapper">
+        <div class="md-img-wrapper-child">
+          <mip-img
+            layout="container"
+            width="666"
+            height="1164"
+            src="http://boscdn.bpc.baidu.com/assets/mip2/page/bottom-shell-2.png"
+            popup
+          ></mip-img>
         </div>
-        </p></li><li><p>开发者需要控制站点的 Shell 配置，修改/禁用/忽略某些选项。</p><p>例如开发者希望忽略 HTML 中的配置项而固定选择某些按钮，或者希望在配置之外增加某些按钮等。</p></li></ul><h2 id="继承方式"><a href="#继承方式" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>继承方式</h2><p>全局的 MIP 对象会暴露一个 MIP Shell 基类供大家继承。例如我们要创建一个 MIP Shell Example 组件，我们可以写如下代码：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div></div><code class="lang-javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MIPShellExample</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">window</span>.<span class="hljs-title">MIP</span>.<span class="hljs-title">builtinComponents</span>.<span class="hljs-title">MIPShell</span> </span>{
+      </div>
+      </p></li><li><p>开发者需要控制站点的 Shell 配置，修改/禁用/忽略某些选项。</p><p>例如开发者希望忽略 HTML 中的配置项而固定选择某些按钮，或者希望在配置之外增加某些按钮等。</p></li></ul><h2 id="继承方式"><a href="#继承方式" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>继承方式</h2><p>全局的 MIP 对象会暴露一个 MIP Shell 基类供大家继承。例如我们要创建一个 MIP Shell Example 组件，我们可以写如下代码：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div></div><code class="lang-javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MIPShellExample</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">window</span>.<span class="hljs-title">MIP</span>.<span class="hljs-title">builtinComponents</span>.<span class="hljs-title">MIPShell</span> </span>{
     <span class="hljs-comment">// Functions go here</span>
 }</code></pre><p>类名使用驼峰命名，组件平台会自动把驼峰转化为符合 HTML 规范的短划线连接形式，如 <code>&lt;mip-shell-example&gt;</code>。</p><p>个性化 Shell 的编写规范和普通组件相同，同样在 mip2-extensions 项目中编写，如下：</p><p>
-        <div class="md-img-wrapper">
-          <div class="md-img-wrapper-child">
-            <mip-img
-              layout="fixed"
-              width="251"
-              height="224"
-              src="http://boscdn.bpc.baidu.com/assets/mip/page/mip-shell-folder.PNG"
-              popup
-            ></mip-img>
-          </div>
+      <div class="md-img-wrapper">
+        <div class="md-img-wrapper-child">
+          <mip-img
+            layout="fixed"
+            width="251"
+            height="224"
+            src="http://boscdn.bpc.baidu.com/assets/mip/page/mip-shell-folder.PNG"
+            popup
+          ></mip-img>
         </div>
-        </p><h2 id="使用个性化-shell"><a href="#使用个性化-shell" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>使用个性化 Shell</h2><p>个性化 Shell 的使用和内置的 MIP Shell 基本类似。唯一的区别是为标签增加一个属性 <code>mip-shell</code>，例子如下：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-shell-example</span> <span class="hljs-attr">mip-shell</span>&gt;</span>
+      </div>
+      </p><h2 id="使用个性化-shell"><a href="#使用个性化-shell" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>使用个性化 Shell</h2><p>个性化 Shell 的使用和内置的 MIP Shell 基本类似。唯一的区别是为标签增加一个属性 <code>mip-shell</code>，例子如下：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-shell-example</span> <span class="hljs-attr">mip-shell</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
         {
             <span class="hljs-string">"routes"</span>: [
@@ -151,18 +149,18 @@
   <span class="hljs-keyword">this</span>.alwaysReadConfigOnLoad = <span class="hljs-literal">false</span>
   <span class="hljs-keyword">this</span>.transitionContainsHeader = <span class="hljs-literal">false</span>
 }</code></pre><h3 id="showheaderclosebutton"><a href="#showheaderclosebutton" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>showHeaderCloseButton</h3><ul><li><strong>参数</strong>： 无。</li><li><strong>返回值</strong>：<strong>boolean</strong>，默认 <code>true</code>。</li></ul><p>MIP Shell 的头部标题栏右侧的按钮区域会根据 MIP 页面当前所处的状态来决定是否展示关闭按钮。当处于百度搜索结果页中（即拥有 SuperFrame 环境时）会额外渲染一个关闭按钮，点击效果用以通知 SuperFrame 关闭自身，如下图所示：</p><p>
-        <div class="md-img-wrapper">
-          <div class="md-img-wrapper-child">
-            <mip-img
-              layout="container"
-              width="416"
-              height="100"
-              src="http://boscdn.bpc.baidu.com/assets/mip2/page/close-button.png"
-              popup
-            ></mip-img>
-          </div>
+      <div class="md-img-wrapper">
+        <div class="md-img-wrapper-child">
+          <mip-img
+            layout="container"
+            width="416"
+            height="100"
+            src="http://boscdn.bpc.baidu.com/assets/mip2/page/close-button.png"
+            popup
+          ></mip-img>
         </div>
-        </p><p>MIP 页面判断当前是否处于 SuperFrame 环境的判断依据是 <code>window.MIP.standalone</code> 值等于 <code>false</code>。</p><p>如果开发者有特殊需求，要求即便在 <code>window.MIP.standalone === false</code> 成立时依然 <strong>不展现</strong> 关闭按钮，可以继承这个方法并返回 <code>false</code>。这个方法在 <code>standalone</code> 的判断 <strong>之后</strong> 生效，因此即便它返回 <code>true</code>，只要 <code>standalone</code> 也为 <code>true</code> 则关闭按钮依然不展现。</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div></div><code class="lang-javascript">showHeaderCloseButton () {
+      </div>
+      </p><p>MIP 页面判断当前是否处于 SuperFrame 环境的判断依据是 <code>window.MIP.standalone</code> 值等于 <code>false</code>。</p><p>如果开发者有特殊需求，要求即便在 <code>window.MIP.standalone === false</code> 成立时依然 <strong>不展现</strong> 关闭按钮，可以继承这个方法并返回 <code>false</code>。这个方法在 <code>standalone</code> 的判断 <strong>之后</strong> 生效，因此即便它返回 <code>true</code>，只要 <code>standalone</code> 也为 <code>true</code> 则关闭按钮依然不展现。</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div></div><code class="lang-javascript">showHeaderCloseButton () {
   <span class="hljs-keyword">if</span> (location.href.indexOf(<span class="hljs-string">'main'</span>) !== <span class="hljs-number">-1</span>) {
       <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
   } <span class="hljs-keyword">else</span> {
@@ -551,7 +549,7 @@ renderFooter() {
 <mip-data>
   <script type="application/json">
     {
-      "navbar": [{"name":"首页","url":"/index.html","width":32},{"name":"学习","width":32,"children":[{"name":"使用文档","url":"/guide/index.html","width":64},{"name":"组件列表","url":"/components/index.html","width":64},{"name":"API","url":"/api/index.html"},{"name":"Codelab","url":"/codelabs/index.html","width":60}]},{"name":"帮助","url":"/help","width":32},{"name":"常用链接","children":[{"name":"MIP 官方博客","url":"http://www.cnblogs.com/mipengine"},{"name":"MIP-CLI 本地开发工具","url":"https://github.com/mipengine/mip2/tree/master/packages/mip-cli"},{"name":"MIP 代码校验工具","url":"https://www.mipengine.org/validator/validate"},{"name":"MIP 效果预览工具","url":"https://www.mipengine.org/validator/preview"},{"name":"MIP PATH 转换工具","url":"https://www.mipengine.org/mippath.html"}],"width":82},{"name":"GitHub","url":"https://github.com/mipengine/mip2","width":50}],
+      "navbar": [{"name":"首页","url":"/index.html","width":32},{"name":"学习","width":32,"children":[{"name":"使用文档","url":"/guide/index.html","width":64},{"name":"组件列表","url":"/components/index.html","width":64},{"name":"API","url":"/api/index.html"},{"name":"Codelab","url":"/codelabs/index.html","width":60}]},{"name":"常用链接","children":[{"name":"MIP 官方博客","url":"http://www.cnblogs.com/mipengine"},{"name":"MIP-CLI 本地开发工具","url":"https://github.com/mipengine/mip2/tree/master/packages/mip-cli"},{"name":"MIP 代码校验工具","url":"https://www.mipengine.org/validator/validate"},{"name":"MIP 效果预览工具","url":"https://www.mipengine.org/validator/preview"},{"name":"MIP PATH 转换工具","url":"https://www.mipengine.org/mippath.html"}],"width":82},{"name":"GitHub","url":"https://github.com/mipengine/mip2","width":50}],
       "sidebarFragment": "guide",
       "sidebarSecondFragment": "guide",
       "menu": [{"name":"API","path":"docs/api/index.md","url":"/api/index.html"},{"name":"MIP 对象","path":"docs/api/mip.md","url":"/api/mip.html"},{"name":"自定义元素实现接口","path":"docs/api/base-custom-element.md","url":"/api/base-custom-element.html"},{"name":"Vue 自定义元素接口","path":"docs/api/vue-custom-element.md","url":"/api/vue-custom-element.html"},{"name":"viewer","path":"docs/api/viewer.md","url":"/api/viewer.html"},{"name":"viewport","path":"docs/api/viewport.md","url":"/api/viewport.html"},{"name":"MIP Shell","path":"docs/api/mip-shell.md","url":"/api/mip-shell.html"},{"name":"工具","path":"docs/api/util","children":[{"name":"MIP.util.customStorage","path":"docs/api/util/customStorage.md","url":"/api/util/customStorage.html"},{"name":"MIP.util.dom","path":"docs/api/util/dom.md","url":"/api/util/dom.html"},{"name":"MIP.util.EventEmitter","path":"docs/api/util/event-emitter.md","url":"/api/util/event-emitter.html"},{"name":"MIP.util.event","path":"docs/api/util/event.md","url":"/api/util/event.html"},{"name":"MIP.util.fn","path":"docs/api/util/fn.md","url":"/api/util/fn.html"},{"name":"MIP.util.Gesture","path":"docs/api/util/gesture.md","url":"/api/util/gesture.html"},{"name":"MIP.util.hash","path":"docs/api/util/hash.md","url":"/api/util/hash.html"},{"name":"MIP.util","path":"docs/api/util/index.md","url":"/api/util/index.html"},{"name":"MIP.util.jsonParse","path":"docs/api/util/jsonParse.md","url":"/api/util/jsonParse.html"},{"name":"MIP.util.naboo","path":"docs/api/util/naboo.md","url":"/api/util/naboo.html"},{"name":"MIP.util.platform","path":"docs/api/util/platform.md","url":"/api/util/platform.html"},{"name":"MIP.util.rect","path":"docs/api/util/rect.md","url":"/api/util/rect.html"}]}],

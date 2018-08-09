@@ -30,7 +30,6 @@
             <li class="navbar-sub-item"><a data-type="mip" href="/codelabs/index.html">Codelab</a></li>
           </ul>
         </li>
-        <li class="navbar-item"><a data-type="mip" href="/help" class="menu-name">帮助</a></li>
         <li class="navbar-item">
           <span class="menu-name">常用链接<i class="arrow"></i></span>
           <ul class="navbar-sub-menu">
@@ -70,7 +69,6 @@
         <li class="navbar-sub-item"><a data-type="mip" href="/codelabs/index.html">Codelab</a></li>
       </ul>
     </li>
-    <li class="navbar-item"><a data-type="mip" href="/help" class="menu-name">帮助</a></li>
     <li class="navbar-item">
       <span class="menu-name">常用链接</span>
       <ul class="navbar-sub-menu">
@@ -119,18 +117,18 @@
       <div class="step-content-list">
         <div class="content-item show markdown-body">
           <h1 id="3-熟悉项目结构"><a href="#3-熟悉项目结构" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>3. 熟悉项目结构</h1><p>通过前面两步，开发者可以初步预览到初始化项目的一个页面，如果要更好的开发，我们还需要对初始化的项目结构有一定的了解</p><ol><li><p>初始化项目结构</p><p>
-        <div class="md-img-wrapper">
-          <div class="md-img-wrapper-child">
-            <mip-img
-              layout="container"
-              width="1288"
-              height="876"
-              src="http://bos.nj.bpc.baidu.com/assets/mip/codelab/project.jpg"
-              popup
-            ></mip-img>
-          </div>
+      <div class="md-img-wrapper">
+        <div class="md-img-wrapper-child">
+          <mip-img
+            layout="container"
+            width="1288"
+            height="876"
+            src="http://bos.nj.bpc.baidu.com/assets/mip/codelab/project.jpg"
+            popup
+          ></mip-img>
         </div>
-        </p></li></ol><ol start="2"><li><p>如下图所示，初始化项目的预览页面 <code>example/index.html</code> 中给出了 MIP 页面的一个最基本的格式。</p><ul><li><p>开发时，可以在页面中直接修改页面 html 内容</p><blockquote><p>开发中需要遵循 MIP 的开发规范，<a href="/guide/mip-standard/mip-html-spec.html">详细开发规范</a></p></blockquote></li><li><p>通过自定义标签的方式引入内容（如 <code>&lt;mip-example&gt;</code> 标签）</p><blockquote><p>开发自定义组件，详细请参照<a href="/codelabs/mip-started/component-development/introduction.html">如何开发自定义组件</a></p></blockquote><blockquote><p>MIP 提供了部分内置组件及个性化组件，方便开发者使用</p></blockquote></li></ul></li></ol><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div>32</div><div>33</div><div>34</div><div>35</div><div>36</div><div>37</div><div>38</div><div>39</div><div>40</div><div>41</div><div>42</div><div>43</div><div>44</div><div>45</div><div>46</div></div><code class="lang-html"><span class="hljs-comment">&lt;!-- 声明头必须 --&gt;</span>
+      </div>
+      </p></li></ol><ol start="2"><li><p>如下图所示，初始化项目的预览页面 <code>example/index.html</code> 中给出了 MIP 页面的一个最基本的格式。</p><ul><li><p>开发时，可以在页面中直接修改页面 html 内容</p><blockquote><p>开发中需要遵循 MIP 的开发规范，<a href="/guide/mip-standard/mip-html-spec.html">详细开发规范</a></p></blockquote></li><li><p>通过自定义标签的方式引入内容（如 <code>&lt;mip-example&gt;</code> 标签）</p><blockquote><p>开发自定义组件，详细请参照<a href="/codelabs/mip-started/component-development/introduction.html">如何开发自定义组件</a></p></blockquote><blockquote><p>MIP 提供了部分内置组件及个性化组件，方便开发者使用</p></blockquote></li></ul></li></ol><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div>32</div><div>33</div><div>34</div><div>35</div><div>36</div><div>37</div><div>38</div><div>39</div><div>40</div><div>41</div><div>42</div><div>43</div><div>44</div><div>45</div><div>46</div></div><code class="lang-html"><span class="hljs-comment">&lt;!-- 声明头必须 --&gt;</span>
 <span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
 
 <span class="hljs-comment">&lt;!--  mip 属性必须--&gt;</span>
@@ -200,7 +198,7 @@
 <mip-data>
   <script type="application/json">
     {
-      "navbar": [{"name":"首页","url":"/index.html","width":32},{"name":"学习","width":32,"children":[{"name":"使用文档","url":"/guide/index.html","width":64},{"name":"组件列表","url":"/components/index.html","width":64},{"name":"API","url":"/api/index.html"},{"name":"Codelab","url":"/codelabs/index.html","width":60}]},{"name":"帮助","url":"/help","width":32},{"name":"常用链接","children":[{"name":"MIP 官方博客","url":"http://www.cnblogs.com/mipengine"},{"name":"MIP-CLI 本地开发工具","url":"https://github.com/mipengine/mip2/tree/master/packages/mip-cli"},{"name":"MIP 代码校验工具","url":"https://www.mipengine.org/validator/validate"},{"name":"MIP 效果预览工具","url":"https://www.mipengine.org/validator/preview"},{"name":"MIP PATH 转换工具","url":"https://www.mipengine.org/mippath.html"}],"width":82},{"name":"GitHub","url":"https://github.com/mipengine/mip2","width":50}],
+      "navbar": [{"name":"首页","url":"/index.html","width":32},{"name":"学习","width":32,"children":[{"name":"使用文档","url":"/guide/index.html","width":64},{"name":"组件列表","url":"/components/index.html","width":64},{"name":"API","url":"/api/index.html"},{"name":"Codelab","url":"/codelabs/index.html","width":60}]},{"name":"常用链接","children":[{"name":"MIP 官方博客","url":"http://www.cnblogs.com/mipengine"},{"name":"MIP-CLI 本地开发工具","url":"https://github.com/mipengine/mip2/tree/master/packages/mip-cli"},{"name":"MIP 代码校验工具","url":"https://www.mipengine.org/validator/validate"},{"name":"MIP 效果预览工具","url":"https://www.mipengine.org/validator/preview"},{"name":"MIP PATH 转换工具","url":"https://www.mipengine.org/mippath.html"}],"width":82},{"name":"GitHub","url":"https://github.com/mipengine/mip2","width":50}],
       "sidebarFragment": "codelabs",
       "sidebarSecondFragment": "codelabs",
       "codelabMenu": {"name":"mip-started","path":"docs/codelabs/mip-started","children":[{"name":"概述","path":"docs/codelabs/mip-started/introduction.md","url":"/codelabs/mip-started/introduction.html"},{"name":"准备环境","path":"docs/codelabs/mip-started/prepare.md","url":"/codelabs/mip-started/prepare.html"},{"name":"项目初始化页面","path":"docs/codelabs/mip-started/project.md","url":"/codelabs/mip-started/project.html"},{"name":"使用内置组件","path":"docs/codelabs/mip-started/components-in.md","url":"/codelabs/mip-started/components-in.html"},{"name":"页面校验","path":"docs/codelabs/mip-started/validate.md","url":"/codelabs/mip-started/validate.html"}],"info":{"name":"如何开发一个 MIP 页面","description":"本示例针对初次尝试开发 MIP 页面的开发者，将演示如何利用官方提供的一系列工具快速搭建一个 MIP 项目，开发一个 MIP 页面。","tag":["MIP 2.0","起步教程"],"duration":"20分钟"}},
@@ -215,18 +213,18 @@
 </p>
     <div class="markdown-body">
       <h1 id="3-熟悉项目结构"><a href="#3-熟悉项目结构" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>3. 熟悉项目结构</h1><p>通过前面两步，开发者可以初步预览到初始化项目的一个页面，如果要更好的开发，我们还需要对初始化的项目结构有一定的了解</p><ol><li><p>初始化项目结构</p><p>
-        <div class="md-img-wrapper">
-          <div class="md-img-wrapper-child">
-            <mip-img
-              layout="container"
-              width="1288"
-              height="876"
-              src="http://bos.nj.bpc.baidu.com/assets/mip/codelab/project.jpg"
-              popup
-            ></mip-img>
-          </div>
+      <div class="md-img-wrapper">
+        <div class="md-img-wrapper-child">
+          <mip-img
+            layout="container"
+            width="1288"
+            height="876"
+            src="http://bos.nj.bpc.baidu.com/assets/mip/codelab/project.jpg"
+            popup
+          ></mip-img>
         </div>
-        </p></li></ol><ol start="2"><li><p>如下图所示，初始化项目的预览页面 <code>example/index.html</code> 中给出了 MIP 页面的一个最基本的格式。</p><ul><li><p>开发时，可以在页面中直接修改页面 html 内容</p><blockquote><p>开发中需要遵循 MIP 的开发规范，<a href="/guide/mip-standard/mip-html-spec.html">详细开发规范</a></p></blockquote></li><li><p>通过自定义标签的方式引入内容（如 <code>&lt;mip-example&gt;</code> 标签）</p><blockquote><p>开发自定义组件，详细请参照<a href="/codelabs/mip-started/component-development/introduction.html">如何开发自定义组件</a></p></blockquote><blockquote><p>MIP 提供了部分内置组件及个性化组件，方便开发者使用</p></blockquote></li></ul></li></ol><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div>32</div><div>33</div><div>34</div><div>35</div><div>36</div><div>37</div><div>38</div><div>39</div><div>40</div><div>41</div><div>42</div><div>43</div><div>44</div><div>45</div><div>46</div></div><code class="lang-html"><span class="hljs-comment">&lt;!-- 声明头必须 --&gt;</span>
+      </div>
+      </p></li></ol><ol start="2"><li><p>如下图所示，初始化项目的预览页面 <code>example/index.html</code> 中给出了 MIP 页面的一个最基本的格式。</p><ul><li><p>开发时，可以在页面中直接修改页面 html 内容</p><blockquote><p>开发中需要遵循 MIP 的开发规范，<a href="/guide/mip-standard/mip-html-spec.html">详细开发规范</a></p></blockquote></li><li><p>通过自定义标签的方式引入内容（如 <code>&lt;mip-example&gt;</code> 标签）</p><blockquote><p>开发自定义组件，详细请参照<a href="/codelabs/mip-started/component-development/introduction.html">如何开发自定义组件</a></p></blockquote><blockquote><p>MIP 提供了部分内置组件及个性化组件，方便开发者使用</p></blockquote></li></ul></li></ol><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div>32</div><div>33</div><div>34</div><div>35</div><div>36</div><div>37</div><div>38</div><div>39</div><div>40</div><div>41</div><div>42</div><div>43</div><div>44</div><div>45</div><div>46</div></div><code class="lang-html"><span class="hljs-comment">&lt;!-- 声明头必须 --&gt;</span>
 <span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
 
 <span class="hljs-comment">&lt;!--  mip 属性必须--&gt;</span>

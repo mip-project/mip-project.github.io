@@ -88,7 +88,7 @@ module.exports = class ComponentPreview {
         str = `
           <div class="md-fn-wrapper">
             <div class="md-fn-preview-wrapper">
-              <div class="md-fn-title">效果预览</div>
+              <!-- <div class="md-fn-title">效果预览</div> -->
               <div class="md-fn-preview-section">
                 <mip-showmore maxheight="160" animatetime=".3" id="fn-showmore-${index}">
                   ${theCases[index++]}

@@ -34,11 +34,11 @@ module.exports = [
       }
     ]
   },
-  {
-    "name": "帮助",
-    "url": "/help",
-    "width": 32
-  },
+  // {
+  //   "name": "帮助",
+  //   "url": "/help",
+  //   "width": 32
+  // },
   {
     "name": "常用链接",
     "children": [

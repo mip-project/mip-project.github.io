@@ -30,7 +30,6 @@
             <li class="navbar-sub-item"><a data-type="mip" href="/codelabs/index.html">Codelab</a></li>
           </ul>
         </li>
-        <li class="navbar-item"><a data-type="mip" href="/help" class="menu-name">帮助</a></li>
         <li class="navbar-item">
           <span class="menu-name">常用链接<i class="arrow"></i></span>
           <ul class="navbar-sub-menu">
@@ -70,7 +69,6 @@
         <li class="navbar-sub-item"><a data-type="mip" href="/codelabs/index.html">Codelab</a></li>
       </ul>
     </li>
-    <li class="navbar-item"><a data-type="mip" href="/help" class="menu-name">帮助</a></li>
     <li class="navbar-item">
       <span class="menu-name">常用链接</span>
       <ul class="navbar-sub-menu">
@@ -184,18 +182,18 @@
   <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">20px</span>;
 }
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></span></span></code></pre><p>在组件中，我们展示了城市列表，并允许用户点击城市列表的每一个 item，点击选择后会将全局数据 <code>city</code> 通过 <code>MIP.setData</code> API修改为选中的城市结果。</p><p>修改全局数据时需要区分若干种情况，详情请阅读 <a data-type="mip" href="https://mip-project.github.io/guide/interactive-mip/global-data.html#修改共享数据">可交互 MIP - 全局共享数据</a>。上面的示例代码中是其中 <code>MIP 自动判断</code> 的情况。</p><h2 id="页面效果"><a href="#页面效果" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>页面效果</h2><p>
-        <div class="md-img-wrapper">
-          <div class="md-img-wrapper-child">
-            <mip-img
-              layout="container"
-              width="690"
-              height="1238"
-              src="https://mip-project.github.io/assets/img/docs/codelabs/global-data/images/city-selector.png"
-              popup
-            ></mip-img>
-          </div>
+      <div class="md-img-wrapper">
+        <div class="md-img-wrapper-child">
+          <mip-img
+            layout="container"
+            width="690"
+            height="1238"
+            src="https://mip-project.github.io/assets/img/docs/codelabs/global-data/images/city-selector.png"
+            popup
+          ></mip-img>
         </div>
-        </p><h2 id="操作全局数据"><a href="#操作全局数据" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>操作全局数据</h2><p>点击选择了默认城市（上海）之外的城市后，可以看到页面上的当前选择城市已经更新。点击页面左上角的返回按钮，回到首页，你将发现，首页的城市数据也更新为选择后的城市。</p>
+      </div>
+      </p><h2 id="操作全局数据"><a href="#操作全局数据" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>操作全局数据</h2><p>点击选择了默认城市（上海）之外的城市后，可以看到页面上的当前选择城市已经更新。点击页面左上角的返回按钮，回到首页，你将发现，首页的城市数据也更新为选择后的城市。</p>
         </div>
 <div class="markdown-toolbar">
   <a data-type="mip" href="https://github.com/mipengine/mip2/issues/new?title=反馈:docs/codelabs/global-data/use-data-everywhere.md"><span><i class="iconfont icon-feedback"></i> 反馈</span></a>
@@ -220,7 +218,7 @@
 <mip-data>
   <script type="application/json">
     {
-      "navbar": [{"name":"首页","url":"/index.html","width":32},{"name":"学习","width":32,"children":[{"name":"使用文档","url":"/guide/index.html","width":64},{"name":"组件列表","url":"/components/index.html","width":64},{"name":"API","url":"/api/index.html"},{"name":"Codelab","url":"/codelabs/index.html","width":60}]},{"name":"帮助","url":"/help","width":32},{"name":"常用链接","children":[{"name":"MIP 官方博客","url":"http://www.cnblogs.com/mipengine"},{"name":"MIP-CLI 本地开发工具","url":"https://github.com/mipengine/mip2/tree/master/packages/mip-cli"},{"name":"MIP 代码校验工具","url":"https://www.mipengine.org/validator/validate"},{"name":"MIP 效果预览工具","url":"https://www.mipengine.org/validator/preview"},{"name":"MIP PATH 转换工具","url":"https://www.mipengine.org/mippath.html"}],"width":82},{"name":"GitHub","url":"https://github.com/mipengine/mip2","width":50}],
+      "navbar": [{"name":"首页","url":"/index.html","width":32},{"name":"学习","width":32,"children":[{"name":"使用文档","url":"/guide/index.html","width":64},{"name":"组件列表","url":"/components/index.html","width":64},{"name":"API","url":"/api/index.html"},{"name":"Codelab","url":"/codelabs/index.html","width":60}]},{"name":"常用链接","children":[{"name":"MIP 官方博客","url":"http://www.cnblogs.com/mipengine"},{"name":"MIP-CLI 本地开发工具","url":"https://github.com/mipengine/mip2/tree/master/packages/mip-cli"},{"name":"MIP 代码校验工具","url":"https://www.mipengine.org/validator/validate"},{"name":"MIP 效果预览工具","url":"https://www.mipengine.org/validator/preview"},{"name":"MIP PATH 转换工具","url":"https://www.mipengine.org/mippath.html"}],"width":82},{"name":"GitHub","url":"https://github.com/mipengine/mip2","width":50}],
       "sidebarFragment": "codelabs",
       "sidebarSecondFragment": "codelabs",
       "codelabMenu": {"name":"global-data","path":"docs/codelabs/global-data","children":[{"name":"概述","path":"docs/codelabs/global-data/introduction.md","url":"/codelabs/global-data/introduction.html"},{"name":"初始化全局数据","path":"docs/codelabs/global-data/initialize-data.md","url":"/codelabs/global-data/initialize-data.html"},{"name":"在其他页面使用和修改全局数据","path":"docs/codelabs/global-data/use-data-everywhere.md","url":"/codelabs/global-data/use-data-everywhere.html"},{"name":"完整示例代码","path":"docs/codelabs/global-data/sample-code.md","url":"/codelabs/global-data/sample-code.html"}],"info":{"name":"如何实现页面间数据共享","description":"本示例针对有独立页面间数据共享需求的开发者","tag":["MIP 2.0","mip-bind","页面间数据共享"],"duration":"20分钟"}},
@@ -300,18 +298,18 @@
   <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">20px</span>;
 }
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></span></span></code></pre><p>在组件中，我们展示了城市列表，并允许用户点击城市列表的每一个 item，点击选择后会将全局数据 <code>city</code> 通过 <code>MIP.setData</code> API修改为选中的城市结果。</p><p>修改全局数据时需要区分若干种情况，详情请阅读 <a data-type="mip" href="https://mip-project.github.io/guide/interactive-mip/global-data.html#修改共享数据">可交互 MIP - 全局共享数据</a>。上面的示例代码中是其中 <code>MIP 自动判断</code> 的情况。</p><h2 id="页面效果"><a href="#页面效果" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>页面效果</h2><p>
-        <div class="md-img-wrapper">
-          <div class="md-img-wrapper-child">
-            <mip-img
-              layout="container"
-              width="690"
-              height="1238"
-              src="https://mip-project.github.io/assets/img/docs/codelabs/global-data/images/city-selector.png"
-              popup
-            ></mip-img>
-          </div>
+      <div class="md-img-wrapper">
+        <div class="md-img-wrapper-child">
+          <mip-img
+            layout="container"
+            width="690"
+            height="1238"
+            src="https://mip-project.github.io/assets/img/docs/codelabs/global-data/images/city-selector.png"
+            popup
+          ></mip-img>
         </div>
-        </p><h2 id="操作全局数据"><a href="#操作全局数据" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>操作全局数据</h2><p>点击选择了默认城市（上海）之外的城市后，可以看到页面上的当前选择城市已经更新。点击页面左上角的返回按钮，回到首页，你将发现，首页的城市数据也更新为选择后的城市。</p>
+      </div>
+      </p><h2 id="操作全局数据"><a href="#操作全局数据" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>操作全局数据</h2><p>点击选择了默认城市（上海）之外的城市后，可以看到页面上的当前选择城市已经更新。点击页面左上角的返回按钮，回到首页，你将发现，首页的城市数据也更新为选择后的城市。</p>
     </div>
 <div class="markdown-toolbar">
 </div>

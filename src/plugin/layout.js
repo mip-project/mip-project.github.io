@@ -212,32 +212,30 @@ async function image (html, app) {
 
     // let {layout, addClass} = migPageProcess.processMipImgStyle(src, width, height)
 
-    /* eslint-disable max-len */
     if (/\.gif($|\?|#)/.test(src)) {
       return `
-            <mip-anim
-              layout="${layout}"
-              width="${width}"
-              height="${height}"
-              src="${src}"
-            ></mip-anim>
+        <mip-anim
+          layout="${layout}"
+          width="${width}"
+          height="${height}"
+          src="${src}"
+        ></mip-anim>
             `
     }
 
     return `
-        <div class="md-img-wrapper">
-          <div class="md-img-wrapper-child">
-            <mip-img
-              layout="${layout}"
-              width="${width}"
-              height="${height}"
-              src="${src}"
-              popup
-            ></mip-img>
-          </div>
+      <div class="md-img-wrapper">
+        <div class="md-img-wrapper-child">
+          <mip-img
+            layout="${layout}"
+            width="${width}"
+            height="${height}"
+            src="${src}"
+            popup
+          ></mip-img>
         </div>
-        `
-    /* eslint-enable max-len */
+      </div>
+      `
   })
 }
 

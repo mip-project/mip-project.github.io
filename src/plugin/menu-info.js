@@ -19,18 +19,18 @@ module.exports = class MenuInfo {
 
       /* eslint-disable */
 
-            let entryPaths = await app.getEntryPaths();
-            if (!entryPaths || !entryPaths.length) {
-                return;
-            }
+      let entryPaths = await app.getEntryPaths()
+      if (!entryPaths || !entryPaths.length) {
+          return;
+      }
 
-            let allMenus = await app.getMenuItem();
+      let allMenus = await app.getMenuItem()
 
-            if (!allMenus || !allMenus.length) {
-                return;
-            }
+      if (!allMenus || !allMenus.length) {
+          return;
+      }
 
-            /* eslint-enable */
+      /* eslint-enable */
 
       Promise.all(entryPaths.map(async entryPath => {
         let docInfo = await app.getDoc(entryPath)
@@ -108,7 +108,7 @@ function getBreadcrumbs (allMenus, targetPath) {
     }
 
     menu = menuItem
-    breadcrumbs.push(menuItem.info && menuItem.info.name || menuItem.name)
+    breadcrumbs.push((menuItem.info && menuItem.info.name) || menuItem.name)
   }
 
   return breadcrumbs
