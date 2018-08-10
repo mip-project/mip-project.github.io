@@ -21,19 +21,19 @@ module.exports = class Related {
       let edit = github + `/edit/master/${path}`
 
       return `
-                ${html}
-                <div class="md-related-wrapper">
-                    <a class="md-related to-edit ui-dep-2" href="${edit}" target="_blank">
-                        <i class="material-icons"></i>编辑
-                    </a>
-                    <a class="md-related to-feedback ui-dep-2"
-                        target="_blank"
-                        href="${github}/issues/new?title=反馈：${path}"
-                    >
-                        <i class="material-icons"></i>反馈
-                    </a>
-                </div>
-            `
+            ${html}
+            <div class="md-related-wrapper">
+                <a class="md-related to-edit ui-dep-2" href="${edit}" target="_blank">
+                    <i class="material-icons"></i>编辑
+                </a>
+                <a class="md-related to-feedback ui-dep-2"
+                    target="_blank"
+                    href="${github}/issues/new?title=反馈：${path}"
+                >
+                    <i class="material-icons"></i>反馈
+                </a>
+            </div>
+        `
     })
   }
 }

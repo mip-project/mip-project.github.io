@@ -15,6 +15,9 @@ module.exports = class DefaultDoc {
       let config = menuConfig.find(config => config.url.test(obj.url) && config.menu(obj.url))
 
       if (!config) {
+        if (obj.url.indexOf('codelabs') > -1) {
+          console.log(obj.path + ' 找不到 config')
+        }
         return
       }
 
@@ -26,9 +29,17 @@ module.exports = class DefaultDoc {
     on(app.STAGES.DONE, async () => {
       await Promise.all(
         Object.keys(map).map(async menuPath => {
+          // let url = await app.getUrl(menuPath)
+          // if (await app.store.get('doc-url-path', url)) {
+          //   return
+          // }
+
           // 找出文档目录信息
           let menu = await app.getMenu(menuPath)
           if (!menu) {
+            if (menuPath.indexOf('codelabs') > -1) {
+              console.log(menuPath + ' 找不到 menu')
+            }
             return
           }
 
@@ -37,18 +48,32 @@ module.exports = class DefaultDoc {
           let docInfo = await app.getDoc(node.path)
 
           if (!docInfo) {
+            if (menuPath.indexOf('codelabs') > -1) {
+              console.log(menuPath + ' 找不到 docInfo')
+            }
             return
           }
 
           // 只有在内存里可以这么搞
-          docInfo.isFirst = true
+          // docInfo.isFirst = true
+          // entryPaths.push(menuPath)
 
-          await app.store.set('doc', menuPath, docInfo)
+          let url = await app.getUrl(menuPath)
+          let info = Object.assign({}, docInfo, {url})
+
+          await app.store.set('doc', menuPath, info)
+          await app.store.set('doc-url-path', url, menuPath)
+
+          let entryPaths = await app.store.get('data', 'docurls')
+          entryPaths[menuPath] = url
+          await app.store.set('data', 'docurls', entryPaths)
         })
       )
 
+      // await app.store.set('data', 'docurls', entryPaths)
+
       // 清空缓存
       map = {}
-    }, 10050)
+    }, 10052)
   }
 }

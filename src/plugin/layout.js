@@ -14,16 +14,15 @@ const css = fs.readFileSync(path.resolve(__dirname, '../style/dist/index.css'))
 
 module.exports = class Layout {
   apply (on, app) {
-    let cachedChangedFileList = []
-
-    // 只对存在变化的文档对象做 mip 处理
-
-    on(app.STAGES.CREATE_DOC_STORE_OBJECT, obj => {
-      cachedChangedFileList.push(obj)
-    }, 10100)
+    on(app.STAGES.START, async () => {
+      await processNavbar(navbar, app)
+    })
 
     on(app.STAGES.DONE, async () => {
-      await Promise.all(cachedChangedFileList.map(async docInfo => {
+      let docPaths = await app.store.get('data', 'docurls')
+
+      await Promise.all(Object.keys(docPaths).map(async docPath => {
+        let docInfo = await app.store.get('doc', docPath)
         let {html: originalHtml, url, info, chapters, path} = docInfo
 
         // 提取样式
@@ -36,58 +35,18 @@ module.exports = class Layout {
         html = video(html, app)
 
         // 生成 menu 和 chapter
-        let menuInfo = await app.getMenuByUrl(url)
+        let menu = await app.getMenuByUrl(url)
 
-        let last // 上一页
-        let next // 下一页
-        let codelabMenu // codelab 内的stepMenu
-        let layoutName // 模板名称
         // 文档编辑、反馈链接
         let editLink = 'https://github.com/mipengine/mip2/edit/master/' + path
         let feedbackLink = 'https://github.com/mipengine/mip2/issues/new' + '?title=反馈:' + path
 
+        let layoutName // 模板名称
         // codelab 单独处理
-        if (url.indexOf('/codelabs') === 0) {
+        if (url.indexOf('codelabs') > -1) {
           layoutName = 'layout-codelab-detail'
-          codelabMenu = menuInfo.find(item => {
-            let targetPath = 'docs' + url.slice(0, url.lastIndexOf('/'))
-            return item.path === targetPath
-          })
-
-          last = codelabMenu ? getPre(path, codelabMenu) : null
-          next = codelabMenu ? getNext(path, codelabMenu) : null
         } else {
           layoutName = 'layout-doc'
-          last = getPre(path, menuInfo)
-          next = getNext(path, menuInfo)
-        }
-
-        let breadcrumbs
-
-        try {
-          breadcrumbs = getBreadcrumbs(path, menuInfo)
-          if (!breadcrumbs.length) {
-            breadcrumbs = undefined
-          }
-
-          // console.log(breadcrumbs.map(i => i.name).join(','))
-        } catch (e) {
-          console.log('==== get breadcrumbs error =====')
-          console.log(path)
-          console.log(e)
-          console.log('-------------------------')
-        }
-
-        let secondNavbarTitle
-
-        if (/\/guide\//.test(url)) {
-          secondNavbarTitle = '使用文档'
-        } else if (/\/components\//.test(url)) {
-          secondNavbarTitle = '组件列表'
-        } else if (/\/api\//.test(url)) {
-          secondNavbarTitle = 'API'
-        } else if (/\/codelabs\/(?!(index))/) {
-          secondNavbarTitle = codelabMenu ? codelabMenu.info.name : 'Codelabs'
         }
 
         let newhtml = renderer.render(layoutName, {
@@ -95,35 +54,82 @@ module.exports = class Layout {
           description: info.description || '',
           keywords: 'MIP2',
           originUrl: '',
-          host: 'https://mip-project.github.io',
+          host: app.config.host,
           navbar: navbar,
           content: html,
           css: css + style.join(''),
-          menu: menuInfo,
-          codelabMenu: codelabMenu,
+          menu: menu,
           chapters: chapters || {},
-          // breadcrumbs: info.breadcrumbs,
           url: url,
           development: process.env.NODE_ENV === 'development',
-          last: last,
-          next: next,
-          breadcrumbs: breadcrumbs || [],
+          last: info.pre,
+          next: info.next,
+          breadcrumbs: info.breadcrumbs || [],
           editLink: editLink,
           feedbackLink: feedbackLink,
-          secondNavbarTitle: secondNavbarTitle
-          // menu: menuHtml || '',
-          // chapters: chapterHtml || '',
-          // baseStyle: markdownCss,
-          // layoutStyle: layoutCss,
+          secondNavbarTitle: info.navbarTitle,
+          menuInfo: info.menuInfo == null ? '' : Object.assign({}, info.menuInfo)
         })
 
         docInfo.html = newhtml
 
         await app.store.set('doc', docInfo.path, docInfo)
       }))
-        .then(() => {
-          cachedChangedFileList = []
-        })
+
+      let indexHtml = renderer.render('layout-index', {
+        title: 'MIP官网_移动网页加速器_MIP(Mobile Instant Pages)',
+        description: 'MIP（Mobile Instant Pages - 移动网页加速器）是一套应用于移动网页的开放性技术标准，使用 MIP无需等待加载，页面内容将以更友好的方式瞬时到达用户。',
+        keywords: 'MIP2',
+        originUrl: '',
+        host: 'https://mip-project.github.io',
+        navbar: navbar,
+        css: css,
+        menu: {},
+        chapters: {},
+        url: '',
+        navIndex: 0,
+        development: process.env.NODE_ENV === 'development'
+      })
+
+      let indexPath = 'docs/index'
+      let indexUrl = await app.getUrl(indexPath)
+
+      await app.store.set('doc', indexPath, {
+        path: indexPath,
+        url: indexUrl,
+        html: indexHtml
+      })
+
+      docPaths[indexPath] = indexUrl
+
+      let codelabsMenu = await app.getMenu('docs/codelabs')
+
+      let htmlCodelab = renderer.render('layout-codelab', {
+        title: 'MIP 文档_移动网页加速器_MIP(Mobile Instant Pages) | CODELAB',
+        description: '我们在 Codelab 中提供了一系列基于 MIP 的编程小项目，内容包括项目起步、配置教学、功能实现等等',
+        keywords: 'Codelab',
+        originUrl: '',
+        host: 'https://mip-project.github.io',
+        navbar: navbar,
+        css: css,
+        menu: codelabsMenu,
+        chapters: {},
+        url: '/codelabs/index.html',
+        navIndex: 3,
+        development: process.env.NODE_ENV === 'development'
+      })
+
+      let codelabsPath = 'docs/codelabs'
+      let codelabsUrl = await app.getUrl(codelabsPath)
+      await app.store.set('doc', codelabsPath, {
+        path: codelabsPath,
+        url: codelabsUrl,
+        html: htmlCodelab
+      })
+
+      docPaths[codelabsPath] = codelabsUrl
+      await app.store.set('data', 'docurls', docPaths)
+
     }, 99999)
   }
 }
@@ -317,142 +323,14 @@ async function getImageSize (src, basePath = '', logger) {
   }
 }
 
-function getPre (current, menu) {
-  try {
-    let parent = getParent(current, menu)
-    if (!parent) {
-      return null
+async function processNavbar (navbar, app) {
+  for (let i = 0; i < navbar.length; i++) {
+    if (navbar[i].path) {
+      navbar[i].url = await app.getUrl(navbar[i].path)
     }
-    let index = getIndex(current, parent.children || parent)
-    if (index > 0) {
-      let pre = (parent.children || parent)[index - 1]
-      while (pre.children) {
-        pre = pre.children[pre.children.length - 1]
-      }
-      return pre
-    }
-    while (parent) {
-      let currParent = getParent(parent.path, menu)
-      if (!currParent) {
-        break
-      }
-      let index = getIndex(parent.path, currParent.children || currParent)
-      if (index > 0) {
-        let pre = (currParent.children || currParent)[index - 1]
-        while (pre.children) {
-          pre = pre.children[pre.children.length - 1]
-        }
-        return pre
-      }
-      parent = currParent
-    }
-    return null
-  } catch (e) {
-    console.log('===== get pre error =====')
-    console.log(path)
-    console.log(e)
-    console.log('-------------------------')
-  }
-}
 
-function getNext (current, menu) {
-  try {
-    let parent = getParent(current, menu)
-    if (!parent) {
-      return null
-    }
-    let index = getIndex(current, parent.children || parent)
-    let list = parent.children || parent
-    if (index < (list.length - 1)) {
-      let next = list[index + 1]
-      while (next.children) {
-        next = next.children[0]
-      }
-      return next
-    }
-    while (parent) {
-      let currParent = getParent(parent.path, menu)
-      if (!currParent) {
-        break
-      }
-      let list = currParent.children || currParent
-      let index = getIndex(parent.path, list)
-      if (index < (list.length - 1)) {
-        let next = list[index + 1]
-        while (next.children) {
-          next = next.children[0]
-        }
-        return next
-      }
-      parent = currParent
-    }
-    return null
-  } catch (e) {
-    console.log('==== get next error =====')
-    console.log(path)
-    console.log(e)
-    console.log('-------------------------')
-  }
-}
-
-function getParent (path, menu) {
-  let list
-  if (Array.isArray(menu)) {
-    list = menu
-  } else if (menu.children) {
-    list = menu.children
-  }
-  if (getItem(path, list)) {
-    return menu
-  }
-  for (let i = 0, max = list.length; i < max; i++) {
-    if (list[i].children) {
-      let childParent = getParent(path, list[i])
-      if (childParent) {
-        return childParent
-      }
+    if (navbar[i].children && navbar[i].children.length) {
+      await processNavbar(navbar[i].children, app)
     }
   }
-  return null
-}
-
-function getItem (path, list) {
-  for (let i = 0, max = list.length; i < max; i++) {
-    if (list[i].path === path) {
-      return list[i]
-    }
-  }
-  return null
-}
-
-function getIndex (path, list) {
-  for (let i = 0, max = list.length; i < max; i++) {
-    if (list[i].path === path) {
-      return i
-    }
-  }
-  return -1
-}
-
-function getBreadcrumbs (path, menu) {
-  return path.split('/').map((str, i, arr) => arr.slice(0, i + 1).join('/'))
-    .reduce((obj, key) => {
-      let menu = obj.menu
-
-      let list
-      if (Array.isArray(menu)) {
-        list = menu
-      } else if (menu.children) {
-        list = menu.children
-      }
-
-      let item = getItem(key, list)
-
-      if (item) {
-        obj.list.push(item)
-        obj.menu = item.children
-      }
-
-      return obj
-    }, {list: [], menu: menu}).list
 }

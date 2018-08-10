@@ -4,12 +4,11 @@
 
 
 <div class="step-tabs-wrapper">
-
-  {{ if:  ${codelabMenu} && ${codelabMenu.info} }}
+  {{ if: ${menuInfo} != '' }}
   <div class="step-head">
     <div class="step-head-inner">
-      <p class="title">${codelabMenu.info.name}</p>
-      <p class="des">${codelabMenu.info.description}</p>
+      <p class="title">${menuInfo.name}</p>
+      <p class="des">${menuInfo.description}</p>
     </div>
   </div>
   {{ /if }}
@@ -41,7 +40,7 @@
       "navbar": ${*navbar|json},
       "sidebarFragment": "codelabs",
       "sidebarSecondFragment": "codelabs",
-      "codelabMenu": ${*codelabMenu|json},
+      "codelabMenu": ${*menu|json},
       "codelabStepSelected": "${url}"
     }
   </script>

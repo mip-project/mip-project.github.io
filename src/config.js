@@ -17,6 +17,8 @@ let tmpDir = path.resolve(rootDir, 'tmp')
 let docDir = path.resolve(tmpDir, 'doc')
 // let gitDir = path.resolve(tmpDir, 'git')
 
+const urlPrefix = '/v2/'
+
 module.exports = {
   host: process.env.NODE_ENV === 'development' ? '' : 'https://mip-project.github.io',
   basePath: docDir,
@@ -111,79 +113,107 @@ module.exports = {
       }
     },
     {
+      path: /^docs\/index$/,
+      url (filePath) {
+        return urlPrefix + 'index.html'
+      }
+    },
+    {
+      path: /^docs\/codelabs$/,
+      url (filePath) {
+        return urlPrefix + 'codelabs/index.html'
+      }
+    },
+    {
+      path: /^docs\/api$/,
+      url (filePath) {
+        return urlPrefix + 'api/index.html'
+      }
+    },
+    {
+      path: /^docs\/extensions$/,
+      url (filePath) {
+        return urlPrefix + 'components/index.html'
+      }
+    },
+    {
+      path: /^docs\/codelabs$/,
+      url (filePath) {
+        return urlPrefix + 'codelabs/index.html'
+      }
+    },
+    {
+      path: /^docs\/guide$/,
+      url (filePath) {
+        return urlPrefix + 'guide/basic/newbie.html'
+      }
+    },
+    {
       path: /^docs\/extensions/,
       url (filePath) {
-        filePath = '/components' + filePath.slice(15).replace(/\.md($|\?|#)/, '$1') + '.html'
-        return filePath
+        if (/\.md$/.test(filePath)) {
+          filePath = urlPrefix + 'components' + filePath.slice(15).replace(/\.md($|\?|#)/, '$1') + '.html'
+          return filePath
+        }
+
+        return urlPrefix + 'components' + filePath.slice(15) + '/index.html'
       }
     },
     {
       path: /^docs\/guide/,
       url (filePath) {
-        filePath = '/' + filePath.slice(5).replace(/\.md($|\?|#)/, '$1') + '.html'
-        return filePath
+        if (/\.md$/.test(filePath)) {
+          filePath = urlPrefix + filePath.slice(5).replace(/\.md($|\?|#)/, '$1') + '.html'
+          return filePath
+        }
+        return urlPrefix + filePath.slice(5) + '/index.html'
       }
     },
     {
       path: /^docs\/api/,
       url (filePath) {
-        filePath = '/' + filePath.slice(5).replace(/\.md($|\?|#)/, '$1') + '.html'
-        return filePath
+        if (/\.md$/.test(filePath)) {
+          filePath = urlPrefix + filePath.slice(5).replace(/\.md($|\?|#)/, '$1') + '.html'
+          return filePath
+        }
+        return urlPrefix + filePath.slice(5) + '/index.html'
       }
     },
     {
-      path: /^docs\/codelabs/,
+      path: /^docs\/codelabs\//,
       url (filePath) {
-        filePath = '/' + filePath.slice(5).replace(/\.md($|\?|#)/, '$1') + '.html'
+        filePath = urlPrefix + filePath.slice(5).replace(/\.md($|\?|#)/, '$1') + '.html'
         return filePath
       }
     }
-    // {
-    //     path(filePath) {
-    //         return /\.[a-zA-Z0-9]+($|\?|#)/.test(filePath) && !/\.md($|\?|#)/.test(filePath);
-    //     },
-    //     url(filePath) {
-    //         return `/doc-assets/${filePath}`;
-    //     }
-    // },
-    // {
-    //     path: /^lavas\/vue/,
-    //     url(filePath) {
-    //         filePath = filePath.replace(/\.md($|\?|#)/, '$1').replace(/^lavas\/vue/, 'v1');
-    //         return `/guide/${filePath}`;
-    //     }
-    // },
-    // {
-    //     path: /^lavas\//,
-    //     url(filePath) {
-    //         filePath = filePath.replace(/\.md($|\?|#)/, '$1').replace(/^lavas\//, '');
-    //         return `/guide/${filePath}`;
-    //     }
-    // }
   ],
   menus: [
     {
-      url: /^\/components/,
+      url: /^\/v2\/components/,
       menu (url) {
         return 'docs/extensions'
       }
     },
     {
-      url: /^\/guide/,
+      url: /^\/v2\/guide/,
       menu (url) {
         return 'docs/guide'
       }
     },
     {
-      url: /^\/api/,
+      url: /^\/v2\/api/,
       menu (url) {
         return 'docs/api'
       }
     },
     {
-      url: /^\/codelabs/,
+      url: /^\/v2\/codelabs/,
       menu (url) {
-        return 'docs/codelabs'
+        let match = url.match(/^\/v2\/codelabs\/(.+?)(\/|$)/)
+        if (match) {
+          return `docs/codelabs/${match[1]}`
+        }
+        // return 'docs/codelabs'
       }
     }
   ]

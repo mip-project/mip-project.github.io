@@ -6,7 +6,8 @@
 module.exports = [
   {
     "name": "首页",
-    "url": "/index.html",
+    "path": "docs/index",
+    // "url": "/index.html",
     "width": 32
   },
   {
@@ -15,21 +16,25 @@ module.exports = [
     "children": [
       {
         "name": "使用文档",
-        "url": "/guide/index.html",
+        "path": "docs/guide",
+        // "url": "/guide/index.html",
         "width": 64
       },
       {
         "name": "组件列表",
-        "url": "/components/index.html",
+        "path": "docs/extensions",
+        // "url": "/components/index.html",
         "width": 64
       },
       {
         "name": "API",
-        "url": "/api/index.html"
+        "path": "docs/api"
+        // "url": "/api/index.html"
       },
       {
         "name": "Codelab",
-        "url": "/codelabs/index.html",
+        "path": "docs/codelabs",
+        // "url": "/codelabs/index.html",
         "width": 60
       }
     ]
@@ -71,5 +76,4 @@ module.exports = [
     "width": 50
   }
 ]
-
 /* eslint-enable */

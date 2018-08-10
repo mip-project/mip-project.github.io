@@ -37,13 +37,13 @@ module.exports = class HighlightQuote {
       let [one, ...quotes] = quote.split(/<p>({=(.*?)=}|info|error|warn)<\/p>/mg)
 
       return '' +
-                (one ? tag('blockquote', one) : '') +
-                chunk(quotes, 3)
-                  .map(([className, props, content]) => {
-                    props = props !== undefined ? decodeQuote(props) : `class="${className}"`
-                    return tag('blockquote', content, props)
-                  })
-                  .join('')
+        (one ? tag('blockquote', one) : '') +
+        chunk(quotes, 3)
+          .map(([className, props, content]) => {
+            props = props !== undefined ? decodeQuote(props) : `class="${className}"`
+            return tag('blockquote', content, props)
+          })
+          .join('')
     })
   }
 }

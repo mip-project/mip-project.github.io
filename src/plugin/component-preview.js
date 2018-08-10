@@ -11,7 +11,7 @@ module.exports = class ComponentPreview {
   apply (on, app) {
     on(app.STAGES.CREATE_DOC_STORE_OBJECT, async obj => {
       // 只针对 components 下的符合 文档格式的组件做预览效果
-      if (!/^\/components\//.test(obj.url)) {
+      if (!/^docs\/extensions\//.test(obj.path)) {
         return
       }
 

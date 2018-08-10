@@ -6,7 +6,7 @@
 const Description = require('./default-description')
 const UrlMapper = require('./url-mapper')
 const LineNumber = require('./line-number')
-const DefaultDoc = require('./default-doc')
+// const DefaultDoc = require('./default-doc')
 const HighlightQuote = require('./highlight-quote')
 const HighlightParagraph = require('./highlight-paragraph')
 const TrimBlankLine = require('./trim-blank-line')
@@ -24,7 +24,7 @@ module.exports = {
   componentPreview: new ComponentPreview(),
   urlMapper: new UrlMapper(),
   lineNumber: new LineNumber(),
-  defaultDoc: new DefaultDoc(),
+  // defaultDoc: new DefaultDoc(),
   highlightQuote: new HighlightQuote(),
   highlightParagraph: new HighlightParagraph(),
   trimBlankLine: new TrimBlankLine(),

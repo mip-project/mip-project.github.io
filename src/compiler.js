@@ -45,8 +45,11 @@ Object.assign(compiler, {
 
   async getUrl (path) {
     let route = await getRoute(config.routes, path)
-    return route && typeof route.url === 'string'
-      ? route.url : route.url(path)
+    if (!route) {
+      console.log(path)
+    }
+    return route && (typeof route.url === 'string'
+      ? route.url : route.url(path))
   },
 
   async getMenuPath (url) {
@@ -142,5 +145,11 @@ function getRoute (config, path) {
     }
   }
 }
+
+// compiler.on(compiler.STAGES.DONE, function () {
+//   compiler.store.get('data', 'docurls').then(data => {
+//     console.log(data)
+//   })
+// })
 
 module.exports = compiler
