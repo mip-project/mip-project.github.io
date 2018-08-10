@@ -33,7 +33,7 @@ module.exports = class MenuInfo {
 
       /* eslint-enable */
 
-      Promise.all(entryPaths.map(async entryPath => {
+      await Promise.all(entryPaths.map(async entryPath => {
         let docInfo = await app.getDoc(entryPath)
 
         if (!docInfo) {
@@ -54,6 +54,7 @@ module.exports = class MenuInfo {
           return
         }
 
+        // console.log(Object.keys(tm))
         // console.log(Object.keys(menu))
         // 查找文章对应目录的名称
 
@@ -89,6 +90,12 @@ module.exports = class MenuInfo {
 
         if (menu.info) {
           docInfo.info.menuInfo = menu.info
+        }
+
+        let info = await app.getMenuItem(entryPath)
+
+        if (info && info.preview != null) {
+          docInfo.info.preview = info.preview
         }
 
         await app.store.set('doc', docInfo.path, docInfo)

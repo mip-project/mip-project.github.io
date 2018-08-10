@@ -1,0 +1,31 @@
+
+                <!DOCTYPE html>
+                <html mip>
+                <head>
+                  <meta charset="utf-8">
+                  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+                  <title>测试</title>
+                  <meta name="description" content="">
+                  <link rel="canonical" href="">
+                  <link rel="stylesheet" type="text/css" href="https://c.mipcdn.com/static/v2/mip.css">
+                </head>
+                <body>
+                  <button on="tap:my-lightbox.toggle" id="btn-open" role="button" tabindex="0">
+    Open lightbox
+</button>
+
+<mip-lightbox
+    id="my-lightbox"
+    layout="nodisplay"
+    class="mip-hidden">
+    <div class="lightbox">
+        <h1>Hello, World!</h1>
+        <p> this is the lightbox</p>
+        <span on="tap:my-lightbox.toggle" class="lightbox-close">关闭弹层</span>
+    </div>
+</mip-lightbox>
+
+                  <script src="https://c.mipcdn.com/static/v2/mip.js"></script>
+                  <script src="https://c.mipcdn.com/static/v1/mip-lightbox/mip-lightbox.js"></script>
+                </body>
+              
