@@ -126,6 +126,7 @@
   <script type="application/json">
     {
       "navbar": ${*navbar|json},
+      "navIndex": "${navIndex|raw}",
       "sidebarFragment": "nav",
       "sidebarSecondFragment": "nav"
     }

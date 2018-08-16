@@ -20,7 +20,7 @@
     {{ /if }}
   </head>
   <body>
-    {{ use:layout-navbar(navbar = ${navbar}) }}
+    {{ use:layout-navbar(navbar = ${navbar}, navIndex = ${navIndex}) }}
 
     <mip-sidebar
       id="nav-sidebar"

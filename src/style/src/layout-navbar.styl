@@ -77,17 +77,24 @@
         transform translateY(25%)
 
     @media screen and (min-width: 768px)
-      &:hover
+      &:hover, &:active
         background #f2f3f5
         .menu-name
           color #000
+          font-weight bold
           .arrow
             transform translateY(-25%) rotate(180deg)
         .navbar-sub-menu
           display block
           .navbar-sub-item
-            &:hover
+            &:hover,&:active
               background #f2f3f5
+              font-weight bold
+      &.active
+        box-sizing border-box
+        border-bottom solid 2px #000
+        .menu-name
+          font-weight bold
 
 
     .navbar-sub-menu
@@ -172,6 +179,7 @@
 
     li
       list-style none
+
     a,
     span
       display block

@@ -8,11 +8,13 @@ module.exports = [
     "name": "首页",
     "path": "docs/index",
     // "url": "/index.html",
+    "activeUrl": /^\/(index\.html|v2|v2\/|v2\/index\.html)?((\?|\#).*)?$/,
     "width": 32
   },
   {
     "name": "学习",
     "width": 32,
+    "activeUrl": /^\/(v2\/)?(guide|components|api|codelabs)(.*)((\?|\#).*)?$/,
     "children": [
       {
         "name": "使用文档",

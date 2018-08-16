@@ -19,6 +19,7 @@
   <script type="application/json">
     {
       "navbar": ${*navbar|json},
+      "navIndex": "${navIndex}",
       "sidebarFragment": "guide",
       "sidebarSecondFragment": "guide",
       "menu": ${*menu|json},

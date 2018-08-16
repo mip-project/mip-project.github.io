@@ -35,6 +35,7 @@
   <script type="application/json">
     {
       "navbar": ${*navbar|json},
+      "navIndex": "${navIndex}",
       "sidebarFragment": "nav",
       "sidebarSecondFragment": "nav",
       "codelabStepSelected": "${url}",

@@ -7,7 +7,7 @@ const imageSize = require('../utils/image-size')
 const path = require('path')
 const fs = require('fs')
 const renderer = require('../utils/renderer')
-const navbar = require('../data/navbar')
+let navbar = require('../data/navbar')
 // const migPageProcess = require('../utils/mip-img-process')
 
 const css = fs.readFileSync(path.resolve(__dirname, '../style/dist/index.css'))
@@ -37,6 +37,8 @@ module.exports = class Layout {
         // 生成 menu 和 chapter
         let menu = await app.getMenuByUrl(url)
 
+        // navbar = navbarActive(navbar, url)
+
         // 文档编辑、反馈链接
         let editLink = 'https://github.com/mipengine/mip2/edit/master/' + path
         let feedbackLink = 'https://github.com/mipengine/mip2/issues/new' + '?title=反馈:' + path
@@ -56,6 +58,7 @@ module.exports = class Layout {
           originUrl: '',
           host: app.config.host,
           navbar: navbar,
+          navIndex: 1,
           content: html,
           css: css + style.join(''),
           menu: menu,
@@ -83,11 +86,11 @@ module.exports = class Layout {
         originUrl: '',
         host: 'https://mip-project.github.io',
         navbar: navbar,
+        navIndex: 0,
         css: css,
         menu: {},
         chapters: {},
         url: '',
-        navIndex: 0,
         development: process.env.NODE_ENV === 'development'
       })
 
@@ -111,11 +114,11 @@ module.exports = class Layout {
         originUrl: '',
         host: 'https://mip-project.github.io',
         navbar: navbar,
+        navIndex: 1,
         css: css,
         menu: codelabsMenu,
         chapters: {},
         url: '/codelabs/index.html',
-        navIndex: 3,
         development: process.env.NODE_ENV === 'development'
       })
 
@@ -294,6 +297,26 @@ function extractStyle (html) {
 }
 
 /**
+ * [navbarActive description]
+ * @param  {[type]} navbar [nabar列表]
+ * @param  {[type]} url    [当前url]
+ * @return {[type]}        [description]
+ */
+function navbarActive (navbar, url) {
+  if (navbar && navbar.length) {
+    navbar.forEach(item => {
+
+      item.active = (item.activeUrl && new RegExp(item.activeUrl).test(url)) || false
+
+      if (item.name === '首页') {
+        console.log('++++++',url, '??', item)
+      }
+    })
+  }
+  return navbar
+}
+
+/**
  * 获取图片尺寸因为 mip 要求
  *
  * @param {string} src 图片 url 地址
@@ -334,3 +357,5 @@ async function processNavbar (navbar, app) {
     }
   }
 }
+
+

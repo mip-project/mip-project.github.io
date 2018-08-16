@@ -38,6 +38,7 @@
   <script type="application/json">
     {
       "navbar": ${*navbar|json},
+      "navIndex": "${navIndex}",
       "sidebarFragment": "codelabs",
       "sidebarSecondFragment": "codelabs",
       "codelabMenu": ${*menu|json},
