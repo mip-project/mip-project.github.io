@@ -47,7 +47,9 @@
     padding 0 25px
     font-size 16px
     line-height 60px
+    height 60px
     a
+      height 60px
       line-height 60px
       display inline-block
 
@@ -56,12 +58,26 @@
     &:last-child
       margin-right 0
 
+    a::after,span::after
+      display block
+      content attr(title)
+      font-weight bold
+      visibility hidden
+      height 1px
+      color transparent
+      margin-bottom -1px
+      overflow hidden
+
+
+
+
     @media screen and (max-width: 992px)
       margin 0 15px
 
     .menu-name
       color #555
       font-size 16px
+
       .arrow
         width 0
         height 0
@@ -91,9 +107,11 @@
               background #f2f3f5
               font-weight bold
       &.active
+        height 60px
         box-sizing border-box
         border-bottom solid 2px #000
         .menu-name
+          color #000
           font-weight bold
 
 
@@ -110,6 +128,7 @@
     .navbar-sub-item
       line-height 50px
       a
+        height 50px
         padding 0 20px
         white-space nowrap
 
@@ -193,7 +212,10 @@
       font-weight 600
 
     .navbar-sub-item
+      height 50px
       a
+        height 50px
+        line-height 50px
         color #555
         font-weight 500
 

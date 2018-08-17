@@ -7,15 +7,15 @@
       {{ for: ${navbar} as ${item}, ${index} }}
         {{ if: ${item.children} }}
         <li {{ if: parseInt(${navIndex}, 10) == ${index} }}class="navbar-item active"{{ else }}class="navbar-item"{{ /if }}>
-          <span class="menu-name">${item.name}<i class="arrow"></i></span>
+          <span class="menu-name" title="${item.name}">${item.name}<i class="arrow"></i></span>
           <ul class="navbar-sub-menu">
             {{ for: ${item.children} as ${subItem} }}
-            <li class="navbar-sub-item"><a {{ if: ${item.blank} }}target="_blank"{{ else }}data-type="mip"{{ /if }} href="${subItem.url}">${subItem.name}</a></li>
+            <li class="navbar-sub-item"><a {{ if: ${item.blank} }}target="_blank"{{ else }}data-type="mip"{{ /if }} href="${subItem.url}" title="${subItem.name}">${subItem.name}</a></li>
             {{ /for }}
           </ul>
         </li>
         {{ else }}
-        <li {{ if: parseInt(${navIndex}, 10) == ${index} }}class="navbar-item active"{{ else }}class="navbar-item" {{ /if }}><a {{ if: ${item.blank} }}target="_blank"{{ else }}data-type="mip"{{ /if }} href="${item.url}" class="menu-name">${item.name}</a></li>
+        <li {{ if: parseInt(${navIndex}, 10) == ${index} }}class="navbar-item active"{{ else }}class="navbar-item" {{ /if }}><a {{ if: ${item.blank} }}target="_blank"{{ else }}data-type="mip"{{ /if }} href="${item.url}" class="menu-name" title="${item.name}">${item.name}</a></li>
         {{ /if }}
       {{ /for }}
       </ul>
