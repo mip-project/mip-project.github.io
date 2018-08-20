@@ -233,8 +233,8 @@ async function image (html, app) {
     }
 
     return `
-      <div class="md-img-wrapper">
-        <div class="md-img-wrapper-child">
+      <span class="md-img-wrapper">
+        <span class="md-img-wrapper-child">
           <mip-img
             layout="${layout}"
             width="${width}"
@@ -242,8 +242,8 @@ async function image (html, app) {
             src="${src}"
             popup
           ></mip-img>
-        </div>
-      </div>
+        </span>
+      </span>
       `
   })
 }
