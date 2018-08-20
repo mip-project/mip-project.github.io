@@ -38,30 +38,31 @@ async function getRemoteImageSize (src, logger = console) {
 
   return new Promise(resolve => {
     fn.get(options, res => {
-      let chunks = []
+        let chunks = []
 
-      res.on('data', chunk => {
-        chunks.push(chunk)
-      })
-        .on('end', () => {
-          if (chunks.length) {
-            try {
-              let size = sizeOf(Buffer.concat(chunks))
-              return resolve(size)
-            } catch (e) {
-              logger.warn('Error when read remote image size: ' + src)
-              logger.warn(e)
+        res.on('data', chunk => {
+            chunks.push(chunk)
+          })
+          .on('end', () => {
+            if (chunks.length) {
+              try {
+                let size = sizeOf(Buffer.concat(chunks))
+                return resolve(size)
+              } catch (e) {
+                logger.warn('Error when read remote image size: ' + src)
+                logger.warn(e)
+              }
             }
-          }
 
-          resolve(defaultSize)
-        })
-        .setTimeout(3000, () => {
-          resolve(defaultSize)
-        })
-    })
+            resolve(defaultSize)
+          })
+          .setTimeout(3000, () => {
+            resolve(defaultSize)
+          })
+      })
       .on('error', e => {
-        console.error(e)
+        console.error(src)
+        // console.error(e)
         resolve(defaultSize)
       })
   })
