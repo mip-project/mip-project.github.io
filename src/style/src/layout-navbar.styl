@@ -58,7 +58,8 @@
     &:last-child
       margin-right 0
 
-    a::after,span::after
+    a::after,
+    span::after
       display block
       content attr(title)
       font-weight bold
@@ -67,9 +68,6 @@
       color transparent
       margin-bottom -1px
       overflow hidden
-
-
-
 
     @media screen and (max-width: 992px)
       margin 0 15px
@@ -83,14 +81,14 @@
         height 0
         display inline-block
         // verticals-align middle
-        border-width .22em
+        border-width 4px
         border-top-color #000
         border-bottom-color transparent
         border-right-color transparent
         border-left-color transparent
         border-style solid
         margin-left .5em
-        transform translateY(25%)
+        // transform translateY(20%)
 
     @media screen and (min-width: 768px)
       &:hover, &:active
@@ -99,7 +97,7 @@
           color #000
           font-weight bold
           .arrow
-            transform translateY(-25%) rotate(180deg)
+            transform translateY(-20%) rotate(180deg)
         .navbar-sub-menu
           display block
           .navbar-sub-item
@@ -123,7 +121,17 @@
           display inline-block
           font-weight bold
           box-sizing border-box
-          border-bottom solid 3px #000
+          position relative
+          &:before
+            content ''
+            display block
+            height 2px
+            bottom 0
+            left 0
+            right 0
+            background #000
+            position absolute
+          // border-bottom solid 3px #000
 
 
     .navbar-sub-menu

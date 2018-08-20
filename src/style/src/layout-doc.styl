@@ -5,31 +5,38 @@
 
 // .layout-side-bar
 //     width 30%
+mip-sidenav
+  .sidenav-wrapper
+    .l-0
+      & > div > .sub-folder
+          font-size 18px
+      & > a
+        font-size 18px !important
 
 .layout-main-content
-    // width 60%
-    margin-left 360px
-    margin-top 64px
-    padding-left 50px
-    padding-right 100px
-    // max-width 1000px
-    .content-wrapper
-      max-width 1000px
-      margin 0 auto
-      &:before
-        content "."
-        display block
-        height 0
-        clear both
-        visibility hidden
+  // width 60%
+  margin-left 360px
+  margin-top 64px
+  padding-left 50px
+  padding-right 100px
+  // max-width 1000px
+  .content-wrapper
+    max-width 1000px
+    margin 0 auto
+    &:before
+      content "."
+      display block
+      height 0
+      clear both
+      visibility hidden
 
-    @media screen and (max-width: 992px)
-      margin-left 275px
-      padding-left 25px
-      padding-right 25px
+  @media screen and (max-width: 992px)
+    margin-left 275px
+    padding-left 25px
+    padding-right 25px
 
-    @media screen and (max-width: 768px)
-      width auto
-      margin-left 0
-      padding-left 25px
-      padding-right 25px
+  @media screen and (max-width: 768px)
+    width auto
+    margin-left 0
+    padding-left 25px
+    padding-right 25px
