@@ -8,6 +8,7 @@
     "build:css": "webpack --config src/style/webpack.config.js",
     "dev:css": "NODE_ENV=development npm run build && webpack --config src/style/webpack.config.js --watch",
     "clean": "rm -rf api codelabs guide components extensions img assets/img mip docs tmp index.html v2",
+    "cp:bce": "cp -r ./v2 ../mip_online/bce-www.mipengine.org",
     "server": "npm run build:css && npm run build && edp ws start",
     "deploy": "npm run build:css && npm run build",
     "lint": "npm run lint:js",
