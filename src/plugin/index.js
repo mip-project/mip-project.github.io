@@ -13,10 +13,12 @@ const TrimBlankLine = require('./trim-blank-line')
 const HeadingLink = require('./heading-link')
 // const Related = require('./related');
 const RemoveHeadingId = require('./remove-heading-id')
+const EncodeTag = require('./encode-tag')
 const MenuInfo = require('./menu-info')
 const Layout = require('./layout')
 const Static = require('./static')
 const ComponentPreview = require('./component-preview')
+
 // const Init = require('./init');
 
 module.exports = {
@@ -29,6 +31,7 @@ module.exports = {
   highlightParagraph: new HighlightParagraph(),
   trimBlankLine: new TrimBlankLine(),
   headingLink: new HeadingLink(),
+  encodeTag: new EncodeTag(),
   // related: new Related(),
   removeHeadingId: new RemoveHeadingId(),
   menuInfo: new MenuInfo(),
