@@ -18,6 +18,7 @@ const MenuInfo = require('./menu-info')
 const Layout = require('./layout')
 const Static = require('./static')
 const ComponentPreview = require('./component-preview')
+const TableWrapper = require('./table-wrapper')
 
 // const Init = require('./init');
 
@@ -31,6 +32,7 @@ module.exports = {
   highlightParagraph: new HighlightParagraph(),
   trimBlankLine: new TrimBlankLine(),
   headingLink: new HeadingLink(),
+  tableWrapper: new TableWrapper(),
   encodeTag: new EncodeTag(),
   // related: new Related(),
   removeHeadingId: new RemoveHeadingId(),
