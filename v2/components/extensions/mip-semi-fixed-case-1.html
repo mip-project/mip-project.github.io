@@ -6,10 +6,25 @@
                   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
                   <title>测试</title>
                   <meta name="description" content="">
-                  <link rel="canonical" href="">
+                  <link rel="canonical" href="v2/components/extensions/mip-semi-fixed-case-1.html">
                   <link rel="stylesheet" type="text/css" href="https://c.mipcdn.com/static/v2/mip.css">
                 </head>
                 <body>
+                  <style mip-custom>
+	.placeholder{
+		width:100%;
+		height:150px;
+		border-bottom: 1px solid #aaa;
+	}
+	.absoluteStyle {
+		padding: 20px;
+		background: yellow;
+		box-sizing: border-box;
+	}
+</style>
+<div class="placeholder">我走过山时，山不说话，</div>
+<div class="placeholder">我路过海时，海不说话，</div>
+
                   <mip-semi-fixed id="semi-fixed2" threshold="100" fixedClassNames="fixedStyle">
 	<div mip-semi-fixed-container class="absoluteStyle">
 	    距离顶部100px时停下

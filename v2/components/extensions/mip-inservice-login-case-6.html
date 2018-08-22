@@ -1,0 +1,58 @@
+
+                <!DOCTYPE html>
+                <html mip>
+                <head>
+                  <meta charset="utf-8">
+                  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+                  <title>测试</title>
+                  <meta name="description" content="">
+                  <link rel="canonical" href="v2/components/extensions/mip-inservice-login-case-6.html">
+                  <link rel="stylesheet" type="text/css" href="https://c.mipcdn.com/static/v2/mip.css">
+                </head>
+                <body>
+                  
+                  <template>
+  <div class="wrap">
+    <mip-inservice-login
+      id="log"
+      :config="config"
+      on="login:example.customLogin logout:example.customLogout"
+    ></mip-inservice-login>
+    <mip-example
+      id="example"
+      :info="info"
+      on="actionPay:log.login(,asynLog) actionOrder:log.login actionName:log.login actionExit:log.logout"
+    ></mip-example>
+  </div>
+</template>
+
+
+<script>
+export default {
+  props: {
+    info: {
+      type: Object,
+      required: true,
+      default () {
+          return {};
+      }
+    },
+    config: {
+      type: Object,
+      required: true,
+      default () {
+          return {};
+      }
+    }
+  },
+  mounted () {
+    // ...
+  }
+}
+</script>
+
+
+                  <script src="https://c.mipcdn.com/static/v2/mip.js"></script>
+                  <script src="https://c.mipcdn.com/static/v2/mip-inservice-login/mip-inservice-login.js"></script>
+                </body>
+              

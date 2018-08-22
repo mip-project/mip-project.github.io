@@ -1,0 +1,47 @@
+
+                <!DOCTYPE html>
+                <html mip>
+                <head>
+                  <meta charset="utf-8">
+                  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+                  <title>测试</title>
+                  <meta name="description" content="">
+                  <link rel="canonical" href="v2/components/extensions/mip-inservice-login-case-0.html">
+                  <link rel="stylesheet" type="text/css" href="https://c.mipcdn.com/static/v2/mip.css">
+                </head>
+                <body>
+                  
+                  <mip-data>
+  <script type="application/json">
+    {
+      "info": {},
+      "config": {
+        appid: '熊掌号id',
+        clientId: '熊掌号开发者id',
+        id: 'info',
+        autologin: false,
+        endpoint: 'https://www.example.com/api/userinfo.php',
+        isGlobal: false,
+        redirectUri: ''
+      }
+    }
+  </script>
+</mip-data>
+<mip-my-example id="example" m-bind:info="info"></mip-my-example>
+
+<mip-inservice-login
+  id="log"
+  m-bind:config="config"
+  on="login:example.customLogin logout:example.customLogout"
+>
+</mip-inservice-login>
+
+<script src="https://c.mipcdn.com/static/v2/mip.js"></script>
+<script src="https://c.mipcdn.com/static/v2/mip-inservice-login/mip-inservice-login.js"></script>
+<script src="https://c.mipcdn.com/extensions/platform/v2/your.site.com/mip-my-example/mip-my-example.js"></script>
+
+
+                  <script src="https://c.mipcdn.com/static/v2/mip.js"></script>
+                  <script src="https://c.mipcdn.com/static/v2/mip-inservice-login/mip-inservice-login.js"></script>
+                </body>
+              

@@ -1,0 +1,37 @@
+
+                <!DOCTYPE html>
+                <html mip>
+                <head>
+                  <meta charset="utf-8">
+                  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+                  <title>测试</title>
+                  <meta name="description" content="">
+                  <link rel="canonical" href="v2/components/extensions/mip-range-case-0.html">
+                  <link rel="stylesheet" type="text/css" href="https://c.mipcdn.com/static/v2/mip.css">
+                </head>
+                <body>
+                  
+                  <!-- 单值、横向、上方显示、范围0-200、 步长1、预设值60、拖动显示tip -->
+
+<mip-range class="her" id="slider1" on="dragging:test.changeSpacing dragStart:test.changeSpacing">
+  <script type="application/json">
+    {
+      range: 60,
+      height: 6,
+      dotSize: 16,
+      min: 0,
+      max: 200,
+      step: 1,
+      tipShow: "dragging",
+      tipFormat: "价格：{{tip}}元"
+    }
+  </script>
+</mip-range>
+<button on="click:slider1.setVal([130])">设置值为130</button>
+<button on="click:slider1.valReduce(5)">减小5</button>
+<button on="click:slider1.valIncrease(5)">增加5</button>
+
+                  <script src="https://c.mipcdn.com/static/v2/mip.js"></script>
+                  <script src="https://c.mipcdn.com/static/v2/mip-range/mip-range.js"></script>
+                </body>
+              

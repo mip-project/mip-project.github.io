@@ -8,9 +8,22 @@
 /* eslint-disable fecs-properties-quote */
 
 const path = require('path')
+const glob = require('glob')
 // const utils = require('./utils/basic')
 // const download = require('download-git-repo')
 const fs = require('fs-extra')
+
+function aglob (...args) {
+  return new Promise((resolve, reject) => {
+    glob(...args, function (err, result) {
+      if (err) {
+        reject(err)
+      } else {
+        resolve(result)
+      }
+    })
+  })
+}
 
 let rootDir = path.resolve(__dirname, '..')
 let tmpDir = path.resolve(rootDir, 'tmp')
@@ -58,7 +71,7 @@ module.exports = {
   sources: [
     {
       name: 'docs',
-      loader: 'local',
+      loader: 'copy',
       from: path.resolve(__dirname, '../../mip2/docs'),
       to: path.resolve(docDir, 'docs')
       // ,
@@ -74,6 +87,9 @@ module.exports = {
     //   to: path.resolve(docDir, 'components')
     // }
   ],
+  loader: {
+    copy
+  },
   // loader: {
   //   copy: async function ({from, to, ignores}) {
   //     if (!await fs.exists(from)) {
@@ -251,3 +267,112 @@ module.exports = {
   //     }
   // ]
 }
+
+async function copy ({to}) {
+  let main = path.resolve(__dirname, '../../mip2/docs')
+  let mip1 = path.resolve(__dirname, '../../mip-extensions/src')
+  let mip2 = path.resolve(__dirname, '../../mip2-extensions/components')
+  let mip2builtin = path.resolve(to, 'extensions/builtin')
+
+  await fs.copy(main, to)
+
+  let distExtensions = path.resolve(to, 'extensions')
+
+  let mip1files = await aglob('**/*.md', {
+    root: mip1,
+    cwd: mip1
+  })
+
+  let mip1infos = mip1files.map(filename => {
+    let absolute = path.resolve(mip1, filename)
+    let dist
+    if (/mip-ad[\/-]/.test(filename)) {
+      let basename =  filename.replace(/\/README\.md/, '.md').replace(/mip-ad\//, '')
+      dist = path.resolve(distExtensions, 'mip-ad', basename)
+
+    } else {
+      let basename =  filename.replace(/\/README\.md/, '.md')
+      dist = path.resolve(distExtensions, 'extensions', basename)
+    }
+
+    return {absolute, dist}
+  })
+
+  let mip2files = await aglob('**/*.md', {
+    root: mip2,
+    cwd: mip2
+  })
+
+  let mip2infos = mip2files.map(filename => {
+    let absolute = path.resolve(mip2, filename)
+    let dist
+    if (/mip-ad[\/-]/.test(filename)) {
+      let basename =  filename.replace(/\/README\.md/, '.md').replace(/mip-ad\//, '')
+      dist = path.resolve(distExtensions, 'mip-ad', basename)
+    } else {
+      let basename =  filename.replace(/\/README\.md/, '.md').replace(/(mip-[a-z0-9-]+)\/\1/, '$1')
+      dist = path.resolve(distExtensions, 'extensions', basename)
+    }
+
+    return {absolute, dist}
+  })
+
+  let mip2builtins = await aglob('**/*.md', {
+    root: mip2builtin,
+    cwd: mip2builtin
+  })
+
+  mip2builtins = mip2builtins.map(filename => path.basename(filename))
+
+  // FIXME 随便实现的，如有效率更高的方式请改之
+  let mip2length = mip2infos.length
+
+  for (let i = 0; i < mip1infos.length; i++) {
+    let j
+
+    for (j = 0; j < mip2length; j++) {
+      if (mip1infos[i].dist === mip2infos[j].dist) {
+        mip2infos[j].mip1 = mip1infos[i].absolute
+        break
+      }
+    }
+
+    if (j === mip2length) {
+      if (mip2builtins.indexOf(path.basename(mip1infos[i].dist)) === -1) {
+        mip2infos.push(mip1infos[i])
+      }
+    }
+  }
+
+  mip2infos.sort((a, b) => a.dist.localeCompare(b.dist))
+
+  mip2infos.map(({absolute, dist, mip1}) => {
+    fs.copySync(absolute, dist)
+
+    let settingDir = path.resolve(absolute, '..', 'setting')
+
+    if (!fs.existsSync(settingDir)) {
+      // mip2 组件的文档没有 preset 所以先暂时拿 mip1 的代替
+      if (!mip1) {
+        return
+      }
+
+      settingDir = path.resolve(mip1, '..', 'setting')
+
+      if (!fs.existsSync(settingDir)) {
+        return
+      }
+    }
+
+    let distSettingDir = path.resolve(dist, '..', 'setting')
+    let componentSettingDir = path.resolve(distSettingDir, path.basename(dist, path.extname(dist)))
+
+    fs.ensureDirSync(distSettingDir)
+    fs.removeSync(componentSettingDir)
+    fs.copySync(settingDir, componentSettingDir)
+  })
+}
+
+// fs.removeSync(path.resolve(docDir, 'docs'))
+// copy({to: path.resolve(docDir, 'docs')})
+

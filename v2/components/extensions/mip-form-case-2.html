@@ -6,10 +6,15 @@
                   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
                   <title>测试</title>
                   <meta name="description" content="">
-                  <link rel="canonical" href="">
+                  <link rel="canonical" href="v2/components/extensions/mip-form-case-2.html">
                   <link rel="stylesheet" type="text/css" href="https://c.mipcdn.com/static/v2/mip.css">
                 </head>
                 <body>
+                  <style mip-custom>
+body {
+    padding: 10px;
+}
+</style>
                   <mip-form method="get" url="https://www.mipengine.org">
      <input type="text" name="customnumber" validatetarget="custom" validatetype="custom" validatereg="^[0-9]*$" placeholder="我是自定义验证规则数字">
      <div class="mip-form-target" target="custom">请输入正确的数字</div>

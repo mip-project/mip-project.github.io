@@ -50,6 +50,22 @@ module.exports = class ComponentPreview {
 
         let dist = path.resolve(process.cwd())
 
+        let fileFullPath = fileInfo.fullPath
+        let fileBaseName = path.basename(fileFullPath)
+        let fileExtName = path.extname(fileFullPath)
+        let fileDirName = path.dirname(fileFullPath)
+        let fileName = path.basename(fileBaseName, fileExtName)
+        let demoPreset = path.resolve(fileDirName, 'setting', fileName, 'example.preset')
+
+        let demoPresetContent
+        if (await fs.exists(demoPreset)) {
+          let file = await fs.readFile(demoPreset, 'utf-8')
+          demoPresetContent = file
+          // demoPresetContent = demoPresetContent.replace(/<[\s\S]+>/g, '')
+        } else {
+          demoPresetContent = ''
+        }
+
         let theCases = await Promise.all(
           matchCases.map(async (theCase, i) => {
             theCase = theCase
@@ -58,6 +74,8 @@ module.exports = class ComponentPreview {
 
             let width = 320
             let height = 568
+
+            let caseUrl = obj.url.replace(/^\//, '').replace(/\.html$/, '') + `-case-${i}.html`
 
             let html
 
@@ -72,10 +90,11 @@ module.exports = class ComponentPreview {
                   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
                   <title>测试</title>
                   <meta name="description" content="">
-                  <link rel="canonical" href="">
+                  <link rel="canonical" href="${caseUrl}">
                   <link rel="stylesheet" type="text/css" href="https://c.mipcdn.com/static/v2/mip.css">
                 </head>
                 <body>
+                  ${demoPresetContent}
                   ${theCase}
                   <script src="https://c.mipcdn.com/static/v2/mip.js"></script>
                   ${script}
@@ -83,7 +102,6 @@ module.exports = class ComponentPreview {
               `
             }
 
-            let caseUrl = obj.url.replace(/^\//, '').replace(/\.html$/, '') + `-case-${i}.html`
             let pathname = path.resolve(dist, caseUrl)
             await fs.ensureDir(path.dirname(pathname))
             await fs.writeFile(pathname, html, 'utf-8')
