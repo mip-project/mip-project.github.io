@@ -371,6 +371,24 @@ async function copy ({to}) {
     fs.removeSync(componentSettingDir)
     fs.copySync(settingDir, componentSettingDir)
   })
+
+  let extensionsMeta = await fs.readFile(path.resolve(distExtensions, 'extensions/meta.json'))
+  extensionsMeta = JSON.parse(extensionsMeta)
+  let extensionsMenu = extensionsMeta.menu.filter(m => m.preview != null)
+  let finalExtensions = mip2infos.filter(info => !/mip-ad[\/-]/.test(info.dist))
+  let finalExtensionsMenu = finalExtensions.map(info => {
+    let key = path.basename(info.dist, path.extname(info.dist))
+    let obj = {key}
+    for (let i = 0; i < extensionsMenu.length; i++) {
+      if (key === extensionsMenu[i].key) {
+        obj.preview = extensionsMenu[i].preview
+      }
+    }
+    return obj
+  })
+
+  extensionsMeta.menu = finalExtensionsMenu
+  await fs.writeFile(path.resolve(distExtensions, 'extensions/meta.json'), JSON.stringify(extensionsMeta), 'utf-8')
 }
 
 // fs.removeSync(path.resolve(docDir, 'docs'))
