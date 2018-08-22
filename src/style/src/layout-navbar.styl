@@ -82,7 +82,7 @@
         display inline-block
         // verticals-align middle
         border-width 4px
-        border-top-color #000
+        border-top-color #555
         border-bottom-color transparent
         border-right-color transparent
         border-left-color transparent
@@ -94,10 +94,13 @@
       &:hover, &:active
         background #f2f3f5
         .menu-name
-          color #000
-          font-weight bold
+          &:active
+            font-weight bold
+          // color #000
+          // font-weight bold
           .arrow
             transform translateY(-50%) rotate(180deg)
+            // border-top-color #000
         .navbar-sub-menu
           display block
           .navbar-sub-item
@@ -105,6 +108,8 @@
             &:active
               background #f4f4f4
               // font-weight bold
+            &:active
+              font-weight bold
             a
               display block
 
