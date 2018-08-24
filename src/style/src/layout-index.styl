@@ -73,6 +73,8 @@
         background #fff
         text-align center
         padding-bottom 90px
+        @media screen and (max-width: 768px)
+          padding-bottom 0
         .container
             h1
                 font-size 30px
@@ -314,6 +316,9 @@
                             padding 7px 10px
                             border-radius 3px
                             background rgba(255, 255, 255, 0.08)
+
+                            &:active
+                              background rgba(255, 255, 255, 0.16)
 
         p
             position absolute
