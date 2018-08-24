@@ -28,7 +28,7 @@
       side="right"
       class="mip-hidden nav-sidebar"
     >
-      {{ use:layout-sidebar-nav(navbar = ${navbar}) }}
+      {{ use:layout-sidebar-nav(navbar = ${navbar}, navIndex = ${navIndex}) }}
       {{ block: sidebar }}{{ /block }}
     </mip-sidebar>
 

@@ -113,12 +113,13 @@
   z-index 40100 !important
   width 70%
   box-sizing border-box
-  padding 25px
+  // padding 25px 0
   background #fff
   h1
     font-size 24px
-    margin-bottom 35px
+    margin-bottom 10px
     user-select none
+    padding 25px
     &:active
       background #f4f4f4
     & > span
@@ -140,6 +141,12 @@
         right -.75em
         border-left-color #333
         border-right-color transparent
+      &.home-arrow
+        &:after
+          border-left-color transparent
+          border-right-color #333
+          transform translate(-50%, -50%)
+          // transform translateY(-50%) rotate(-180deg)
 
   .sidebar-fragment
     &:last-child
@@ -167,10 +174,15 @@
 
     .navbar-item
       margin-bottom 10px
+      &.active
+        font-weight bold
+      a,
+      .menu-name
+        padding 0 25px
 
     .menu-name
       color #000
-      font-weight 600
+      // font-weight 600
       margin 0
       line-height 56px
       font-size 18px
@@ -191,7 +203,9 @@
           background #f4f4f4
 
   .sidenav-wrapper
-    margin-left -10px
+    padding-left 15px
+    padding-right 25px
+    // margin-left -10px
     .wd-infinity-menu
       .l-0
         &:first-child
@@ -215,10 +229,10 @@
       text-align right
 
       .icon-bars
-        font-size 18px
+        font-size 16px
         line-height 44px
         font-weight 400
-        color #6a6b6c
+        color #000
 
 
 @media screen and (min-width: 768px)
@@ -226,7 +240,7 @@
     .navbar-item
       &:hover,
       &:active
-        background #f2f3f5
+        background #f4f4f4
 
       &:hover
         .menu-name
@@ -238,6 +252,7 @@
         .navbar-sub-menu
           display block
           .navbar-sub-item
+
             &:hover,
             &:active
               background #f4f4f4
@@ -278,4 +293,6 @@
 .MIP-SIDEBAR-MASK
   z-index 40000 !important
 
+.MIP-SIDEBAR-MASK[open]
+  background-color rgba(0, 0, 0, .65)
 
