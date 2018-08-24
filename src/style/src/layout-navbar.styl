@@ -48,6 +48,7 @@
     font-size 16px
     line-height 60px
     height 60px
+
     a
       // height 60px
       // line-height 60px
@@ -69,9 +70,6 @@
       margin-bottom -1px
       overflow hidden
 
-    @media screen and (max-width: 992px)
-      margin 0 15px
-
     .menu-name
       color #555
       font-size 16px
@@ -89,58 +87,6 @@
         border-style solid
         margin-left .5em
         transition transform 0.3s
-
-    @media screen and (min-width: 768px)
-      &:hover, &:active
-        background #f2f3f5
-        .menu-name
-          &:active
-            font-weight bold
-          // color #000
-          // font-weight bold
-          .arrow
-            transform translateY(-50%) rotate(180deg)
-            // border-top-color #000
-        .navbar-sub-menu
-          display block
-          .navbar-sub-item
-            &:hover,
-            &:active
-              background #f4f4f4
-              // font-weight bold
-            &:active
-              font-weight bold
-            a
-              display block
-
-            &:first-child
-              a
-                padding-top 17px
-            &:last-child
-              a
-                padding-bottom 17px
-      &.active
-        height 60px
-        .menu-name
-          color #000
-          display inline-block
-          font-weight bold
-          box-sizing border-box
-          position relative
-          .arrow
-            border-top-color #000
-
-          &:before
-            content ''
-            display block
-            height 3px
-            bottom 0
-            left 0
-            right 0
-            background #000
-            position absolute
-          // border-bottom solid 3px #000
-
 
     .navbar-sub-menu
       position absolute
@@ -163,24 +109,6 @@
   .navbar-toggle
     display none
 
-    @media screen and (max-width: 768px)
-      display block
-      // background #000
-      position absolute
-      right 25px
-      top 0
-      bottom 0
-      width 100px
-      text-align right
-
-      .icon-bars
-        font-size 38px
-        line-height 64px
-        font-weight 400
-        color #6a6b6c
-      // height 100px
-
-
 .nav-sidebar
   z-index 40100 !important
   width 70%
@@ -189,7 +117,7 @@
   background #fff
   h1
     font-size 24px
-    margin-bottom 40px
+    margin-bottom 35px
     user-select none
     & > span
       display inline-block
@@ -235,17 +163,28 @@
     span
       color #000
 
+    .navbar-item
+      margin-bottom 10px
+
     .menu-name
       color #000
       font-weight 600
+      margin 0
+      line-height 40px
+      font-size 18px
+
+    .navbar-sub-menu
+      margin-top 0
 
     .navbar-sub-item
-      height 50px
+      height auto
       a
-        height 50px
-        line-height 50px
+        height auto
+        line-height 40px
         color #555
         font-weight 500
+        margin 0
+        font-size 14px
 
   .sidenav-wrapper
     margin-left -10px
@@ -255,6 +194,82 @@
           padding-top 0
           .folder
             padding-top 0
+
+@media screen and (max-width: 768px)
+  .layout-navbar
+    height 44px
+    .navbar-logo
+      margin-top 9px
+    .navbar-toggle
+      display block
+      // background #000
+      position absolute
+      right 25px
+      top 0
+      bottom 0
+      width 100px
+      text-align right
+
+      .icon-bars
+        font-size 24px
+        line-height 44px
+        font-weight 400
+        color #6a6b6c
+
+
+@media screen and (min-width: 768px)
+  .layout-navbar
+    .navbar-item
+      &:hover,
+      &:active
+        background #f2f3f5
+
+      &:hover
+        .menu-name
+          &:active
+            font-weight bold
+          .arrow
+            transform translateY(-50%) rotate(180deg)
+
+        .navbar-sub-menu
+          display block
+          .navbar-sub-item
+            &:hover,
+            &:active
+              background #f4f4f4
+              // font-weight bold
+            &:active
+              font-weight bold
+            a
+              display block
+
+            &:first-child
+              a
+                padding-top 17px
+            &:last-child
+              a
+                padding-bottom 17px
+
+      &.active
+        height 60px
+        .menu-name
+          color #000
+          display inline-block
+          font-weight bold
+          box-sizing border-box
+          position relative
+          .arrow
+            border-top-color #000
+
+          &:before
+            content ''
+            display block
+            height 3px
+            bottom 0
+            left 0
+            right 0
+            background #000
+            position absolute
 
 .MIP-SIDEBAR-MASK
   z-index 40000 !important
