@@ -102,6 +102,13 @@
                     height 370px
                     padding 0 34px
                     background-size auto 100px !important
+                    background-repeat no-repeat
+                    background-position center 70px
+
+                    &:before
+                        content ''
+                        display none
+
                     @media screen and (max-width: 768px)
                         flex none
                         width 100%
@@ -114,11 +121,31 @@
                         border-top 1px solid #ededed
 
                     &.mip-parts-html
-                        background url('https://boscdn.baidu.com/assets/mip/img/mip-home-11-c050bf3e.gif') no-repeat center 70px
+                        &:before
+                            background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-11-c050bf3e.gif')
+                        background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-11-c050bf3e.gif')
+                        @media screen and (min-width: 768px)
+                            background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-11.png')
+                            &:hover
+                                background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-11-c050bf3e.gif')
+
                     &.mip-parts-js
-                        background url('https://boscdn.baidu.com/assets/mip/img/mip-home-12.gif') no-repeat center 70px
+                        &:before
+                            background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-12.gif')
+                        background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-12.gif')
+                        @media screen and (min-width: 768px)
+                            background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-12.png')
+                            &:hover
+                               background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-12.gif')
+
                     &.mip-parts-cache
-                        background url('https://boscdn.baidu.com/assets/mip/img/mip-home-13-1ac92bab.gif') no-repeat center 70px
+                        &:before
+                            background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-13-1ac92bab.gif')
+                        background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-13-1ac92bab.gif')
+                        @media screen and (min-width: 768px)
+                            background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-13.png')
+                            &:hover
+                               background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-13-1ac92bab.gif')
 
                     &:not(:last-child)
                         border-right 1px solid #ededed
@@ -234,20 +261,45 @@
                     position absolute
                     right 60px
                     bottom 45px
+                    background-repeat no-repeat
+                    background-size 100% 100%
+                    &:before
+                      content ''
+                      display none
                     &.advan-1
-                        background url('https://boscdn.baidu.com/assets/mip/img/mip-home-01.gif') no-repeat
-                        background-size 100% 100%
+                        &:before
+                            background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-01.gif')
+                        background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-01.gif')
+                        @media screen and (min-width: 768px)
+                            background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-01.png')
+                            &:hover
+                                background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-01.gif')
                     &.advan-2
-                        background url('https://boscdn.baidu.com/assets/mip/img/mip-home-02.gif') no-repeat
-                        background-size 100% 100%
+                        &:before
+                            background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-02.gif')
+                        background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-02.gif')
+                        @media screen and (min-width: 768px)
+                            background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-02.png')
+                            &:hover
+                                background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-02.gif')
                     &.advan-3
-                        width 100px
-                        height 100px
-                        background url('https://boscdn.baidu.com/assets/mip/img/mip-home-03.gif') no-repeat
-                        background-size 100% 100%
+                        // width 100px
+                        // height 100px
+                        &:before
+                            background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-03.gif')
+                        background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-03.gif')
+                        @media screen and (min-width: 768px)
+                            background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-03.png')
+                            &:hover
+                                background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-03.gif')
                     &.advan-4
-                        background url('https://boscdn.baidu.com/assets/mip/img/mip-home-04.gif') no-repeat
-                        background-size 100% 100%
+                        &:before
+                            background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-04.gif')
+                        background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-04.gif')
+                        @media screen and (min-width: 768px)
+                            background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-04.png')
+                            &:hover
+                                background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-04.gif')
 
                     @media screen and (max-width: 768px)
                         right 21px
