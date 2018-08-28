@@ -273,6 +273,7 @@ async function copy ({to}) {
   let mip1 = path.resolve(__dirname, '../../mip-extensions/src')
   let mip2 = path.resolve(__dirname, '../../mip2-extensions/components')
   let mip2builtin = path.resolve(to, 'extensions/builtin')
+  let mip2ui = path.resolve(__dirname, '../../mip2-ui-components/docs')
 
   await fs.copy(main, to)
 
@@ -389,6 +390,30 @@ async function copy ({to}) {
 
   extensionsMeta.menu = finalExtensionsMenu
   await fs.writeFile(path.resolve(distExtensions, 'extensions/meta.json'), JSON.stringify(extensionsMeta), 'utf-8')
+
+  let mip2uiFiles = await aglob('**/*.md', {
+    root: mip2ui,
+    cwd: mip2ui
+  })
+
+  mip2uiFiles.map(filename => {
+    let absolute = path.resolve(mip2ui, filename)
+    let distname = filename.replace(/\/README\.md$/, '.md')
+    let distpath = path.resolve(to, 'extensions/ui', distname)
+
+    fs.copySync(absolute, distpath)
+    let settingDir = path.resolve(absolute, '..', 'setting')
+
+    if (!fs.existsSync(settingDir)) {
+      return
+    }
+
+    let distSettingDir = path.resolve(distpath, '..', 'setting')
+    let componentSettingDir = path.resolve(distSettingDir, path.basename(distpath, path.extname(distpath)))
+    fs.ensureDirSync(distSettingDir)
+    fs.removeSync(componentSettingDir)
+    fs.copySync(settingDir, componentSettingDir)
+  })
 }
 
 // fs.removeSync(path.resolve(docDir, 'docs'))

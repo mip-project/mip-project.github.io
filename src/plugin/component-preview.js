@@ -31,6 +31,10 @@ module.exports = class ComponentPreview {
 
         let matchScript = fileInfo.file.match(/\s\|?\s*所需脚本\s*\|(.*?)\|?(\r\n|\n\r|\r|\n)/m)
 
+        if (/^docs\/extensions\/ui/.test(obj.path)) {
+          matchScript = [undefined, 'http://localhost:8848/vuetify.min.js']
+        }
+
         if (!matchScript) {
           return
         }
