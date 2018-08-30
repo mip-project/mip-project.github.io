@@ -31,8 +31,12 @@ module.exports = class ComponentPreview {
 
         let matchScript = fileInfo.file.match(/\s\|?\s*所需脚本\s*\|(.*?)\|?(\r\n|\n\r|\r|\n)/m)
 
+        let uiStyle = ''
+
+        // mip2 ui components need: vuetify.js & vuetify.css in iframe
         if (/^docs\/extensions\/ui/.test(obj.path)) {
           matchScript = [undefined, 'http://localhost:8848/vuetify.min.js']
+          uiStyle = '<link rel="stylesheet" type="text/css" href="http://localhost:8848/vuetify.min.css">'
         }
 
         if (!matchScript) {
@@ -96,11 +100,12 @@ module.exports = class ComponentPreview {
                   <meta name="description" content="">
                   <link rel="canonical" href="${caseUrl}">
                   <link rel="stylesheet" type="text/css" href="https://c.mipcdn.com/static/v2/mip.css">
+                  ${uiStyle}
                 </head>
                 <body>
                   ${demoPresetContent}
                   ${theCase}
-                  <script src="https://c.mipcdn.com/static/v2/mip.js"></script>
+                  <script src="http://localhost:8080/dist/mip.js"></script>
                   ${script}
                 </body>
               `
