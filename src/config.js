@@ -201,6 +201,13 @@ module.exports = {
         filePath = urlPrefix + filePath.slice(5).replace(/\.md($|\?|#)/, '$1') + '.html'
         return filePath
       }
+    },
+    {
+      path: /^docs\/ui/,
+      url (filePath) {
+        filePath = urlPrefix + filePath.slice(5).replace(/\.md($|\?|#)/, '$1') + '.html'
+        return filePath
+      }
     }
   ],
   menus: [
@@ -230,6 +237,12 @@ module.exports = {
           return `docs/codelabs/${match[1]}`
         }
         // return 'docs/codelabs'
+      }
+    },
+    {
+      url: /^\/v2\/ui/,
+      menu (url) {
+        return 'docs/ui'
       }
     }
   ]
@@ -399,7 +412,7 @@ async function copy ({to}) {
   mip2uiFiles.map(filename => {
     let absolute = path.resolve(mip2ui, filename)
     let distname = filename.replace(/\/README\.md$/, '.md')
-    let distpath = path.resolve(to, 'extensions/ui', distname)
+    let distpath = path.resolve(to, 'ui', distname)
 
     fs.copySync(absolute, distpath)
     let settingDir = path.resolve(absolute, '..', 'setting')

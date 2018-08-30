@@ -15,7 +15,7 @@ module.exports = class ComponentPreview {
         let obj = await app.store.get('doc', docPath)
 
         // 只针对 components 下的符合 文档格式的组件做预览效果
-        if (!/^docs\/extensions\//.test(obj.path)) {
+        if (!/^docs\/extensions\//.test(obj.path) && !/^docs\/ui\//.test(obj.path)) {
           return
         }
 
@@ -31,7 +31,7 @@ module.exports = class ComponentPreview {
 
         let matchScript = fileInfo.file.match(/\s\|?\s*所需脚本\s*\|(.*?)\|?(\r\n|\n\r|\r|\n)/m)
 
-        if (/^docs\/extensions\/ui/.test(obj.path)) {
+        if (/^docs\/ui/.test(obj.path)) {
           matchScript = [undefined, 'http://localhost:8848/vuetify.min.js']
         }
 

@@ -38,6 +38,12 @@ module.exports = [
         "path": "docs/codelabs",
         // "url": "/codelabs/index.html",
         "width": 60
+      },
+      {
+        "name": "UI",
+        "path": "docs/ui",
+        // "url": "/codelabs/index.html",
+        "width": 60
       }
     ]
   },

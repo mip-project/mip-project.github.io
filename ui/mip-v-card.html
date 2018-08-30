@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html mip>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <title>MIP 文档_移动网页加速器_MIP(Mobile Instant Pages_)mip-v-card</title>
+    <meta name="description" content="mip-v-card 组件是一个多功能组件，可用于从面板到静态图像的任何事物。card组件有许多班助组件，使标记尽可能简单。没有列出选项的组件使用Vue的功能组件选项来加快渲染速度，并作为标记糖来使构建更容易。">
+    <link rel="canonical" href="/v2/ui/mip-v-card.html">
+    <link rel="stylesheet" type="text/css" href="https://c.mipcdn.com/static/v2/mip.css">
+    <link rel="icon" href="https://www.mipengine.org/favicon.ico">
+    <!-- <link rel="stylesheet" href="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.css"> -->
+    <!-- <link rel="stylesheet" href="http://172.18.19.102:8080/dist/mip.css"> -->
+    <link rel="stylesheet" type="text/css" href="/src/style/dist/index.css">
+  </head>
+  <body>
+<mip-fixed type="top" class="layout-navbar-fixed">
+  <div class="layout-navbar">
+    <a data-type="mip" href="/"><div class="navbar-logo"></div></a>
+    <div class="navbar-menu">
+      <ul class="navbar-menu-wrapper">
+        <li class="navbar-item" ><a data-type="mip" href="/v2/index.html" class="menu-name" title="首页">首页</a></li>
+        <li class="navbar-item active">
+          <span class="menu-name" title="学习">学习<i class="arrow"></i></span>
+          <ul class="navbar-sub-menu">
+            <li class="navbar-sub-item"><a data-type="mip" href="/v2/guide/basic/newbie.html" title="使用文档">使用文档</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="/v2/components/index.html" title="组件列表">组件列表</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="/v2/api/index.html" title="API">API</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="/v2/codelabs/index.html" title="Codelab">Codelab</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="/v2/ui.html" title="UI">UI</a></li>
+          </ul>
+        </li>
+        <li class="navbar-item">
+          <span class="menu-name" title="常用链接">常用链接<i class="arrow"></i></span>
+          <ul class="navbar-sub-menu">
+            <li class="navbar-sub-item"><a data-type="mip" href="http://www.cnblogs.com/mipengine" title="MIP 官方博客">MIP 官方博客</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="https://github.com/mipengine/mip2/tree/master/packages/mip-cli" title="MIP-CLI 本地开发工具">MIP-CLI 本地开发工具</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="https://www.mipengine.org/validator/validate" title="MIP 代码校验工具">MIP 代码校验工具</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="https://www.mipengine.org/validator/preview" title="MIP 效果预览工具">MIP 效果预览工具</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="https://www.mipengine.org/mippath.html" title="MIP PATH 转换工具">MIP PATH 转换工具</a></li>
+          </ul>
+        </li>
+        <li class="navbar-item" ><a target="_blank" href="https://github.com/mipengine/mip2" class="menu-name" title="GitHub">GitHub</a></li>
+        <li class="navbar-item" ><a target="_blank" href="https://www.mipengine.org" class="menu-name" title="回到旧版">回到旧版</a></li>
+      </ul>
+      <div class="navbar-indicator" m-bind:style="navbarStyle"></div>
+    </div>
+    <div class="navbar-toggle" on="tap:nav-sidebar.open"><i class="iconfont icon-bars"></i></div>
+  </div>
+</mip-fixed>
+
+    <mip-sidebar
+      id="nav-sidebar"
+      layout="nodisplay"
+      side="right"
+      class="mip-hidden nav-sidebar"
+    >
+<div class="sidebar-fragment sidebar-nav-wrapper"
+  m-bind:class="{hide:sidebarFragment!=='nav'}"
+>
+  <h1 on="tap:MIP.setData({sidebarFragment:m.sidebarSecondFragment})"><span class="home-arrow">目录</span></h1>
+  <ul class="navbar-menu-wrapper">
+    <li class="navbar-item" ><a data-type="mip" href="/v2/index.html" class="menu-name">首页</a></li>
+    <li class="navbar-item active">
+      <span class="menu-name">学习</span>
+      <ul class="navbar-sub-menu">
+        <li class="navbar-sub-item"><a data-type="mip" href="/v2/guide/basic/newbie.html">使用文档</a></li>
+        <li class="navbar-sub-item"><a data-type="mip" href="/v2/components/index.html">组件列表</a></li>
+        <li class="navbar-sub-item"><a data-type="mip" href="/v2/api/index.html">API</a></li>
+        <li class="navbar-sub-item"><a data-type="mip" href="/v2/codelabs/index.html">Codelab</a></li>
+        <li class="navbar-sub-item"><a data-type="mip" href="/v2/ui.html">UI</a></li>
+      </ul>
+    </li>
+    <li class="navbar-item">
+      <span class="menu-name">常用链接</span>
+      <ul class="navbar-sub-menu">
+        <li class="navbar-sub-item"><a data-type="mip" href="http://www.cnblogs.com/mipengine">MIP 官方博客</a></li>
+        <li class="navbar-sub-item"><a data-type="mip" href="https://github.com/mipengine/mip2/tree/master/packages/mip-cli">MIP-CLI 本地开发工具</a></li>
+        <li class="navbar-sub-item"><a data-type="mip" href="https://www.mipengine.org/validator/validate">MIP 代码校验工具</a></li>
+        <li class="navbar-sub-item"><a data-type="mip" href="https://www.mipengine.org/validator/preview">MIP 效果预览工具</a></li>
+        <li class="navbar-sub-item"><a data-type="mip" href="https://www.mipengine.org/mippath.html">MIP PATH 转换工具</a></li>
+      </ul>
+    </li>
+    <li class="navbar-item" ><a data-type="mip" href="https://github.com/mipengine/mip2" class="menu-name">GitHub</a></li>
+    <li class="navbar-item" ><a data-type="mip" href="https://www.mipengine.org" class="menu-name">回到旧版</a></li>
+  </ul>
+</div>
+<div class="sidebar-fragment navbar-secnav-wrapper"
+  m-bind:class="{hide:sidebarFragment!=='guide'}"
+>
+  <h1 on="tap:MIP.setData({sidebarFragment:'nav'})"><span>UI</span></h1>
+  <mip-sidenav m-bind:menu="menu" m-bind:chapters="chapters" m-bind:url="url"></mip-sidenav>
+</div>
+    </mip-sidebar>
+
+<mip-fixed type="left" top="64px" class="layout-sidebar">
+  <mip-sidenav m-bind:menu="menu" m-bind:chapters="chapters" m-bind:url="url">
+  </mip-sidenav>
+</mip-fixed>
+<div class="layout-main-content">
+  <div class="content-wrapper">
+<p class="markdown-breadcrumb">
+  <span>mip-v-card</span></p>
+    <div class="markdown-body">
+      <h1 id="mipvcard"><a href="#mipvcard" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>mip-v-card</h1><p><code>mip-v-card</code> 组件是一个多功能组件，可用于从面板到静态图像的任何事物。<strong>card</strong>组件有许多班助组件，使标记尽可能简单。没有列出选项的组件使用<strong>Vue的</strong>功能组件选项来加快渲染速度，并作为标记糖来使构建更容易。</p><h2 id="用法"><a href="#用法" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>用法</h2><p>一个卡片有四个基本组件，<code>mip-v-card-media</code>、<code>mip-v-card-title</code>、<code>mip-v-card-text</code>和<code>mip-v-card-actions</code>。</p>
+            <div class="md-fn-wrapper">
+              <div class="md-fn-preview-wrapper">
+                <!-- <div class="md-fn-title">效果预览</div> -->
+                <div class="md-fn-preview-section">
+                  <mip-showmore maxheight="160" animatetime=".3" id="fn-showmore-0">
+                    <mip-iframe layout="responsive" width="320" height="568" src="/v2/ui/mip-v-card-case-0.html"></mip-iframe>
+                  </mip-showmore>
+                  <div class="md-fn-preview-toggle" dat-closetext="收起" on="tap:fn-showmore-0.toggle">展开</div>
+                </div>
+              </div>
+              <div class="md-fn-code-wrapper">
+                <div class="md-fn-title md-fn-code-title" on="tap:fn-code-0.toggle">查看代码</div>
+                <mip-toggle id="fn-code-0" layout="nodisplay">
+                  <div class="md-fn-code-section">
+                    <pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card-media</span>
+  <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.vuetifyjs.com/images/cards/desert.jpg"</span>
+  <span class="hljs-attr">height</span>=<span class="hljs-string">"200px"</span>
+  &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card-media</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card-title</span> <span class="hljs-attr">primary-title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"headline mb-0"</span>&gt;</span>Kangaroo Valley Safari<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Located two hours south of Sydney in the <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>Southern Highlands of New South Wales, ...<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card-title</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card-actions</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span> <span class="hljs-attr">flat</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"orange"</span>&gt;</span>Share<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span> <span class="hljs-attr">flat</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"orange"</span>&gt;</span>Explore<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card-actions</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card</span>&gt;</span></code></pre>
+                  </div>
+                </mip-toggle>
+              </div>
+            </div>
+          <h2 id="api"><a href="#api" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>API</h2><h3 id="mipvcard1"><a href="#mipvcard1" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>mip-v-card</h3><div class="md-table-wrapper"><table><thead><tr><th>props</th><th>含义</th><th>默认值</th><th>类型</th></tr></thead><tbody><tr><td>flat</td><td>移除卡片的盒子阴影</td><td>false</td><td>boolean</td></tr><tr><td>height</td><td>手动定义卡片的高度</td><td>undefined</td><td>number/string</td></tr><tr><td>hover</td><td>在悬停上应用跟高的海拔</td><td>false</td><td>boolean</td></tr><tr><td>img</td><td>指定一个图像背景</td><td>undefined</td><td>string</td></tr><tr><td>raised</td><td>指定更高的默认高度</td><td>false</td><td>boolean</td></tr><tr><td>tile</td><td>通过去除边界弧度将卡片卡如贴片</td><td>false</td><td>boolean</td></tr></tbody></table></div><h3 id="mipvcardmedia"><a href="#mipvcardmedia" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>mip-v-card-media</h3><div class="md-table-wrapper"><table><thead><tr><th>props</th><th>含义</th><th>默认值</th><th>类型</th></tr></thead><tbody><tr><td>contain</td><td>修改包含的背景大小来</td><td>false</td><td>boolean</td></tr><tr><td>height</td><td>手动定义卡片的高度</td><td>auto</td><td>number/string</td></tr><tr><td>src</td><td>被左为背景显示的图片</td><td>undefined</td><td>string</td></tr></tbody></table></div><h3 id="mipvcardtitle"><a href="#mipvcardtitle" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>mip-v-card-title</h3><div class="md-table-wrapper"><table><thead><tr><th>props</th><th>含义</th><th>默认值</th><th>类型</th></tr></thead><tbody><tr><td>primaryTitle</td><td>应用主标题特定的填充</td><td>false</td><td>boolean</td></tr></tbody></table></div><h2 id="示例"><a href="#示例" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>示例</h2><h3 id="媒体与文字"><a href="#媒体与文字" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>媒体与文字</h3>
+            <div class="md-fn-wrapper">
+              <div class="md-fn-preview-wrapper">
+                <!-- <div class="md-fn-title">效果预览</div> -->
+                <div class="md-fn-preview-section">
+                  <mip-showmore maxheight="160" animatetime=".3" id="fn-showmore-1">
+                    <mip-iframe layout="responsive" width="320" height="568" src="/v2/ui/mip-v-card-case-1.html"></mip-iframe>
+                  </mip-showmore>
+                  <div class="md-fn-preview-toggle" dat-closetext="收起" on="tap:fn-showmore-1.toggle">展开</div>
+                </div>
+              </div>
+              <div class="md-fn-code-wrapper">
+                <div class="md-fn-title md-fn-code-title" on="tap:fn-code-1.toggle">查看代码</div>
+                <mip-toggle id="fn-code-1" layout="nodisplay">
+                  <div class="md-fn-code-section">
+                    <pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card-media</span>
+    <span class="hljs-attr">class</span>=<span class="hljs-string">"white--text"</span>
+    <span class="hljs-attr">height</span>=<span class="hljs-string">"200px"</span>
+    <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.vuetifyjs.com/images/cards/docks.jpg"</span>
+  &gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-container</span> <span class="hljs-attr">fill-height</span> <span class="hljs-attr">fluid</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-layout</span> <span class="hljs-attr">fill-height</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-flex</span> <span class="hljs-attr">xs12</span> <span class="hljs-attr">align-end</span> <span class="hljs-attr">flexbox</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"headline"</span>&gt;</span>Top 10 Australian beaches<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-flex</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-layout</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-container</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card-media</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card-title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"grey--text"</span>&gt;</span>Number 10<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Whitehaven Beach<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Whitsunday Island, Whitsunday Islands<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card-title</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card-actions</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span> <span class="hljs-attr">flat</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"orange"</span>&gt;</span>Share<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span> <span class="hljs-attr">flat</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"orange"</span>&gt;</span>Explore<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card-actions</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card</span>&gt;</span></code></pre>
+                  </div>
+                </mip-toggle>
+              </div>
+            </div>
+          <h3 id="水平的卡片"><a href="#水平的卡片" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>水平的卡片</h3>
+            <div class="md-fn-wrapper">
+              <div class="md-fn-preview-wrapper">
+                <!-- <div class="md-fn-title">效果预览</div> -->
+                <div class="md-fn-preview-section">
+                  <mip-showmore maxheight="160" animatetime=".3" id="fn-showmore-2">
+                    <mip-iframe layout="responsive" width="320" height="568" src="/v2/ui/mip-v-card-case-2.html"></mip-iframe>
+                  </mip-showmore>
+                  <div class="md-fn-preview-toggle" dat-closetext="收起" on="tap:fn-showmore-2.toggle">展开</div>
+                </div>
+              </div>
+              <div class="md-fn-code-wrapper">
+                <div class="md-fn-title md-fn-code-title" on="tap:fn-code-2.toggle">查看代码</div>
+                <mip-toggle id="fn-code-2" layout="nodisplay">
+                  <div class="md-fn-code-section">
+                    <pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div>32</div><div>33</div><div>34</div><div>35</div><div>36</div><div>37</div><div>38</div><div>39</div><div>40</div><div>41</div><div>42</div><div>43</div><div>44</div><div>45</div><div>46</div><div>47</div><div>48</div><div>49</div><div>50</div><div>51</div><div>52</div><div>53</div><div>54</div><div>55</div><div>56</div><div>57</div><div>58</div><div>59</div><div>60</div><div>61</div><div>62</div><div>63</div><div>64</div><div>65</div><div>66</div><div>67</div><div>68</div><div>69</div><div>70</div><div>71</div><div>72</div><div>73</div><div>74</div><div>75</div><div>76</div><div>77</div><div>78</div><div>79</div><div>80</div><div>81</div><div>82</div><div>83</div><div>84</div><div>85</div><div>86</div><div>87</div><div>88</div><div>89</div><div>90</div><div>91</div><div>92</div><div>93</div><div>94</div><div>95</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-v-toolbar</span>
+  <span class="hljs-attr">color</span>=<span class="hljs-string">"pink"</span>
+  <span class="hljs-attr">dark</span>
+&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-toolbar-side-icon</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-toolbar-side-icon</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-toolbar-title</span>&gt;</span>My Music<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-toolbar-title</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-spacer</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-spacer</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span> <span class="hljs-attr">icon</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-icon</span>&gt;</span>search<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-icon</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-toolbar</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container fluid grid-list-lg"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"layout row wrap"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"flex xs12"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"blue-grey darken-2"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"white--text"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card-title</span> <span class="hljs-attr">primary-title</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"headline"</span>&gt;</span>Unlimited music now<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Listen to your favorite artists and albums whenever and wherever, online and offline.<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card-title</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card-actions</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span> <span class="hljs-attr">flat</span> <span class="hljs-attr">dark</span>&gt;</span>Listen now<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card-actions</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"flex xs12"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"cyan darken-2"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"white--text"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"layout"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"flex xs5"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card-media</span>
+                  <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.vuetifyjs.com/images/cards/foster.jpg"</span>
+                  <span class="hljs-attr">height</span>=<span class="hljs-string">"125px"</span>
+                  <span class="hljs-attr">contain</span>
+                &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card-media</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"flex xs7"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card-title</span> <span class="hljs-attr">primary-title</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"headline"</span>&gt;</span>Supermodel<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Foster the People<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>(2014)<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card-title</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"layout"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-divider</span> <span class="hljs-attr">light</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-divider</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card-actions</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pa-3"</span>&gt;</span>
+              Rate this album
+              <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-spacer</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-spacer</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-icon</span>&gt;</span>star_border<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-icon</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-icon</span>&gt;</span>star_border<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-icon</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-icon</span>&gt;</span>star_border<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-icon</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-icon</span>&gt;</span>star_border<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-icon</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-icon</span>&gt;</span>star_border<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-icon</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card-actions</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"flex xs12"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"purple"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"white--text"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"layout row"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"flex xs7"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card-title</span> <span class="hljs-attr">primary-title</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"headline"</span>&gt;</span>Halycon Days<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Ellie Goulding<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>(2013)<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card-title</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"flex xs5"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card-media</span>
+                  <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.vuetifyjs.com/images/cards/halcyon.png"</span>
+                  <span class="hljs-attr">height</span>=<span class="hljs-string">"125px"</span>
+                  <span class="hljs-attr">contain</span>
+                &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card-media</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-divider</span> <span class="hljs-attr">light</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-divider</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card-actions</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pa-3"</span>&gt;</span>
+              Rate this album
+              <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-spacer</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-spacer</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-icon</span>&gt;</span>star_border<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-icon</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-icon</span>&gt;</span>star_border<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-icon</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-icon</span>&gt;</span>star_border<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-icon</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-icon</span>&gt;</span>star_border<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-icon</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-icon</span>&gt;</span>star_border<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-icon</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card-actions</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card</span>&gt;</span></code></pre>
+                  </div>
+                </mip-toggle>
+              </div>
+            </div>
+          <h3 id="栅格"><a href="#栅格" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>栅格</h3>
+            <div class="md-fn-wrapper">
+              <div class="md-fn-preview-wrapper">
+                <!-- <div class="md-fn-title">效果预览</div> -->
+                <div class="md-fn-preview-section">
+                  <mip-showmore maxheight="160" animatetime=".3" id="fn-showmore-3">
+                    <mip-iframe layout="responsive" width="320" height="568" src="/v2/ui/mip-v-card-case-3.html"></mip-iframe>
+                  </mip-showmore>
+                  <div class="md-fn-preview-toggle" dat-closetext="收起" on="tap:fn-showmore-3.toggle">展开</div>
+                </div>
+              </div>
+              <div class="md-fn-code-wrapper">
+                <div class="md-fn-title md-fn-code-title" on="tap:fn-code-3.toggle">查看代码</div>
+                <mip-toggle id="fn-code-3" layout="nodisplay">
+                  <div class="md-fn-code-section">
+                    <pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div>32</div><div>33</div><div>34</div><div>35</div><div>36</div><div>37</div><div>38</div><div>39</div><div>40</div><div>41</div><div>42</div><div>43</div><div>44</div><div>45</div><div>46</div><div>47</div><div>48</div><div>49</div><div>50</div><div>51</div><div>52</div><div>53</div><div>54</div><div>55</div><div>56</div><div>57</div><div>58</div><div>59</div><div>60</div><div>61</div><div>62</div><div>63</div><div>64</div><div>65</div><div>66</div><div>67</div><div>68</div><div>69</div><div>70</div><div>71</div><div>72</div><div>73</div><div>74</div><div>75</div><div>76</div><div>77</div><div>78</div><div>79</div><div>80</div><div>81</div><div>82</div><div>83</div><div>84</div><div>85</div><div>86</div><div>87</div><div>88</div><div>89</div><div>90</div><div>91</div><div>92</div><div>93</div><div>94</div><div>95</div><div>96</div><div>97</div><div>98</div><div>99</div><div>100</div><div>101</div><div>102</div><div>103</div><div>104</div><div>105</div><div>106</div><div>107</div><div>108</div><div>109</div><div>110</div><div>111</div><div>112</div><div>113</div><div>114</div><div>115</div><div>116</div><div>117</div><div>118</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"layout column"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"flex xs12 sm6 offset-sm3"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-toolbar</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"indigo"</span> <span class="hljs-attr">dark</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-toolbar-side-icon</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-toolbar-side-icon</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-toolbar-title</span>&gt;</span>Discover<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-toolbar-title</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-spacer</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-spacer</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span> <span class="hljs-attr">icon</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-icon</span>&gt;</span>search<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-icon</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-toolbar</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container fluid grid-list-md"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"layout row wrap"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"flex xs12"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card-media</span>
+                <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.vuetifyjs.com/images/cards/house.jpg"</span>
+                <span class="hljs-attr">height</span>=<span class="hljs-string">"200px"</span>
+              &gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container
+                  fill-height
+                  fluid
+                  pa-2"</span>
+                &gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"layout fill-height"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"flex xs12 align-end flexbox"</span>&gt;</span>
+                      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"headline white--text"</span>&gt;</span>测试<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card-media</span>&gt;</span>
+
+              <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card-actions</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-spacer</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-spacer</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span> <span class="hljs-attr">icon</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-icon</span>&gt;</span>favorite<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-icon</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span> <span class="hljs-attr">icon</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-icon</span>&gt;</span>bookmark<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-icon</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span> <span class="hljs-attr">icon</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-icon</span>&gt;</span>share<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-icon</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card-actions</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"flex xs6"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card-media</span>
+                  <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.vuetifyjs.com/images/cards/house.jpg"</span>
+                  <span class="hljs-attr">height</span>=<span class="hljs-string">"200px"</span>
+                &gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container
+                    fill-height
+                    fluid
+                    pa-2"</span>
+                  &gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"layout fill-height"</span>&gt;</span>
+                      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"flex xs12 align-end flexbox"</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"headline white--text"</span>&gt;</span>测试<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+                      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card-media</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card-actions</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-spacer</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-spacer</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span> <span class="hljs-attr">icon</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-icon</span>&gt;</span>favorite<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-icon</span>&gt;</span>
+                  <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span> <span class="hljs-attr">icon</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-icon</span>&gt;</span>bookmark<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-icon</span>&gt;</span>
+                  <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span> <span class="hljs-attr">icon</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-icon</span>&gt;</span>share<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-icon</span>&gt;</span>
+                  <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card-actions</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"flex xs6"</span>&gt;</span>  
+            <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card-media</span>
+                <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.vuetifyjs.com/images/cards/house.jpg"</span>
+                <span class="hljs-attr">height</span>=<span class="hljs-string">"200px"</span>
+              &gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container
+                  fill-height
+                  fluid
+                  pa-2"</span>
+                &gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"layout fill-height"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"flex xs12 align-end flexbox"</span>&gt;</span>
+                      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"headline white--text"</span>&gt;</span>测试<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card-media</span>&gt;</span>
+
+              <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card-actions</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-spacer</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-spacer</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span> <span class="hljs-attr">icon</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-icon</span>&gt;</span>favorite<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-icon</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span> <span class="hljs-attr">icon</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-icon</span>&gt;</span>bookmark<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-icon</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span> <span class="hljs-attr">icon</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-icon</span>&gt;</span>share<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-icon</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card-actions</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+                  </div>
+                </mip-toggle>
+              </div>
+            </div>
+          
+    </div>
+<div class="markdown-toolbar">
+  <a data-type="mip" href="https://github.com/mipengine/mip2/issues/new?title=反馈:docs/ui/mip-v-card.md"><span>反馈</span></a>
+  <a data-type="mip" href="https://github.com/mipengine/mip2/edit/master/docs/ui/mip-v-card.md"><span>编辑</span></a>
+</div>
+<div class="markdown-paginator">
+
+  <a class="markdown-paginator-item hide-in-small" data-type="mip" href="">
+  </a>
+  <a class="markdown-paginator-item" data-type="mip" href="/v2/ui/mip-v-chip.html">
+    <p class="label">下一页</p>
+    <p class="title">mip-v-chip</p>
+  </a>
+</div>
+  </div>
+</div>
+<mip-data>
+  <script type="application/json">
+    {
+      "navbar": [{"name":"首页","path":"docs/index","activeUrl":{},"width":32,"url":"/v2/index.html"},{"name":"学习","width":32,"activeUrl":{},"children":[{"name":"使用文档","path":"docs/guide","width":64,"url":"/v2/guide/basic/newbie.html"},{"name":"组件列表","path":"docs/extensions","width":64,"url":"/v2/components/index.html"},{"name":"API","path":"docs/api","url":"/v2/api/index.html"},{"name":"Codelab","path":"docs/codelabs","width":60,"url":"/v2/codelabs/index.html"},{"name":"UI","path":"docs/ui","width":60,"url":"/v2/ui.html"}]},{"name":"常用链接","children":[{"name":"MIP 官方博客","url":"http://www.cnblogs.com/mipengine","blank":true},{"name":"MIP-CLI 本地开发工具","url":"https://github.com/mipengine/mip2/tree/master/packages/mip-cli","blank":true},{"name":"MIP 代码校验工具","url":"https://www.mipengine.org/validator/validate","blank":true},{"name":"MIP 效果预览工具","url":"https://www.mipengine.org/validator/preview","blank":true},{"name":"MIP PATH 转换工具","url":"https://www.mipengine.org/mippath.html","blank":true}],"width":82},{"name":"GitHub","url":"https://github.com/mipengine/mip2","blank":true,"width":50},{"name":"回到旧版","url":"https://www.mipengine.org","blank":true,"width":32}],
+      "navIndex": "1",
+      "sidebarFragment": "guide",
+      "sidebarSecondFragment": "guide",
+      "menu": [{"name":"mip-v-card","path":"docs/ui/mip-v-card.md","url":"/v2/ui/mip-v-card.html"},{"name":"mip-v-chip","path":"docs/ui/mip-v-chip.md","url":"/v2/ui/mip-v-chip.html"},{"name":"mixins","path":"docs/ui/mixins","children":[{"name":"colorable","path":"docs/ui/mixins/colorable.md","url":"/v2/ui/mixins/colorable.html"},{"name":"delayable","path":"docs/ui/mixins/delayable.md","url":"/v2/ui/mixins/delayable.html"},{"name":"positionable","path":"docs/ui/mixins/positionable.md","url":"/v2/ui/mixins/positionable.html"}]}],
+      "chapters": [{"level":1,"hash":"#mipvcard","text":"mip-v-card","children":[{"level":2,"hash":"#用法","text":"用法"},{"level":2,"hash":"#api","text":"API","children":[{"level":3,"hash":"#mipvcard1","text":"mip-v-card"},{"level":3,"hash":"#mipvcardmedia","text":"mip-v-card-media"},{"level":3,"hash":"#mipvcardtitle","text":"mip-v-card-title"}]},{"level":2,"hash":"#示例","text":"示例","children":[{"level":3,"hash":"#媒体与文字","text":"媒体与文字"},{"level":3,"hash":"#水平的卡片","text":"水平的卡片"},{"level":3,"hash":"#栅格","text":"栅格"}]}]}],
+      'url': "/v2/ui/mip-v-card.html"
+    }
+  </script>
+</mip-data>
+
+    <!-- <script src="http://172.18.19.102:8080/dist/mip.js"></script> -->
+    <script src="https://c.mipcdn.com/static/v2/mip.js"></script>
+    <!-- <script src="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.js"></script> -->
+    <!-- <script src="http://127.0.0.1:8111/mip-sidenav/mip-sidenav.js"></script> -->
+    <script src="https://bos.nj.bpc.baidu.com/assets/mip/temp/mip-sidenav.js?v=194253"></script>
+    <script src="https://bos.nj.bpc.baidu.com/assets/mip/codelab/mip-stepper-tabs.js"></script>
+<!--     <script src="http://127.0.0.1:8111/mip-stepper-tabs/mip-stepper-tabs.js"></script> -->
+    <!-- <script src="https://c.mipcdn.com/static/v1/mip-fixed/mip-fixed.js"></script> -->
+    <script src="https://c.mipcdn.com/static/v1/mip-sidebar/mip-sidebar.js"></script>
+    <script src="https://c.mipcdn.com/static/v1/mip-showmore/mip-showmore.js"></script>
+    <script src="https://c.mipcdn.com/static/v1/mip-toggle/mip-toggle.js"></script>
+  </body>
+</html>
