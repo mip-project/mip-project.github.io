@@ -8,7 +8,7 @@
     "build:css": "webpack --config src/style/webpack.config.js",
     "dev:css": "NODE_ENV=development npm run build && webpack --config src/style/webpack.config.js --watch",
     "dev": "NODE_ENV=development npm run build && edp ws start --port 9527",
-    "clean": "rm -rf api codelabs guide components extensions img assets/img mip docs tmp index.html v2",
+    "clean": "rm -rf api codelabs guide components extensions img assets/img mip docs tmp index.html v2 ui",
     "cp:bce": "cp -r ./v2 ../mip_online/bce-www.mipengine.org",
     "server": "npm run build:css && npm run build && edp ws start --port 9527",
     "deploy": "npm run build:css && npm run build",
