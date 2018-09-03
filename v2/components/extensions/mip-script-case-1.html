@@ -11,7 +11,12 @@
                 </head>
                 <body>
                   
-                  <mip-script src="https://www.example.org/script.js"></mip-script>
+                  <mip-script>
+  console.log('mip-script executed')
+  console.log(document.cookie)
+  window.location.href = '/'
+  var ele = document.getElementById('test')
+</mip-script>
 
                   <script src="https://c.mipcdn.com/static/v2/mip.js"></script>
                   <script src="https://c.mipcdn.com/static/v2/mip-script/mip-script.js"></script>
