@@ -1,0 +1,43 @@
+
+                <!DOCTYPE html>
+                <html mip>
+                <head>
+                  <meta charset="utf-8">
+                  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+                  <title>测试</title>
+                  <meta name="description" content="">
+                  <link rel="canonical" href="v2/components/extensions/mip-list-case-2.html">
+                  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.css">
+                  
+                </head>
+                <body>
+                  
+                  <mip-list synchronous-data>
+    <script type="application/json">
+        {
+            "items": [
+                {
+                    "name": "lee",
+                    "alias": "xialong"
+                }, {
+                    "name": "ruige",
+                    "alias": "ruimm"
+                }, {
+                    "name": "langbo",
+                    "alias": "bobo"
+                }
+            ]
+        }
+    </script>
+    <template type="mip-mustache">
+        <div>
+            <li>name: {{name}}</li>
+            <li>alias: {{alias}}</li>
+        </div>
+    </template>
+</mip-list>
+
+                  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
+                  <script src="https://c.mipcdn.com/static/v1/mip-list/mip-list.js"></script><script src="https://c.mipcdn.com/static/v1/mip-mustache/mip-mustache.js"></script>
+                </body>
+              

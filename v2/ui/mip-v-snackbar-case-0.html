@@ -1,0 +1,31 @@
+
+                <!DOCTYPE html>
+                <html mip>
+                <head>
+                  <meta charset="utf-8">
+                  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+                  <title>测试</title>
+                  <meta name="description" content="">
+                  <link rel="canonical" href="v2/ui/mip-v-snackbar-case-0.html">
+                  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.css">
+                  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">
+                </head>
+                <body>
+                  <mip-data><script type="application/json">{"snackbar":false}</script></mip-data>
+
+                  <div class="group pa-2">
+  <mip-v-snackbar m-bind:value.sync="snackbar" timeout="3000" bottom="" multi-line="" vertical="">
+    &#x51FA;&#x73B0;&#x4E86; snackbar &#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x8BBE;&#x7F6E;&#x4E86; timeout &#x65F6;&#x95F4;&#x540E;&#xFF0C;&#x81EA;&#x52A8;&#x9690;&#x85CF;
+    <mip-v-btn color="pink" flat="" on="tap:MIP.setData({snackbar:false})">
+      Close
+    </mip-v-btn>
+  </mip-v-snackbar>
+  <mip-v-btn block="" color="primary" dark="" on="tap:MIP.setData({snackbar:true})">
+    Show Snackbar
+  </mip-v-btn>
+</div>
+
+                  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
+                  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.js"></script>
+                </body>
+              
