@@ -6,8 +6,8 @@
   "scripts": {
     "build": "npm run clean && node src/index.js",
     "build:css": "webpack --config src/style/webpack.config.js",
-    "dev:css": "NODE_ENV=development npm run build && webpack --config src/style/webpack.config.js --watch",
-    "dev": "NODE_ENV=development npm run build && edp ws start --port 9527",
+    "dev:css": "cross-env NODE_ENV=development npm run build && webpack --config src/style/webpack.config.js --watch",
+    "dev": "cross-env NODE_ENV=development npm run build && edp ws start --port 9527",
     "clean": "rm -rf api codelabs guide components extensions img assets/img mip docs tmp index.html v2 ui",
     "cp:bce": "cp -r ./v2 ../mip_online/bce-www.mipengine.org",
     "server": "npm run build:css && npm run build && edp ws start --port 9527",
@@ -34,6 +34,7 @@
   "devDependencies": {
     "autoprefixer": "^8.6.3",
     "cheerio": "^1.0.0-rc.2",
+    "cross-env": "^5.2.0",
     "css-loader": "^0.28.11",
     "eslint": "^5.3.0",
     "eslint-config-standard": "^11.0.0",
