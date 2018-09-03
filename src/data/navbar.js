@@ -41,7 +41,7 @@ module.exports = [
       },
       {
         "name": "UI",
-        "path": "docs/ui",
+        "path": "docs/ui/mip-v-alert",
         // "url": "/codelabs/index.html",
         "width": 60
       }

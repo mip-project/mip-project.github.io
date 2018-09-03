@@ -35,8 +35,8 @@ module.exports = class ComponentPreview {
 
         // mip2 ui components need: vuetify.js & vuetify.css in iframe
         if (/^docs\/ui/.test(obj.path)) {
-          matchScript = [undefined, 'http://localhost:8848/vuetify.min.js']
-          uiStyle = '<link rel="stylesheet" type="text/css" href="http://localhost:8848/vuetify.min.css">'
+          matchScript = [undefined, 'https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.js']
+          uiStyle = '<link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">'
         }
 
         if (!matchScript) {
@@ -99,13 +99,13 @@ module.exports = class ComponentPreview {
                   <title>测试</title>
                   <meta name="description" content="">
                   <link rel="canonical" href="${caseUrl}">
-                  <link rel="stylesheet" type="text/css" href="https://c.mipcdn.com/static/v2/mip.css">
+                  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.css">
                   ${uiStyle}
                 </head>
                 <body>
                   ${demoPresetContent}
                   ${theCase}
-                  <script src="http://localhost:8080/dist/mip.js"></script>
+                  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
                   ${script}
                 </body>
               `
