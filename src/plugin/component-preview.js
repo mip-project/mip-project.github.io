@@ -23,23 +23,29 @@ const caseHtml = ({url, style, preset, cases, scripts}) => '' +
   ${preset}
   ${cases}
   <script type="data-x-preset" id="preset">
-  ${preset}
+  ${preset.replace(/</g, '___arrow_left___').replace(/>/g, '___arrow_right___')}
   </script>
   <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
   ${scripts}
   <script>
   var preset;
   window.addEventListener('message', function (e) {
-    if (!preset) {
-      preset = document.getElementById('preset').innerHTML;
+    if (!e.data || e.data.type !== 'demo-edit') {
+      return;
     }
-    document.body.innerHTML = preset + e.data;
+
+    if (!preset) {
+      preset = document.getElementById('preset').innerHTML
+        .replace(/___arrow_left___/g, '<')
+        .replace(/___arrow_right___/g, '>');
+    }
+    document.body.innerHTML = preset + e.data.html;
   })
   </script>
 </body>
 </html>`
 
-const editHtml = ({cases, url}) => '' +
+const editHtml = ({cases, url, docUrl}) => '' +
 `<!DOCTYPE html>
 <html>
   <head>
@@ -83,11 +89,27 @@ const editHtml = ({cases, url}) => '' +
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
         height: 568px;
       }
+      .toolbar-button {
+        margin-right: 20px;
+        height: 40px;
+        box-sizing: border-box;
+        padding: 0 15px;
+        display: inline-block;
+        line-height: 40px;
+        border: 1px solid #000;
+        text-decoration: none;
+        color: #000;
+        cursor: pointer;
+      }
+      .toolbar-button:active {
+        background: #eee;
+      }
     </style>
   </head>
   <body>
     <div class="edit-toolbar">
-      <button id="submit">点击提交</button>
+      <a class="toolbar-button" href="${docUrl}">返回文档</a>
+      <div class="toolbar-button" id="submit">点击提交</div>
     </div>
     <div class="edit-wrapper">
       <div class="edit-code">
@@ -100,6 +122,9 @@ const editHtml = ({cases, url}) => '' +
       </div>
     </div>
     <script src="https://cdn.bootcss.com/codemirror/5.38.0/codemirror.min.js"></script>
+    <script src="https://cdn.bootcss.com/codemirror/5.38.0/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdn.bootcss.com/codemirror/5.38.0/mode/xml/xml.min.js"></script>
+    <script src="https://cdn.bootcss.com/codemirror/5.38.0/mode/css/css.min.js"></script>
     <script src="https://cdn.bootcss.com/codemirror/5.38.0/mode/htmlmixed/htmlmixed.min.js"></script>
     <script src="https://cdn.bootcss.com/codemirror/5.38.0/addon/selection/active-line.min.js"></script>
     <script src="https://cdn.bootcss.com/codemirror/5.38.0/addon/edit/matchbrackets.min.js"></script>
@@ -117,7 +142,7 @@ const editHtml = ({cases, url}) => '' +
       button.addEventListener('click', function () {
         let val = editor.getValue();
         try {
-          iframe.contentWindow.postMessage(val, '*');
+          iframe.contentWindow.postMessage({type: 'demo-edit', html: val}, '*');
         } catch (e) {
           console.error('post fail');
         }
@@ -221,7 +246,8 @@ module.exports = class ComponentPreview {
 
               edit = editHtml({
                 url: caseUrl,
-                cases: cases
+                cases: cases,
+                docUrl: obj.url
               })
             }
 
@@ -235,26 +261,39 @@ module.exports = class ComponentPreview {
               await fs.writeFile(pathname, edit, 'utf-8')
             }
 
-            return `<mip-iframe layout="responsive" width="${width}" height="${height}" src="${app.config.host}/${caseUrl}"></mip-iframe>`
+            return [
+              `<mip-iframe layout="responsive" width="${width}" height="${height}" src="${app.config.host}/${caseUrl}"></mip-iframe>`,
+              `${app.config.host}/${caseUrl}`,
+              edit && `${app.config.host}/${editUrl}`
+            ]
           })
         )
 
         let index = 0
         obj.html = obj.html.replace(/<pre><div class="code-index">((?!<pre>)[\s\S])+?<\/div><code class="lang-html">[\s\S]+?<\/code><\/pre>/g, str => {
+          let i = index
+          let cases = theCases[i][0]
+          let caseUrl = theCases[i][1]
+          let editUrl = theCases[i][2]
+          let editButton = editUrl ? `<a class="md-fn-link" href="${editUrl}" target="_blank">试一试</a>` : ''
+
           str = `
             <div class="md-fn-wrapper">
               <div class="md-fn-preview-wrapper">
-                <!-- <div class="md-fn-title">效果预览</div> -->
+                <div class="md-fn-title md-fn-title-right">
+                  <a href="${caseUrl}" class="md-fn-link" target="_blank">查看例子</a>
+                  ${editButton}
+                </div>
                 <div class="md-fn-preview-section">
-                  <mip-showmore maxheight="160" animatetime=".3" id="fn-showmore-${index}">
-                    ${theCases[index++]}
+                  <mip-showmore maxheight="160" animatetime=".3" id="fn-showmore-${i}">
+                    ${cases}
                   </mip-showmore>
-                  <div class="md-fn-preview-toggle" dat-closetext="收起" on="tap:fn-showmore-${index - 1}.toggle">展开</div>
+                  <div class="md-fn-preview-toggle" dat-closetext="收起" on="tap:fn-showmore-${i}.toggle">展开</div>
                 </div>
               </div>
               <div class="md-fn-code-wrapper">
-                <div class="md-fn-title md-fn-code-title" on="tap:fn-code-${index - 1}.toggle">查看代码</div>
-                <mip-toggle id="fn-code-${index - 1}" layout="nodisplay">
+                <div class="md-fn-title md-fn-code-title" on="tap:fn-code-${i}.toggle">查看代码</div>
+                <mip-toggle id="fn-code-${i}" layout="nodisplay">
                   <div class="md-fn-code-section">
                     ${str}
                   </div>
