@@ -33,7 +33,7 @@
                 font-size 42px
                 font-weight bold
                 @media screen and (max-width: 768px)
-                    font-size 44px
+                    font-size 40px
                     line-height 1
                     padding-top 54px
 
@@ -56,6 +56,8 @@
                     border-radius 20px
                     text-align center
                     width 150px
+                    @media screen and (max-width: 768px)
+                        width 130px
                 .top-btn
                     &-start
                         background #000
@@ -122,30 +124,30 @@
 
                     &.mip-parts-html
                         &:before
-                            background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-11-c050bf3e.gif')
-                        background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-11-c050bf3e.gif')
+                            background-image url('https://boscdn.baidu.com/assets/mip/img/mip-01_1.gif')
+                        background-image url('https://boscdn.baidu.com/assets/mip/img/mip-01_1.gif')
                         @media screen and (min-width: 768px)
                             background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-11.png')
                             &:hover
-                                background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-11-c050bf3e.gif')
+                                background-image url('https://boscdn.baidu.com/assets/mip/img/mip-01_1.gif')
 
                     &.mip-parts-js
                         &:before
-                            background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-12.gif')
-                        background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-12.gif')
+                            background-image url('https://boscdn.baidu.com/assets/mip/img/mip-01_2.gif')
+                        background-image url('https://boscdn.baidu.com/assets/mip/img/mip-01_2.gif')
                         @media screen and (min-width: 768px)
                             background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-12.png')
                             &:hover
-                               background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-12.gif')
+                               background-image url('https://boscdn.baidu.com/assets/mip/img/mip-01_2.gif')
 
                     &.mip-parts-cache
                         &:before
-                            background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-13-1ac92bab.gif')
-                        background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-13-1ac92bab.gif')
+                            background-image url('https://boscdn.baidu.com/assets/mip/img/mip-01_3.gif')
+                        background-image url('https://boscdn.baidu.com/assets/mip/img/mip-01_3.gif')
                         @media screen and (min-width: 768px)
                             background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-13.png')
                             &:hover
-                               background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-13-1ac92bab.gif')
+                               background-image url('https://boscdn.baidu.com/assets/mip/img/mip-01_3.gif')
 
                     &:not(:last-child)
                         border-right 1px solid #ededed
@@ -200,9 +202,13 @@
                     position relative
                     background #fff
                     box-sizing border-box
-                    box-shadow 0px 0px 1px 1px #ededed
+                    border 1px solid #f1f1f1
+                    box-shadow 0px 0px 1px 1px transparent
                     height 310px
                     padding 60px 60px 60px 60px
+
+                    &:hover
+                      box-shadow 0px 0px 1px 1px rgba(0,0,0,.04)
                     h2
                         font-size 24px
                         font-weight bold
@@ -223,87 +229,99 @@
                         margin 0 17px 20px 17px
                         padding 40px 21px 40px 30px
 
-                &-button
-                    position absolute
-                    bottom 45px
-                    left 60px
-                    font-size 14px
-                    color #555
-                    display inline-block
-                    line-height 40px
-                    border 1px solid #999
-                    border-radius 20px
-                    text-align center
-                    width 150px
-                    .arrow
-                        width 0
-                        height 0
+                    .mip-advan-section-button
+                        position absolute
+                        bottom 45px
+                        left 60px
+                        font-size 14px
+                        color #555
                         display inline-block
-                        // verticals-align middle
-                        border-width 3px
-                        border-top-color transparent
-                        border-bottom-color transparent
-                        border-right-color transparent
-                        border-left-color #555
-                        border-style solid
-                        margin 0 0 3px 7px
-                        transform translateY(25%)
+                        line-height 40px
+                        border 1px solid #999
+                        border-radius 20px
+                        text-align center
+                        width 150px
+                        .arrow
+                            width 0
+                            height 0
+                            display inline-block
+                            // verticals-align middle
+                            border-width 3px
+                            border-top-color transparent
+                            border-bottom-color transparent
+                            border-right-color transparent
+                            border-left-color #555
+                            border-style solid
+                            margin 0 0 3px 7px
+                            transform translateY(25%)
 
-                    &:hover,&:active
-                        background #f4f4f4
-                    @media screen and (max-width: 768px)
-                        bottom 40px
-                        left 30px
-                        width 119px
-                &-img
-                    width 90px
-                    height 90px
-                    position absolute
-                    right 60px
-                    bottom 45px
-                    background-repeat no-repeat
-                    background-size 100% 100%
-                    &:before
-                      content ''
-                      display none
-                    &.advan-1
+                        &:hover,&:active
+                            background #f4f4f4
+                        @media screen and (max-width: 768px)
+                            bottom 40px
+                            left 30px
+                            width 119px
+                    .mip-advan-section-img
+                        width 90px
+                        height 90px
+                        position absolute
+                        right 60px
+                        bottom 45px
+                        background-repeat no-repeat
+                        background-size 100% 100%
+                        transition background-image .08s
                         &:before
-                            background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-01.gif')
-                        background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-01.gif')
-                        @media screen and (min-width: 768px)
-                            background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-01.png')
-                            &:hover
-                                background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-01.gif')
-                    &.advan-2
-                        &:before
-                            background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-02.gif')
-                        background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-02.gif')
-                        @media screen and (min-width: 768px)
-                            background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-02.png')
-                            &:hover
-                                background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-02.gif')
-                    &.advan-3
-                        // width 100px
-                        // height 100px
-                        &:before
-                            background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-03.gif')
-                        background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-03.gif')
-                        @media screen and (min-width: 768px)
-                            background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-03.png')
-                            &:hover
-                                background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-03.gif')
-                    &.advan-4
-                        &:before
-                            background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-04.gif')
-                        background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-04.gif')
-                        @media screen and (min-width: 768px)
-                            background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-04.png')
-                            &:hover
-                                background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-04.gif')
+                          content ''
+                          display none
+                        &.advan-1
+                            &:before
+                                background-image url('https://boscdn.baidu.com/assets/mip/img/001.gif')
+                            background-image url('https://boscdn.baidu.com/assets/mip/img/001.gif')
+                            @media screen and (min-width: 768px)
+                                background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-01.png')
+                                // transition background-image .08s ease
+                        &.advan-2
+                            &:before
+                                background-image url('https://boscdn.baidu.com/assets/mip/img/002.gif')
+                            background-image url('https://boscdn.baidu.com/assets/mip/img/002.gif')
+                            @media screen and (min-width: 768px)
+                                background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-02.png')
+                                transition background-image .08s ease
+                        &.advan-3
+                            // width 100px
+                            // height 100px
+                            &:before
+                                background-image url('https://boscdn.baidu.com/assets/mip/img/003.gif')
+                            background-image url('https://boscdn.baidu.com/assets/mip/img/003.gif')
+                            @media screen and (min-width: 768px)
+                                background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-03.png')
+                        &.advan-4
+                            &:before
+                                background-image url('https://boscdn.baidu.com/assets/mip/img/004.gif')
+                            background-image url('https://boscdn.baidu.com/assets/mip/img/004.gif')
+                            @media screen and (min-width: 768px)
+                                background-image url('https://boscdn.baidu.com/assets/mip/img/mip-home-04.png')
 
-                    @media screen and (max-width: 768px)
-                        right 21px
-                        bottom 40px
+                        @media screen and (max-width: 768px)
+                            right 21px
+                            bottom 40px
+                      &:hover
+                          .mip-advan-section-img
+                              &.advan-1
+                                  @media screen and (min-width: 768px)
+                                      background-image url('https://boscdn.baidu.com/assets/mip/img/001.gif')
+                              &.advan-2
+                                  @media screen and (min-width: 768px)
+                                      background-image url('https://boscdn.baidu.com/assets/mip/img/002.gif')
+                              &.advan-3
+                                  @media screen and (min-width: 768px)
+                                      background-image url('https://boscdn.baidu.com/assets/mip/img/003.gif')
+                              &.advan-4
+                                  @media screen and (min-width: 768px)
+                                      background-image url('https://boscdn.baidu.com/assets/mip/img/004.gif')
+
+
+
 
     .footer-section
         height 440px
