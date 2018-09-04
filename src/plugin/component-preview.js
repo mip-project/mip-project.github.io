@@ -15,7 +15,7 @@ module.exports = class ComponentPreview {
         let obj = await app.store.get('doc', docPath)
 
         // 只针对 components 下的符合 文档格式的组件做预览效果
-        if (!/^docs\/extensions\//.test(obj.path)) {
+        if (!/^docs\/extensions\//.test(obj.path) && !/^docs\/ui\//.test(obj.path)) {
           return
         }
 
@@ -30,6 +30,14 @@ module.exports = class ComponentPreview {
         }
 
         let matchScript = fileInfo.file.match(/\s\|?\s*所需脚本\s*\|(.*?)\|?(\r\n|\n\r|\r|\n)/m)
+
+        let uiStyle = ''
+
+        // mip2 ui components need: vuetify.js & vuetify.css in iframe
+        if (/^docs\/ui/.test(obj.path)) {
+          matchScript = [undefined, 'https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.js']
+          uiStyle = '<link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">'
+        }
 
         if (!matchScript) {
           return
@@ -91,12 +99,13 @@ module.exports = class ComponentPreview {
                   <title>测试</title>
                   <meta name="description" content="">
                   <link rel="canonical" href="${caseUrl}">
-                  <link rel="stylesheet" type="text/css" href="https://c.mipcdn.com/static/v2/mip.css">
+                  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.css">
+                  ${uiStyle}
                 </head>
                 <body>
                   ${demoPresetContent}
                   ${theCase}
-                  <script src="https://c.mipcdn.com/static/v2/mip.js"></script>
+                  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
                   ${script}
                 </body>
               `
