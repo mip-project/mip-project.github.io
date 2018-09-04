@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html mip>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <title>测试</title>
+  <meta name="description" content="">
+  <link rel="canonical" href="/v2/ui/mip-v-tooltip-case-1.html">
+  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.css">
+  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">
+</head>
+<body>
+  <mip-data><script type="application/json">{"show":false}</script></mip-data>
+
+  <div class="text-xs-center">
+  <mip-v-tooltip left="">
+    <mip-v-btn slot="activator" color="primary" dark="">
+      Left
+    </mip-v-btn>
+    <span>Left tooltip</span>
+  </mip-v-tooltip>
+
+  <mip-v-tooltip top="">
+    <mip-v-btn slot="activator" color="primary" dark="">
+      Top
+    </mip-v-btn>
+    <span>Top tooltip</span>
+  </mip-v-tooltip>
+
+  <mip-v-tooltip bottom="">
+    <mip-v-btn slot="activator" color="primary" dark="">
+      Bottom
+    </mip-v-btn>
+    <span>Bottom tooltip</span>
+  </mip-v-tooltip>
+
+  <mip-v-tooltip right="">
+    <mip-v-btn slot="activator" color="primary" dark="">
+      Right
+    </mip-v-btn>
+    <span>Right tooltip</span>
+  </mip-v-tooltip>
+</div>
+
+  <script type="data-x-preset" id="preset">
+  ___arrow_left___mip-data___arrow_right______arrow_left___script type="application/json"___arrow_right___{"show":false}___arrow_left___/script___arrow_right______arrow_left___/mip-data___arrow_right___
+
+  </script>
+  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
+  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.js"></script>
+  <script>
+  var preset;
+  window.addEventListener('message', function (e) {
+    if (!e.data || e.data.type !== 'demo-edit') {
+      return;
+    }
+
+    if (!preset) {
+      preset = document.getElementById('preset').innerHTML
+        .replace(/___arrow_left___/g, '<')
+        .replace(/___arrow_right___/g, '>');
+    }
+    document.body.innerHTML = preset + e.data.html;
+  })
+  </script>
+</body>
+</html>

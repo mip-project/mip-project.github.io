@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <title>测试</title>
+    <meta name="description" content="">
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/codemirror/5.38.0/codemirror.min.css">
+    <style>
+      html, body {
+        margin: 0;
+      }
+      .edit-toolbar {
+        height: 60px;
+        padding-left: 20px;
+        line-height: 60px;
+      }
+      #submit {
+        height: 40px;
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+      .edit-wrapper {
+        display: flex;
+        padding: 6px 20px 20px;
+        background: #eee;
+      }
+      .edit-code {
+        flex: 1;
+        overflow: auto;
+      }
+      .edit-iframe-wrapper {
+        width: 320px;
+        margin-left: 20px;
+      }
+      #edit-iframe {
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        background: #fff;
+      }
+      .CodeMirror {
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        height: 568px;
+      }
+      .toolbar-button {
+        margin-right: 20px;
+        height: 40px;
+        box-sizing: border-box;
+        padding: 0 15px;
+        display: inline-block;
+        line-height: 40px;
+        border: 1px solid #000;
+        text-decoration: none;
+        color: #000;
+        cursor: pointer;
+      }
+      .toolbar-button:active {
+        background: #eee;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="edit-toolbar">
+      <a class="toolbar-button" href="/v2/components/extensions/mip-confirm.html">返回文档</a>
+    </div>
+    <div class="edit-wrapper">
+      <div class="edit-code">
+        <p class="edit-tip">编辑您的代码：</p>
+        <textarea id="code" name="code"><!-- <mip-test id="confirmTest"  on="show:confirm.show"></mip-test>    测试组件，模拟接收和抛出事件 -->
+<mip-confirm
+  id= "confirm"
+  pattern="alert"
+  on="ready:confirmTest.print"
+  info-title="提示"
+  info-text="confirm 类型的弹窗。这里是弹窗的提示信息内容，问题问题问题问题"
+>
+</mip-confirm>
+
+</textarea>
+      </div>
+      <div class="edit-iframe-wrapper">
+        <p class="edit-tip">查看结果：</p>
+        <iframe id="edit-iframe" frameborder="0" width="320" height="568" src="/v2/components/extensions/mip-confirm-case-0.html"></iframe>
+      </div>
+    </div>
+    <script src="https://cdn.bootcss.com/codemirror/5.38.0/codemirror.min.js"></script>
+    <script src="https://cdn.bootcss.com/codemirror/5.38.0/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdn.bootcss.com/codemirror/5.38.0/mode/xml/xml.min.js"></script>
+    <script src="https://cdn.bootcss.com/codemirror/5.38.0/mode/css/css.min.js"></script>
+    <script src="https://cdn.bootcss.com/codemirror/5.38.0/mode/htmlmixed/htmlmixed.min.js"></script>
+    <script src="https://cdn.bootcss.com/codemirror/5.38.0/addon/selection/active-line.min.js"></script>
+    <script src="https://cdn.bootcss.com/codemirror/5.38.0/addon/edit/matchbrackets.min.js"></script>
+    <script>
+       var editor = CodeMirror.fromTextArea(document.getElementById('code'), {
+        lineNumbers: true,
+        styleActiveLine: true,
+        matchBrackets: true,
+        mode: 'htmlmixed',
+        identUnit: 2
+      });
+      editor.setOption("theme", 'default');
+      var iframe = document.getElementById('edit-iframe');
+
+      var timer;
+      function throttle (fn) {
+        if (timer != null) {
+          clearTimeout(timer);
+        }
+        timer = setTimeout(function () {
+          timer = null;
+          fn();
+        }, 500);
+      }
+
+      editor.on('change', function () {
+        throttle(function () {
+          let val = editor.getValue();
+          try {
+            iframe.contentWindow.postMessage({type: 'demo-edit', html: val}, '*');
+          } catch (e) {
+            console.error('post fail');
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
+

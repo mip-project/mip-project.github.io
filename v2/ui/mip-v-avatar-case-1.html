@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html mip>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <title>测试</title>
+  <meta name="description" content="">
+  <link rel="canonical" href="/v2/ui/mip-v-avatar-case-1.html">
+  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.css">
+  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">
+</head>
+<body>
+  <mip-data><script type="application/json">{"slider":56,"min":16,"max":256,"tile":false,"avatarSize":60}</script></mip-data>
+
+  <div class="layout align-center justify-space-around wrap">
+  <mip-v-avatar color="indigo">
+    <mip-v-icon dark="">account_circle</mip-v-icon>
+  </mip-v-avatar>
+
+  <mip-v-avatar>
+    <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John">
+  </mip-v-avatar>
+
+  <mip-v-badge overlap="">
+    <span slot="badge">3</span>
+
+    <mip-v-avatar color="purple red--after">
+      <mip-v-icon dark="">notifications</mip-v-icon>
+    </mip-v-avatar>
+  </mip-v-badge>
+
+  <mip-v-avatar color="teal">
+    <span class="white--text headline">C</span>
+  </mip-v-avatar>
+
+  <mip-v-avatar color="red">
+    <span class="white--text headline">J</span>
+  </mip-v-avatar>
+</div>
+
+  <script type="data-x-preset" id="preset">
+  ___arrow_left___mip-data___arrow_right______arrow_left___script type="application/json"___arrow_right___{"slider":56,"min":16,"max":256,"tile":false,"avatarSize":60}___arrow_left___/script___arrow_right______arrow_left___/mip-data___arrow_right___
+
+  </script>
+  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
+  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.js"></script>
+  <script>
+  var preset;
+  window.addEventListener('message', function (e) {
+    if (!e.data || e.data.type !== 'demo-edit') {
+      return;
+    }
+
+    if (!preset) {
+      preset = document.getElementById('preset').innerHTML
+        .replace(/___arrow_left___/g, '<')
+        .replace(/___arrow_right___/g, '>');
+    }
+    document.body.innerHTML = preset + e.data.html;
+  })
+  </script>
+</body>
+</html>

@@ -1,17 +1,16 @@
-
-                <!DOCTYPE html>
-                <html mip>
-                <head>
-                  <meta charset="utf-8">
-                  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
-                  <title>测试</title>
-                  <meta name="description" content="">
-                  <link rel="canonical" href="v2/components/extensions/mip-accordion-case-1.html">
-                  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.css">
-                  
-                </head>
-                <body>
-                  <style mip-custom>
+<!DOCTYPE html>
+<html mip>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <title>测试</title>
+  <meta name="description" content="">
+  <link rel="canonical" href="/v2/components/extensions/mip-accordion-case-1.html">
+  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.css">
+  
+</head>
+<body>
+  <style mip-custom>
    h2{
         background-color: lightpink;
         margin:10px;
@@ -25,7 +24,7 @@
         margin:10px;
     }
  </style>
-                  <mip-accordion sessions-key="mip_2" type="manual" animatetime='0.24'>
+  <mip-accordion sessions-key="mip_2" type="manual" animatetime='0.24'>
     <section>
         <h4>下拉第一个</h4>
         <p class="mip-accordion-content">我说你是人间的四月天；笑声点亮了四面风；轻灵在春的光艳中交舞着变。你是四月早天里的云烟，黄昏吹着风的软，星子在无意中闪，</p>
@@ -40,7 +39,38 @@
     </section>
 </mip-accordion>
 
-                  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
-                  <script src="https://c.mipcdn.com/static/v1/mip-accordion/mip-accordion.js"></script>
-                </body>
-              
+  <script type="data-x-preset" id="preset">
+  ___arrow_left___style mip-custom___arrow_right___
+   h2{
+        background-color: lightpink;
+        margin:10px;
+    }
+    h3{
+        background-color: lightskyblue;
+        margin:10px;
+    }
+    h4{
+         background-color: lightgreen;
+        margin:10px;
+    }
+ ___arrow_left___/style___arrow_right___
+  </script>
+  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
+  <script src="https://c.mipcdn.com/static/v1/mip-accordion/mip-accordion.js"></script>
+  <script>
+  var preset;
+  window.addEventListener('message', function (e) {
+    if (!e.data || e.data.type !== 'demo-edit') {
+      return;
+    }
+
+    if (!preset) {
+      preset = document.getElementById('preset').innerHTML
+        .replace(/___arrow_left___/g, '<')
+        .replace(/___arrow_right___/g, '>');
+    }
+    document.body.innerHTML = preset + e.data.html;
+  })
+  </script>
+</body>
+</html>

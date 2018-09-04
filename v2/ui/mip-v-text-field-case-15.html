@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html mip>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <title>测试</title>
+  <meta name="description" content="">
+  <link rel="canonical" href="/v2/ui/mip-v-text-field-case-15.html">
+  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.css">
+  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">
+</head>
+<body>
+  <mip-data><script type="application/json">{"message1":"Hey!","message2":"Hey!","message3":"Hey!","message4":"Hey!","password":"Password","show":false,"message":"Hey!","marker":true,"iconIndex":0,"icons":["mdi-emoticon","mdi-emoticon-cool","mdi-emoticon-dead","mdi-emoticon-excited","mdi-emoticon-happy","mdi-emoticon-neutral","mdi-emoticon-sad","mdi-emoticon-tongue"],"sendMessage":false,"changeIcon":false,"title":"Preliminary report","description":"California is a state in the western United States","show1":false,"show2":true,"show3":false,"show4":false,"first":"John","last":"Doe","form":{"first":"","last":""},"mask":"credit-card","maskValue":"4444444444444444","progressValue":"","custom":true,"progress":"","color":"error"}</script></mip-data>
+
+  <div class="container grid-list-xl">
+  <mip-v-checkbox m-bind:input-value.sync="custom" label="Custom progress bar"></mip-v-checkbox>
+  <mip-v-text-field m-bind:value.sync="progressValue" color="cyan darken" label="Text field" placeholder="Start typing..." loading="">
+    <mip-v-progress-linear m-bind:class="{hide: !custom}" slot="progress" m-bind:value="progress" m-bind:color="color" height="7"></mip-v-progress-linear>
+  </mip-v-text-field>
+</div>
+<mip-script>
+  MIP.watch(&apos;sendMessage&apos;, val =&gt; {
+    MIP.setData({
+      iconIndex: 0,
+      message: &apos;&apos;,
+      sendMessage: false
+    })
+  })
+
+  MIP.watch(&apos;changeIcon&apos;, val =&gt; {
+    if (val) {
+      let iconIndex = MIP.getData(&apos;iconIndex&apos;)
+      let icons = MIP.getData(&apos;icons&apos;)
+      MIP.setData({
+        iconIndex: (iconIndex === icons.length - 1) ? 0 : ++iconIndex
+      })
+    }
+    MIP.setData({
+      changeIcon: false
+    })
+  })
+  MIP.watch(&apos;progressValue&apos;, val =&gt; {
+    let progress = Math.min(100, val.length * 10)
+    MIP.setData({
+      progress,
+      color: [&apos;error&apos;, &apos;warning&apos;, &apos;success&apos;][Math.floor(progress / 40)]
+    })
+  })
+</mip-script>
+
+  <script type="data-x-preset" id="preset">
+  ___arrow_left___mip-data___arrow_right______arrow_left___script type="application/json"___arrow_right___{"message1":"Hey!","message2":"Hey!","message3":"Hey!","message4":"Hey!","password":"Password","show":false,"message":"Hey!","marker":true,"iconIndex":0,"icons":["mdi-emoticon","mdi-emoticon-cool","mdi-emoticon-dead","mdi-emoticon-excited","mdi-emoticon-happy","mdi-emoticon-neutral","mdi-emoticon-sad","mdi-emoticon-tongue"],"sendMessage":false,"changeIcon":false,"title":"Preliminary report","description":"California is a state in the western United States","show1":false,"show2":true,"show3":false,"show4":false,"first":"John","last":"Doe","form":{"first":"","last":""},"mask":"credit-card","maskValue":"4444444444444444","progressValue":"","custom":true,"progress":"","color":"error"}___arrow_left___/script___arrow_right______arrow_left___/mip-data___arrow_right___
+
+  </script>
+  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
+  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.js"></script>
+  <script>
+  var preset;
+  window.addEventListener('message', function (e) {
+    if (!e.data || e.data.type !== 'demo-edit') {
+      return;
+    }
+
+    if (!preset) {
+      preset = document.getElementById('preset').innerHTML
+        .replace(/___arrow_left___/g, '<')
+        .replace(/___arrow_right___/g, '>');
+    }
+    document.body.innerHTML = preset + e.data.html;
+  })
+  </script>
+</body>
+</html>
