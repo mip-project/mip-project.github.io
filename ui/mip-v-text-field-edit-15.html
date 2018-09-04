@@ -65,7 +65,31 @@
     <div class="edit-wrapper">
       <div class="edit-code">
         <p class="edit-tip">编辑您的代码：</p>
-        <textarea id="code" name="code"><div class="container grid-list-xl">
+        <textarea id="code" name="code"><mip-data>
+  <script type="application/json">
+    {
+      "message": "Hey!",
+      "iconIndex": 0,
+      "icons": [
+        "mdi-emoticon",
+        "mdi-emoticon-cool",
+        null,
+        null,
+        "mdi-emoticon-happy",
+        null,
+        null,
+        "mdi-emoticon-tongue"
+      ],
+      "sendMessage": false,
+      "changeIcon": false,
+      "progressValue": "",
+      "custom": true,
+      "progress": "",
+      "color": "error"
+    }
+  </script>
+</mip-data>
+<div class="container grid-list-xl">
   <mip-v-checkbox m-bind:input-value.sync="custom" label="Custom progress bar"></mip-v-checkbox>
   <mip-v-text-field m-bind:value.sync="progressValue" color="cyan darken" label="Text field" placeholder="Start typing..." loading="">
     <mip-v-progress-linear m-bind:class="{hide: !custom}" slot="progress" m-bind:value="progress" m-bind:color="color" height="7"></mip-v-progress-linear>

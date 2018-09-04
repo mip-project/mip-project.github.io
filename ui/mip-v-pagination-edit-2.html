@@ -65,7 +65,14 @@
     <div class="edit-wrapper">
       <div class="edit-code">
         <p class="edit-tip">编辑您的代码：</p>
-        <textarea id="code" name="code"><mip-v-pagination m-bind:value.sync="page" m-bind:length="15" m-bind:total-visible="5">
+        <textarea id="code" name="code"><mip-data>
+  <script type="application/json">
+    {
+      "page": 2
+    }
+  </script>
+</mip-data>
+<mip-v-pagination m-bind:value.sync="page" length="15" total-visible="5">
 </mip-v-pagination>
 </textarea>
       </div>

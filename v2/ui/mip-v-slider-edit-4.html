@@ -65,7 +65,19 @@
     <div class="edit-wrapper">
       <div class="edit-code">
         <p class="edit-tip">编辑您的代码：</p>
-        <textarea id="code" name="code"><mip-v-slider m-bind:value.sync="zoom" append-icon="zoom_in" prepend-icon="zoom_out" on="click-append:MIP.setData({zoom: m.zoom + 10}) click-prepend:MIP.setData({zoom: m.zoom - 10})"></mip-v-slider>
+        <textarea id="code" name="code"><mip-data>
+  <script type="application/json">
+    {
+      "slider": 45,
+      "volume": 10,
+      "value": 0,
+      "zoom": 0
+    }
+  </script>
+</mip-data>
+<mip-v-slider m-bind:value.sync="zoom" append-icon="alarm"></mip-v-slider>
+<mip-v-slider m-bind:value.sync="zoom" prepend-icon="volume_up"></mip-v-slider>
+<mip-v-slider m-bind:value.sync="zoom" append-icon="zoom_in" prepend-icon="zoom_out" on="click-append:MIP.setData({zoom: m.zoom + 10}) click-prepend:MIP.setData({zoom: m.zoom - 10})"></mip-v-slider>
 </textarea>
       </div>
       <div class="edit-iframe-wrapper">

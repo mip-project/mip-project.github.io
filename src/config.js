@@ -167,46 +167,57 @@ module.exports = {
     {
       path: /^docs\/extensions/,
       url (filePath) {
-        if (/\.md$/.test(filePath)) {
-          filePath = urlPrefix + 'components' + filePath.slice(15).replace(/\.md($|\?|#)/, '$1') + '.html'
-          return filePath
+        let [pathname, hash] = filePath.split('#')
+        if (/\.md$/.test(pathname)) {
+          pathname = urlPrefix + 'components' + pathname.slice(15, -3) + '.html'
+          return pathname + (hash != null ? `#${hash}` : '')
         }
 
-        return urlPrefix + 'components' + filePath.slice(15) + '/index.html'
+        return urlPrefix + 'components' + filePath.slice(15)
       }
     },
     {
       path: /^docs\/guide/,
       url (filePath) {
-        if (/\.md$/.test(filePath)) {
-          filePath = urlPrefix + filePath.slice(5).replace(/\.md($|\?|#)/, '$1') + '.html'
-          return filePath
+        let [pathname, hash] = filePath.split('#')
+        if (/\.md$/.test(pathname)) {
+          pathname = urlPrefix + pathname.slice(5, -3) + '.html'
+          return pathname + (hash != null ? `#${hash}` : '')
         }
-        return urlPrefix + filePath.slice(5) + '/index.html'
+        return urlPrefix + filePath.slice(5)
       }
     },
     {
       path: /^docs\/api/,
       url (filePath) {
-        if (/\.md$/.test(filePath)) {
-          filePath = urlPrefix + filePath.slice(5).replace(/\.md($|\?|#)/, '$1') + '.html'
-          return filePath
+        let [pathname, hash] = filePath.split('#')
+        if (/\.md$/.test(pathname)) {
+          pathname = urlPrefix + pathname.slice(5, -3) + '.html'
+          return pathname + (hash != null ? `#${hash}` : '')
         }
-        return urlPrefix + filePath.slice(5) + '/index.html'
+        return urlPrefix + filePath.slice(5)
       }
     },
     {
       path: /^docs\/codelabs\//,
       url (filePath) {
-        filePath = urlPrefix + filePath.slice(5).replace(/\.md($|\?|#)/, '$1') + '.html'
-        return filePath
+        let [pathname, hash] = filePath.split('#')
+        if (/\.md$/.test(pathname)) {
+          pathname = urlPrefix + pathname.slice(5, -3) + '.html'
+          return pathname + (hash != null ? `#${hash}` : '')
+        }
+        return urlPrefix + filePath.slice(5)
       }
     },
     {
       path: /^docs\/ui/,
       url (filePath) {
-        filePath = urlPrefix + filePath.slice(5).replace(/\.md($|\?|#)/, '$1') + '.html'
-        return filePath
+        let [pathname, hash] = filePath.split('#')
+        if (/\.md$/.test(pathname)) {
+          pathname = urlPrefix + pathname.slice(5, -3) + '.html'
+          return pathname + (hash != null ? `#${hash}` : '')
+        }
+        return urlPrefix + filePath.slice(5)
       }
     }
   ],

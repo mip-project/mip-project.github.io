@@ -10,13 +10,21 @@
   <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">
 </head>
 <body>
-  <mip-data><script type="application/json">{"slider":45,"volume":10,"value":0,"fruits":0,"tickLabels":["Figs","Lemon","Pear","Apple"],"zoom":0,"thumb-label":"always","ticks":"always"}</script></mip-data>
-
-  <mip-v-slider m-bind:value.sync="value" step="10" thumb-label="" ticks=""></mip-v-slider>
+  
+  <mip-data>
+  <script type="application/json">
+    {
+      "slider": 45,
+      "value": 0,
+      "thumb-label": "always",
+      "ticks": "always"
+    }
+  </script>
+</mip-data>
+<mip-v-slider m-bind:value.sync="value" step="10" thumb-label="" ticks=""></mip-v-slider>
 
   <script type="data-x-preset" id="preset">
-  ___arrow_left___mip-data___arrow_right______arrow_left___script type="application/json"___arrow_right___{"slider":45,"volume":10,"value":0,"fruits":0,"tickLabels":["Figs","Lemon","Pear","Apple"],"zoom":0,"thumb-label":"always","ticks":"always"}___arrow_left___/script___arrow_right______arrow_left___/mip-data___arrow_right___
-
+  
   </script>
   <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
   <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.js"></script>

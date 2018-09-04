@@ -65,7 +65,26 @@
     <div class="edit-wrapper">
       <div class="edit-code">
         <p class="edit-tip">编辑您的代码：</p>
-        <textarea id="code" name="code"><div class="container grid-list-xl">
+        <textarea id="code" name="code"><mip-data>
+  <script type="application/json">
+    {
+      "items": [
+        null,
+        "bar",
+        "fizz",
+        null
+      ],
+      "value": [
+        null,
+        "bar",
+        "fizz",
+        null
+      ],
+      "select": {}
+    }
+  </script>
+</mip-data>
+<div class="container grid-list-xl">
   <div class="layout row wrap">
     <mip-v-select class="flex xs12 md6" m-bind:value.sync="value" m-bind:items="items" attach="" chips="" label="Chips" multiple></mip-v-select>
     <mip-v-select class="flex xs12 md6" m-bind:value.sync="value" m-bind:items="items" box="" chips="" label="Chips" multiple></mip-v-select>

@@ -65,7 +65,14 @@
     <div class="edit-wrapper">
       <div class="edit-code">
         <p class="edit-tip">编辑您的代码：</p>
-        <textarea id="code" name="code"><mip-v-radio-group m-bind:value.sync="radioGroup">
+        <textarea id="code" name="code"><mip-data>
+  <script type="application/json">
+    {
+      "radioGroup": 1
+    }
+  </script>
+</mip-data>
+<mip-v-radio-group m-bind:value.sync="radioGroup">
   <mip-v-radio label="Radio 1">
     <script type="application/json">{"value": 1}</script>
   </mip-v-radio>

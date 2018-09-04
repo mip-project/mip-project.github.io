@@ -10,9 +10,29 @@
   <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">
 </head>
 <body>
-  <mip-data><script type="application/json">{"message1":"Hey!","message2":"Hey!","message3":"Hey!","message4":"Hey!","password":"Password","show":false,"message":"Hey!","marker":true,"iconIndex":0,"icons":["mdi-emoticon","mdi-emoticon-cool","mdi-emoticon-dead","mdi-emoticon-excited","mdi-emoticon-happy","mdi-emoticon-neutral","mdi-emoticon-sad","mdi-emoticon-tongue"],"sendMessage":false,"changeIcon":false,"title":"Preliminary report","description":"California is a state in the western United States","show1":false,"show2":true,"show3":false,"show4":false,"first":"John","last":"Doe","form":{"first":"","last":""},"mask":"credit-card","maskValue":"4444444444444444","progressValue":"","custom":true,"progress":"","color":"error"}</script></mip-data>
-
-  <mip-v-flex xs12="">
+  
+  <mip-data>
+  <script type="application/json">
+    {
+      "message": "Hey!",
+      "marker": true,
+      "iconIndex": 0,
+      "icons": [
+        null,
+        "mdi-emoticon-cool",
+        "mdi-emoticon-dead",
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "sendMessage": false,
+      "changeIcon": false
+    }
+  </script>
+</mip-data>
+<mip-v-flex xs12="">
   <mip-v-text-field m-bind:value.sync="message" m-bind:append-icon="marker ? &apos;mdi-map-marker&apos; : &apos;mdi-map-marker-off&apos;" m-bind:append-outer-icon="message ? &apos;mdi-send&apos; : &apos;mdi-microphone&apos;" m-bind:prepend-icon="icons[iconIndex]" box="" clear-icon="mdi-close-circle" clearable="" label="Message" type="text" on="click-append:MIP.setData({marker: !m.marker})
         click-append-outer:MIP.setData({sendMessage: true})
         click-prepend:MIP.setData({changeIcon: true})
@@ -20,8 +40,7 @@
 </mip-v-text-field></mip-v-flex>
 
   <script type="data-x-preset" id="preset">
-  ___arrow_left___mip-data___arrow_right______arrow_left___script type="application/json"___arrow_right___{"message1":"Hey!","message2":"Hey!","message3":"Hey!","message4":"Hey!","password":"Password","show":false,"message":"Hey!","marker":true,"iconIndex":0,"icons":["mdi-emoticon","mdi-emoticon-cool","mdi-emoticon-dead","mdi-emoticon-excited","mdi-emoticon-happy","mdi-emoticon-neutral","mdi-emoticon-sad","mdi-emoticon-tongue"],"sendMessage":false,"changeIcon":false,"title":"Preliminary report","description":"California is a state in the western United States","show1":false,"show2":true,"show3":false,"show4":false,"first":"John","last":"Doe","form":{"first":"","last":""},"mask":"credit-card","maskValue":"4444444444444444","progressValue":"","custom":true,"progress":"","color":"error"}___arrow_left___/script___arrow_right______arrow_left___/mip-data___arrow_right___
-
+  
   </script>
   <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
   <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.js"></script>

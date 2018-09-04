@@ -157,8 +157,8 @@ function link (html, app) {
   return html.replace(
     /<a([\s\S]+?)href="(.+?)"([\s\S]*?)>/mg,
     function (full, attr1, href, attr2) {
-      if (/^[a-z.]/.test(href)) {
-         return `<a data-type="mip" ${attr1} href="${href}" ${attr2}>`
+      if (/^[a-z.]/.test(href) && (attr1 + attr2).indexOf('_blank') === -1) {
+        return `<a data-type="mip" ${attr1} href="${href}" ${attr2}>`
       }
       // if (/^\/(guide|pwa|codelab)/.test(href)) {
       //     // let host = app.config.host;

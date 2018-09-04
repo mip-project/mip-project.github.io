@@ -65,7 +65,15 @@
     <div class="edit-wrapper">
       <div class="edit-code">
         <p class="edit-tip">编辑您的代码：</p>
-        <textarea id="code" name="code"><mip-v-input label="Label" m-bind:messages="input_validation" append-icon="close" prepend-icon="phone">
+        <textarea id="code" name="code"><mip-data>
+  <script type="application/json">
+    {
+      "input_validation": "validation",
+      "input_loading": true
+    }
+  </script>
+</mip-data>
+<mip-v-input label="Label" m-bind:messages="input_validation" append-icon="close" prepend-icon="phone">
   <input type="text">
 </mip-v-input>
 <mip-v-input label="Label" m-bind:messages="input_validation" append-icon="close" prepend-icon="phone" m-bind:loading="input_loading">
