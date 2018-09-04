@@ -158,7 +158,7 @@ function link (html, app) {
     /<a([\s\S]+?)href="(.+?)"([\s\S]*?)>/mg,
     function (full, attr1, href, attr2) {
       if (/^[a-z.]/.test(href)) {
-        return `<a data-type="mip" href="${href}">`
+         return `<a data-type="mip" ${attr1} href="${href}" ${attr2}>`
       }
       // if (/^\/(guide|pwa|codelab)/.test(href)) {
       //     // let host = app.config.host;

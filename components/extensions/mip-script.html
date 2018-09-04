@@ -103,12 +103,12 @@
 <p class="markdown-breadcrumb">
   <span>扩展组件</span><span class="split">/</span>  <span>mip-script 自定义 js</span></p>
     <div class="markdown-body">
-      <h1 id="mipscript-自定义-js"><a href="#mipscript-自定义-js" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a><code>mip-script</code> 自定义 js</h1><p>允许开发者在 MIP 页面里编写 JavaScript 代码，使编写 MIP 页面更加灵活。</p><p>开发者可以在 <code>mip-script</code> 中通过自定义 JavaScript 代码，或调用数据观察方法 <code>MIP.watch</code> 轻松实现组件间的通信、或异步获取数据再通过数据修改方法 <code>MIP.setData</code> 来重新渲染页面、或在合适的时机发送业务日志等等，无法在组件做的事情，在允许的范围内都可以考虑使用 <code>mip-script</code> 编写自定义代码实现。</p><div class="md-table-wrapper"><table><thead><tr><th>标题</th><th>内容</th></tr></thead><tbody><tr><td>类型</td><td>通用</td></tr><tr><td>支持布局</td><td>N/S</td></tr><tr><td>所需脚本</td><td><a data-type="mip" href="https://c.mipcdn.com/static/v2/mip-script/mip-script.js">https://c.mipcdn.com/static/v2/mip-script/mip-script.js</a></td></tr></tbody></table></div><h2 id="说明"><a href="#说明" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>说明</h2><p>形式上，只需要在 <code>&lt;mip-script&gt;&lt;/mip-script&gt;</code> 内正常书写 JS 代码即可。如同在 <code>&lt;script&gt;&lt;/script&gt;</code> 中写代码一样。如：</p>
+      <h1 id="mipscript-自定义-js"><a href="#mipscript-自定义-js" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a><code>mip-script</code> 自定义 js</h1><p>允许开发者在 MIP 页面里编写 JavaScript 代码，使编写 MIP 页面更加灵活。</p><p>开发者可以在 <code>mip-script</code> 中通过自定义 JavaScript 代码，或调用数据观察方法 <code>MIP.watch</code> 轻松实现组件间的通信、或异步获取数据再通过数据修改方法 <code>MIP.setData</code> 来重新渲染页面、或在合适的时机发送业务日志等等，无法在组件做的事情，在允许的范围内都可以考虑使用 <code>mip-script</code> 编写自定义代码实现。</p><div class="md-table-wrapper"><table><thead><tr><th>标题</th><th>内容</th></tr></thead><tbody><tr><td>类型</td><td>通用</td></tr><tr><td>支持布局</td><td>N/S</td></tr><tr><td>所需脚本</td><td><a data-type="mip"   href="https://c.mipcdn.com/static/v2/mip-script/mip-script.js" >https://c.mipcdn.com/static/v2/mip-script/mip-script.js</a></td></tr></tbody></table></div><h2 id="说明"><a href="#说明" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>说明</h2><p>形式上，只需要在 <code>&lt;mip-script&gt;&lt;/mip-script&gt;</code> 内正常书写 JS 代码即可。如同在 <code>&lt;script&gt;&lt;/script&gt;</code> 中写代码一样。如：</p>
             <div class="md-fn-wrapper">
               <div class="md-fn-preview-wrapper">
                 <div class="md-fn-title md-fn-title-right">
-                  <a data-type="mip" href="https://mip-project.github.io/v2/components/extensions/mip-script-case-0.html">查看例子</a>
-                  <a data-type="mip" href="https://mip-project.github.io/v2/components/extensions/mip-script-edit-0.html">编辑示例</a>
+                  <a data-type="mip"   href="https://mip-project.github.io/v2/components/extensions/mip-script-case-0.html"  class="md-fn-link" target="_blank">查看例子</a>
+                  <a data-type="mip"  class="md-fn-link"  href="https://mip-project.github.io/v2/components/extensions/mip-script-edit-0.html"  target="_blank">编辑示例</a>
                 </div>
                 <div class="md-fn-preview-section">
                   <mip-showmore maxheight="160" animatetime=".3" id="fn-showmore-0">
@@ -128,12 +128,12 @@
                 </mip-toggle>
               </div>
             </div>
-          <h4 id="要求："><a href="#要求：" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>要求：</h4><ol><li><p>内容大小不能超过 2KB，否则无法运行</p></li><li><p>全局变量限制使用 在 <code>&lt;mip-script&gt;</code> 中，理论上只允许进行数据相关的操作，不允许直接操作 DOM 。 因此在 mip-script 中写的 JS 代码将会运行在沙盒环境中，仅开放部分全局对象供开发者使用，非白名单内的对象的行为将不能正常执行。 mip-script 中对开发者的 JS 将用沙盒的 <strong>严格模式</strong> 进行全局变量替换和检测 白名单列表请参考：<a data-type="mip" href="https://www.npmjs.com/package/mip-sandbox#%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F%E4%B8%8B%E7%9A%84%E6%B2%99%E7%9B%92%E5%AE%89%E5%85%A8%E5%8F%98%E9%87%8F">严格模式的可用全局变量列表</a></p></li></ol><h2 id="示例一"><a href="#示例一" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>示例一</h2><p>基础用法，例如：</p><p>开发者编写的 JS 代码：</p>
+          <h4 id="要求："><a href="#要求：" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>要求：</h4><ol><li><p>内容大小不能超过 2KB，否则无法运行</p></li><li><p>全局变量限制使用 在 <code>&lt;mip-script&gt;</code> 中，理论上只允许进行数据相关的操作，不允许直接操作 DOM 。 因此在 mip-script 中写的 JS 代码将会运行在沙盒环境中，仅开放部分全局对象供开发者使用，非白名单内的对象的行为将不能正常执行。 mip-script 中对开发者的 JS 将用沙盒的 <strong>严格模式</strong> 进行全局变量替换和检测 白名单列表请参考：<a data-type="mip"   href="https://www.npmjs.com/package/mip-sandbox#%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F%E4%B8%8B%E7%9A%84%E6%B2%99%E7%9B%92%E5%AE%89%E5%85%A8%E5%8F%98%E9%87%8F" >严格模式的可用全局变量列表</a></p></li></ol><h2 id="示例一"><a href="#示例一" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>示例一</h2><p>基础用法，例如：</p><p>开发者编写的 JS 代码：</p>
             <div class="md-fn-wrapper">
               <div class="md-fn-preview-wrapper">
                 <div class="md-fn-title md-fn-title-right">
-                  <a data-type="mip" href="https://mip-project.github.io/v2/components/extensions/mip-script-case-1.html">查看例子</a>
-                  <a data-type="mip" href="https://mip-project.github.io/v2/components/extensions/mip-script-edit-1.html">编辑示例</a>
+                  <a data-type="mip"   href="https://mip-project.github.io/v2/components/extensions/mip-script-case-1.html"  class="md-fn-link" target="_blank">查看例子</a>
+                  <a data-type="mip"  class="md-fn-link"  href="https://mip-project.github.io/v2/components/extensions/mip-script-edit-1.html"  target="_blank">编辑示例</a>
                 </div>
                 <div class="md-fn-preview-section">
                   <mip-showmore maxheight="160" animatetime=".3" id="fn-showmore-1">
@@ -160,8 +160,8 @@
             <div class="md-fn-wrapper">
               <div class="md-fn-preview-wrapper">
                 <div class="md-fn-title md-fn-title-right">
-                  <a data-type="mip" href="https://mip-project.github.io/v2/components/extensions/mip-script-case-2.html">查看例子</a>
-                  <a data-type="mip" href="https://mip-project.github.io/v2/components/extensions/mip-script-edit-2.html">编辑示例</a>
+                  <a data-type="mip"   href="https://mip-project.github.io/v2/components/extensions/mip-script-case-2.html"  class="md-fn-link" target="_blank">查看例子</a>
+                  <a data-type="mip"  class="md-fn-link"  href="https://mip-project.github.io/v2/components/extensions/mip-script-edit-2.html"  target="_blank">编辑示例</a>
                 </div>
                 <div class="md-fn-preview-section">
                   <mip-showmore maxheight="160" animatetime=".3" id="fn-showmore-2">
@@ -188,8 +188,8 @@
             <div class="md-fn-wrapper">
               <div class="md-fn-preview-wrapper">
                 <div class="md-fn-title md-fn-title-right">
-                  <a data-type="mip" href="https://mip-project.github.io/v2/components/extensions/mip-script-case-3.html">查看例子</a>
-                  <a data-type="mip" href="https://mip-project.github.io/v2/components/extensions/mip-script-edit-3.html">编辑示例</a>
+                  <a data-type="mip"   href="https://mip-project.github.io/v2/components/extensions/mip-script-case-3.html"  class="md-fn-link" target="_blank">查看例子</a>
+                  <a data-type="mip"  class="md-fn-link"  href="https://mip-project.github.io/v2/components/extensions/mip-script-edit-3.html"  target="_blank">编辑示例</a>
                 </div>
                 <div class="md-fn-preview-section">
                   <mip-showmore maxheight="160" animatetime=".3" id="fn-showmore-3">
