@@ -109,7 +109,6 @@ const editHtml = ({cases, url, docUrl}) => '' +
   <body>
     <div class="edit-toolbar">
       <a class="toolbar-button" href="${docUrl}">返回文档</a>
-      <div class="toolbar-button" id="submit">点击提交</div>
     </div>
     <div class="edit-wrapper">
       <div class="edit-code">
@@ -138,14 +137,27 @@ const editHtml = ({cases, url, docUrl}) => '' +
       });
       editor.setOption("theme", 'default');
       var iframe = document.getElementById('edit-iframe');
-      var button = document.getElementById('submit');
-      button.addEventListener('click', function () {
-        let val = editor.getValue();
-        try {
-          iframe.contentWindow.postMessage({type: 'demo-edit', html: val}, '*');
-        } catch (e) {
-          console.error('post fail');
+
+      var timer;
+      function throttle (fn) {
+        if (timer != null) {
+          clearTimeout(timer);
         }
+        timer = setTimeout(function () {
+          timer = null;
+          fn();
+        }, 500);
+      }
+
+      editor.on('change', function () {
+        throttle(function () {
+          let val = editor.getValue();
+          try {
+            iframe.contentWindow.postMessage({type: 'demo-edit', html: val}, '*');
+          } catch (e) {
+            console.error('post fail');
+          }
+        });
       });
     </script>
   </body>
@@ -272,10 +284,11 @@ module.exports = class ComponentPreview {
         let index = 0
         obj.html = obj.html.replace(/<pre><div class="code-index">((?!<pre>)[\s\S])+?<\/div><code class="lang-html">[\s\S]+?<\/code><\/pre>/g, str => {
           let i = index
+          index++
           let cases = theCases[i][0]
           let caseUrl = theCases[i][1]
           let editUrl = theCases[i][2]
-          let editButton = editUrl ? `<a class="md-fn-link" href="${editUrl}" target="_blank">试一试</a>` : ''
+          let editButton = editUrl ? `<a class="md-fn-link" href="${editUrl}" target="_blank">编辑示例</a>` : ''
 
           str = `
             <div class="md-fn-wrapper">
