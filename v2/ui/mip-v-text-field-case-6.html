@@ -1,0 +1,28 @@
+
+                <!DOCTYPE html>
+                <html mip>
+                <head>
+                  <meta charset="utf-8">
+                  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+                  <title>测试</title>
+                  <meta name="description" content="">
+                  <link rel="canonical" href="v2/ui/mip-v-text-field-case-6.html">
+                  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.css">
+                  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">
+                </head>
+                <body>
+                  <mip-data><script type="application/json">{"message1":"Hey!","message2":"Hey!","message3":"Hey!","message4":"Hey!","password":"Password","show":false,"message":"Hey!","marker":true,"iconIndex":0,"icons":["mdi-emoticon","mdi-emoticon-cool","mdi-emoticon-dead","mdi-emoticon-excited","mdi-emoticon-happy","mdi-emoticon-neutral","mdi-emoticon-sad","mdi-emoticon-tongue"],"sendMessage":false,"changeIcon":false,"title":"Preliminary report","description":"California is a state in the western United States","show1":false,"show2":true,"show3":false,"show4":false,"first":"John","last":"Doe","form":{"first":"","last":""},"mask":"credit-card","maskValue":"4444444444444444","progressValue":"","custom":true,"progress":"","color":"error"}</script></mip-data>
+
+                  <div class="container grid-list-xl">
+  <div class="layout row wrap">
+    <mip-v-text-field class="flex xs12 sm6" m-bind:value.sync="password" m-bind:append-icon="show1 ? &apos;visibility_off&apos; : &apos;visibility&apos;" m-bind:type="show1 ? &apos;text&apos; : &apos;password&apos;" name="input-10-1" label="Normal with hint text" hint="At least 8 characters" counter="" on="click-append:MIP.setData({show1: !m.show1})"></mip-v-text-field>
+    <mip-v-text-field class="flex xs12 sm6 input-group--focused" m-bind:append-icon="show2 ? &apos;visibility_off&apos; : &apos;visibility&apos;" m-bind:type="show2 ? &apos;text&apos; : &apos;password&apos;" name="input-10-2" label="Visible" hint="At least 8 characters" value="wqfasds" on="click-append:MIP.setData({show2: !m.show2})"></mip-v-text-field>
+    <mip-v-text-field class="flex xs12 sm6 input-group--focused" m-bind:append-icon="show3 ? &apos;visibility_off&apos; : &apos;visibility&apos;" m-bind:type="show3 ? &apos;text&apos; : &apos;password&apos;" name="input-10-2" label="Not visible" hint="At least 8 characters" value="wqfasds" on="click-append:MIP.setData({show3: !m.show3})"></mip-v-text-field>
+    <mip-v-text-field class="flex xs12 sm6" m-bind:append-icon="show4 ? &apos;visibility_off&apos; : &apos;visibility&apos;" m-bind:type="show4 ? &apos;text&apos; : &apos;password&apos;" name="input-10-2" label="Error" hint="At least 8 characters" value="Pa" error="" on="click-append:MIP.setData({show4: !m.show4})"></mip-v-text-field>
+  </div>
+</div>
+
+                  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
+                  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.js"></script>
+                </body>
+              

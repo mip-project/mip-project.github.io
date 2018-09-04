@@ -1,0 +1,63 @@
+
+                <!DOCTYPE html>
+                <html mip>
+                <head>
+                  <meta charset="utf-8">
+                  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+                  <title>测试</title>
+                  <meta name="description" content="">
+                  <link rel="canonical" href="v2/components/extensions/mip-lightbox-case-1.html">
+                  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.css">
+                  
+                </head>
+                <body>
+                  <style mip-custom>
+mip-lightbox {
+	padding: 10px;
+}
+#btn-open, .lightbox-close {
+    border: 1px solid #f1f1f1;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 20px 0;
+    font-size: 14px;
+    background: #fff;
+    display: block;
+    box-sizing: border-box;
+}
+
+.lightbox {
+	padding: 10px;
+	background: white;
+}
+.lightbox p {
+	margin: 80px 0;
+	display: block;
+}
+</style>
+                  <button on="tap:my-lightbox2.toggle" id="btn-open" role="button" tabindex="0">
+    打开用户协议
+</button>
+
+<mip-lightbox
+    id="my-lightbox2"
+    layout="nodisplay"
+    class="mip-hidden"
+    content-scroll>
+    <div class="lightbox">
+        <span on="tap:my-lightbox2.toggle" class="lightbox-close">忽略</span>
+        <h1>Hello, World!</h1>
+        <p> this is the lightbox</p>
+        <p> this is the lightbox</p>
+        <p> this is the lightbox</p>
+        <p> this is the lightbox</p>
+        <p> this is the lightbox</p>
+        <p> this is the lightbox</p>
+        <span on="tap:my-lightbox2.toggle" class="lightbox-close">我知道了</span>
+    </div>
+</mip-lightbox>
+
+                  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
+                  <script src="https://c.mipcdn.com/static/v1/mip-lightbox/mip-lightbox.js"></script>
+                </body>
+              

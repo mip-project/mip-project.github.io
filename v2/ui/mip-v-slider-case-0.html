@@ -1,0 +1,26 @@
+
+                <!DOCTYPE html>
+                <html mip>
+                <head>
+                  <meta charset="utf-8">
+                  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+                  <title>测试</title>
+                  <meta name="description" content="">
+                  <link rel="canonical" href="v2/ui/mip-v-slider-case-0.html">
+                  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.css">
+                  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">
+                </head>
+                <body>
+                  <mip-data><script type="application/json">{"slider":45,"volume":10,"value":0,"fruits":0,"tickLabels":["Figs","Lemon","Pear","Apple"],"zoom":0,"thumb-label":"always","ticks":"always"}</script></mip-data>
+
+                  <mip-v-slider m-bind:value.sync="slider"></mip-v-slider>
+<mip-v-slider disabled label="Disabled" inverse-label="" value="30"></mip-v-slider>
+<mip-v-slider label="Readonly" readonly value="30"></mip-v-slider>
+<mip-v-slider m-bind:value.sync="slider" label="Label"></mip-v-slider>
+<mip-v-slider m-bind:value.sync="slider" inverse-label="" label="Inverse label"></mip-v-slider>
+<mip-v-slider m-bind:value.sync="volume" append-icon="volume_up" prepend-icon="volume_down"></mip-v-slider>
+
+                  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
+                  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.js"></script>
+                </body>
+              
