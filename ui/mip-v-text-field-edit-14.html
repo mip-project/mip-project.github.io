@@ -65,7 +65,15 @@
     <div class="edit-wrapper">
       <div class="edit-code">
         <p class="edit-tip">编辑您的代码：</p>
-        <textarea id="code" name="code"><mip-v-card>
+        <textarea id="code" name="code"><mip-data>
+  <script type="application/json">
+    {
+      "mask": "credit-card",
+      "maskValue": "4444444444444444"
+    }
+  </script>
+</mip-data>
+<mip-v-card>
   <mip-v-card-text>
     <mip-v-text-field m-bind:value.sync="mask" label="Mask"></mip-v-text-field>
   </mip-v-card-text>

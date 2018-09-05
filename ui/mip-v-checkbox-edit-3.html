@@ -65,7 +65,28 @@
     <div class="edit-wrapper">
       <div class="edit-code">
         <p class="edit-tip">编辑您的代码：</p>
-        <textarea id="code" name="code"><mip-v-checkbox m-bind:input-value.sync="ex4" label="red" color="red" value="red" hide-details=""></mip-v-checkbox>
+        <textarea id="code" name="code"><mip-data>
+  <script type="application/json">
+    {
+      "checkbox": true,
+      "ex4": [
+        null,
+        null,
+        null,
+        "primary",
+        "secondary",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  </script>
+</mip-data>
+<mip-v-checkbox m-bind:input-value.sync="ex4" label="red" color="red" value="red" hide-details=""></mip-v-checkbox>
 <mip-v-checkbox m-bind:input-value.sync="ex4" label="red darken-3" color="red darken-3" value="red darken-3" hide-details=""></mip-v-checkbox>
 <mip-v-checkbox m-bind:input-value.sync="ex4" label="indigo" color="indigo" value="indigo" hide-details=""></mip-v-checkbox>
 <mip-v-checkbox m-bind:input-value.sync="ex4" label="indigo darken-3" color="indigo darken-3" value="indigo darken-3" hide-details=""></mip-v-checkbox>

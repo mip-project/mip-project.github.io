@@ -20,13 +20,13 @@ const caseHtml = ({url, style, preset, cases, scripts}) => '' +
   ${style}
 </head>
 <body>
+  ${preset}
+  ${cases}
   <script type="data-x-preset" id="preset">
   ${preset.replace(/</g, '___arrow_left___').replace(/>/g, '___arrow_right___')}
   </script>
   <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
   ${scripts}
-  ${preset}
-  ${cases}
   <script>
   var preset;
   window.addEventListener('message', function (e) {

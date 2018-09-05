@@ -65,7 +65,14 @@
     <div class="edit-wrapper">
       <div class="edit-code">
         <p class="edit-tip">编辑您的代码：</p>
-        <textarea id="code" name="code"><div class="container fluid text-xs-center">
+        <textarea id="code" name="code"><mip-data>
+  <script type="application/json">
+    {
+      "show": false
+    }
+  </script>
+</mip-data>
+<div class="container fluid text-xs-center">
   <div class="layout flex justify-space-between row wrap">
     <div class="flex xs12">
       <mip-v-btn on="tap:MIP.setData({show: !m.show})">toggle</mip-v-btn>

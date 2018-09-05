@@ -65,7 +65,16 @@
     <div class="edit-wrapper">
       <div class="edit-code">
         <p class="edit-tip">编辑您的代码：</p>
-        <textarea id="code" name="code"><mip-v-slider m-bind:value.sync="slider"></mip-v-slider>
+        <textarea id="code" name="code"><mip-data>
+  <script type="application/json">
+    {
+      "slider": 45,
+      "volume": 10,
+      "value": 0
+    }
+  </script>
+</mip-data>
+<mip-v-slider m-bind:value.sync="slider"></mip-v-slider>
 <mip-v-slider disabled label="Disabled" inverse-label="" value="30"></mip-v-slider>
 <mip-v-slider label="Readonly" readonly value="30"></mip-v-slider>
 <mip-v-slider m-bind:value.sync="slider" label="Label"></mip-v-slider>

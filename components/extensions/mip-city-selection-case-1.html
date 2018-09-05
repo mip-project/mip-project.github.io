@@ -10,11 +10,6 @@
   
 </head>
 <body>
-  <script type="data-x-preset" id="preset">
-  
-  </script>
-  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
-  <script src="https://c.mipcdn.com/static/v2/mip-city-selection/mip-city-selection.js"></script>
   
   <!--  <mip-test id="cityTest"></mip-test> 测试组件，模拟接收事件 -->
 <mip-city-selection class="mip-hidden" data-src="https://xxx/cities.json"  on="citySelected:cityTest.print">
@@ -22,6 +17,11 @@
 </mip-city-selection>
 
 
+  <script type="data-x-preset" id="preset">
+  
+  </script>
+  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
+  <script src="https://c.mipcdn.com/static/v2/mip-city-selection/mip-city-selection.js"></script>
   <script>
   var preset;
   window.addEventListener('message', function (e) {

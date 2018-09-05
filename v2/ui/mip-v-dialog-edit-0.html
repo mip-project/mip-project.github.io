@@ -65,7 +65,14 @@
     <div class="edit-wrapper">
       <div class="edit-code">
         <p class="edit-tip">编辑您的代码：</p>
-        <textarea id="code" name="code"><mip-v-dialog m-bind:value.sync="dialog1" width="500">
+        <textarea id="code" name="code"><mip-data>
+  <script type="application/json">
+    {
+      "dialog1": false
+    }
+  </script>
+</mip-data>
+<mip-v-dialog m-bind:value.sync="dialog1" width="500">
   <mip-v-btn slot="activator" color="red lighten-2" dark="">
     Click Me
   </mip-v-btn>

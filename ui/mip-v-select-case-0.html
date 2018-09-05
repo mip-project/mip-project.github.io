@@ -10,15 +10,27 @@
   <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">
 </head>
 <body>
-  <script type="data-x-preset" id="preset">
-  ___arrow_left___mip-data___arrow_right______arrow_left___script type="application/json"___arrow_right___{"items":["foo","bar","fizz","buzz"],"value":["foo","bar","fizz","buzz"],"e1":"Florida","e2":"Texas","states":["Alabama","Alaska","American Samoa","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","District of Columbia","Federated States of Micronesia","Florida","Georgia","Guam","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Marshall Islands","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Northern Mariana Islands","Ohio","Oklahoma","Oregon","Palau","Pennsylvania","Puerto Rico","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virgin Island","Virginia","Washington","West Virginia","Wisconsin","Wyoming"],"e3":[],"e4":[],"select":{"state":"Florida","abbr":"FL"},"items2":[{"state":"Florida","abbr":"FL"},{"state":"Georgia","abbr":"GA"},{"state":"Nebraska","abbr":"NE"},{"state":"California","abbr":"CA"},{"state":"New York","abbr":"NY"}]}___arrow_left___/script___arrow_right______arrow_left___/mip-data___arrow_right___
-
+  
+  <mip-data>
+  <script type="application/json">
+    {
+      "items": [
+        null,
+        "bar",
+        "fizz",
+        null
+      ],
+      "value": [
+        null,
+        "bar",
+        "fizz",
+        null
+      ],
+      "select": {}
+    }
   </script>
-  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
-  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.js"></script>
-  <mip-data><script type="application/json">{"items":["foo","bar","fizz","buzz"],"value":["foo","bar","fizz","buzz"],"e1":"Florida","e2":"Texas","states":["Alabama","Alaska","American Samoa","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","District of Columbia","Federated States of Micronesia","Florida","Georgia","Guam","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Marshall Islands","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Northern Mariana Islands","Ohio","Oklahoma","Oregon","Palau","Pennsylvania","Puerto Rico","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virgin Island","Virginia","Washington","West Virginia","Wisconsin","Wyoming"],"e3":[],"e4":[],"select":{"state":"Florida","abbr":"FL"},"items2":[{"state":"Florida","abbr":"FL"},{"state":"Georgia","abbr":"GA"},{"state":"Nebraska","abbr":"NE"},{"state":"California","abbr":"CA"},{"state":"New York","abbr":"NY"}]}</script></mip-data>
-
-  <div class="container grid-list-xl">
+</mip-data>
+<div class="container grid-list-xl">
   <div class="layout row wrap">
     <mip-v-select class="flex xs12 md6" m-bind:value.sync="value" m-bind:items="items" attach="" chips="" label="Chips" multiple></mip-v-select>
     <mip-v-select class="flex xs12 md6" m-bind:value.sync="value" m-bind:items="items" box="" chips="" label="Chips" multiple></mip-v-select>
@@ -27,6 +39,11 @@
   </div>
 </div>
 
+  <script type="data-x-preset" id="preset">
+  
+  </script>
+  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
+  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.js"></script>
   <script>
   var preset;
   window.addEventListener('message', function (e) {

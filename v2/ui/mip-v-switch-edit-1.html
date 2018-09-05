@@ -65,7 +65,15 @@
     <div class="edit-wrapper">
       <div class="edit-code">
         <p class="edit-tip">编辑您的代码：</p>
-        <textarea id="code" name="code"><mip-v-switch m-bind:input-value.sync="people" label="John" value="John"></mip-v-switch>
+        <textarea id="code" name="code"><mip-data>
+  <script type="application/json">
+    {
+      "switch": true,
+      "people": []
+    }
+  </script>
+</mip-data>
+<mip-v-switch m-bind:input-value.sync="people" label="John" value="John"></mip-v-switch>
 <mip-v-switch m-bind:input-value.sync="people" label="Jacob" value="Jacob"></mip-v-switch>
 </textarea>
       </div>

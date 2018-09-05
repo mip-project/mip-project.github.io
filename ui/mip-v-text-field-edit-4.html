@@ -65,7 +65,28 @@
     <div class="edit-wrapper">
       <div class="edit-code">
         <p class="edit-tip">编辑您的代码：</p>
-        <textarea id="code" name="code"><mip-v-flex xs12="">
+        <textarea id="code" name="code"><mip-data>
+  <script type="application/json">
+    {
+      "message": "Hey!",
+      "marker": true,
+      "iconIndex": 0,
+      "icons": [
+        null,
+        "mdi-emoticon-cool",
+        "mdi-emoticon-dead",
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "sendMessage": false,
+      "changeIcon": false
+    }
+  </script>
+</mip-data>
+<mip-v-flex xs12="">
   <mip-v-text-field m-bind:value.sync="message" m-bind:append-icon="marker ? &apos;mdi-map-marker&apos; : &apos;mdi-map-marker-off&apos;" m-bind:append-outer-icon="message ? &apos;mdi-send&apos; : &apos;mdi-microphone&apos;" m-bind:prepend-icon="icons[iconIndex]" box="" clear-icon="mdi-close-circle" clearable="" label="Message" type="text" on="click-append:MIP.setData({marker: !m.marker})
         click-append-outer:MIP.setData({sendMessage: true})
         click-prepend:MIP.setData({changeIcon: true})

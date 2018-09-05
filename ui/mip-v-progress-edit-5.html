@@ -65,7 +65,15 @@
     <div class="edit-wrapper">
       <div class="edit-code">
         <p class="edit-tip">编辑您的代码：</p>
-        <textarea id="code" name="code"><mip-v-progress-linear m-bind:value.sync="valueDeterminate"></mip-v-progress-linear>
+        <textarea id="code" name="code"><mip-data>
+  <script type="application/json">
+    {
+      "value": 0,
+      "valueDeterminate": 50
+    }
+  </script>
+</mip-data>
+<mip-v-progress-linear m-bind:value.sync="valueDeterminate"></mip-v-progress-linear>
 </textarea>
       </div>
       <div class="edit-iframe-wrapper">

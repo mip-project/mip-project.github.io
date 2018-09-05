@@ -10,48 +10,36 @@
   
 </head>
 <body>
+  
+  <!--先在html里配置数据，引入相关组件-->
+<mip-data>
+  <script type="application/json">
+    {
+      "info": {},
+      "config": {
+        appid: '熊掌号id',
+        clientId: '熊掌号开发者id',
+        id: 'info',
+        autologin: false,
+        endpoint: 'https://www.example.com/api/userinfo.php',
+        isGlobal: false,
+        redirectUri: ''
+      }
+    }
+  </script>
+</mip-data>
+
+<mip-my-example m-bind:info="info" m-bind:config="config" id="example"></mip-my-example>
+
+<script src="https://c.mipcdn.com/static/v2/mip.js"></script>
+<script src="https://c.mipcdn.com/static/v2/mip-inservice-login/mip-inservice-login.js"></script>
+<script src="https://c.mipcdn.com/extensions/platform/v2/your.site.com/mip-my-example/mip-my-example.js"></script>
+
   <script type="data-x-preset" id="preset">
   
   </script>
   <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
   <script src="https://c.mipcdn.com/static/v2/mip-inservice-login/mip-inservice-login.js"></script>
-  
-  <mip-data>
-    <script type="application/json">
-        {
-            "info": {
-                userInfo: {
-                    "nickname": "",
-                    "province": ""
-                }
-            },
-            "config": {
-                appid: '熊掌号id',
-                clientId: '熊掌号开发者id',
-                id: 'info',
-                autologin: true,
-                endpoint: 'https://www.example.com/api/userinfo.php',
-                isGlobal: false
-            }
-        }
-    </script>
-</mip-data>
-
-<mip-inservice-login id="log" m-bind:config="config"></mip-inservice-login>
-
-<ul>
-    <li>
-        hi，<span m-text="info.userInfo.nickname"></span>，你上次登录地点为 <span m-text="info.userInfo.province"></span>。
-    </li>
-    <li>
-        <a href="/order/list.html" data-type="mip">订单中心</a>
-    </li>
-    <li>
-        <div on="tap:log.logout">退出</div>
-    </li>
-</ul>
-
-
   <script>
   var preset;
   window.addEventListener('message', function (e) {

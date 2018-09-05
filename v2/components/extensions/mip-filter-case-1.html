@@ -10,44 +10,46 @@
   
 </head>
 <body>
+  
+  <mip-filter mip-filter-filterWrap=".filter" mip-filter-itemWrap=".filter-item-wrap" mip-filter-enableHash="false" mip-filter-filterText="您已经选择：">
+  <sidebar class="filter">
+    <div class="filter-result"></div>
+    <ul class="filter-list">
+      <li class="filter-title">
+        <div class="filter-link" data-filtertype="all">(all)查看全部
+          <span class="filter-num">3</span>
+        </div>
+      </li>
+      <li class="filter-title">
+        <div class="filter-link" data-filtertype="widget">(widget)组件
+          <span class="filter-num">2</span>
+        </div>
+      </li>
+      <li class="filter-title">
+        <div class="filter-link" data-filtertype="layout">(layout)组件布局
+          <span class="filter-num">1</span>
+        </div>
+      </li>
+    </ul>
+  </sidebar>
+  <div class="filter-item-wrap">
+    <div class="filter-item" data-filtertype="widget">
+      <span>(widget)组件新增</span>
+    </div>
+    <div class="filter-item" data-filtertype="layout">
+      <span>(layout)广告组件 layout 升级</span>
+    </div>
+    <div class="filter-item" data-filtertype="widget">
+      <span>(widget)测试版发布</span>
+    </div>
+  </div>
+</mip-filter>
+
   <script type="data-x-preset" id="preset">
   
   </script>
   <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
-  <script src="https://c.mipcdn.com/static/v1/mip-filter/mip-filter.js"></script>
-  
-  <mip-filter 
-    mip-filter-filterWrap=".filter"
-    mip-filter-itemWrap=".filter-item-wrap"
-    mip-filter-enableHash="true"
-    mip-filter-filterText="您已经选择：">
-    <sidebar class="filter">
-        <div class="filter-result"></div>
-        <ul class="filter-list">
-            <li class="filter-title">
-                <div class="filter-link" data-filtertype="all">(all)查看全部<span class="filter-num">3</span></div>
-            </li>
-            <li class="filter-title">
-                <div class="filter-link" data-filtertype="widget">(widget)组件<span class="filter-num">2</span></div>
-            </li>
-            <li class="filter-title">
-                <div class="filter-link" data-filtertype="layout">(layout)组件布局<span class="filter-num">1</span></div>
-            </li>
-        </ul>
-    </sidebar>
-    <div class="filter-item-wrap">
-        <div class="filter-item" data-filtertype="widget">
-            <span>(widget)组件新增</span>
-        </div>
-        <div class="filter-item" data-filtertype="layout">
-            <span>(layout)广告组件 layout 升级</span> 
-        </div>
-        <div class="filter-item" data-filtertype="widget">
-            <span>(widget)测试版发布</span>
-        </div>
-    </div>
-</mip-filter>
-
+  <script src="https://c.mipcdn.com/static/v2/mip-filter/mip-filter.js"></script>
   <script>
   var preset;
   window.addEventListener('message', function (e) {

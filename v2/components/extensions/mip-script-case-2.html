@@ -10,19 +10,19 @@
   
 </head>
 <body>
+  
+  <mip-script>
+  console.log('mip-script executed')
+  console.log(document.cookie)
+  window.location.href = '/'
+  var ele = document.getElementById('test')
+</mip-script>
+
   <script type="data-x-preset" id="preset">
   
   </script>
   <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
   <script src="https://c.mipcdn.com/static/v2/mip-script/mip-script.js"></script>
-  
-  <script class="mip-script">
-  console.log('mip-script executed');
-  console.log(MIP.sandbox.strict.document.cookie);
-  MIP.sandbox.strict.window.location.href = '/';
-  var ele = MIP.sandbox.strict.document.getElementById('test');
-</script>
-
   <script>
   var preset;
   window.addEventListener('message', function (e) {

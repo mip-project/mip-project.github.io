@@ -65,7 +65,16 @@
     <div class="edit-wrapper">
       <div class="edit-code">
         <p class="edit-tip">编辑您的代码：</p>
-        <textarea id="code" name="code"><div class="layout align-center">
+        <textarea id="code" name="code"><mip-data>
+  <script type="application/json">
+    {
+      "checkbox": true,
+      "includeFiles": true,
+      "enabled": false
+    }
+  </script>
+</mip-data>
+<div class="layout align-center">
   <mip-v-checkbox m-bind:input-value.sync="includeFiles" hide-details="" class="shrink mr-2"></mip-v-checkbox>
   <mip-v-text-field label="Include files"></mip-v-text-field>
 </div>

@@ -8,7 +8,7 @@ const commonStyleLoaders = [
   {
     loader: 'postcss-loader',
     options: {
-      ident: 'postcss',
+      // ident: 'postcss',
       plugins: [
         require('autoprefixer')({
           browsers: [

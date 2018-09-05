@@ -65,7 +65,14 @@
     <div class="edit-wrapper">
       <div class="edit-code">
         <p class="edit-tip">编辑您的代码：</p>
-        <textarea id="code" name="code"><mip-v-btn outline="" large="" fab="" color="indigo" on="tap:MIP.setData({show2:true})">
+        <textarea id="code" name="code"><mip-data>
+  <script type="application/json">
+    {
+      "show2": false
+    }
+  </script>
+</mip-data>
+<mip-v-btn outline="" large="" fab="" color="indigo" on="tap:MIP.setData({show2:true})">
   <mip-v-icon>edit</mip-v-icon>
 </mip-v-btn>
 <mip-v-dialog m-bind:value.sync="show2" scrollable="" max-width="290">
