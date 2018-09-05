@@ -66,33 +66,31 @@
       <div class="edit-code">
         <p class="edit-tip">编辑您的代码：</p>
         <textarea id="code" name="code"><mip-data>
-  <script type="application/json">
-    {
-      "info": {},
-      "config": {
-        appid: '熊掌号id',
-        clientId: '熊掌号开发者id',
-        id: 'info',
-        autologin: false,
-        endpoint: 'https://www.example.com/api/userinfo.php',
-        isGlobal: false,
-        redirectUri: ''
-      }
-    }
-  </script>
+    <script type="application/json">
+        {
+            "info": {},
+            "config": {
+                appid: '熊掌号id',
+                clientId: '熊掌号开发者id',
+                id: 'info',
+                autologin: false,
+                endpoint: 'https://www.example.com/api/userinfo.php',
+                isGlobal: false
+            }
+        }
+    </script>
 </mip-data>
 <mip-my-example id="example" m-bind:info="info"></mip-my-example>
 
 <mip-inservice-login
-  id="log"
-  m-bind:config="config"
-  on="login:example.customLogin logout:example.customLogout"
+    id="log"
+    m-bind:config="config"
+    on="login:example.login logout:example.exit"
 >
 </mip-inservice-login>
 
-<script src="https://c.mipcdn.com/static/v2/mip.js"></script>
-<script src="https://c.mipcdn.com/static/v2/mip-inservice-login/mip-inservice-login.js"></script>
-<script src="https://c.mipcdn.com/extensions/platform/v2/your.site.com/mip-my-example/mip-my-example.js"></script>
+<button on="tap:log.login">登录</button>
+<button on="tap:log.logout">退出</button>
 
 </textarea>
       </div>

@@ -65,7 +65,12 @@
     <div class="edit-wrapper">
       <div class="edit-code">
         <p class="edit-tip">编辑您的代码：</p>
-        <textarea id="code" name="code"><mip-script src="https://www.example.org/script.js"></mip-script>
+        <textarea id="code" name="code"><mip-script>
+  console.log('mip-script executed')
+  console.log(document.cookie)
+  window.location.href = '/'
+  var ele = document.getElementById('test')
+</mip-script>
 </textarea>
       </div>
       <div class="edit-iframe-wrapper">

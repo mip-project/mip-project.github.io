@@ -65,15 +65,7 @@
     <div class="edit-wrapper">
       <div class="edit-code">
         <p class="edit-tip">编辑您的代码：</p>
-        <textarea id="code" name="code"><mip-data>
-  <script type="application/json">
-    {
-      "search": "",
-      "items": []
-    }
-  </script>
-</mip-data>
-<div class="container grid-list-xl">
+        <textarea id="code" name="code"><div class="container grid-list-xl">
   <mip-v-autocomplete m-bind:loading="loading" m-bind:items="asyncItems" m-bind:search-input.sync="searchVal" m-bind:value.sync="select" cache-items="" class="mx-3" flat="" hide-no-data="" hide-details="" label="What state are you from?" solo-inverted=""></mip-v-autocomplete>
 </div>
 <mip-script>

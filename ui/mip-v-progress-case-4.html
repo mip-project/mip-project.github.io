@@ -10,19 +10,14 @@
   <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">
 </head>
 <body>
-  
-  <mip-data>
-  <script type="application/json">
-    {
-      "value": 0
-    }
-  </script>
-</mip-data>
-<mip-v-btn on="click:MIP.setData({value: (m.value + 10) % 100})">Progress</mip-v-btn>
+  <mip-data><script type="application/json">{"value":0,"valueDeterminate":50,"value1":20,"value2":100,"line_indeterminate":true}</script></mip-data>
+
+  <mip-v-btn on="click:MIP.setData({value: (m.value + 10) % 100})">Progress</mip-v-btn>
 <mip-v-progress-circular rotate="360" size="100" line-width="15" m-bind:value="value" color="teal"></mip-v-progress-circular>
 
   <script type="data-x-preset" id="preset">
-  
+  ___arrow_left___mip-data___arrow_right______arrow_left___script type="application/json"___arrow_right___{"value":0,"valueDeterminate":50,"value1":20,"value2":100,"line_indeterminate":true}___arrow_left___/script___arrow_right______arrow_left___/mip-data___arrow_right___
+
   </script>
   <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
   <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.js"></script>

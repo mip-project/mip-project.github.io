@@ -65,44 +65,15 @@
     <div class="edit-wrapper">
       <div class="edit-code">
         <p class="edit-tip">编辑您的代码：</p>
-        <textarea id="code" name="code"><mip-data>
-  <script type="application/json">
-    {
-      "slider": 45,
-      "value": 0,
-      "thumb-label": "always",
-      "red": 64
-    }
-  </script>
-</mip-data>
-<div class="container fluid grid-list-lg">
-  <div class="layout row wrap">
-    <div class="flex xs12">
-      <mip-v-subheader class="pl-0">Show thumb when using slider</mip-v-subheader>
-      <mip-v-slider m-bind:value.sync="slider" thumb-label=""></mip-v-slider>
-    </div>
-
-    <div class="flex xs12">
-      <mip-v-subheader class="pl-0">Always show thumb label</mip-v-subheader>
-      <mip-v-slider m-bind:value.sync="slider" thumb-label="always"></mip-v-slider>
-    </div>
-
-    <div class="flex xs12">
-      <mip-v-subheader class="pl-0">Custom thumb color</mip-v-subheader>
-      <mip-v-slider m-bind:value.sync="slider" thumb-color="red" thumb-label="always"></mip-v-slider>
-    </div>
-
-    <div class="flex xs12">
-      <mip-v-subheader class="pl-0">Custom thumb size</mip-v-subheader>
-      <mip-v-slider m-bind:value.sync="slider" thumb-size="24" thumb-label="always"></mip-v-slider>
-    </div>
-
-    <div class="flex xs12">
-      <mip-v-subheader class="pl-0">Always dirty</mip-v-subheader>
-      <mip-v-slider m-bind:value.sync="slider" always-dirty="" hint="Try set it to &apos;0&apos;" persistent-hint="" thumb-label="always"></mip-v-slider>
-    </div>
-  </div>
-</div>
+        <textarea id="code" name="code"><mip-v-slider m-bind:value.sync="slider" thumb-label=""></mip-v-slider>
+<mip-v-slider m-bind:value.sync="slider" thumb-label="always">
+</mip-v-slider>
+<mip-v-slider m-bind:value.sync="slider" thumb-color="red" thumb-label="always">
+</mip-v-slider>
+<mip-v-slider m-bind:value.sync="slider" thumb-size="24" thumb-label="always">
+</mip-v-slider>
+<mip-v-slider m-bind:value.sync="slider" always-dirty="" hint="Try set it to &apos;0&apos;" persistent-hint="" thumb-label="always">
+</mip-v-slider>
 </textarea>
       </div>
       <div class="edit-iframe-wrapper">

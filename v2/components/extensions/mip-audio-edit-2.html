@@ -60,45 +60,31 @@
   </head>
   <body>
     <div class="edit-toolbar">
-      <a class="toolbar-button" href="/v2/ui/mip-v-slider.html">返回文档</a>
+      <a class="toolbar-button" href="/v2/components/extensions/mip-audio.html">返回文档</a>
     </div>
     <div class="edit-wrapper">
       <div class="edit-code">
         <p class="edit-tip">编辑您的代码：</p>
-        <textarea id="code" name="code"><mip-data>
-  <script type="application/json">
-    {
-      "slider": 45,
-      "value": 0,
-      "value1": [
-        null,
-        60
-      ],
-      "value2": [
-        null,
-        40
-      ]
-    }
-  </script>
-</mip-data>
-<mip-v-card flat="" color="transparent">
-  <mip-v-subheader>Default range slider</mip-v-subheader>
-
-  <mip-v-card-text>
-    <mip-v-range-slider m-bind:value.sync="value1"></mip-v-range-slider>
-  </mip-v-card-text>
-
-  <mip-v-subheader>Disabled range slider</mip-v-subheader>
-
-  <mip-v-card-text>
-    <mip-v-range-slider m-bind:value.sync="value2" disabled></mip-v-range-slider>
-  </mip-v-card-text>
-</mip-v-card>
+        <textarea id="code" name="code"><mip-audio 
+    src="https://mip-doc.bj.bcebos.com/guitar.mp3"
+    class="all-pink"
+    layout="fixed-height"
+    height="50">
+    <div controller class="bg-color-pink">
+        <i play-button class="mip-audio-stopped-icon"></i>
+        <div seekbar>
+            <div seekbar-fill class="bg-color-pink2"></div>
+            <div seekbar-button class="bg-color-pink3"></div>
+        </div>
+        <div current-time class="color-gray">00:00</div>
+        <div total-time class="color-gray">--:--</div>
+    </div>
+</mip-audio>
 </textarea>
       </div>
       <div class="edit-iframe-wrapper">
         <p class="edit-tip">查看结果：</p>
-        <iframe id="edit-iframe" frameborder="0" width="320" height="568" src="/v2/ui/mip-v-slider-case-7.html"></iframe>
+        <iframe id="edit-iframe" frameborder="0" width="320" height="568" src="/v2/components/extensions/mip-audio-case-2.html"></iframe>
       </div>
     </div>
     <script src="https://cdn.bootcss.com/codemirror/5.38.0/codemirror.min.js"></script>
