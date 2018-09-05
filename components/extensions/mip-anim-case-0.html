@@ -10,16 +10,6 @@
   
 </head>
 <body>
-  <style mip-custom>
- 	.background{
-		background-color: #aaa;
- 	}
-</style>
-
-  <mip-anim layout="fixed" width=210 height=210 src="https://www.mipengine.org/static/img/sample_gif.gif" alt="an animation">
-   <mip-img class="background" layout="fixed-height" width=210 height=210 src="https://www.mipengine.org/static/img/sample_mip_logo.png"></mip-img>
-</mip-anim>
-
   <script type="data-x-preset" id="preset">
   ___arrow_left___style mip-custom___arrow_right___
  	.background{
@@ -30,6 +20,16 @@ ___arrow_left___/style___arrow_right___
   </script>
   <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
   <script src="https://c.mipcdn.com/static/v1/mip-anim/mip-anim.js"></script>
+  <style mip-custom>
+ 	.background{
+		background-color: #aaa;
+ 	}
+</style>
+
+  <mip-anim layout="fixed" width=210 height=210 src="https://www.mipengine.org/static/img/sample_gif.gif" alt="an animation">
+   <mip-img class="background" layout="fixed-height" width=210 height=210 src="https://www.mipengine.org/static/img/sample_mip_logo.png"></mip-img>
+</mip-anim>
+
   <script>
   var preset;
   window.addEventListener('message', function (e) {
