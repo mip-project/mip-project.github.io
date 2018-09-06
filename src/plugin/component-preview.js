@@ -304,14 +304,14 @@ module.exports = class ComponentPreview {
                   <div class="md-fn-preview-toggle" dat-closetext="收起" on="tap:fn-showmore-${i}.toggle">展开</div>
                 </div>
               </div>
-              <div class="md-fn-code-wrapper">
-                <div class="md-fn-title md-fn-code-title" on="tap:fn-code-${i}.toggle">查看代码</div>
-                <mip-toggle id="fn-code-${i}" layout="nodisplay">
+              <mip-accordion class="md-fn-code-wrapper" sessions-key="fn-code-${i}">
+                <section>
+                  <div class="md-fn-title md-fn-code-title">查看代码</div>
                   <div class="md-fn-code-section">
                     ${str}
                   </div>
-                </mip-toggle>
-              </div>
+                </section>
+              </mip-accordion>
             </div>
           `
           // theCases[index++] + str

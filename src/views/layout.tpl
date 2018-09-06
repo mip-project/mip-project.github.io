@@ -45,6 +45,6 @@
     <!-- <script src="https://c.mipcdn.com/static/v1/mip-fixed/mip-fixed.js"></script> -->
     <script src="https://c.mipcdn.com/static/v2/mip-fastclick/mip-fastclick.js"></script>
     <script src="https://c.mipcdn.com/static/v1/mip-showmore/mip-showmore.js"></script>
-    <script src="https://c.mipcdn.com/static/v1/mip-toggle/mip-toggle.js"></script>
+    <script src="https://c.mipcdn.com/static/v2/mip-accordion/mip-accordion.js"></script>
   </body>
 </html>

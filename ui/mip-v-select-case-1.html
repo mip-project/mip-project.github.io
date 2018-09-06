@@ -15,96 +15,27 @@
   <script type="application/json">
     {
       "items": [
-        null,
+        "foo",
         "bar",
         "fizz",
         "buzz"
       ],
       "value": [
-        null,
+        "foo",
         "bar",
         "fizz",
         "buzz"
       ],
-      "e1": "Florida",
-      "e2": "Texas",
-      "states": [
-        null,
-        "Alaska",
-        "American Samoa",
-        "Arizona",
-        null,
-        null,
-        "Colorado",
-        null,
-        null,
-        null,
-        null,
-        null,
-        "Georgia",
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-      ],
-      "select": {
-        "state": "Florida"
-      }
+      "select": {}
     }
   </script>
 </mip-data>
 <div class="container grid-list-xl">
   <div class="layout row wrap">
-    <div class="flex xs12 md6">
-      <h3>prepend-icon</h3>
-      <mip-v-select m-bind:items="states" m-bind:value.sync="e1" auto="" label="Select" hide-details="" prepend-icon="map" single-line=""></mip-v-select>
-    </div>
-    <div class="flex xs12 md6">
-      <h3>append-icon</h3>
-      <mip-v-select m-bind:items="states" m-bind:value.sync="e2" append-outer-icon="map" auto="" hide-details="" label="Select" single-line=""></mip-v-select>
-    </div>
+    <mip-v-select class="flex xs12 md6" m-bind:value.sync="value" m-bind:items="items" attach="" chips="" label="Chips" multiple></mip-v-select>
+    <mip-v-select class="flex xs12 md6" m-bind:value.sync="value" m-bind:items="items" box="" chips="" label="Chips" multiple></mip-v-select>
+    <mip-v-select class="flex xs12 md6" m-bind:value.sync="value" m-bind:items="items" chips="" label="Chips" multiple outline=""></mip-v-select>
+    <mip-v-select class="flex xs12 md6" m-bind:value.sync="value" m-bind:items="items" chips="" label="Chips" multiple solo=""></mip-v-select>
   </div>
 </div>
 

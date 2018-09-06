@@ -68,15 +68,13 @@
         <textarea id="code" name="code"><mip-data>
   <script type="application/json">
     {
-      "value": 0
+      "value": 0,
+      "buffer": 10,
+      "bufferValue": 20
     }
   </script>
 </mip-data>
-<mip-v-progress-linear color="secondary" line-height="2" value="15"></mip-v-progress-linear>
-<mip-v-progress-linear color="success" line-height="5" value="30"></mip-v-progress-linear>
-<mip-v-progress-linear color="info" line-height="10" value="45"></mip-v-progress-linear>
-<mip-v-progress-linear color="warning" line-height="15" value="60"></mip-v-progress-linear>
-<mip-v-progress-linear color="error" line-height="20" value="75"></mip-v-progress-linear>
+<mip-v-progress-linear m-bind:value.sync="buffer" m-bind:buffer-value="bufferValue" buffer=""></mip-v-progress-linear>
 </textarea>
       </div>
       <div class="edit-iframe-wrapper">

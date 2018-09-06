@@ -15,36 +15,97 @@
   <script type="application/json">
     {
       "items": [
-        null,
-        null,
+        "foo",
+        "bar",
         "fizz",
-        null
+        "buzz"
       ],
       "value": [
-        null,
-        null,
+        "foo",
+        "bar",
         "fizz",
-        null
+        "buzz"
       ],
+      "states": [
+        "Alabama",
+        "Alaska",
+        "American Samoa",
+        "Arizona",
+        "Arkansas",
+        "California",
+        "Colorado",
+        "Connecticut",
+        "Delaware",
+        "District of Columbia",
+        "Federated States of Micronesia",
+        "Florida",
+        "Georgia",
+        "Guam",
+        "Hawaii",
+        "Idaho",
+        "Illinois",
+        "Indiana",
+        "Iowa",
+        "Kansas",
+        "Kentucky",
+        "Louisiana",
+        "Maine",
+        "Marshall Islands",
+        "Maryland",
+        "Massachusetts",
+        "Michigan",
+        "Minnesota",
+        "Mississippi",
+        "Missouri",
+        "Montana",
+        "Nebraska",
+        "Nevada",
+        "New Hampshire",
+        "New Jersey",
+        "New Mexico",
+        "New York",
+        "North Carolina",
+        "North Dakota",
+        "Northern Mariana Islands",
+        "Ohio",
+        "Oklahoma",
+        "Oregon",
+        "Palau",
+        "Pennsylvania",
+        "Puerto Rico",
+        "Rhode Island",
+        "South Carolina",
+        "South Dakota",
+        "Tennessee",
+        "Texas",
+        "Utah",
+        "Vermont",
+        "Virgin Island",
+        "Virginia",
+        "Washington",
+        "West Virginia",
+        "Wisconsin",
+        "Wyoming"
+      ],
+      "e3": [],
+      "e4": [],
       "select": {
-        "state": "Florida",
-        "abbr": "FL"
-      },
-      "items2": [
-        null,
-        null,
-        {
-          "state": "Nebraska",
-          "abbr": "NE"
-        },
-        null,
-        null
-      ]
+        "state": "Florida"
+      }
     }
   </script>
 </mip-data>
 <div class="container grid-list-xl">
-  <mip-v-select m-bind:hint="`${select.state}, ${select.abbr}`" m-bind:items="items2" m-bind:value.sync="select" item-text="state" item-value="abbr" label="Select" persistent-hint="" return-object="" single-line=""></mip-v-select>
+  <div class="layout row wrap">
+    <div class="flex xs12 md6">
+      <h3>Multiple with persistent hint</h3>
+      <mip-v-select m-bind:items="states" m-bind:value.sync="e3" label="Select" multiple max-height="400" hint="Pick your favorite states" persistent-hint=""></mip-v-select>
+    </div>
+    <div class="flex xs12 md6">
+      <h3>Multiple (Chips) with persistent hint</h3>
+      <mip-v-select m-bind:items="states" m-bind:value.sync="e4" label="Select" multiple chips="" hint="What are the target regions" persistent-hint=""></mip-v-select>
+    </div>
+  </div>
 </div>
 
   <script type="data-x-preset" id="preset">
