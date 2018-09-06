@@ -57,6 +57,7 @@ const editHtml = ({cases, url, docUrl}) => '' +
     <style>
       html, body {
         margin: 0;
+        font-family: PingFang SC,Helvetica,Helvetica Neue,Hiragino Sans GB,Heiti SC,Microsoft YaHei,WenQuanYi Micro Hei,Arial,sans-serif;
       }
       .edit-toolbar {
         height: 60px;
