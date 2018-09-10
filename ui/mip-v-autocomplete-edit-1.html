@@ -69,17 +69,19 @@
         <textarea id="code" name="code"><mip-data>
   <script type="application/json">
     {
-      "descriptionLimit": 60,
       "model": "",
+      "descriptionLimit": 60,
       "search": "",
       "entries": [],
       "items": [],
-      "isLoading": false
+      "isLoading": false,
+      "loading": false,
+      "select": ""
     }
   </script>
 </mip-data>
 <div class="container grid-list-xl">
-  <mip-v-autocomplete m-bind:value.sync="model" m-bind:items="items" m-bind:loading="isLoading" m-bind:search-input.sync="search" hide-no-data="" hide-selected="" item-text="Description" item-value="API" label="Public APIs" placeholder="Start typing to Search" prepend-icon="mdi-database-search" return-object=""></mip-v-autocomplete>
+  <mip-v-autocomplete m-bind:value.sync="model" m-bind:items="items" m-bind:loading="isLoading" m-bind:search-input.sync="search" hide-no-data hide-selected item-text="Description" item-value="API" label="Public APIs" placeholder="Start typing to Search" prepend-icon="mdi-database-search" return-object></mip-v-autocomplete>
 </div>
 <mip-script>
   MIP.watch(&apos;entries&apos;, val =&gt; {
@@ -117,21 +119,6 @@
       .finally(() =&gt; MIP.setData({isLoading: false}))
   })
 </mip-script>
-<mip-data>
-  <script type="application/json">
-  {
-    isEditing: false,
-    states: [
-      { name: 'Florida', abbr: 'FL', id: 1 },
-      { name: 'Georgia', abbr: 'GA', id: 2 },
-      { name: 'Nebraska', abbr: 'NE', id: 3 },
-      { name: 'California', abbr: 'CA', id: 4 },
-      { name: 'New York', abbr: 'NY', id: 5 }
-    ],
-    toSave: false
-  }
-  </script>
-</mip-data>
 </textarea>
       </div>
       <div class="edit-iframe-wrapper">

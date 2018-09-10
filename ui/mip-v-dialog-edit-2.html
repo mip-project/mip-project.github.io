@@ -73,10 +73,10 @@
     }
   </script>
 </mip-data>
-<mip-v-btn outline="" large="" fab="" color="indigo" on="tap:MIP.setData({show2:true})">
+<mip-v-btn outline large fab color="indigo" on="tap:MIP.setData({show2:true})">
   <mip-v-icon>edit</mip-v-icon>
 </mip-v-btn>
-<mip-v-dialog m-bind:value.sync="show2" scrollable="" max-width="290">
+<mip-v-dialog m-bind:value.sync="show2" scrollable max-width="290">
   <div class="v-card">
     <div class="v-card__title headline">Use Google&apos;s location service?</div>
     <div class="v-card__text" style="height: 300px;">
@@ -90,7 +90,7 @@
     </div>
     <div class="v-card__actions">
       <div class="spacer"></div>
-      <mip-v-btn outline="" large="" fab="" color="indigo" on="tap:MIP.setData({show2:false})">
+      <mip-v-btn outline large fab color="indigo" on="tap:MIP.setData({show2:false})">
         <mip-v-icon>close</mip-v-icon>
       </mip-v-btn>
     </div>

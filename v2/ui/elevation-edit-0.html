@@ -61,77 +61,80 @@
   </head>
   <body>
     <div class="edit-toolbar">
-      <a class="toolbar-button" href="/v2/ui/mip-v-btn.html">返回文档</a>
+      <a class="toolbar-button" href="/v2/ui/elevation.html">返回文档</a>
     </div>
     <div class="edit-wrapper">
       <div class="edit-code">
         <p class="edit-tip">编辑您的代码：</p>
-        <textarea id="code" name="code"><mip-data>
-  <script type="application/json">
-    {
-      "toggle_exclusive": 2,
-      "toggle_multiple": [
-        0,
-        1,
-        2
-      ],
-      "icon": "justify",
-      "dropdown_font": [
-        {},
-        {},
-        {},
-        {}
-      ],
-      "dropdown_edit": [
-        {},
-        {},
-        {},
-        {},
-        {}
-      ]
-    }
-  </script>
-</mip-data>
-<mip-v-toolbar dense="">
-  <mip-v-overflow-btn m-bind:items="dropdown_font" label="Select font" hide-details=""></mip-v-overflow-btn>
-  <mip-v-divider vertical=""></mip-v-divider>
-  <mip-v-overflow-btn m-bind:items="dropdown_edit" editable="" label="Select size" hide-details="" overflow=""></mip-v-overflow-btn>
-  <mip-v-divider class="mr-2" vertical=""></mip-v-divider>
-  <mip-v-btn-toggle m-bind:input-value.sync="toggle_multiple" class="transparent" multiple>
-    <mip-v-btn flat="">
-      <mip-v-icon>format_bold</mip-v-icon>
-    </mip-v-btn>
-    <mip-v-btn flat="">
-      <mip-v-icon>format_italic</mip-v-icon>
-    </mip-v-btn>
-    <mip-v-btn flat="">
-      <mip-v-icon>format_underlined</mip-v-icon>
-    </mip-v-btn>
-    <mip-v-btn flat="">
-      <mip-v-icon>format_color_fill</mip-v-icon>
-    </mip-v-btn>
-  </mip-v-btn-toggle>
-  <mip-v-divider class="mx-2" vertical=""></mip-v-divider>
-  <mip-v-btn-toggle m-bind:input-value.sync="toggle_exclusive" class="transparent">
-    <mip-v-btn flat="" value="left">
-      <mip-v-icon>format_align_left</mip-v-icon>
-    </mip-v-btn>
-    <mip-v-btn flat="" value="center">
-      <mip-v-icon>format_align_center</mip-v-icon>
-    </mip-v-btn>
-    <mip-v-btn flat="" value="right">
-      <mip-v-icon>format_align_right</mip-v-icon>
-    </mip-v-btn>
-    <mip-v-btn flat="" value="justify">
-      <mip-v-icon>format_align_justify</mip-v-icon>
-    </mip-v-btn>
-  </mip-v-btn-toggle>
-</mip-v-toolbar>
+        <textarea id="code" name="code"><div class="container grid-list-md text-xs-center">
+  <div class="layout row wrap">
+    <div class="flex xs4">
+      <div class="v-card elevation-0">
+        <div class="v-card__text px-0">0</div>
+      </div>
+    </div>
+    <div class="flex xs4">
+      <div class="v-card elevation-1">
+        <div class="v-card__text px-0">1</div>
+      </div>
+    </div>
+    <div class="flex xs4">
+      <div class="v-card elevation-2">
+        <div class="v-card__text px-0">2</div>
+      </div>
+    </div>
+    <div class="flex xs4">
+      <div class="v-card elevation-3">
+        <div class="v-card__text px-0">3</div>
+      </div>
+    </div>
+    <div class="flex xs4">
+      <div class="v-card elevation-4">
+        <div class="v-card__text px-0">4</div>
+      </div>
+    </div>
+    <div class="flex xs4">
+      <div class="v-card elevation-5">
+        <div class="v-card__text px-0">5</div>
+      </div>
+    </div>
+    <div class="flex xs4">
+      <div class="v-card elevation-6">
+        <div class="v-card__text px-0">6</div>
+      </div>
+    </div>
+    <div class="flex xs4">
+      <div class="v-card elevation-7">
+        <div class="v-card__text px-0">7</div>
+      </div>
+    </div>
+    <div class="flex xs4">
+      <div class="v-card elevation-8">
+        <div class="v-card__text px-0">8</div>
+      </div>
+    </div>
+    <div class="flex xs4">
+      <div class="v-card elevation-9">
+        <div class="v-card__text px-0">9</div>
+      </div>
+    </div>
+    <div class="flex xs4">
+      <div class="v-card elevation-10">
+        <div class="v-card__text px-0">10</div>
+      </div>
+    </div>
+    <div class="flex xs4">
+      <div class="v-card elevation-11">
+        <div class="v-card__text px-0">11</div>
+      </div>
+    </div>
+  </div>
+</div>
 </textarea>
       </div>
       <div class="edit-iframe-wrapper">
         <p class="edit-tip">查看结果：</p>
-        <iframe id="edit-iframe" frameborder="0" width="320" height="568" src="/v2/ui/mip-v-btn-case-11.html"></iframe>
+        <iframe id="edit-iframe" frameborder="0" width="320" height="568" src="/v2/ui/elevation-case-0.html"></iframe>
       </div>
     </div>
     <script src="https://cdn.bootcss.com/codemirror/5.38.0/codemirror.min.js"></script>
