@@ -66,20 +66,20 @@
     <div class="edit-wrapper">
       <div class="edit-code">
         <p class="edit-tip">编辑您的代码：</p>
-        <textarea id="code" name="code"><mip-data>
-  <script type="application/json">
-    {
-      "icon": "justify"
-    }
-  </script>
-</mip-data>
+        <textarea id="code" name="code"><div class="flex">
+  <mip-v-btn small color="primary" dark>Small Button</mip-v-btn>
+  <mip-v-btn color="warning" dark>Normal Button</mip-v-btn>
+  <mip-v-btn color="error" dark large>Large Button</mip-v-btn>
+</div>
 <div class="flex">
-  <mip-v-btn outline color="indigo">Outline Button</mip-v-btn>
-  <mip-v-btn outline fab color="teal">
-    <mip-v-icon>list</mip-v-icon>
-  </mip-v-btn>
-  <mip-v-btn outline large fab color="indigo">
+  <mip-v-btn color="primary" fab small dark>
     <mip-v-icon>edit</mip-v-icon>
+  </mip-v-btn>
+  <mip-v-btn color="warning" fab dark>
+    <mip-v-icon>account_circle</mip-v-icon>
+  </mip-v-btn>
+  <mip-v-btn color="error" fab large dark>
+    <mip-v-icon>alarm</mip-v-icon>
   </mip-v-btn>
 </div>
 </textarea>

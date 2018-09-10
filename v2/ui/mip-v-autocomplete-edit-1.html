@@ -70,13 +70,9 @@
   <script type="application/json">
     {
       "model": "",
-      "descriptionLimit": 60,
       "search": "",
-      "entries": [],
       "items": [],
-      "isLoading": false,
-      "loading": false,
-      "select": ""
+      "isLoading": false
     }
   </script>
 </mip-data>
@@ -84,11 +80,11 @@
   <mip-v-autocomplete m-bind:value.sync="model" m-bind:items="items" m-bind:loading="isLoading" m-bind:search-input.sync="search" hide-no-data hide-selected item-text="Description" item-value="API" label="Public APIs" placeholder="Start typing to Search" prepend-icon="mdi-database-search" return-object></mip-v-autocomplete>
 </div>
 <mip-script>
-  MIP.watch(&apos;entries&apos;, val =&gt; {
-    let descriptionLimit = MIP.getData(&apos;descriptionLimit&apos;)
-    let items = val.map(entry =&gt; {
-      const Description = entry.Description.length &gt; descriptionLimit
-        ? entry.Description.slice(0, descriptionLimit) + &apos;...&apos;
+  MIP.watch('entries', val => {
+    let descriptionLimit = MIP.getData('descriptionLimit')
+    let items = val.map(entry => {
+      const Description = entry.Description.length > descriptionLimit
+        ? entry.Description.slice(0, descriptionLimit) + '...'
         : entry.Description
 
       return Object.assign({}, entry, { Description })
@@ -97,28 +93,29 @@
     MIP.setData({items})
   })
 
-  MIP.watch(&apos;search&apos;, val =&gt; {
+  MIP.watch('search', val => {
     // Items have already been loaded
-    if (MIP.getData(&apos;items&apos;).length &gt; 0) return
+    if (MIP.getData('items').length > 0) return
 
     MIP.setData({isLoading: true})
 
     // Lazily load input items
-    fetch(&apos;https://api.publicapis.org/entries&apos;)
-      .then(res =&gt; {
+    fetch('https://api.publicapis.org/entries')
+      .then(res => {
         if (res.ok) {
-          res.json().then(data =&gt; {
+          res.json().then(data => {
             const { count, entries } = data
             MIP.setData({entries})
           })
         }
       })
-      .catch(err =&gt; {
+      .catch(err => {
         console.log(err)
       })
-      .finally(() =&gt; MIP.setData({isLoading: false}))
+      .finally(() => MIP.setData({isLoading: false}))
   })
 </mip-script>
+<script src="https://c.mipcdn.com/static/v2/mip-script/mip-script.js"></script>
 </textarea>
       </div>
       <div class="edit-iframe-wrapper">

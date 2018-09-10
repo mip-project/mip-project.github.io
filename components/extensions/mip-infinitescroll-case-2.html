@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html mip>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <title>测试</title>
+  <meta name="description" content="">
+  <link rel="canonical" href="/v2/components/extensions/mip-infinitescroll-case-2.html">
+  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.css">
+  
+</head>
+<body>
+  
+  <mip-infinitescroll data-src="xxx" template="myTemplate">
+    <script type="application/json">
+    {
+        "rn": 40,
+        "pn": 1,
+        "prn": 6,
+        "pnName": "pn",
+        "bufferHeightPx": 40,
+        "timeout": 5000,
+        "loadingHtml": "更多数据正在路上",
+        "loadFailHtml": "数据加载失败啦",
+        "loadOverHtml": "没有数据了哦"
+    }
+    </script>
+    <template type="mip-mustache" id="myTemplate">
+        <li>
+            <mip-img src="{{img}}"
+                layout="responsive" width="100" height="100">
+            </mip-img>
+            <p>序号:{{number}}</p>
+        </li>
+    </template>
+    <div class="mip-infinitescroll-results"></div>
+    <div class="bg">
+        <div class="mip-infinitescroll-loading"></div>
+    </div>
+</mip-infinitescroll>
+
+  <script type="data-x-preset" id="preset">
+  
+  </script>
+  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
+  <script src="https://c.mipcdn.com/static/v1/mip-infinitescroll/mip-infinitescroll.js"></script><script src="https://c.mipcdn.com/static/v1/mip-mustache/mip-mustache.js"></script>
+  <script>
+  var preset;
+  window.addEventListener('message', function (e) {
+    if (!e.data || e.data.type !== 'demo-edit') {
+      return;
+    }
+
+    if (!preset) {
+      preset = document.getElementById('preset').innerHTML
+        .replace(/___arrow_left___/g, '<')
+        .replace(/___arrow_right___/g, '>');
+    }
+    document.body.innerHTML = preset + e.data.html;
+  })
+  </script>
+</body>
+</html>

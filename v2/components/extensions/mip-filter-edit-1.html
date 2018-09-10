@@ -66,38 +66,36 @@
     <div class="edit-wrapper">
       <div class="edit-code">
         <p class="edit-tip">编辑您的代码：</p>
-        <textarea id="code" name="code"><mip-filter mip-filter-filterWrap=".filter" mip-filter-itemWrap=".filter-item-wrap" mip-filter-enableHash="false" mip-filter-filterText="您已经选择：">
-  <sidebar class="filter">
-    <div class="filter-result"></div>
-    <ul class="filter-list">
-      <li class="filter-title">
-        <div class="filter-link" data-filtertype="all">(all)查看全部
-          <span class="filter-num">3</span>
+        <textarea id="code" name="code"><mip-filter 
+    mip-filter-filterWrap=".filter"
+    mip-filter-itemWrap=".filter-item-wrap"
+    mip-filter-enableHash="true"
+    mip-filter-filterText="您已经选择：">
+    <sidebar class="filter">
+        <div class="filter-result"></div>
+        <ul class="filter-list">
+            <li class="filter-title">
+                <div class="filter-link" data-filtertype="all">(all)查看全部<span class="filter-num">3</span></div>
+            </li>
+            <li class="filter-title">
+                <div class="filter-link" data-filtertype="widget">(widget)组件<span class="filter-num">2</span></div>
+            </li>
+            <li class="filter-title">
+                <div class="filter-link" data-filtertype="layout">(layout)组件布局<span class="filter-num">1</span></div>
+            </li>
+        </ul>
+    </sidebar>
+    <div class="filter-item-wrap">
+        <div class="filter-item" data-filtertype="widget">
+            <span>(widget)组件新增</span>
         </div>
-      </li>
-      <li class="filter-title">
-        <div class="filter-link" data-filtertype="widget">(widget)组件
-          <span class="filter-num">2</span>
+        <div class="filter-item" data-filtertype="layout">
+            <span>(layout)广告组件 layout 升级</span> 
         </div>
-      </li>
-      <li class="filter-title">
-        <div class="filter-link" data-filtertype="layout">(layout)组件布局
-          <span class="filter-num">1</span>
+        <div class="filter-item" data-filtertype="widget">
+            <span>(widget)测试版发布</span>
         </div>
-      </li>
-    </ul>
-  </sidebar>
-  <div class="filter-item-wrap">
-    <div class="filter-item" data-filtertype="widget">
-      <span>(widget)组件新增</span>
     </div>
-    <div class="filter-item" data-filtertype="layout">
-      <span>(layout)广告组件 layout 升级</span>
-    </div>
-    <div class="filter-item" data-filtertype="widget">
-      <span>(widget)测试版发布</span>
-    </div>
-  </div>
 </mip-filter>
 </textarea>
       </div>

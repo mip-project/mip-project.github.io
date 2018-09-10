@@ -15,24 +15,6 @@
   <script type="application/json">
     {
       "search": "",
-      "items": [],
-      "states": [
-        {
-          "id": 1
-        },
-        {
-          "id": 2
-        },
-        {
-          "id": 3
-        },
-        {
-          "id": 4
-        },
-        {
-          "id": 5
-        }
-      ],
       "loading": false,
       "asyncItems": [],
       "searchVal": "",
@@ -48,21 +30,22 @@
     MIP.setData({loading: true})
 
     // Simulated ajax query
-    setTimeout(() =&gt; {
-      let states = MIP.getData(&apos;states&apos;)
+    setTimeout(() => {
+      let states = MIP.getData('states')
       MIP.setData({
         loading: false,
-        asyncItems: states.filter(e =&gt; {
-          return (e || &apos;&apos;).toLowerCase().indexOf((v || &apos;&apos;).toLowerCase()) &gt; -1
+        asyncItems: states.filter(e => {
+          return (e || '').toLowerCase().indexOf((v || '').toLowerCase()) > -1
         })
       })
     }, 500)
   }
 
-  MIP.watch(&apos;searchVal&apos;, val =&gt; {
-    val &amp;&amp; val !== MIP.getData(&apos;select&apos;) &amp;&amp; querySelections(val)
+  MIP.watch('searchVal', val => {
+    val && val !== MIP.getData('select') && querySelections(val)
   })
 </mip-script>
+<script src="https://c.mipcdn.com/static/v2/mip-script/mip-script.js"></script>
 
   <script type="data-x-preset" id="preset">
   
