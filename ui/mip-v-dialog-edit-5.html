@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <title>测试</title>
+    <meta name="description" content="">
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/codemirror/5.38.0/codemirror.min.css">
+    <style>
+      html, body {
+        margin: 0;
+        font-family: PingFang SC,Helvetica,Helvetica Neue,Hiragino Sans GB,Heiti SC,Microsoft YaHei,WenQuanYi Micro Hei,Arial,sans-serif;
+      }
+      .edit-toolbar {
+        height: 60px;
+        padding-left: 20px;
+        line-height: 60px;
+      }
+      #submit {
+        height: 40px;
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+      .edit-wrapper {
+        display: flex;
+        padding: 6px 20px 20px;
+        background: #eee;
+      }
+      .edit-code {
+        flex: 1;
+        overflow: auto;
+      }
+      .edit-iframe-wrapper {
+        width: 320px;
+        margin-left: 20px;
+      }
+      #edit-iframe {
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        background: #fff;
+      }
+      .CodeMirror {
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        height: 568px;
+      }
+      .toolbar-button {
+        margin-right: 20px;
+        height: 40px;
+        box-sizing: border-box;
+        padding: 0 15px;
+        display: inline-block;
+        line-height: 40px;
+        border: 1px solid #000;
+        text-decoration: none;
+        color: #000;
+        cursor: pointer;
+      }
+      .toolbar-button:active {
+        background: #eee;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="edit-toolbar">
+      <a class="toolbar-button" href="/v2/ui/mip-v-dialog.html">返回文档</a>
+    </div>
+    <div class="edit-wrapper">
+      <div class="edit-code">
+        <p class="edit-tip">编辑您的代码：</p>
+        <textarea id="code" name="code"><mip-data>
+  <script type="application/json">
+    {
+      "dialog6": false
+    }
+  </script>
+</mip-data>
+<mip-v-dialog m-bind:value.sync="dialog6" width="600px">
+  <mip-v-btn slot="activator" color="primary" dark>Open Dialog</mip-v-btn>
+  <mip-v-card>
+    <mip-v-card-title>
+      <span class="headline">Use Google&apos;s location service?</span>
+    </mip-v-card-title>
+    <mip-v-card-text>Lorem ipsum dolor sit amet, semper quis, sapien id natoque elit. Nostra urna at, magna at neque sed sed ante imperdiet, dolor mauris cursus velit, velit non, sem nec. Volutpat sem ridiculus placerat leo, augue in, duis erat proin condimentum in a eget, sed fermentum sed vestibulum varius ac, vestibulum volutpat orci ut elit eget tortor. Ultrices nascetur nulla gravida ante arcu. Pharetra rhoncus morbi ipsum, nunc tempor debitis, ipsum pellentesque, vitae id quam ut mauris dui tempor, aptent non. Quisque turpis. Phasellus quis lectus luctus orci eget rhoncus. Amet donec vestibulum mattis commodo, nulla aliquet, nibh praesent, elementum nulla. Sit lacus pharetra tempus magna neque pellentesque, nulla vel erat.
+    Justo ex quisque nulla accusamus venenatis, sed quis. Nibh phasellus gravida metus in, fusce aenean ut erat commodo eros. Ut turpis, dui integer, nonummy pede placeat nec in sit leo. Faucibus porttitor illo taciti odio, amet viverra scelerisque quis quis et tortor, curabitur morbi a. Enim tempor at, rutrum elit condimentum, amet rutrum vitae tempor torquent nunc. Praesent vestibulum integer maxime felis. Neque aenean quia vitae nostra, tempus elit enim id dui, at egestas pulvinar. Integer libero vestibulum, quis blandit scelerisque mattis fermentum nulla, tortor donec vestibulum dolor amet eget, elit nullam. Aliquam leo phasellus aliquam curabitur metus a, nulla justo mattis duis interdum vel, mollis vitae et id, vestibulum erat ridiculus sit pulvinar justo sed. Vehicula convallis, et nulla wisi, amet vestibulum risus, quam ac egestas.
+    Et vitae, nulla gravida erat scelerisque nullam nunc pellentesque, a dictumst cras augue, purus imperdiet non. Varius montes cursus varius vel tortor, nec leo a qui, magni cras, velit vel consectetuer lobortis vel. Nibh erat et wisi felis leo porttitor, sapien nibh sapien pede mi, sed eget porttitor, repellendus arcu ac quis. Luctus vulputate aut est sem magna, placerat accumsan nunc vestibulum ipsum ac auctor, maecenas lorem in ut nec mauris tortor, doloribus varius sem tortor vestibulum mollis, eleifend tortor felis tempus lacus eu eu. Eleifend vel eu, nullam maecenas mauris nec nunc euismod, tortor porta ridiculus potenti, massa tristique nam magna, et wisi placerat et erat ante. Eget pede erat in facilisis, fermentum venenatis sodales. Ac tortor sociis et non animi tristique, rhoncus malesuada, ut arcu volutpat scelerisque sollicitudin, elit curabitur dui pede purus dolor, integer aenean risus taciti nulla eleifend accumsan. At pulvinar diam parturient, interdum mi velit aliquet et a. Arcu at ac placerat eget justo semper, purus sociis curabitur mi ipsum consequat ut, mollis vestibulum, est ante ornare lacus sem. Neque magna mauris, commodo quisque, praesent semper suscipit lobortis nam. Justo malesuada cursus ac nunc litora nunc. Tellus ac, in lobortis nunc, montes lectus purus fermentum.
+    Ac sit wisi. Sodales aliquam, sed vestibulum nullam arcu sit risus arcu, id luctus vitae lorem nibh, integer nec nullam class cursus mi, purus arcu lectus. Vel ante suscipit volutpat potenti mattis sed, wisi eu placerat aliquam erat, lectus morbi lobortis at assumenda. Consequat neque purus ipsum voluptas odio, netus vestibulum ut nec, suspendisse pellentesque nec enim in. Wisi dictum sed semper a, ipsum erat tellus habitasse est, erat sem ornare, vitae quisque ultricies. Dui sed blandit. Tempor et faucibus justo sed luctus, nec vitae vitae. Nunc nibh pede, ipsum vestibulum aenean leo ante ultricies, nam cras quis sed penatibus amet. In mauris a. Integer metus mauris tortor, et rutrum vestibulum ultricies, ut phasellus in ullamcorper ut mollit, eu justo. Cursus pretium venenatis.
+    Cras pellentesque vel sodales accumsan aenean. Feugiat metus sit nec in aliquet amet, porttitor pretium vulputate massa. Consequat ipsum luctus quisque adipiscing libero. Wisi sollicitudin. Eget vitae ac lobortis, lorem natoque vestibulum et, aliquet faucibus at morbi nibh, vel condimentum. Massa unde orci sed id sed, odio donec congue nec praesent amet. Hymenaeos velit lacus, quis vivamus libero tempus duis, eu nisi eu, ipsum at accumsan pede justo morbi donec, massa et libero sit risus neque tortor. Ut sed sed etiam hendrerit dapibus, quis metus suspendisse nibh.
+    Fringilla tempor felis augue magna. Cum arcu a, id vitae. Pellentesque pharetra in cras sociis adipiscing est. Nibh nec mattis at maecenas, nisl orci aliquam nulla justo egestas venenatis, elementum duis vel porta eros, massa vitae, eligendi imperdiet amet. Nec neque luctus suscipit, justo sem praesent, ut nisl quisque, volutpat torquent wisi tellus aliquam reprehenderit, curabitur cras at quis massa porttitor mauris. Eros sed ultrices. Amet dignissim justo urna feugiat mauris litora, etiam accumsan, lobortis a orci suspendisse. Semper ac mauris, varius bibendum pretium, orci urna nunc ullamcorper auctor, saepe sem integer quam, at feugiat egestas duis. Urna ligula ante. Leo elementum nonummy. Sagittis mauris est in ipsum, nulla amet non justo, proin id potenti platea posuere sit ut, nunc sit erat bibendum. Nibh id auctor, ab nulla vivamus ultrices, posuere morbi nunc tellus gravida vivamus.
+    Mauris nec, facilisi quam fermentum, ut mauris integer, orci tellus tempus diam ut in pellentesque. Wisi faucibus tempor et odio leo diam, eleifend quis integer curabitur sit scelerisque ac, mauris consequat luctus quam penatibus fringilla dis, vitae lacus in, est eu ac tempus. Consectetuer amet ipsum amet dui, sed blandit id sed. Tellus integer, dignissim id pede sodales quis, felis dolorem id mauris orci, orci tempus ut. Nullam hymenaeos. Curabitur in a, tortor ut praesent placerat tincidunt interdum, ac dignissim metus nonummy hendrerit wisi, etiam ut.
+    Semper praesent integer fusce, tortor suspendisse, augue ligula orci ante asperiores ullamcorper. In sit per mi sed sed, mi vestibulum mus nam, morbi mauris neque vitae aliquam proin senectus. Ac amet arcu mollis ante congue elementum, inceptos eget optio quam pellentesque quis lobortis, sollicitudin sed vestibulum sollicitudin, lectus parturient nullam, leo orci ligula ultrices. At tincidunt enim, suspendisse est sit sem ac. Amet tellus molestie est purus magna augue, non etiam et in wisi id. Non commodo, metus lorem facilisi lobortis ac velit, montes neque sed risus consectetuer fringilla dolor. Quam justo et integer aliquam, cursus nulla enim orci, nam cursus adipiscing, integer torquent non, fringilla per maecenas. Libero ipsum sed tellus purus et. Duis molestie placerat erat donec ut. Dolor enim erat massa faucibus ultrices in, ante ultricies orci lacus, libero consectetuer mauris magna feugiat neque dapibus, donec pretium et. Aptent dui, aliquam et et amet nostra ligula.
+    Augue curabitur duis dui volutpat, tempus sed ut pede donec. Interdum luctus, lectus nulla aenean elit, id sit magna, vulputate ultrices pellentesque vel id fermentum morbi. Tortor et. Adipiscing augue lorem cum non lacus, rutrum sodales laoreet duis tortor, modi placerat facilisis et malesuada eros ipsum, vehicula tempus. Ac vivamus amet non aliquam venenatis lectus, sociosqu adipiscing consequat nec arcu odio. Blandit orci nec nec, posuere in pretium, enim ut, consectetuer nullam urna, risus vel. Nullam odio vehicula massa sed, etiam sociis mauris, lacus ullamcorper, libero imperdiet non sodales placerat justo vehicula. Nec morbi imperdiet. Fermentum sem libero iaculis bibendum et eros, eget maecenas non nunc, ad pellentesque. Ut nec diam elementum interdum. Elementum vitae tellus lacus vitae, ipsum phasellus, corporis vehicula in ac sed massa vivamus, rutrum elit, ultricies metus volutpat.
+    Semper wisi et, sollicitudin nunc vestibulum, cursus accumsan nunc pede tempus mi ipsum, ligula sed. Non condimentum ac dolor sit. Mollis eu aliquam, vel mattis mollis massa ut dolor ante, tempus lacinia arcu. Urna vestibulum lorem, nulla fermentum, iaculis ut congue ac vivamus. Nam libero orci, pulvinar nulla, enim pellentesque consectetuer leo, feugiat rhoncus rhoncus vel. Magna sociosqu donec, dictum cursus ullamcorper viverra. Ultricies quis orci lorem, suspendisse ut vestibulum integer, purus sed lorem pulvinar habitasse turpis.
+    </mip-v-card-text>
+    <mip-v-card-actions>
+      <mip-v-spacer></mip-v-spacer>
+      <mip-v-btn color="green darken-1" flat="flat" on="tap:MIP.setData({ dialog6: false })">Disagree</mip-v-btn>
+      <mip-v-btn color="green darken-1" flat="flat" on="tap:MIP.setData({ dialog6: false })">Agree</mip-v-btn>
+    </mip-v-card-actions>
+  </mip-v-card>
+</mip-v-dialog>
+</textarea>
+      </div>
+      <div class="edit-iframe-wrapper">
+        <p class="edit-tip">查看结果：</p>
+        <iframe id="edit-iframe" frameborder="0" width="320" height="568" src="/v2/ui/mip-v-dialog-case-5.html"></iframe>
+      </div>
+    </div>
+    <script src="https://cdn.bootcss.com/codemirror/5.38.0/codemirror.min.js"></script>
+    <script src="https://cdn.bootcss.com/codemirror/5.38.0/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdn.bootcss.com/codemirror/5.38.0/mode/xml/xml.min.js"></script>
+    <script src="https://cdn.bootcss.com/codemirror/5.38.0/mode/css/css.min.js"></script>
+    <script src="https://cdn.bootcss.com/codemirror/5.38.0/mode/htmlmixed/htmlmixed.min.js"></script>
+    <script src="https://cdn.bootcss.com/codemirror/5.38.0/addon/selection/active-line.min.js"></script>
+    <script src="https://cdn.bootcss.com/codemirror/5.38.0/addon/edit/matchbrackets.min.js"></script>
+    <script>
+       var editor = CodeMirror.fromTextArea(document.getElementById('code'), {
+        lineNumbers: true,
+        styleActiveLine: true,
+        matchBrackets: true,
+        mode: 'htmlmixed',
+        identUnit: 2
+      });
+      editor.setOption("theme", 'default');
+      var iframe = document.getElementById('edit-iframe');
+
+      var timer;
+      function throttle (fn) {
+        if (timer != null) {
+          clearTimeout(timer);
+        }
+        timer = setTimeout(function () {
+          timer = null;
+          fn();
+        }, 500);
+      }
+
+      editor.on('change', function () {
+        throttle(function () {
+          let val = editor.getValue();
+          try {
+            iframe.contentWindow.postMessage({type: 'demo-edit', html: val}, '*');
+          } catch (e) {
+            console.error('post fail');
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
+

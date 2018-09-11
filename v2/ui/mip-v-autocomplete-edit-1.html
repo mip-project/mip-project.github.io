@@ -90,14 +90,14 @@
       return Object.assign({}, entry, { Description })
     })
 
-    MIP.setData({items})
+    MIP.setData({ items })
   })
 
   MIP.watch('search', val => {
     // Items have already been loaded
     if (MIP.getData('items').length > 0) return
 
-    MIP.setData({isLoading: true})
+    MIP.setData({ isLoading: true })
 
     // Lazily load input items
     fetch('https://api.publicapis.org/entries')
@@ -105,14 +105,14 @@
         if (res.ok) {
           res.json().then(data => {
             const { count, entries } = data
-            MIP.setData({entries})
+            MIP.setData({ entries })
           })
         }
       })
       .catch(err => {
         console.log(err)
       })
-      .finally(() => MIP.setData({isLoading: false}))
+      .finally(() => MIP.setData({ isLoading: false }))
   })
 </mip-script>
 <script src="https://c.mipcdn.com/static/v2/mip-script/mip-script.js"></script>

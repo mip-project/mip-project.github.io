@@ -14,31 +14,72 @@
   <mip-data>
   <script type="application/json">
     {
-      "show2": false
+      "dialog3": false,
+      "notifications": false,
+      "sound": true,
+      "widgets": false
     }
   </script>
 </mip-data>
-<mip-v-btn outline large fab color="indigo" on="tap:MIP.setData({show2:true})">
-  <mip-v-icon>edit</mip-v-icon>
-</mip-v-btn>
-<mip-v-dialog m-bind:value.sync="show2" scrollable max-width="290">
+<mip-v-dialog m-bind:value.sync="dialog3" fullscreen hide-overlay transition="dialog-bottom-transition">
+  <mip-v-btn slot="activator" color="primary" dark>Open Dialog</mip-v-btn>
   <div class="v-card">
-    <div class="v-card__title headline">Use Google&apos;s location service?</div>
-    <div class="v-card__text" style="height: 300px;">
-      Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.
-      Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.
-      Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.
-      Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.
-      Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.
-      Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.
-      Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.
-    </div>
-    <div class="v-card__actions">
-      <div class="spacer"></div>
-      <mip-v-btn outline large fab color="indigo" on="tap:MIP.setData({show2:false})">
+    <mip-v-toolbar dark color="primary">
+      <mip-v-btn icon dark on="tap:MIP.setData({ dialog3: false })">
         <mip-v-icon>close</mip-v-icon>
       </mip-v-btn>
-    </div>
+      <mip-v-toolbar-title>Settings</mip-v-toolbar-title>
+      <mip-v-spacer></mip-v-spacer>
+      <mip-v-toolbar-items>
+        <mip-v-btn dark flat on="tap:MIP.setData({ dialog3: false })">Save</mip-v-btn>
+      </mip-v-toolbar-items>
+    </mip-v-toolbar>
+    <mip-v-list three-line subheader>
+      <mip-v-subheader>User Controls</mip-v-subheader>
+      <mip-v-list-tile avatar>
+        <mip-v-list-tile-content>
+          <mip-v-list-tile-title>Content filtering</mip-v-list-tile-title>
+          <mip-v-list-tile-sub-title>Set the content filtering level to restrict apps that can be downloaded</mip-v-list-tile-sub-title>
+        </mip-v-list-tile-content>
+      </mip-v-list-tile>
+      <mip-v-list-tile avatar>
+        <mip-v-list-tile-content>
+          <mip-v-list-tile-title>Password</mip-v-list-tile-title>
+          <mip-v-list-tile-sub-title>Require password for purchase or use password to restrict purchase</mip-v-list-tile-sub-title>
+        </mip-v-list-tile-content>
+      </mip-v-list-tile>
+    </mip-v-list>
+    <mip-v-divider></mip-v-divider>
+    <mip-v-list three-line subheader>
+      <mip-v-subheader>General</mip-v-subheader>
+      <mip-v-list-tile avatar>
+        <mip-v-list-tile-action>
+          <mip-v-checkbox m-bind:input-value.sync="notifications"></mip-v-checkbox>
+        </mip-v-list-tile-action>
+        <mip-v-list-tile-content>
+          <mip-v-list-tile-title>Notifications</mip-v-list-tile-title>
+          <mip-v-list-tile-sub-title>Notify me about updates to apps or games that I downloaded</mip-v-list-tile-sub-title>
+        </mip-v-list-tile-content>
+      </mip-v-list-tile>
+      <mip-v-list-tile avatar>
+        <mip-v-list-tile-action>
+          <mip-v-checkbox m-bind:input-value.sync="sound"></mip-v-checkbox>
+        </mip-v-list-tile-action>
+        <mip-v-list-tile-content>
+          <mip-v-list-tile-title>Sound</mip-v-list-tile-title>
+          <mip-v-list-tile-sub-title>Auto-update apps at any time. Data charges may apply</mip-v-list-tile-sub-title>
+        </mip-v-list-tile-content>
+      </mip-v-list-tile>
+      <mip-v-list-tile avatar>
+        <mip-v-list-tile-action>
+          <mip-v-checkbox m-bind:input-value.sync="widgets"></mip-v-checkbox>
+        </mip-v-list-tile-action>
+        <mip-v-list-tile-content>
+          <mip-v-list-tile-title>Auto-add widgets</mip-v-list-tile-title>
+          <mip-v-list-tile-sub-title>Automatically add home screen widgets</mip-v-list-tile-sub-title>
+        </mip-v-list-tile-content>
+      </mip-v-list-tile>
+    </mip-v-list>
   </div>
 </mip-v-dialog>
 
