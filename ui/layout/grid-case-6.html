@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html mip>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <title>测试</title>
+  <meta name="description" content="">
+  <link rel="canonical" href="/v2/ui/layout/grid-case-6.html">
+  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.css">
+  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">
+</head>
+<body>
+  
+  <div>
+  <p class="text-lg-right">Right align on large viewport sizes</p>
+  <p class="text-md-center">Center align on medium viewport sizes</p>
+  <p class="text-sm-left">Left align on small viewport sizes</p>
+  <p class="text-xs-center">Center align on all viewport sizes</p>
+  <p class="text-xs-right">Right align on all viewport sizes</p>
+</div>
+
+  <script type="data-x-preset" id="preset">
+  
+  </script>
+  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
+  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.js"></script>
+  <script>
+  var preset;
+  window.addEventListener('message', function (e) {
+    if (!e.data || e.data.type !== 'demo-edit') {
+      return;
+    }
+
+    if (!preset) {
+      preset = document.getElementById('preset').innerHTML
+        .replace(/___arrow_left___/g, '<')
+        .replace(/___arrow_right___/g, '>');
+    }
+    document.body.innerHTML = preset + e.data.html;
+  })
+  </script>
+</body>
+</html>

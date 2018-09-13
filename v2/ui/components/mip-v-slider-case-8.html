@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html mip>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <title>测试</title>
+  <meta name="description" content="">
+  <link rel="canonical" href="/v2/ui/components/mip-v-slider-case-8.html">
+  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.css">
+  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">
+</head>
+<body>
+  
+  <mip-data>
+  <script type="application/json">
+    {
+      "slider": 45,
+      "min": -50,
+      "max": 90,
+      "slider0": 40,
+      "range": [
+        -20,
+        70
+      ]
+    }
+  </script>
+</mip-data>
+<mip-v-card flat color="transparent">
+  <mip-v-subheader>Min and max default slider</mip-v-subheader>
+
+  <mip-v-card-text>
+    <div class="layout row">
+      <div class="flex pr-3">
+        <mip-v-slider m-bind:value.sync="slider0" m-bind:max="max" m-bind:min="min"></mip-v-slider>
+      </div>
+
+      <div class="flex shrink" style="width: 60px">
+        <mip-v-text-field m-bind:value.sync="slider0" class="mt-0" hide-details single-line type="number"></mip-v-text-field>
+      </div>
+    </div>
+  </mip-v-card-text>
+
+  <mip-v-subheader>Min and max range slider</mip-v-subheader>
+
+  <mip-v-card-text>
+    <div class="layout row">
+      <div class="flex shrink" style="width: 60px">
+        <mip-v-text-field m-bind:value.sync="range[0]" class="mt-0" hide-details single-line type="number"></mip-v-text-field>
+      </div>
+      <div class="flex px-3">
+        <mip-v-range-slider m-bind:value.sync="range" m-bind:max="max" m-bind:min="min"></mip-v-range-slider>
+      </div>
+      <div class="flex shrink" style="width: 60px">
+        <mip-v-text-field m-bind:value.sync="range[1]" class="mt-0" hide-details single-line type="number"></mip-v-text-field>
+      </div>
+    </div>
+  </mip-v-card-text>
+</mip-v-card>
+
+  <script type="data-x-preset" id="preset">
+  
+  </script>
+  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
+  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.js"></script>
+  <script>
+  var preset;
+  window.addEventListener('message', function (e) {
+    if (!e.data || e.data.type !== 'demo-edit') {
+      return;
+    }
+
+    if (!preset) {
+      preset = document.getElementById('preset').innerHTML
+        .replace(/___arrow_left___/g, '<')
+        .replace(/___arrow_right___/g, '>');
+    }
+    document.body.innerHTML = preset + e.data.html;
+  })
+  </script>
+</body>
+</html>

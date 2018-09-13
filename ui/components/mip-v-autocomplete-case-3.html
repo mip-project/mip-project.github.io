@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html mip>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <title>测试</title>
+  <meta name="description" content="">
+  <link rel="canonical" href="/v2/ui/components/mip-v-autocomplete-case-3.html">
+  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.css">
+  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">
+</head>
+<body>
+  
+  <mip-data>
+  <script type="application/json">
+    {
+      "search": "",
+      "loading": false,
+      "asyncItems": [],
+      "searchVal": "",
+      "select": ""
+    }
+  </script>
+</mip-data>
+<div class="container grid-list-xl">
+  <mip-v-autocomplete m-bind:loading="loading" m-bind:items="asyncItems" m-bind:search-input.sync="searchVal" m-bind:value.sync="select" cache-items class="mx-3" flat hide-no-data hide-details label="What state are you from?" solo-inverted></mip-v-autocomplete>
+</div>
+<mip-script>
+  function querySelections (v) {
+    MIP.setData({ loading: true })
+
+    // Simulated ajax query
+    setTimeout(() => {
+      let states = MIP.getData('states')
+      MIP.setData({
+        loading: false,
+        asyncItems: states.filter(e => {
+          return (e || '').toLowerCase().indexOf((v || '').toLowerCase()) > -1
+        })
+      })
+    }, 500)
+  }
+
+  MIP.watch('searchVal', val => {
+    val && val !== MIP.getData('select') && querySelections(val)
+  })
+</mip-script>
+<script src="https://c.mipcdn.com/static/v2/mip-script/mip-script.js"></script>
+
+  <script type="data-x-preset" id="preset">
+  
+  </script>
+  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
+  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.js"></script>
+  <script>
+  var preset;
+  window.addEventListener('message', function (e) {
+    if (!e.data || e.data.type !== 'demo-edit') {
+      return;
+    }
+
+    if (!preset) {
+      preset = document.getElementById('preset').innerHTML
+        .replace(/___arrow_left___/g, '<')
+        .replace(/___arrow_right___/g, '>');
+    }
+    document.body.innerHTML = preset + e.data.html;
+  })
+  </script>
+</body>
+</html>

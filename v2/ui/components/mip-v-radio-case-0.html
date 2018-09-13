@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html mip>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <title>测试</title>
+  <meta name="description" content="">
+  <link rel="canonical" href="/v2/ui/components/mip-v-radio-case-0.html">
+  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.css">
+  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">
+</head>
+<body>
+  
+  <mip-data>
+  <script type="application/json">
+    {
+      "radioGroup": 1
+    }
+  </script>
+</mip-data>
+<mip-v-radio-group m-bind:value.sync="radioGroup">
+  <mip-v-radio label="Radio 1">
+    <script type="application/json">{"value": 1}</script>
+  </mip-v-radio>
+  <mip-v-radio label="Radio 2">
+    <script type="application/json">{"value": 2}</script>
+  </mip-v-radio>
+  <mip-v-radio label="Radio 3">
+    <script type="application/json">{"value": 3}</script>
+  </mip-v-radio>
+</mip-v-radio-group>
+
+  <script type="data-x-preset" id="preset">
+  
+  </script>
+  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
+  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.js"></script>
+  <script>
+  var preset;
+  window.addEventListener('message', function (e) {
+    if (!e.data || e.data.type !== 'demo-edit') {
+      return;
+    }
+
+    if (!preset) {
+      preset = document.getElementById('preset').innerHTML
+        .replace(/___arrow_left___/g, '<')
+        .replace(/___arrow_right___/g, '>');
+    }
+    document.body.innerHTML = preset + e.data.html;
+  })
+  </script>
+</body>
+</html>
