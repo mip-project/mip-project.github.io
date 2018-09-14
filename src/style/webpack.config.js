@@ -24,7 +24,7 @@ const commonStyleLoaders = [
 
 module.exports = {
   entry: {
-    index: path.resolve(__dirname, 'src/index.styl')
+    index: path.resolve(__dirname, 'index.js')
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
