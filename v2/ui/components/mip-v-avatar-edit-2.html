@@ -66,29 +66,28 @@
     <div class="edit-wrapper">
       <div class="edit-code">
         <p class="edit-tip">编辑您的代码：</p>
-        <textarea id="code" name="code"><mip-data>
-  <script type="application/json">
-    {
-      "tile": false,
-      "avatarSize": 60
-    }
-  </script>
-</mip-data>
-<mip-v-btn on="tap:MIP.setData({ tile: !tile })" color="primary">Toggle Tile</mip-v-btn>
-<input m-bind:value="avatarSize">
-<div>
-  <mip-v-avatar m-bind:tile="tile" m-bind:size="avatarSize" style="display: inline-block" color="grey lighten-4">
-    <img src="https://vuetifyjs.com/apple-touch-icon-180x180.png" alt="avatar">
+        <textarea id="code" name="code"><div class="layout align-center justify-space-around wrap">
+  <mip-v-avatar color="indigo">
+    <mip-v-icon dark>account_circle</mip-v-icon>
   </mip-v-avatar>
-</div>
-<div>
-  <mip-v-avatar m-bind:tile="tile" m-bind:size="avatarSize" style="display: inline-block" color="green">
+
+  <mip-v-avatar>
+    <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John">
+  </mip-v-avatar>
+
+  <mip-v-badge overlap>
+    <span slot="badge">3</span>
+    <mip-v-avatar color="purple red--after">
+      <mip-v-icon dark>notifications</mip-v-icon>
+    </mip-v-avatar>
+  </mip-v-badge>
+
+  <mip-v-avatar color="teal">
+    <span class="white--text headline">C</span>
+  </mip-v-avatar>
+
+  <mip-v-avatar color="red">
     <span class="white--text headline">J</span>
-  </mip-v-avatar>
-</div>
-<div>
-  <mip-v-avatar m-bind:tile="tile" m-bind:size="avatarSize" style="display: inline-block" color="purple red--after">
-    <mip-v-icon dark>favorite</mip-v-icon>
   </mip-v-avatar>
 </div>
 </textarea>

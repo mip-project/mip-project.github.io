@@ -73,12 +73,17 @@
     }
   </script>
 </mip-data>
-<mip-v-btn color="primary" on="tap:MIP.setData({ alert: !alert })">
-  Toggle
-</mip-v-btn>
-<mip-v-alert m-bind:value="alert" type="success" transition="scale-transition">
-  This is a success alert.
-</mip-v-alert>
+<div>
+  <div class="text-xs-center">
+    <mip-v-btn color="primary" on="tap:MIP.setData({ alert: !m.alert })">
+      Toggle
+    </mip-v-btn>
+  </div>
+
+  <mip-v-alert m-bind:value="alert" type="success" transition="scale-transition">
+    This is a success alert.
+  </mip-v-alert>
+</div>
 </textarea>
       </div>
       <div class="edit-iframe-wrapper">

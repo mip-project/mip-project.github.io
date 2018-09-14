@@ -66,34 +66,31 @@
     <div class="edit-wrapper">
       <div class="edit-code">
         <p class="edit-tip">编辑您的代码：</p>
-        <textarea id="code" name="code"><mip-data>
-  <script type="application/json">
-    {
-      "loading": false
-    }
-  </script>
-</mip-data>
-<div class="flex">
-  <mip-v-btn m-bind:loading="loading" m-bind:disabled="loading" color="secondary" on="click:MIP.setData({ loading: true })">
-    Accept Terms
+        <textarea id="code" name="code"><div class="text-xs-center">
+  <mip-v-btn fab dark small color="primary">
+    <mip-v-icon dark>remove</mip-v-icon>
   </mip-v-btn>
-  <mip-v-btn m-bind:loading="loading" m-bind:disabled="loading" color="blue-grey" class="white--text" on="click:MIP.setData({ loading: true })">
-    Upload
-    <mip-v-icon right dark>cloud_upload</mip-v-icon>
+
+  <mip-v-btn fab dark small color="pink">
+    <mip-v-icon dark>favorite</mip-v-icon>
   </mip-v-btn>
-  <mip-v-btn m-bind:loading="loading" m-bind:disabled="loading" color="success" on="click:MIP.setData({ loading: true })">
-    Custom Loader
-    <span slot="loader">Loading...</span>
+
+  <mip-v-btn fab dark color="indigo">
+    <mip-v-icon dark>add</mip-v-icon>
+  </mip-v-btn>
+
+  <mip-v-btn fab dark color="teal">
+    <mip-v-icon dark>list</mip-v-icon>
+  </mip-v-btn>
+
+  <mip-v-btn fab dark large color="cyan">
+    <mip-v-icon dark>edit</mip-v-icon>
+  </mip-v-btn>
+
+  <mip-v-btn fab dark large color="purple">
+    <mip-v-icon dark>android</mip-v-icon>
   </mip-v-btn>
 </div>
-<mip-script>
-  MIP.watch('loading', (val) => {
-    if (val) {
-      setTimeout(() => MIP.setData({ loading: false }), 2000)
-    }
-  })
-</mip-script>
-<script src="https://c.mipcdn.com/static/v2/mip-script/mip-script.js"></script>
 </textarea>
       </div>
       <div class="edit-iframe-wrapper">
