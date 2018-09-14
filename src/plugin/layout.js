@@ -7,16 +7,16 @@ const imageSize = require('../utils/image-size')
 const path = require('path')
 const fs = require('fs')
 const renderer = require('../utils/renderer')
-let navbar = require('../data/navbar')
+let navbarFactory = require('../data/navbar')
 // const migPageProcess = require('../utils/mip-img-process')
 
 const css = fs.readFileSync(path.resolve(__dirname, '../style/dist/index.css'))
 
 module.exports = class Layout {
   apply (on, app) {
-    on(app.STAGES.START, async () => {
-      await processNavbar(navbar, app)
-    })
+    // on(app.STAGES.START, async () => {
+    //   await processNavbar(navbar, app)
+    // })
 
     on(app.STAGES.DONE, async () => {
       let docPaths = await app.store.get('data', 'docurls')
@@ -45,11 +45,22 @@ module.exports = class Layout {
 
         let layoutName // 模板名称
         // codelab 单独处理
+
         if (url.indexOf('codelabs') > -1) {
           layoutName = 'layout-codelab-detail'
         } else {
           layoutName = 'layout-doc'
         }
+
+        let navbar = navbarFactory()
+        await processNavbar(navbar, app)
+
+        navbar[1].children.forEach(child => {
+          let childUrl = child.url.split('/').slice(0, 3).join('/')
+          if (url.indexOf(childUrl) === 0) {
+            navbar[1].name = child.name
+          }
+        })
 
         let newhtml = renderer.render(layoutName, {
           title: 'MIP 文档_移动网页加速器_MIP(Mobile Instant Pages_)' + (info.title || ''),
@@ -79,13 +90,16 @@ module.exports = class Layout {
         await app.store.set('doc', docInfo.path, docInfo)
       }))
 
+      let indexNavbar = navbarFactory()
+      await processNavbar(indexNavbar, app)
+
       let indexHtml = renderer.render('layout-index', {
         title: 'MIP官网_移动网页加速器_MIP(Mobile Instant Pages)',
         description: 'MIP（Mobile Instant Pages - 移动网页加速器）是一套应用于移动网页的开放性技术标准，使用 MIP无需等待加载，页面内容将以更友好的方式瞬时到达用户。',
         keywords: 'MIP2',
         originUrl: '',
         host: 'https://mip-project.github.io',
-        navbar: navbar,
+        navbar: indexNavbar,
         navIndex: 0,
         css: css,
         menu: {},
@@ -107,13 +121,17 @@ module.exports = class Layout {
 
       let codelabsMenu = await app.getMenu('docs/codelabs')
 
+      let codelabNavbar = navbarFactory()
+      await processNavbar(codelabNavbar, app)
+      codelabNavbar[1].name = 'Codelab'
+
       let htmlCodelab = renderer.render('layout-codelab', {
         title: 'MIP 文档_移动网页加速器_MIP(Mobile Instant Pages) | CODELAB',
         description: '我们在 Codelab 中提供了一系列基于 MIP 的编程小项目，内容包括项目起步、配置教学、功能实现等等',
         keywords: 'Codelab',
         originUrl: '',
         host: 'https://mip-project.github.io',
-        navbar: navbar,
+        navbar: codelabNavbar,
         navIndex: 1,
         css: css,
         menu: codelabsMenu,

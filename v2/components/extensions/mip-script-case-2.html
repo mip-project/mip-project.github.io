@@ -11,12 +11,12 @@
 </head>
 <body>
   
-  <script class="mip-script">
-  console.log('mip-script executed');
-  console.log(MIP.sandbox.strict.document.cookie);
-  MIP.sandbox.strict.window.location.href = '/';
-  var ele = MIP.sandbox.strict.document.getElementById('test');
-</script>
+  <mip-script>
+  console.log('mip-script executed')
+  console.log(document.cookie)
+  window.location.href = '/'
+  var ele = document.getElementById('test')
+</mip-script>
 
   <script type="data-x-preset" id="preset">
   

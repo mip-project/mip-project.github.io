@@ -22,13 +22,13 @@
       <ul class="navbar-menu-wrapper">
         <li class="navbar-item" ><a data-type="mip" href="/v2/index.html" class="menu-name" title="首页">首页</a></li>
         <li class="navbar-item active">
-          <span class="menu-name" title="学习">学习<i class="arrow"></i></span>
+          <span class="menu-name" title="使用文档">使用文档<i class="arrow"></i></span>
           <ul class="navbar-sub-menu">
             <li class="navbar-sub-item"><a data-type="mip" href="/v2/guide/basic/newbie.html" title="使用文档">使用文档</a></li>
             <li class="navbar-sub-item"><a data-type="mip" href="/v2/components/index.html" title="组件列表">组件列表</a></li>
             <li class="navbar-sub-item"><a data-type="mip" href="/v2/api/index.html" title="API">API</a></li>
             <li class="navbar-sub-item"><a data-type="mip" href="/v2/codelabs/index.html" title="Codelab">Codelab</a></li>
-            <li class="navbar-sub-item"><a data-type="mip" href="/v2/ui/mip-v-alert.html" title="UI">UI</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="/v2/ui/components/mip-v-alert.html" title="UI">UI</a></li>
           </ul>
         </li>
         <li class="navbar-item">
@@ -63,13 +63,13 @@
   <ul class="navbar-menu-wrapper">
     <li class="navbar-item" ><a data-type="mip" href="/v2/index.html" class="menu-name">首页</a></li>
     <li class="navbar-item active">
-      <span class="menu-name">学习</span>
+      <span class="menu-name">使用文档</span>
       <ul class="navbar-sub-menu">
         <li class="navbar-sub-item"><a data-type="mip" href="/v2/guide/basic/newbie.html">使用文档</a></li>
         <li class="navbar-sub-item"><a data-type="mip" href="/v2/components/index.html">组件列表</a></li>
         <li class="navbar-sub-item"><a data-type="mip" href="/v2/api/index.html">API</a></li>
         <li class="navbar-sub-item"><a data-type="mip" href="/v2/codelabs/index.html">Codelab</a></li>
-        <li class="navbar-sub-item"><a data-type="mip" href="/v2/ui/mip-v-alert.html">UI</a></li>
+        <li class="navbar-sub-item"><a data-type="mip" href="/v2/ui/components/mip-v-alert.html">UI</a></li>
       </ul>
     </li>
     <li class="navbar-item">
@@ -90,7 +90,7 @@
   on="tap:nav-sidebar.close"
   m-bind:class="{hide:sidebarFragment!=='guide'}"
 >
-  <h1 on="tap:MIP.setData({sidebarFragment:'nav'})"><span>使用文档</span></h1>
+  <h1 on="tap:MIP.setData({sidebarFragment:'nav'})"><span></span></h1>
   <mip-fastclick>
     <mip-sidenav m-bind:menu="menu" m-bind:chapters="chapters" m-bind:url="url"></mip-sidenav>
   </mip-fastclick>
@@ -115,7 +115,7 @@
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://somecdn/mip-component-a.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://somecdn/mip-component-b.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></code></pre></li></ol></li><li><p>MIP 页面中的链接依然使用 <code>&lt;a&gt;</code>，具体如下：</p><ol><li><p>如果跳转到其他 <strong>同域名的 MIP 页面</strong>，使用 <code>mip-link</code> 属性或者 <code>data-type=&quot;mip&quot;</code>：</p><pre><div class="code-index"><div>1</div><div>2</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://somesite.com/mip/anotherMIPPage.html"</span> <span class="hljs-attr">mip-link</span>&gt;</span>xxx<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
- <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://somesite.com/mip/anotherMIPPage.html"</span> <span class="hljs-attr">data-type</span>=<span class="hljs-string">"mip"</span>&gt;</span>xxx<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre><ol><li><code>href</code> 指向当前域名的页面</li><li>不允许使用 <code>target</code> 属性</li></ol></li><li><p>如果跳转到其他页面 ，不添加 <code>mip-link</code> 属性或者 <code>data-type=&quot;mip&quot;</code>，进行普通跳转：</p><pre><div class="code-index"><div>1</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://www.another-site.com/"</span>&gt;</span>Jump Out<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre></li><li><p><code>href</code> 属性值沿用<a data-type="mip"   href="https://www.mipengine.org/examples/mip-extensions/mip-link.html" >旧版 mip-link 规范</a>，取值范围：<code>https?://.*</code>, <code>mailto:.*</code>, <code>tel:.*</code>，<strong>不允许使用相对路径或者绝对路径</strong>。(如 <code>./relativePage.html</code>, <code>/absolutePage.html</code>)</p></li><li><p>和默认浏览器行为相同， <code>&lt;a&gt;</code> 也可以用作页面内部的快速定位滚动，只需要将 <code>href</code> 中包含 <code>#</code> 即可，如 <code>http://somesite.com/mip/page.html#second</code>。特别地，<code>#second</code> 作为 <code>href</code> 取值范围的例外也被认为合法，可以用作当前页面的快速定位。</p></li><li><p>默认情况下点击链接后会向 History 中 <code>push</code> 一条记录。如果想覆盖当前记录，可以在 <code>&lt;a&gt;</code> 元素上增加 <code>replace</code> 属性。</p></li><li><p>通过 <code>data-title</code> 和 <code>innerHTML</code> 可以设置下一个页面的标题。(详情可见 <a href="/v2/guide/all-sites-mip/mip-shell.html">MIP Shell 相关章节</a>)</p></li></ol></li><li><p>页面内元素的样式中 <code>z-index</code> 不能超过 10000，否则会引起页面切换时的样式遮盖问题。</p></li></ol>
+ <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://somesite.com/mip/anotherMIPPage.html"</span> <span class="hljs-attr">data-type</span>=<span class="hljs-string">"mip"</span>&gt;</span>xxx<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre><ol><li><code>href</code> 指向当前域名的页面</li><li>不允许使用 <code>target</code> 属性</li></ol></li><li><p>如果跳转到其他页面 ，不添加 <code>mip-link</code> 属性或者 <code>data-type=&quot;mip&quot;</code>，进行普通跳转：</p><pre><div class="code-index"><div>1</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://www.another-site.com/"</span>&gt;</span>Jump Out<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre></li><li><p><code>href</code> 属性值沿用<a data-type="mip"   href="https://www.mipengine.org/examples/mip-extensions/mip-link.html" >旧版 mip-link 规范</a>，取值范围：<code>https?://.*</code>, <code>mailto:.*</code>, <code>tel:.*</code>，<strong>不允许使用相对路径或者绝对路径</strong>。(如 <code>./relativePage.html</code>, <code>/absolutePage.html</code>)</p></li><li><p>和默认浏览器行为相同， <code>&lt;a&gt;</code> 也可以用作页面内部的快速定位滚动，只需要将 <code>href</code> 中包含 <code>#</code> 即可，如 <code>http://somesite.com/mip/page.html#second</code>。特别地，<code>#second</code> 作为 <code>href</code> 取值范围的例外也被认为合法，可以用作当前页面的快速定位。</p></li><li><p>默认情况下点击链接后会向 History 中 <code>push</code> 一条记录。如果想覆盖当前记录，可以在 <code>&lt;a&gt;</code> 元素上增加 <code>replace</code> 属性。</p></li><li><p>通过 <code>data-title</code> 和 <code>innerHTML</code> 可以设置下一个页面的标题。(详情可见 <a href="/v2/guide/all-sites-mip/mip-shell.html">MIP Shell 相关章节</a>)</p></li><li><p><strong>重点注意</strong>：对于老版 MIP1 页面(即引用的是 <a data-type="mip"   href="https://c.mipcdn.com/static/v1/mip.js)，因为其内部不包含" >https://c.mipcdn.com/static/v1/mip.js)，因为其内部不包含</a> SHELL 等功能，因此等同于外部页面，<strong>不应当</strong> 使用 <code>mip-link</code> 或者 <code>data-type=&quot;mip&quot;</code>，否则可能会出现 loading 动画永远无法消失，一直遮盖下层页面的问题。</p></li></ol></li><li><p>页面内元素的样式中 <code>z-index</code> 不能超过 10000，否则会引起页面切换时的样式遮盖问题。</p></li></ol>
     </div>
 <div class="markdown-toolbar">
   <a data-type="mip" href="https://github.com/mipengine/mip2/issues/new?title=反馈:docs/guide/all-sites-mip/structure.md"><span>反馈</span></a>
@@ -136,7 +136,7 @@
 <mip-data>
   <script type="application/json">
     {
-      "navbar": [{"name":"首页","path":"docs/index","activeUrl":{},"width":32,"url":"/v2/index.html"},{"name":"学习","width":32,"activeUrl":{},"children":[{"name":"使用文档","path":"docs/guide","width":64,"url":"/v2/guide/basic/newbie.html"},{"name":"组件列表","path":"docs/extensions","width":64,"url":"/v2/components/index.html"},{"name":"API","path":"docs/api","url":"/v2/api/index.html"},{"name":"Codelab","path":"docs/codelabs","width":60,"url":"/v2/codelabs/index.html"},{"name":"UI","path":"docs/ui/mip-v-alert.md","width":60,"url":"/v2/ui/mip-v-alert.html"}]},{"name":"常用链接","children":[{"name":"MIP 官方博客","url":"http://www.cnblogs.com/mipengine","blank":true},{"name":"MIP-CLI 本地开发工具","url":"https://github.com/mipengine/mip2/tree/master/packages/mip-cli","blank":true},{"name":"MIP 代码校验工具","url":"https://www.mipengine.org/validator/validate","blank":true},{"name":"MIP 效果预览工具","url":"https://www.mipengine.org/validator/preview","blank":true},{"name":"MIP PATH 转换工具","url":"https://www.mipengine.org/mippath.html","blank":true}],"width":82},{"name":"GitHub","url":"https://github.com/mipengine/mip2","blank":true,"width":50},{"name":"回到旧版","url":"https://www.mipengine.org","blank":true,"width":32}],
+      "navbar": [{"name":"首页","path":"docs/index","activeUrl":{},"width":32,"url":"/v2/index.html"},{"name":"使用文档","width":32,"activeUrl":{},"children":[{"name":"使用文档","path":"docs/guide","width":64,"url":"/v2/guide/basic/newbie.html"},{"name":"组件列表","path":"docs/extensions","width":64,"url":"/v2/components/index.html"},{"name":"API","path":"docs/api","url":"/v2/api/index.html"},{"name":"Codelab","path":"docs/codelabs","width":60,"url":"/v2/codelabs/index.html"},{"name":"UI","path":"docs/ui/components/mip-v-alert.md","width":60,"url":"/v2/ui/components/mip-v-alert.html"}]},{"name":"常用链接","children":[{"name":"MIP 官方博客","url":"http://www.cnblogs.com/mipengine","blank":true},{"name":"MIP-CLI 本地开发工具","url":"https://github.com/mipengine/mip2/tree/master/packages/mip-cli","blank":true},{"name":"MIP 代码校验工具","url":"https://www.mipengine.org/validator/validate","blank":true},{"name":"MIP 效果预览工具","url":"https://www.mipengine.org/validator/preview","blank":true},{"name":"MIP PATH 转换工具","url":"https://www.mipengine.org/mippath.html","blank":true}],"width":82},{"name":"GitHub","url":"https://github.com/mipengine/mip2","blank":true,"width":50},{"name":"回到旧版","url":"https://www.mipengine.org","blank":true,"width":32}],
       "navIndex": "1",
       "sidebarFragment": "guide",
       "sidebarSecondFragment": "guide",
