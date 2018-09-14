@@ -12,6 +12,23 @@ let navbarFactory = require('../data/navbar')
 
 const css = fs.readFileSync(path.resolve(__dirname, '../style/dist/index.css'))
 
+// 只保留到 h4
+function walk (chapters) {
+  if (!Array.isArray(chapters)) {
+    return
+  }
+
+  for (let i = 0; i < chapters.length; i++) {
+    if (chapters[i].level === 4) {
+      delete chapters[i].children
+    }
+
+    if (chapters[i].children) {
+      walk(chapters[i].children)
+    }
+  }
+}
+
 module.exports = class Layout {
   apply (on, app) {
     // on(app.STAGES.START, async () => {
@@ -24,6 +41,8 @@ module.exports = class Layout {
       await Promise.all(Object.keys(docPaths).map(async docPath => {
         let docInfo = await app.store.get('doc', docPath)
         let {html: originalHtml, url, info, chapters, path} = docInfo
+
+        walk(chapters)
 
         // 提取样式
         let {style, html} = extractStyle(originalHtml)
