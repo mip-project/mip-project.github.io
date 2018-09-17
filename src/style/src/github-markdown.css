@@ -504,8 +504,8 @@
 }
 
 .markdown-body h1 {
-  padding-bottom: 12px;
-  font-size: 1.5em;
+  padding-bottom: 28px;
+  font-size: 24px;
   font-weight: 600;
   /*border-bottom: 1px solid #eaecef;*/
 }
@@ -513,13 +513,13 @@
 .markdown-body h2 {
   margin-top: 45px;
   padding-bottom: 0.3em;
-  font-size: 1.25em;
+  font-size: 20px;
   font-weight: 600;
   /*border-bottom: 1px solid #eaecef;*/
 }
 
 .markdown-body h3 {
-  font-size: 1.125em;
+  font-size: 18px;
   font-weight: 600;
 }
 
