@@ -74,14 +74,18 @@
     }
   </script>
 </mip-data>
-<div class="layout align-center">
-  <mip-v-checkbox m-bind:input-value.sync="includeFiles" hide-details class="shrink mr-2"></mip-v-checkbox>
-  <mip-v-text-field label="Include files"></mip-v-text-field>
-</div>
-<div class="layout align-center">
-  <mip-v-checkbox m-bind:input-value.sync="enabled" hide-details class="shrink mr-2"></mip-v-checkbox>
-  <mip-v-text-field m-bind:disabled="!enabled" label="I only work if you check the box"></mip-v-text-field>
-</div>
+<mip-v-card>
+  <mip-v-card-text>
+    <div class="layout align-center">
+      <mip-v-checkbox m-bind:input-value.sync="includeFiles" hide-details class="shrink mr-2"></mip-v-checkbox>
+      <mip-v-text-field label="Include files"></mip-v-text-field>
+    </div>
+    <div class="layout align-center">
+      <mip-v-checkbox m-bind:input-value.sync="enabled" hide-details class="shrink mr-2"></mip-v-checkbox>
+      <mip-v-text-field m-bind:disabled="!enabled" label="I only work if you check the box"></mip-v-text-field>
+    </div>
+  </mip-v-card-text>
+</mip-v-card>
 </textarea>
       </div>
       <div class="edit-iframe-wrapper">

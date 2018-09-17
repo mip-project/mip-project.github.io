@@ -415,7 +415,7 @@ async function copy ({to}) {
   extensionsMeta.menu = finalExtensionsMenu
   await fs.writeFile(path.resolve(distExtensions, 'extensions/meta.json'), JSON.stringify(extensionsMeta), 'utf-8')
 
-  let mip2uiFiles = await aglob('**/*.md', {
+  let mip2uiFiles = await aglob('**/*.{md,json}', {
     root: mip2ui,
     cwd: mip2ui
   })
@@ -424,6 +424,11 @@ async function copy ({to}) {
     let absolute = path.resolve(mip2ui, filename)
     let distname = filename.replace(/\/README\.md$/, '.md')
     let distpath = path.resolve(to, 'ui', distname)
+
+    if (/\.json/.test(filename)) {
+      fs.copySync(absolute, distpath)
+      return
+    }
 
     fs.copySync(absolute, distpath)
     let settingDir = path.resolve(absolute, '..', 'setting')

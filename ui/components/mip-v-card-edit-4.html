@@ -61,22 +61,54 @@
   </head>
   <body>
     <div class="edit-toolbar">
-      <a class="toolbar-button" href="/v2/ui/components/mip-v-parallax.html">返回文档</a>
+      <a class="toolbar-button" href="/v2/ui/components/mip-v-card.html">返回文档</a>
     </div>
     <div class="edit-wrapper">
       <div class="edit-code">
         <p class="edit-tip">编辑您的代码：</p>
-        <textarea id="code" name="code"><mip-v-parallax dark src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg">
-  <div class="layout align-center column justify-center">
-    <h1 class="display-2 font-weight-thin mb-3">Vuetify.js</h1>
-    <h4 class="subheading">Build your application today!</h4>
+        <textarea id="code" name="code"><mip-data>
+  <script type="application/json">
+    {
+      "show": false
+    }
+  </script>
+</mip-data>
+<div class="layout row">
+  <div class="flex xs12 sm6 offset-sm3">
+    <mip-v-card>
+      <mip-v-card-media src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg" height="200px">
+      </mip-v-card-media>
+
+      <mip-v-card-title primary-title>
+        <div>
+          <div class="headline">Top western road trips</div>
+          <span class="grey--text">1,000 miles of wonder</span>
+        </div>
+      </mip-v-card-title>
+
+      <mip-v-card-actions>
+        <mip-v-btn flat>Share</mip-v-btn>
+        <mip-v-btn flat color="purple">Explore</mip-v-btn>
+        <mip-v-spacer></mip-v-spacer>
+        <mip-v-btn icon on="tap:MIP.setData({ show: !m.show })">
+          <mip-v-icon m-bind:style="{ display: show ? &apos;block&apos; : &apos;none&apos; }">keyboard_arrow_down</mip-v-icon>
+          <mip-v-icon m-bind:style="{ display: show ? &apos;none&apos; : &apos;block&apos; }">keyboard_arrow_up</mip-v-icon>
+        </mip-v-btn>
+      </mip-v-card-actions>
+
+      <mip-v-slide-y-transition>
+        <mip-v-card-text m-bind:style="{ display: show ? &apos;block&apos; : &apos;none&apos; }">
+          I&apos;m a thing. But, like most politicians, he promised more than he could deliver. You won&apos;t have time for sleeping, soldier, not with all the bed making you&apos;ll be doing. Then we&apos;ll go with that data file! Hey, you add a one and two zeros to that or we walk! You&apos;re going to do his laundry? I&apos;ve got to find a way to escape.
+        </mip-v-card-text>
+      </mip-v-slide-y-transition>
+    </mip-v-card>
   </div>
-</mip-v-parallax>
+</div>
 </textarea>
       </div>
       <div class="edit-iframe-wrapper">
         <p class="edit-tip">查看结果：</p>
-        <iframe id="edit-iframe" frameborder="0" width="320" height="568" src="/v2/ui/components/mip-v-parallax-case-1.html"></iframe>
+        <iframe id="edit-iframe" frameborder="0" width="320" height="568" src="/v2/ui/components/mip-v-card-case-4.html"></iframe>
       </div>
     </div>
     <script src="https://cdn.bootcss.com/codemirror/5.38.0/codemirror.min.js"></script>

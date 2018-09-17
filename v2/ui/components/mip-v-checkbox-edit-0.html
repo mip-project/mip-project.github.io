@@ -73,7 +73,9 @@
     }
   </script>
 </mip-data>
-<mip-v-checkbox label="Checkbox" m-bind:input-value.sync="checkbox"></mip-v-checkbox>
+<div class="container fluid">
+  <mip-v-checkbox m-bind:label="&apos;Checkbox: &apos; + checkbox" m-bind:input-value.sync="checkbox"></mip-v-checkbox>
+</div>
 </textarea>
       </div>
       <div class="edit-iframe-wrapper">

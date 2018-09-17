@@ -66,18 +66,34 @@
     <div class="edit-wrapper">
       <div class="edit-code">
         <p class="edit-tip">编辑您的代码：</p>
-        <textarea id="code" name="code"><mip-v-chip close>Example Chip</mip-v-chip>
-<mip-v-chip>Example Chip</mip-v-chip>
-<mip-v-chip close>
-  <mip-v-avatar>
-    <img src="https://randomuser.me/api/portraits/men/35.jpg" alt="trevor">
-  </mip-v-avatar>
-  Trevor Hansen
-</mip-v-chip>
-<mip-v-chip>
-  <mip-v-avatar class="teal">A</mip-v-avatar>
-  ANZ Bank
-</mip-v-chip>
+        <textarea id="code" name="code"><div class="container fluid pa-0">
+  <div class="layout row wrap">
+    <div class="flex md6 sm12">
+      <div class="text-xs-center">
+        <mip-v-chip close>Example Chip</mip-v-chip>
+      </div>
+      <div class="text-xs-center">
+        <mip-v-chip>Example Chip</mip-v-chip>
+      </div>
+    </div>
+    <div class="flex md6 sm12 xs12">
+      <div class="text-xs-center">
+        <mip-v-chip close>
+          <mip-v-avatar>
+            <img src="https://randomuser.me/api/portraits/men/35.jpg" alt="trevor">
+          </mip-v-avatar>
+          Trevor Hansen
+        </mip-v-chip>
+      </div>
+      <div class="text-xs-center">
+        <mip-v-chip>
+          <mip-v-avatar class="teal">A</mip-v-avatar>
+          ANZ Bank
+        </mip-v-chip>
+      </div>
+    </div>
+  </div>
+</div>
 </textarea>
       </div>
       <div class="edit-iframe-wrapper">

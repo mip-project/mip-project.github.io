@@ -69,26 +69,28 @@
         <textarea id="code" name="code"><mip-data>
   <script type="application/json">
     {
-      "dialog2": false
+      "dialog": false
     }
   </script>
 </mip-data>
-<mip-v-dialog m-bind:value.sync="dialog2" persistent max-width="290">
-  <mip-v-btn slot="activator" color="primary" dark>
-    Open Dialog
-  </mip-v-btn>
-  <mip-v-card>
-    <mip-v-card-title class="headline">Use Google&apos;s location service?</mip-v-card-title>
-    <mip-v-card-text>
-      Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.
-    </mip-v-card-text>
-    <mip-v-card-actions>
-      <div class="spacer"></div>
-      <mip-v-btn color="green darken-1" flat on="tap:MIP.setData({ dialog2: false })">Disagree</mip-v-btn>
-      <mip-v-btn color="green darken-1" flat on="tap:MIP.setData({ dialog2: false })">Agree</mip-v-btn>
-    </mip-v-card-actions>
-  </mip-v-card>
-</mip-v-dialog>
+<div class="layout row justify-center">
+  <mip-v-dialog m-bind:value.sync="dialog" persistent max-width="290">
+    <mip-v-btn slot="activator" color="primary" dark>
+      Open Dialog
+    </mip-v-btn>
+    <mip-v-card>
+      <mip-v-card-title class="headline">Use Google&apos;s location service?</mip-v-card-title>
+      <mip-v-card-text>
+        Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.
+      </mip-v-card-text>
+      <mip-v-card-actions>
+        <div class="spacer"></div>
+        <mip-v-btn color="green darken-1" flat on="tap:MIP.setData({ dialog: false })">Disagree</mip-v-btn>
+        <mip-v-btn color="green darken-1" flat on="tap:MIP.setData({ dialog: false })">Agree</mip-v-btn>
+      </mip-v-card-actions>
+    </mip-v-card>
+  </mip-v-dialog>
+</div>
 </textarea>
       </div>
       <div class="edit-iframe-wrapper">

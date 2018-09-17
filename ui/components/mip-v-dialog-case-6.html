@@ -14,24 +14,26 @@
   <mip-data>
   <script type="application/json">
     {
-      "dialog7": false
+      "dialog": false
     }
   </script>
 </mip-data>
-<mip-v-dialog m-bind:value.sync="dialog7" hide-overlay persistent width="300">
-  <mip-v-btn slot="activator" m-bind:disabled="dialog7" m-bind:loading="dialog7" class="white--text" color="purple darken-2" on="tap:MIP.setData({ dialog7: true })">
-    Start loading
-  </mip-v-btn>
-  <mip-v-card color="primary" dark>
-    <mip-v-card-text>
-      Please stand by
-      <mip-v-progress-linear indeterminate color="white" class="mb-0"></mip-v-progress-linear>
-    </mip-v-card-text>
-  </mip-v-card>
-</mip-v-dialog>
+<div class="layout row justify-center">
+  <mip-v-dialog m-bind:value.sync="dialog" hide-overlay persistent max-width="300">
+    <mip-v-btn slot="activator" m-bind:disabled="dialog" m-bind:loading="dialog" class="white--text" color="purple darken-2" on="tap:MIP.setData({ dialog: true })">
+      Start loading
+    </mip-v-btn>
+    <mip-v-card color="primary" dark>
+      <mip-v-card-text>
+        Please stand by
+        <mip-v-progress-linear indeterminate color="white" class="mb-0"></mip-v-progress-linear>
+      </mip-v-card-text>
+    </mip-v-card>
+  </mip-v-dialog>
+</div>
 <mip-script>
-  MIP.watch('dialog7', val => {
-    val && setTimeout(() => MIP.setData({ dialog7: false }), 2000)
+  MIP.watch('dialog', val => {
+    val && setTimeout(() => MIP.setData({ dialog: false }), 2000)
   })
 </mip-script>
 <script src="https://c.mipcdn.com/static/v2/mip-script/mip-script.js"></script>
