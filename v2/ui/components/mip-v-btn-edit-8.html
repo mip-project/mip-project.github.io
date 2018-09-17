@@ -66,22 +66,57 @@
     <div class="edit-wrapper">
       <div class="edit-code">
         <p class="edit-tip">编辑您的代码：</p>
-        <textarea id="code" name="code"><div class="flex">
-  <mip-v-btn small color="primary" dark>Small Button</mip-v-btn>
-  <mip-v-btn color="warning" dark>Normal Button</mip-v-btn>
-  <mip-v-btn color="error" dark large>Large Button</mip-v-btn>
+        <textarea id="code" name="code"><mip-data>
+  <script type="application/json">
+    {
+      "loading": false
+    }
+  </script>
+</mip-data>
+<style mip-custom>
+  .custom-loader {
+    animation: loader 1s infinite;
+    display: flex;
+  }
+  @keyframes loader {
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+</style>
+<div class="text-xs-center">
+  <mip-v-btn m-bind:loading="loading" m-bind:disabled="loading" color="secondary" on="click:MIP.setData({ loading: true })">
+    Accept Terms
+  </mip-v-btn>
+
+  <mip-v-btn m-bind:loading="loading" m-bind:disabled="loading" color="blue-grey" class="white--text" on="click:MIP.setData({ loading: true })">
+    Upload
+    <mip-v-icon right dark>cloud_upload</mip-v-icon>
+  </mip-v-btn>
+
+  <mip-v-btn m-bind:loading="loading" m-bind:disabled="loading" color="success" on="click:MIP.setData({ loading: true })">
+    Custom Loader
+    <span slot="loader">Loading...</span>
+  </mip-v-btn>
+
+  <mip-v-btn m-bind:loading="loading" m-bind:disabled="loading" color="info" on="click:MIP.setData({ loading: true })">
+    Icon Loader
+    <span slot="loader" class="custom-loader">
+      <mip-v-icon light>cached</mip-v-icon>
+    </span>
+  </mip-v-btn>
 </div>
-<div class="flex">
-  <mip-v-btn color="primary" fab small dark>
-    <mip-v-icon>edit</mip-v-icon>
-  </mip-v-btn>
-  <mip-v-btn color="warning" fab dark>
-    <mip-v-icon>account_circle</mip-v-icon>
-  </mip-v-btn>
-  <mip-v-btn color="error" fab large dark>
-    <mip-v-icon>alarm</mip-v-icon>
-  </mip-v-btn>
-</div>
+<mip-script>
+  MIP.watch('loading', (val) => {
+    if (val) {
+      setTimeout(() => MIP.setData({ loading: false }), 2000)
+    }
+  })
+</mip-script>
+<script src="https://c.mipcdn.com/static/v2/mip-script/mip-script.js"></script>
 </textarea>
       </div>
       <div class="edit-iframe-wrapper">

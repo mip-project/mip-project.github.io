@@ -11,36 +11,136 @@
 </head>
 <body>
   
-  <h4>Normal</h4>
-<div class="flex">
-  <mip-v-btn flat icon color="pink">
-    <mip-v-icon>favorite</mip-v-icon>
-  </mip-v-btn>
-  <mip-v-btn flat icon color="indigo">
-    <mip-v-icon>star</mip-v-icon>
-  </mip-v-btn>
-  <mip-v-btn flat icon color="green">
-    <mip-v-icon>cached</mip-v-icon>
-  </mip-v-btn>
-  <mip-v-btn flat icon color="deep-orange">
-    <mip-v-icon>thumb_up</mip-v-icon>
-  </mip-v-btn>
-</div>
-<h4>Disabled</h4>
-<div class="flex">
-  <mip-v-btn icon disabled>
-    <mip-v-icon>favorite</mip-v-icon>
-  </mip-v-btn>
-  <mip-v-btn icon disabled>
-    <mip-v-icon>star</mip-v-icon>
-  </mip-v-btn>
-  <mip-v-btn icon disabled>
-    <mip-v-icon>cached</mip-v-icon>
-  </mip-v-btn>
-  <mip-v-btn icon disabled>
-    <mip-v-icon>thumb_up</mip-v-icon>
-  </mip-v-btn>
-</div>
+  <mip-data>
+  <script type="application/json">
+    {
+      "toggleExclusive": 2,
+      "toggleMultiple": [
+        0,
+        1,
+        2
+      ],
+      "toggleNone": null,
+      "toggleOne": 0,
+      "text": "center",
+      "icon": "justify"
+    }
+  </script>
+</mip-data>
+<mip-v-card flat class="py-5">
+  <mip-v-card-text>
+    <div class="container fluid pa-0">
+      <div class="layout row wrap">
+        <div class="flex xs12 sm6 py-2">
+          <p>Exclusive</p>
+          <mip-v-btn-toggle m-bind:input-value.sync="toggleExclusive">
+            <mip-v-btn flat>
+              <mip-v-icon>format_align_left</mip-v-icon>
+            </mip-v-btn>
+            <mip-v-btn flat>
+              <mip-v-icon>format_align_center</mip-v-icon>
+            </mip-v-btn>
+            <mip-v-btn flat>
+              <mip-v-icon>format_align_right</mip-v-icon>
+            </mip-v-btn>
+            <mip-v-btn flat>
+              <mip-v-icon>format_align_justify</mip-v-icon>
+            </mip-v-btn>
+          </mip-v-btn-toggle>
+        </div>
+        <div class="flex xs12 sm6 py-2">
+          <p>Multiple</p>
+          <mip-v-btn-toggle m-bind:input-value.sync="toggleMultiple" multiple>
+            <mip-v-btn flat>
+              <mip-v-icon>format_bold</mip-v-icon>
+            </mip-v-btn>
+            <mip-v-btn flat>
+              <mip-v-icon>format_italic</mip-v-icon>
+            </mip-v-btn>
+            <mip-v-btn flat>
+              <mip-v-icon>format_underlined</mip-v-icon>
+            </mip-v-btn>
+            <mip-v-btn flat>
+              <mip-v-icon>format_color_fill</mip-v-icon>
+            </mip-v-btn>
+          </mip-v-btn-toggle>
+        </div>
+        <div class="flex xs12 sm6 py-2">
+          <p>No Options Selected</p>
+          <mip-v-btn-toggle m-bind:input-value.sync="toggleNone">
+            <mip-v-btn flat>
+              <mip-v-icon>format_align_left</mip-v-icon>
+            </mip-v-btn>
+            <mip-v-btn flat>
+              <mip-v-icon>format_align_center</mip-v-icon>
+            </mip-v-btn>
+            <mip-v-btn flat>
+              <mip-v-icon>format_align_right</mip-v-icon>
+            </mip-v-btn>
+            <mip-v-btn flat>
+              <mip-v-icon>format_align_justify</mip-v-icon>
+            </mip-v-btn>
+          </mip-v-btn-toggle>
+        </div>
+        <div class="flex xs12 sm6 py-2">
+          <p>Mandatory</p>
+          <mip-v-btn-toggle m-bind:input-value.sync="toggleOne" mandatory>
+            <mip-v-btn flat>
+              <mip-v-icon>format_align_left</mip-v-icon>
+            </mip-v-btn>
+            <mip-v-btn flat>
+              <mip-v-icon>format_align_center</mip-v-icon>
+            </mip-v-btn>
+            <mip-v-btn flat>
+              <mip-v-icon>format_align_right</mip-v-icon>
+            </mip-v-btn>
+            <mip-v-btn flat>
+              <mip-v-icon>format_align_justify</mip-v-icon>
+            </mip-v-btn>
+          </mip-v-btn-toggle>
+        </div>
+        <div class="flex xs12 sm6 py-2">
+          <p>Text Options</p>
+          <mip-v-btn-toggle m-bind:input-value.sync="text">
+            <mip-v-btn flat value="left">
+              Left
+            </mip-v-btn>
+            <mip-v-btn flat value="center">
+              Center
+            </mip-v-btn>
+            <mip-v-btn flat value="right">
+              Right
+            </mip-v-btn>
+            <mip-v-btn flat value="justify">
+              Justify
+            </mip-v-btn>
+          </mip-v-btn-toggle>
+        </div>
+        <div class="flex xs12 sm6 py-2">
+          <p>Text &amp; Icon Options</p>
+          <mip-v-btn-toggle m-bind:input-value.sync="icon">
+            <mip-v-btn flat value="left">
+              <span>Left</span>
+              <mip-v-icon>format_align_left</mip-v-icon>
+            </mip-v-btn>
+            <mip-v-btn flat value="center">
+              <span>Center</span>
+              <mip-v-icon>format_align_center</mip-v-icon>
+            </mip-v-btn>
+            <mip-v-btn flat value="right">
+              <span>Right</span>
+              <mip-v-icon>format_align_right</mip-v-icon>
+            </mip-v-btn>
+            <mip-v-btn flat value="justify">
+              <span>Justify</span>
+              <mip-v-icon>format_align_justify</mip-v-icon>
+            </mip-v-btn>
+          </mip-v-btn-toggle>
+        </div>
+      </div>
+    </div>
+  </mip-v-card-text>
+</mip-v-card>
 
   <script type="data-x-preset" id="preset">
   

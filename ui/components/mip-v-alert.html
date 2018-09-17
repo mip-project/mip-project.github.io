@@ -124,18 +124,23 @@
                 <section>
                   <div class="md-fn-title md-fn-code-title">查看代码</div>
                   <div class="md-fn-code-section">
-                    <pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-v-alert</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"success"</span>&gt;</span>
-  This is a success alert.
-<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-alert</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">mip-v-alert</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"info"</span>&gt;</span>
-  This is a info alert.
-<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-alert</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">mip-v-alert</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"warning"</span>&gt;</span>
-  This is a warning alert.
-<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-alert</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">mip-v-alert</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"error"</span>&gt;</span>
-  This is a error alert.
-<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-alert</span>&gt;</span></code></pre>
+                    <pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-alert</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"success"</span>&gt;</span>
+    This is a success alert.
+  <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-alert</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-alert</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"info"</span>&gt;</span>
+    This is a info alert.
+  <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-alert</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-alert</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"warning"</span>&gt;</span>
+    This is a warning alert.
+  <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-alert</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-alert</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"error"</span>&gt;</span>
+    This is a error alert.
+  <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-alert</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
                   </div>
                 </section>
               </mip-accordion>
@@ -158,16 +163,24 @@
                 <section>
                   <div class="md-fn-title md-fn-code-title">查看代码</div>
                   <div class="md-fn-code-section">
-                    <pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
+                    <pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
     {
       <span class="hljs-string">"alert"</span>: <span class="hljs-literal">true</span>
     }
   </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">mip-data</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">mip-v-alert</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"alert"</span> <span class="hljs-attr">dismissible</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"success"</span>&gt;</span>
-  This is a success alert that is closable.
-<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-alert</span>&gt;</span></code></pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-alert</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"alert"</span> <span class="hljs-attr">dismissible</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"success"</span>&gt;</span>
+    This is a success alert that is closable.
+  <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-alert</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"text-xs-center"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span> <span class="hljs-attr">m-bind:style</span>=<span class="hljs-string">"{ display: alert ? &amp;apos;none&amp;apos; : &amp;apos;block&amp;apos; }"</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span> <span class="hljs-attr">dark</span> <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:MIP.setData({ alert: true })"</span>&gt;</span>
+      Reset
+    <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
                   </div>
                 </section>
               </mip-accordion>
@@ -190,12 +203,15 @@
                 <section>
                   <div class="md-fn-title md-fn-code-title">查看代码</div>
                   <div class="md-fn-code-section">
-                    <pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-v-alert</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"success"</span> <span class="hljs-attr">icon</span>=<span class="hljs-string">"new_releases"</span>&gt;</span>
-  This is a success alert with a custom icon.
-<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-alert</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">mip-v-alert</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"error"</span>&gt;</span>
-  This is an error alert with no icon.
-<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-alert</span>&gt;</span></code></pre>
+                    <pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-alert</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"success"</span> <span class="hljs-attr">icon</span>=<span class="hljs-string">"new_releases"</span>&gt;</span>
+    This is a success alert with a custom icon.
+  <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-alert</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-alert</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"error"</span>&gt;</span>
+    This is an error alert with no icon.
+  <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-alert</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
                   </div>
                 </section>
               </mip-accordion>
@@ -218,19 +234,24 @@
                 <section>
                   <div class="md-fn-title md-fn-code-title">查看代码</div>
                   <div class="md-fn-code-section">
-                    <pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
+                    <pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
     {
       <span class="hljs-string">"alert"</span>: <span class="hljs-literal">true</span>
     }
   </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">mip-data</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span> <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:MIP.setData({ alert: !alert })"</span>&gt;</span>
-  Toggle
-<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">mip-v-alert</span> <span class="hljs-attr">m-bind:value</span>=<span class="hljs-string">"alert"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"success"</span> <span class="hljs-attr">transition</span>=<span class="hljs-string">"scale-transition"</span>&gt;</span>
-  This is a success alert.
-<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-alert</span>&gt;</span></code></pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"text-xs-center"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span> <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:MIP.setData({ alert: !m.alert })"</span>&gt;</span>
+      Toggle
+    <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-alert</span> <span class="hljs-attr">m-bind:value</span>=<span class="hljs-string">"alert"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"success"</span> <span class="hljs-attr">transition</span>=<span class="hljs-string">"scale-transition"</span>&gt;</span>
+    This is a success alert.
+  <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-alert</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
                   </div>
                 </section>
               </mip-accordion>
