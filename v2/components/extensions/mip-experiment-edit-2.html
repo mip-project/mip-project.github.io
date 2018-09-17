@@ -61,44 +61,67 @@
   </head>
   <body>
     <div class="edit-toolbar">
-      <a class="toolbar-button" href="/v2/components/extensions/mip-group-selection.html">返回文档</a>
+      <a class="toolbar-button" href="/v2/components/extensions/mip-experiment.html">返回文档</a>
     </div>
     <div class="edit-wrapper">
       <div class="edit-code">
         <p class="edit-tip">编辑您的代码：</p>
-        <textarea id="code" name="code"><mip-group-selection class="mip-hidden" data-src="https://xxx/cities.json">
-    <!--存在 data-src 时，本地数据配置不生效-->
-    <!-- 城市选择组件依赖的 DOM 结构，不建议自行删除结构 -->
-    <div class="mip-group-selection-wrapper">
-        <template type="mip-mustache">
-            <div class="mip-group-selection-content">
-                {{#list}}
-                <div class="mip-group-selection-group mip-group-selection-part-letter">
-                    <div class="mip-group-selection-title" data-anchor="{{key}}">{{key}}</div>
-                    {{#cities}}
-                    <div class="mip-group-selection-item" data-code="{{code}}" data-pinyin="{{pinyin}}">{{city}}</div>
-                    {{/cities}}
-                </div>
-               {{/list}}
-            </div>
-            <mip-fixed class="mip-group-selection-sidebar-wrapper">
-                <div class="mip-group-selection-sidebar">
-                    {{#list}}
-                    <a class="mip-group-selection-link" data-target-anchor="{{key}}">{{key}}</a>
-                    {{/list}}
-                </div>
-            </mip-fixed>
-        </template>
-    </div>
-</mip-group-selection>
-<script src="https://c.mipcdn.com/static/v1/mip-mustache/mip-mustache.js"></script>
-<!--侧边栏布局依赖mip-fixed组件提供样式-->
-<script src="https://c.mipcdn.com/static/v1/mip-fixed/mip-fixed.js"></script>
+        <textarea id="code" name="code"><style>
+button {
+    background-color: aquamarine;
+    color: black;
+    display: block;
+    margin:10px;
+    padding:20px;
+}
+body[mip-x-button-color3=yellow] .exp-btn3 {
+    background-color: yellow;
+}
+body[mip-x-button-color3=grey] .exp-btn3 {
+    background-color: #888888;
+}
+body[mip-x-button-color3=blue] .exp-btn3 {
+    background-color: #3388ff;
+}
+body[mip-x-font-color=black] .exp-btn3 {
+    color: black;
+}
+body[mip-x-font-color=white] .exp-btn3 {
+    color: white;
+}
+</style>
+<mip-experiment layout="nodisplay" class="mip-hidden">
+    <script type="application/json" for="mip-experiment">
+        {
+            "button-color3": {
+                "sticky": false,
+                "descri": "3.设置按钮背景色,黄-灰-蓝-绿",
+                "variants": {
+                    "yellow": 30,
+                    "grey": 30,
+                    "blue": 30
+                }
+            },
+            "font-color": {
+                "sticky": false,
+                "descri": "设置按钮字体颜色,黑-白",
+                "variants": {
+                    "black": 50,
+                    "white": 50
+                }
+            }
+        }
+    </script>
+    <p>设置按钮背景色,黄(30%)-灰(30%)-蓝(30%)-绿(默认10%)</p>
+    <p>设置按钮字体色,黑(50%)-白(50%)</p>
+    <p>每次刷新重新分组</p>
+    <button class="exp-btn3">修改背景色&字体颜色</button>
+</mip-experiment>
 </textarea>
       </div>
       <div class="edit-iframe-wrapper">
         <p class="edit-tip">查看结果：</p>
-        <iframe id="edit-iframe" frameborder="0" width="320" height="568" src="/v2/components/extensions/mip-group-selection-case-1.html"></iframe>
+        <iframe id="edit-iframe" frameborder="0" width="320" height="568" src="/v2/components/extensions/mip-experiment-case-2.html"></iframe>
       </div>
     </div>
     <script src="https://cdn.bootcss.com/codemirror/5.38.0/codemirror.min.js"></script>

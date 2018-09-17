@@ -61,24 +61,52 @@
   </head>
   <body>
     <div class="edit-toolbar">
-      <a class="toolbar-button" href="/v2/components/mip-ad/mip-ad-ecom.html">返回文档</a>
+      <a class="toolbar-button" href="/v2/components/extensions/mip-experiment.html">返回文档</a>
     </div>
     <div class="edit-wrapper">
       <div class="edit-code">
         <p class="edit-tip">编辑您的代码：</p>
-        <textarea id="code" name="code"><mip-ad-ecom layout="fixed-height" height="343">
-    <script type="application/json">
+        <textarea id="code" name="code"><style>
+button {
+    background-color: black;
+    display: block;
+    margin:10px;
+    padding:20px;
+}
+body[mip-x-button-color=red] #btn01 {
+    background-color: red;
+}
+body[mip-x-button-color=grey] #btn01 {
+    background-color: #888888;
+}
+</style>
+<mip-experiment layout="nodisplay" class="mip-hidden">
+    <script type="application/json" for="mip-experiment">
         {
-            "accid": "e2217bab684fbb898dccf04b",
-            "title": "%E8%BF%99%E9%87%8C%E6%98%AF%E6%A0%87%E9%A2%98"
+            "button-color6": {
+                "sticky": false,
+                "descri": "设置按钮背景色,红-灰-黑（默认）",
+                "variants": {
+                    "red": 30,
+                    "grey": 30
+                },
+                "baidu-stats": [
+                    ["window", "load"],
+                    ["#btn01", "click"，"2.23"]
+                ]
+            }
         }
     </script>
-</mip-ad-ecom>
+    <p>设置按钮背景色,红（30%）-灰（30%）-黑（默认40%）</p>
+    <p>每次刷新重新分组</p>
+    <button id="btn01">修改背景色</button>
+</mip-experiment>
+<script src="https://c.mipcdn.com/static/v1/mip-stats-baidu/mip-stats-baidu.js"></script>
 </textarea>
       </div>
       <div class="edit-iframe-wrapper">
         <p class="edit-tip">查看结果：</p>
-        <iframe id="edit-iframe" frameborder="0" width="320" height="568" src="/v2/components/mip-ad/mip-ad-ecom-case-0.html"></iframe>
+        <iframe id="edit-iframe" frameborder="0" width="320" height="568" src="/v2/components/extensions/mip-experiment-case-5.html"></iframe>
       </div>
     </div>
     <script src="https://cdn.bootcss.com/codemirror/5.38.0/codemirror.min.js"></script>
