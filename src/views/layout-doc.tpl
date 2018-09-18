@@ -32,12 +32,11 @@
 
 {{ block: sidebar }}
 <div class="sidebar-fragment navbar-secnav-wrapper"
-  on="tap:nav-sidebar.close"
   m-bind:class="{hide:sidebarFragment!=='guide'}"
 >
   <h1 on="tap:MIP.setData({sidebarFragment:'nav'})"><span>${secondNavbarTitle}</span></h1>
   <mip-fastclick>
-    <mip-sidenav m-bind:menu="menu" m-bind:chapters="chapters" m-bind:url="url"></mip-sidenav>
+    <mip-sidenav m-bind:menu="menu" m-bind:chapters="chapters" m-bind:url="url" on="tap:nav-sidebar.close"></mip-sidenav>
   </mip-fastclick>
 </div>
 {{ /block }}

@@ -3,7 +3,8 @@
  * @author tanglei (tanglei02@baidu.com)
  * @description 为文章对象添加 menu 信息
  */
-const navbar = require('../data/navbar')
+const navbarEngine = require('../data/navbar')
+const navbar = navbarEngine()
 
 module.exports = class MenuInfo {
   apply (on, app) {

@@ -20,7 +20,7 @@
     <a data-type="mip" href="/"><div class="navbar-logo"></div></a>
     <div class="navbar-menu">
       <ul class="navbar-menu-wrapper">
-        <li class="navbar-item" ><a data-type="mip" href="/v2/index.html" class="menu-name" title="首页">首页</a></li>
+        <li class="navbar-item" ><a data-type="mip" href="/v2/index.html" class="menu-name" title=""></a></li>
         <li class="navbar-item active">
           <span class="menu-name" title="UI">UI<i class="arrow"></i></span>
           <ul class="navbar-sub-menu">
@@ -32,7 +32,7 @@
           </ul>
         </li>
         <li class="navbar-item">
-          <span class="menu-name" title="常用链接">常用链接<i class="arrow"></i></span>
+          <span class="menu-name" title=""><i class="arrow"></i></span>
           <ul class="navbar-sub-menu">
             <li class="navbar-sub-item"><a data-type="mip" href="http://www.cnblogs.com/mipengine" title="MIP 官方博客">MIP 官方博客</a></li>
             <li class="navbar-sub-item"><a data-type="mip" href="https://github.com/mipengine/mip2/tree/master/packages/mip-cli" title="MIP-CLI 本地开发工具">MIP-CLI 本地开发工具</a></li>
@@ -41,8 +41,8 @@
             <li class="navbar-sub-item"><a data-type="mip" href="https://www.mipengine.org/mippath.html" title="MIP PATH 转换工具">MIP PATH 转换工具</a></li>
           </ul>
         </li>
-        <li class="navbar-item" ><a target="_blank" href="https://github.com/mipengine/mip2" class="menu-name" title="GitHub">GitHub</a></li>
-        <li class="navbar-item" ><a target="_blank" href="https://www.mipengine.org" class="menu-name" title="回到旧版">回到旧版</a></li>
+        <li class="navbar-item" ><a target="_blank" href="https://github.com/mipengine/mip2" class="menu-name" title=""></a></li>
+        <li class="navbar-item" ><a target="_blank" href="https://www.mipengine.org" class="menu-name" title=""></a></li>
       </ul>
       <div class="navbar-indicator" m-bind:style="navbarStyle"></div>
     </div>
@@ -63,7 +63,7 @@
   <ul class="navbar-menu-wrapper">
     <li class="navbar-item" ><a data-type="mip" href="/v2/index.html" class="menu-name">首页</a></li>
     <li class="navbar-item active">
-      <span class="menu-name">UI</span>
+      <span class="menu-name">学习</span>
       <ul class="navbar-sub-menu">
         <li class="navbar-sub-item"><a data-type="mip" href="/v2/guide/basic/newbie.html">使用文档</a></li>
         <li class="navbar-sub-item"><a data-type="mip" href="/v2/components/index.html">组件列表</a></li>
@@ -87,12 +87,11 @@
   </ul>
 </div>
 <div class="sidebar-fragment navbar-secnav-wrapper"
-  on="tap:nav-sidebar.close"
   m-bind:class="{hide:sidebarFragment!=='guide'}"
 >
   <h1 on="tap:MIP.setData({sidebarFragment:'nav'})"><span></span></h1>
   <mip-fastclick>
-    <mip-sidenav m-bind:menu="menu" m-bind:chapters="chapters" m-bind:url="url"></mip-sidenav>
+    <mip-sidenav m-bind:menu="menu" m-bind:chapters="chapters" m-bind:url="url" on="tap:nav-sidebar.close"></mip-sidenav>
   </mip-fastclick>
 </div>
     </mip-sidebar>
@@ -741,7 +740,7 @@
 <mip-data>
   <script type="application/json">
     {
-      "navbar": [{"name":"首页","path":"docs/index","activeUrl":{},"width":32,"url":"/v2/index.html"},{"name":"UI","width":32,"activeUrl":{},"children":[{"name":"使用文档","path":"docs/guide","width":64,"url":"/v2/guide/basic/newbie.html"},{"name":"组件列表","path":"docs/extensions","width":64,"url":"/v2/components/index.html"},{"name":"API","path":"docs/api","url":"/v2/api/index.html"},{"name":"Codelab","path":"docs/codelabs","width":60,"url":"/v2/codelabs/index.html"},{"name":"UI","path":"docs/ui/components/mip-v-alert.md","width":60,"url":"/v2/ui/components/mip-v-alert.html"}]},{"name":"常用链接","children":[{"name":"MIP 官方博客","url":"http://www.cnblogs.com/mipengine","blank":true},{"name":"MIP-CLI 本地开发工具","url":"https://github.com/mipengine/mip2/tree/master/packages/mip-cli","blank":true},{"name":"MIP 代码校验工具","url":"https://www.mipengine.org/validator/validate","blank":true},{"name":"MIP 效果预览工具","url":"https://www.mipengine.org/validator/preview","blank":true},{"name":"MIP PATH 转换工具","url":"https://www.mipengine.org/mippath.html","blank":true}],"width":82},{"name":"GitHub","url":"https://github.com/mipengine/mip2","blank":true,"width":50},{"name":"回到旧版","url":"https://www.mipengine.org","blank":true,"width":32}],
+      "navbar": [{"name":"首页","path":"docs/index","activeUrl":{},"width":32,"url":"/v2/index.html"},{"name":"学习","width":32,"activeUrl":{},"children":[{"name":"使用文档","path":"docs/guide","width":64,"url":"/v2/guide/basic/newbie.html"},{"name":"组件列表","path":"docs/extensions","width":64,"url":"/v2/components/index.html"},{"name":"API","path":"docs/api","url":"/v2/api/index.html"},{"name":"Codelab","path":"docs/codelabs","width":60,"url":"/v2/codelabs/index.html"},{"name":"UI","path":"docs/ui/components/mip-v-alert.md","width":60,"url":"/v2/ui/components/mip-v-alert.html"}],"aliasName":"UI"},{"name":"常用链接","children":[{"name":"MIP 官方博客","url":"http://www.cnblogs.com/mipengine","blank":true},{"name":"MIP-CLI 本地开发工具","url":"https://github.com/mipengine/mip2/tree/master/packages/mip-cli","blank":true},{"name":"MIP 代码校验工具","url":"https://www.mipengine.org/validator/validate","blank":true},{"name":"MIP 效果预览工具","url":"https://www.mipengine.org/validator/preview","blank":true},{"name":"MIP PATH 转换工具","url":"https://www.mipengine.org/mippath.html","blank":true}],"width":82},{"name":"GitHub","url":"https://github.com/mipengine/mip2","blank":true,"width":50},{"name":"回到旧版","url":"https://www.mipengine.org","blank":true,"width":32}],
       "navIndex": "1",
       "sidebarFragment": "guide",
       "sidebarSecondFragment": "guide",

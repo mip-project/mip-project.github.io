@@ -77,7 +77,7 @@ module.exports = class Layout {
         navbar[1].children.forEach(child => {
           let childUrl = child.url.split('/').slice(0, 3).join('/')
           if (url.indexOf(childUrl) === 0) {
-            navbar[1].name = child.name
+            navbar[1].aliasName = child.name
           }
         })
 
