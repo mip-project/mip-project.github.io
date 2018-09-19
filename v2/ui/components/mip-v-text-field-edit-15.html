@@ -69,49 +69,18 @@
         <textarea id="code" name="code"><mip-data>
   <script type="application/json">
     {
-      "progressValue": "",
-      "custom": true,
-      "progress": "",
-      "color": "error"
+      "mask": "credit-card"
     }
   </script>
 </mip-data>
-<div class="container grid-list-xl">
-  <mip-v-checkbox m-bind:input-value.sync="custom" label="Custom progress bar"></mip-v-checkbox>
-  <mip-v-text-field m-bind:value.sync="progressValue" color="cyan darken" label="Text field" placeholder="Start typing..." loading>
-    <mip-v-progress-linear m-bind:class="{hide: !m.custom}" slot="progress" m-bind:value="progress" m-bind:color="color" height="7"></mip-v-progress-linear>
-  </mip-v-text-field>
-</div>
-<mip-script>
-  MIP.watch('sendMessage', val => {
-    MIP.setData({
-      iconIndex: 0,
-      message: '',
-      sendMessage: false
-    })
-  })
-
-  MIP.watch('changeIcon', val => {
-    if (val) {
-      let iconIndex = MIP.getData('iconIndex')
-      let icons = MIP.getData('icons')
-      MIP.setData({
-        iconIndex: (iconIndex === icons.length - 1) ? 0 : ++iconIndex
-      })
-    }
-    MIP.setData({
-      changeIcon: false
-    })
-  })
-  MIP.watch('progressValue', val => {
-    let progress = Math.min(100, val.length * 10)
-    MIP.setData({
-      progress,
-      color: ['error', 'warning', 'success'][Math.floor(progress / 40)]
-    })
-  })
-</mip-script>
-<script src="https://c.mipcdn.com/static/v2/mip-script/mip-script.js"></script>
+<mip-v-card>
+  <mip-v-card-text>
+    <mip-v-text-field m-bind:value.sync="mask" label="Mask"></mip-v-text-field>
+  </mip-v-card-text>
+  <mip-v-card-text>
+    <mip-v-text-field m-bind:mask="mask" m-bind:value.sync="maskValue" label="Value"></mip-v-text-field>
+  </mip-v-card-text>
+</mip-v-card>
 </textarea>
       </div>
       <div class="edit-iframe-wrapper">

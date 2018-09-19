@@ -18,8 +18,24 @@
     }
   </script>
 </mip-data>
-<mip-v-btn on="click:MIP.setData({value: (m.value + 10) % 100})">Progress</mip-v-btn>
-<mip-v-progress-circular rotate="360" size="100" line-width="15" m-bind:value="value" color="teal"></mip-v-progress-circular>
+<div class="text-xs-center">
+  <mip-v-progress-circular rotate="360" size="100" line-width="15" m-bind:value="value" color="teal">
+    <span m-text="value"></span>
+  </mip-v-progress-circular>
+  <mip-v-progress-circular rotate="-90" size="100" line-width="15" m-bind:value="value" color="primary">
+    <span m-text="value"></span>
+  </mip-v-progress-circular>
+  <mip-v-progress-circular rotate="90" size="100" line-width="15" m-bind:value="value" color="red">
+    <span m-text="value"></span>
+  </mip-v-progress-circular>
+  <mip-v-progress-circular rotate="180" size="100" line-width="15" m-bind:value="value" color="pink">
+    <span m-text="value"></span>
+  </mip-v-progress-circular>
+</div>
+<mip-script>
+  setInterval(() => MIP.setData({ value: (MIP.getData('value') + 10) % 100 }), 1000)
+</mip-script>
+<script src="https://c.mipcdn.com/static/v2/mip-script/mip-script.js"></script>
 
   <script type="data-x-preset" id="preset">
   

@@ -80,13 +80,31 @@
     }
   </script>
 </mip-data>
-<mip-v-slider m-bind:value.sync="value" step="10" ticks></mip-v-slider>
-<mip-v-slider m-bind:value.sync="value" step="10">
-</mip-v-slider>
-<mip-v-slider m-bind:value.sync="value" step="10" tick-size="2">
-</mip-v-slider>
-<mip-v-slider m-bind:value.sync="fruits" max="3" step="1" tick-size="2" m-bind:tick-labels="tickLabels">
-</mip-v-slider>
+<mip-v-card flat color="transparent">
+  <mip-v-subheader>Show ticks when using slider</mip-v-subheader>
+
+  <mip-v-card-text>
+    <mip-v-slider m-bind:value.sync="value" step="10" ticks></mip-v-slider>
+  </mip-v-card-text>
+
+  <mip-v-subheader>Always show ticks</mip-v-subheader>
+
+  <mip-v-card-text>
+    <mip-v-slider m-bind:value.sync="value" step="10"></mip-v-slider>
+  </mip-v-card-text>
+
+  <mip-v-subheader>Tick size</mip-v-subheader>
+
+  <mip-v-card-text>
+    <mip-v-slider m-bind:value.sync="value" step="10" tick-size="2"></mip-v-slider>
+  </mip-v-card-text>
+
+  <mip-v-subheader>Tick labels</mip-v-subheader>
+
+  <mip-v-card-text>
+    <mip-v-slider m-bind:value.sync="fruits" max="3" step="1" tick-size="2" m-bind:tick-labels="tickLabels"></mip-v-slider>
+  </mip-v-card-text>
+</mip-v-card>
 </textarea>
       </div>
       <div class="edit-iframe-wrapper">

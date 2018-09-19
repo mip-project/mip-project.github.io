@@ -75,6 +75,13 @@
   </script>
 </mip-data>
 <mip-v-progress-linear m-bind:value.sync="buffer" m-bind:buffer-value="bufferValue" buffer></mip-v-progress-linear>
+<mip-script>
+  setInterval(() => MIP.setData({
+    buffer: MIP.getData('buffer') + Math.random() * 10 + 5,
+    bufferValue: MIP.getData('bufferValue') + Math.random() * 10 + 5
+  }), 2000)
+</mip-script>
+<script src="https://c.mipcdn.com/static/v2/mip-script/mip-script.js"></script>
 </textarea>
       </div>
       <div class="edit-iframe-wrapper">

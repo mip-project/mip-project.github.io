@@ -18,8 +18,11 @@
     }
   </script>
 </mip-data>
-<mip-v-switch m-bind:input-value.sync="people" label="John" value="John"></mip-v-switch>
-<mip-v-switch m-bind:input-value.sync="people" label="Jacob" value="Jacob"></mip-v-switch>
+<div class="container fluid">
+  <p m-text="people"></p>
+  <mip-v-switch m-bind:input-value.sync="people" label="John" value="John"></mip-v-switch>
+  <mip-v-switch m-bind:input-value.sync="people" label="Jacob" value="Jacob"></mip-v-switch>
+</div>
 
   <script type="data-x-preset" id="preset">
   

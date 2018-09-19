@@ -123,20 +123,57 @@
                 <section>
                   <div class="md-fn-title md-fn-code-title">查看代码</div>
                   <div class="md-fn-code-section">
-                    <pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
+                    <pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div>32</div><div>33</div><div>34</div><div>35</div><div>36</div><div>37</div><div>38</div><div>39</div><div>40</div><div>41</div><div>42</div><div>43</div><div>44</div><div>45</div><div>46</div><div>47</div><div>48</div><div>49</div><div>50</div><div>51</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
     {
       <span class="hljs-string">"slider"</span>: <span class="hljs-number">45</span>,
-      <span class="hljs-string">"volume"</span>: <span class="hljs-number">10</span>
+      <span class="hljs-string">"volume"</span>: <span class="hljs-number">10</span>,
+      <span class="hljs-string">"price"</span>: [
+        <span class="hljs-number">110</span>,
+        <span class="hljs-number">440</span>
+      ]
     }
   </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">mip-data</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">mip-v-slider</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"slider"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-slider</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">mip-v-slider</span> <span class="hljs-attr">disabled</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Disabled"</span> <span class="hljs-attr">inverse-label</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"30"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-slider</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">mip-v-slider</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Readonly"</span> <span class="hljs-attr">readonly</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"30"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-slider</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">mip-v-slider</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"slider"</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Label"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-slider</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">mip-v-slider</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"slider"</span> <span class="hljs-attr">inverse-label</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Inverse label"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-slider</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">mip-v-slider</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"volume"</span> <span class="hljs-attr">append-icon</span>=<span class="hljs-string">"volume_up"</span> <span class="hljs-attr">prepend-icon</span>=<span class="hljs-string">"volume_down"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-slider</span>&gt;</span></code></pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container fluid grid-list-lg"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"layout row wrap"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"flex xs12"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-slider</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"slider"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-slider</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"flex xs12"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-slider</span> <span class="hljs-attr">disabled</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Disabled"</span> <span class="hljs-attr">inverse-label</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"30"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-slider</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"flex xs12"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-slider</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Readonly"</span> <span class="hljs-attr">readonly</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"30"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-slider</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"flex xs12"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-slider</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"slider"</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Label"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-slider</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"flex xs12"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-slider</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"slider"</span> <span class="hljs-attr">inverse-label</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Inverse label"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-slider</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"flex xs12"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-slider</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"volume"</span> <span class="hljs-attr">append-icon</span>=<span class="hljs-string">"volume_up"</span> <span class="hljs-attr">prepend-icon</span>=<span class="hljs-string">"volume_down"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-slider</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"flex shrink"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"width: 60px"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-text-field</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"price[0]"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mt-0"</span> <span class="hljs-attr">hide-details</span> <span class="hljs-attr">single-line</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-text-field</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"flex"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-range-slider</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"price"</span> <span class="hljs-attr">max</span>=<span class="hljs-string">"600"</span> <span class="hljs-attr">min</span>=<span class="hljs-string">"20"</span> <span class="hljs-attr">step</span>=<span class="hljs-string">"10"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-range-slider</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"flex shrink"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"width: 60px"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-text-field</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"price[1]"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mt-0"</span> <span class="hljs-attr">hide-details</span> <span class="hljs-attr">single-line</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-text-field</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
                   </div>
                 </section>
               </mip-accordion>
@@ -159,7 +196,7 @@
                 <section>
                   <div class="md-fn-title md-fn-code-title">查看代码</div>
                   <div class="md-fn-code-section">
-                    <pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div>32</div><div>33</div><div>34</div><div>35</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
+                    <pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div>32</div><div>33</div><div>34</div><div>35</div><div>36</div><div>37</div><div>38</div><div>39</div><div>40</div><div>41</div><div>42</div><div>43</div><div>44</div><div>45</div><div>46</div><div>47</div><div>48</div><div>49</div><div>50</div><div>51</div><div>52</div><div>53</div><div>54</div><div>55</div><div>56</div><div>57</div><div>58</div><div>59</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
     {
       <span class="hljs-string">"slider"</span>: <span class="hljs-number">45</span>
@@ -175,22 +212,46 @@
 
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"flex xs12"</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-subheader</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pl-0"</span>&gt;</span>Always show thumb label<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-subheader</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-slider</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"slider"</span> <span class="hljs-attr">thumb-label</span>=<span class="hljs-string">"always"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-slider</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-slider</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"slider"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
+          {
+            <span class="hljs-string">"thumbLabel"</span>: <span class="hljs-string">"always"</span>
+          }
+        </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-slider</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"flex xs12"</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-subheader</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pl-0"</span>&gt;</span>Custom thumb color<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-subheader</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-slider</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"slider"</span> <span class="hljs-attr">thumb-color</span>=<span class="hljs-string">"red"</span> <span class="hljs-attr">thumb-label</span>=<span class="hljs-string">"always"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-slider</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-slider</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"slider"</span> <span class="hljs-attr">thumb-color</span>=<span class="hljs-string">"red"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
+          {
+            <span class="hljs-string">"thumbLabel"</span>: <span class="hljs-string">"always"</span>
+          }
+        </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-slider</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"flex xs12"</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-subheader</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pl-0"</span>&gt;</span>Custom thumb size<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-subheader</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-slider</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"slider"</span> <span class="hljs-attr">thumb-size</span>=<span class="hljs-string">"24"</span> <span class="hljs-attr">thumb-label</span>=<span class="hljs-string">"always"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-slider</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-slider</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"slider"</span> <span class="hljs-attr">thumb-size</span>=<span class="hljs-string">"24"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
+          {
+            <span class="hljs-string">"thumbLabel"</span>: <span class="hljs-string">"always"</span>
+          }
+        </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-slider</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"flex xs12"</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-subheader</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pl-0"</span>&gt;</span>Always dirty<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-subheader</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-slider</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"slider"</span> <span class="hljs-attr">always-dirty</span> <span class="hljs-attr">hint</span>=<span class="hljs-string">"Try set it to &amp;apos;0&amp;apos;"</span> <span class="hljs-attr">persistent-hint</span> <span class="hljs-attr">thumb-label</span>=<span class="hljs-string">"always"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-slider</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-slider</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"slider"</span> <span class="hljs-attr">always-dirty</span> <span class="hljs-attr">hint</span>=<span class="hljs-string">"Try set it to &amp;apos;0&amp;apos;"</span> <span class="hljs-attr">persistent-hint</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
+          {
+            <span class="hljs-string">"thumbLabel"</span>: <span class="hljs-string">"always"</span>
+          }
+        </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-slider</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
@@ -216,7 +277,7 @@
                 <section>
                   <div class="md-fn-title md-fn-code-title">查看代码</div>
                   <div class="md-fn-code-section">
-                    <pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
+                    <pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div>32</div><div>33</div><div>34</div><div>35</div><div>36</div><div>37</div><div>38</div><div>39</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
     {
       <span class="hljs-string">"value"</span>: <span class="hljs-number">0</span>,
@@ -230,13 +291,31 @@
     }
   </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">mip-data</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">mip-v-slider</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"value"</span> <span class="hljs-attr">step</span>=<span class="hljs-string">"10"</span> <span class="hljs-attr">ticks</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-slider</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">mip-v-slider</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"value"</span> <span class="hljs-attr">step</span>=<span class="hljs-string">"10"</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-slider</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">mip-v-slider</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"value"</span> <span class="hljs-attr">step</span>=<span class="hljs-string">"10"</span> <span class="hljs-attr">tick-size</span>=<span class="hljs-string">"2"</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-slider</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">mip-v-slider</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"fruits"</span> <span class="hljs-attr">max</span>=<span class="hljs-string">"3"</span> <span class="hljs-attr">step</span>=<span class="hljs-string">"1"</span> <span class="hljs-attr">tick-size</span>=<span class="hljs-string">"2"</span> <span class="hljs-attr">m-bind:tick-labels</span>=<span class="hljs-string">"tickLabels"</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-slider</span>&gt;</span></code></pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card</span> <span class="hljs-attr">flat</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"transparent"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-subheader</span>&gt;</span>Show ticks when using slider<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-subheader</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card-text</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-slider</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"value"</span> <span class="hljs-attr">step</span>=<span class="hljs-string">"10"</span> <span class="hljs-attr">ticks</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-slider</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card-text</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-subheader</span>&gt;</span>Always show ticks<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-subheader</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card-text</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-slider</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"value"</span> <span class="hljs-attr">step</span>=<span class="hljs-string">"10"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-slider</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card-text</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-subheader</span>&gt;</span>Tick size<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-subheader</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card-text</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-slider</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"value"</span> <span class="hljs-attr">step</span>=<span class="hljs-string">"10"</span> <span class="hljs-attr">tick-size</span>=<span class="hljs-string">"2"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-slider</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card-text</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-subheader</span>&gt;</span>Tick labels<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-subheader</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card-text</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-slider</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"fruits"</span> <span class="hljs-attr">max</span>=<span class="hljs-string">"3"</span> <span class="hljs-attr">step</span>=<span class="hljs-string">"1"</span> <span class="hljs-attr">tick-size</span>=<span class="hljs-string">"2"</span> <span class="hljs-attr">m-bind:tick-labels</span>=<span class="hljs-string">"tickLabels"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-slider</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card-text</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card</span>&gt;</span></code></pre>
                   </div>
                 </section>
               </mip-accordion>
@@ -259,14 +338,18 @@
                 <section>
                   <div class="md-fn-title md-fn-code-title">查看代码</div>
                   <div class="md-fn-code-section">
-                    <pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
+                    <pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
     {
       <span class="hljs-string">"value"</span>: <span class="hljs-number">0</span>
     }
   </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">mip-data</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">mip-v-slider</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"value"</span> <span class="hljs-attr">step</span>=<span class="hljs-string">"10"</span> <span class="hljs-attr">thumb-label</span> <span class="hljs-attr">ticks</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-slider</span>&gt;</span></code></pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card-text</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-slider</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"value"</span> <span class="hljs-attr">step</span>=<span class="hljs-string">"10"</span> <span class="hljs-attr">thumb-label</span> <span class="hljs-attr">ticks</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-slider</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card-text</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card</span>&gt;</span></code></pre>
                   </div>
                 </section>
               </mip-accordion>
@@ -289,16 +372,32 @@
                 <section>
                   <div class="md-fn-title md-fn-code-title">查看代码</div>
                   <div class="md-fn-code-section">
-                    <pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
+                    <pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
     {
       <span class="hljs-string">"zoom"</span>: <span class="hljs-number">0</span>
     }
   </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">mip-data</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">mip-v-slider</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"zoom"</span> <span class="hljs-attr">append-icon</span>=<span class="hljs-string">"alarm"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-slider</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">mip-v-slider</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"zoom"</span> <span class="hljs-attr">prepend-icon</span>=<span class="hljs-string">"volume_up"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-slider</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">mip-v-slider</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"zoom"</span> <span class="hljs-attr">append-icon</span>=<span class="hljs-string">"zoom_in"</span> <span class="hljs-attr">prepend-icon</span>=<span class="hljs-string">"zoom_out"</span> <span class="hljs-attr">on</span>=<span class="hljs-string">"click-append:MIP.setData({zoom: m.zoom + 10}) click-prepend:MIP.setData({zoom: m.zoom - 10})"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-slider</span>&gt;</span></code></pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-subheader</span>&gt;</span>Media volume<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-subheader</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card-text</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-slider</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"zoom"</span> <span class="hljs-attr">append-icon</span>=<span class="hljs-string">"alarm"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-slider</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card-text</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-subheader</span>&gt;</span>Alarm volume<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-subheader</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card-text</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-slider</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"zoom"</span> <span class="hljs-attr">prepend-icon</span>=<span class="hljs-string">"volume_up"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-slider</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card-text</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-subheader</span>&gt;</span>Icon click callback<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-subheader</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card-text</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-slider</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"zoom"</span> <span class="hljs-attr">append-icon</span>=<span class="hljs-string">"zoom_in"</span> <span class="hljs-attr">prepend-icon</span>=<span class="hljs-string">"zoom_out"</span> <span class="hljs-attr">on</span>=<span class="hljs-string">"click-append:MIP.setData({zoom: m.zoom + 10}) click-prepend:MIP.setData({zoom: m.zoom - 10})"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-slider</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card-text</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card</span>&gt;</span></code></pre>
                   </div>
                 </section>
               </mip-accordion>
@@ -406,7 +505,7 @@
     }
   </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">mip-data</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container fluid"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-slider</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"ex1.val"</span> <span class="hljs-attr">m-bind:color</span>=<span class="hljs-string">"ex1.color"</span> <span class="hljs-attr">m-bind:label</span>=<span class="hljs-string">"ex1.label"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-slider</span>&gt;</span>
 
   <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-slider</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"ex2.val"</span> <span class="hljs-attr">m-bind:label</span>=<span class="hljs-string">"ex2.label"</span> <span class="hljs-attr">m-bind:track-color</span>=<span class="hljs-string">"ex2.color"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-slider</span>&gt;</span>

@@ -66,18 +66,12 @@
     <div class="edit-wrapper">
       <div class="edit-code">
         <p class="edit-tip">编辑您的代码：</p>
-        <textarea id="code" name="code"><mip-data>
-  <script type="application/json">
-    {
-      "first": "John",
-      "last": "Doe"
-    }
-  </script>
-</mip-data>
-<div class="container grid-list-xl">
+        <textarea id="code" name="code"><div class="container grid-list-xl">
   <div class="layout row wrap">
-    <mip-v-text-field class="flex xs12 md6" m-bind:value.sync="first" label="First Name" box></mip-v-text-field>
-    <mip-v-text-field class="flex xs12 md6" m-bind:value.sync="last" label="Last Name" box></mip-v-text-field>
+    <mip-v-text-field class="flex xs12 md6" label="Amount" value="10.00" prefix="$"></mip-v-text-field>
+    <mip-v-text-field class="flex xs12 md6" label="Weight" value="28.00" suffix="lbs"></mip-v-text-field>
+    <mip-v-text-field class="flex xs12 md6" label="Email address" value="example" suffix="@gmail.com"></mip-v-text-field>
+    <mip-v-text-field class="flex xs12 md6" label="Label Text" value="12:30:00" type="time" suffix="PST"></mip-v-text-field>
   </div>
 </div>
 </textarea>
