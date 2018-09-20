@@ -35,10 +35,6 @@
   m-bind:class="{hide:sidebarFragment!=='guide'}"
 >
   <h1 on="tap:MIP.setData({sidebarFragment:'nav'})"><span>${secondNavbarTitle}</span></h1>
-  <div on="tap:nav-sidebar.close">
-    <mip-fastclick>
-      <mip-sidenav m-bind:menu="menu" m-bind:chapters="chapters" m-bind:url="url"></mip-sidenav>
-    </mip-fastclick>
-  </div>
+  <mip-sidenav m-bind:menu="menu" m-bind:chapters="chapters" m-bind:url="url" on="clicked:nav-sidebar.close"></mip-sidenav>
 </div>
 {{ /block }}

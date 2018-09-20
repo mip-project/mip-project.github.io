@@ -39,11 +39,12 @@
     <script src="https://c.mipcdn.com/static/v1/mip-sidebar/mip-sidebar.js"></script>
     <!-- <script src="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.js"></script> -->
 <!--     <script src="http://127.0.0.1:8111/mip-sidenav/mip-sidenav.js"></script> -->
-    <script src="https://bos.nj.bpc.baidu.com/assets/mip/temp/mip-sidenav.js?v=194253"></script>
+    <!-- <script src="https://bos.nj.bpc.baidu.com/assets/mip/temp/mip-sidenav.js?v=194253"></script> -->
+    <script src="http://bos.nj.bpc.baidu.com/assets/mip/temp/mip-sidenav.js?v=1537414158146"></script>
     <script src="https://bos.nj.bpc.baidu.com/assets/mip/codelab/mip-stepper-tabs.js"></script>
 <!--     <script src="http://127.0.0.1:8111/mip-stepper-tabs/mip-stepper-tabs.js"></script> -->
     <!-- <script src="https://c.mipcdn.com/static/v1/mip-fixed/mip-fixed.js"></script> -->
-    <script src="https://c.mipcdn.com/static/v2/mip-fastclick/mip-fastclick.js"></script>
+    <!-- <script src="https://c.mipcdn.com/static/v2/mip-fastclick/mip-fastclick.js"></script> -->
     <script src="https://c.mipcdn.com/static/v1/mip-showmore/mip-showmore.js"></script>
     <script src="https://c.mipcdn.com/static/v2/mip-accordion/mip-accordion.js"></script>
   </body>
