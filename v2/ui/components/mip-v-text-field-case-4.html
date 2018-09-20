@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html mip>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <title>测试</title>
+  <meta name="description" content="">
+  <link rel="canonical" href="/v2/ui/components/mip-v-text-field-case-4.html">
+  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.css">
+  
+            <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+          
+</head>
+<body>
+  
+  <mip-data>
+  <script type="application/json">
+    {
+      "message1": "Hey!",
+      "message2": "Hey!",
+      "message3": "Hey!",
+      "message4": "Hey!",
+      "message": "Hey!"
+    }
+  </script>
+</mip-data>
+<div class="container grid-list-xl">
+  <div class="layout row wrap">
+    <mip-v-text-field class="flex xs12 md6" m-bind:value.sync="message1" label="Regular" clearable></mip-v-text-field>
+    <mip-v-text-field class="flex xs12 md6" m-bind:value.sync="message2" solo label="Solo" clearable></mip-v-text-field>
+    <mip-v-text-field class="flex xs12 md6" m-bind:value.sync="message3" box label="Box" clearable></mip-v-text-field>
+    <mip-v-text-field class="flex xs12 md6" m-bind:value.sync="message4" label="Outline" outline clearable></mip-v-text-field>
+  
+  </div>
+</div>
+
+  <script type="data-x-preset" id="preset">
+  
+  </script>
+  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
+  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.js"></script>
+  <script>
+  var preset;
+  window.addEventListener('message', function (e) {
+    if (!e.data || e.data.type !== 'demo-edit') {
+      return;
+    }
+
+    if (!preset) {
+      preset = document.getElementById('preset').innerHTML
+        .replace(/___arrow_left___/g, '<')
+        .replace(/___arrow_right___/g, '>');
+    }
+    document.body.innerHTML = preset + e.data.html;
+  })
+  </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html mip>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <title>测试</title>
+  <meta name="description" content="">
+  <link rel="canonical" href="/v2/ui/components/mip-v-chip-case-2.html">
+  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.css">
+  
+            <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+          
+</head>
+<body>
+  
+  <div class="text-xs-center">
+  <mip-v-chip color="indigo" text-color="white">
+    <mip-v-avatar>
+      <mip-v-icon>account_circle</mip-v-icon>
+    </mip-v-avatar>
+    Ranee
+  </mip-v-chip>
+  <mip-v-chip color="orange" text-color="white">
+    Premium
+    <mip-v-icon right>star</mip-v-icon>
+  </mip-v-chip>
+  <mip-v-chip color="primary" text-color="white">
+    1 Year
+    <mip-v-icon right>cake</mip-v-icon>
+  </mip-v-chip>
+  <mip-v-chip color="green" text-color="white">
+    <mip-v-avatar class="green darken-4">1</mip-v-avatar>
+    Years
+  </mip-v-chip>
+  <mip-v-chip close color="teal" text-color="white">
+    <mip-v-avatar>
+      <mip-v-icon>check_circle</mip-v-icon>
+    </mip-v-avatar>
+    Confirmed
+  </mip-v-chip>
+</div>
+
+  <script type="data-x-preset" id="preset">
+  
+  </script>
+  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
+  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.js"></script>
+  <script>
+  var preset;
+  window.addEventListener('message', function (e) {
+    if (!e.data || e.data.type !== 'demo-edit') {
+      return;
+    }
+
+    if (!preset) {
+      preset = document.getElementById('preset').innerHTML
+        .replace(/___arrow_left___/g, '<')
+        .replace(/___arrow_right___/g, '>');
+    }
+    document.body.innerHTML = preset + e.data.html;
+  })
+  </script>
+</body>
+</html>

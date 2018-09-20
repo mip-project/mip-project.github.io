@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html mip>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <title>测试</title>
+  <meta name="description" content="">
+  <link rel="canonical" href="/v2/ui/components/mip-v-list-case-0.html">
+  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.css">
+  
+            <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+          
+</head>
+<body>
+  
+  <mip-data>
+  <script type="application/json">
+    {
+      "items": [
+        {
+          "icon": true,
+          "avatar": "https://cdn.vuetifyjs.com/images/lists/1.jpg",
+          "title": "Brunch this weekend?",
+          "subtitle": "Ali Connors &mdash; I'll be in your neighborhood doing errands this weekend. Do you want to hang out?"
+        },
+        {
+          "avatar": "https://cdn.vuetifyjs.com/images/lists/2.jpg",
+          "title": "Summer BBQ",
+          "subtitle": "to Alex, Scott, Jennifer &mdash; Wish I could come, but I'm out of town this weekend."
+        },
+        {
+          "avatar": "https://cdn.vuetifyjs.com/images/lists/3.jpg",
+          "title": "Oui oui",
+          "subtitle": "Sandra Adams &mdash; Do you have Paris recommendations? Have you ever been?"
+        }
+      ]
+    }
+  </script>
+</mip-data>
+<div class="layout row">
+  <div class="flex xs12 sm6 offset-sm3">
+    <mip-v-card>
+      <mip-v-toolbar color="cyan" dark>
+        <mip-v-toolbar-side-icon></mip-v-toolbar-side-icon>
+
+        <mip-v-toolbar-title>Inbox</mip-v-toolbar-title>
+
+        <mip-v-spacer></mip-v-spacer>
+
+        <mip-v-btn icon>
+          <mip-v-icon>search</mip-v-icon>
+        </mip-v-btn>
+      </mip-v-toolbar>
+
+      <mip-v-list two-line>
+        <mip-v-subheader m-text="header"></mip-v-subheader>
+        <mip-v-list-tile avatar href="#" ripple>
+          <mip-v-list-tile-avatar>
+            <mip-img m-bind:src="items[0].avatar">
+          </mip-img></mip-v-list-tile-avatar>
+
+          <mip-v-list-tile-content>
+            <mip-v-list-tile-title m-text="items[0].title"></mip-v-list-tile-title>
+            <mip-v-list-tile-sub-title m-text="items[0].subtitle"></mip-v-list-tile-sub-title>
+          </mip-v-list-tile-content>
+        </mip-v-list-tile>
+
+        <mip-v-divider inset></mip-v-divider>
+
+        <mip-v-list-tile avatar href="#" ripple>
+          <mip-v-list-tile-avatar>
+            <mip-img m-bind:src="items[1].avatar">
+          </mip-img></mip-v-list-tile-avatar>
+
+          <mip-v-list-tile-content>
+            <mip-v-list-tile-title m-text="items[1].title"></mip-v-list-tile-title>
+            <mip-v-list-tile-sub-title m-text="items[1].subtitle"></mip-v-list-tile-sub-title>
+          </mip-v-list-tile-content>
+        </mip-v-list-tile>
+
+        <mip-v-divider inset></mip-v-divider>
+
+        <mip-v-list-tile avatar href="#" ripple>
+          <mip-v-list-tile-avatar>
+            <mip-img m-bind:src="items[2].avatar">
+          </mip-img></mip-v-list-tile-avatar>
+
+          <mip-v-list-tile-content>
+            <mip-v-list-tile-title m-text="items[2].title"></mip-v-list-tile-title>
+            <mip-v-list-tile-sub-title m-text="items[2].subtitle"></mip-v-list-tile-sub-title>
+          </mip-v-list-tile-content>
+        </mip-v-list-tile>
+      </mip-v-list>
+    </mip-v-card>
+  </div>
+</div>
+
+  <script type="data-x-preset" id="preset">
+  
+  </script>
+  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
+  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.js"></script>
+  <script>
+  var preset;
+  window.addEventListener('message', function (e) {
+    if (!e.data || e.data.type !== 'demo-edit') {
+      return;
+    }
+
+    if (!preset) {
+      preset = document.getElementById('preset').innerHTML
+        .replace(/___arrow_left___/g, '<')
+        .replace(/___arrow_right___/g, '>');
+    }
+    document.body.innerHTML = preset + e.data.html;
+  })
+  </script>
+</body>
+</html>

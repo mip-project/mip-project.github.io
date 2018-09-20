@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html mip>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <title>测试</title>
+  <meta name="description" content="">
+  <link rel="canonical" href="/v2/components/extensions/mip-inservice-login-case-7.html">
+  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.css">
+  
+</head>
+<body>
+  
+  <template>
+  <div class="wrapper">
+    <div>
+      <p @click="jumpDefault" class="text">{{name}}</p>
+      <p @click="jumpRedirect" class="text">我的订单</p>
+      <p @click="logout" class="text">退出</p>
+    </div>
+    <div>
+      <p><input type="text" v-model="test" class="input"/></p>
+      <div @click="jumpCustom" class="text">确认下单</div>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+.wrapper {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.text {
+  height: 32px;
+  line-height: 32px;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.input {
+  height: 30px;
+  line-height: 30px;
+  font-size: 16px;
+  border: 1px solid #f0f0f0;
+}
+</style>
+
+<script>
+export default {
+  props: {
+    info: {
+      type: Object,
+      required: true,
+      default () {
+          return {};
+      }
+    }
+  },
+  data: function () {
+    return {
+      test: ''
+    }
+  },
+  computed: {
+    name () {
+      if (this.info.isLogin) {
+        return this.info.userInfo.nickname
+      }
+      else {
+        return '未登录'
+      }
+    }
+  },
+  mounted () {
+    // 监听login
+    this.$on('customLogin', (e) => {
+      // 判断当前收到登录成功事件是来自哪个动作触发的
+      if (e.origin === 'asynLog') {
+        this.alertTip();
+      }
+    });
+    // 监听logout
+    this.$on('customLogout', (e) => {
+      console.log('用户登出了');
+    });
+  },
+  methods: {
+    jumpDefault () {
+      if (!this.info.isLogin) {
+        // 设置登录组件的config属性中，重定向地址:redirectUri为空
+        MIP.setData({
+          config: {
+            redirectUri: ''
+          }
+        });
+        // 在下一个执行时机触发事件
+        this.$nextTick(function () {
+          this.$emit('actionName');
+        });
+      }
+    },
+    jumpRedirect () {
+      // 如果已经登录，自己处理跳转
+      if (this.info.isLogin) {
+        window.MIP.viewer.open('./order.html', {isMipLink: true});
+      }
+      else {
+        // 设置登录组件的config属性中，重定向地址:redirectUri为订单页地址
+        MIP.setData({
+          config: {
+            redirectUri: './order.html'
+          }
+        });
+        // 在下一个执行时机触发事件
+        this.$nextTick(function () {
+          this.$emit('actionOrder');
+        });
+      }
+    },
+    jumpCustom () {
+      // 如果已经登录，自己处理跳转
+      if (this.info.isLogin) {
+        this.alertTip();
+      }
+      else {
+        // 设置登录组件的config属性中，重定向地址:redirectUri为空
+        MIP.setData({
+          config: {
+            redirectUri: ''
+          }
+        });
+        // 在下一个执行时机触发事件
+        this.$nextTick(function () {
+          this.$emit('actionPay');
+        });
+      }
+    },
+    alertTip () {
+      if (this.test !== '') {
+        alert('现在我可以跳转到下个页面了');
+      }
+      else {
+        alert('输入框不能为空!')
+      }
+    },
+    logout () {
+      // 触发登出事件
+      this.$emit('logout');
+    }
+  }
+}
+</script>
+
+
+  <script type="data-x-preset" id="preset">
+  
+  </script>
+  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
+  <script src="https://c.mipcdn.com/static/v2/mip-inservice-login/mip-inservice-login.js"></script>
+  <script>
+  var preset;
+  window.addEventListener('message', function (e) {
+    if (!e.data || e.data.type !== 'demo-edit') {
+      return;
+    }
+
+    if (!preset) {
+      preset = document.getElementById('preset').innerHTML
+        .replace(/___arrow_left___/g, '<')
+        .replace(/___arrow_right___/g, '>');
+    }
+    document.body.innerHTML = preset + e.data.html;
+  })
+  </script>
+</body>
+</html>

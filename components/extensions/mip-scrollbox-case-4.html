@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html mip>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <title>测试</title>
+  <meta name="description" content="">
+  <link rel="canonical" href="/v2/components/extensions/mip-scrollbox-case-4.html">
+  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.css">
+  
+</head>
+<body>
+  
+  <mip-scrollbox data-type="row" class="demo5">
+    <div data-wrapper>
+        <div data-inner>
+            <div data-scroller>
+                <div data-item data-col="4">
+                    <mip-img
+                        src="https://dummyimage.com/300x400?a"
+                        width="300"
+                        height="400"
+                        layout="responsive"
+                    >
+                    </mip-img>
+                    <p>这是 col4 的容器</p>
+                </div>
+                <div data-item data-col="4">
+                    <mip-img
+                        src="https://dummyimage.com/300x400?b"
+                        width="300"
+                        height="400"
+                        layout="responsive"
+                    >
+                    </mip-img>
+                    <p>这是 col4 的容器</p>
+                </div>
+                <div data-item data-col="4">
+                    <mip-img
+                        src="https://dummyimage.com/300x400?c"
+                        width="300"
+                        height="400"
+                        layout="responsive"
+                    >
+                    </mip-img>
+                    <p>这是 col4 的容器</p>
+                </div>
+                <div data-item data-col="4">
+                    <mip-img
+                        src="https://dummyimage.com/300x400?d"
+                        width="300"
+                        height="400"
+                        layout="responsive"
+                    >
+                    </mip-img>
+                    <p>这是 col4 的容器</p>
+                </div>
+                <div data-item data-col="4">
+                    <mip-img
+                        src="https://dummyimage.com/300x400?e"
+                        width="300"
+                        height="400"
+                        layout="responsive"
+                    >
+                    </mip-img>
+                    <p>这是 col4 的容器</p>
+                </div>
+                <div data-item data-col="4">
+                    <mip-img
+                        src="https://dummyimage.com/300x400?f"
+                        width="300"
+                        height="400"
+                        layout="responsive"
+                    >
+                    </mip-img>
+                    <p>这是 col4 的容器</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</mip-scrollbox>
+
+  <script type="data-x-preset" id="preset">
+  
+  </script>
+  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
+  <script src="https://c.mipcdn.com/static/v1/mip-scrollbox/mip-scrollbox.js"></script>
+  <script>
+  var preset;
+  window.addEventListener('message', function (e) {
+    if (!e.data || e.data.type !== 'demo-edit') {
+      return;
+    }
+
+    if (!preset) {
+      preset = document.getElementById('preset').innerHTML
+        .replace(/___arrow_left___/g, '<')
+        .replace(/___arrow_right___/g, '>');
+    }
+    document.body.innerHTML = preset + e.data.html;
+  })
+  </script>
+</body>
+</html>

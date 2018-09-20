@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html mip>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <title>测试</title>
+  <meta name="description" content="">
+  <link rel="canonical" href="/v2/ui/components/mip-v-btn-case-4.html">
+  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.css">
+  
+            <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+          
+</head>
+<body>
+  
+  <mip-data>
+  <script type="application/json">
+    {
+      "dropdownFont": [
+        {
+          "text": "Arial"
+        },
+        {
+          "text": "Calibri"
+        },
+        {
+          "text": "Courier"
+        },
+        {
+          "text": "Verdana"
+        }
+      ],
+      "dropdownIcon": [
+        {
+          "text": "list"
+        },
+        {
+          "text": "favorite"
+        },
+        {
+          "text": "delete"
+        }
+      ],
+      "dropdownEdit": [
+        {
+          "text": "100%"
+        },
+        {
+          "text": "75%"
+        },
+        {
+          "text": "50%"
+        },
+        {
+          "text": "25%"
+        },
+        {
+          "text": "0%"
+        }
+      ]
+    }
+  </script>
+</mip-data>
+<div class="container grid-list-xl" id="dropdown-example">
+  <div class="layout row wrap">
+    <div class="flex xs12 sm4">
+      <p>Overflow</p>
+
+      <mip-v-overflow-btn m-bind:items="dropdownFont" label="Overflow Btn" target="#dropdown-example"></mip-v-overflow-btn>
+    </div>
+
+    <div class="flex xs12 sm4">
+      <p>Segmented</p>
+
+      <mip-v-overflow-btn m-bind:items="dropdownIcon" label="Segmented Btn" segmented target="#dropdown-example"></mip-v-overflow-btn>
+    </div>
+
+    <div class="flex xs12 sm4">
+      <p>Editable</p>
+
+      <mip-v-overflow-btn m-bind:items="dropdownEdit" label="Editable Btn" editable item-value="text"></mip-v-overflow-btn>
+    </div>
+  </div>
+</div>
+
+  <script type="data-x-preset" id="preset">
+  
+  </script>
+  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
+  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.js"></script>
+  <script>
+  var preset;
+  window.addEventListener('message', function (e) {
+    if (!e.data || e.data.type !== 'demo-edit') {
+      return;
+    }
+
+    if (!preset) {
+      preset = document.getElementById('preset').innerHTML
+        .replace(/___arrow_left___/g, '<')
+        .replace(/___arrow_right___/g, '>');
+    }
+    document.body.innerHTML = preset + e.data.html;
+  })
+  </script>
+</body>
+</html>
