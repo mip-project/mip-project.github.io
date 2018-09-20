@@ -105,90 +105,94 @@
 <!-- <p class="markdown-breadcrumb">
   <span>扩展组件</span><span class="split">/</span>  <span>mip-analytics</span></p> -->
     <div class="markdown-body">
-      <h1 id="mipanalytics"><a href="#mipanalytics" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a><code>mip-analytics</code></h1><div class="md-table-wrapper"><table><thead><tr><th>标题</th><th>内容</th></tr></thead><tbody><tr><td>类型</td><td></td></tr><tr><td>支持布局</td><td></td></tr><tr><td>所需脚本</td><td><a data-type="mip"   href="https://c.mipcdn.com/static/v2/mip-analytics/mip-analytics.js" >https://c.mipcdn.com/static/v2/mip-analytics/mip-analytics.js</a></td></tr></tbody></table></div><h2 id="示例"><a href="#示例" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>示例</h2><h3 id="基本用法"><a href="#基本用法" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>基本用法</h3><p>每种事件可以配置多个</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div>32</div><div>33</div><div>34</div><div>35</div><div>36</div><div>37</div><div>38</div><div>39</div><div>40</div><div>41</div><div>42</div><div>43</div><div>44</div><div>45</div><div>46</div><div>47</div><div>48</div><div>49</div><div>50</div><div>51</div><div>52</div><div>53</div><div>54</div><div>55</div><div>56</div><div>57</div><div>58</div><div>59</div><div>60</div><div>61</div><div>62</div><div>63</div><div>64</div><div>65</div><div>66</div><div>67</div><div>68</div><div>69</div><div>70</div><div>71</div><div>72</div><div>73</div><div>74</div><div>75</div><div>76</div><div>77</div><div>78</div><div>79</div><div>80</div><div>81</div><div>82</div><div>83</div><div>84</div><div>85</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"className1"</span> <span class="hljs-attr">data-click</span>=<span class="hljs-string">"{foo:1,boo:2}"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">data-click</span>=<span class="hljs-string">"{button:1}"</span>&gt;</span> BUTTON 1<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> &gt;</span> BUTTON 2<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+      <h1 id="mipanalytics"><a href="#mipanalytics" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a><code>mip-analytics</code></h1><div class="md-table-wrapper"><table><thead><tr><th>标题</th><th>内容</th></tr></thead><tbody><tr><td>类型</td><td></td></tr><tr><td>支持布局</td><td></td></tr><tr><td>所需脚本</td><td><a data-type="mip"   href="https://c.mipcdn.com/static/v2/mip-analytics/mip-analytics.js" >https://c.mipcdn.com/static/v2/mip-analytics/mip-analytics.js</a></td></tr></tbody></table></div><h2 id="示例"><a href="#示例" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>示例</h2><h3 id="基本用法"><a href="#基本用法" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>基本用法</h3><p>每种事件可以配置多个</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div>32</div><div>33</div><div>34</div><div>35</div><div>36</div><div>37</div><div>38</div><div>39</div><div>40</div><div>41</div><div>42</div><div>43</div><div>44</div><div>45</div><div>46</div><div>47</div><div>48</div><div>49</div><div>50</div><div>51</div><div>52</div><div>53</div><div>54</div><div>55</div><div>56</div><div>57</div><div>58</div><div>59</div><div>60</div><div>61</div><div>62</div><div>63</div><div>64</div><div>65</div><div>66</div><div>67</div><div>68</div><div>69</div><div>70</div><div>71</div><div>72</div><div>73</div><div>74</div><div>75</div><div>76</div><div>77</div><div>78</div><div>79</div><div>80</div><div>81</div><div>82</div><div>83</div><div>84</div><div>85</div><div>86</div><div>87</div><div>88</div><div>89</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"className1"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">data-click</span>=<span class="hljs-string">"{button: 1}"</span>&gt;</span> BUTTON 1<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">data-click</span>=<span class="hljs-string">"{button: 2}"</span>&gt;</span> BUTTON 2<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"className2"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"className2"</span> <span class="hljs-attr">data-click</span>=<span class="hljs-string">"{div: 'className2'}"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>BUTTON 3<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
 <span class="hljs-tag">&lt;<span class="hljs-name">mip-analytics</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
-  {
-    <span class="hljs-string">"hosts"</span> : {
-      <span class="hljs-string">"className1"</span> : <span class="hljs-string">"https://m.baidu.com/div1?"</span>,
-      <span class="hljs-string">"disp"</span> : <span class="hljs-string">"https://m.baidu.com/${disp}?"</span>,
-      <span class="hljs-string">"className2"</span> : <span class="hljs-string">"https://m.baidu.com/_${div2}.gif?"</span>
-    },
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
+    {
+      <span class="hljs-string">"hosts"</span> : {
+        <span class="hljs-string">"className1"</span> : <span class="hljs-string">"https://m.baidu.com/div1?"</span>,
+        <span class="hljs-string">"disp"</span> : <span class="hljs-string">"https://m.baidu.com/${disp}?"</span>,
+        <span class="hljs-string">"className2"</span> : <span class="hljs-string">"https://m.baidu.com/_${div2}.gif?"</span>
+      },
 
-    <span class="hljs-string">"setting"</span> : {
+      <span class="hljs-string">"setting"</span> : {
+        <span class="hljs-string">"click"</span> : [
+          {
+            <span class="hljs-string">"selector"</span> : <span class="hljs-string">".className1"</span>,
+            <span class="hljs-string">"tag"</span>: <span class="hljs-string">"button"</span>,
+            <span class="hljs-string">"host"</span> : <span class="hljs-string">"className1"</span>,
+            <span class="hljs-string">"queryString"</span> : {
+              <span class="hljs-string">"name"</span> : <span class="hljs-string">"className1"</span>,
+              <span class="hljs-string">"mipstart"</span> : <span class="hljs-string">"${MIPStart}"</span>,
+              <span class="hljs-string">"list"</span>: {
+                <span class="hljs-string">"age"</span>:<span class="hljs-string">"123"</span>
+              }
+            }
+          },
 
-      <span class="hljs-string">"click"</span> : [
-        {
-          <span class="hljs-string">"selector"</span> : <span class="hljs-string">".className1"</span>,
-          <span class="hljs-string">"tag"</span>: <span class="hljs-string">"button"</span>,
-          <span class="hljs-string">"host"</span> : <span class="hljs-string">"className1"</span>,
-          <span class="hljs-string">"queryString"</span> : {
-            <span class="hljs-string">"name"</span> : <span class="hljs-string">"alan"</span>,
-            <span class="hljs-string">"mipstart"</span> : <span class="hljs-string">"${MIPStart}"</span>,
-            <span class="hljs-string">"list"</span>: {
-              <span class="hljs-string">"age"</span>:<span class="hljs-string">"123"</span>
+          {
+            <span class="hljs-string">"selector"</span> : <span class="hljs-string">".className2"</span>,
+            <span class="hljs-string">"host"</span> : <span class="hljs-string">"className2"</span>,
+            <span class="hljs-string">"queryString"</span> : {
+              <span class="hljs-string">"name"</span> : <span class="hljs-string">"className2"</span>,
+              <span class="hljs-string">"mipstart"</span> : <span class="hljs-string">"${MIPStart}"</span>,
+              <span class="hljs-string">"list"</span>: {
+                <span class="hljs-string">"age"</span>:<span class="hljs-string">"45"</span>
+              }
+            }
+          },
+
+          {
+            <span class="hljs-string">"selector"</span> : <span class="hljs-string">".className3"</span>,
+            <span class="hljs-string">"host"</span> : <span class="hljs-string">"className3"</span>,
+            <span class="hljs-string">"queryString"</span> : {},
+            <span class="hljs-string">"vars"</span> : {
+              <span class="hljs-string">"div2"</span> : <span class="hljs-string">"divfdsf"</span>
             }
           }
-        },
+        ],
 
-        {
-          <span class="hljs-string">"selector"</span> : <span class="hljs-string">".className2"</span>,
-          <span class="hljs-string">"host"</span> : <span class="hljs-string">"className2"</span>,
-          <span class="hljs-string">"queryString"</span> : {
-            <span class="hljs-string">"name"</span> : <span class="hljs-string">"alan"</span>,
-            <span class="hljs-string">"mipstart"</span> : <span class="hljs-string">"${MIPStart}"</span>,
-            <span class="hljs-string">"list"</span>: {
-              <span class="hljs-string">"age"</span>:<span class="hljs-string">"45"</span>
+        <span class="hljs-string">"disp"</span> : [
+          {
+            <span class="hljs-string">"host"</span> : <span class="hljs-string">"disp"</span>,
+            <span class="hljs-string">"queryString"</span> : {
+              <span class="hljs-string">"MIPStart"</span> : <span class="hljs-string">"${MIPStart}"</span>,
+              <span class="hljs-string">"MIPPageShow"</span> : <span class="hljs-string">"${MIPPageShow}"</span>,
+              <span class="hljs-string">"MIPDomContentLoaded"</span> : <span class="hljs-string">"${MIPDomContentLoaded}"</span>,
+              <span class="hljs-string">"MIPFirstScreen"</span> : <span class="hljs-string">"${MIPFirstScreen}"</span>
+            },
+            <span class="hljs-string">"vars"</span> : {
+              <span class="hljs-string">"disp"</span> : <span class="hljs-string">"displog"</span>
             }
           }
-        },
+        ],
 
-      {
-        <span class="hljs-string">"selector"</span> : <span class="hljs-string">".className3"</span>,
-        <span class="hljs-string">"host"</span> : <span class="hljs-string">"className3"</span>,
-        <span class="hljs-string">"queryString"</span> : {},
-        <span class="hljs-string">"vars"</span> : {
-          <span class="hljs-string">"div2"</span> : <span class="hljs-string">"divfdsf"</span>
-        }
+        <span class="hljs-string">"timerxx"</span> : [
+          {
+            <span class="hljs-string">"host"</span> : <span class="hljs-string">"className2"</span>,
+            <span class="hljs-string">"queryString"</span> : {
+              <span class="hljs-string">"timer"</span> : <span class="hljs-string">"timer"</span>
+            },
+            <span class="hljs-string">"vars"</span> : {
+              <span class="hljs-string">"div2"</span> : <span class="hljs-string">"div2"</span>
+            },
+            <span class="hljs-string">"option"</span> : {
+              <span class="hljs-string">"interval"</span> : <span class="hljs-number">2000</span>
+            }
+          }
+        ],
+
+        <span class="hljs-string">"scroll"</span> : []
       }
-      ],
-
-      <span class="hljs-string">"disp"</span> : [
-        {
-          <span class="hljs-string">"host"</span> : <span class="hljs-string">"disp"</span>,
-          <span class="hljs-string">"queryString"</span> : {
-            <span class="hljs-string">"MIPStart"</span> : <span class="hljs-string">"${MIPStart}"</span>,
-            <span class="hljs-string">"MIPPageShow"</span> : <span class="hljs-string">"${MIPPageShow}"</span>,
-            <span class="hljs-string">"MIPDomContentLoaded"</span> : <span class="hljs-string">"${MIPDomContentLoaded}"</span>,
-            <span class="hljs-string">"MIPFirstScreen"</span> : <span class="hljs-string">"${MIPFirstScreen}"</span>
-          },
-          <span class="hljs-string">"vars"</span> : {
-            <span class="hljs-string">"disp"</span> : <span class="hljs-string">"displog"</span>
-          }
-        }
-      ],
-      <span class="hljs-string">"timerxx"</span> : [
-        {
-          <span class="hljs-string">"host"</span> : <span class="hljs-string">"className2"</span>,
-          <span class="hljs-string">"queryString"</span> : {
-            <span class="hljs-string">"timer"</span> : <span class="hljs-string">"timer"</span>
-          },
-          <span class="hljs-string">"vars"</span> : {
-            <span class="hljs-string">"div2"</span> : <span class="hljs-string">"div2"</span>
-          },
-          <span class="hljs-string">"option"</span> : {
-            <span class="hljs-string">"interval"</span> : <span class="hljs-number">2000</span>
-          }
-        }
-      ],
-      <span class="hljs-string">"scroll"</span> : []
     }
-  }
-</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">mip-analytics</span>&gt;</span></code></pre><h2 id="配置参数"><a href="#配置参数" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>配置参数</h2><h3 id="hosts"><a href="#hosts" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>hosts</h3><p>说明：指定用到的 log server 地址，用以后面配置复用</p><p>必选项：是</p><p>类型：键值对</p><p>取值范围：HTTPS</p><h3 id="setting"><a href="#setting" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>setting</h3><p>说明：配置日志发送</p><p>必选项：是</p><p>类型：键值对</p><h4 id="settingclick"><a href="#settingclick" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>setting.click</h4><p>说明：配置点击事件</p><p>必选项：否</p><p>类型：Array</p><h5 id="settingclickselector"><a href="#settingclickselector" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>setting.click.selector</h5><p>说明：指定触发点击的选择器</p><p>必选项：是</p><p>类型：CSS 选择器</p><h5 id="settingclicktag"><a href="#settingclicktag" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>setting.click.tag</h5><p>说明：指定触发点击的选择器，有此属性时，setting.click.selector 为选择器父节点，点击事件绑定在父节点上</p><p>必选项：是</p><p>类型：CSS 选择器</p><h5 id="settingclickhost"><a href="#settingclickhost" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>setting.click.host</h5><p>说明：指定日志发送的 log server，可以使用插值变量占位，<code>${varName}</code>，在 vars 中指定真实值。 插件使用图片伪装请求。host 应该是一个图片地址，一般是 GIF。如 <a data-type="mip"   href="https://logserver.com/mylog.gif" >https://logserver.com/mylog.gif</a>?</p><p>必选项：是</p><p>类型：hosts 参数中的 key</p><h5 id="settingclickquerystring"><a href="#settingclickquerystring" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>setting.click.queryString</h5><p>说明：指定 host 的 querystring，一级属性序列化为 &amp; 链接的参数，二级对象属性会被序列化为 JSON 字符串。可以支持一些内建变量，目前支持速度信息，以下内建变量会返回时间戳。</p><ul><li><code>&quot;${MIPStart}&quot;</code></li><li><code>&quot;${MIPPageShow}&quot;</code></li><li><code>&quot;${MIPDomContentLoaded}&quot;</code></li><li><code>&quot;${MIPFirstScreen}&quot;</code></li></ul><p>必选项：否</p><p>类型：键值对</p><h5 id="settingclickvars"><a href="#settingclickvars" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>setting.click.vars</h5><p>说明：指定 host 的插值变量的真实值，替换格式为 <code>${varName}</code>，如果是内建变量可以不用指定值，会自行替换。</p><p>必选项：否</p><p>类型：键值对</p><h4 id="settingtouchstart"><a href="#settingtouchstart" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>setting.touchstart</h4><p>说明：完全同 click</p><h4 id="settingtimer"><a href="#settingtimer" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>setting.timer</h4><p>说明：定时发送日志设置</p><p>必选项：否</p><p>类型：Array</p><h4 id="settingtimerhost"><a href="#settingtimerhost" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>setting.timer.host</h4><p>说明：同click.host</p><h4 id="settingtimerdata"><a href="#settingtimerdata" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>setting.timer.data</h4><p>说明：同click.data</p><h4 id="settingtimeroptioninterval"><a href="#settingtimeroptioninterval" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>setting.timer.option.interval</h4><p>说明：指定定时器间隔</p><p>必选项：否</p><p>类型：数字</p><p>单位：ms</p><p>默认值：4000ms</p><h2 id="注意事项"><a href="#注意事项" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>注意事项</h2><ul><li><p>注意是标准 JSON，属性名，属性值都要用双引号。</p></li><li><p>统计框架会默认传入一级参数 <code>t</code>，为发送日志的时间。</p></li><li><p>host 地址需要是 HTTPS 的。</p></li><li><p>vars 和 queryString 是为了方便使用方重复利用变量并且保证灵活性，最好是 vars 用于 host 部分，queryString 用于参数部分，或者只选择其一。重叠使用时需要注意图们之间是否有交叉。框架会先替换 vars 再拼接 queryStirng。</p></li><li><p>vars 只支持简单数据类型，复合数据类型会返回空字符串。</p></li><li><p>queryString 内建变量只支持一级参数替换，2 级对象中有内建变量，会被直接序列化为字符串，不会替换。</p></li></ul>
     </div>
 <div class="markdown-toolbar">
@@ -226,7 +230,8 @@
     <script src="https://c.mipcdn.com/static/v1/mip-sidebar/mip-sidebar.js"></script>
     <!-- <script src="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.js"></script> -->
 <!--     <script src="http://127.0.0.1:8111/mip-sidenav/mip-sidenav.js"></script> -->
-    <script src="https://bos.nj.bpc.baidu.com/assets/mip/temp/mip-sidenav.js?v=194253"></script>
+    <!-- <script src="https://bos.nj.bpc.baidu.com/assets/mip/temp/mip-sidenav.js?v=194253"></script> -->
+    <script src="http://127.0.0.1:8111/mip-sidenav/mip-sidenav.js"></script>
     <script src="https://bos.nj.bpc.baidu.com/assets/mip/codelab/mip-stepper-tabs.js"></script>
 <!--     <script src="http://127.0.0.1:8111/mip-stepper-tabs/mip-stepper-tabs.js"></script> -->
     <!-- <script src="https://c.mipcdn.com/static/v1/mip-fixed/mip-fixed.js"></script> -->

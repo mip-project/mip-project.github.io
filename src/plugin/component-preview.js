@@ -195,7 +195,10 @@ module.exports = class ComponentPreview {
         // mip2 ui components need: vuetify.js & vuetify.css in iframe
         if (/^docs\/ui/.test(obj.path)) {
           matchScript = [undefined, 'https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.js']
-          uiStyle = '<link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">'
+          uiStyle =`
+            <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+          `
         }
 
         if (!matchScript) {
