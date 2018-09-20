@@ -16,7 +16,7 @@ const caseHtml = ({url, style, preset, cases, scripts}) => '' +
   <title>测试</title>
   <meta name="description" content="">
   <link rel="canonical" href="/${url}">
-  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.css">
+  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/assets/mip/projects/vuetify/mip.css">
   ${style}
 </head>
 <body>
@@ -25,7 +25,7 @@ const caseHtml = ({url, style, preset, cases, scripts}) => '' +
   <script type="data-x-preset" id="preset">
   ${preset.replace(/</g, '___arrow_left___').replace(/>/g, '___arrow_right___')}
   </script>
-  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
+  <script src="https://bos.nj.bpc.baidu.com/assets/mip/projects/vuetify/mip.js"></script>
   ${scripts}
   <script>
   var preset;
