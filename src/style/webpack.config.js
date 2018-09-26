@@ -24,7 +24,8 @@ const commonStyleLoaders = [
 
 module.exports = {
   entry: {
-    index: path.resolve(__dirname, 'index.js')
+    'index': path.resolve(__dirname, 'index.js'),
+    'preview-edit': path.resolve(__dirname, 'preview-edit.js')
   },
   output: {
     path: path.resolve(__dirname, 'dist'),

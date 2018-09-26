@@ -10,7 +10,13 @@ const renderer = require('../utils/renderer')
 let navbarFactory = require('../data/navbar')
 // const migPageProcess = require('../utils/mip-img-process')
 
-const css = fs.readFileSync(path.resolve(__dirname, '../style/dist/index.css'))
+let css
+
+try {
+  css = fs.readFileSync(path.resolve(__dirname, '../style/dist/index.css'))
+} catch (e) {
+  css = ''
+}
 
 // 只保留到 h4
 function walk (chapters) {
