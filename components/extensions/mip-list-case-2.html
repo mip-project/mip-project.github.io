@@ -12,35 +12,35 @@
 <body>
   
   <mip-list synchronous-data>
-    <script type="application/json">
+  <script type="application/json">
+    {
+      "items": [
         {
-            "items": [
-                {
-                    "name": "lee",
-                    "alias": "xialong"
-                }, {
-                    "name": "ruige",
-                    "alias": "ruimm"
-                }, {
-                    "name": "langbo",
-                    "alias": "bobo"
-                }
-            ]
+          "name": "lee",
+          "alias": "xialong"
+        }, {
+          "name": "ruige",
+          "alias": "ruimm"
+        }, {
+          "name": "langbo",
+          "alias": "bobo"
         }
-    </script>
-    <template type="mip-mustache">
-        <div>
-            <li>name: {{name}}</li>
-            <li>alias: {{alias}}</li>
-        </div>
-    </template>
+      ]
+    }
+  </script>
+  <template type="mip-mustache">
+    <div>
+      <li>name: {{name}}</li>
+      <li>alias: {{alias}}</li>
+    </div>
+  </template>
 </mip-list>
 
   <script type="data-x-preset" id="preset">
   
   </script>
   <script src="https://bos.nj.bpc.baidu.com/assets/mip/projects/vuetify/mip.js"></script>
-  <script src="https://c.mipcdn.com/static/v1/mip-list/mip-list.js"></script><script src="https://c.mipcdn.com/static/v1/mip-mustache/mip-mustache.js"></script>
+  
   <script>
   var preset;
   window.addEventListener('message', function (e) {
