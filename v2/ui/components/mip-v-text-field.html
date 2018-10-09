@@ -437,8 +437,8 @@
 <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-flex</span> <span class="hljs-attr">xs12</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-text-field</span>
     <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"message"</span>
-    <span class="hljs-attr">m-bind:append-icon</span>=<span class="hljs-string">"marker ? &amp;apos;mdi-map-marker&amp;apos; : &amp;apos;mdi-map-marker-off&amp;apos;"</span>
-    <span class="hljs-attr">m-bind:append-outer-icon</span>=<span class="hljs-string">"message ? &amp;apos;mdi-send&amp;apos; : &amp;apos;mdi-microphone&amp;apos;"</span>
+    <span class="hljs-attr">m-bind:append-icon</span>=<span class="hljs-string">"marker ? 'mdi-map-marker' : 'mdi-map-marker-off'"</span>
+    <span class="hljs-attr">m-bind:append-outer-icon</span>=<span class="hljs-string">"message ? 'mdi-send' : 'mdi-microphone'"</span>
     <span class="hljs-attr">m-bind:prepend-icon</span>=<span class="hljs-string">"icons[iconIndex]"</span>
     <span class="hljs-attr">box</span>
     <span class="hljs-attr">clear-icon</span>=<span class="hljs-string">"mdi-close-circle"</span>
@@ -448,7 +448,7 @@
     <span class="hljs-attr">on</span>=<span class="hljs-string">"click-append:MIP.setData({marker: !m.marker})
         click-append-outer:MIP.setData({sendMessage: true})
         click-prepend:MIP.setData({changeIcon: true})
-        click-clear:MIP.setData({message: &amp;apos;&amp;apos;})"</span>
+        click-clear:MIP.setData({message: ''})"</span>
   &gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-text-field</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-flex</span>&gt;</span></code></pre></div>
   </div>
@@ -527,8 +527,8 @@
     <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-text-field</span>
       <span class="hljs-attr">class</span>=<span class="hljs-string">"flex xs12 sm6"</span>
       <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"password"</span>
-      <span class="hljs-attr">m-bind:append-icon</span>=<span class="hljs-string">"show1 ? &amp;apos;visibility_off&amp;apos; : &amp;apos;visibility&amp;apos;"</span>
-      <span class="hljs-attr">m-bind:type</span>=<span class="hljs-string">"show1 ? &amp;apos;text&amp;apos; : &amp;apos;password&amp;apos;"</span>
+      <span class="hljs-attr">m-bind:append-icon</span>=<span class="hljs-string">"show1 ? 'visibility_off' : 'visibility'"</span>
+      <span class="hljs-attr">m-bind:type</span>=<span class="hljs-string">"show1 ? 'text' : 'password'"</span>
       <span class="hljs-attr">name</span>=<span class="hljs-string">"input-10-1"</span>
       <span class="hljs-attr">label</span>=<span class="hljs-string">"Normal with hint text"</span>
       <span class="hljs-attr">hint</span>=<span class="hljs-string">"At least 8 characters"</span>
@@ -537,8 +537,8 @@
     &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-text-field</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-text-field</span>
       <span class="hljs-attr">class</span>=<span class="hljs-string">"flex xs12 sm6 input-group--focused"</span>
-      <span class="hljs-attr">m-bind:append-icon</span>=<span class="hljs-string">"show2 ? &amp;apos;visibility_off&amp;apos; : &amp;apos;visibility&amp;apos;"</span>
-      <span class="hljs-attr">m-bind:type</span>=<span class="hljs-string">"show2 ? &amp;apos;text&amp;apos; : &amp;apos;password&amp;apos;"</span>
+      <span class="hljs-attr">m-bind:append-icon</span>=<span class="hljs-string">"show2 ? 'visibility_off' : 'visibility'"</span>
+      <span class="hljs-attr">m-bind:type</span>=<span class="hljs-string">"show2 ? 'text' : 'password'"</span>
       <span class="hljs-attr">name</span>=<span class="hljs-string">"input-10-2"</span>
       <span class="hljs-attr">label</span>=<span class="hljs-string">"Visible"</span>
       <span class="hljs-attr">hint</span>=<span class="hljs-string">"At least 8 characters"</span>
@@ -547,8 +547,8 @@
     &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-text-field</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-text-field</span>
       <span class="hljs-attr">class</span>=<span class="hljs-string">"flex xs12 sm6 input-group--focused"</span>
-      <span class="hljs-attr">m-bind:append-icon</span>=<span class="hljs-string">"show3 ? &amp;apos;visibility_off&amp;apos; : &amp;apos;visibility&amp;apos;"</span>
-      <span class="hljs-attr">m-bind:type</span>=<span class="hljs-string">"show3 ? &amp;apos;text&amp;apos; : &amp;apos;password&amp;apos;"</span>
+      <span class="hljs-attr">m-bind:append-icon</span>=<span class="hljs-string">"show3 ? 'visibility_off' : 'visibility'"</span>
+      <span class="hljs-attr">m-bind:type</span>=<span class="hljs-string">"show3 ? 'text' : 'password'"</span>
       <span class="hljs-attr">name</span>=<span class="hljs-string">"input-10-2"</span>
       <span class="hljs-attr">label</span>=<span class="hljs-string">"Not visible"</span>
       <span class="hljs-attr">hint</span>=<span class="hljs-string">"At least 8 characters"</span>
@@ -557,8 +557,8 @@
     &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-text-field</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-text-field</span>
       <span class="hljs-attr">class</span>=<span class="hljs-string">"flex xs12 sm6"</span>
-      <span class="hljs-attr">m-bind:append-icon</span>=<span class="hljs-string">"show4 ? &amp;apos;visibility_off&amp;apos; : &amp;apos;visibility&amp;apos;"</span>
-      <span class="hljs-attr">m-bind:type</span>=<span class="hljs-string">"show4 ? &amp;apos;text&amp;apos; : &amp;apos;password&amp;apos;"</span>
+      <span class="hljs-attr">m-bind:append-icon</span>=<span class="hljs-string">"show4 ? 'visibility_off' : 'visibility'"</span>
+      <span class="hljs-attr">m-bind:type</span>=<span class="hljs-string">"show4 ? 'text' : 'password'"</span>
       <span class="hljs-attr">name</span>=<span class="hljs-string">"input-10-2"</span>
       <span class="hljs-attr">label</span>=<span class="hljs-string">"Error"</span>
       <span class="hljs-attr">hint</span>=<span class="hljs-string">"At least 8 characters"</span>

@@ -103,83 +103,83 @@
 <!-- <p class="markdown-breadcrumb">
   <span>布局</span><span class="split">/</span>  <span>grid</span></p> -->
     <div class="markdown-body">
-      <h1 id="grid"><a href="#grid" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>grid</h1><p>Vuetify拥有一个12点的栅格系统，它使用<kbd>flex-box</kbd>构建，栅格用于布局应用程序的内容。它包含5种类型的媒体断点，用于定位特定的屏幕大小或方向。栅格定义为一系列的辅助类，这允许您轻松地将这些类应用在元素上。</p><h2 id="用例"><a href="#用例" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>用例</h2><p>&#x6805;&#x683C;&#x7ED3;&#x6784;&#xFF1A;container -&gt; layout -&gt; flex&#xFF0C;&#x5176;&#x4E2D; flex &#x548C; layout &#x53EF;&#x4EE5;&#x4E92;&#x76F8;&#x5D4C;&#x5957; &#x54CD;&#x5E94;&#x5F0F;&#x65AD;&#x70B9;&#x5B9A;&#x4E49;&#x5982;&#x4E0B;&#xFF1A;</p><div class="md-component-preview-wrapper">
+      <h1 id="grid"><a href="#grid" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>grid</h1><p>Vuetify拥有一个12点的栅格系统，它使用<kbd>flex-box</kbd>构建，栅格用于布局应用程序的内容。它包含5种类型的媒体断点，用于定位特定的屏幕大小或方向。栅格定义为一系列的辅助类，这允许您轻松地将这些类应用在元素上。</p><h2 id="用例"><a href="#用例" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>用例</h2><p>栅格结构：container -&gt; layout -&gt; flex，其中 flex 和 layout 可以互相嵌套 响应式断点定义如下：</p><div class="md-component-preview-wrapper">
   <div class="md-component-preview"><mip-iframe layout="responsive" width="320" height="568" src="https://mip-project.github.io/v2/ui/layout/grid-case-0.html"></mip-iframe></div>
   <div class="md-component-code-wrapper">
     <div class="md-component-toolbar">
       <a href="https://mip-project.github.io/v2/ui/layout/grid-case-0.html" class="md-component-link" target="_blank">查看例子</a>
       <a class="md-component-link md-component-link-edit" href="https://mip-project.github.io/v2/ui/layout/grid-edit-0.html" target="_blank">编辑示例</a>
     </div>
-    <div class="md-component-code-box"><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div>32</div><div>33</div><div>34</div><div>35</div><div>36</div><div>37</div><div>38</div><div>39</div><div>40</div><div>41</div><div>42</div><div>43</div><div>44</div><div>45</div><div>46</div><div>47</div><div>48</div><div>49</div><div>50</div><div>51</div><div>52</div><div>53</div><div>54</div><div>55</div><div>56</div><div>57</div><div>58</div><div>59</div><div>60</div><div>61</div><div>62</div><div>63</div><div>64</div><div>65</div><div>66</div><div>67</div><div>68</div><div>69</div><div>70</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mb-5 v-card"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"v-table__overflow"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"v-table"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">caption</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mt-3"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>Material Design Viewport Breakpoints<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">caption</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">thead</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">tr</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"text-xs-left"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>Device<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>Code<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>Types<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>Range<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">thead</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">tbody</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span>
-  <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span>
-  <span class="hljs-attr">class</span>=<span class="hljs-string">"v-icon mr-3 material-icons"</span>
-&gt;</span>phone_iphone<span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Extra small<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>xs<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>small to large handset<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>&amp;lt; 600px<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span>
-  <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span>
-  <span class="hljs-attr">class</span>=<span class="hljs-string">"v-icon mr-3 material-icons"</span>
-&gt;</span>tablet<span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Small<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>sm<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>small to medium tablet<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>600px &amp;gt; &amp;lt; 960px<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span>
-  <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span>
-  <span class="hljs-attr">class</span>=<span class="hljs-string">"v-icon mr-3 material-icons"</span>
-&gt;</span>laptop<span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Medium<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>md<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>large tablet to laptop<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>960px &amp;gt; &amp;lt; 1264*<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span>
-  <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span>
-  <span class="hljs-attr">class</span>=<span class="hljs-string">"v-icon mr-3 material-icons"</span>
-&gt;</span>desktop_windows<span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Large<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>lg<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>desktop<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>1264 &amp;gt; &amp;lt; 1904px*<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span>
-  <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span>
-  <span class="hljs-attr">class</span>=<span class="hljs-string">"v-icon mr-3 material-icons"</span>
-&gt;</span>tv<span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Extra large<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>xl<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>4k and ultra-wides<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>&amp;gt; 1904px*<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">tbody</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">tfoot</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">td</span>
-            <span class="hljs-attr">colspan</span>=<span class="hljs-string">"4"</span>
-            <span class="hljs-attr">class</span>=<span class="hljs-string">"text-xs-center"</span>
-          &gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">em</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"grey--text"</span>&gt;</span>* -16px on Desktop<span class="hljs-tag">&lt;/<span class="hljs-name">em</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">tfoot</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
+    <div class="md-component-code-box"><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div>32</div><div>33</div><div>34</div><div>35</div><div>36</div><div>37</div><div>38</div><div>39</div><div>40</div><div>41</div><div>42</div><div>43</div><div>44</div><div>45</div><div>46</div><div>47</div><div>48</div><div>49</div><div>50</div><div>51</div><div>52</div><div>53</div><div>54</div><div>55</div><div>56</div><div>57</div><div>58</div><div>59</div><div>60</div><div>61</div><div>62</div><div>63</div><div>64</div><div>65</div><div>66</div><div>67</div><div>68</div><div>69</div><div>70</div></div><code class="lang-html">&lt;div class="mb-5 v-card"&gt;
+  &lt;div class="v-table__overflow"&gt;
+    &lt;table class="v-table"&gt;
+      &lt;caption class="mt-3"&gt;&lt;strong&gt;Material Design Viewport Breakpoints&lt;/strong&gt;&lt;/caption&gt;
+      &lt;thead&gt;
+        &lt;tr class="text-xs-left"&gt;
+          &lt;th&gt;Device&lt;/th&gt;
+          &lt;th&gt;Code&lt;/th&gt;
+          &lt;th&gt;Types&lt;/th&gt;
+          &lt;th&gt;Range&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;i
+  aria-hidden="true"
+  class="v-icon mr-3 material-icons"
+&gt;phone_iphone&lt;/i&gt;&lt;span&gt;Extra small&lt;/span&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;strong&gt;xs&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;small to large handset&lt;/td&gt;
+          &lt;td&gt;&lt; 600px&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;i
+  aria-hidden="true"
+  class="v-icon mr-3 material-icons"
+&gt;tablet&lt;/i&gt;&lt;span&gt;Small&lt;/span&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;strong&gt;sm&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;small to medium tablet&lt;/td&gt;
+          &lt;td&gt;600px &gt; &lt; 960px&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;i
+  aria-hidden="true"
+  class="v-icon mr-3 material-icons"
+&gt;laptop&lt;/i&gt;&lt;span&gt;Medium&lt;/span&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;strong&gt;md&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;large tablet to laptop&lt;/td&gt;
+          &lt;td&gt;960px &gt; &lt; 1264*&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;i
+  aria-hidden="true"
+  class="v-icon mr-3 material-icons"
+&gt;desktop_windows&lt;/i&gt;&lt;span&gt;Large&lt;/span&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;strong&gt;lg&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;desktop&lt;/td&gt;
+          &lt;td&gt;1264 &gt; &lt; 1904px*&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;i
+  aria-hidden="true"
+  class="v-icon mr-3 material-icons"
+&gt;tv&lt;/i&gt;&lt;span&gt;Extra large&lt;/span&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;strong&gt;xl&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;4k and ultra-wides&lt;/td&gt;
+          &lt;td&gt;&gt; 1904px*&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+      &lt;tfoot&gt;
+        &lt;tr&gt;
+          &lt;td
+            colspan="4"
+            class="text-xs-center"
+          &gt;&lt;small&gt;&lt;em class="grey--text"&gt;* -16px on Desktop&lt;/em&gt;&lt;/small&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tfoot&gt;
+    &lt;/table&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
   </div>
 </div>
 <h2 id="示例"><a href="#示例" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>示例</h2><h3 id="container-可以调整基础间距"><a href="#container-可以调整基础间距" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>container 可以调整基础间距</h3><div class="md-component-preview-wrapper">
