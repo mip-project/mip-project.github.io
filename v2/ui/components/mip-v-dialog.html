@@ -110,7 +110,7 @@
       <a href="https://mip-project.github.io/v2/ui/components/mip-v-dialog-case-0.html" class="md-component-link" target="_blank">查看例子</a>
       <a class="md-component-link md-component-link-edit" href="https://mip-project.github.io/v2/ui/components/mip-v-dialog-edit-0.html" target="_blank">编辑示例</a>
     </div>
-    <div class="md-component-code-box"><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
+    <div class="md-component-code-box"><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div>32</div><div>33</div><div>34</div><div>35</div><div>36</div><div>37</div><div>38</div><div>39</div><div>40</div><div>41</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
     {
       <span class="hljs-string">"dialog"</span>: <span class="hljs-literal">false</span>
@@ -118,19 +118,33 @@
   </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">mip-data</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"layout row justify-center"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-dialog</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"dialog"</span> <span class="hljs-attr">max-width</span>=<span class="hljs-string">"500"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"activator"</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"red lighten-2"</span> <span class="hljs-attr">dark</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-dialog</span>
+    <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"dialog"</span>
+    <span class="hljs-attr">max-width</span>=<span class="hljs-string">"500"</span>
+  &gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span>
+      <span class="hljs-attr">slot</span>=<span class="hljs-string">"activator"</span>
+      <span class="hljs-attr">color</span>=<span class="hljs-string">"red lighten-2"</span>
+      <span class="hljs-attr">dark</span>
+    &gt;</span>
       Click Me
     <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card-title</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"headline grey lighten-2"</span> <span class="hljs-attr">primary-title</span>&gt;</span>Privacy Policy<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card-title</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card-title</span>
+        <span class="hljs-attr">class</span>=<span class="hljs-string">"headline grey lighten-2"</span>
+        <span class="hljs-attr">primary-title</span>
+      &gt;</span>Privacy Policy<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card-title</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card-text</span>&gt;</span>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card-text</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-divider</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-divider</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card-actions</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"spacer"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span> <span class="hljs-attr">flat</span> <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:MIP.setData({ dialog: false })"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span>
+          <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>
+          <span class="hljs-attr">flat</span>
+          <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:MIP.setData({ dialog: false })"</span>
+        &gt;</span>
           I accept
         <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card-actions</span>&gt;</span>
@@ -146,7 +160,7 @@
       <a href="https://mip-project.github.io/v2/ui/components/mip-v-dialog-case-1.html" class="md-component-link" target="_blank">查看例子</a>
       <a class="md-component-link md-component-link-edit" href="https://mip-project.github.io/v2/ui/components/mip-v-dialog-edit-1.html" target="_blank">编辑示例</a>
     </div>
-    <div class="md-component-code-box"><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
+    <div class="md-component-code-box"><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div>32</div><div>33</div><div>34</div><div>35</div><div>36</div><div>37</div><div>38</div><div>39</div><div>40</div><div>41</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
     {
       <span class="hljs-string">"dialog"</span>: <span class="hljs-literal">false</span>
@@ -154,8 +168,16 @@
   </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">mip-data</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"layout row justify-center"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-dialog</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"dialog"</span> <span class="hljs-attr">persistent</span> <span class="hljs-attr">max-width</span>=<span class="hljs-string">"290"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"activator"</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span> <span class="hljs-attr">dark</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-dialog</span>
+    <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"dialog"</span>
+    <span class="hljs-attr">persistent</span>
+    <span class="hljs-attr">max-width</span>=<span class="hljs-string">"290"</span>
+  &gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span>
+      <span class="hljs-attr">slot</span>=<span class="hljs-string">"activator"</span>
+      <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>
+      <span class="hljs-attr">dark</span>
+    &gt;</span>
       Open Dialog
     <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card</span>&gt;</span>
@@ -165,8 +187,16 @@
       <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card-text</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card-actions</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"spacer"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"green darken-1"</span> <span class="hljs-attr">flat</span> <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:MIP.setData({ dialog: false })"</span>&gt;</span>Disagree<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"green darken-1"</span> <span class="hljs-attr">flat</span> <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:MIP.setData({ dialog: false })"</span>&gt;</span>Agree<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span>
+          <span class="hljs-attr">color</span>=<span class="hljs-string">"green darken-1"</span>
+          <span class="hljs-attr">flat</span>
+          <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:MIP.setData({ dialog: false })"</span>
+        &gt;</span>Disagree<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span>
+          <span class="hljs-attr">color</span>=<span class="hljs-string">"green darken-1"</span>
+          <span class="hljs-attr">flat</span>
+          <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:MIP.setData({ dialog: false })"</span>
+        &gt;</span>Agree<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card-actions</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-dialog</span>&gt;</span>
@@ -180,7 +210,7 @@
       <a href="https://mip-project.github.io/v2/ui/components/mip-v-dialog-case-2.html" class="md-component-link" target="_blank">查看例子</a>
       <a class="md-component-link md-component-link-edit" href="https://mip-project.github.io/v2/ui/components/mip-v-dialog-edit-2.html" target="_blank">编辑示例</a>
     </div>
-    <div class="md-component-code-box"><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div>32</div><div>33</div><div>34</div><div>35</div><div>36</div><div>37</div><div>38</div><div>39</div><div>40</div><div>41</div><div>42</div><div>43</div><div>44</div><div>45</div><div>46</div><div>47</div><div>48</div><div>49</div><div>50</div><div>51</div><div>52</div><div>53</div><div>54</div><div>55</div><div>56</div><div>57</div><div>58</div><div>59</div><div>60</div><div>61</div><div>62</div><div>63</div><div>64</div><div>65</div><div>66</div><div>67</div><div>68</div><div>69</div><div>70</div><div>71</div><div>72</div><div>73</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
+    <div class="md-component-code-box"><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div>32</div><div>33</div><div>34</div><div>35</div><div>36</div><div>37</div><div>38</div><div>39</div><div>40</div><div>41</div><div>42</div><div>43</div><div>44</div><div>45</div><div>46</div><div>47</div><div>48</div><div>49</div><div>50</div><div>51</div><div>52</div><div>53</div><div>54</div><div>55</div><div>56</div><div>57</div><div>58</div><div>59</div><div>60</div><div>61</div><div>62</div><div>63</div><div>64</div><div>65</div><div>66</div><div>67</div><div>68</div><div>69</div><div>70</div><div>71</div><div>72</div><div>73</div><div>74</div><div>75</div><div>76</div><div>77</div><div>78</div><div>79</div><div>80</div><div>81</div><div>82</div><div>83</div><div>84</div><div>85</div><div>86</div><div>87</div><div>88</div><div>89</div><div>90</div><div>91</div><div>92</div><div>93</div><div>94</div><div>95</div><div>96</div><div>97</div><div>98</div><div>99</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
     {
       <span class="hljs-string">"dialog"</span>: <span class="hljs-literal">false</span>,
@@ -191,20 +221,43 @@
   </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">mip-data</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"layout row justify-center"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-dialog</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"dialog"</span> <span class="hljs-attr">fullscreen</span> <span class="hljs-attr">hide-overlay</span> <span class="hljs-attr">transition</span>=<span class="hljs-string">"dialog-bottom-transition"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"activator"</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span> <span class="hljs-attr">dark</span>&gt;</span>Open Dialog<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-dialog</span>
+    <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"dialog"</span>
+    <span class="hljs-attr">fullscreen</span>
+    <span class="hljs-attr">hide-overlay</span>
+    <span class="hljs-attr">transition</span>=<span class="hljs-string">"dialog-bottom-transition"</span>
+  &gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span>
+      <span class="hljs-attr">slot</span>=<span class="hljs-string">"activator"</span>
+      <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>
+      <span class="hljs-attr">dark</span>
+    &gt;</span>Open Dialog<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"v-card"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-toolbar</span> <span class="hljs-attr">dark</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span> <span class="hljs-attr">icon</span> <span class="hljs-attr">dark</span> <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:MIP.setData({ dialog: false })"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-toolbar</span>
+        <span class="hljs-attr">dark</span>
+        <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>
+      &gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span>
+          <span class="hljs-attr">icon</span>
+          <span class="hljs-attr">dark</span>
+          <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:MIP.setData({ dialog: false })"</span>
+        &gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-icon</span>&gt;</span>close<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-icon</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-toolbar-title</span>&gt;</span>Settings<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-toolbar-title</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-spacer</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-spacer</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-toolbar-items</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span> <span class="hljs-attr">dark</span> <span class="hljs-attr">flat</span> <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:MIP.setData({ dialog: false })"</span>&gt;</span>Save<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span>
+            <span class="hljs-attr">dark</span>
+            <span class="hljs-attr">flat</span>
+            <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:MIP.setData({ dialog: false })"</span>
+          &gt;</span>Save<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-toolbar-items</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-toolbar</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-list</span> <span class="hljs-attr">three-line</span> <span class="hljs-attr">subheader</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-list</span>
+        <span class="hljs-attr">three-line</span>
+        <span class="hljs-attr">subheader</span>
+      &gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-subheader</span>&gt;</span>User Controls<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-subheader</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-list-tile</span> <span class="hljs-attr">avatar</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-list-tile-content</span>&gt;</span>
@@ -220,7 +273,10 @@
         <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-list-tile</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-list</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-divider</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-divider</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-list</span> <span class="hljs-attr">three-line</span> <span class="hljs-attr">subheader</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-list</span>
+        <span class="hljs-attr">three-line</span>
+        <span class="hljs-attr">subheader</span>
+      &gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-subheader</span>&gt;</span>General<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-subheader</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-list-tile</span> <span class="hljs-attr">avatar</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-list-tile-action</span>&gt;</span>
@@ -262,7 +318,7 @@
       <a href="https://mip-project.github.io/v2/ui/components/mip-v-dialog-case-3.html" class="md-component-link" target="_blank">查看例子</a>
       <a class="md-component-link md-component-link-edit" href="https://mip-project.github.io/v2/ui/components/mip-v-dialog-edit-3.html" target="_blank">编辑示例</a>
     </div>
-    <div class="md-component-code-box"><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div>32</div><div>33</div><div>34</div><div>35</div><div>36</div><div>37</div><div>38</div><div>39</div><div>40</div><div>41</div><div>42</div><div>43</div><div>44</div><div>45</div><div>46</div><div>47</div><div>48</div><div>49</div><div>50</div><div>51</div><div>52</div><div>53</div><div>54</div><div>55</div><div>56</div><div>57</div><div>58</div><div>59</div><div>60</div><div>61</div><div>62</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
+    <div class="md-component-code-box"><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div>32</div><div>33</div><div>34</div><div>35</div><div>36</div><div>37</div><div>38</div><div>39</div><div>40</div><div>41</div><div>42</div><div>43</div><div>44</div><div>45</div><div>46</div><div>47</div><div>48</div><div>49</div><div>50</div><div>51</div><div>52</div><div>53</div><div>54</div><div>55</div><div>56</div><div>57</div><div>58</div><div>59</div><div>60</div><div>61</div><div>62</div><div>63</div><div>64</div><div>65</div><div>66</div><div>67</div><div>68</div><div>69</div><div>70</div><div>71</div><div>72</div><div>73</div><div>74</div><div>75</div><div>76</div><div>77</div><div>78</div><div>79</div><div>80</div><div>81</div><div>82</div><div>83</div><div>84</div><div>85</div><div>86</div><div>87</div><div>88</div><div>89</div><div>90</div><div>91</div><div>92</div><div>93</div><div>94</div><div>95</div><div>96</div><div>97</div><div>98</div><div>99</div><div>100</div><div>101</div><div>102</div><div>103</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
     {
       <span class="hljs-string">"dialog"</span>: <span class="hljs-literal">false</span>
@@ -270,8 +326,16 @@
   </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">mip-data</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"layout row justify-center"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-dialog</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"dialog"</span> <span class="hljs-attr">persistent</span> <span class="hljs-attr">max-width</span>=<span class="hljs-string">"500px"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"activator"</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span> <span class="hljs-attr">dark</span>&gt;</span>Open Dialog<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-dialog</span>
+    <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"dialog"</span>
+    <span class="hljs-attr">persistent</span>
+    <span class="hljs-attr">max-width</span>=<span class="hljs-string">"500px"</span>
+  &gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span>
+      <span class="hljs-attr">slot</span>=<span class="hljs-string">"activator"</span>
+      <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>
+      <span class="hljs-attr">dark</span>
+    &gt;</span>Open Dialog<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card-title</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"headline"</span>&gt;</span>User Profile<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
@@ -280,22 +344,43 @@
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container grid-list-md"</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"layout wrap"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"flex xs12 sm6 md4"</span>&gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-text-field</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Legal first name"</span> <span class="hljs-attr">required</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-text-field</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-text-field</span>
+                <span class="hljs-attr">label</span>=<span class="hljs-string">"Legal first name"</span>
+                <span class="hljs-attr">required</span>
+              &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-text-field</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"flex xs12 sm6 md4"</span>&gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-text-field</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Legal middle name"</span> <span class="hljs-attr">hint</span>=<span class="hljs-string">"example of helper text only on focus"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-text-field</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-text-field</span>
+                <span class="hljs-attr">label</span>=<span class="hljs-string">"Legal middle name"</span>
+                <span class="hljs-attr">hint</span>=<span class="hljs-string">"example of helper text only on focus"</span>
+              &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-text-field</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"flex xs12 sm6 md4"</span>&gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-text-field</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Legal last name"</span> <span class="hljs-attr">hint</span>=<span class="hljs-string">"example of persistent helper text"</span> <span class="hljs-attr">persistent-hint</span> <span class="hljs-attr">required</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-text-field</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-text-field</span>
+                <span class="hljs-attr">label</span>=<span class="hljs-string">"Legal last name"</span>
+                <span class="hljs-attr">hint</span>=<span class="hljs-string">"example of persistent helper text"</span>
+                <span class="hljs-attr">persistent-hint</span>
+                <span class="hljs-attr">required</span>
+              &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-text-field</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"flex xs12"</span>&gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-text-field</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Email"</span> <span class="hljs-attr">required</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-text-field</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-text-field</span>
+                <span class="hljs-attr">label</span>=<span class="hljs-string">"Email"</span>
+                <span class="hljs-attr">required</span>
+              &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-text-field</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"flex xs12"</span>&gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-text-field</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Password"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"password"</span> <span class="hljs-attr">required</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-text-field</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-text-field</span>
+                <span class="hljs-attr">label</span>=<span class="hljs-string">"Password"</span>
+                <span class="hljs-attr">type</span>=<span class="hljs-string">"password"</span>
+                <span class="hljs-attr">required</span>
+              &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-text-field</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"flex xs12 sm6"</span>&gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-select</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Age"</span> <span class="hljs-attr">required</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-select</span>
+                <span class="hljs-attr">label</span>=<span class="hljs-string">"Age"</span>
+                <span class="hljs-attr">required</span>
+              &gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
                   {
                     <span class="hljs-string">"items"</span>: [<span class="hljs-string">"0-17"</span>, <span class="hljs-string">"18-29"</span>, <span class="hljs-string">"30-54"</span>, <span class="hljs-string">"54+"</span>]
@@ -304,7 +389,11 @@
               <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-select</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"flex xs12 sm6"</span>&gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-autocomplete</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Interests"</span> <span class="hljs-attr">multiple</span> <span class="hljs-attr">chips</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-autocomplete</span>
+                <span class="hljs-attr">label</span>=<span class="hljs-string">"Interests"</span>
+                <span class="hljs-attr">multiple</span>
+                <span class="hljs-attr">chips</span>
+              &gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
                   {
                     <span class="hljs-string">"items"</span>: [<span class="hljs-string">"Skiing"</span>, <span class="hljs-string">"Ice hockey"</span>, <span class="hljs-string">"Soccer"</span>, <span class="hljs-string">"Basketball"</span>, <span class="hljs-string">"Hockey"</span>, <span class="hljs-string">"Reading"</span>, <span class="hljs-string">"Writing"</span>, <span class="hljs-string">"Coding"</span>, <span class="hljs-string">"Basejump"</span>]
@@ -318,8 +407,16 @@
       <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card-text</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card-actions</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-spacer</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-spacer</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"blue darken-1"</span> <span class="hljs-attr">flat</span> <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:MIP.setData({ dialog: false })"</span>&gt;</span>Close<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"blue darken-1"</span> <span class="hljs-attr">flat</span> <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:MIP.setData({ dialog: false })"</span>&gt;</span>Save<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span>
+          <span class="hljs-attr">color</span>=<span class="hljs-string">"blue darken-1"</span>
+          <span class="hljs-attr">flat</span>
+          <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:MIP.setData({ dialog: false })"</span>
+        &gt;</span>Close<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span>
+          <span class="hljs-attr">color</span>=<span class="hljs-string">"blue darken-1"</span>
+          <span class="hljs-attr">flat</span>
+          <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:MIP.setData({ dialog: false })"</span>
+        &gt;</span>Save<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card-actions</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-dialog</span>&gt;</span>
@@ -333,7 +430,7 @@
       <a href="https://mip-project.github.io/v2/ui/components/mip-v-dialog-case-4.html" class="md-component-link" target="_blank">查看例子</a>
       <a class="md-component-link md-component-link-edit" href="https://mip-project.github.io/v2/ui/components/mip-v-dialog-edit-4.html" target="_blank">编辑示例</a>
     </div>
-    <div class="md-component-code-box"><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div>32</div><div>33</div><div>34</div><div>35</div><div>36</div><div>37</div><div>38</div><div>39</div><div>40</div><div>41</div><div>42</div><div>43</div><div>44</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
+    <div class="md-component-code-box"><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div>32</div><div>33</div><div>34</div><div>35</div><div>36</div><div>37</div><div>38</div><div>39</div><div>40</div><div>41</div><div>42</div><div>43</div><div>44</div><div>45</div><div>46</div><div>47</div><div>48</div><div>49</div><div>50</div><div>51</div><div>52</div><div>53</div><div>54</div><div>55</div><div>56</div><div>57</div><div>58</div><div>59</div><div>60</div><div>61</div><div>62</div><div>63</div><div>64</div><div>65</div><div>66</div><div>67</div><div>68</div><div>69</div><div>70</div><div>71</div><div>72</div><div>73</div><div>74</div><div>75</div><div>76</div><div>77</div><div>78</div><div>79</div><div>80</div><div>81</div><div>82</div><div>83</div><div>84</div><div>85</div><div>86</div><div>87</div><div>88</div><div>89</div><div>90</div><div>91</div><div>92</div><div>93</div><div>94</div><div>95</div><div>96</div><div>97</div><div>98</div><div>99</div><div>100</div><div>101</div><div>102</div><div>103</div><div>104</div><div>105</div><div>106</div><div>107</div><div>108</div><div>109</div><div>110</div><div>111</div><div>112</div><div>113</div><div>114</div><div>115</div><div>116</div><div>117</div><div>118</div><div>119</div><div>120</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
     {
       <span class="hljs-string">"dialog"</span>: <span class="hljs-literal">false</span>,
@@ -342,37 +439,113 @@
   </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">mip-data</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"layout row justify-center"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-dialog</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"dialog"</span> <span class="hljs-attr">scrollable</span> <span class="hljs-attr">max-width</span>=<span class="hljs-string">"300px"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"activator"</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span> <span class="hljs-attr">dark</span>&gt;</span>Open Dialog<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-dialog</span>
+    <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"dialog"</span>
+    <span class="hljs-attr">scrollable</span>
+    <span class="hljs-attr">max-width</span>=<span class="hljs-string">"300px"</span>
+  &gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span>
+      <span class="hljs-attr">slot</span>=<span class="hljs-string">"activator"</span>
+      <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>
+      <span class="hljs-attr">dark</span>
+    &gt;</span>Open Dialog<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"v-card"</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"v-card__title"</span>&gt;</span>Select Country<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-divider</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-divider</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"v-card__text"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"height: 300px;"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-radio-group</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"country"</span> <span class="hljs-attr">column</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-radio</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Bahamas"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"bahamas"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-radio</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-radio</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Bahrain"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"bahrain"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-radio</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-radio</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Bangladesh"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"bangladesh"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-radio</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-radio</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Barbados"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"barbados"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-radio</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-radio</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Belarus"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"belarus"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-radio</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-radio</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Belgium"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"belgium"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-radio</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-radio</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Belize"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"belize"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-radio</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-radio</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Benin"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"benin"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-radio</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-radio</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Bhutan"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"bhutan"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-radio</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-radio</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Bolivia"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"bolivia"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-radio</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-radio</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Bosnia and Herzegovina"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"bosnia"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-radio</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-radio</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Botswana"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"botswana"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-radio</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-radio</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Brazil"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"brazil"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-radio</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-radio</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Brunei"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"brunei"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-radio</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-radio</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Bulgaria"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"bulgaria"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-radio</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-radio</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Burkina Faso"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"burkina"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-radio</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-radio</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Burma"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"burma"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-radio</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-radio</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Burundi"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"burundi"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-radio</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
+        <span class="hljs-attr">class</span>=<span class="hljs-string">"v-card__text"</span>
+        <span class="hljs-attr">style</span>=<span class="hljs-string">"height: 300px;"</span>
+      &gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-radio-group</span>
+          <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"country"</span>
+          <span class="hljs-attr">column</span>
+        &gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-radio</span>
+            <span class="hljs-attr">label</span>=<span class="hljs-string">"Bahamas"</span>
+            <span class="hljs-attr">value</span>=<span class="hljs-string">"bahamas"</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-radio</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-radio</span>
+            <span class="hljs-attr">label</span>=<span class="hljs-string">"Bahrain"</span>
+            <span class="hljs-attr">value</span>=<span class="hljs-string">"bahrain"</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-radio</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-radio</span>
+            <span class="hljs-attr">label</span>=<span class="hljs-string">"Bangladesh"</span>
+            <span class="hljs-attr">value</span>=<span class="hljs-string">"bangladesh"</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-radio</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-radio</span>
+            <span class="hljs-attr">label</span>=<span class="hljs-string">"Barbados"</span>
+            <span class="hljs-attr">value</span>=<span class="hljs-string">"barbados"</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-radio</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-radio</span>
+            <span class="hljs-attr">label</span>=<span class="hljs-string">"Belarus"</span>
+            <span class="hljs-attr">value</span>=<span class="hljs-string">"belarus"</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-radio</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-radio</span>
+            <span class="hljs-attr">label</span>=<span class="hljs-string">"Belgium"</span>
+            <span class="hljs-attr">value</span>=<span class="hljs-string">"belgium"</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-radio</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-radio</span>
+            <span class="hljs-attr">label</span>=<span class="hljs-string">"Belize"</span>
+            <span class="hljs-attr">value</span>=<span class="hljs-string">"belize"</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-radio</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-radio</span>
+            <span class="hljs-attr">label</span>=<span class="hljs-string">"Benin"</span>
+            <span class="hljs-attr">value</span>=<span class="hljs-string">"benin"</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-radio</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-radio</span>
+            <span class="hljs-attr">label</span>=<span class="hljs-string">"Bhutan"</span>
+            <span class="hljs-attr">value</span>=<span class="hljs-string">"bhutan"</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-radio</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-radio</span>
+            <span class="hljs-attr">label</span>=<span class="hljs-string">"Bolivia"</span>
+            <span class="hljs-attr">value</span>=<span class="hljs-string">"bolivia"</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-radio</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-radio</span>
+            <span class="hljs-attr">label</span>=<span class="hljs-string">"Bosnia and Herzegovina"</span>
+            <span class="hljs-attr">value</span>=<span class="hljs-string">"bosnia"</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-radio</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-radio</span>
+            <span class="hljs-attr">label</span>=<span class="hljs-string">"Botswana"</span>
+            <span class="hljs-attr">value</span>=<span class="hljs-string">"botswana"</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-radio</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-radio</span>
+            <span class="hljs-attr">label</span>=<span class="hljs-string">"Brazil"</span>
+            <span class="hljs-attr">value</span>=<span class="hljs-string">"brazil"</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-radio</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-radio</span>
+            <span class="hljs-attr">label</span>=<span class="hljs-string">"Brunei"</span>
+            <span class="hljs-attr">value</span>=<span class="hljs-string">"brunei"</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-radio</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-radio</span>
+            <span class="hljs-attr">label</span>=<span class="hljs-string">"Bulgaria"</span>
+            <span class="hljs-attr">value</span>=<span class="hljs-string">"bulgaria"</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-radio</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-radio</span>
+            <span class="hljs-attr">label</span>=<span class="hljs-string">"Burkina Faso"</span>
+            <span class="hljs-attr">value</span>=<span class="hljs-string">"burkina"</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-radio</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-radio</span>
+            <span class="hljs-attr">label</span>=<span class="hljs-string">"Burma"</span>
+            <span class="hljs-attr">value</span>=<span class="hljs-string">"burma"</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-radio</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-radio</span>
+            <span class="hljs-attr">label</span>=<span class="hljs-string">"Burundi"</span>
+            <span class="hljs-attr">value</span>=<span class="hljs-string">"burundi"</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-radio</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-radio-group</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-divider</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-divider</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"v-card__actions"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"blue darken-1"</span> <span class="hljs-attr">flat</span> <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:MIP.setData({ dialog: false })"</span>&gt;</span>Close<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"blue darken-1"</span> <span class="hljs-attr">flat</span> <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:MIP.setData({ dialog: false })"</span>&gt;</span>Save<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span>
+          <span class="hljs-attr">color</span>=<span class="hljs-string">"blue darken-1"</span>
+          <span class="hljs-attr">flat</span>
+          <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:MIP.setData({ dialog: false })"</span>
+        &gt;</span>Close<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span>
+          <span class="hljs-attr">color</span>=<span class="hljs-string">"blue darken-1"</span>
+          <span class="hljs-attr">flat</span>
+          <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:MIP.setData({ dialog: false })"</span>
+        &gt;</span>Save<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-dialog</span>&gt;</span>
@@ -386,7 +559,7 @@
       <a href="https://mip-project.github.io/v2/ui/components/mip-v-dialog-case-5.html" class="md-component-link" target="_blank">查看例子</a>
       <a class="md-component-link md-component-link-edit" href="https://mip-project.github.io/v2/ui/components/mip-v-dialog-edit-5.html" target="_blank">编辑示例</a>
     </div>
-    <div class="md-component-code-box"><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div>32</div><div>33</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
+    <div class="md-component-code-box"><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div>32</div><div>33</div><div>34</div><div>35</div><div>36</div><div>37</div><div>38</div><div>39</div><div>40</div><div>41</div><div>42</div><div>43</div><div>44</div><div>45</div><div>46</div><div>47</div><div>48</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
     {
       <span class="hljs-string">"dialog"</span>: <span class="hljs-literal">false</span>
@@ -394,8 +567,15 @@
   </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">mip-data</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"layout row justify-center"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-dialog</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"dialog"</span> <span class="hljs-attr">max-width</span>=<span class="hljs-string">"600px"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"activator"</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span> <span class="hljs-attr">dark</span>&gt;</span>Open Dialog<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-dialog</span>
+    <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"dialog"</span>
+    <span class="hljs-attr">max-width</span>=<span class="hljs-string">"600px"</span>
+  &gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span>
+      <span class="hljs-attr">slot</span>=<span class="hljs-string">"activator"</span>
+      <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>
+      <span class="hljs-attr">dark</span>
+    &gt;</span>Open Dialog<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card-title</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"headline"</span>&gt;</span>Use Google&amp;apos;s location service?<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
@@ -413,8 +593,16 @@
       <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card-text</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card-actions</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-spacer</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-spacer</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"green darken-1"</span> <span class="hljs-attr">flat</span>=<span class="hljs-string">"flat"</span> <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:MIP.setData({ dialog: false })"</span>&gt;</span>Disagree<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"green darken-1"</span> <span class="hljs-attr">flat</span>=<span class="hljs-string">"flat"</span> <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:MIP.setData({ dialog: false })"</span>&gt;</span>Agree<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span>
+          <span class="hljs-attr">color</span>=<span class="hljs-string">"green darken-1"</span>
+          <span class="hljs-attr">flat</span>=<span class="hljs-string">"flat"</span>
+          <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:MIP.setData({ dialog: false })"</span>
+        &gt;</span>Disagree<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span>
+          <span class="hljs-attr">color</span>=<span class="hljs-string">"green darken-1"</span>
+          <span class="hljs-attr">flat</span>=<span class="hljs-string">"flat"</span>
+          <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:MIP.setData({ dialog: false })"</span>
+        &gt;</span>Agree<span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card-actions</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-dialog</span>&gt;</span>
@@ -428,7 +616,7 @@
       <a href="https://mip-project.github.io/v2/ui/components/mip-v-dialog-case-6.html" class="md-component-link" target="_blank">查看例子</a>
       <a class="md-component-link md-component-link-edit" href="https://mip-project.github.io/v2/ui/components/mip-v-dialog-edit-6.html" target="_blank">编辑示例</a>
     </div>
-    <div class="md-component-code-box"><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
+    <div class="md-component-code-box"><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div>32</div><div>33</div><div>34</div><div>35</div><div>36</div><div>37</div><div>38</div><div>39</div><div>40</div><div>41</div><div>42</div><div>43</div><div>44</div><div>45</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
     {
       <span class="hljs-string">"dialog"</span>: <span class="hljs-literal">false</span>
@@ -436,14 +624,33 @@
   </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">mip-data</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"layout row justify-center"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-dialog</span> <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"dialog"</span> <span class="hljs-attr">hide-overlay</span> <span class="hljs-attr">persistent</span> <span class="hljs-attr">max-width</span>=<span class="hljs-string">"300"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"activator"</span> <span class="hljs-attr">m-bind:disabled</span>=<span class="hljs-string">"dialog"</span> <span class="hljs-attr">m-bind:loading</span>=<span class="hljs-string">"dialog"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"white--text"</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"purple darken-2"</span> <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:MIP.setData({ dialog: true })"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-dialog</span>
+    <span class="hljs-attr">m-bind:value.sync</span>=<span class="hljs-string">"dialog"</span>
+    <span class="hljs-attr">hide-overlay</span>
+    <span class="hljs-attr">persistent</span>
+    <span class="hljs-attr">max-width</span>=<span class="hljs-string">"300"</span>
+  &gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-btn</span>
+      <span class="hljs-attr">slot</span>=<span class="hljs-string">"activator"</span>
+      <span class="hljs-attr">m-bind:disabled</span>=<span class="hljs-string">"dialog"</span>
+      <span class="hljs-attr">m-bind:loading</span>=<span class="hljs-string">"dialog"</span>
+      <span class="hljs-attr">class</span>=<span class="hljs-string">"white--text"</span>
+      <span class="hljs-attr">color</span>=<span class="hljs-string">"purple darken-2"</span>
+      <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:MIP.setData({ dialog: true })"</span>
+    &gt;</span>
       Start loading
     <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-btn</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span> <span class="hljs-attr">dark</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card</span>
+      <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>
+      <span class="hljs-attr">dark</span>
+    &gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card-text</span>&gt;</span>
         Please stand by
-        <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-progress-linear</span> <span class="hljs-attr">indeterminate</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"white"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mb-0"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-progress-linear</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-progress-linear</span>
+          <span class="hljs-attr">indeterminate</span>
+          <span class="hljs-attr">color</span>=<span class="hljs-string">"white"</span>
+          <span class="hljs-attr">class</span>=<span class="hljs-string">"mb-0"</span>
+        &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-progress-linear</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card-text</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-dialog</span>&gt;</span>

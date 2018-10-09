@@ -55,14 +55,7 @@
         </div>
         <div class="edit-code">
           <!-- <p class="edit-tip">编辑您的代码：</p> -->
-          <textarea id="code" name="code"><mip-data>
-  <script type="application/json">
-    {
-      "loading": false
-    }
-  </script>
-</mip-data>
-<style mip-custom>
+          <textarea id="code" name="code"><style mip-custom>
   .custom-loader {
     animation: loader 1s infinite;
     display: flex;
@@ -76,24 +69,58 @@
     }
   }
 </style>
+<mip-data>
+  <script type="application/json">
+    {
+      "loading": false
+    }
+  </script>
+</mip-data>
 <div class="text-xs-center">
-  <mip-v-btn m-bind:loading="loading" m-bind:disabled="loading" color="secondary" on="click:MIP.setData({ loading: true })">
+  <mip-v-btn
+    m-bind:loading="loading"
+    m-bind:disabled="loading"
+    color="secondary"
+    on="click:MIP.setData({ loading: true })"
+  >
     Accept Terms
   </mip-v-btn>
 
-  <mip-v-btn m-bind:loading="loading" m-bind:disabled="loading" color="blue-grey" class="white--text" on="click:MIP.setData({ loading: true })">
+  <mip-v-btn
+    m-bind:loading="loading"
+    m-bind:disabled="loading"
+    color="blue-grey"
+    class="white--text"
+    on="click:MIP.setData({ loading: true })"
+  >
     Upload
-    <mip-v-icon right dark>cloud_upload</mip-v-icon>
+    <mip-v-icon
+      right
+      dark
+    >cloud_upload</mip-v-icon>
   </mip-v-btn>
 
-  <mip-v-btn m-bind:loading="loading" m-bind:disabled="loading" color="success" on="click:MIP.setData({ loading: true })">
+  <mip-v-btn
+    m-bind:loading="loading"
+    m-bind:disabled="loading"
+    color="success"
+    on="click:MIP.setData({ loading: true })"
+  >
     Custom Loader
     <span slot="loader">Loading...</span>
   </mip-v-btn>
 
-  <mip-v-btn m-bind:loading="loading" m-bind:disabled="loading" color="info" on="click:MIP.setData({ loading: true })">
+  <mip-v-btn
+    m-bind:loading="loading"
+    m-bind:disabled="loading"
+    color="info"
+    on="click:MIP.setData({ loading: true })"
+  >
     Icon Loader
-    <span slot="loader" class="custom-loader">
+    <span
+      slot="loader"
+      class="custom-loader"
+    >
       <mip-v-icon light>cached</mip-v-icon>
     </span>
   </mip-v-btn>

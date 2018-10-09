@@ -99,15 +99,32 @@
   </script>
 </mip-data>
 <mip-v-toolbar dense>
-  <mip-v-overflow-btn m-bind:items="dropdownFont" label="Select font" hide-details></mip-v-overflow-btn>
+  <mip-v-overflow-btn
+    m-bind:items="dropdownFont"
+    label="Select font"
+    hide-details
+  ></mip-v-overflow-btn>
 
   <mip-v-divider vertical></mip-v-divider>
 
-  <mip-v-overflow-btn m-bind:items="dropdownEdit" editable label="Select size" hide-details overflow></mip-v-overflow-btn>
+  <mip-v-overflow-btn
+    m-bind:items="dropdownEdit"
+    editable
+    label="Select size"
+    hide-details
+    overflow
+  ></mip-v-overflow-btn>
 
-  <mip-v-divider class="mr-2" vertical></mip-v-divider>
+  <mip-v-divider
+    class="mr-2"
+    vertical
+  ></mip-v-divider>
 
-  <mip-v-btn-toggle m-bind:input-value.sync="toggleMultiple" class="transparent" multiple>
+  <mip-v-btn-toggle
+    m-bind:input-value.sync="toggleMultiple"
+    class="transparent"
+    multiple
+  >
     <mip-v-btn flat>
       <mip-v-icon>format_bold</mip-v-icon>
     </mip-v-btn>
@@ -125,9 +142,15 @@
     </mip-v-btn>
   </mip-v-btn-toggle>
 
-  <mip-v-divider class="mx-2" vertical></mip-v-divider>
+  <mip-v-divider
+    class="mx-2"
+    vertical
+  ></mip-v-divider>
 
-  <mip-v-btn-toggle m-bind:input-value.sync="toggleExclusive" class="transparent">
+  <mip-v-btn-toggle
+    m-bind:input-value.sync="toggleExclusive"
+    class="transparent"
+  >
     <mip-v-btn flat>
       <mip-v-icon>format_align_left</mip-v-icon>
     </mip-v-btn>

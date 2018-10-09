@@ -56,19 +56,19 @@
         <div class="edit-code">
           <!-- <p class="edit-tip">编辑您的代码：</p> -->
           <textarea id="code" name="code"><mip-list 
-    template="mip-template-id"
-    src="http://xxx?a=a&b=b"
-    id="mip-list"
-    has-more
-    pnName="pageNum"
-    pn=2
-    timeout="3000"
-    preLoad>
-    <template type="mip-mustache" id="mip-template-id">
-        <div>
-            <li>{{key}}: {{value}}</li>
-        </div>
-    </template>
+  template="mip-template-id"
+  src="http://xxx?a=a&b=b"
+  id="mip-list"
+  has-more
+  pnName="pageNum"
+  pn=2
+  timeout="3000"
+  preLoad>
+  <template type="mip-mustache" id="mip-template-id">
+    <div>
+      <li>{{key}}: {{value}}</li>
+    </div>
+  </template>
 </mip-list>
 <div class="mip-list-more" on="tap:mip-list.more"> 点击查看更多 </div>
 </textarea>

@@ -63,12 +63,21 @@
   </script>
 </mip-data>
 <div>
-  <mip-v-alert m-bind:value.sync="alert" dismissible type="success">
+  <mip-v-alert
+    m-bind:value.sync="alert"
+    dismissible
+    type="success"
+  >
     This is a success alert that is closable.
   </mip-v-alert>
 
   <div class="text-xs-center">
-    <mip-v-btn m-bind:style="{ display: alert ? &apos;none&apos; : &apos;block&apos; }" color="primary" dark on="tap:MIP.setData({ alert: true })">
+    <mip-v-btn
+      m-bind:style="{ display: alert ? &apos;none&apos; : &apos;block&apos; }"
+      color="primary"
+      dark
+      on="tap:MIP.setData({ alert: true })"
+    >
       Reset
     </mip-v-btn>
   </div>

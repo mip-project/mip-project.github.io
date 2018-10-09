@@ -110,7 +110,7 @@
       <a href="https://mip-project.github.io/v2/ui/components/mip-v-checkbox-case-0.html" class="md-component-link" target="_blank">查看例子</a>
       <a class="md-component-link md-component-link-edit" href="https://mip-project.github.io/v2/ui/components/mip-v-checkbox-edit-0.html" target="_blank">编辑示例</a>
     </div>
-    <div class="md-component-code-box"><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
+    <div class="md-component-code-box"><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
     {
       <span class="hljs-string">"checkbox"</span>: <span class="hljs-literal">true</span>
@@ -118,7 +118,10 @@
   </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">mip-data</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container fluid"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span> <span class="hljs-attr">m-bind:label</span>=<span class="hljs-string">"`Checkbox: ${checkbox}`"</span> <span class="hljs-attr">m-bind:input-value.sync</span>=<span class="hljs-string">"checkbox"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span>
+    <span class="hljs-attr">m-bind:label</span>=<span class="hljs-string">"`Checkbox: ${checkbox}`"</span>
+    <span class="hljs-attr">m-bind:input-value.sync</span>=<span class="hljs-string">"checkbox"</span>
+  &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
   </div>
 </div>
@@ -129,7 +132,7 @@
       <a href="https://mip-project.github.io/v2/ui/components/mip-v-checkbox-case-1.html" class="md-component-link" target="_blank">查看例子</a>
       <a class="md-component-link md-component-link-edit" href="https://mip-project.github.io/v2/ui/components/mip-v-checkbox-edit-1.html" target="_blank">编辑示例</a>
     </div>
-    <div class="md-component-code-box"><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
+    <div class="md-component-code-box"><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
     {
       <span class="hljs-string">"selected"</span>: []
@@ -138,8 +141,16 @@
 <span class="hljs-tag">&lt;/<span class="hljs-name">mip-data</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container fluid"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">m-text</span>=<span class="hljs-string">"selected"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span> <span class="hljs-attr">m-bind:input-value.sync</span>=<span class="hljs-string">"selected"</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"John"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"John"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span> <span class="hljs-attr">m-bind:input-value.sync</span>=<span class="hljs-string">"selected"</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Jacob"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Jacob"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span>
+    <span class="hljs-attr">m-bind:input-value.sync</span>=<span class="hljs-string">"selected"</span>
+    <span class="hljs-attr">label</span>=<span class="hljs-string">"John"</span>
+    <span class="hljs-attr">value</span>=<span class="hljs-string">"John"</span>
+  &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span>
+    <span class="hljs-attr">m-bind:input-value.sync</span>=<span class="hljs-string">"selected"</span>
+    <span class="hljs-attr">label</span>=<span class="hljs-string">"Jacob"</span>
+    <span class="hljs-attr">value</span>=<span class="hljs-string">"Jacob"</span>
+  &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
   </div>
 </div>
@@ -150,15 +161,35 @@
       <a href="https://mip-project.github.io/v2/ui/components/mip-v-checkbox-case-2.html" class="md-component-link" target="_blank">查看例子</a>
       <a class="md-component-link md-component-link-edit" href="https://mip-project.github.io/v2/ui/components/mip-v-checkbox-edit-2.html" target="_blank">编辑示例</a>
     </div>
-    <div class="md-component-code-box"><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container fluid"</span>&gt;</span>
+    <div class="md-component-code-box"><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container fluid"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"layout row"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"on"</span> <span class="hljs-attr">input-value</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">value</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"off"</span> <span class="hljs-attr">value</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"indeterminate"</span> <span class="hljs-attr">value</span> <span class="hljs-attr">indeterminate</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span>
+      <span class="hljs-attr">label</span>=<span class="hljs-string">"on"</span>
+      <span class="hljs-attr">input-value</span>=<span class="hljs-string">"true"</span>
+      <span class="hljs-attr">value</span>
+    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span>
+      <span class="hljs-attr">label</span>=<span class="hljs-string">"off"</span>
+      <span class="hljs-attr">value</span>
+    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span>
+      <span class="hljs-attr">label</span>=<span class="hljs-string">"indeterminate"</span>
+      <span class="hljs-attr">value</span>
+      <span class="hljs-attr">indeterminate</span>
+    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"layout row"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"on disabled"</span> <span class="hljs-attr">input-value</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">value</span> <span class="hljs-attr">disabled</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"off disabled"</span> <span class="hljs-attr">value</span> <span class="hljs-attr">disabled</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span>
+      <span class="hljs-attr">label</span>=<span class="hljs-string">"on disabled"</span>
+      <span class="hljs-attr">input-value</span>=<span class="hljs-string">"true"</span>
+      <span class="hljs-attr">value</span>
+      <span class="hljs-attr">disabled</span>
+    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span>
+      <span class="hljs-attr">label</span>=<span class="hljs-string">"off disabled"</span>
+      <span class="hljs-attr">value</span>
+      <span class="hljs-attr">disabled</span>
+    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
   </div>
@@ -170,7 +201,7 @@
       <a href="https://mip-project.github.io/v2/ui/components/mip-v-checkbox-case-3.html" class="md-component-link" target="_blank">查看例子</a>
       <a class="md-component-link md-component-link-edit" href="https://mip-project.github.io/v2/ui/components/mip-v-checkbox-edit-3.html" target="_blank">编辑示例</a>
     </div>
-    <div class="md-component-code-box"><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div>32</div><div>33</div><div>34</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
+    <div class="md-component-code-box"><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div>32</div><div>33</div><div>34</div><div>35</div><div>36</div><div>37</div><div>38</div><div>39</div><div>40</div><div>41</div><div>42</div><div>43</div><div>44</div><div>45</div><div>46</div><div>47</div><div>48</div><div>49</div><div>50</div><div>51</div><div>52</div><div>53</div><div>54</div><div>55</div><div>56</div><div>57</div><div>58</div><div>59</div><div>60</div><div>61</div><div>62</div><div>63</div><div>64</div><div>65</div><div>66</div><div>67</div><div>68</div><div>69</div><div>70</div><div>71</div><div>72</div><div>73</div><div>74</div><div>75</div><div>76</div><div>77</div><div>78</div><div>79</div><div>80</div><div>81</div><div>82</div><div>83</div><div>84</div><div>85</div><div>86</div><div>87</div><div>88</div><div>89</div><div>90</div><div>91</div><div>92</div><div>93</div><div>94</div><div>95</div><div>96</div><div>97</div><div>98</div><div>99</div><div>100</div><div>101</div><div>102</div><div>103</div><div>104</div><div>105</div><div>106</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
     {
       <span class="hljs-string">"colors"</span>: [
@@ -191,18 +222,90 @@
   </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">mip-data</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container fluid"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span> <span class="hljs-attr">m-bind:input-value.sync</span>=<span class="hljs-string">"colors"</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"red"</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"red"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"red"</span> <span class="hljs-attr">hide-details</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span> <span class="hljs-attr">m-bind:input-value.sync</span>=<span class="hljs-string">"colors"</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"red darken-3"</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"red darken-3"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"red darken-3"</span> <span class="hljs-attr">hide-details</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span> <span class="hljs-attr">m-bind:input-value.sync</span>=<span class="hljs-string">"colors"</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"indigo"</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"indigo"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"indigo"</span> <span class="hljs-attr">hide-details</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span> <span class="hljs-attr">m-bind:input-value.sync</span>=<span class="hljs-string">"colors"</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"indigo darken-3"</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"indigo darken-3"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"indigo darken-3"</span> <span class="hljs-attr">hide-details</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span> <span class="hljs-attr">m-bind:input-value.sync</span>=<span class="hljs-string">"colors"</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"orange"</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"orange"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"orange"</span> <span class="hljs-attr">hide-details</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span> <span class="hljs-attr">m-bind:input-value.sync</span>=<span class="hljs-string">"colors"</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"orange darken-3"</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"orange darken-3"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"orange darken-3"</span> <span class="hljs-attr">hide-details</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span> <span class="hljs-attr">m-bind:input-value.sync</span>=<span class="hljs-string">"colors"</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"primary"</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"primary"</span> <span class="hljs-attr">hide-details</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span> <span class="hljs-attr">m-bind:input-value.sync</span>=<span class="hljs-string">"colors"</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"secondary"</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"secondary"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"secondary"</span> <span class="hljs-attr">hide-details</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span> <span class="hljs-attr">m-bind:input-value.sync</span>=<span class="hljs-string">"colors"</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"success"</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"success"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"success"</span> <span class="hljs-attr">hide-details</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span> <span class="hljs-attr">m-bind:input-value.sync</span>=<span class="hljs-string">"colors"</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"info"</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"info"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"info"</span> <span class="hljs-attr">hide-details</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span> <span class="hljs-attr">m-bind:input-value.sync</span>=<span class="hljs-string">"colors"</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"warning"</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"warning"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"warning"</span> <span class="hljs-attr">hide-details</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span> <span class="hljs-attr">m-bind:input-value.sync</span>=<span class="hljs-string">"colors"</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"error"</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"error"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"error"</span> <span class="hljs-attr">hide-details</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span>
+    <span class="hljs-attr">m-bind:input-value.sync</span>=<span class="hljs-string">"colors"</span>
+    <span class="hljs-attr">label</span>=<span class="hljs-string">"red"</span>
+    <span class="hljs-attr">color</span>=<span class="hljs-string">"red"</span>
+    <span class="hljs-attr">value</span>=<span class="hljs-string">"red"</span>
+    <span class="hljs-attr">hide-details</span>
+  &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span>
+    <span class="hljs-attr">m-bind:input-value.sync</span>=<span class="hljs-string">"colors"</span>
+    <span class="hljs-attr">label</span>=<span class="hljs-string">"red darken-3"</span>
+    <span class="hljs-attr">color</span>=<span class="hljs-string">"red darken-3"</span>
+    <span class="hljs-attr">value</span>=<span class="hljs-string">"red darken-3"</span>
+    <span class="hljs-attr">hide-details</span>
+  &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span>
+    <span class="hljs-attr">m-bind:input-value.sync</span>=<span class="hljs-string">"colors"</span>
+    <span class="hljs-attr">label</span>=<span class="hljs-string">"indigo"</span>
+    <span class="hljs-attr">color</span>=<span class="hljs-string">"indigo"</span>
+    <span class="hljs-attr">value</span>=<span class="hljs-string">"indigo"</span>
+    <span class="hljs-attr">hide-details</span>
+  &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span>
+    <span class="hljs-attr">m-bind:input-value.sync</span>=<span class="hljs-string">"colors"</span>
+    <span class="hljs-attr">label</span>=<span class="hljs-string">"indigo darken-3"</span>
+    <span class="hljs-attr">color</span>=<span class="hljs-string">"indigo darken-3"</span>
+    <span class="hljs-attr">value</span>=<span class="hljs-string">"indigo darken-3"</span>
+    <span class="hljs-attr">hide-details</span>
+  &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span>
+    <span class="hljs-attr">m-bind:input-value.sync</span>=<span class="hljs-string">"colors"</span>
+    <span class="hljs-attr">label</span>=<span class="hljs-string">"orange"</span>
+    <span class="hljs-attr">color</span>=<span class="hljs-string">"orange"</span>
+    <span class="hljs-attr">value</span>=<span class="hljs-string">"orange"</span>
+    <span class="hljs-attr">hide-details</span>
+  &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span>
+    <span class="hljs-attr">m-bind:input-value.sync</span>=<span class="hljs-string">"colors"</span>
+    <span class="hljs-attr">label</span>=<span class="hljs-string">"orange darken-3"</span>
+    <span class="hljs-attr">color</span>=<span class="hljs-string">"orange darken-3"</span>
+    <span class="hljs-attr">value</span>=<span class="hljs-string">"orange darken-3"</span>
+    <span class="hljs-attr">hide-details</span>
+  &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span>
+    <span class="hljs-attr">m-bind:input-value.sync</span>=<span class="hljs-string">"colors"</span>
+    <span class="hljs-attr">label</span>=<span class="hljs-string">"primary"</span>
+    <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>
+    <span class="hljs-attr">value</span>=<span class="hljs-string">"primary"</span>
+    <span class="hljs-attr">hide-details</span>
+  &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span>
+    <span class="hljs-attr">m-bind:input-value.sync</span>=<span class="hljs-string">"colors"</span>
+    <span class="hljs-attr">label</span>=<span class="hljs-string">"secondary"</span>
+    <span class="hljs-attr">color</span>=<span class="hljs-string">"secondary"</span>
+    <span class="hljs-attr">value</span>=<span class="hljs-string">"secondary"</span>
+    <span class="hljs-attr">hide-details</span>
+  &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span>
+    <span class="hljs-attr">m-bind:input-value.sync</span>=<span class="hljs-string">"colors"</span>
+    <span class="hljs-attr">label</span>=<span class="hljs-string">"success"</span>
+    <span class="hljs-attr">color</span>=<span class="hljs-string">"success"</span>
+    <span class="hljs-attr">value</span>=<span class="hljs-string">"success"</span>
+    <span class="hljs-attr">hide-details</span>
+  &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span>
+    <span class="hljs-attr">m-bind:input-value.sync</span>=<span class="hljs-string">"colors"</span>
+    <span class="hljs-attr">label</span>=<span class="hljs-string">"info"</span>
+    <span class="hljs-attr">color</span>=<span class="hljs-string">"info"</span>
+    <span class="hljs-attr">value</span>=<span class="hljs-string">"info"</span>
+    <span class="hljs-attr">hide-details</span>
+  &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span>
+    <span class="hljs-attr">m-bind:input-value.sync</span>=<span class="hljs-string">"colors"</span>
+    <span class="hljs-attr">label</span>=<span class="hljs-string">"warning"</span>
+    <span class="hljs-attr">color</span>=<span class="hljs-string">"warning"</span>
+    <span class="hljs-attr">value</span>=<span class="hljs-string">"warning"</span>
+    <span class="hljs-attr">hide-details</span>
+  &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span>
+    <span class="hljs-attr">m-bind:input-value.sync</span>=<span class="hljs-string">"colors"</span>
+    <span class="hljs-attr">label</span>=<span class="hljs-string">"error"</span>
+    <span class="hljs-attr">color</span>=<span class="hljs-string">"error"</span>
+    <span class="hljs-attr">value</span>=<span class="hljs-string">"error"</span>
+    <span class="hljs-attr">hide-details</span>
+  &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
   </div>
 </div>
@@ -213,7 +316,7 @@
       <a href="https://mip-project.github.io/v2/ui/components/mip-v-checkbox-case-4.html" class="md-component-link" target="_blank">查看例子</a>
       <a class="md-component-link md-component-link-edit" href="https://mip-project.github.io/v2/ui/components/mip-v-checkbox-edit-4.html" target="_blank">编辑示例</a>
     </div>
-    <div class="md-component-code-box"><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
+    <div class="md-component-code-box"><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-data</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/json"</span>&gt;</span><span class="actionscript">
     {
       <span class="hljs-string">"includeFiles"</span>: <span class="hljs-literal">true</span>,
@@ -224,12 +327,23 @@
 <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-card-text</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"layout align-center"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span> <span class="hljs-attr">m-bind:input-value.sync</span>=<span class="hljs-string">"includeFiles"</span> <span class="hljs-attr">hide-details</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"shrink mr-2"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span>
+        <span class="hljs-attr">m-bind:input-value.sync</span>=<span class="hljs-string">"includeFiles"</span>
+        <span class="hljs-attr">hide-details</span>
+        <span class="hljs-attr">class</span>=<span class="hljs-string">"shrink mr-2"</span>
+      &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-text-field</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Include files"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-text-field</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"layout align-center"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span> <span class="hljs-attr">m-bind:input-value.sync</span>=<span class="hljs-string">"enabled"</span> <span class="hljs-attr">hide-details</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"shrink mr-2"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-text-field</span> <span class="hljs-attr">m-bind:disabled</span>=<span class="hljs-string">"!enabled"</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"I only work if you check the box"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-text-field</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-checkbox</span>
+        <span class="hljs-attr">m-bind:input-value.sync</span>=<span class="hljs-string">"enabled"</span>
+        <span class="hljs-attr">hide-details</span>
+        <span class="hljs-attr">class</span>=<span class="hljs-string">"shrink mr-2"</span>
+      &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-checkbox</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">mip-v-text-field</span>
+        <span class="hljs-attr">m-bind:disabled</span>=<span class="hljs-string">"!enabled"</span>
+        <span class="hljs-attr">label</span>=<span class="hljs-string">"I only work if you check the box"</span>
+      &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-text-field</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card-text</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">mip-v-card</span>&gt;</span></code></pre></div>

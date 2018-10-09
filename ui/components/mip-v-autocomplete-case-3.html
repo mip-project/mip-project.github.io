@@ -26,7 +26,19 @@
   </script>
 </mip-data>
 <div class="container grid-list-xl">
-  <mip-v-autocomplete m-bind:loading="loading" m-bind:items="asyncItems" m-bind:search-input.sync="searchVal" m-bind:value.sync="select" cache-items class="mx-3" flat hide-no-data hide-details label="What state are you from?" solo-inverted></mip-v-autocomplete>
+  <mip-v-autocomplete
+    m-bind:loading="loading"
+    m-bind:items="asyncItems"
+    m-bind:search-input.sync="searchVal"
+    m-bind:value.sync="select"
+    cache-items
+    class="mx-3"
+    flat
+    hide-no-data
+    hide-details
+    label="What state are you from?"
+    solo-inverted
+  ></mip-v-autocomplete>
 </div>
 <mip-script>
   function querySelections (v) {

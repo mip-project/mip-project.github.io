@@ -69,17 +69,33 @@
     }
   </script>
 </mip-data>
-<mip-v-card flat color="transparent">
+<mip-v-card
+  flat
+  color="transparent"
+>
   <mip-v-subheader>Min and max default slider</mip-v-subheader>
 
   <mip-v-card-text>
     <div class="layout row">
       <div class="flex pr-3">
-        <mip-v-slider m-bind:value.sync="slider0" m-bind:max="max" m-bind:min="min"></mip-v-slider>
+        <mip-v-slider
+          m-bind:value.sync="slider0"
+          m-bind:max="max"
+          m-bind:min="min"
+        ></mip-v-slider>
       </div>
 
-      <div class="flex shrink" style="width: 60px">
-        <mip-v-text-field m-bind:value.sync="slider0" class="mt-0" hide-details single-line type="number"></mip-v-text-field>
+      <div
+        class="flex shrink"
+        style="width: 60px"
+      >
+        <mip-v-text-field
+          m-bind:value.sync="slider0"
+          class="mt-0"
+          hide-details
+          single-line
+          type="number"
+        ></mip-v-text-field>
       </div>
     </div>
   </mip-v-card-text>
@@ -88,14 +104,36 @@
 
   <mip-v-card-text>
     <div class="layout row">
-      <div class="flex shrink" style="width: 60px">
-        <mip-v-text-field m-bind:value.sync="range[0]" class="mt-0" hide-details single-line type="number"></mip-v-text-field>
+      <div
+        class="flex shrink"
+        style="width: 60px"
+      >
+        <mip-v-text-field
+          m-bind:value.sync="range[0]"
+          class="mt-0"
+          hide-details
+          single-line
+          type="number"
+        ></mip-v-text-field>
       </div>
       <div class="flex px-3">
-        <mip-v-range-slider m-bind:value.sync="range" m-bind:max="max" m-bind:min="min"></mip-v-range-slider>
+        <mip-v-range-slider
+          m-bind:value.sync="range"
+          m-bind:max="max"
+          m-bind:min="min"
+        ></mip-v-range-slider>
       </div>
-      <div class="flex shrink" style="width: 60px">
-        <mip-v-text-field m-bind:value.sync="range[1]" class="mt-0" hide-details single-line type="number"></mip-v-text-field>
+      <div
+        class="flex shrink"
+        style="width: 60px"
+      >
+        <mip-v-text-field
+          m-bind:value.sync="range[1]"
+          class="mt-0"
+          hide-details
+          single-line
+          type="number"
+        ></mip-v-text-field>
       </div>
     </div>
   </mip-v-card-text>

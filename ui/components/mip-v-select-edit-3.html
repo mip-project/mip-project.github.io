@@ -128,11 +128,27 @@
   <div class="layout row wrap">
     <div class="flex xs12 md6">
       <h3>Multiple with persistent hint</h3>
-      <mip-v-select m-bind:items="states" m-bind:value.sync="e3" label="Select" multiple max-height="400" hint="Pick your favorite states" persistent-hint></mip-v-select>
+      <mip-v-select
+        m-bind:items="states"
+        m-bind:value.sync="e3"
+        label="Select"
+        multiple
+        max-height="400"
+        hint="Pick your favorite states"
+        persistent-hint
+      ></mip-v-select>
     </div>
     <div class="flex xs12 md6">
       <h3>Multiple (Chips) with persistent hint</h3>
-      <mip-v-select m-bind:items="states" m-bind:value.sync="e4" label="Select" multiple chips hint="What are the target regions" persistent-hint></mip-v-select>
+      <mip-v-select
+        m-bind:items="states"
+        m-bind:value.sync="e4"
+        label="Select"
+        multiple
+        chips
+        hint="What are the target regions"
+        persistent-hint
+      ></mip-v-select>
     </div>
   </div>
 </div>

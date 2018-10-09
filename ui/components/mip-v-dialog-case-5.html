@@ -22,8 +22,15 @@
   </script>
 </mip-data>
 <div class="layout row justify-center">
-  <mip-v-dialog m-bind:value.sync="dialog" max-width="600px">
-    <mip-v-btn slot="activator" color="primary" dark>Open Dialog</mip-v-btn>
+  <mip-v-dialog
+    m-bind:value.sync="dialog"
+    max-width="600px"
+  >
+    <mip-v-btn
+      slot="activator"
+      color="primary"
+      dark
+    >Open Dialog</mip-v-btn>
     <mip-v-card>
       <mip-v-card-title>
         <span class="headline">Use Google&apos;s location service?</span>
@@ -41,8 +48,16 @@
       </mip-v-card-text>
       <mip-v-card-actions>
         <mip-v-spacer></mip-v-spacer>
-        <mip-v-btn color="green darken-1" flat="flat" on="tap:MIP.setData({ dialog: false })">Disagree</mip-v-btn>
-        <mip-v-btn color="green darken-1" flat="flat" on="tap:MIP.setData({ dialog: false })">Agree</mip-v-btn>
+        <mip-v-btn
+          color="green darken-1"
+          flat="flat"
+          on="tap:MIP.setData({ dialog: false })"
+        >Disagree</mip-v-btn>
+        <mip-v-btn
+          color="green darken-1"
+          flat="flat"
+          on="tap:MIP.setData({ dialog: false })"
+        >Agree</mip-v-btn>
       </mip-v-card-actions>
     </mip-v-card>
   </mip-v-dialog>

@@ -25,7 +25,10 @@
   <div class="layout row wrap">
     <div class="flex xs12">
       <mip-v-subheader class="pl-0">Show thumb when using slider</mip-v-subheader>
-      <mip-v-slider m-bind:value.sync="slider" thumb-label></mip-v-slider>
+      <mip-v-slider
+        m-bind:value.sync="slider"
+        thumb-label
+      ></mip-v-slider>
     </div>
 
     <div class="flex xs12">
@@ -41,7 +44,10 @@
 
     <div class="flex xs12">
       <mip-v-subheader class="pl-0">Custom thumb color</mip-v-subheader>
-      <mip-v-slider m-bind:value.sync="slider" thumb-color="red">
+      <mip-v-slider
+        m-bind:value.sync="slider"
+        thumb-color="red"
+      >
         <script type="application/json">
           {
             "thumbLabel": "always"
@@ -52,7 +58,10 @@
 
     <div class="flex xs12">
       <mip-v-subheader class="pl-0">Custom thumb size</mip-v-subheader>
-      <mip-v-slider m-bind:value.sync="slider" thumb-size="24">
+      <mip-v-slider
+        m-bind:value.sync="slider"
+        thumb-size="24"
+      >
         <script type="application/json">
           {
             "thumbLabel": "always"
@@ -63,7 +72,12 @@
 
     <div class="flex xs12">
       <mip-v-subheader class="pl-0">Always dirty</mip-v-subheader>
-      <mip-v-slider m-bind:value.sync="slider" always-dirty hint="Try set it to &apos;0&apos;" persistent-hint>
+      <mip-v-slider
+        m-bind:value.sync="slider"
+        always-dirty
+        hint="Try set it to &apos;0&apos;"
+        persistent-hint
+      >
         <script type="application/json">
           {
             "thumbLabel": "always"

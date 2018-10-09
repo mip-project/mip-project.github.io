@@ -25,19 +25,43 @@
   </script>
 </mip-data>
 <div class="text-xs-center">
-  <mip-v-btn color="primary" dark m-bind:style="{ display: chip1 || chip2 || chip3 || chip4 ? &apos;none&apos; : &apos;inline-flex&apos; }" on="click:MIP.setData({ chip1: true, chip2: true, chip3: true, chip4: true })">
+  <mip-v-btn
+    color="primary"
+    dark
+    m-bind:style="{ display: chip1 || chip2 || chip3 || chip4 ? &apos;none&apos; : &apos;inline-flex&apos; }"
+    on="click:MIP.setData({ chip1: true, chip2: true, chip3: true, chip4: true })"
+  >
     Reset Chips
   </mip-v-btn>
-  <mip-v-chip m-bind:value.sync="chip1" close>
+  <mip-v-chip
+    m-bind:value.sync="chip1"
+    close
+  >
     Closable
   </mip-v-chip>
-  <mip-v-chip m-bind:value.sync="chip2" close color="red" text-color="white">
+  <mip-v-chip
+    m-bind:value.sync="chip2"
+    close
+    color="red"
+    text-color="white"
+  >
     Remove
   </mip-v-chip>
-  <mip-v-chip m-bind:value.sync="chip3" close color="green" outline>
+  <mip-v-chip
+    m-bind:value.sync="chip3"
+    close
+    color="green"
+    outline
+  >
     Success
   </mip-v-chip>
-  <mip-v-chip m-bind:value.sync="chip4" close color="orange" label outline>
+  <mip-v-chip
+    m-bind:value.sync="chip4"
+    close
+    color="orange"
+    label
+    outline
+  >
     Complete
   </mip-v-chip>
 </div>

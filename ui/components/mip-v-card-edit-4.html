@@ -65,7 +65,10 @@
 <div class="layout row">
   <div class="flex xs12 sm6 offset-sm3">
     <mip-v-card>
-      <mip-v-card-media src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg" height="200px">
+      <mip-v-card-media
+        src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+        height="200px"
+      >
       </mip-v-card-media>
 
       <mip-v-card-title primary-title>
@@ -77,9 +80,15 @@
 
       <mip-v-card-actions>
         <mip-v-btn flat>Share</mip-v-btn>
-        <mip-v-btn flat color="purple">Explore</mip-v-btn>
+        <mip-v-btn
+          flat
+          color="purple"
+        >Explore</mip-v-btn>
         <mip-v-spacer></mip-v-spacer>
-        <mip-v-btn icon on="tap:MIP.setData({ show: !m.show })">
+        <mip-v-btn
+          icon
+          on="tap:MIP.setData({ show: !m.show })"
+        >
           <mip-v-icon m-bind:style="{ display: show ? &apos;block&apos; : &apos;none&apos; }">keyboard_arrow_down</mip-v-icon>
           <mip-v-icon m-bind:style="{ display: show ? &apos;none&apos; : &apos;block&apos; }">keyboard_arrow_up</mip-v-icon>
         </mip-v-btn>

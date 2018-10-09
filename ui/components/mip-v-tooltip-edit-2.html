@@ -69,8 +69,14 @@
     </div>
 
     <div class="flex xs12 mt-5">
-      <mip-v-tooltip m-bind:value.sync="show" top>
-        <mip-v-btn slot="activator" icon>
+      <mip-v-tooltip
+        m-bind:value.sync="show"
+        top
+      >
+        <mip-v-btn
+          slot="activator"
+          icon
+        >
           <mip-v-icon color="grey lighten-1">shopping_cart</mip-v-icon>
         </mip-v-btn>
         <span>Programmatic tooltip</span>

@@ -22,7 +22,11 @@
     }
   </script>
 </mip-data>
-<mip-v-progress-linear m-bind:value.sync="buffer" m-bind:buffer-value="bufferValue" buffer></mip-v-progress-linear>
+<mip-v-progress-linear
+  m-bind:value.sync="buffer"
+  m-bind:buffer-value="bufferValue"
+  buffer
+></mip-v-progress-linear>
 <mip-script>
   setInterval(() => MIP.setData({
     buffer: MIP.getData('buffer') + Math.random() * 10 + 5,
