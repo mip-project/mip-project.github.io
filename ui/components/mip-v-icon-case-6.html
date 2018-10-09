@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html mip>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <title>测试</title>
+  <meta name="description" content="">
+  <link rel="canonical" href="/v2/ui/components/mip-v-icon-case-6.html">
+  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/assets/mip/projects/vuetify/mip.css">
+  
+            <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+          
+</head>
+<body>
+  
+  <div class="group pa-a">
+  <mip-v-btn color="primary" dark>Accept
+    <mip-v-icon dark right>check_circle</mip-v-icon>
+  </mip-v-btn>
+
+  <mip-v-btn color="red" dark>Decline
+    <mip-v-icon dark right>block</mip-v-icon>
+  </mip-v-btn>
+
+  <mip-v-btn dark>
+    <mip-v-icon dark left>remove_circle</mip-v-icon>Cancel
+  </mip-v-btn>
+</div>
+<div>
+  <mip-v-btn color="orange darken-2" dark>
+    <mip-v-icon dark left>arrow_back</mip-v-icon>Back
+  </mip-v-btn>
+
+  <mip-v-btn color="purple" dark>
+    <mip-v-icon dark>build</mip-v-icon>
+  </mip-v-btn>
+
+  <mip-v-btn color="indigo" dark>
+    <mip-v-icon dark>backup</mip-v-icon>
+  </mip-v-btn>
+</div>
+<div>
+  <mip-v-btn flat icon color="blue lighten-2">
+    <mip-v-icon>thumb_up</mip-v-icon>
+  </mip-v-btn>
+
+  <mip-v-btn flat icon color="red lighten-2">
+    <mip-v-icon>thumb_down</mip-v-icon>
+  </mip-v-btn>
+</div>
+
+  <script type="data-x-preset" id="preset">
+  
+  </script>
+  <script src="https://bos.nj.bpc.baidu.com/assets/mip/projects/vuetify/mip.js"></script>
+  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.js"></script>
+  <script>
+  var preset;
+  window.addEventListener('message', function (e) {
+    if (!e.data || e.data.type !== 'demo-edit') {
+      return;
+    }
+
+    if (!preset) {
+      preset = document.getElementById('preset').innerHTML
+        .replace(/___arrow_left___/g, '<')
+        .replace(/___arrow_right___/g, '>');
+    }
+    document.body.innerHTML = preset + e.data.html;
+  })
+  </script>
+</body>
+</html>

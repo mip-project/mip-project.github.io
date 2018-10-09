@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html mip>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <title>测试</title>
+  <meta name="description" content="">
+  <link rel="canonical" href="/v2/ui/components/mip-v-text-field-case-16.html">
+  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/assets/mip/projects/vuetify/mip.css">
+  
+            <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+          
+</head>
+<body>
+  
+  <mip-data>
+  <script type="application/json">
+    {
+      "progressValue": "",
+      "custom": true,
+      "progress": "",
+      "color": "error"
+    }
+  </script>
+</mip-data>
+<div class="container grid-list-xl">
+  <mip-v-checkbox m-bind:input-value.sync="custom" label="Custom progress bar"></mip-v-checkbox>
+  <mip-v-text-field m-bind:value.sync="progressValue" color="cyan darken" label="Text field" placeholder="Start typing..." loading>
+    <mip-v-progress-linear m-bind:class="{hide: !m.custom}" slot="progress" m-bind:value="progress" m-bind:color="color" height="7"></mip-v-progress-linear>
+  </mip-v-text-field>
+</div>
+<mip-script>
+  MIP.watch('sendMessage', val => {
+    MIP.setData({
+      iconIndex: 0,
+      message: '',
+      sendMessage: false
+    })
+  })
+
+  MIP.watch('changeIcon', val => {
+    if (val) {
+      let iconIndex = MIP.getData('iconIndex')
+      let icons = MIP.getData('icons')
+      MIP.setData({
+        iconIndex: (iconIndex === icons.length - 1) ? 0 : ++iconIndex
+      })
+    }
+    MIP.setData({
+      changeIcon: false
+    })
+  })
+  MIP.watch('progressValue', val => {
+    let progress = Math.min(100, val.length * 10)
+    MIP.setData({
+      progress,
+      color: ['error', 'warning', 'success'][Math.floor(progress / 40)]
+    })
+  })
+</mip-script>
+<script src="https://c.mipcdn.com/static/v2/mip-script/mip-script.js"></script>
+
+  <script type="data-x-preset" id="preset">
+  
+  </script>
+  <script src="https://bos.nj.bpc.baidu.com/assets/mip/projects/vuetify/mip.js"></script>
+  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.js"></script>
+  <script>
+  var preset;
+  window.addEventListener('message', function (e) {
+    if (!e.data || e.data.type !== 'demo-edit') {
+      return;
+    }
+
+    if (!preset) {
+      preset = document.getElementById('preset').innerHTML
+        .replace(/___arrow_left___/g, '<')
+        .replace(/___arrow_right___/g, '>');
+    }
+    document.body.innerHTML = preset + e.data.html;
+  })
+  </script>
+</body>
+</html>

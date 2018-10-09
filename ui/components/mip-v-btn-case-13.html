@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html mip>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <title>测试</title>
+  <meta name="description" content="">
+  <link rel="canonical" href="/v2/ui/components/mip-v-btn-case-13.html">
+  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/assets/mip/projects/vuetify/mip.css">
+  
+            <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+          
+</head>
+<body>
+  
+  <mip-data>
+  <script type="application/json">
+    {
+      "toggleExclusive": 2,
+      "toggleMultiple": [
+        0,
+        1,
+        2
+      ],
+      "dropdownFont": [
+        {
+          "text": "Arial"
+        },
+        {
+          "text": "Calibri"
+        },
+        {
+          "text": "Courier"
+        },
+        {
+          "text": "Verdana"
+        }
+      ],
+      "dropdownEdit": [
+        {
+          "text": "100%"
+        },
+        {
+          "text": "75%"
+        },
+        {
+          "text": "50%"
+        },
+        {
+          "text": "25%"
+        },
+        {
+          "text": "0%"
+        }
+      ]
+    }
+  </script>
+</mip-data>
+<mip-v-toolbar dense>
+  <mip-v-overflow-btn m-bind:items="dropdownFont" label="Select font" hide-details></mip-v-overflow-btn>
+
+  <mip-v-divider vertical></mip-v-divider>
+
+  <mip-v-overflow-btn m-bind:items="dropdownEdit" editable label="Select size" hide-details overflow></mip-v-overflow-btn>
+
+  <mip-v-divider class="mr-2" vertical></mip-v-divider>
+
+  <mip-v-btn-toggle m-bind:input-value.sync="toggleMultiple" class="transparent" multiple>
+    <mip-v-btn flat>
+      <mip-v-icon>format_bold</mip-v-icon>
+    </mip-v-btn>
+
+    <mip-v-btn flat>
+      <mip-v-icon>format_italic</mip-v-icon>
+    </mip-v-btn>
+
+    <mip-v-btn flat>
+      <mip-v-icon>format_underlined</mip-v-icon>
+    </mip-v-btn>
+
+    <mip-v-btn flat>
+      <mip-v-icon>format_color_fill</mip-v-icon>
+    </mip-v-btn>
+  </mip-v-btn-toggle>
+
+  <mip-v-divider class="mx-2" vertical></mip-v-divider>
+
+  <mip-v-btn-toggle m-bind:input-value.sync="toggleExclusive" class="transparent">
+    <mip-v-btn flat>
+      <mip-v-icon>format_align_left</mip-v-icon>
+    </mip-v-btn>
+
+    <mip-v-btn flat>
+      <mip-v-icon>format_align_center</mip-v-icon>
+    </mip-v-btn>
+
+    <mip-v-btn flat>
+      <mip-v-icon>format_align_right</mip-v-icon>
+    </mip-v-btn>
+
+    <mip-v-btn flat>
+      <mip-v-icon>format_align_justify</mip-v-icon>
+    </mip-v-btn>
+  </mip-v-btn-toggle>
+</mip-v-toolbar>
+
+  <script type="data-x-preset" id="preset">
+  
+  </script>
+  <script src="https://bos.nj.bpc.baidu.com/assets/mip/projects/vuetify/mip.js"></script>
+  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.js"></script>
+  <script>
+  var preset;
+  window.addEventListener('message', function (e) {
+    if (!e.data || e.data.type !== 'demo-edit') {
+      return;
+    }
+
+    if (!preset) {
+      preset = document.getElementById('preset').innerHTML
+        .replace(/___arrow_left___/g, '<')
+        .replace(/___arrow_right___/g, '>');
+    }
+    document.body.innerHTML = preset + e.data.html;
+  })
+  </script>
+</body>
+</html>

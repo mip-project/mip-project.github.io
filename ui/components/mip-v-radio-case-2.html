@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html mip>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <title>测试</title>
+  <meta name="description" content="">
+  <link rel="canonical" href="/v2/ui/components/mip-v-radio-case-2.html">
+  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/assets/mip/projects/vuetify/mip.css">
+  
+            <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+          
+</head>
+<body>
+  
+  <mip-data>
+  <script type="application/json">
+    {
+      "color": "red"
+    }
+  </script>
+</mip-data>
+<div class="container fluid">
+  <mip-v-radio-group m-bind:value.sync="color" column>
+    <mip-v-radio label="red" color="red" value="red"></mip-v-radio>
+    <mip-v-radio label="red darken-3" color="red darken-3" value="red darken-3"></mip-v-radio>
+    <mip-v-radio label="indigo" color="indigo" value="indigo"></mip-v-radio>
+    <mip-v-radio label="indigo darken-3" color="indigo darken-3" value="indigo darken-3"></mip-v-radio>
+    <mip-v-radio label="orange" color="orange" value="orange"></mip-v-radio>
+    <mip-v-radio label="orange darken-3" color="orange darken-3" value="orange darken-3"></mip-v-radio>
+    <mip-v-radio label="primary" color="primary" value="primary"></mip-v-radio>
+    <mip-v-radio label="secondary" color="secondary" value="secondary"></mip-v-radio>
+    <mip-v-radio label="success" color="success" value="success"></mip-v-radio>
+    <mip-v-radio label="info" color="info" value="info"></mip-v-radio>
+    <mip-v-radio label="warning" color="warning" value="warning"></mip-v-radio>
+    <mip-v-radio label="error" color="error" value="error"></mip-v-radio>
+  </mip-v-radio-group>
+</div>
+
+  <script type="data-x-preset" id="preset">
+  
+  </script>
+  <script src="https://bos.nj.bpc.baidu.com/assets/mip/projects/vuetify/mip.js"></script>
+  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.js"></script>
+  <script>
+  var preset;
+  window.addEventListener('message', function (e) {
+    if (!e.data || e.data.type !== 'demo-edit') {
+      return;
+    }
+
+    if (!preset) {
+      preset = document.getElementById('preset').innerHTML
+        .replace(/___arrow_left___/g, '<')
+        .replace(/___arrow_right___/g, '>');
+    }
+    document.body.innerHTML = preset + e.data.html;
+  })
+  </script>
+</body>
+</html>

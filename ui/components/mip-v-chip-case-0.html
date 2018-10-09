@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html mip>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <title>测试</title>
+  <meta name="description" content="">
+  <link rel="canonical" href="/v2/ui/components/mip-v-chip-case-0.html">
+  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/assets/mip/projects/vuetify/mip.css">
+  
+            <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+          
+</head>
+<body>
+  
+  <div class="container fluid pa-0">
+  <div class="layout row wrap">
+    <div class="flex md6 sm12">
+      <div class="text-xs-center">
+        <mip-v-chip close>Example Chip</mip-v-chip>
+      </div>
+      <div class="text-xs-center">
+        <mip-v-chip>Example Chip</mip-v-chip>
+      </div>
+    </div>
+    <div class="flex md6 sm12 xs12">
+      <div class="text-xs-center">
+        <mip-v-chip close>
+          <mip-v-avatar>
+            <img src="https://randomuser.me/api/portraits/men/35.jpg" alt="trevor">
+          </mip-v-avatar>
+          Trevor Hansen
+        </mip-v-chip>
+      </div>
+      <div class="text-xs-center">
+        <mip-v-chip>
+          <mip-v-avatar class="teal">A</mip-v-avatar>
+          ANZ Bank
+        </mip-v-chip>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script type="data-x-preset" id="preset">
+  
+  </script>
+  <script src="https://bos.nj.bpc.baidu.com/assets/mip/projects/vuetify/mip.js"></script>
+  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.js"></script>
+  <script>
+  var preset;
+  window.addEventListener('message', function (e) {
+    if (!e.data || e.data.type !== 'demo-edit') {
+      return;
+    }
+
+    if (!preset) {
+      preset = document.getElementById('preset').innerHTML
+        .replace(/___arrow_left___/g, '<')
+        .replace(/___arrow_right___/g, '>');
+    }
+    document.body.innerHTML = preset + e.data.html;
+  })
+  </script>
+</body>
+</html>
