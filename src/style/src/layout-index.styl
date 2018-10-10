@@ -62,14 +62,16 @@
                     &-start
                         background #000
                         color #fff
-                        &:hover
-                            background #333
+                        @media screen and (min-width: 768px)
+                          &:hover
+                              background #333
                     &-github
                         background #fff
                         color #000
                         margin-left 10px
-                        &:hover
-                            background #f4f4f4
+                        @media screen and (min-width: 768px)
+                          &:hover
+                              background #f4f4f4
 
     .intro-section
         background #fff
@@ -298,12 +300,15 @@
                             margin 0 0 3px 7px
                             transform translateY(25%)
 
-                        &:hover,&:active
+                        &:active
                             background #f4f4f4
                         @media screen and (max-width: 768px)
                             bottom 40px
                             left 30px
                             width 119px
+                        @media screen and (min-width: 768px)
+                            &:hover
+                               background #f4f4f4
                     .mip-advan-section-img
                         width 90px
                         height 90px
@@ -313,6 +318,10 @@
                         background-repeat no-repeat
                         background-size 100% 100%
                         transition background-image .08s
+                        @media screen and (max-width: 768px)
+                          width 75px
+                          height 75px
+
                         &:before
                           content ''
                           display none
