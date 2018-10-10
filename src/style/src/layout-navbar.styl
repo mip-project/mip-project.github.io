@@ -114,11 +114,19 @@
     display none
 
 .nav-sidebar
-  z-index 40100 !important
-  width 70%
-  box-sizing border-box
-  // padding 25px 0
-  background #fff
+  // z-index 40100 !important
+
+  mip-fixed
+    z-index 40100 !important
+
+  .mip-sidebar-content
+    width 70%
+    box-sizing border-box
+    background #fff
+  .mip-sidebar-mask
+    background-color rgba(0, 0, 0, .65)
+
+
   h1
     font-size 24px
     margin-bottom 10px
@@ -298,9 +306,9 @@
             background #000
             position absolute
 
-.MIP-SIDEBAR-MASK
-  z-index 40000 !important
+// .MIP-SIDEBAR-MASK
+//   z-index 40000 !important
 
-.MIP-SIDEBAR-MASK[open]
-  background-color rgba(0, 0, 0, .65)
+// .MIP-SIDEBAR-MASK[open]
+//   background-color rgba(0, 0, 0, .65)
 
