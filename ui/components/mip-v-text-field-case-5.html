@@ -34,10 +34,21 @@
   </script>
 </mip-data>
 <mip-v-flex xs12>
-  <mip-v-text-field m-bind:value.sync="message" m-bind:append-icon="marker ? &apos;mdi-map-marker&apos; : &apos;mdi-map-marker-off&apos;" m-bind:append-outer-icon="message ? &apos;mdi-send&apos; : &apos;mdi-microphone&apos;" m-bind:prepend-icon="icons[iconIndex]" box clear-icon="mdi-close-circle" clearable label="Message" type="text" on="click-append:MIP.setData({marker: !m.marker})
+  <mip-v-text-field
+    m-bind:value.sync="message"
+    m-bind:append-icon="marker ? 'mdi-map-marker' : 'mdi-map-marker-off'"
+    m-bind:append-outer-icon="message ? 'mdi-send' : 'mdi-microphone'"
+    m-bind:prepend-icon="icons[iconIndex]"
+    box
+    clear-icon="mdi-close-circle"
+    clearable
+    label="Message"
+    type="text"
+    on="click-append:MIP.setData({marker: !m.marker})
         click-append-outer:MIP.setData({sendMessage: true})
         click-prepend:MIP.setData({changeIcon: true})
-        click-clear:MIP.setData({message: &apos;&apos;})">
+        click-clear:MIP.setData({message: ''})"
+  >
 </mip-v-text-field></mip-v-flex>
 
   <script type="data-x-preset" id="preset">

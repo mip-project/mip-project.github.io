@@ -25,20 +25,47 @@
   </script>
 </mip-data>
 <div class="layout row justify-center">
-  <mip-v-dialog m-bind:value.sync="dialog" fullscreen hide-overlay transition="dialog-bottom-transition">
-    <mip-v-btn slot="activator" color="primary" dark>Open Dialog</mip-v-btn>
+  <mip-v-dialog
+    m-bind:value.sync="dialog"
+    fullscreen
+    hide-overlay
+    transition="dialog-bottom-transition"
+  >
+    <mip-v-btn
+      slot="activator"
+      color="primary"
+      dark
+    >
+      Open Dialog
+    </mip-v-btn>
     <div class="v-card">
-      <mip-v-toolbar dark color="primary">
-        <mip-v-btn icon dark on="tap:MIP.setData({ dialog: false })">
+      <mip-v-toolbar
+        dark
+        color="primary"
+      >
+        <mip-v-btn
+          icon
+          dark
+          on="tap:MIP.setData({ dialog: false })"
+        >
           <mip-v-icon>close</mip-v-icon>
         </mip-v-btn>
         <mip-v-toolbar-title>Settings</mip-v-toolbar-title>
         <mip-v-spacer></mip-v-spacer>
         <mip-v-toolbar-items>
-          <mip-v-btn dark flat on="tap:MIP.setData({ dialog: false })">Save</mip-v-btn>
+          <mip-v-btn
+            dark
+            flat
+            on="tap:MIP.setData({ dialog: false })"
+          >
+            Save
+          </mip-v-btn>
         </mip-v-toolbar-items>
       </mip-v-toolbar>
-      <mip-v-list three-line subheader>
+      <mip-v-list
+        three-line
+        subheader
+      >
         <mip-v-subheader>User Controls</mip-v-subheader>
         <mip-v-list-tile avatar>
           <mip-v-list-tile-content>
@@ -54,7 +81,10 @@
         </mip-v-list-tile>
       </mip-v-list>
       <mip-v-divider></mip-v-divider>
-      <mip-v-list three-line subheader>
+      <mip-v-list
+        three-line
+        subheader
+      >
         <mip-v-subheader>General</mip-v-subheader>
         <mip-v-list-tile avatar>
           <mip-v-list-tile-action>

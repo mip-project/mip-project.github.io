@@ -43,38 +43,38 @@ li:first-child {
 </style>
 
   <header>
-    <div id="logo" on="tap:sidebar.open">Open mip-sidebar</div>
+  <div id="logo" on="tap:sidebar.open">Open mip-sidebar</div>
 </header>
-<mip-sidebar 
-    id="sidebar"
-    layout="nodisplay"
-    class="mip-hidden">
-    <ul>
-        <li>
-            <a href="https://www.mipengine.org/">MIP官网</a>
-            <button on="tap:sidebar.close"> X </button>
-        </li>
-        <li>Nav item 1</li>
-        <li>Nav item 2</li>
-        <li>Nav item 3</li>
-        <li>
-            Nav item 4 - Image
-            <mip-img
-                src="https://www.mipengine.org/favicon.ico"
-                width="32"
-                height="32"
-                alt="mipengine ico"></mip-img>
-        </li>
-        <li>Nav item 5</li>
-        <li>Nav item 6</li>
-    </ul>
+<mip-sidebar
+  id="sidebar"
+  layout="nodisplay"
+  class="mip-hidden">
+  <ul>
+    <li>
+      <a href="https://www.mipengine.org/">MIP官网</a>
+      <button on="tap:sidebar.close"> X </button>
+    </li>
+    <li>Nav item 1</li>
+    <li>Nav item 2</li>
+    <li>Nav item 3</li>
+    <li>
+      Nav item 4 - Image
+      <mip-img
+        src="https://www.mipengine.org/favicon.ico"
+        width="32"
+        height="32"
+        alt="mipengine ico"></mip-img>
+    </li>
+    <li>Nav item 5</li>
+    <li>Nav item 6</li>
+  </ul>
 </mip-sidebar>
 
   <script type="data-x-preset" id="preset">
   
   </script>
   <script src="https://bos.nj.bpc.baidu.com/assets/mip/projects/vuetify/mip.js"></script>
-  <script src="https://c.mipcdn.com/static/v1/mip-sidebar/mip-sidebar.js"></script>
+  <script src="https://c.mipcdn.com/static/v2/mip-sidebar/mip-sidebar.js"></script>
   <script>
   var preset;
   window.addEventListener('message', function (e) {

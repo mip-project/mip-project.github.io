@@ -25,19 +25,30 @@
   <mip-v-subheader>Media volume</mip-v-subheader>
 
   <mip-v-card-text>
-    <mip-v-slider m-bind:value.sync="zoom" append-icon="alarm"></mip-v-slider>
+    <mip-v-slider
+      m-bind:value.sync="zoom"
+      append-icon="alarm"
+    ></mip-v-slider>
   </mip-v-card-text>
 
   <mip-v-subheader>Alarm volume</mip-v-subheader>
 
   <mip-v-card-text>
-    <mip-v-slider m-bind:value.sync="zoom" prepend-icon="volume_up"></mip-v-slider>
+    <mip-v-slider
+      m-bind:value.sync="zoom"
+      prepend-icon="volume_up"
+    ></mip-v-slider>
   </mip-v-card-text>
 
   <mip-v-subheader>Icon click callback</mip-v-subheader>
 
   <mip-v-card-text>
-    <mip-v-slider m-bind:value.sync="zoom" append-icon="zoom_in" prepend-icon="zoom_out" on="click-append:MIP.setData({zoom: m.zoom + 10}) click-prepend:MIP.setData({zoom: m.zoom - 10})"></mip-v-slider>
+    <mip-v-slider
+      m-bind:value.sync="zoom"
+      append-icon="zoom_in"
+      prepend-icon="zoom_out"
+      on="click-append:MIP.setData({zoom: m.zoom + 10}) click-prepend:MIP.setData({zoom: m.zoom - 10})"
+    ></mip-v-slider>
   </mip-v-card-text>
 </mip-v-card>
 

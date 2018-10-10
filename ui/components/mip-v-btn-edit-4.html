@@ -103,24 +103,41 @@
     }
   </script>
 </mip-data>
-<div class="container grid-list-xl" id="dropdown-example">
+<div
+  class="container grid-list-xl"
+  id="dropdown-example"
+>
   <div class="layout row wrap">
     <div class="flex xs12 sm4">
       <p>Overflow</p>
 
-      <mip-v-overflow-btn m-bind:items="dropdownFont" label="Overflow Btn" target="#dropdown-example"></mip-v-overflow-btn>
+      <mip-v-overflow-btn
+        m-bind:items="dropdownFont"
+        label="Overflow Btn"
+        target="#dropdown-example"
+      ></mip-v-overflow-btn>
     </div>
 
     <div class="flex xs12 sm4">
       <p>Segmented</p>
 
-      <mip-v-overflow-btn m-bind:items="dropdownIcon" label="Segmented Btn" segmented target="#dropdown-example"></mip-v-overflow-btn>
+      <mip-v-overflow-btn
+        m-bind:items="dropdownIcon"
+        label="Segmented Btn"
+        segmented
+        target="#dropdown-example"
+      ></mip-v-overflow-btn>
     </div>
 
     <div class="flex xs12 sm4">
       <p>Editable</p>
 
-      <mip-v-overflow-btn m-bind:items="dropdownEdit" label="Editable Btn" editable item-value="text"></mip-v-overflow-btn>
+      <mip-v-overflow-btn
+        m-bind:items="dropdownEdit"
+        label="Editable Btn"
+        editable
+        item-value="text"
+      ></mip-v-overflow-btn>
     </div>
   </div>
 </div>

@@ -71,7 +71,10 @@
     }
   </script>
 </mip-data>
-<mip-v-card flat class="py-5">
+<mip-v-card
+  flat
+  class="py-5"
+>
   <mip-v-card-text>
     <div class="container fluid pa-0">
       <div class="layout row wrap">
@@ -94,7 +97,10 @@
         </div>
         <div class="flex xs12 sm6 py-2">
           <p>Multiple</p>
-          <mip-v-btn-toggle m-bind:input-value.sync="toggleMultiple" multiple>
+          <mip-v-btn-toggle
+            m-bind:input-value.sync="toggleMultiple"
+            multiple
+          >
             <mip-v-btn flat>
               <mip-v-icon>format_bold</mip-v-icon>
             </mip-v-btn>
@@ -128,7 +134,10 @@
         </div>
         <div class="flex xs12 sm6 py-2">
           <p>Mandatory</p>
-          <mip-v-btn-toggle m-bind:input-value.sync="toggleOne" mandatory>
+          <mip-v-btn-toggle
+            m-bind:input-value.sync="toggleOne"
+            mandatory
+          >
             <mip-v-btn flat>
               <mip-v-icon>format_align_left</mip-v-icon>
             </mip-v-btn>
@@ -146,36 +155,60 @@
         <div class="flex xs12 sm6 py-2">
           <p>Text Options</p>
           <mip-v-btn-toggle m-bind:input-value.sync="text">
-            <mip-v-btn flat value="left">
+            <mip-v-btn
+              flat
+              value="left"
+            >
               Left
             </mip-v-btn>
-            <mip-v-btn flat value="center">
+            <mip-v-btn
+              flat
+              value="center"
+            >
               Center
             </mip-v-btn>
-            <mip-v-btn flat value="right">
+            <mip-v-btn
+              flat
+              value="right"
+            >
               Right
             </mip-v-btn>
-            <mip-v-btn flat value="justify">
+            <mip-v-btn
+              flat
+              value="justify"
+            >
               Justify
             </mip-v-btn>
           </mip-v-btn-toggle>
         </div>
         <div class="flex xs12 sm6 py-2">
-          <p>Text &amp; Icon Options</p>
+          <p>Text & Icon Options</p>
           <mip-v-btn-toggle m-bind:input-value.sync="icon">
-            <mip-v-btn flat value="left">
+            <mip-v-btn
+              flat
+              value="left"
+            >
               <span>Left</span>
               <mip-v-icon>format_align_left</mip-v-icon>
             </mip-v-btn>
-            <mip-v-btn flat value="center">
+            <mip-v-btn
+              flat
+              value="center"
+            >
               <span>Center</span>
               <mip-v-icon>format_align_center</mip-v-icon>
             </mip-v-btn>
-            <mip-v-btn flat value="right">
+            <mip-v-btn
+              flat
+              value="right"
+            >
               <span>Right</span>
               <mip-v-icon>format_align_right</mip-v-icon>
             </mip-v-btn>
-            <mip-v-btn flat value="justify">
+            <mip-v-btn
+              flat
+              value="justify"
+            >
               <span>Justify</span>
               <mip-v-icon>format_align_justify</mip-v-icon>
             </mip-v-btn>

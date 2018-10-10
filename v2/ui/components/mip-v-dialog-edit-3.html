@@ -63,8 +63,18 @@
   </script>
 </mip-data>
 <div class="layout row justify-center">
-  <mip-v-dialog m-bind:value.sync="dialog" persistent max-width="500px">
-    <mip-v-btn slot="activator" color="primary" dark>Open Dialog</mip-v-btn>
+  <mip-v-dialog
+    m-bind:value.sync="dialog"
+    persistent
+    max-width="500px"
+  >
+    <mip-v-btn
+      slot="activator"
+      color="primary"
+      dark
+    >
+      Open Dialog
+    </mip-v-btn>
     <mip-v-card>
       <mip-v-card-title>
         <span class="headline">User Profile</span>
@@ -73,22 +83,43 @@
         <div class="container grid-list-md">
           <div class="layout wrap">
             <div class="flex xs12 sm6 md4">
-              <mip-v-text-field label="Legal first name" required></mip-v-text-field>
+              <mip-v-text-field
+                label="Legal first name"
+                required
+              ></mip-v-text-field>
             </div>
             <div class="flex xs12 sm6 md4">
-              <mip-v-text-field label="Legal middle name" hint="example of helper text only on focus"></mip-v-text-field>
+              <mip-v-text-field
+                label="Legal middle name"
+                hint="example of helper text only on focus"
+              ></mip-v-text-field>
             </div>
             <div class="flex xs12 sm6 md4">
-              <mip-v-text-field label="Legal last name" hint="example of persistent helper text" persistent-hint required></mip-v-text-field>
+              <mip-v-text-field
+                label="Legal last name"
+                hint="example of persistent helper text"
+                persistent-hint
+                required
+              ></mip-v-text-field>
             </div>
             <div class="flex xs12">
-              <mip-v-text-field label="Email" required></mip-v-text-field>
+              <mip-v-text-field
+                label="Email"
+                required
+              ></mip-v-text-field>
             </div>
             <div class="flex xs12">
-              <mip-v-text-field label="Password" type="password" required></mip-v-text-field>
+              <mip-v-text-field
+                label="Password"
+                type="password"
+                required
+              ></mip-v-text-field>
             </div>
             <div class="flex xs12 sm6">
-              <mip-v-select label="Age" required>
+              <mip-v-select
+                label="Age"
+                required
+              >
                 <script type="application/json">
                   {
                     "items": ["0-17", "18-29", "30-54", "54+"]
@@ -97,7 +128,11 @@
               </mip-v-select>
             </div>
             <div class="flex xs12 sm6">
-              <mip-v-autocomplete label="Interests" multiple chips>
+              <mip-v-autocomplete
+                label="Interests"
+                multiple
+                chips
+              >
                 <script type="application/json">
                   {
                     "items": ["Skiing", "Ice hockey", "Soccer", "Basketball", "Hockey", "Reading", "Writing", "Coding", "Basejump"]
@@ -111,8 +146,20 @@
       </mip-v-card-text>
       <mip-v-card-actions>
         <mip-v-spacer></mip-v-spacer>
-        <mip-v-btn color="blue darken-1" flat on="tap:MIP.setData({ dialog: false })">Close</mip-v-btn>
-        <mip-v-btn color="blue darken-1" flat on="tap:MIP.setData({ dialog: false })">Save</mip-v-btn>
+        <mip-v-btn
+          color="blue darken-1"
+          flat
+          on="tap:MIP.setData({ dialog: false })"
+        >
+          Close
+        </mip-v-btn>
+        <mip-v-btn
+          color="blue darken-1"
+          flat
+          on="tap:MIP.setData({ dialog: false })"
+        >
+          Save
+        </mip-v-btn>
       </mip-v-card-actions>
     </mip-v-card>
   </mip-v-dialog>

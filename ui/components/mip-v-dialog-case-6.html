@@ -22,14 +22,33 @@
   </script>
 </mip-data>
 <div class="layout row justify-center">
-  <mip-v-dialog m-bind:value.sync="dialog" hide-overlay persistent max-width="300">
-    <mip-v-btn slot="activator" m-bind:disabled="dialog" m-bind:loading="dialog" class="white--text" color="purple darken-2" on="tap:MIP.setData({ dialog: true })">
+  <mip-v-dialog
+    m-bind:value.sync="dialog"
+    hide-overlay
+    persistent
+    max-width="300"
+  >
+    <mip-v-btn
+      slot="activator"
+      m-bind:disabled="dialog"
+      m-bind:loading="dialog"
+      class="white--text"
+      color="purple darken-2"
+      on="tap:MIP.setData({ dialog: true })"
+    >
       Start loading
     </mip-v-btn>
-    <mip-v-card color="primary" dark>
+    <mip-v-card
+      color="primary"
+      dark
+    >
       <mip-v-card-text>
         Please stand by
-        <mip-v-progress-linear indeterminate color="white" class="mb-0"></mip-v-progress-linear>
+        <mip-v-progress-linear
+          indeterminate
+          color="white"
+          class="mb-0"
+        ></mip-v-progress-linear>
       </mip-v-card-text>
     </mip-v-card>
   </mip-v-dialog>

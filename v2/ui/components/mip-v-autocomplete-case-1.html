@@ -25,7 +25,20 @@
   </script>
 </mip-data>
 <div class="container grid-list-xl">
-  <mip-v-autocomplete m-bind:value.sync="model" m-bind:items="items" m-bind:loading="isLoading" m-bind:search-input.sync="search" hide-no-data hide-selected item-text="Description" item-value="API" label="Public APIs" placeholder="Start typing to Search" prepend-icon="mdi-database-search" return-object></mip-v-autocomplete>
+  <mip-v-autocomplete
+    m-bind:value.sync="model"
+    m-bind:items="items"
+    m-bind:loading="isLoading"
+    m-bind:search-input.sync="search"
+    hide-no-data
+    hide-selected
+    item-text="Description"
+    item-value="API"
+    label="Public APIs"
+    placeholder="Start typing to Search"
+    prepend-icon="mdi-database-search"
+    return-object
+  ></mip-v-autocomplete>
 </div>
 <mip-script>
   MIP.watch('entries', val => {
