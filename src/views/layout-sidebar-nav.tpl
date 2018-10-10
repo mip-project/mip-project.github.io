@@ -2,7 +2,8 @@
 <div class="sidebar-fragment sidebar-nav-wrapper"
   m-bind:class="{hide:sidebarFragment!=='nav'}"
 >
-  <h1 on="tap:MIP.setData({sidebarFragment:m.sidebarSecondFragment})"><span class="home-arrow">目录</span></h1>
+  <!-- <h1 on="tap:MIP.setData({sidebarFragment:m.sidebarSecondFragment})"><span class="home-arrow">目录</span></h1> -->
+  <h1><span class="home-arrow">目录</span></h1>
   <ul class="navbar-menu-wrapper">
   {{ for: ${navbar} as ${item}, ${index} }}
     {{ if: ${item.children} }}
