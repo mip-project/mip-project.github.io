@@ -7,9 +7,6 @@ const path = require('path')
 const fs = require('fs-extra')
 const renderer = require('../utils/renderer')
 let navbarFactory = require('../data/navbar')
-// const cheerio = require('cheerio')
-
-// const isDev = process.env.NODE_ENV === 'development'
 
 let css
 
@@ -18,7 +15,6 @@ try {
 } catch (e) {
   css = ''
 }
-
 
 module.exports = class ComponentPreview {
   apply (on, app) {
@@ -112,7 +108,6 @@ module.exports = class ComponentPreview {
             } else {
               html = renderer.render('preview-case', {
                 development: process.env.NODE_ENV === 'development',
-                // css: css,
                 url: caseUrl,
                 style: uiStyle,
                 preset: preset,
@@ -129,19 +124,6 @@ module.exports = class ComponentPreview {
                 navbar,
                 navIndex: 1
               })
-              // html = caseHtml({
-              //   url: caseUrl,
-              //   style: uiStyle,
-              //   preset: preset,
-              //   cases: cases,
-              //   scripts: scripts
-              // })
-
-              // edit = editHtml({
-              //   url: caseUrl,
-              //   cases: cases,
-              //   docUrl: obj.url
-              // })
             }
 
             let pathname = path.resolve(dist, caseUrl)
@@ -179,55 +161,11 @@ module.exports = class ComponentPreview {
              codes: str
           })
 
-          // let editButton = editUrl ? `<a class="md-component-link md-component-link-edit" href="${editUrl}" target="_blank">编辑示例</a>` : ''
-
-          // str = `
-          //   <div class="md-component-preview-wrapper">
-          //     <div class="md-component-preview">${cases}</div>
-          //     <div class="md-component-code-wrapper">
-          //       <div class="md-component-toolbar">
-          //         <a href="${caseUrl}" class="md-component-link" target="_blank">查看例子</a>
-          //         ${editButton}
-          //       </div>
-          //       <div class="md-component-code-box">${str}</div>
-          //     </div>
-          //   </div>
-          // `
-
-          // str = `
-          //   <div class="md-fn-wrapper">
-          //     <div class="md-fn-preview-wrapper">
-          //       <div class="md-fn-title md-fn-title-right">
-          //         <a href="${caseUrl}" class="md-fn-link" target="_blank">查看例子</a>
-          //         ${editButton}
-          //       </div>
-          //       <div class="md-fn-preview-section">
-          //         <mip-showmore maxheight="160" animatetime=".3" id="fn-showmore-${i}">
-          //           ${cases}
-          //         </mip-showmore>
-          //         <div class="md-fn-preview-toggle" dat-closetext="收起" on="tap:fn-showmore-${i}.toggle">展开</div>
-          //       </div>
-          //     </div>
-          //     <mip-accordion class="md-fn-code-wrapper" sessions-key="fn-code-${i}">
-          //       <section>
-          //         <div class="md-fn-title md-fn-code-title">查看代码</div>
-          //         <div class="md-fn-code-section">
-          //           ${str}
-          //         </div>
-          //       </section>
-          //     </mip-accordion>
-          //   </div>
-          // `
-          // theCases[index++] + str
           return str
         })
 
         await app.store.set('doc', docPath, obj)
       }))
-
-      // obj.html = htmlBlocks.join('')
-
-      // return obj
     }, 10100)
   }
 }
@@ -243,17 +181,3 @@ async function processNavbar (navbar, app) {
     }
   }
 }
-
-
-// `
-
-// 标题|内容
-// ----|----
-// 类型|通用
-// 支持布局| N/S
-// 所需脚本|https://c.mipcdn.com/static/v1/mip-audio/mip-audio.js
-
-// ## 示例
-
-// #
-// `.match(/^所需脚本\|(.*?)\.js\b/m)

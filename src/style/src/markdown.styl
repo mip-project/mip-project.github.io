@@ -55,12 +55,12 @@
     overflow auto
 
   .md-component-preview-wrapper
-    margin 30px 0
+    // margin 30px 0
     display flex
 
     .md-component-preview
       width 280px
-      margin-top 30px
+      // margin-top 30px
       border 1px solid #eee
       // box-shadow 0 1px 2px rgba(0, 0, 0, .3)
 
@@ -68,18 +68,6 @@
       flex 1
       overflow auto
       margin-left 20px
-      .md-component-toolbar
-        height 30px
-        line-height 30px
-        font-size 14px
-        text-align right
-
-        .md-component-link
-          margin-left 16px
-
-        .md-component-link-edit
-          @media screen and (max-width: 768px)
-            display none
 
       .md-component-code-box
         height 497px
@@ -108,6 +96,18 @@
           &>pre
             min-height auto
 
+  .md-component-toolbar
+    height 30px
+    line-height 30px
+    font-size 14px
+    text-align right
+
+    .md-component-link
+      margin-left 16px
+
+    .md-component-link-edit
+      @media screen and (max-width: 768px)
+        display none
   // .md-fn-wrapper
   //   .md-fn-title,
   //   .md-fn-preview-toggle
