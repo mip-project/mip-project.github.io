@@ -16,6 +16,28 @@ mip-sidenav
         // & > div > .sub-folder,
         & > a
           padding-top 30px !important
+
+    .wd-infinity-menu
+      div[class^="l-"]
+        a
+          color #555
+      .l-0
+        .folder
+          font-weight bold
+    .wd-infinity-chapters
+      div.children-0
+        .chapter-title
+          color #000
+      div.children-1
+        .chapter-title
+          color #555
+          & > div
+            padding-left 42px
+            &:before
+              left 32px
+          &.selected > div
+            font-weight normal
+
 .nav-sidebar
   .navbar-menu-wrapper
     .navbar-item
@@ -34,6 +56,7 @@ mip-sidenav
   .content-wrapper
     max-width 1000px
     margin 0 auto
+    padding-top 60px
     &:before
       content "."
       display block
@@ -41,7 +64,7 @@ mip-sidenav
       clear both
       visibility hidden
 
-  @media screen and (max-width: 992px)
+  @media screen and (max-width: 1200px)
     margin-left 275px
     padding-left 25px
     padding-right 25px
@@ -49,6 +72,6 @@ mip-sidenav
   @media screen and (max-width: 768px)
     width auto
     margin-left 0
-    padding-left 25px
-    padding-right 25px
+    padding-left 17px
+    padding-right 17px
     margin-top 44px

@@ -6,22 +6,26 @@
   <title>测试</title>
   <meta name="description" content="">
   <link rel="canonical" href="/v2/components/extensions/mip-form-case-2.html">
-  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.css">
+  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/assets/mip/projects/vuetify/mip.css">
   
 </head>
 <body>
-  
+  <style mip-custom>
+body {
+    padding: 10px;
+}
+</style>
   <mip-form method="get" url="https://www.mipengine.org">
-     <input type="text" name="customnumber" validatetarget="custom" validatetype="custom" validatereg="^[0-9]*$" placeholder="我是自定义验证规则数字">
-     <div class="mip-form-target" target="custom">请输入正确的数字</div>
-     <input type="submit" value="提交">
- </mip-form>
+  <input type="text" name="customnumber" validatetarget="custom" validatetype="custom" validatereg="^[0-9]*$" placeholder="我是自定义验证规则数字">
+  <div class="mip-form-target" target="custom">请输入正确的数字</div>
+  <input type="submit" value="提交">
+</mip-form>
 
   <script type="data-x-preset" id="preset">
   
   </script>
-  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
-  <script src="https://c.mipcdn.com/static/v1/mip-form/mip-form.js"></script>
+  <script src="https://bos.nj.bpc.baidu.com/assets/mip/projects/vuetify/mip.js"></script>
+  <script src="https://c.mipcdn.com/static/v2/mip-form/mip-form.js"></script>
   <script>
   var preset;
   window.addEventListener('message', function (e) {

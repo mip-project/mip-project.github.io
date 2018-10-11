@@ -6,8 +6,11 @@
   <title>测试</title>
   <meta name="description" content="">
   <link rel="canonical" href="/v2/ui/components/mip-v-select-case-1.html">
-  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.css">
-  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">
+  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/assets/mip/projects/vuetify/mip.css">
+  
+            <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+          
 </head>
 <body>
   
@@ -31,17 +34,49 @@
 </mip-data>
 <div class="container grid-list-xl">
   <div class="layout row wrap">
-    <mip-v-select class="flex xs12 md6" m-bind:value.sync="value" m-bind:items="items" attach chips label="Chips" multiple></mip-v-select>
-    <mip-v-select class="flex xs12 md6" m-bind:value.sync="value" m-bind:items="items" box chips label="Chips" multiple></mip-v-select>
-    <mip-v-select class="flex xs12 md6" m-bind:value.sync="value" m-bind:items="items" chips label="Chips" multiple outline></mip-v-select>
-    <mip-v-select class="flex xs12 md6" m-bind:value.sync="value" m-bind:items="items" chips label="Chips" multiple solo></mip-v-select>
+    <mip-v-select
+      class="flex xs12 md6"
+      m-bind:value.sync="value"
+      m-bind:items="items"
+      attach
+      chips
+      label="Chips"
+      multiple
+    ></mip-v-select>
+    <mip-v-select
+      class="flex xs12 md6"
+      m-bind:value.sync="value"
+      m-bind:items="items"
+      box
+      chips
+      label="Chips"
+      multiple
+    ></mip-v-select>
+    <mip-v-select
+      class="flex xs12 md6"
+      m-bind:value.sync="value"
+      m-bind:items="items"
+      chips
+      label="Chips"
+      multiple
+      outline
+    ></mip-v-select>
+    <mip-v-select
+      class="flex xs12 md6"
+      m-bind:value.sync="value"
+      m-bind:items="items"
+      chips
+      label="Chips"
+      multiple
+      solo
+    ></mip-v-select>
   </div>
 </div>
 
   <script type="data-x-preset" id="preset">
   
   </script>
-  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
+  <script src="https://bos.nj.bpc.baidu.com/assets/mip/projects/vuetify/mip.js"></script>
   <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.js"></script>
   <script>
   var preset;

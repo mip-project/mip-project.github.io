@@ -3,7 +3,7 @@
  * @author clark-t (clarktanglei@163.com)
  */
 
-module.exports = [
+module.exports = () => [
   {
     "name": "首页",
     "path": "docs/index",
@@ -41,7 +41,7 @@ module.exports = [
       },
       {
         "name": "UI",
-        "path": "docs/ui/mip-v-alert.md",
+        "path": "docs/ui/components/mip-v-alert.md",
         // "url": "/codelabs/index.html",
         "width": 60
       }

@@ -25,7 +25,10 @@ const tplList = [
   'layout-codelab-detail.tpl',
   'markdown-breadcrumb.tpl',
   'markdown-toolbar.tpl',
-  'markdown-paginator.tpl'
+  'markdown-paginator.tpl',
+  'preview-case.tpl',
+  'preview-edit.tpl',
+  'preview-component.tpl'
 ]
 
 for (let i = 0; i < tplList.length; i++) {

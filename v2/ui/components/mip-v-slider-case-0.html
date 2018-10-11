@@ -6,8 +6,11 @@
   <title>测试</title>
   <meta name="description" content="">
   <link rel="canonical" href="/v2/ui/components/mip-v-slider-case-0.html">
-  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.css">
-  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">
+  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/assets/mip/projects/vuetify/mip.css">
+  
+            <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+          
 </head>
 <body>
   
@@ -15,21 +18,101 @@
   <script type="application/json">
     {
       "slider": 45,
-      "volume": 10
+      "volume": 10,
+      "price": [
+        110,
+        440
+      ]
     }
   </script>
 </mip-data>
-<mip-v-slider m-bind:value.sync="slider"></mip-v-slider>
-<mip-v-slider disabled label="Disabled" inverse-label value="30"></mip-v-slider>
-<mip-v-slider label="Readonly" readonly value="30"></mip-v-slider>
-<mip-v-slider m-bind:value.sync="slider" label="Label"></mip-v-slider>
-<mip-v-slider m-bind:value.sync="slider" inverse-label label="Inverse label"></mip-v-slider>
-<mip-v-slider m-bind:value.sync="volume" append-icon="volume_up" prepend-icon="volume_down"></mip-v-slider>
+<div class="container fluid grid-list-lg">
+  <div class="layout row wrap">
+    <div class="flex xs12">
+      <mip-v-slider m-bind:value.sync="slider"></mip-v-slider>
+    </div>
+
+    <div class="flex xs12">
+      <mip-v-slider
+        disabled
+        label="Disabled"
+        inverse-label
+        value="30"
+      ></mip-v-slider>
+    </div>
+
+    <div class="flex xs12">
+      <mip-v-slider
+        label="Readonly"
+        readonly
+        value="30"
+      ></mip-v-slider>
+    </div>
+
+    <div class="flex xs12">
+      <mip-v-slider
+        m-bind:value.sync="slider"
+        label="Label"
+      ></mip-v-slider>
+    </div>
+
+    <div class="flex xs12">
+      <mip-v-slider
+        m-bind:value.sync="slider"
+        inverse-label
+        label="Inverse label"
+      ></mip-v-slider>
+    </div>
+
+    <div class="flex xs12">
+      <mip-v-slider
+        m-bind:value.sync="volume"
+        append-icon="volume_up"
+        prepend-icon="volume_down"
+      ></mip-v-slider>
+    </div>
+
+    <div
+      class="flex shrink"
+      style="width: 60px"
+    >
+      <mip-v-text-field
+        m-bind:value.sync="price[0]"
+        class="mt-0"
+        hide-details
+        single-line
+        type="number"
+      ></mip-v-text-field>
+    </div>
+
+    <div class="flex">
+      <mip-v-range-slider
+        m-bind:value.sync="price"
+        max="600"
+        min="20"
+        step="10"
+      ></mip-v-range-slider>
+    </div>
+
+    <div
+      class="flex shrink"
+      style="width: 60px"
+    >
+      <mip-v-text-field
+        m-bind:value.sync="price[1]"
+        class="mt-0"
+        hide-details
+        single-line
+        type="number"
+      ></mip-v-text-field>
+    </div>
+  </div>
+</div>
 
   <script type="data-x-preset" id="preset">
   
   </script>
-  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
+  <script src="https://bos.nj.bpc.baidu.com/assets/mip/projects/vuetify/mip.js"></script>
   <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.js"></script>
   <script>
   var preset;

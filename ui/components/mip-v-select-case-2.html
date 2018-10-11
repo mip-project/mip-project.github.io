@@ -6,8 +6,11 @@
   <title>测试</title>
   <meta name="description" content="">
   <link rel="canonical" href="/v2/ui/components/mip-v-select-case-2.html">
-  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.css">
-  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">
+  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/assets/mip/projects/vuetify/mip.css">
+  
+            <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+          
 </head>
 <body>
   
@@ -84,11 +87,27 @@
   <div class="layout row wrap">
     <div class="flex xs12 md6">
       <h3>prepend-icon</h3>
-      <mip-v-select m-bind:items="states" m-bind:value.sync="e1" auto label="Select" hide-details prepend-icon="map" single-line></mip-v-select>
+      <mip-v-select
+        m-bind:items="states"
+        m-bind:value.sync="e1"
+        auto
+        label="Select"
+        hide-details
+        prepend-icon="map"
+        single-line
+      ></mip-v-select>
     </div>
     <div class="flex xs12 md6">
       <h3>append-icon</h3>
-      <mip-v-select m-bind:items="states" m-bind:value.sync="e2" append-outer-icon="map" auto hide-details label="Select" single-line></mip-v-select>
+      <mip-v-select
+        m-bind:items="states"
+        m-bind:value.sync="e2"
+        append-outer-icon="map"
+        auto
+        hide-details
+        label="Select"
+        single-line
+      ></mip-v-select>
     </div>
   </div>
 </div>
@@ -96,7 +115,7 @@
   <script type="data-x-preset" id="preset">
   
   </script>
-  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
+  <script src="https://bos.nj.bpc.baidu.com/assets/mip/projects/vuetify/mip.js"></script>
   <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.js"></script>
   <script>
   var preset;

@@ -6,122 +6,105 @@
   <title>测试</title>
   <meta name="description" content="">
   <link rel="canonical" href="/v2/ui/components/mip-v-btn-case-4.html">
-  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.css">
-  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">
+  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/assets/mip/projects/vuetify/mip.css">
+  
+            <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+          
 </head>
 <body>
   
   <mip-data>
   <script type="application/json">
     {
-      "toggle_exclusive": 2,
-      "toggle_multiple": [
-        0,
-        1,
-        2
+      "dropdownFont": [
+        {
+          "text": "Arial"
+        },
+        {
+          "text": "Calibri"
+        },
+        {
+          "text": "Courier"
+        },
+        {
+          "text": "Verdana"
+        }
       ],
-      "toggle_none": null,
-      "toggle_one": 0,
-      "text": "center",
-      "icon": "justify"
+      "dropdownIcon": [
+        {
+          "text": "list"
+        },
+        {
+          "text": "favorite"
+        },
+        {
+          "text": "delete"
+        }
+      ],
+      "dropdownEdit": [
+        {
+          "text": "100%"
+        },
+        {
+          "text": "75%"
+        },
+        {
+          "text": "50%"
+        },
+        {
+          "text": "25%"
+        },
+        {
+          "text": "0%"
+        }
+      ]
     }
   </script>
 </mip-data>
-<h4>Exclusive</h4>
-<mip-v-btn-toggle m-bind:input-value.sync="toggle_exclusive">
-  <mip-v-btn flat>
-    <mip-v-icon>format_align_left</mip-v-icon>
-  </mip-v-btn>
-  <mip-v-btn flat>
-    <mip-v-icon>format_align_center</mip-v-icon>
-  </mip-v-btn>
-  <mip-v-btn flat>
-    <mip-v-icon>format_align_right</mip-v-icon>
-  </mip-v-btn>
-  <mip-v-btn flat>
-    <mip-v-icon>format_align_justify</mip-v-icon>
-  </mip-v-btn>
-</mip-v-btn-toggle>
-<h4>Multiple</h4>
-<mip-v-btn-toggle m-bind:input-value.sync="toggle_multiple" multiple>
-  <mip-v-btn flat>
-    <mip-v-icon>format_bold</mip-v-icon>
-  </mip-v-btn>
-  <mip-v-btn flat>
-    <mip-v-icon>format_italic</mip-v-icon>
-  </mip-v-btn>
-  <mip-v-btn flat>
-    <mip-v-icon>format_underlined</mip-v-icon>
-  </mip-v-btn>
-  <mip-v-btn flat>
-    <mip-v-icon>format_color_fill</mip-v-icon>
-  </mip-v-btn>
-</mip-v-btn-toggle>
-<h4>No Options Selected</h4>
-<mip-v-btn-toggle m-bind:input-value.sync="toggle_none">
-  <mip-v-btn flat>
-    <mip-v-icon>format_align_left</mip-v-icon>
-  </mip-v-btn>
-  <mip-v-btn flat>
-    <mip-v-icon>format_align_center</mip-v-icon>
-  </mip-v-btn>
-  <mip-v-btn flat>
-    <mip-v-icon>format_align_right</mip-v-icon>
-  </mip-v-btn>
-  <mip-v-btn flat>
-    <mip-v-icon>format_align_justify</mip-v-icon>
-  </mip-v-btn>
-</mip-v-btn-toggle>
-<h4>Mandatory</h4>
-<mip-v-btn-toggle m-bind:input-value.sync="toggle_one" mandatory>
-  <mip-v-btn flat>
-    <mip-v-icon>format_align_left</mip-v-icon>
-  </mip-v-btn>
-  <mip-v-btn flat>
-    <mip-v-icon>format_align_center</mip-v-icon>
-  </mip-v-btn>
-  <mip-v-btn flat>
-    <mip-v-icon>format_align_right</mip-v-icon>
-  </mip-v-btn>
-  <mip-v-btn flat>
-    <mip-v-icon>format_align_justify</mip-v-icon>
-  </mip-v-btn>
-</mip-v-btn-toggle>
-<h4>Text Options</h4>
-<mip-v-btn-toggle m-bind:input-value.sync="text">
-  <mip-v-btn flat value="left">
-    Left
-  </mip-v-btn>
-  <mip-v-btn flat value="center">
-    Center
-  </mip-v-btn>
-  <mip-v-btn flat value="right">
-    Right
-  </mip-v-btn>
-  <mip-v-btn flat value="justify">
-    Justify
-  </mip-v-btn>
-</mip-v-btn-toggle>
-<h4>Text &amp; Icon Options</h4>
-<mip-v-btn-toggle m-bind:input-value.sync="icon">
-  <mip-v-btn flat value="left">
-    <mip-v-icon>format_align_left</mip-v-icon>
-  </mip-v-btn>
-  <mip-v-btn flat value="center">
-    <mip-v-icon>format_align_center</mip-v-icon>
-  </mip-v-btn>
-  <mip-v-btn flat value="right">
-    <mip-v-icon>format_align_right</mip-v-icon>
-  </mip-v-btn>
-  <mip-v-btn flat value="justify">
-    <mip-v-icon>format_align_justify</mip-v-icon>
-  </mip-v-btn>
-</mip-v-btn-toggle>
+<div
+  class="container grid-list-xl"
+  id="dropdown-example"
+>
+  <div class="layout row wrap">
+    <div class="flex xs12 sm4">
+      <p>Overflow</p>
+
+      <mip-v-overflow-btn
+        m-bind:items="dropdownFont"
+        label="Overflow Btn"
+        target="#dropdown-example"
+      ></mip-v-overflow-btn>
+    </div>
+
+    <div class="flex xs12 sm4">
+      <p>Segmented</p>
+
+      <mip-v-overflow-btn
+        m-bind:items="dropdownIcon"
+        label="Segmented Btn"
+        segmented
+        target="#dropdown-example"
+      ></mip-v-overflow-btn>
+    </div>
+
+    <div class="flex xs12 sm4">
+      <p>Editable</p>
+
+      <mip-v-overflow-btn
+        m-bind:items="dropdownEdit"
+        label="Editable Btn"
+        editable
+        item-value="text"
+      ></mip-v-overflow-btn>
+    </div>
+  </div>
+</div>
 
   <script type="data-x-preset" id="preset">
   
   </script>
-  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
+  <script src="https://bos.nj.bpc.baidu.com/assets/mip/projects/vuetify/mip.js"></script>
   <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.js"></script>
   <script>
   var preset;

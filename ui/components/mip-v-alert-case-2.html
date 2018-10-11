@@ -6,22 +6,35 @@
   <title>测试</title>
   <meta name="description" content="">
   <link rel="canonical" href="/v2/ui/components/mip-v-alert-case-2.html">
-  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.css">
-  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">
+  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/assets/mip/projects/vuetify/mip.css">
+  
+            <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+          
 </head>
 <body>
   
-  <mip-v-alert value="true" color="success" icon="new_releases">
-  This is a success alert with a custom icon.
-</mip-v-alert>
-<mip-v-alert value="true" color="error">
-  This is an error alert with no icon.
-</mip-v-alert>
+  <div>
+  <mip-v-alert
+    value
+    color="success"
+    icon="new_releases"
+  >
+    This is a success alert with a custom icon.
+  </mip-v-alert>
+
+  <mip-v-alert
+    value
+    color="error"
+  >
+    This is an error alert with no icon.
+  </mip-v-alert>
+</div>
 
   <script type="data-x-preset" id="preset">
   
   </script>
-  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
+  <script src="https://bos.nj.bpc.baidu.com/assets/mip/projects/vuetify/mip.js"></script>
   <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.js"></script>
   <script>
   var preset;

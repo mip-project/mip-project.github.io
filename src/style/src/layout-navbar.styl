@@ -9,8 +9,12 @@
   height 60px
   padding 0 100px
 
-  @media screen and (max-width: 992px)
+  @media screen and (max-width: 1200px)
     padding 0 25px
+
+  @media screen and (max-width: 768px)
+    padding 0 17px
+
 
   .navbar-logo
     position absolute
@@ -110,11 +114,19 @@
     display none
 
 .nav-sidebar
-  z-index 40100 !important
-  width 70%
-  box-sizing border-box
-  // padding 25px 0
-  background #fff
+  // z-index 40100 !important
+
+  mip-fixed
+    z-index 40100 !important
+
+  .mip-sidebar-content
+    width 70%
+    box-sizing border-box
+    background #fff
+  .mip-sidebar-mask
+    background-color rgba(0, 0, 0, .6) !important
+
+
   h1
     font-size 24px
     margin-bottom 10px
@@ -146,7 +158,7 @@
           border-left-color transparent
           border-right-color #333
           transform translate(-50%, -50%)
-          // transform translateY(-50%) rotate(-180deg)
+          display none
 
   .sidebar-fragment
     &:last-child
@@ -192,6 +204,10 @@
 
     .navbar-sub-item
       height auto
+      &.active
+        a
+          font-weight 600
+          color #000
       a
         height auto
         line-height 56px
@@ -222,7 +238,7 @@
       display block
       // background #000
       position absolute
-      right 25px
+      right 17px
       top 0
       bottom 0
       width 100px
@@ -290,9 +306,9 @@
             background #000
             position absolute
 
-.MIP-SIDEBAR-MASK
-  z-index 40000 !important
+// .MIP-SIDEBAR-MASK
+//   z-index 40000 !important
 
-.MIP-SIDEBAR-MASK[open]
-  background-color rgba(0, 0, 0, .65)
+// .MIP-SIDEBAR-MASK[open]
+//   background-color rgba(0, 0, 0, .65)
 

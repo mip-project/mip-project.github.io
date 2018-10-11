@@ -6,8 +6,11 @@
   <title>测试</title>
   <meta name="description" content="">
   <link rel="canonical" href="/v2/ui/components/mip-v-badge-case-4.html">
-  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.css">
-  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">
+  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/assets/mip/projects/vuetify/mip.css">
+  
+            <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+          
 </head>
 <body>
   
@@ -18,35 +21,53 @@
     }
   </script>
 </mip-data>
-<div class="flex justify-center" style="margin-top: 24px">
-  <div class="text-xs-center">
-    <mip-v-btn color="indigo" class="white--text" on="tap:MIP.setData({ show: !m.show })">
-      Toggle
-    </mip-v-btn>
-  </div>
-</div>
-<div class="flex justify-center" style="margin-top: 24px">
-  <div class="text-xs-center">
-  <mip-v-badge m-bind:value="show" color="cyan" left>
-    <span slot="badge">6</span>
-    <mip-v-icon large color="grey lighten-1">
-      shopping_cart
-    </mip-v-icon>
-  </mip-v-badge>
+<div class="container fluid text-xs-center">
+  <div class="layout justify-space-between row wrap">
+    <div class="flex xs12">
+      <mip-v-btn
+        color="indigo"
+        class="white--text"
+        on="tap:MIP.setData({ show: !m.show })"
+      >
+        Toggle
+      </mip-v-btn>
+    </div>
 
-  <mip-v-badge m-bind:value="show" color="purple">
-    <span slot="badge">6</span>
-    <mip-v-icon large color="grey">
-      mail
-    </mip-v-icon>
-  </mip-v-badge>
+    <div class="flex xs12 mt-5">
+      <mip-v-badge
+        m-bind:value="show"
+        color="cyan"
+        left
+      >
+        <span slot="badge">6</span>
+        <mip-v-icon
+          large
+          color="grey lighten-1"
+        >
+          shopping_cart
+        </mip-v-icon>
+      </mip-v-badge>
+
+      <mip-v-badge
+        m-bind:value="show"
+        color="purple"
+      >
+        <span slot="badge">6</span>
+        <mip-v-icon
+          large
+          color="grey"
+        >
+          mail
+        </mip-v-icon>
+      </mip-v-badge>
+    </div>
   </div>
 </div>
 
   <script type="data-x-preset" id="preset">
   
   </script>
-  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
+  <script src="https://bos.nj.bpc.baidu.com/assets/mip/projects/vuetify/mip.js"></script>
   <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.js"></script>
   <script>
   var preset;

@@ -4,10 +4,10 @@
   "description": "mip2 website",
   "main": "index.js",
   "scripts": {
-    "build": "npm run clean && node src/index.js",
+    "build": "npm run clean && npm run build:css && node src/index.js",
     "build:css": "webpack --config src/style/webpack.config.js",
     "dev:css": "cross-env NODE_ENV=development npm run build && webpack --config src/style/webpack.config.js --watch",
-    "dev": "cross-env NODE_ENV=development npm run build && edp ws start --port 9527",
+    "dev": "cross-env NODE_ENV=development npm run build && edp ws start --port 8627",
     "clean": "rm -rf api codelabs guide components extensions img assets/img mip docs tmp index.html v2 ui",
     "cp:bce": "cp -r ./v2 ../mip_online/bce-www.mipengine.org",
     "refresh": "npm run build:css && npm run build && sh build.sh",

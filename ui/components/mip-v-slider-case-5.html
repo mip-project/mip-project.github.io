@@ -6,8 +6,11 @@
   <title>测试</title>
   <meta name="description" content="">
   <link rel="canonical" href="/v2/ui/components/mip-v-slider-case-5.html">
-  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.css">
-  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">
+  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/assets/mip/projects/vuetify/mip.css">
+  
+            <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+          
 </head>
 <body>
   
@@ -21,33 +24,57 @@
   </script>
 </mip-data>
 <mip-v-card>
-  <div m-bind:style="{ height:&apos;300px&apos;,background:`rgb(${red}, ${green}, ${blue})`}"></div>
+  <div m-bind:style="{ height:'300px',background:`rgb(${red}, ${green}, ${blue})`}"></div>
 
   <mip-v-card-text>
     <div class="container fluid grid-list-lg">
       <div class="layout row wrap">
         <div class="flex xs9">
-          <mip-v-slider m-bind:value.sync="red" max="255" label="R"></mip-v-slider>
+          <mip-v-slider
+            m-bind:value.sync="red"
+            max="255"
+            label="R"
+          ></mip-v-slider>
         </div>
 
         <div class="flex xs3">
-          <mip-v-text-field m-bind:value.sync="red" class="mt-0" type="number"></mip-v-text-field>
+          <mip-v-text-field
+            m-bind:value.sync="red"
+            class="mt-0"
+            type="number"
+          ></mip-v-text-field>
         </div>
 
         <div class="flex xs9">
-          <mip-v-slider m-bind:value.sync="green" max="255" label="G"></mip-v-slider>
+          <mip-v-slider
+            m-bind:value.sync="green"
+            max="255"
+            label="G"
+          ></mip-v-slider>
         </div>
 
         <div class="flex xs3">
-          <mip-v-text-field m-bind:value.sync="green" class="mt-0" type="number"></mip-v-text-field>
+          <mip-v-text-field
+            m-bind:value.sync="green"
+            class="mt-0"
+            type="number"
+          ></mip-v-text-field>
         </div>
 
         <div class="flex xs9">
-          <mip-v-slider max="255" m-bind:value.sync="blue" label="B"></mip-v-slider>
+          <mip-v-slider
+            max="255"
+            m-bind:value.sync="blue"
+            label="B"
+          ></mip-v-slider>
         </div>
 
         <div class="flex xs3">
-          <mip-v-text-field m-bind:value.sync="blue" class="mt-0" type="number"></mip-v-text-field>
+          <mip-v-text-field
+            m-bind:value.sync="blue"
+            class="mt-0"
+            type="number"
+          ></mip-v-text-field>
         </div>
       </div>
     </div>
@@ -57,7 +84,7 @@
   <script type="data-x-preset" id="preset">
   
   </script>
-  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
+  <script src="https://bos.nj.bpc.baidu.com/assets/mip/projects/vuetify/mip.js"></script>
   <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.js"></script>
   <script>
   var preset;

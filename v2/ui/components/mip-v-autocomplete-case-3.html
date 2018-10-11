@@ -6,8 +6,11 @@
   <title>测试</title>
   <meta name="description" content="">
   <link rel="canonical" href="/v2/ui/components/mip-v-autocomplete-case-3.html">
-  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.css">
-  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">
+  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/assets/mip/projects/vuetify/mip.css">
+  
+            <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.css">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+          
 </head>
 <body>
   
@@ -23,7 +26,19 @@
   </script>
 </mip-data>
 <div class="container grid-list-xl">
-  <mip-v-autocomplete m-bind:loading="loading" m-bind:items="asyncItems" m-bind:search-input.sync="searchVal" m-bind:value.sync="select" cache-items class="mx-3" flat hide-no-data hide-details label="What state are you from?" solo-inverted></mip-v-autocomplete>
+  <mip-v-autocomplete
+    m-bind:loading="loading"
+    m-bind:items="asyncItems"
+    m-bind:search-input.sync="searchVal"
+    m-bind:value.sync="select"
+    cache-items
+    class="mx-3"
+    flat
+    hide-no-data
+    hide-details
+    label="What state are you from?"
+    solo-inverted
+  ></mip-v-autocomplete>
 </div>
 <mip-script>
   function querySelections (v) {
@@ -50,7 +65,7 @@
   <script type="data-x-preset" id="preset">
   
   </script>
-  <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/mip.js"></script>
+  <script src="https://bos.nj.bpc.baidu.com/assets/mip/projects/vuetify/mip.js"></script>
   <script src="https://bos.nj.bpc.baidu.com/v1/assets/mip/projects/vuetify.min.js"></script>
   <script>
   var preset;
