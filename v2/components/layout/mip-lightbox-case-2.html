@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html mip>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <title>测试</title>
+  <meta name="description" content="">
+  <link rel="canonical" href="/v2/components/layout/mip-lightbox-case-2.html">
+  <link rel="stylesheet" type="text/css" href="https://c.mipcdn.com/static/v2/mip.css">
+  
+</head>
+<body>
+  <style mip-custom>
+mip-lightbox {
+	padding: 10px;
+}
+#btn-open, .lightbox-close {
+    border: 1px solid #f1f1f1;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 20px 0;
+    font-size: 14px;
+    background: #fff;
+    display: block;
+    box-sizing: border-box;
+}
+
+.lightbox {
+	padding: 10px;
+	background: white;
+}
+.lightbox p {
+	margin: 80px 0;
+	display: block;
+}
+</style>
+  <button on="tap:my-lightbox3.toggle" id="btn-open" role="button" tabindex="0">
+    Open lightbox
+</button>
+
+<mip-lightbox
+  autoclosetime="5"
+  id="my-lightbox3"
+  layout="nodisplay"
+  class="mip-hidden">
+  <div class="lightbox">
+    <h1>Hello, World!</h1>
+    <p> this is the lightbox</p>
+    <div class="mip-lightbox-countdown">倒计时<span class="mip-lightbox-seconds"></span>秒关闭</div>
+  </div>
+</mip-lightbox>
+
+  <script type="data-x-preset" id="preset">
+  
+  </script>
+  <script src="https://c.mipcdn.com/static/v2/mip.js"></script>
+  <script src="https://c.mipcdn.com/static/v2/mip-lightbox/mip-lightbox.js"></script>
+  <script>
+  var preset;
+  window.addEventListener('message', function (e) {
+    if (!e.data || e.data.type !== 'demo-edit') {
+      return;
+    }
+
+    if (!preset) {
+      preset = document.getElementById('preset').innerHTML
+        .replace(/___arrow_left___/g, '<')
+        .replace(/___arrow_right___/g, '>');
+    }
+    document.body.innerHTML = preset + e.data.html;
+  })
+  </script>
+</body>
+</html>

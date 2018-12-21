@@ -8,7 +8,7 @@
                 <h1>移动网页加速器</h1>
                 <p>使用 MIP 无需等待加载</br>页面内容将以更友好的方式瞬时到达用户</p>
                 <div class="top-buttons">
-                    <a class="top-btn-start" data-type="mip" href="/v2/guide/basic/newbie.html">快速入门</a>
+                    <a class="top-btn-start" data-type="mip" href="/v2/docs/getting-start/newbie.html">快速入门</a>
                     <a class="top-btn-github" data-type="mip" href="https://github.com/mipengine/mip2">GitHub</a>
                 </div>
             </div>
@@ -19,15 +19,15 @@
             <h1>MIP 是什么</h1>
             <p>WHAT IS MOBILE INSTANT PAGES</p>
             <div class="mip-parts">
-                <a data-type="mip" class="mip-parts-html" href="/v2/guide/mip-standard/mip-html-spec.html">
+                <a data-type="mip" class="mip-parts-html" href="/v2/docs/mip-standard/mip-html-spec.html">
                     <h2>MIP-HTML</h2>
                     <p>通过 MIP-HTML 规范限制 HTML 以达到提升页面性能的效果</p>
                 </a>
-                <a data-type="mip" class="mip-parts-js" href="/v2/guide/basic/principle-of-mip.html">
+                <a data-type="mip" class="mip-parts-js" href="/v2/about/how-mip-works.html">
                     <h2>MIP-JS</h2>
                     <p>精心设计的组件核心 JS 确保快速渲染 MIP-HTML 网页</p>
                 </a>
-                <a data-type="mip" class="mip-parts-cache" href="/v2/guide/mip-standard/mip-cache-spec.html">
+                <a data-type="mip" class="mip-parts-cache" href="/v2/docs/mip-standard/mip-cache-spec.html">
                     <h2>MIP-CACHE</h2>
                     <p>给所有符合 MIP-HTML 规范的网页提供 CDN 缓存服务，主动提高页面加载速度</p>
                 </a>
@@ -49,7 +49,7 @@
                     <div>
                         <h2>开放的接入技术</h2>
                         <p>MIP 是一项永久的开源计划<br/>提供持续优化的解决方案</p>
-                        <a class="mip-advan-section-button" data-type="mip" href="/v2/guide/mip-standard/mip-components-spec.html">查看详情<i class="arrow"></i></a>
+                        <a class="mip-advan-section-button" data-type="mip" href="/v2/contribute/getting-start/component-spec.html">查看详情<i class="arrow"></i></a>
                         <div class="mip-advan-section-img advan-2"></div>
                     </div>
                 </div>
@@ -57,13 +57,13 @@
                     <div>
                         <h2>更好的整站体验</h2>
                         <p>更流畅的页面切换体验<br/>天然的站点离线缓存支持</p>
-                        <a class="mip-advan-section-button" data-type="mip" href="/v2/guide/all-sites-mip/introduction.html">查看详情<i class="arrow"></i></a>
+                        <a class="mip-advan-section-button" data-type="mip" href="/v2/docs/all-sites-mip/introduction.html">查看详情<i class="arrow"></i></a>
                         <div class="mip-advan-section-img advan-3"></div>
                     </div>
                     <div>
                         <h2>简单便捷的开发规范</h2>
                         <p>提供 MVVM 机制降低组件开发难度<br/>提供更为简单高效的组件互动方式</p>
-                        <a class="mip-advan-section-button" data-type="mip" href="/v2/guide/mip-standard/mip-html-spec.html">查看详情<i class="arrow"></i></a>
+                        <a class="mip-advan-section-button" data-type="mip" href="/v2/contribute/development/component-syntax.html">查看详情<i class="arrow"></i></a>
                         <div class="mip-advan-section-img advan-4"></div>
                     </div>
                 </div>
@@ -75,8 +75,8 @@
             <div class="pc">
                 <div>
                     <h2>使用文档</h2>
-                    <a data-type="mip" href="/v2/guide/basic/what-is-mip.html">简介</a>
-                    <a data-type="mip" href="/v2/guide/mip-standard/mip-html-spec.html">开发规范</a>
+                    <a data-type="mip" href="/v2/about/what-is-mip.html">简介</a>
+                    <a data-type="mip" href="/v2/docs/mip-standard/mip-html-spec.html">开发规范</a>
                     <a data-type="mip" href="/v2/components/index.html">组件说明</a>
                     <a data-type="mip" href="/v2/api/index.html">工具接口</a>
                     <!-- <a data-type="mip" href="#">帮助中心</a> -->
@@ -85,8 +85,8 @@
                 <div>
                     <h2>组件列表</h2>
                     <a data-type="mip" href="/v2/components/index.html">内置组件</a>
-                    <a data-type="mip" href="/v2/components/index.html#2-%E4%B8%AA%E6%80%A7%E5%8C%96%E7%BB%84%E4%BB%B6">个性化组件</a>
-                    <a data-type="mip" href="/v2/components/index.html#3-%E5%B9%BF%E5%91%8A%E7%BB%84%E4%BB%B6">广告组件</a>
+                    <a data-type="mip" href="/v2/components/index.html">个性化组件</a>
+                    <a data-type="mip" href="/v2/components/index.html#广告">广告组件</a>
                 </div>
                 <div>
                     <h2>常用链接</h2>

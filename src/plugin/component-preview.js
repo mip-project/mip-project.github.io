@@ -28,7 +28,7 @@ module.exports = class ComponentPreview {
         let obj = await app.store.get('doc', docPath)
 
         // 只针对 components 下的符合 文档格式的组件做预览效果
-        if (!/^docs\/extensions\//.test(obj.path) && !/^docs\/ui\//.test(obj.path)) {
+        if (!/^docs\/components\//.test(obj.path) && !/^docs\/ui\//.test(obj.path)) {
           return
         }
 
@@ -42,7 +42,7 @@ module.exports = class ComponentPreview {
           return
         }
 
-        let matchScript = fileInfo.file.match(/\s\|?\s*所需脚本\s*\|(.*?)\|?(\r\n|\n\r|\r|\n)/m)
+        let matchScript = fileInfo.file.match(/\s\|?\s*所需脚本\s*\|([\s\S]*?)\|?(\r\n|\n\r|\r|\n)(\r\n|\n\r|\r|\n)/m)
 
         let uiStyle = ''
 
@@ -60,8 +60,11 @@ module.exports = class ComponentPreview {
         }
 
         let scripts = matchScript[1]
+          .replace(/\[.*?\]\((.*)?\)/g, '$1<br>')
+          .replace(/(\r\n|\n\r|\r|\n)/g, '<br>')
+          .replace(/<\/br\s*\/?>/g, '<br>')
           .split(/<br\s*\/?>/)
-          .map(url => url.trim())
+          .map(url => url.replace(/^.*https/, 'https').replace(/\.js.*$/, '.js'))
           .filter(url => /^https?.+?\.js$/.test(url))
           .map(url => `<script src="${url}"></script>`)
           .join('')

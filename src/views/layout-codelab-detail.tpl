@@ -14,11 +14,11 @@
   {{ /if }}
   <div class="step-content-main">
     <div class="step-content-menu">
-      <mip-stepper-tabs
+      <mip-mipengine-stepper-tabs
         m-bind:menu-steps="codelabMenu"
         m-bind:codelab-step-selected="codelabStepSelected"
       >
-      </mip-stepper-tabs>
+      </mip-mipengine-stepper-tabs>
     </div>
 
 
@@ -54,10 +54,10 @@
   m-bind:class="{hide:sidebarFragment!=='codelabs'}"
 >
   <h1 on="tap:MIP.setData({sidebarFragment:'nav'})"><span>${secondNavbarTitle}</span></h1>
-  <mip-stepper-tabs
+  <mip-mipengine-stepper-tabs
     m-bind:menu-steps="codelabMenu"
     m-bind:codelab-step-selected="codelabStepSelected"
-  ></mip-stepper-tabs>
+  ></mip-mipengine-stepper-tabs>
 </div>
 {{ /block }}
 

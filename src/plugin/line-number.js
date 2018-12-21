@@ -11,9 +11,9 @@ module.exports = class LineNumber {
         /^<pre><code(.*?)>([\s\S]+)<\/code><\/pre>$/mg,
         function (full, lang, code) {
           let index = '' +
-                        '<div class="code-index">' +
-                        code.split('\n').map((c, i) => `<div>${i + 1}</div>`).join('') +
-                        '</div>'
+            '<div class="code-index">' +
+            code.split('\n').map((c, i) => `<div>${i + 1}</div>`).join('') +
+            '</div>'
 
           return `<pre>${index}<code${lang}>${code}</code></pre>`
         }

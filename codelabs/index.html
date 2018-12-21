@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
     <title>MIP 文档_移动网页加速器_MIP(Mobile Instant Pages) | CODELAB</title>
     <meta name="description" content="我们在 Codelab 中提供了一系列基于 MIP 的编程小项目，内容包括项目起步、配置教学、功能实现等等">
-    <link rel="canonical" href="https://mip-project.github.io/codelabs/index.html">
+    <link rel="canonical" href="https://mip-project.github.io/v2/codelabs/index.html">
     <link rel="stylesheet" type="text/css" href="https://c.mipcdn.com/static/v2/mip.css">
     <link rel="icon" href="https://www.mipengine.org/favicon.ico">
     <!-- <link rel="stylesheet" href="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.css"> -->
@@ -21,20 +21,33 @@
     <div class="navbar-menu">
       <ul class="navbar-menu-wrapper">
         <li class="navbar-item" ><a data-type="mip" href="/v2/index.html" class="menu-name" title="首页">首页</a></li>
+        <li class="navbar-item">
+          <span class="menu-name" title="关于 MIP">关于 MIP<i class="arrow"></i></span>
+          <ul class="navbar-sub-menu">
+            <li class="navbar-sub-item"><a data-type="mip" href="/v2/about/what-is-mip.html" title="什么是 MIP">什么是 MIP</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="/v2/about/how-mip-works.html" title="MIP 是如何运作的">MIP 是如何运作的</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="/v2/about/who-uses-mip.html" title="MIP 使用场景">MIP 使用场景</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="/v2/about/announcement.html" title="MIP 内容声明">MIP 内容声明</a></li>
+          </ul>
+        </li>
         <li class="navbar-item active">
           <span class="menu-name" title="Codelab">Codelab<i class="arrow"></i></span>
           <ul class="navbar-sub-menu">
-            <li class="navbar-sub-item"><a data-type="mip" href="/v2/guide/basic/newbie.html" title="使用文档">使用文档</a></li>
-            <li class="navbar-sub-item"><a data-type="mip" href="/v2/components/index.html" title="组件列表">组件列表</a></li>
-            <li class="navbar-sub-item"><a data-type="mip" href="/v2/api/index.html" title="API">API</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="/v2/docs/getting-start/newbie.html" title="MIP 教程">MIP 教程</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="/v2/api/index.html" title="MIP API">MIP API</a></li>
             <li class="navbar-sub-item"><a data-type="mip" href="/v2/codelabs/index.html" title="Codelab">Codelab</a></li>
-            <li class="navbar-sub-item"><a data-type="mip" href="/v2/ui/components/mip-v-alert.html" title="UI">UI</a></li>
           </ul>
         </li>
         <li class="navbar-item">
-          <span class="menu-name" title="常用链接">常用链接<i class="arrow"></i></span>
+          <span class="menu-name" title="组件">组件<i class="arrow"></i></span>
           <ul class="navbar-sub-menu">
-            <li class="navbar-sub-item"><a data-type="mip" href="http://www.cnblogs.com/mipengine" title="MIP 官方博客">MIP 官方博客</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="/v2/components/index.html" title="组件列表">组件列表</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="/v2/contribute/getting-start/how-to-contribute.html" title="贡献组件代码">贡献组件代码</a></li>
+          </ul>
+        </li>
+        <li class="navbar-item">
+          <span class="menu-name" title="工具">工具<i class="arrow"></i></span>
+          <ul class="navbar-sub-menu">
             <li class="navbar-sub-item"><a data-type="mip" href="https://github.com/mipengine/mip2/tree/master/packages/mip-cli" title="MIP-CLI 本地开发工具">MIP-CLI 本地开发工具</a></li>
             <li class="navbar-sub-item"><a data-type="mip" href="https://www.mipengine.org/validator/validate" title="MIP 代码校验工具">MIP 代码校验工具</a></li>
             <li class="navbar-sub-item"><a data-type="mip" href="https://www.mipengine.org/validator/preview" title="MIP 效果预览工具">MIP 效果预览工具</a></li>
@@ -64,20 +77,33 @@
   <h1><span class="home-arrow">目录</span></h1>
   <ul class="navbar-menu-wrapper">
     <li class="navbar-item" ><a data-type="mip" href="/v2/index.html" class="menu-name">首页</a></li>
-    <li class="navbar-item active">
-      <span class="menu-name">Codelab</span>
+    <li class="navbar-item">
+      <span class="menu-name">关于 MIP</span>
       <ul class="navbar-sub-menu">
-        <li class="navbar-sub-item "><a data-type="mip" href="/v2/guide/basic/newbie.html">使用文档</a></li>
-        <li class="navbar-sub-item "><a data-type="mip" href="/v2/components/index.html">组件列表</a></li>
-        <li class="navbar-sub-item "><a data-type="mip" href="/v2/api/index.html">API</a></li>
-        <li class="navbar-sub-item "><a data-type="mip" href="/v2/codelabs/index.html">Codelab</a></li>
-        <li class="navbar-sub-item "><a data-type="mip" href="/v2/ui/components/mip-v-alert.html">UI</a></li>
+        <li class="navbar-sub-item "><a data-type="mip" href="/v2/about/what-is-mip.html">什么是 MIP</a></li>
+        <li class="navbar-sub-item "><a data-type="mip" href="/v2/about/how-mip-works.html">MIP 是如何运作的</a></li>
+        <li class="navbar-sub-item "><a data-type="mip" href="/v2/about/who-uses-mip.html">MIP 使用场景</a></li>
+        <li class="navbar-sub-item "><a data-type="mip" href="/v2/about/announcement.html">MIP 内容声明</a></li>
+      </ul>
+    </li>
+    <li class="navbar-item active">
+      <span class="menu-name">学习</span>
+      <ul class="navbar-sub-menu">
+        <li class="navbar-sub-item "><a data-type="mip" href="/v2/docs/getting-start/newbie.html">MIP 教程</a></li>
+        <li class="navbar-sub-item "><a data-type="mip" href="/v2/api/index.html">MIP API</a></li>
+        <li class="navbar-sub-item active"><a data-type="mip" href="/v2/codelabs/index.html">Codelab</a></li>
       </ul>
     </li>
     <li class="navbar-item">
-      <span class="menu-name">常用链接</span>
+      <span class="menu-name">组件</span>
       <ul class="navbar-sub-menu">
-        <li class="navbar-sub-item "><a data-type="mip" href="http://www.cnblogs.com/mipengine">MIP 官方博客</a></li>
+        <li class="navbar-sub-item "><a data-type="mip" href="/v2/components/index.html">组件列表</a></li>
+        <li class="navbar-sub-item "><a data-type="mip" href="/v2/contribute/getting-start/how-to-contribute.html">贡献组件代码</a></li>
+      </ul>
+    </li>
+    <li class="navbar-item">
+      <span class="menu-name">工具</span>
+      <ul class="navbar-sub-menu">
         <li class="navbar-sub-item "><a data-type="mip" href="https://github.com/mipengine/mip2/tree/master/packages/mip-cli">MIP-CLI 本地开发工具</a></li>
         <li class="navbar-sub-item "><a data-type="mip" href="https://www.mipengine.org/validator/validate">MIP 代码校验工具</a></li>
         <li class="navbar-sub-item "><a data-type="mip" href="https://www.mipengine.org/validator/preview">MIP 效果预览工具</a></li>
@@ -181,11 +207,11 @@
 <mip-data>
   <script type="application/json">
     {
-      "navbar": [{"name":"首页","path":"docs/index","activeUrl":{},"width":32,"url":"/v2/index.html"},{"name":"Codelab","width":32,"activeUrl":{},"children":[{"name":"使用文档","path":"docs/guide","width":64,"url":"/v2/guide/basic/newbie.html"},{"name":"组件列表","path":"docs/extensions","width":64,"url":"/v2/components/index.html"},{"name":"API","path":"docs/api","url":"/v2/api/index.html"},{"name":"Codelab","path":"docs/codelabs","width":60,"url":"/v2/codelabs/index.html"},{"name":"UI","path":"docs/ui/components/mip-v-alert.md","width":60,"url":"/v2/ui/components/mip-v-alert.html"}]},{"name":"常用链接","children":[{"name":"MIP 官方博客","url":"http://www.cnblogs.com/mipengine","blank":true},{"name":"MIP-CLI 本地开发工具","url":"https://github.com/mipengine/mip2/tree/master/packages/mip-cli","blank":true},{"name":"MIP 代码校验工具","url":"https://www.mipengine.org/validator/validate","blank":true},{"name":"MIP 效果预览工具","url":"https://www.mipengine.org/validator/preview","blank":true},{"name":"MIP PATH 转换工具","url":"https://www.mipengine.org/mippath.html","blank":true}],"width":82},{"name":"GitHub","url":"https://github.com/mipengine/mip2","blank":true,"width":50},{"name":"回到旧版","url":"https://www.mipengine.org","blank":true,"width":32}],
-      "navIndex": "1",
+      "navbar": [{"name":"首页","path":"docs/index","activeUrl":{},"url":"/v2/index.html"},{"name":"关于 MIP","activeUrl":{},"children":[{"name":"什么是 MIP","path":"docs/about/what-is-mip.md","url":"/v2/about/what-is-mip.html"},{"name":"MIP 是如何运作的","path":"docs/about/how-mip-works.md","url":"/v2/about/how-mip-works.html"},{"name":"MIP 使用场景","path":"docs/about/who-uses-mip.md","url":"/v2/about/who-uses-mip.html"},{"name":"MIP 内容声明","path":"docs/about/announcement.md","url":"/v2/about/announcement.html"}]},{"name":"学习","activeUrl":{},"children":[{"name":"MIP 教程","path":"docs/docs/getting-start/newbie.md","activeUrl":{},"url":"/v2/docs/getting-start/newbie.html"},{"name":"MIP API","path":"docs/api","activeUrl":{},"url":"/v2/api/index.html"},{"name":"Codelab","path":"docs/codelabs","activeUrl":{},"url":"/v2/codelabs/index.html"}],"aliasName":"Codelab"},{"name":"组件","activeUrl":{},"children":[{"name":"组件列表","path":"docs/components","activeUrl":{},"url":"/v2/components/index.html"},{"name":"贡献组件代码","path":"docs/contribute/getting-start/how-to-contribute.md","activeUrl":{},"url":"/v2/contribute/getting-start/how-to-contribute.html"}]},{"name":"工具","children":[{"name":"MIP-CLI 本地开发工具","url":"https://github.com/mipengine/mip2/tree/master/packages/mip-cli","blank":true},{"name":"MIP 代码校验工具","url":"https://www.mipengine.org/validator/validate","blank":true},{"name":"MIP 效果预览工具","url":"https://www.mipengine.org/validator/preview","blank":true},{"name":"MIP PATH 转换工具","url":"https://www.mipengine.org/mippath.html","blank":true}]},{"name":"GitHub","url":"https://github.com/mipengine/mip2","blank":true},{"name":"回到旧版","url":"https://www.mipengine.org","blank":true}],
+      "navIndex": "2",
       "sidebarFragment": "nav",
       "sidebarSecondFragment": "nav",
-      "codelabStepSelected": "/codelabs/index.html",
+      "codelabStepSelected": "/v2/codelabs/index.html",
       "menu": [{"name":"mip-started","path":"docs/codelabs/mip-started","children":[{"name":"概述","path":"docs/codelabs/mip-started/introduction.md","url":"/v2/codelabs/mip-started/introduction.html"},{"name":"准备环境","path":"docs/codelabs/mip-started/prepare.md","url":"/v2/codelabs/mip-started/prepare.html"},{"name":"项目初始化页面","path":"docs/codelabs/mip-started/project.md","url":"/v2/codelabs/mip-started/project.html"},{"name":"使用内置组件","path":"docs/codelabs/mip-started/components-in.md","url":"/v2/codelabs/mip-started/components-in.html"},{"name":"页面校验","path":"docs/codelabs/mip-started/validate.md","url":"/v2/codelabs/mip-started/validate.html"}],"info":{"name":"如何开发一个 MIP 页面","description":"本示例针对初次尝试开发 MIP 页面的开发者，将演示如何利用官方提供的一系列工具快速搭建一个 MIP 项目，开发一个 MIP 页面。","tag":["MIP 2.0","起步教程"],"duration":"20分钟"}},{"name":"all-sites-mip","path":"docs/codelabs/all-sites-mip","children":[{"name":"概述","path":"docs/codelabs/all-sites-mip/introduction.md","url":"/v2/codelabs/all-sites-mip/introduction.html"},{"name":"创建一个独立的页面","path":"docs/codelabs/all-sites-mip/create-a-page.md","url":"/v2/codelabs/all-sites-mip/create-a-page.html"},{"name":"创建一个链接","path":"docs/codelabs/all-sites-mip/create-a-link.md","url":"/v2/codelabs/all-sites-mip/create-a-link.html"},{"name":"创建 Shell","path":"docs/codelabs/all-sites-mip/create-shell.md","url":"/v2/codelabs/all-sites-mip/create-shell.html"},{"name":"完整示例代码","path":"docs/codelabs/all-sites-mip/sample-code.md","url":"/v2/codelabs/all-sites-mip/sample-code.html"}],"info":{"name":"如何完成全站 MIP 改造","description":"本示例针对已经成功开发一个 MIP 页面的开发者，演示如何使用 MIP Shell 将多个 MIP 页面串联起来，使整站融为一体。","tag":["MIP","Shell"],"duration":"30分钟"}},{"name":"component-development","path":"docs/codelabs/component-development","children":[{"name":"概述","path":"docs/codelabs/component-development/introduction.md","url":"/v2/codelabs/component-development/introduction.html"},{"name":"准备环境","path":"docs/codelabs/component-development/preparation.md","url":"/v2/codelabs/component-development/preparation.html"},{"name":"开发组件","path":"docs/codelabs/component-development/development.md","url":"/v2/codelabs/component-development/development.html"},{"name":"预览 & 校验","path":"docs/codelabs/component-development/preview.md","url":"/v2/codelabs/component-development/preview.html"},{"name":"提交组件","path":"docs/codelabs/component-development/submit.md","url":"/v2/codelabs/component-development/submit.html"}],"info":{"name":"如何开发自定义组件","description":"本教程将用一个简单的自定义组件作为示例，演示如何开发自定义组件，并提交到组件仓库。","tag":["MIP 2.0","组件开发教程"],"duration":"30 分钟"}},{"name":"customize-shell","path":"docs/codelabs/customize-shell","children":[{"name":"概述","path":"docs/codelabs/customize-shell/introduction.md","url":"/v2/codelabs/customize-shell/introduction.html"},{"name":"创建自定义 Shell","path":"docs/codelabs/customize-shell/create-shell.md","url":"/v2/codelabs/customize-shell/create-shell.html"},{"name":"添加方法","path":"docs/codelabs/customize-shell/add-function.md","url":"/v2/codelabs/customize-shell/add-function.html"},{"name":"使用自定义 Shell","path":"docs/codelabs/customize-shell/use-shell.md","url":"/v2/codelabs/customize-shell/use-shell.html"},{"name":"完整示例代码","path":"docs/codelabs/customize-shell/sample-code.md","url":"/v2/codelabs/customize-shell/sample-code.html"}],"info":{"name":"如何定制并使用个性化 Shell","description":"有些站点的特殊需求无法使用默认的 MIP Shell 解决，本示例演示如何通过继承并定制个性化 Shell 来实现这些需求。","tag":["MIP","Shell"],"duration":"45分钟"}},{"name":"global-data","path":"docs/codelabs/global-data","children":[{"name":"概述","path":"docs/codelabs/global-data/introduction.md","url":"/v2/codelabs/global-data/introduction.html"},{"name":"初始化全局数据","path":"docs/codelabs/global-data/initialize-data.md","url":"/v2/codelabs/global-data/initialize-data.html"},{"name":"在其他页面使用和修改全局数据","path":"docs/codelabs/global-data/use-data-everywhere.md","url":"/v2/codelabs/global-data/use-data-everywhere.html"},{"name":"完整示例代码","path":"docs/codelabs/global-data/sample-code.md","url":"/v2/codelabs/global-data/sample-code.html"}],"info":{"name":"如何实现页面间数据共享","description":"本示例针对有独立页面间数据共享需求的开发者","tag":["MIP 2.0","mip-bind","页面间数据共享"],"duration":"20分钟"}},{"name":"interactive-mip","path":"docs/codelabs/interactive-mip","children":[{"name":"概述","path":"docs/codelabs/interactive-mip/introduction.md","url":"/v2/codelabs/interactive-mip/introduction.html"},{"name":"初始化数据","path":"docs/codelabs/interactive-mip/initialize-data.md","url":"/v2/codelabs/interactive-mip/initialize-data.html"},{"name":"绑定数据","path":"docs/codelabs/interactive-mip/bind-data.md","url":"/v2/codelabs/interactive-mip/bind-data.html"},{"name":"修改数据","path":"docs/codelabs/interactive-mip/set-data.md","url":"/v2/codelabs/interactive-mip/set-data.html"},{"name":"完整示例代码","path":"docs/codelabs/interactive-mip/sample-code.md","url":"/v2/codelabs/interactive-mip/sample-code.html"}],"info":{"name":"如何打造可交互的 MIP 站点","description":"本示例针对在 HTML 页面有通过数据驱动更新 DOM 节点需求的开发者","tag":["MIP 2.0","mip-bind"],"duration":"20分钟"}}]
     }
   </script>
@@ -199,8 +225,8 @@
     <!-- <script src="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.js"></script> -->
 <!--     <script src="http://127.0.0.1:8111/mip-sidenav/mip-sidenav.js"></script> -->
     <!-- <script src="https://bos.nj.bpc.baidu.com/assets/mip/temp/mip-sidenav.js?v=194253"></script> -->
-    <script src="https://bos.nj.bpc.baidu.com/assets/mip/temp/mip-sidenav.js?v=1537414158146"></script>
-    <script src="https://bos.nj.bpc.baidu.com/assets/mip/codelab/mip-stepper-tabs.js"></script>
+    <script src="https://c.mipcdn.com/static/v2/mipengine.org/mip-mipengine-sidenav/mip-mipengine-sidenav.js"></script>
+    <script src="https://c.mipcdn.com/static/v2/mipengine.org/mip-mipengine-stepper-tabs/mip-mipengine-stepper-tabs.js"></script>
 <!--     <script src="http://127.0.0.1:8111/mip-stepper-tabs/mip-stepper-tabs.js"></script> -->
     <!-- <script src="https://c.mipcdn.com/static/v1/mip-fixed/mip-fixed.js"></script> -->
     <!-- <script src="https://c.mipcdn.com/static/v2/mip-fastclick/mip-fastclick.js"></script> -->

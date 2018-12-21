@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html mip>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <title>测试</title>
+  <meta name="description" content="">
+  <link rel="canonical" href="/v2/components/ads/mip-ad/mip-ad-ssp-case-1.html">
+  <link rel="stylesheet" type="text/css" href="https://c.mipcdn.com/static/v2/mip.css">
+  
+</head>
+<body>
+  <style mip-custom>
+	body {
+		padding: 0 22px;
+		background-color: #fff;
+	}
+	h3 {
+		padding: 0;
+	}
+	p {
+		text-align: left;
+		line-height: 26px;
+	}
+	mip-img {
+		margin: 10px auto;
+	}
+</style>
+  <mip-fixed type="top" >
+    <mip-ad
+        type="ad-ssp"
+        data-site-id="1118394"
+        data-block-id="2684"
+        layout="fixed-height"
+        height="75px"
+        >
+    </mip-ad>
+</mip-fixed>
+
+  <script type="data-x-preset" id="preset">
+  
+  </script>
+  <script src="https://c.mipcdn.com/static/v2/mip.js"></script>
+  <script src="https://c.mipcdn.com/static/v1/mip-ad/mip-ad.js"></script>
+  <script>
+  var preset;
+  window.addEventListener('message', function (e) {
+    if (!e.data || e.data.type !== 'demo-edit') {
+      return;
+    }
+
+    if (!preset) {
+      preset = document.getElementById('preset').innerHTML
+        .replace(/___arrow_left___/g, '<')
+        .replace(/___arrow_right___/g, '>');
+    }
+    document.body.innerHTML = preset + e.data.html;
+  })
+  </script>
+</body>
+</html>

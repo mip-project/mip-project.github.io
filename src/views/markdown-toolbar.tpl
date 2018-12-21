@@ -5,6 +5,6 @@
   {{ /if }}
 
   {{ if: ${editLink} }}
-  <a data-type="mip" href="${editLink}"><span>编辑</span></a>
+  <!-- <a data-type="mip" href="${editLink}"><span>编辑</span></a> -->
   {{ /if }}
 </div>

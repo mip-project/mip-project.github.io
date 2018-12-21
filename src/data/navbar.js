@@ -8,42 +8,71 @@ module.exports = () => [
     "name": "首页",
     "path": "docs/index",
     // "url": "/index.html",
-    "activeUrl": /^\/(index\.html|v2|v2\/|v2\/index\.html)?((\?|\#).*)?$/,
-    "width": 32
+    "activeUrl": /^\/(index\.html|v2|v2\/|v2\/index\.html)?((\?|\#).*)?$/
+  },
+  {
+    "name": "关于 MIP",
+    "activeUrl": /^\/(v2\/)?about/,
+    "children": [
+      {
+        "name": "什么是 MIP",
+        "path": "docs/about/what-is-mip.md"
+      },
+      {
+        "name": "MIP 是如何运作的",
+        "path": "docs/about/how-mip-works.md"
+      },
+      {
+        "name": "MIP 使用场景",
+        "path": "docs/about/who-uses-mip.md"
+      },
+      {
+        "name": "MIP 内容声明",
+        "path": "docs/about/announcement.md"
+      }
+    ]
   },
   {
     "name": "学习",
-    "width": 32,
-    "activeUrl": /^\/(v2\/)?(guide|components|api|codelabs)(.*)((\?|\#).*)?$/,
+    "activeUrl": /^\/(v2\/)?(docs|api|codelabs)(.*)((\?|\#).*)?$/,
     "children": [
       {
-        "name": "使用文档",
-        "path": "docs/guide",
-        // "url": "/guide/index.html",
-        "width": 64
+        "name": "MIP 教程",
+        "path": "docs/docs/getting-start/newbie.md",
+        "activeUrl": /^\/(v2\/)?docs/
       },
       {
-        "name": "组件列表",
-        "path": "docs/extensions",
-        // "url": "/components/index.html",
-        "width": 64
-      },
-      {
-        "name": "API",
-        "path": "docs/api"
-        // "url": "/api/index.html"
+        "name": "MIP API",
+        "path": "docs/api",
+        "activeUrl": /^\/(v2\/)?api/
       },
       {
         "name": "Codelab",
         "path": "docs/codelabs",
-        // "url": "/codelabs/index.html",
-        "width": 60
+        "activeUrl": /^\/(v2\/)?codelabs/
+      }
+      // ,
+      // {
+      //   "name": "UI",
+      //   "path": "docs/ui/components/mip-v-alert.md",
+      //   // "url": "/codelabs/index.html",
+      //   "width": 60
+      // }
+    ]
+  },
+  {
+    "name": "组件",
+    "activeUrl": /^\/(v2\/)?(components|contribute)/,
+    "children": [
+      {
+        "name": "组件列表",
+        "path": "docs/components",
+        "activeUrl": /^\/(v2\/)?components/
       },
       {
-        "name": "UI",
-        "path": "docs/ui/components/mip-v-alert.md",
-        // "url": "/codelabs/index.html",
-        "width": 60
+        "name": "贡献组件代码",
+        "path": "docs/contribute/getting-start/how-to-contribute.md",
+        "activeUrl": /^\/(v2\/)?contribute/
       }
     ]
   },
@@ -53,13 +82,13 @@ module.exports = () => [
   //   "width": 32
   // },
   {
-    "name": "常用链接",
+    "name": "工具",
     "children": [
-      {
-        "name": "MIP 官方博客",
-        "url": "http://www.cnblogs.com/mipengine",
-        "blank": true
-      },
+      // {
+      //   "name": "MIP 官方博客",
+      //   "url": "http://www.cnblogs.com/mipengine",
+      //   "blank": true
+      // },
       {
         "name": "MIP-CLI 本地开发工具",
         "url": "https://github.com/mipengine/mip2/tree/master/packages/mip-cli",
@@ -80,21 +109,17 @@ module.exports = () => [
         "url": "https://www.mipengine.org/mippath.html",
         "blank": true
       }
-    ],
-    "width": 82
+    ]
   },
   {
     "name": "GitHub",
     "url": "https://github.com/mipengine/mip2",
-    "blank": true,
-    "width": 50
+    "blank": true
   },
   {
     "name": "回到旧版",
     "url": "https://www.mipengine.org",
-    "blank": true,
-    // "url": "/index.html",
-    "width": 32
-  },
+    "blank": true
+  }
 ]
 /* eslint-enable */

@@ -2,8 +2,8 @@
 
 {{ block: content }}
 <mip-fixed type="left" top="64px" class="layout-sidebar">
-  <mip-sidenav m-bind:menu="menu" m-bind:chapters="chapters" m-bind:url="url">
-  </mip-sidenav>
+  <mip-mipengine-sidenav m-bind:menu="menu" m-bind:chapters="chapters" m-bind:url="url">
+  </mip-mipengine-sidenav>
 </mip-fixed>
 <div class="layout-main-content">
   <div class="content-wrapper">
@@ -35,6 +35,6 @@
   m-bind:class="{hide:sidebarFragment!=='guide'}"
 >
   <h1 on="tap:MIP.setData({sidebarFragment:'nav'})"><span>${secondNavbarTitle}</span></h1>
-  <mip-sidenav m-bind:menu="menu" m-bind:chapters="chapters" m-bind:url="url" on="clicked:nav-sidebar.close"></mip-sidenav>
+  <mip-mipengine-sidenav m-bind:menu="menu" m-bind:chapters="chapters" m-bind:url="url" on="clicked:nav-sidebar.close"></mip-mipengine-sidenav>
 </div>
 {{ /block }}

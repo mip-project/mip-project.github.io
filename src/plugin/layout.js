@@ -80,12 +80,33 @@ module.exports = class Layout {
         let navbar = navbarFactory()
         await processNavbar(navbar, app)
 
-        navbar[1].children.forEach(child => {
-          let childUrl = child.url.split('/').slice(0, 3).join('/')
-          if (url.indexOf(childUrl) === 0) {
-            navbar[1].aliasName = child.name
+        let navIndex
+
+        for (let i = 0; i < navbar.length; i++) {
+          if (!navbar[i].children) {
+            continue
           }
-        })
+
+          for (let j = 0; j < navbar[i].children.length; j++) {
+            let child = navbar[i].children[j]
+            if (url === child.url || (child.activeUrl && child.activeUrl.test(url))) {
+              navbar[i].aliasName = child.name
+              navIndex = i
+              break
+            }
+          }
+
+          if (navIndex != null) {
+            break
+          }
+        }
+
+        // navbar[1].children.forEach(child => {
+        //   let childUrl = child.url.split('/').slice(0, 3).join('/')
+        //   if (url.indexOf(childUrl) === 0) {
+        //     navbar[1].aliasName = child.name
+        //   }
+        // })
 
         let newhtml = renderer.render(layoutName, {
           title: 'MIP 文档_移动网页加速器_MIP(Mobile Instant Pages_)' + (info.title || ''),
@@ -94,7 +115,7 @@ module.exports = class Layout {
           originUrl: '',
           host: app.config.host,
           navbar: navbar,
-          navIndex: 1,
+          navIndex: navIndex,
           content: html,
           css: css + style.join(''),
           menu: menu,
@@ -148,7 +169,29 @@ module.exports = class Layout {
 
       let codelabNavbar = navbarFactory()
       await processNavbar(codelabNavbar, app)
-      codelabNavbar[1].name = 'Codelab'
+      // codelabNavbar[1].name = 'Codelab'
+
+      let url = '/v2/codelabs/index.html'
+      let navIndex = null
+
+      for (let i = 0; i < codelabNavbar.length; i++) {
+        if (!codelabNavbar[i].children) {
+          continue
+        }
+
+        for (let j = 0; j < codelabNavbar[i].children.length; j++) {
+          let child = codelabNavbar[i].children[j]
+          if (url === child.url || (child.activeUrl && child.activeUrl.test(url))) {
+            codelabNavbar[i].aliasName = child.name
+            navIndex = i
+            break
+          }
+        }
+
+        if (navIndex != null) {
+          break
+        }
+      }
 
       let htmlCodelab = renderer.render('layout-codelab', {
         title: 'MIP 文档_移动网页加速器_MIP(Mobile Instant Pages) | CODELAB',
@@ -157,11 +200,11 @@ module.exports = class Layout {
         originUrl: '',
         host: 'https://mip-project.github.io',
         navbar: codelabNavbar,
-        navIndex: 1,
+        navIndex: navIndex,
         css: css,
         menu: codelabsMenu,
         chapters: {},
-        url: '/codelabs/index.html',
+        url: url,
         development: process.env.NODE_ENV === 'development'
       })
 
@@ -232,16 +275,28 @@ async function image (html, app) {
   }
 
   let srcs = labels.map(label => label.replace(imgRegExp, '$2').replace(/["']/g, ''))
+    .map(src => {
+      if (src === 'https://BabyLillian.github.io/images/授权登录.png') {
+        src = 'https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/docs/shouquandenglu-d2c7f54d.png'
+      } else if (src === 'https://BabyLillian.github.io/images/授权弹窗.png') {
+        src = 'https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/docs/shouquantanchuang-e042e4fd.png'
+      }
+
+      return src
+    })
   // let sizes = {
   //     width: 320,
   //     height: 320
   // };
   let sizes = await Promise.all(srcs.map(
-    src => getImageSize(
-      src.replace(/^\//, ''),
-      app.config.rootDir,
-      app.logger
-    )
+    src => {
+      src = src.replace(/^\//, '')
+      return getImageSize(
+        src,
+        app.config.rootDir,
+        app.logger
+      )
+    }
   ))
 
   return html.replace(imgRegExp, (full, attr1, src) => {
@@ -345,19 +400,19 @@ function extractStyle (html) {
  * @param  {[type]} url    [当前url]
  * @return {[type]}        [description]
  */
-function navbarActive (navbar, url) {
-  if (navbar && navbar.length) {
-    navbar.forEach(item => {
+// function navbarActive (navbar, url) {
+//   if (navbar && navbar.length) {
+//     navbar.forEach(item => {
 
-      item.active = (item.activeUrl && new RegExp(item.activeUrl).test(url)) || false
+//       item.active = (item.activeUrl && new RegExp(item.activeUrl).test(url)) || false
 
-      if (item.name === '首页') {
-        console.log('++++++',url, '??', item)
-      }
-    })
-  }
-  return navbar
-}
+//       if (item.name === '首页') {
+//         console.log('++++++',url, '??', item)
+//       }
+//     })
+//   }
+//   return navbar
+// }
 
 /**
  * 获取图片尺寸因为 mip 要求

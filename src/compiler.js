@@ -46,6 +46,7 @@ Object.assign(compiler, {
   async getUrl (path) {
     let route = await getRoute(config.routes, path)
     if (!route) {
+      console.log('couldn\'t find route')
       console.log(path)
     }
     return route && (typeof route.url === 'string'

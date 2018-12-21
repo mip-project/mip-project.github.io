@@ -7,7 +7,7 @@
   <title>测试</title>
   <meta name="description" content="">
   <link rel="canonical" href="/${url}">
-  <link rel="stylesheet" type="text/css" href="https://bos.nj.bpc.baidu.com/assets/mip/projects/vuetify/mip.css">
+  <link rel="stylesheet" type="text/css" href="https://c.mipcdn.com/static/v2/mip.css">
   ${style|raw}
 </head>
 <body>
@@ -16,7 +16,7 @@
   <script type="data-x-preset" id="preset">
   ${preset.replace(/</g, '___arrow_left___').replace(/>/g, '___arrow_right___')|raw}
   </script>
-  <script src="https://bos.nj.bpc.baidu.com/assets/mip/projects/vuetify/mip.js"></script>
+  <script src="https://c.mipcdn.com/static/v2/mip.js"></script>
   ${scripts|raw}
   <script>
   var preset;

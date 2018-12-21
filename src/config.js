@@ -9,9 +9,20 @@
 
 const path = require('path')
 const glob = require('glob')
-// const utils = require('./utils/basic')
+const utils = require('./utils/basic')
+const renderer = require('./utils/renderer')
 // const download = require('download-git-repo')
 const fs = require('fs-extra')
+const componentsOptions = require('./data/components.json')
+const typemap = {
+  "布局": "layout",
+  "呈现": "presentation",
+  "媒体": "media",
+  "动态内容": "dynamic-content",
+  "广告": "ads",
+  "社交": "social",
+  "统计": "analytics"
+}
 
 function aglob (...args) {
   return new Promise((resolve, reject) => {
@@ -36,83 +47,17 @@ module.exports = {
   host: process.env.NODE_ENV === 'development' ? '' : 'https://mip-project.github.io',
   basePath: docDir,
   rootPath: rootDir,
-  // sources: [
-  //     {
-  //         name: 'mip',
-  //         loader: 'downloadMipDoc',
-  //         from: 'github:mipengine/mip2',
-  //         to: path.resolve(docDir, './mip'),
-  //         tmp: path.resolve(gitDir, './mip')
-  //     }
-  // ],
-  // loader: {
-  //     downloadMipDoc: function ({from, to, tmp}) {
-  //         let tmpDir = tmp || to;
-
-  //         let promise = new Promise((resolve, reject) => {
-  //             download(from, tmpDir, {clone: false}, err => {
-  //                 fs.move(path.resolve(tmpDir, './docs'), path.resolve(tmpDir, '../mip-doc'))
-  //                     .then(function () {
-  //                         if (err) {
-  //                             reject(err);
-  //                         }
-  //                         else if (tmp) {
-  //                             fs.move(path.resolve(tmpDir, '../mip-doc'), to, {overwrite: true}).then(resolve);
-  //                         }
-  //                         else {
-  //                             resolve();
-  //                         }
-  //                     });
-  //             });
-  //         });
-  //         return promise;
-  //     }
-  // },
   sources: [
     {
       name: 'docs',
       loader: 'copy',
-      from: path.resolve(__dirname, '../../mip2/docs'),
+      from: path.resolve(__dirname, '../../mip2/new-docs'),
       to: path.resolve(docDir, 'docs')
-      // ,
-      // ignores: [
-      //   path.resolve(__dirname, '../../mip2/docs/new-doc/components')
-      // ]
     }
-    // ,
-    // {
-    //   name: 'components',
-    //   loader: 'local',
-    //   from: path.resolve(__dirname, '../../mip2/docs/extensions'),
-    //   to: path.resolve(docDir, 'components')
-    // }
   ],
   loader: {
     copy
   },
-  // loader: {
-  //   copy: async function ({from, to, ignores}) {
-  //     if (!await fs.exists(from)) {
-  //       throw new Error(from + '文件夹不存在')
-  //     }
-
-  //     let stat = await fs.stat(from)
-
-  //     if (!stat.isDirectory()) {
-  //       throw new Error(from + '不是文件夹')
-  //     }
-
-  //     await fs.remove(to)
-  //     await fs.copy(from, to)
-
-  //     if (ignores && ignores.length) {
-  //       await Promise.all(ignores.map(async ignore => {
-  //         let newPath = path.resolve(to, path.relative(from, ignore))
-  //         await fs.remove(newPath)
-  //       }))
-  //     }
-  //   }
-  // },
   routes: [
     {
       path: /\.(png|jpg|gif)$/,
@@ -135,6 +80,18 @@ module.exports = {
       }
     },
     {
+      path: /^docs\/about$/,
+      url (filePath) {
+        return urlPrefix + 'about/index.html'
+      }
+    },
+    {
+      path: /^docs\/docs$/,
+      url (filePath) {
+        return urlPrefix + 'docs.html'
+      }
+    },
+    {
       path: /^docs\/codelabs$/,
       url (filePath) {
         return urlPrefix + 'codelabs/index.html'
@@ -147,37 +104,19 @@ module.exports = {
       }
     },
     {
-      path: /^docs\/extensions$/,
+      path: /^docs\/components$/,
       url (filePath) {
         return urlPrefix + 'components/index.html'
       }
     },
     {
-      path: /^docs\/codelabs$/,
+      path: /^docs\/contribute$/,
       url (filePath) {
-        return urlPrefix + 'codelabs/index.html'
+        return urlPrefix + 'contribute/index.html'
       }
     },
     {
-      path: /^docs\/guide$/,
-      url (filePath) {
-        return urlPrefix + 'guide/basic/newbie.html'
-      }
-    },
-    {
-      path: /^docs\/extensions/,
-      url (filePath) {
-        let [pathname, hash] = filePath.split('#')
-        if (/\.md$/.test(pathname)) {
-          pathname = urlPrefix + 'components' + pathname.slice(15, -3) + '.html'
-          return pathname + (hash != null ? `#${hash}` : '')
-        }
-
-        return urlPrefix + 'components' + filePath.slice(15)
-      }
-    },
-    {
-      path: /^docs\/guide/,
+      path: /^docs\/about/,
       url (filePath) {
         let [pathname, hash] = filePath.split('#')
         if (/\.md$/.test(pathname)) {
@@ -187,6 +126,51 @@ module.exports = {
         return urlPrefix + filePath.slice(5)
       }
     },
+    {
+      path: /^docs\/docs/,
+      url (filePath) {
+        let [pathname, hash] = filePath.split('#')
+        if (/\.md$/.test(pathname)) {
+          pathname = urlPrefix + pathname.slice(5, -3) + '.html'
+          return pathname + (hash != null ? `#${hash}` : '')
+        }
+        return urlPrefix + filePath.slice(5)
+      }
+    },
+    {
+      path: /^docs\/contribute/,
+      url (filePath) {
+        let [pathname, hash] = filePath.split('#')
+        if (/\.md$/.test(pathname)) {
+          pathname = urlPrefix + pathname.slice(5, -3) + '.html'
+          return pathname + (hash != null ? `#${hash}` : '')
+        }
+        return urlPrefix + filePath.slice(5)
+      }
+    },
+    {
+      path: /^docs\/components/,
+      url (filePath) {
+        let [pathname, hash] = filePath.split('#')
+        if (/\.md$/.test(pathname)) {
+          pathname = urlPrefix + pathname.slice(5, -3) + '.html'
+          return pathname + (hash != null ? `#${hash}` : '')
+        }
+
+        return urlPrefix + filePath
+      }
+    },
+    // {
+    //   path: /^docs\/guide/,
+    //   url (filePath) {
+    //     let [pathname, hash] = filePath.split('#')
+    //     if (/\.md$/.test(pathname)) {
+    //       pathname = urlPrefix + pathname.slice(5, -3) + '.html'
+    //       return pathname + (hash != null ? `#${hash}` : '')
+    //     }
+    //     return urlPrefix + filePath.slice(5)
+    //   }
+    // },
     {
       path: /^docs\/api/,
       url (filePath) {
@@ -208,30 +192,43 @@ module.exports = {
         }
         return urlPrefix + filePath.slice(5)
       }
-    },
-    {
-      path: /^docs\/ui/,
-      url (filePath) {
-        let [pathname, hash] = filePath.split('#')
-        if (/\.md$/.test(pathname)) {
-          pathname = urlPrefix + pathname.slice(5, -3) + '.html'
-          return pathname + (hash != null ? `#${hash}` : '')
-        }
-        return urlPrefix + filePath.slice(5)
-      }
     }
+    // ,
+    // {
+    //   path: /^docs\/ui/,
+    //   url (filePath) {
+    //     let [pathname, hash] = filePath.split('#')
+    //     if (/\.md$/.test(pathname)) {
+    //       pathname = urlPrefix + pathname.slice(5, -3) + '.html'
+    //       return pathname + (hash != null ? `#${hash}` : '')
+    //     }
+    //     return urlPrefix + filePath.slice(5)
+    //   }
+    // }
   ],
   menus: [
     {
-      url: /^\/v2\/components/,
+      url: /^\/v2\/about/,
       menu (url) {
-        return 'docs/extensions'
+        return 'docs/about'
       }
     },
     {
-      url: /^\/v2\/guide/,
+      url: /^\/v2\/docs/,
       menu (url) {
-        return 'docs/guide'
+        return 'docs/docs'
+      }
+    },
+    {
+      url: /^\/v2\/components/,
+      menu (url) {
+        return 'docs/components'
+      }
+    },
+    {
+      url: /^\/v2\/contribute/,
+      menu (url) {
+        return 'docs/contribute'
       }
     },
     {
@@ -249,31 +246,32 @@ module.exports = {
         }
         // return 'docs/codelabs'
       }
-    },
-    {
-      url: /^\/v2\/ui/,
-      menu (url) {
-        return 'docs/ui'
-      }
     }
+    // ,
+    // {
+    //   url: /^\/v2\/ui/,
+    //   menu (url) {
+    //     return 'docs/ui'
+    //   }
+    // }
   ]
-  // menus: [
-  //     {
-  //         url: /^\/guide\/v1/,
-  //         menu(url) {
-  //             return 'lavas/vue';
-  //         }
-  //     },
-  //     {
-  //         url: /^\/guide\//,
-  //         menu(url) {
-  //             let match = url.match(/^\/guide\/(.+?)(\/|$)/);
-  //             if (match) {
-  //                 return `lavas/${match[1]}`;
-  //             }
-  //         }
+  // ,
+  // alias: [
+  //   {
+  //     url: /^\/v2\/contribute$/,
+  //     async alias (url, compiler) {
+  //       let menu = await compiler.getMenu('contribute')
+
+  //       if (!menu) {
+  //         return
+  //       }
+
+  //       menu = menu.filter(item => !!item.children)
+  //       let node = utils.firstNode(menu)
+  //       return node && node.url
   //     }
-  // ],
+  //   }
+  // ]
   // alias: [
   //     {
   //         url: /^\/guide$/,
@@ -293,15 +291,16 @@ module.exports = {
 }
 
 async function copy ({to}) {
-  let main = path.resolve(__dirname, '../../mip2/docs')
+  let main = path.resolve(__dirname, '../../mip2/new-docs')
   let mip1 = path.resolve(__dirname, '../../mip-extensions/src')
   let mip2 = path.resolve(__dirname, '../../mip2-extensions/components')
-  let mip2builtin = path.resolve(to, 'extensions/builtin')
-  let mip2ui = path.resolve(__dirname, '../../mip2-ui-components/docs')
+  let mip2builtin = path.resolve(main, 'components/builtin')
+  // let mip2ui = path.resolve(__dirname, '../../mip2-ui-components/docs')
 
   await fs.copy(main, to)
+  await fs.remove(path.resolve(to, 'components/builtin'))
 
-  let distExtensions = path.resolve(to, 'extensions')
+  let distExtensions = path.resolve(to, 'components')
 
   let mip1files = await aglob('**/*.md', {
     root: mip1,
@@ -310,18 +309,26 @@ async function copy ({to}) {
 
   let mip1infos = mip1files.map(filename => {
     let absolute = path.resolve(mip1, filename)
-    let dist
-    if (/mip-ad[\/-]/.test(filename)) {
-      let basename =  filename.replace(/\/README\.md/, '.md').replace(/mip-ad\//, '')
-      dist = path.resolve(distExtensions, 'mip-ad', basename)
-
-    } else {
-      let basename =  filename.replace(/\/README\.md/, '.md')
-      dist = path.resolve(distExtensions, 'extensions', basename)
+    let foldername = filename.split('/').slice(-2, -1)[0]
+    if (/mip-(.+)?\/README\.md/.test(filename)) {
+      filename = filename.replace(/mip-(.+)?\/README\.md$/, 'mip-$1/mip-$1.md')
+    }
+    if (mip1files.some(filename => filename.indexOf(foldername) === -1)) {
+      filename = filename.replace(/mip-(.+)?\/mip-\1\.md$/, 'mip-$1.md')
     }
 
-    return {absolute, dist}
-  })
+    for (let i = 0; i < componentsOptions.length; i++) {
+      if (foldername === componentsOptions[i].name) {
+        let type = componentsOptions[i].type
+        let dist = path.resolve(distExtensions, typemap[type],filename)
+        return {
+          absolute,
+          dist,
+          name: foldername
+        }
+      }
+    }
+  }).filter(obj => obj != null)
 
   let mip2files = await aglob('**/*.md', {
     root: mip2,
@@ -330,48 +337,80 @@ async function copy ({to}) {
 
   let mip2infos = mip2files.map(filename => {
     let absolute = path.resolve(mip2, filename)
-    let dist
-    if (/mip-ad[\/-]/.test(filename)) {
-      let basename =  filename.replace(/\/README\.md/, '.md').replace(/mip-ad\//, '')
-      dist = path.resolve(distExtensions, 'mip-ad', basename)
-    } else {
-      let basename =  filename.replace(/\/README\.md/, '.md').replace(/(mip-[a-z0-9-]+)\/\1/, '$1')
-      dist = path.resolve(distExtensions, 'extensions', basename)
+    let foldername = filename.split('/').slice(-2, -1)[0]
+    if (/mip-(.+)?\/README\.md/.test(filename)) {
+      filename = filename.replace(/mip-(.+)?\/README\.md$/, 'mip-$1/mip-$1.md')
+    }
+    if (mip1files.some(filename => filename.indexOf(foldername) === -1)) {
+      filename = filename.replace(/mip-(.+)?\/mip-\1\.md$/, 'mip-$1.md')
     }
 
-    return {absolute, dist}
-  })
+    for (let i = 0; i < componentsOptions.length; i++) {
+      if (foldername === componentsOptions[i].name) {
+        let type = componentsOptions[i].type
+        let dist = path.resolve(distExtensions, typemap[type],filename)
+        return {
+          absolute,
+          dist,
+          name: foldername
+        }
+      }
+    }
+  }).filter(obj => obj != null)
 
-  let mip2builtins = await aglob('**/*.md', {
+  let mip2builtins = await aglob('*.md', {
     root: mip2builtin,
     cwd: mip2builtin
   })
 
-  mip2builtins = mip2builtins.map(filename => path.basename(filename))
+  mip2builtins = mip2builtins.map(filename => {
+    let foldername = filename.split('/').slice(-1)[0].slice(0, -3)
+    for (let i = 0; i < componentsOptions.length; i++) {
+      if (foldername === componentsOptions[i].name) {
+        let type = componentsOptions[i].type
+        let dist = path.resolve(distExtensions, typemap[type],filename)
+        return {
+          absolute: path.resolve(mip2builtin, filename),
+          dist,
+          name: foldername
+        }
+      }
+    }
+  }).filter(obj => obj != null)
+
 
   // FIXME 随便实现的，如有效率更高的方式请改之
   let mip2length = mip2infos.length
+  let newList = mip2infos.slice().concat(mip2builtins)
 
   for (let i = 0; i < mip1infos.length; i++) {
     let j
-
-    for (j = 0; j < mip2length; j++) {
-      if (mip1infos[i].dist === mip2infos[j].dist) {
-        mip2infos[j].mip1 = mip1infos[i].absolute
+    for (j = 0; j < newList.length; j++) {
+      if (mip1infos[i].dist === newList[j].dist) {
+        newList[j].mip1 = mip1infos[i].absolute
         break
       }
     }
 
-    if (j === mip2length) {
-      if (mip2builtins.indexOf(path.basename(mip1infos[i].dist)) === -1) {
-        mip2infos.push(mip1infos[i])
-      }
+    if (j === newList.length) {
+      newList.push(mip1infos[i])
     }
+
+    // if (j === mip2length) {
+    //   if (mip2builtins.every(builtin => builtin.dist !== mip1infos[i].dist)) {
+    //     mip2infos.push(mip1infos[i])
+    //   }
+    // }
   }
 
-  mip2infos.sort((a, b) => a.dist.localeCompare(b.dist))
+  // mip2infos = mip2infos.concat(mip2builtins)
 
-  mip2infos.map(({absolute, dist, mip1}) => {
+  newList.sort((a, b) => a.dist.localeCompare(b.dist))
+
+// console.log(JSON.stringify(newList.filter(a => a.absolute.indexOf('ad') > -1), null, 2))
+// console.log(JSON.stringify(newList.filter(a => a.absolute.indexOf('ad') > -1), null, 2))
+
+  newList.map(({absolute, dist, mip1}) => {
     fs.copySync(absolute, dist)
 
     let settingDir = path.resolve(absolute, '..', 'setting')
@@ -397,51 +436,38 @@ async function copy ({to}) {
     fs.copySync(settingDir, componentSettingDir)
   })
 
-  let extensionsMeta = await fs.readFile(path.resolve(distExtensions, 'extensions/meta.json'))
-  extensionsMeta = JSON.parse(extensionsMeta)
-  let extensionsMenu = extensionsMeta.menu.filter(m => m.preview != null)
-  let finalExtensions = mip2infos.filter(info => !/mip-ad[\/-]/.test(info.dist))
-  let finalExtensionsMenu = finalExtensions.map(info => {
-    let key = path.basename(info.dist, path.extname(info.dist))
-    let obj = {key}
-    for (let i = 0; i < extensionsMenu.length; i++) {
-      if (key === extensionsMenu[i].key) {
-        obj.preview = extensionsMenu[i].preview
-      }
-    }
-    return obj
-  })
+  componentsOptions.sort((a, b) => a.name.localeCompare(b.name))
 
-  extensionsMeta.menu = finalExtensionsMenu
-  await fs.writeFile(path.resolve(distExtensions, 'extensions/meta.json'), JSON.stringify(extensionsMeta), 'utf-8')
+  let data = {
+    layout: componentsOptions.filter(a => a.type ==='布局'),
+    presentation: componentsOptions.filter(a => a.type ==='呈现'),
+    media: componentsOptions.filter(a => a.type ==='媒体'),
+    dynamicContent: componentsOptions.filter(a => a.type ==='动态内容'),
+    ads: componentsOptions.filter(a => a.type ==='广告'),
+    social: componentsOptions.filter(a => a.type ==='社交'),
+    analytics: componentsOptions.filter(a => a.type ==='统计'),
+  }
 
-  let mip2uiFiles = await aglob('**/*.{md,json}', {
-    root: mip2ui,
-    cwd: mip2ui
-  })
+  let componentIndexMarkdown = renderer.render('layout-components-index', data)
 
-  mip2uiFiles.map(filename => {
-    let absolute = path.resolve(mip2ui, filename)
-    let distname = filename.replace(/\/README\.md$/, '.md')
-    let distpath = path.resolve(to, 'ui', distname)
+  await fs.writeFile(path.resolve(distExtensions, 'index.md'), componentIndexMarkdown, 'utf-8')
 
-    if (/\.json/.test(filename)) {
-      fs.copySync(absolute, distpath)
-      return
+  const genMetaJson = async (full, name) => {
+    let metaJson = {
+      menu: full[name].map(data => {
+        return {
+          key: data.name,
+          name: data.name + (data.chinese ? ` ${data.chinese}` : ''),
+          preview: data.preview || false
+        }
+      })
     }
 
-    fs.copySync(absolute, distpath)
-    let settingDir = path.resolve(absolute, '..', 'setting')
+    await fs.writeFile(path.resolve(distExtensions, name.replace(/([A-Z])/, '-$1').toLowerCase(), 'meta.json'), JSON.stringify(metaJson), 'utf-8')
+  }
 
-    if (!fs.existsSync(settingDir)) {
-      return
-    }
-
-    let distSettingDir = path.resolve(distpath, '..', 'setting')
-    let componentSettingDir = path.resolve(distSettingDir, path.basename(distpath, path.extname(distpath)))
-    fs.ensureDirSync(distSettingDir)
-    fs.removeSync(componentSettingDir)
-    fs.copySync(settingDir, componentSettingDir)
+  Object.keys(data).forEach(key => {
+    genMetaJson(data, key)
   })
 }
 
