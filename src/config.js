@@ -64,13 +64,13 @@ module.exports = {
       path: /\.(png|jpg|gif)$/,
       url (filePath) {
         try {
-          let dist = path.resolve(rootDir, 'assets/img/' + filePath)
+          let dist = path.resolve(rootDir, 'v2/assets/img/' + filePath)
           fs.ensureDirSync(path.dirname(dist))
           fs.copySync(path.resolve(docDir, filePath), dist)
         } catch (e) {
           console.error(e)
         }
-        filePath = '/assets/img/' + filePath
+        filePath = urlPrefix + 'assets/img/' + filePath
         return filePath
       }
     },
