@@ -369,7 +369,7 @@ async function copy ({to}) {
     for (let i = 0; i < componentsOptions.length; i++) {
       if (foldername === componentsOptions[i].name) {
         let type = componentsOptions[i].type
-        let dist = path.resolve(distExtensions, typemap[type],filename)
+        let dist = path.resolve(distExtensions, typemap[type], filename)
         return {
           absolute: path.resolve(mip2builtin, filename),
           dist,

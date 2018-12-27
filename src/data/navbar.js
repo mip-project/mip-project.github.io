@@ -50,6 +50,11 @@ module.exports = () => [
         "name": "Codelab",
         "path": "docs/codelabs",
         "activeUrl": /^\/(v2\/)?codelabs/
+      },
+      {
+        "name": "常见问题",
+        "url": "https://github.com/mipengine/mip/wiki/MIP-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%A4%A7%E5%85%A8",
+        "blank": true
       }
       // ,
       // {

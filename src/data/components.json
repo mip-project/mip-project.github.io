@@ -460,13 +460,13 @@
     "chinese": "镂空滚动",
     "desc": "容器随着正文上下滚动，而在视觉上，其内容不会随着滚动，从而形成镂空滚动。",
     "type": "布局",
-    "preview": false
+    "preview": true
   },
   {
     "name": "mip-fit-text",
     "chinese": "",
     "desc": "在给定文本内容和文本容器大小的情况下，调整字体大小使文字塞满容器。",
     "type": "呈现",
-    "preview": false
+    "preview": true
   }
 ]

@@ -36,6 +36,7 @@
             <li class="navbar-sub-item"><a data-type="mip" href="/v2/docs/getting-start/newbie.html" title="MIP 教程">MIP 教程</a></li>
             <li class="navbar-sub-item"><a data-type="mip" href="/v2/api/index.html" title="MIP API">MIP API</a></li>
             <li class="navbar-sub-item"><a data-type="mip" href="/v2/codelabs/index.html" title="Codelab">Codelab</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="https://github.com/mipengine/mip/wiki/MIP-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%A4%A7%E5%85%A8" title="常见问题">常见问题</a></li>
           </ul>
         </li>
         <li class="navbar-item active">
@@ -92,6 +93,7 @@
         <li class="navbar-sub-item "><a data-type="mip" href="/v2/docs/getting-start/newbie.html">MIP 教程</a></li>
         <li class="navbar-sub-item "><a data-type="mip" href="/v2/api/index.html">MIP API</a></li>
         <li class="navbar-sub-item "><a data-type="mip" href="/v2/codelabs/index.html">Codelab</a></li>
+        <li class="navbar-sub-item "><a data-type="mip" href="https://github.com/mipengine/mip/wiki/MIP-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%A4%A7%E5%85%A8">常见问题</a></li>
       </ul>
     </li>
     <li class="navbar-item active">
@@ -155,8 +157,20 @@
           ></mip-img>
         </span>
       </span>
-      </p><p>将仓库 <code>clone</code> 到本地</p><pre><div class="code-index"><div>1</div></div><code class="lang-bash">$ git <span class="hljs-built_in">clone</span> https://github.com/your-username/mip2-extensions.git</code></pre><p>2.<strong>开发</strong></p><p><code>git clone</code> 出来的项目结构与 <code>mip2 init</code> 命令初始化的项目结构类似，我们可以在根目录使用 <code>mip2 add</code> 命令新增组件。</p><ul><li><a href="/v2/contribute/getting-start/mip-cli-usage.html">组件开发</a></li><li><a href="/v2/contribute/getting-start/mip-cli-usage.html#启动调试服务器">调试</a></li><li><a href="/v2/contribute/getting-start/mip-cli-usage.html#组件和页面校验">校验</a></li></ul><p>开发完成后提交：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div></div><code class="lang-bash"><span class="hljs-comment"># add需要提交的文件</span>
-$ git add XXX.js
+      </p><p>将仓库 <code>clone</code> 到本地</p><pre><div class="code-index"><div>1</div></div><code class="lang-bash">$ git <span class="hljs-built_in">clone</span> https://github.com/your-username/mip2-extensions.git</code></pre><p>2.<strong>开发</strong></p><p><code>git clone</code> 出来的项目结构与 <code>mip2 init</code> 命令初始化的项目结构类似，我们可以在根目录使用 <code>mip2 add</code> 命令新增组件。</p><p>
+      <span class="md-img-wrapper">
+        <span class="md-img-wrapper-child">
+          <mip-img
+            layout="container"
+            width="612"
+            height="412"
+            src="https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/mip/docs/cli/mip2-add-3eef75e8.png"
+            popup
+          ></mip-img>
+        </span>
+      </span>
+      </p><p>根据 <code>mip2 add</code> 的命令提示，我们可以通过以下命令来增加一个叫 <code>mip-example</code> 的组件开发目录：</p><pre><div class="code-index"><div>1</div></div><code class="lang-shell">mip2 add mip-example</code></pre><p>然后在新增的组件开发目录里根据相关开发文档的教程进行组件开发调试与校验：</p><ul><li><a href="/v2/contribute/development/component-syntax.html">组件开发</a></li><li><a href="/v2/contribute/debug/mip-dev.html">调试</a></li><li><a href="/v2/contribute/getting-start/mip-cli-usage.html#组件和页面校验">校验</a></li></ul><p>开发完成后提交：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div></div><code class="lang-bash"><span class="hljs-comment"># add需要提交的文件</span>
+$ git add .
 <span class="hljs-comment"># commit需要提交的文件</span>
 $ git commit -m <span class="hljs-string">'update_log...'</span>
 <span class="hljs-comment"># pull 保持和远程分支一致</span>
@@ -175,7 +189,7 @@ $ git push</code></pre><p>3.<strong>发起 Pull Request</strong></p><p>开发完
           ></mip-img>
         </span>
       </span>
-      </p><p>按照提示，完成提交。最终会在官方仓库提交一个 Pull request</p><p>
+      </p><p>按照提示，完成提交。最终会在官方仓库提交一个 Pull Request</p><p>
       <span class="md-img-wrapper">
         <span class="md-img-wrapper-child">
           <mip-img
@@ -187,7 +201,7 @@ $ git push</code></pre><p>3.<strong>发起 Pull Request</strong></p><p>开发完
           ></mip-img>
         </span>
       </span>
-      </p><p>Pull request 提交后，会自动触发持续集成的任务，如代码规范检查、部署预览等，在 Conversation 选项卡可以看到实时状态。如果有不通过的，需要再次修改提交，确保所有检查项都成功通过，官方才能审核合入。</p><p>
+      </p><p>Pull Request 提交后，会自动触发持续集成的任务，如代码规范检查、部署预览等，在 Conversation 选项卡可以看到实时状态。如果有不通过的，需要再次修改提交，确保所有检查项都成功通过，官方才能审核合入。</p><p>
       <span class="md-img-wrapper">
         <span class="md-img-wrapper-child">
           <mip-img
@@ -199,7 +213,8 @@ $ git push</code></pre><p>3.<strong>发起 Pull Request</strong></p><p>开发完
           ></mip-img>
         </span>
       </span>
-      </p><p>4.<strong>官方审核通过，合入上线</strong></p><p>官方开发人员操作合入之后，代码最终 merge 到官方库，在此过程中可关注官方开发人员的评论，积极参与讨论，共同为 MIP 组件贡献良好的代码。</p><h2 id="提交站长组件"><a href="#提交站长组件" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>提交站长组件</h2><h3 id="站长组件仓库说明"><a href="#站长组件仓库说明" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>站长组件仓库说明</h3><p>与 MIP 1.0 采用的方式不同，MIP 2.0 以项目（一个站点）的粒度来管理站长组件。每一个项目（使用 <code>mip2 init</code> 命令生成）中包含了这个站点所需的所有自定义组件。</p><p>MIP 2.0 的站长组件托管在 <a data-type="mip"   href="https://github.com/mipengine/mip2-extensions-platform" >Github 站长组件仓库</a>，项目结构大致如下：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div></div><code class="lang-bash">├──sites
+      </p><p>4.<strong>官方审核通过，合入上线</strong></p><p>官方开发人员操作合入之后，代码最终 merge 到官方库，在此过程中可关注官方开发人员的评论，积极参与讨论，共同为 MIP 组件贡献良好的代码。</p><p>5.<strong>调用组件脚本</strong></p><pre><div class="code-index"><div>1</div><div>2</div></div><code>// 页面中引用
+&lt;script src="https://c.mipcdn.com/static/v2/mip-example/mip-example.js"&gt;&lt;/script&gt;</code></pre><h2 id="提交站长组件"><a href="#提交站长组件" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>提交站长组件</h2><h3 id="站长组件仓库说明"><a href="#站长组件仓库说明" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>站长组件仓库说明</h3><p>与 MIP 1.0 采用的方式不同，MIP 2.0 以项目（一个站点）的粒度来管理站长组件。每一个项目（使用 <code>mip2 init</code> 命令生成）中包含了这个站点所需的所有自定义组件。</p><p>MIP 2.0 的站长组件托管在 <a data-type="mip"   href="https://github.com/mipengine/mip2-extensions-platform" >Github 站长组件仓库</a>，项目结构大致如下：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div></div><code class="lang-bash">├──sites
     ├── test.a.com
     │   ├── common
     │   ├── components
@@ -222,7 +237,19 @@ $ git push</code></pre><p>3.<strong>发起 Pull Request</strong></p><p>开发完
 
 <span class="hljs-comment"># 例如 test.a.com 下的 mip-example 组件</span>
 
-https://c.mipcdn.com/extensions/platform/v2/test.a.com/mip-example/mip-example.js</code></pre><h3 id="站长组件开发、提交流程"><a href="#站长组件开发、提交流程" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>站长组件开发、提交流程</h3><p>1.<strong>fork 站长组件仓库</strong></p><p>首先，浏览器进入 GitHub 中 MIP 官方组件代码仓库：<code>https://github.com/mipengine/mip2-extensions-platform</code>。点击右上角的 fork 按钮，fork 完成后，在你 GitHub 主页下的 Repositories 下会多出一个 mip2-extensions-platform 仓库。</p><p>2.<strong>开发</strong></p><p>我们进入 <code>sites</code> 目录，如果是第一次提交一个站点的组件，运行命令</p><pre><div class="code-index"><div>1</div></div><code class="lang-bash">$ mip2 init</code></pre><p>按照提示输入项目名称，如 <code>cafe.com</code>，新增了一个站点项目。</p><pre><div class="code-index"><div>1</div></div><code class="lang-bash">$ <span class="hljs-built_in">cd</span> cafe.com</code></pre><p>切换到站点项目目录即可快速进行组件开发工作了：</p><ul><li><a href="/v2/contribute/getting-start/mip-cli-usage.html">新增组件</a></li><li><a href="/v2/contribute/getting-start/mip-cli-usage.html#启动调试服务器">调试组件</a></li><li><a href="/v2/contribute/getting-start/mip-cli-usage.html#组件和页面校验">校验组件</a></li></ul><p>3.<strong>发起 Pull Request</strong></p><p>开发完成后，<a data-type="mip"   href="https://help.github.com/articles/creating-a-pull-request-from-a-fork/" >发起 pull Request</a>。进入自己 fork 的仓库，点击 New pull request 按钮，按照提示，完成提交。最终会在官方仓库提交一个 Pull request。Pull request 提交后，会自动触发持续集成的任务，如代码规范检查、部署预览等，在 Conversation 选项卡可以看到实时状态。如果有不通过的，需要再次修改提交，确保所有检查项都成功通过，官方才能审核合入。</p><p>
+https://c.mipcdn.com/extensions/platform/v2/test.a.com/mip-example/mip-example.js</code></pre><h3 id="站长组件开发、提交流程"><a href="#站长组件开发、提交流程" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>站长组件开发、提交流程</h3><p>1.<strong>fork 站长组件仓库</strong></p><p>首先，浏览器进入 GitHub 中 MIP 官方组件代码仓库：<code>https://github.com/mipengine/mip2-extensions-platform</code>。点击右上角的 fork 按钮，fork 完成后，在你 GitHub 主页下的 Repositories 下会多出一个 mip2-extensions-platform 仓库。</p><p>2.<strong>开发</strong></p><p>我们进入 <code>sites</code> 目录，如果是第一次提交一个站点的组件，运行命令</p><pre><div class="code-index"><div>1</div></div><code class="lang-bash">$ mip2 init</code></pre><p>按照提示输入项目名称，如 <code>test.a.com</code>，新增了一个站点项目。</p><p>
+      <span class="md-img-wrapper">
+        <span class="md-img-wrapper-child">
+          <mip-img
+            layout="container"
+            width="768"
+            height="174"
+            src="https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/mip/docs/cli/mip2-init-a81dcd37.png"
+            popup
+          ></mip-img>
+        </span>
+      </span>
+      </p><pre><div class="code-index"><div>1</div></div><code class="lang-bash">$ <span class="hljs-built_in">cd</span> test.a.com</code></pre><p>切换到站点项目目录即可快速进行组件开发工作了，这块开发的方式与官方组件开发的方式相一致。</p><p>3.<strong>发起 Pull Request</strong></p><p>开发完成后，<a data-type="mip"   href="https://help.github.com/articles/creating-a-pull-request-from-a-fork/" >发起 pull Request</a>。进入自己 fork 的仓库，点击 New pull request 按钮，按照提示，完成提交。最终会在官方仓库提交一个 Pull request。Pull request 提交后，会自动触发持续集成的任务，如代码规范检查、部署预览等，在 Conversation 选项卡可以看到实时状态。如果有不通过的，需要再次修改提交，确保所有检查项都成功通过，官方才能审核合入。</p><p>
       <span class="md-img-wrapper">
         <span class="md-img-wrapper-child">
           <mip-img
@@ -234,8 +261,8 @@ https://c.mipcdn.com/extensions/platform/v2/test.a.com/mip-example/mip-example.j
           ></mip-img>
         </span>
       </span>
-      </p><p>4.<strong>官方审核通过，合入上线</strong></p><p>官方审核通过后，代码将合入 <code>master</code> 分支并上线。若不通过，请根据反馈修改后再次提交。</p><p>5.<strong>调用组件脚本</strong></p><pre><div class="code-index"><div>1</div><div>2</div></div><code class="lang-javascript"><span class="hljs-comment">// 页面中引用</span>
-&lt;script src=<span class="hljs-string">"https://c.mipcdn.com/extensions/platform/v2/{站点项目名}/{组件名}/{组件名}.js"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span></code></pre>
+      </p><p>4.<strong>官方审核通过，合入上线</strong></p><p>官方审核通过后，代码将合入 <code>master</code> 分支并上线。若不通过，请根据反馈修改后再次提交。</p><p>5.<strong>调用组件脚本</strong></p><pre><div class="code-index"><div>1</div><div>2</div></div><code>// 页面中引用
+&lt;script src="https://c.mipcdn.com/extensions/platform/v2/{站点项目名}/{组件名}/{组件名}.js"&gt;&lt;/script&gt;</code></pre>
     </div>
 <div class="markdown-toolbar">
   <a data-type="mip" href="https://github.com/mipengine/mip2/issues/new?title=反馈:docs/contribute/getting-start/how-to-contribute.md"><span>反馈</span></a>
@@ -253,11 +280,11 @@ https://c.mipcdn.com/extensions/platform/v2/test.a.com/mip-example/mip-example.j
 <mip-data>
   <script type="application/json">
     {
-      "navbar": [{"name":"首页","path":"docs/index","activeUrl":{},"url":"/v2/index.html"},{"name":"关于 MIP","activeUrl":{},"children":[{"name":"什么是 MIP","path":"docs/about/what-is-mip.md","url":"/v2/about/what-is-mip.html"},{"name":"MIP 是如何运作的","path":"docs/about/how-mip-works.md","url":"/v2/about/how-mip-works.html"},{"name":"MIP 使用场景","path":"docs/about/who-uses-mip.md","url":"/v2/about/who-uses-mip.html"},{"name":"MIP 内容声明","path":"docs/about/announcement.md","url":"/v2/about/announcement.html"}]},{"name":"学习","activeUrl":{},"children":[{"name":"MIP 教程","path":"docs/docs/getting-start/newbie.md","activeUrl":{},"url":"/v2/docs/getting-start/newbie.html"},{"name":"MIP API","path":"docs/api","activeUrl":{},"url":"/v2/api/index.html"},{"name":"Codelab","path":"docs/codelabs","activeUrl":{},"url":"/v2/codelabs/index.html"}]},{"name":"组件","activeUrl":{},"children":[{"name":"组件列表","path":"docs/components","activeUrl":{},"url":"/v2/components/index.html"},{"name":"贡献组件代码","path":"docs/contribute/getting-start/how-to-contribute.md","activeUrl":{},"url":"/v2/contribute/getting-start/how-to-contribute.html"}],"aliasName":"贡献组件代码"},{"name":"工具","children":[{"name":"MIP-CLI 本地开发工具","url":"https://github.com/mipengine/mip2/tree/master/packages/mip-cli","blank":true},{"name":"MIP 代码校验工具","url":"https://www.mipengine.org/validator/validate","blank":true},{"name":"MIP 效果预览工具","url":"https://www.mipengine.org/validator/preview","blank":true},{"name":"MIP PATH 转换工具","url":"https://www.mipengine.org/mippath.html","blank":true}]},{"name":"GitHub","url":"https://github.com/mipengine/mip2","blank":true},{"name":"回到旧版","url":"https://www.mipengine.org","blank":true}],
+      "navbar": [{"name":"首页","path":"docs/index","activeUrl":{},"url":"/v2/index.html"},{"name":"关于 MIP","activeUrl":{},"children":[{"name":"什么是 MIP","path":"docs/about/what-is-mip.md","url":"/v2/about/what-is-mip.html"},{"name":"MIP 是如何运作的","path":"docs/about/how-mip-works.md","url":"/v2/about/how-mip-works.html"},{"name":"MIP 使用场景","path":"docs/about/who-uses-mip.md","url":"/v2/about/who-uses-mip.html"},{"name":"MIP 内容声明","path":"docs/about/announcement.md","url":"/v2/about/announcement.html"}]},{"name":"学习","activeUrl":{},"children":[{"name":"MIP 教程","path":"docs/docs/getting-start/newbie.md","activeUrl":{},"url":"/v2/docs/getting-start/newbie.html"},{"name":"MIP API","path":"docs/api","activeUrl":{},"url":"/v2/api/index.html"},{"name":"Codelab","path":"docs/codelabs","activeUrl":{},"url":"/v2/codelabs/index.html"},{"name":"常见问题","url":"https://github.com/mipengine/mip/wiki/MIP-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%A4%A7%E5%85%A8","blank":true}]},{"name":"组件","activeUrl":{},"children":[{"name":"组件列表","path":"docs/components","activeUrl":{},"url":"/v2/components/index.html"},{"name":"贡献组件代码","path":"docs/contribute/getting-start/how-to-contribute.md","activeUrl":{},"url":"/v2/contribute/getting-start/how-to-contribute.html"}],"aliasName":"贡献组件代码"},{"name":"工具","children":[{"name":"MIP-CLI 本地开发工具","url":"https://github.com/mipengine/mip2/tree/master/packages/mip-cli","blank":true},{"name":"MIP 代码校验工具","url":"https://www.mipengine.org/validator/validate","blank":true},{"name":"MIP 效果预览工具","url":"https://www.mipengine.org/validator/preview","blank":true},{"name":"MIP PATH 转换工具","url":"https://www.mipengine.org/mippath.html","blank":true}]},{"name":"GitHub","url":"https://github.com/mipengine/mip2","blank":true},{"name":"回到旧版","url":"https://www.mipengine.org","blank":true}],
       "navIndex": "3",
       "sidebarFragment": "guide",
       "sidebarSecondFragment": "guide",
-      "menu": [{"name":"起步","path":"docs/contribute/getting-start","children":[{"name":"如何贡献组件代码","path":"docs/contribute/getting-start/how-to-contribute.md","url":"/v2/contribute/getting-start/how-to-contribute.html"},{"name":"组件开发规范","path":"docs/contribute/getting-start/component-spec.md","url":"/v2/contribute/getting-start/component-spec.html"},{"name":"使用 MIP-CLI 开发组件","path":"docs/contribute/getting-start/mip-cli-usage.md","url":"/v2/contribute/getting-start/mip-cli-usage.html"}]},{"name":"组件开发","path":"docs/contribute/development","children":[{"name":"组件写法","path":"docs/contribute/development/component-syntax.md","url":"/v2/contribute/development/component-syntax.html"},{"name":"资源管理","path":"docs/contribute/development/resources-management.md","url":"/v2/contribute/development/resources-management.html"},{"name":"父子组件机制","path":"docs/contribute/development/subcomponents.md","url":"/v2/contribute/development/subcomponents.html"},{"name":"模块异步加载","path":"docs/contribute/development/async-loading.md","url":"/v2/contribute/development/async-loading.html"},{"name":"测试代码替换","path":"docs/contribute/development/testing-code-replacement.md","url":"/v2/contribute/development/testing-code-replacement.html"}]},{"name":"组件调试","path":"docs/contribute/debug","children":[{"name":"基于 MIP CLI 开发调试组件","path":"docs/contribute/debug/mip-dev.md","url":"/v2/contribute/debug/mip-dev.html"},{"name":"在调试模式下使用 mock 数据","path":"docs/contribute/debug/mock-data.md","url":"/v2/contribute/debug/mock-data.html"}]},{"name":"组件部署","path":"docs/contribute/deploy","children":[{"name":"组件构建部署","path":"docs/contribute/deploy/mip-build.md","url":"/v2/contribute/deploy/mip-build.html"}]},{"name":"组件机制","path":"docs/contribute/principle","children":[{"name":"MIP 组件化介绍","path":"docs/contribute/principle/mip-component.md","url":"/v2/contribute/principle/mip-component.html"},{"name":"MIP 组件实例的生命周期和回调钩子","path":"docs/contribute/principle/instance-life-cycle.md","url":"/v2/contribute/principle/instance-life-cycle.html"},{"name":"沙盒机制","path":"docs/contribute/principle/sandbox.md","url":"/v2/contribute/principle/sandbox.html"}]},{"name":"工具库","path":"docs/contribute/utils","children":[{"name":"MIP 基础模块","path":"docs/contribute/utils/viewer-and-viewport.md","url":"/v2/contribute/utils/viewer-and-viewport.html"},{"name":"MIP 中与服务端通信","path":"docs/contribute/utils/fetch.md","url":"/v2/contribute/utils/fetch.html"},{"name":"naboo 动画库","path":"docs/contribute/utils/naboo.md","url":"/v2/contribute/utils/naboo.html"},{"name":"gesture 手势集合","path":"docs/contribute/utils/gesture.md","url":"/v2/contribute/utils/gesture.html"},{"name":"platform 识别","path":"docs/contribute/utils/platform.md","url":"/v2/contribute/utils/platform.html"},{"name":"hash 通信机制","path":"docs/contribute/utils/hash.md","url":"/v2/contribute/utils/hash.html"}]}],
+      "menu": [{"name":"起步","path":"docs/contribute/getting-start","children":[{"name":"如何贡献组件代码","path":"docs/contribute/getting-start/how-to-contribute.md","url":"/v2/contribute/getting-start/how-to-contribute.html"},{"name":"组件开发规范","path":"docs/contribute/getting-start/component-spec.md","url":"/v2/contribute/getting-start/component-spec.html"},{"name":"使用 MIP-CLI 开发组件","path":"docs/contribute/getting-start/mip-cli-usage.md","url":"/v2/contribute/getting-start/mip-cli-usage.html"}]},{"name":"组件开发","path":"docs/contribute/development","children":[{"name":"组件写法","path":"docs/contribute/development/component-syntax.md","url":"/v2/contribute/development/component-syntax.html"},{"name":"使用 Vue 单文件语法来开发 MIP 组件","path":"docs/contribute/development/writing-mip-component-in-vue-style.md","url":"/v2/contribute/development/writing-mip-component-in-vue-style.html"},{"name":"资源管理","path":"docs/contribute/development/resources-management.md","url":"/v2/contribute/development/resources-management.html"},{"name":"父子组件机制","path":"docs/contribute/development/subcomponents.md","url":"/v2/contribute/development/subcomponents.html"},{"name":"模块异步加载","path":"docs/contribute/development/async-loading.md","url":"/v2/contribute/development/async-loading.html"},{"name":"测试代码替换","path":"docs/contribute/development/testing-code-replacement.md","url":"/v2/contribute/development/testing-code-replacement.html"}]},{"name":"组件调试","path":"docs/contribute/debug","children":[{"name":"基于 MIP CLI 开发调试组件","path":"docs/contribute/debug/mip-dev.md","url":"/v2/contribute/debug/mip-dev.html"},{"name":"在调试模式下使用 mock 数据","path":"docs/contribute/debug/mock-data.md","url":"/v2/contribute/debug/mock-data.html"}]},{"name":"组件部署","path":"docs/contribute/deploy","children":[{"name":"组件构建部署","path":"docs/contribute/deploy/mip-build.md","url":"/v2/contribute/deploy/mip-build.html"}]},{"name":"组件机制","path":"docs/contribute/principle","children":[{"name":"MIP 组件实例生命周期","path":"docs/contribute/principle/instance-life-cycle.md","url":"/v2/contribute/principle/instance-life-cycle.html"},{"name":"沙盒机制","path":"docs/contribute/principle/sandbox.md","url":"/v2/contribute/principle/sandbox.html"}]},{"name":"工具库","path":"docs/contribute/utils","children":[{"name":"MIP 基础模块","path":"docs/contribute/utils/viewer-and-viewport.md","url":"/v2/contribute/utils/viewer-and-viewport.html"},{"name":"MIP 中与服务端通信","path":"docs/contribute/utils/fetch.md","url":"/v2/contribute/utils/fetch.html"},{"name":"naboo 动画库","path":"docs/contribute/utils/naboo.md","url":"/v2/contribute/utils/naboo.html"},{"name":"gesture 手势集合","path":"docs/contribute/utils/gesture.md","url":"/v2/contribute/utils/gesture.html"},{"name":"platform 识别","path":"docs/contribute/utils/platform.md","url":"/v2/contribute/utils/platform.html"},{"name":"hash 通信机制","path":"docs/contribute/utils/hash.md","url":"/v2/contribute/utils/hash.html"}]}],
       "chapters": [{"level":1,"hash":"#如何贡献组件代码","text":"如何贡献组件代码","children":[{"level":2,"hash":"#提交组件到官方组件仓库","text":"提交组件到官方组件仓库","children":[{"level":3,"hash":"#步骤","text":"步骤"}]},{"level":2,"hash":"#提交站长组件","text":"提交站长组件","children":[{"level":3,"hash":"#站长组件仓库说明","text":"站长组件仓库说明"},{"level":3,"hash":"#站长组件开发、提交流程","text":"站长组件开发、提交流程"}]}]}],
       'url': "/v2/contribute/getting-start/how-to-contribute.html"
     }

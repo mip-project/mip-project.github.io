@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
     <title>MIP 文档_移动网页加速器_MIP(Mobile Instant Pages_)组件写法</title>
-    <meta name="description" content="每一个 MIP 组件都是一个继承自 MIP.CustomElement 的类，并使用 export default 导出。 一个简单的 MIP 组件是这样的：">
+    <meta name="description" content="当我们在本地准备好 MIP 组件仓库（mip2-extensions 或 mip2-extensions-platform），并且在组件仓库里创建了符合 MIP 组件规范的组件目录结构之后，接下来我们将来学习如何编写一个组件。">
     <link rel="canonical" href="https://mip-project.github.io/v2/contribute/development/component-syntax.html">
     <link rel="stylesheet" type="text/css" href="https://c.mipcdn.com/static/v2/mip.css">
     <link rel="icon" href="https://www.mipengine.org/favicon.ico">
@@ -36,6 +36,7 @@
             <li class="navbar-sub-item"><a data-type="mip" href="/v2/docs/getting-start/newbie.html" title="MIP 教程">MIP 教程</a></li>
             <li class="navbar-sub-item"><a data-type="mip" href="/v2/api/index.html" title="MIP API">MIP API</a></li>
             <li class="navbar-sub-item"><a data-type="mip" href="/v2/codelabs/index.html" title="Codelab">Codelab</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="https://github.com/mipengine/mip/wiki/MIP-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%A4%A7%E5%85%A8" title="常见问题">常见问题</a></li>
           </ul>
         </li>
         <li class="navbar-item active">
@@ -92,6 +93,7 @@
         <li class="navbar-sub-item "><a data-type="mip" href="/v2/docs/getting-start/newbie.html">MIP 教程</a></li>
         <li class="navbar-sub-item "><a data-type="mip" href="/v2/api/index.html">MIP API</a></li>
         <li class="navbar-sub-item "><a data-type="mip" href="/v2/codelabs/index.html">Codelab</a></li>
+        <li class="navbar-sub-item "><a data-type="mip" href="https://github.com/mipengine/mip/wiki/MIP-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%A4%A7%E5%85%A8">常见问题</a></li>
       </ul>
     </li>
     <li class="navbar-item active">
@@ -131,33 +133,188 @@
 <!-- <p class="markdown-breadcrumb">
   <span>组件开发</span><span class="split">/</span>  <span>组件写法</span></p> -->
     <div class="markdown-body">
-      <h1 id="组件写法"><a href="#组件写法" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>组件写法</h1><h2 id="创建一个-mip-组件"><a href="#创建一个-mip-组件" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>创建一个 MIP 组件</h2><p>每一个 MIP 组件都是一个继承自 <code>MIP.CustomElement</code> 的类，并使用 <code>export default</code> 导出。 一个简单的 MIP 组件是这样的：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div></div><code class="lang-js"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MIPGreeting</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">MIP</span>.<span class="hljs-title">CustomElement</span> </span>{
+      <h1 id="组件写法"><a href="#组件写法" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>组件写法</h1><p>当我们在本地准备好 MIP 组件仓库（mip2-extensions 或 mip2-extensions-platform），并且在组件仓库里创建了符合 MIP 组件规范的组件目录结构之后，接下来我们将来学习如何编写一个组件。</p><h2 id="创建-mip-组件目录"><a href="#创建-mip-组件目录" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>创建 MIP 组件目录</h2><p>以开发官方组件为例（mip2-extensions），首先需要在 <code>components</code> 目录下创建组件文件夹，假设开发的组件名为 <code>mip-example</code> 那么，需要在 <code>components</code> 目录下创建如下目录结构：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div></div><code>├── components
+│   ├── mip-example
+│   │   ├── README.md
+│   │   ├── example
+│   │   │   └── index.html
+│   │   └── mip-example.js</code></pre><p>其中文件夹名、组件入口文件需要与组件名同名，在这里都被命名为 <code>mip-example</code>。</p><h2 id="创建一个-mip-组件"><a href="#创建一个-mip-组件" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>创建一个 MIP 组件</h2><p>接下来我们对 mip-example.js 文件进行编辑。</p><p>每一个 MIP 组件都是一个继承自 <code>MIP.CustomElement</code> 的类，并使用 <code>export default</code> 导出。一个简单的 MIP 组件是这样的：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div></div><code class="lang-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MIPExample</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">MIP</span>.<span class="hljs-title">CustomElement</span> </span>{
   build () {
-    <span class="hljs-keyword">const</span> name = <span class="hljs-keyword">this</span>.element.getAttribute(<span class="hljs-string">'name'</span>)
-
-    <span class="hljs-keyword">this</span>.element.innerHTML = <span class="hljs-string">`&lt;div&gt;Hello &lt;span id="greeting-name"&gt;<span class="hljs-subst">${name}</span>&lt;/span&gt;!&lt;/div&gt;`</span>
+    <span class="hljs-keyword">let</span> content = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'p'</span>)
+    content.innerText = <span class="hljs-string">'Hello World'</span>
+    <span class="hljs-keyword">this</span>.element.appendChild(content)
   }
-}
+}</code></pre><p>这样一个简单的 MIP 组件就开发完了，我们可以在 example/index.html 中添加如下内容：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div></div><code class="lang-html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">mip</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width,minimum-scale=1,initial-scale=1"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>MIP page<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"canonical"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"对应的原页面地址"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://c.mipcdn.com/static/v2/mip.css"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">mip-custom</span>&gt;</span><span class="css">
+    <span class="hljs-comment">/* 自定义样式 */</span>
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mip-example</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-example</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://c.mipcdn.com/static/v2/mip.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"/mip-example/mip-example.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre><p>其中 <code>&lt;script src=&quot;/mip-example/mip-example.js&quot;&gt;&lt;/script&gt;</code> 为引入开发模式下的 <code>mip-example</code> 组件，<code>&lt;mip-example&gt;&lt;/mip-example&gt;</code> 则是 <code>mip-example</code> 这个组件的使用方法，其它的内容都是属于 MIP 页面所必须的运行环境。</p><p>接下来，在命令行通过 <code>mip2 dev</code> 启动调试服务器（启动前可能需要在组件仓库根目录执行 <code>npm install</code> 安装依赖），启动完成后访问 <code>http://127.0.0.1:8111/components/mip-example/example/index.html</code> 即可查看对应的网页：</p><p>
+      <span class="md-img-wrapper">
+        <span class="md-img-wrapper-child">
+          <mip-img
+            layout="container"
+            width="603"
+            height="192"
+            src="https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/mip/docs/cli/mip2-hello-world-ac8ff645.png"
+            popup
+          ></mip-img>
+        </span>
+      </span>
+      </p><p>可以看到页面显示了 &quot;Hello World&quot; 这样的单词，这正是 <code>mip-example</code> 这个组件所生成显示的。</p><h2 id="添加样式"><a href="#添加样式" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>添加样式</h2><p>MIP CLI 内置了一系列预处理器来方便开发者为组件开发样式，开发者可以选择使用 css、less、stylus 进行样式开发。以 less 为例，首先准备 index.less 样式文件，其内容如下：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div></div><code class="lang-less"><span class="hljs-selector-tag">mip-example</span> {
+  <span class="hljs-selector-tag">p</span> {
+    <span class="hljs-attribute">color</span>: red;
+    <span class="hljs-attribute">text-align</span>: center;
+  }
+}</code></pre><p>然后在 mip-example.js 文件顶部通过 <code>import</code> 引入这个样式即可：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div></div><code class="lang-js"><span class="hljs-keyword">import</span> <span class="hljs-string">'./index.less'</span>
 
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> MIPGreeting</code></pre><p>随后，在 HTML 中这样使用：</p><pre><div class="code-index"><div>1</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-greeting</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"world"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-greeting</span>&gt;</span></code></pre><p>组件中通过 <code>this.element.getAttribute</code> 可以获取元素的属性。这样在组件实例化后，HTML 会渲染成：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-greeting</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"world"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
-    Hello <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"greeting-name"</span>&gt;</span>world<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>!
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">mip-greeting</span>&gt;</span></code></pre><h2 id="响应数据更新"><a href="#响应数据更新" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>响应数据更新</h2><p>当 MIP 组件需要相应属性变更时，需要实现 <code>attributeChangedCallback</code>：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div></div><code class="lang-js"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MIPGreeting</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">MIP</span>.<span class="hljs-title">CustomElement</span> </span>{
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MIPExample</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">MIP</span>.<span class="hljs-title">CustomElement</span> </span>{
+  <span class="hljs-comment">// ....</span>
+}</code></pre><p>刷新网页，可以看到 &quot;Hello World&quot; 显示为红色，并且居中显示了：</p><p>
+      <span class="md-img-wrapper">
+        <span class="md-img-wrapper-child">
+          <mip-img
+            layout="container"
+            width="572"
+            height="172"
+            src="https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/mip/docs/cli/mip2-hello-word-red-841deef3.png"
+            popup
+          ></mip-img>
+        </span>
+      </span>
+      </p><p>需要注意的是，在进行样式开发的时候，要求以 mip 组件标签名作为样式的作用域限制条件，比如使用 css 开发，上面的样式需要写成：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div></div><code class="lang-css"><span class="hljs-selector-tag">mip-example</span> <span class="hljs-selector-tag">p</span> {
+  <span class="hljs-attribute">color</span>: red;
+  <span class="hljs-attribute">text-align</span>: center;
+}</code></pre><p>这属于 MIP 组件开发规范的要求，详情请参考 <a href="/v2/contribute/getting-start/component-spec.html">MIP 组件开发规范</a></p><p>样式文件可以引入图片、字体文件等静态资源，详情请参考 <a href="/v2/contribute/development/resources-management.html">MIP 组件资源管理</a></p><h2 id="组件生命周期"><a href="#组件生命周期" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>组件生命周期</h2><p>前面 <code>mip-example</code> 在 <code>build</code> 这个生命周期里渲染出 <code>&lt;p&gt;Hello World&lt;/p&gt;</code> 这个节点，关于组件生命周期的说明，在另一篇文章 <a href="/v2/contribute/principle/instance-life-cycle.html">MIP 组件生命周期</a> 有更详细的说明，在这里就不做赘述。组件开发者应该根据组件的功能，在最适合的生命周期钩子里完成功能初始化、资源加载、事件绑定、功能执行等等，只有充分理解了 MIP 组件的生命周期，才能够开发出性能最佳的组件。</p><h2 id="属性获取"><a href="#属性获取" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>属性获取</h2><p>组件中通过 <code>this.element.getAttribute</code> 可以获取元素的属性。比如如下所示给 <code>mip-example</code> 传入 <code>name</code> 属性：</p><pre><div class="code-index"><div>1</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-example</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"lilei"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-example</span>&gt;</span></code></pre><p>那么可以通过以下方式拿到这个值：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div></div><code class="lang-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MIPExample</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">MIP</span>.<span class="hljs-title">CustomElement</span> </span>{
   build () {
-    <span class="hljs-keyword">const</span> name = <span class="hljs-keyword">this</span>.element.getAttribute(<span class="hljs-string">'name'</span>)
+    <span class="hljs-keyword">let</span> name = <span class="hljs-keyword">this</span>.element.getAttribute(<span class="hljs-string">'name'</span>)
+    <span class="hljs-comment">// ...</span>
+  }
+}</code></pre><p>这样我们就可以改造组件，将这个获取到的属性显示出来：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div></div><code class="lang-js"><span class="hljs-keyword">import</span> <span class="hljs-string">'./index.less'</span>
 
-    <span class="hljs-keyword">this</span>.element.innerHTML = <span class="hljs-string">`&lt;div&gt;Hello &lt;span id="greeting-name"&gt;<span class="hljs-subst">${name}</span>&lt;/span&gt;!&lt;/div&gt;`</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MIPExample</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">MIP</span>.<span class="hljs-title">CustomElement</span> </span>{
+  build () {
+    <span class="hljs-keyword">let</span> name = <span class="hljs-keyword">this</span>.element.getAttribute(<span class="hljs-string">'name'</span>)
+    <span class="hljs-keyword">let</span> content = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'p'</span>)
+    content.innerText = <span class="hljs-string">'Hello '</span> + name
+    <span class="hljs-keyword">this</span>.element.appendChild(content)
+  }
+}</code></pre><p>刷新页面可以看到页面上显示了 &quot;Hello lilei&quot;：</p><p>
+      <span class="md-img-wrapper">
+        <span class="md-img-wrapper-child">
+          <mip-img
+            layout="container"
+            width="552"
+            height="171"
+            src="https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/mip/docs/cli/mip2-hello-lilei-78527e0f.png"
+            popup
+          ></mip-img>
+        </span>
+      </span>
+      </p><p>我们可以在 example/index.html 将属性值修改成别的内容进行调试。需要注意的是，通过 <code>this.element.getAttribute()</code> 方法拿到的属性类型都是字符串，开发者需要根据实际要求的数据类型手动进行转换。</p><h2 id="响应数据更新"><a href="#响应数据更新" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>响应数据更新</h2><p>在上面这种获取属性的方式只有在主动调用 <code>this.element.getAttribute()</code> 时才能够获取最新的属性，如果需要时时监听属性变化的话，可以通过 Custom Element 提供的 observedAttributes 和 attributeChangedCallback 进行属性监听：</p><p>当 MIP 组件需要相应属性变更时，需要实现 <code>attributeChangedCallback</code>：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div></div><code class="lang-js"><span class="hljs-keyword">import</span> <span class="hljs-string">'./index.less'</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MIPExample</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">MIP</span>.<span class="hljs-title">CustomElement</span> </span>{
+  <span class="hljs-keyword">constructor</span> (...args) {
+    <span class="hljs-keyword">super</span>(...args)
+    <span class="hljs-keyword">this</span>.content = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'p'</span>)
   }
 
-  attributeChangedCallback (name, oldValue, value) {
+  <span class="hljs-keyword">static</span> get observedAttributes () {
+    <span class="hljs-keyword">return</span> [<span class="hljs-string">'name'</span>]
+  }
+
+  attributeChangedCallback (name, oldValue, newValue) {
     <span class="hljs-keyword">if</span> (name === <span class="hljs-string">'name'</span>) {
-      <span class="hljs-keyword">this</span>.element.querySelector(<span class="hljs-string">'#greeting-name'</span>).innerText = value;
+      <span class="hljs-keyword">this</span>.content.innerText = <span class="hljs-string">'Hello '</span> + newValue
     }
   }
-}
 
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> MIPGreeting</code></pre><h2 id="实例生命周期"><a href="#实例生命周期" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>实例生命周期</h2><p>MIP 组件实例在创建时会经历一系列初始化的过程，包括预渲染、挂载到 DOM、进入视口、属性变更等情况。在这个过程中会运行一些实例上的 <strong>生命周期</strong> 函数。</p><p>详细的 <strong>生命周期</strong> 介绍详见 <a href="/v2/contribute/principle/instance-life-cycle.html">实例生命周期</a>。</p>
+  build () {
+    <span class="hljs-keyword">let</span> name = <span class="hljs-keyword">this</span>.element.getAttribute(<span class="hljs-string">'name'</span>)
+    <span class="hljs-keyword">this</span>.content.innerText = <span class="hljs-string">'Hello '</span> + name
+    <span class="hljs-keyword">this</span>.element.appendChild(<span class="hljs-keyword">this</span>.content)
+  }
+}</code></pre><p>通过前面组件生命周期的学习我们知道 <code>constructor</code>、<code>attributeChangedCallback</code>、<code>build</code> 这三个生命周期钩子的执行顺序为 <code>constructor</code> -&gt; <code>attributeChangedCallback</code> -&gt; <code>build</code>，因此我们需要将 <code>this.content</code> 的初始化放到 <code>constructor</code> 里执行，这样在首次触发 <code>attributeChangedCallback</code> 时，才不会报 <code>this.content</code> 尚未定义的错误。</p><p>经过上述改造之后，只要动态修改 <code>name</code> 属性值，页面也将会立即同步显示对应的 Hello。</p><p>在上述代码中，<code>observedAttributes</code> 是一个只读的静态属性，定义了需要监听的属性名称列表，目前只监听了一个 <code>name</code> 属性。<code>attributeChangedCallback</code> 定义了监听的属性修改时的回调，回调方法的三个参数分别为：</p><ul><li>属性名</li><li>旧值</li><li>新值</li></ul><p><code>attributeChangedCallback</code> 会在 <code>constructor</code> 和 <code>connectedCallback</code> 之间首次触发，这个首次触发的条件是初始化阶段已经定义好监听的属性，以 mip-example 为例，如果页面初始化时 mip-example 没有传入 name 属性：</p><pre><div class="code-index"><div>1</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-example</span> <span class="hljs-attr">other-props</span>=<span class="hljs-string">"123"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-example</span>&gt;</span></code></pre><p>那么 <code>attributeChangedCallback</code> 是不会触发的。</p><p>组件初始化完成之后，只要 mip-example 的 name 属性一发生变化，都会触发一次 <code>attributeChangedCallback</code>。</p><h2 id="事件触发"><a href="#事件触发" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>事件触发</h2><p>MIP 组件在使用的时候允许通过 on 语法监听组件触发的事件，因此本小节介绍如何在组件内部触发事件。</p><p>MIP 提供了 <code>MIP.viewer.eventAction.execute()</code> 方法在组件内部触发事件，其语法如下所示：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div></div><code class="lang-js"><span class="hljs-comment">/**
+ * 触发事件
+ * @param {string} eventName 事件名称
+ * @param {HTMLElement} element 触发的目标元素，注意：事件往递归的向上传播找到匹配 `on="eventName:xxx.xx` 并执行
+ * @param {Object=} event 事件对象，原生的 Event 对象，如果没有事件对象可以为 {} 或不传 ，支持透传自定义参数，如：{userinfo: {}}
+ */</span>
+MIP.viewer.eventAction.execute(eventName, element, event)</code></pre><p>比如 mip-example 需要在组件 <code>build</code> 生命周期执行完之后触发一个事件 <code>done</code>，那么可以这么写：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div></div><code class="lang-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MIPExample</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">MIP</span>.<span class="hljs-title">CustomElement</span> </span>{
+  build () {
+    <span class="hljs-comment">// ....</span>
+    MIP.viewer.eventAction.execute(<span class="hljs-string">'done'</span>, <span class="hljs-keyword">this</span>.element)
+  }
+}</code></pre><p>这样就可以通过 on 语法监听这个触发的事件 <code>done</code>：</p><pre><div class="code-index"><div>1</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-example</span> <span class="hljs-attr">on</span>=<span class="hljs-string">"done:btn.click"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-example</span>&gt;</span></code></pre><p>我们也可以在触发事件的同时传出一些数据：</p><pre><div class="code-index"><div>1</div></div><code class="lang-js">MIP.viewer.eventAction.execute(<span class="hljs-string">'done'</span>, <span class="hljs-keyword">this</span>.element, {<span class="hljs-attr">count</span>: <span class="hljs-number">1</span>})</code></pre><p>这个 <code>{count: 1}</code> 就是触发 <code>done</code> 事件时往外传的事件对象。</p><h2 id="事件监听"><a href="#事件监听" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>事件监听</h2><p>组件内部也可以通过 <code>this.addEventAction()</code> 方法进行事件监听，其语法为：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div></div><code class="lang-js">mipCustomElement.addEventAction(actionName, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event, str</span>) </span>{
+
+})</code></pre><p>其中 actionName 为要监听的事件，回调函数里 event 为触发事件的事件对象，str 为触发事件时所传入的参数，即括号内的全部字符串内容。举个例子说明，假设 example/index.html 准备了两个标签：</p><pre><div class="code-index"><div>1</div><div>2</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:example.say(你好)"</span>&gt;</span>点我<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">mip-example</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"lilei"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-example</span>&gt;</span></code></pre><p>那么我们可以在 build 生命周期中注册监听 <code>say</code> 事件：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div></div><code class="lang-js"><span class="hljs-keyword">import</span> <span class="hljs-string">'./index.less'</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MIPExample</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">MIP</span>.<span class="hljs-title">CustomElement</span> </span>{
+  build () {
+    <span class="hljs-keyword">let</span> name = <span class="hljs-keyword">this</span>.element.getAttribute(<span class="hljs-string">'name'</span>)
+    <span class="hljs-keyword">let</span> content = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'p'</span>)
+    content.innerText = <span class="hljs-string">'Hello '</span> + name
+    <span class="hljs-keyword">this</span>.element.appendChild(content)
+
+    <span class="hljs-comment">// 在这里注册 say 事件的监听</span>
+    <span class="hljs-keyword">this</span>.addEventAction(<span class="hljs-string">'say'</span>, (event, str) =&gt; {
+      content.innerText = str
+    })
+  }
+}</code></pre><p>这样在点击了页面上的按钮之后，页面上将显示 &quot;你好&quot;。</p><p>
+      <span class="md-img-wrapper">
+        <span class="md-img-wrapper-child">
+          <mip-img
+            layout="container"
+            width="554"
+            height="120"
+            src="https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/mip/docs/cli/mip2-nihao-a51cc751.png"
+            popup
+          ></mip-img>
+        </span>
+      </span>
+      </p><p>如果 <code>on=&quot;tap:example.say(&#39;你&#39;, &#39;好&#39;)&quot;</code>，那么点击按钮后页面上显示的则是 <code>&#39;你&#39;, &#39;好&#39;</code>，即括号内的全部字符串内容，开发者可以根据实际组件的需求对这个字符串进行手动解析。</p><h2 id="组件插槽"><a href="#组件插槽" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>组件插槽</h2><p>组件的实例通过 this.element 获取，因此组件标签对里面的内容可以通过 <code>this.element.children</code>、<code>this.element.childNodes</code> 或者是 <code>this.element.innerHTML</code> 等这些原生 HTMLElement 对象所提供的方法或属性来获取。同样的，我们也可以通过 <code>this.element.querySelector</code>、<code>this.element.querySelectorAll</code> 等原生方法去查询组件内部的节点。</p><p>以 <code>mip-example</code> 为例，可以通过如下方法获取特定节点：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div></div><code class="lang-js"><span class="hljs-keyword">import</span> <span class="hljs-string">'./index.less'</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MIPExample</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">MIP</span>.<span class="hljs-title">CustomElement</span> </span>{
+  build () {
+    <span class="hljs-keyword">let</span> p = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'p'</span>)
+    p.classList.add(<span class="hljs-string">'content'</span>)
+    p.innerText = <span class="hljs-string">'Hello World'</span>
+    <span class="hljs-keyword">this</span>.element.appendChild(p)
+
+    <span class="hljs-keyword">let</span> contents = <span class="hljs-keyword">this</span>.element.querySelectorAll(<span class="hljs-string">'.content'</span>)
+    contents.forEach(<span class="hljs-function">(<span class="hljs-params">content, i</span>) =&gt;</span> {
+      content.innerText = i + <span class="hljs-string">' '</span> + content.innerText
+    })
+  }
+}</code></pre><p>在上面的例子中，首先在 <code>build</code> 生命周期阶段创建了一个 p 标签，并且 <code>class</code> 为 &#39;content&#39;，然后通过 <code>this.element.querySelectorAll</code> 获取 <code>this.element</code> 元素内部 <code>class</code> 为 content 的全部节点，并且对这些节点的内容添加了序号。</p><p>然后 example/index.html 改成这样：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-example</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"content"</span>&gt;</span>哈哈<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mip-example</span>&gt;</span></code></pre><p>在 <code>mip-example</code> 的标签对内部手动添加了一个 <code>class</code> 为 content 的 div 标签。刷新网页可以看到页面显示效果如下：</p><p>
+      <span class="md-img-wrapper">
+        <span class="md-img-wrapper-child">
+          <mip-img
+            layout="container"
+            width="581"
+            height="105"
+            src="https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/mip/docs/cli/mip2-slot-22ec5732.png"
+            popup
+          ></mip-img>
+        </span>
+      </span>
+      </p><p>可以看到无论是 div 还是 p 标签里面的内容都被添加上了序号，因此开发者可以采用类似的方法来对组件内容进行调整操作。</p><h2 id="小节"><a href="#小节" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>小节</h2><p>经过本章的学习基本上能够对 MIP 组件开发有了一定的认识，开发者可以根据提供的示例将他们复制下来到本地进行修改和测试加深理解，也可以继续阅读相关文档进行更深入的学习。</p>
     </div>
 <div class="markdown-toolbar">
   <a data-type="mip" href="https://github.com/mipengine/mip2/issues/new?title=反馈:docs/contribute/development/component-syntax.md"><span>反馈</span></a>
@@ -168,9 +325,9 @@
     <p class="label">上一页</p>
     <p class="title">使用 MIP-CLI 开发组件</p>
   </a>
-  <a class="markdown-paginator-item" data-type="mip" href="/v2/contribute/development/resources-management.html">
+  <a class="markdown-paginator-item" data-type="mip" href="/v2/contribute/development/writing-mip-component-in-vue-style.html">
     <p class="label">下一页</p>
-    <p class="title">资源管理</p>
+    <p class="title">使用 Vue 单文件语法来开发 MIP 组件</p>
   </a>
 </div>
   </div>
@@ -178,12 +335,12 @@
 <mip-data>
   <script type="application/json">
     {
-      "navbar": [{"name":"首页","path":"docs/index","activeUrl":{},"url":"/v2/index.html"},{"name":"关于 MIP","activeUrl":{},"children":[{"name":"什么是 MIP","path":"docs/about/what-is-mip.md","url":"/v2/about/what-is-mip.html"},{"name":"MIP 是如何运作的","path":"docs/about/how-mip-works.md","url":"/v2/about/how-mip-works.html"},{"name":"MIP 使用场景","path":"docs/about/who-uses-mip.md","url":"/v2/about/who-uses-mip.html"},{"name":"MIP 内容声明","path":"docs/about/announcement.md","url":"/v2/about/announcement.html"}]},{"name":"学习","activeUrl":{},"children":[{"name":"MIP 教程","path":"docs/docs/getting-start/newbie.md","activeUrl":{},"url":"/v2/docs/getting-start/newbie.html"},{"name":"MIP API","path":"docs/api","activeUrl":{},"url":"/v2/api/index.html"},{"name":"Codelab","path":"docs/codelabs","activeUrl":{},"url":"/v2/codelabs/index.html"}]},{"name":"组件","activeUrl":{},"children":[{"name":"组件列表","path":"docs/components","activeUrl":{},"url":"/v2/components/index.html"},{"name":"贡献组件代码","path":"docs/contribute/getting-start/how-to-contribute.md","activeUrl":{},"url":"/v2/contribute/getting-start/how-to-contribute.html"}],"aliasName":"贡献组件代码"},{"name":"工具","children":[{"name":"MIP-CLI 本地开发工具","url":"https://github.com/mipengine/mip2/tree/master/packages/mip-cli","blank":true},{"name":"MIP 代码校验工具","url":"https://www.mipengine.org/validator/validate","blank":true},{"name":"MIP 效果预览工具","url":"https://www.mipengine.org/validator/preview","blank":true},{"name":"MIP PATH 转换工具","url":"https://www.mipengine.org/mippath.html","blank":true}]},{"name":"GitHub","url":"https://github.com/mipengine/mip2","blank":true},{"name":"回到旧版","url":"https://www.mipengine.org","blank":true}],
+      "navbar": [{"name":"首页","path":"docs/index","activeUrl":{},"url":"/v2/index.html"},{"name":"关于 MIP","activeUrl":{},"children":[{"name":"什么是 MIP","path":"docs/about/what-is-mip.md","url":"/v2/about/what-is-mip.html"},{"name":"MIP 是如何运作的","path":"docs/about/how-mip-works.md","url":"/v2/about/how-mip-works.html"},{"name":"MIP 使用场景","path":"docs/about/who-uses-mip.md","url":"/v2/about/who-uses-mip.html"},{"name":"MIP 内容声明","path":"docs/about/announcement.md","url":"/v2/about/announcement.html"}]},{"name":"学习","activeUrl":{},"children":[{"name":"MIP 教程","path":"docs/docs/getting-start/newbie.md","activeUrl":{},"url":"/v2/docs/getting-start/newbie.html"},{"name":"MIP API","path":"docs/api","activeUrl":{},"url":"/v2/api/index.html"},{"name":"Codelab","path":"docs/codelabs","activeUrl":{},"url":"/v2/codelabs/index.html"},{"name":"常见问题","url":"https://github.com/mipengine/mip/wiki/MIP-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%A4%A7%E5%85%A8","blank":true}]},{"name":"组件","activeUrl":{},"children":[{"name":"组件列表","path":"docs/components","activeUrl":{},"url":"/v2/components/index.html"},{"name":"贡献组件代码","path":"docs/contribute/getting-start/how-to-contribute.md","activeUrl":{},"url":"/v2/contribute/getting-start/how-to-contribute.html"}],"aliasName":"贡献组件代码"},{"name":"工具","children":[{"name":"MIP-CLI 本地开发工具","url":"https://github.com/mipengine/mip2/tree/master/packages/mip-cli","blank":true},{"name":"MIP 代码校验工具","url":"https://www.mipengine.org/validator/validate","blank":true},{"name":"MIP 效果预览工具","url":"https://www.mipengine.org/validator/preview","blank":true},{"name":"MIP PATH 转换工具","url":"https://www.mipengine.org/mippath.html","blank":true}]},{"name":"GitHub","url":"https://github.com/mipengine/mip2","blank":true},{"name":"回到旧版","url":"https://www.mipengine.org","blank":true}],
       "navIndex": "3",
       "sidebarFragment": "guide",
       "sidebarSecondFragment": "guide",
-      "menu": [{"name":"起步","path":"docs/contribute/getting-start","children":[{"name":"如何贡献组件代码","path":"docs/contribute/getting-start/how-to-contribute.md","url":"/v2/contribute/getting-start/how-to-contribute.html"},{"name":"组件开发规范","path":"docs/contribute/getting-start/component-spec.md","url":"/v2/contribute/getting-start/component-spec.html"},{"name":"使用 MIP-CLI 开发组件","path":"docs/contribute/getting-start/mip-cli-usage.md","url":"/v2/contribute/getting-start/mip-cli-usage.html"}]},{"name":"组件开发","path":"docs/contribute/development","children":[{"name":"组件写法","path":"docs/contribute/development/component-syntax.md","url":"/v2/contribute/development/component-syntax.html"},{"name":"资源管理","path":"docs/contribute/development/resources-management.md","url":"/v2/contribute/development/resources-management.html"},{"name":"父子组件机制","path":"docs/contribute/development/subcomponents.md","url":"/v2/contribute/development/subcomponents.html"},{"name":"模块异步加载","path":"docs/contribute/development/async-loading.md","url":"/v2/contribute/development/async-loading.html"},{"name":"测试代码替换","path":"docs/contribute/development/testing-code-replacement.md","url":"/v2/contribute/development/testing-code-replacement.html"}]},{"name":"组件调试","path":"docs/contribute/debug","children":[{"name":"基于 MIP CLI 开发调试组件","path":"docs/contribute/debug/mip-dev.md","url":"/v2/contribute/debug/mip-dev.html"},{"name":"在调试模式下使用 mock 数据","path":"docs/contribute/debug/mock-data.md","url":"/v2/contribute/debug/mock-data.html"}]},{"name":"组件部署","path":"docs/contribute/deploy","children":[{"name":"组件构建部署","path":"docs/contribute/deploy/mip-build.md","url":"/v2/contribute/deploy/mip-build.html"}]},{"name":"组件机制","path":"docs/contribute/principle","children":[{"name":"MIP 组件化介绍","path":"docs/contribute/principle/mip-component.md","url":"/v2/contribute/principle/mip-component.html"},{"name":"MIP 组件实例的生命周期和回调钩子","path":"docs/contribute/principle/instance-life-cycle.md","url":"/v2/contribute/principle/instance-life-cycle.html"},{"name":"沙盒机制","path":"docs/contribute/principle/sandbox.md","url":"/v2/contribute/principle/sandbox.html"}]},{"name":"工具库","path":"docs/contribute/utils","children":[{"name":"MIP 基础模块","path":"docs/contribute/utils/viewer-and-viewport.md","url":"/v2/contribute/utils/viewer-and-viewport.html"},{"name":"MIP 中与服务端通信","path":"docs/contribute/utils/fetch.md","url":"/v2/contribute/utils/fetch.html"},{"name":"naboo 动画库","path":"docs/contribute/utils/naboo.md","url":"/v2/contribute/utils/naboo.html"},{"name":"gesture 手势集合","path":"docs/contribute/utils/gesture.md","url":"/v2/contribute/utils/gesture.html"},{"name":"platform 识别","path":"docs/contribute/utils/platform.md","url":"/v2/contribute/utils/platform.html"},{"name":"hash 通信机制","path":"docs/contribute/utils/hash.md","url":"/v2/contribute/utils/hash.html"}]}],
-      "chapters": [{"level":1,"hash":"#组件写法","text":"组件写法","children":[{"level":2,"hash":"#创建一个-mip-组件","text":"创建一个 MIP 组件"},{"level":2,"hash":"#响应数据更新","text":"响应数据更新"},{"level":2,"hash":"#实例生命周期","text":"实例生命周期"}]}],
+      "menu": [{"name":"起步","path":"docs/contribute/getting-start","children":[{"name":"如何贡献组件代码","path":"docs/contribute/getting-start/how-to-contribute.md","url":"/v2/contribute/getting-start/how-to-contribute.html"},{"name":"组件开发规范","path":"docs/contribute/getting-start/component-spec.md","url":"/v2/contribute/getting-start/component-spec.html"},{"name":"使用 MIP-CLI 开发组件","path":"docs/contribute/getting-start/mip-cli-usage.md","url":"/v2/contribute/getting-start/mip-cli-usage.html"}]},{"name":"组件开发","path":"docs/contribute/development","children":[{"name":"组件写法","path":"docs/contribute/development/component-syntax.md","url":"/v2/contribute/development/component-syntax.html"},{"name":"使用 Vue 单文件语法来开发 MIP 组件","path":"docs/contribute/development/writing-mip-component-in-vue-style.md","url":"/v2/contribute/development/writing-mip-component-in-vue-style.html"},{"name":"资源管理","path":"docs/contribute/development/resources-management.md","url":"/v2/contribute/development/resources-management.html"},{"name":"父子组件机制","path":"docs/contribute/development/subcomponents.md","url":"/v2/contribute/development/subcomponents.html"},{"name":"模块异步加载","path":"docs/contribute/development/async-loading.md","url":"/v2/contribute/development/async-loading.html"},{"name":"测试代码替换","path":"docs/contribute/development/testing-code-replacement.md","url":"/v2/contribute/development/testing-code-replacement.html"}]},{"name":"组件调试","path":"docs/contribute/debug","children":[{"name":"基于 MIP CLI 开发调试组件","path":"docs/contribute/debug/mip-dev.md","url":"/v2/contribute/debug/mip-dev.html"},{"name":"在调试模式下使用 mock 数据","path":"docs/contribute/debug/mock-data.md","url":"/v2/contribute/debug/mock-data.html"}]},{"name":"组件部署","path":"docs/contribute/deploy","children":[{"name":"组件构建部署","path":"docs/contribute/deploy/mip-build.md","url":"/v2/contribute/deploy/mip-build.html"}]},{"name":"组件机制","path":"docs/contribute/principle","children":[{"name":"MIP 组件实例生命周期","path":"docs/contribute/principle/instance-life-cycle.md","url":"/v2/contribute/principle/instance-life-cycle.html"},{"name":"沙盒机制","path":"docs/contribute/principle/sandbox.md","url":"/v2/contribute/principle/sandbox.html"}]},{"name":"工具库","path":"docs/contribute/utils","children":[{"name":"MIP 基础模块","path":"docs/contribute/utils/viewer-and-viewport.md","url":"/v2/contribute/utils/viewer-and-viewport.html"},{"name":"MIP 中与服务端通信","path":"docs/contribute/utils/fetch.md","url":"/v2/contribute/utils/fetch.html"},{"name":"naboo 动画库","path":"docs/contribute/utils/naboo.md","url":"/v2/contribute/utils/naboo.html"},{"name":"gesture 手势集合","path":"docs/contribute/utils/gesture.md","url":"/v2/contribute/utils/gesture.html"},{"name":"platform 识别","path":"docs/contribute/utils/platform.md","url":"/v2/contribute/utils/platform.html"},{"name":"hash 通信机制","path":"docs/contribute/utils/hash.md","url":"/v2/contribute/utils/hash.html"}]}],
+      "chapters": [{"level":1,"hash":"#组件写法","text":"组件写法","children":[{"level":2,"hash":"#创建-mip-组件目录","text":"创建 MIP 组件目录"},{"level":2,"hash":"#创建一个-mip-组件","text":"创建一个 MIP 组件"},{"level":2,"hash":"#添加样式","text":"添加样式"},{"level":2,"hash":"#组件生命周期","text":"组件生命周期"},{"level":2,"hash":"#属性获取","text":"属性获取"},{"level":2,"hash":"#响应数据更新","text":"响应数据更新"},{"level":2,"hash":"#事件触发","text":"事件触发"},{"level":2,"hash":"#事件监听","text":"事件监听"},{"level":2,"hash":"#组件插槽","text":"组件插槽"},{"level":2,"hash":"#小节","text":"小节"}]}],
       'url': "/v2/contribute/development/component-syntax.html"
     }
   </script>
