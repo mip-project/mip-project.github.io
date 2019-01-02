@@ -44,8 +44,8 @@ let docDir = path.resolve(tmpDir, 'doc')
 const urlPrefix = '/v2/'
 
 module.exports = {
-  host: process.env.NODE_ENV === 'development' ? '' : 'https://mip-project.github.io',
-  // host: process.env.NODE_ENV === 'development' ? '' : 'https://www.mipengine.org',
+  // host: process.env.NODE_ENV === 'development' ? '' : 'https://mip-project.github.io',
+  host: process.env.NODE_ENV === 'development' ? '' : 'https://www.mipengine.org',
   basePath: docDir,
   rootPath: rootDir,
   sources: [
@@ -314,9 +314,10 @@ async function copy ({to}) {
     if (/mip-(.+)?\/README\.md/.test(filename)) {
       filename = filename.replace(/mip-(.+)?\/README\.md$/, 'mip-$1/mip-$1.md')
     }
-    if (mip1files.some(filename => filename.indexOf(foldername) === -1)) {
-      filename = filename.replace(/mip-(.+)?\/mip-\1\.md$/, 'mip-$1.md')
-    }
+    filename = filename.replace(/mip-.+?\/mip-(.+?)\.md$/, 'mip-$1.md')
+    // if (mip1files.filter(f => f.indexOf(foldername) > -1).length === 1) {
+    //   filename = filename.replace(/mip-(.+)?\/mip-\1\.md$/, 'mip-$1.md')
+    // }
 
     for (let i = 0; i < componentsOptions.length; i++) {
       if (foldername === componentsOptions[i].name) {
@@ -342,9 +343,10 @@ async function copy ({to}) {
     if (/mip-(.+)?\/README\.md/.test(filename)) {
       filename = filename.replace(/mip-(.+)?\/README\.md$/, 'mip-$1/mip-$1.md')
     }
-    if (mip1files.some(filename => filename.indexOf(foldername) === -1)) {
-      filename = filename.replace(/mip-(.+)?\/mip-\1\.md$/, 'mip-$1.md')
-    }
+    filename = filename.replace(/mip-.+?\/mip-(.+?)\.md$/, 'mip-$1.md')
+    // if (mip2files.filter(f => f.indexOf(foldername) > -1).length === 1) {
+    //   filename = filename.replace(/mip-(.+)?\/mip-\1\.md$/, 'mip-$1.md')
+    // }
 
     for (let i = 0; i < componentsOptions.length; i++) {
       if (foldername === componentsOptions[i].name) {

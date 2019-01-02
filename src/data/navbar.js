@@ -52,6 +52,11 @@ module.exports = () => [
         "activeUrl": /^\/(v2\/)?codelabs/
       },
       {
+        "name": "MIP 视频课程",
+        "url": "https://bit.baidu.com/course/datalist/column/120.html",
+        "blank": true
+      },
+      {
         "name": "常见问题",
         "url": "https://github.com/mipengine/mip/wiki/MIP-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%A4%A7%E5%85%A8",
         "blank": true
@@ -94,11 +99,11 @@ module.exports = () => [
       //   "url": "http://www.cnblogs.com/mipengine",
       //   "blank": true
       // },
-      {
-        "name": "MIP-CLI 本地开发工具",
-        "url": "https://github.com/mipengine/mip2/tree/master/packages/mip-cli",
-        "blank": true
-      },
+      // {
+      //   "name": "MIP-CLI 本地开发工具",
+      //   "url": "https://github.com/mipengine/mip2/tree/master/packages/mip-cli",
+      //   "blank": true
+      // },
       {
         "name": "MIP 代码校验工具",
         "url": "https://www.mipengine.org/validator/validate",
@@ -113,6 +118,11 @@ module.exports = () => [
         "name": "MIP PATH 转换工具",
         "url": "https://www.mipengine.org/mippath.html",
         "blank": true
+      },
+      {
+        "name": "MIP 组件审核平台",
+        "url": "https://www.mipengine.org/platform/mip",
+        "blank": true
       }
     ]
   },
@@ -120,10 +130,11 @@ module.exports = () => [
     "name": "GitHub",
     "url": "https://github.com/mipengine/mip2",
     "blank": true
-  },
+  }
+  ,
   {
     "name": "回到旧版",
-    "url": "https://www.mipengine.org",
+    "url": "https://www.mipengine.org/v1.html",
     "blank": true
   }
 ]

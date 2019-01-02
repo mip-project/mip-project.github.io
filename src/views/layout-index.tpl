@@ -84,41 +84,45 @@
                 </div>
                 <div>
                     <h2>组件列表</h2>
-                    <a data-type="mip" href="/v2/components/index.html">内置组件</a>
-                    <a data-type="mip" href="/v2/components/index.html">个性化组件</a>
+                    <a data-type="mip" href="/v2/components/index.html#布局">布局组件</a>
+                    <a data-type="mip" href="/v2/components/index.html#呈现">呈现组件</a>
+                    <a data-type="mip" href="/v2/components/index.html#多媒体">多媒体组件</a>
+                    <a data-type="mip" href="/v2/components/index.html#动态内容">动态内容组件</a>
                     <a data-type="mip" href="/v2/components/index.html#广告">广告组件</a>
                 </div>
                 <div>
                     <h2>常用链接</h2>
                     <!-- <a data-type="mip" href="#">MIP 官方博客</a> -->
-                    <a href="https://github.com/mipengine/mip2/tree/master/packages/mip-cli">MIP-CLI 本地开发工具</a>
+                    <!-- <a href="https://github.com/mipengine/mip2/tree/master/packages/mip-cli">MIP-CLI 本地开发工具</a> -->
                     <!-- <a data-type="mip" href="#">MIP 升级动态</a> -->
                     <a data-type="mip" href="https://www.mipengine.org/validator/validate">MIP 代码校验工具</a>
                     <a data-type="mip" href="https://www.mipengine.org/validator/preview">MIP 效果预览工具</a>
                     <a data-type="mip" href="https://www.mipengine.org/mippath.html">MIP PATH 转换工具</a>
-                    <!-- <a data-type="mip" href="#">MIP 组件审核平台</a> -->
+                    <a data-type="mip" href="https://www.mipengine.org/platform/mip">MIP 组件审核平台</a>
                 </div>
                 <div>
                     <h2>联系我们</h2>
-                    <a href="https://github.com/mipengine/mip2">Github</a>
+                    <a href="https://github.com/mipengine/mip2">GitHub</a>
                     <a href="mailto:mipengine@baidu.com">mipengine@baidu.com</a>
                     <a href="#" class="qr-code"></a>
-                    <a data-type="mip" href="#">扫码加入 QQ 群</a>
+                    <a data-type="mip" href="#">扫码加入 QQ 群：</a>
+                    <a data-type="mip" href="#">580967494</a>
                 </div>
             </div>
             <div class="mobile">
                 <div>
                     <a href="#" class="qr-code"></a>
                     <a href="#">扫码加入 QQ 群</a>
+                    <a data-type="mip" href="#">580967494</a>
                     <div class="mobile-contact">
                         联系我们:
-                        <a href="https://github.com/mipengine/mip2">Github</a>
+                        <a href="https://github.com/mipengine/mip2">GitHub</a>
                         <a href="mailto:mipengine@baidu.com">mipengine@baidu.com</a>
                     </div>
                 </div>
             </div>
         </div>
-        <p>@2018 mipengine</p>
+        <p>@2019 mipengine</p>
     </section>
 
 </div>
