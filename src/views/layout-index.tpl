@@ -103,7 +103,7 @@
                 <div>
                     <h2>联系我们</h2>
                     <a href="https://github.com/mipengine/mip2">GitHub</a>
-                    <a href="mailto:mipengine@baidu.com">mipengine@baidu.com</a>
+                    <a href="mailto:mip-support@baidu.com">mip-support@baidu.com</a>
                     <a href="#" class="qr-code"></a>
                     <a data-type="mip" href="#">扫码加入 QQ 群：</a>
                     <a data-type="mip" href="#">580967494</a>
