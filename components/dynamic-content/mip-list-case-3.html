@@ -11,28 +11,29 @@
 </head>
 <body>
   
-  <mip-list 
-  template="mip-template-id"
-  src="http://xxx?a=a&b=b"
+  <mip-list
+  template="mip-template-id2"
+  src="https://raw.githubusercontent.com/mipengine/mip2-extensions/master/components/mip-list/example/data-has-more.js"
   id="mip-list"
   has-more
-  pnName="pageNum"
-  pn=2
+  pn-name="pageNum"
+  pn="2"
   timeout="3000"
-  preLoad>
-  <template type="mip-mustache" id="mip-template-id">
+  preload
+>
+  <template type="mip-mustache" id="mip-template-id2">
     <div>
-      <li>{{key}}: {{value}}</li>
+      <li>name: {{ name }}</li>
     </div>
   </template>
 </mip-list>
-<div on="tap:mip-list.more"> 点击查看更多 </div>
+<button on="tap:mip-list.more">点击查看更多</button>
 
   <script type="data-x-preset" id="preset">
   
   </script>
   <script src="https://c.mipcdn.com/static/v2/mip.js"></script>
-  <script src="https://c.mipcdn.com/static/v2/mip-list/mip-list.js"></script><script src="https://c.mipcdn.com/static/v1/mip-mustache/mip-mustache.js"></script>
+  <script src="https://c.mipcdn.com/static/v2/mip-list/mip-list.js"></script><script src="https://c.mipcdn.com/static/v2/mip-mustache/mip-mustache.js"></script>
   <script>
   var preset;
   window.addEventListener('message', function (e) {

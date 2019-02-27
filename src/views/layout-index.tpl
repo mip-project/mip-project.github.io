@@ -117,7 +117,7 @@
                     <div class="mobile-contact">
                         联系我们:
                         <a href="https://github.com/mipengine/mip2">GitHub</a>
-                        <a href="mailto:mipengine@baidu.com">mipengine@baidu.com</a>
+                        <a href="mailto:mip-support@baidu.com">mip-support@baidu.com</a>
                     </div>
                 </div>
             </div>

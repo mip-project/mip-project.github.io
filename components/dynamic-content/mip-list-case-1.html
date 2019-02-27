@@ -11,11 +11,15 @@
 </head>
 <body>
   
-  <mip-list template="mip-template-id" src="https://xxx" preLoad>
-  <template type="mip-mustache" id="mip-template-id">
+  <mip-list
+  template="mip-template-id1"
+  src="https://raw.githubusercontent.com/mipengine/mip2-extensions/master/components/mip-list/example/data.js"
+  preload
+>
+  <template type="mip-mustache" id="mip-template-id1">
     <div>
-      <li>name: {{name}}</li>
-      <li>alias: {{alias}}</li>
+      <li>name: {{ name }}</li>
+      <li>alias: {{ alias }}</li>
     </div>
   </template>
 </mip-list>
@@ -24,7 +28,7 @@
   
   </script>
   <script src="https://c.mipcdn.com/static/v2/mip.js"></script>
-  <script src="https://c.mipcdn.com/static/v2/mip-list/mip-list.js"></script><script src="https://c.mipcdn.com/static/v1/mip-mustache/mip-mustache.js"></script>
+  <script src="https://c.mipcdn.com/static/v2/mip-list/mip-list.js"></script><script src="https://c.mipcdn.com/static/v2/mip-mustache/mip-mustache.js"></script>
   <script>
   var preset;
   window.addEventListener('message', function (e) {

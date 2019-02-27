@@ -113,18 +113,20 @@
   .navbar-toggle
     display none
 
+.mip-sidebar-mask
+  z-index 40050 !important
+  background-color rgba(0, 0, 0, .6) !important
+
 .nav-sidebar
-  // z-index 40100 !important
+  z-index 40100 !important
 
-  mip-fixed
-    z-index 40100 !important
+  // mip-fixed
+  //   z-index 40100 !important
 
-  .mip-sidebar-content
-    width 70%
-    box-sizing border-box
-    background #fff
-  .mip-sidebar-mask
-    background-color rgba(0, 0, 0, .6) !important
+  // .mip-sidebar-content
+  width 70%
+  box-sizing border-box
+  background #fff
 
 
   h1
@@ -166,6 +168,8 @@
         h1 > span
             &:after
               display none
+    &.hide
+      display none
 
 
   .navbar-menu-wrapper

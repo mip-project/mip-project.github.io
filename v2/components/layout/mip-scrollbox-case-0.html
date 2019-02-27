@@ -11,47 +11,48 @@
 </head>
 <body>
   
-  <style>
-    .demo1 a {
-        display: block;
-        border: 1px solid #ccc;
-        height: 30px;
-        line-height: 30px;
-        padding: 0 10px;
-        margin-right: 20px;
-        border-radius: 5px;
-        white-space: nowrap;
-    }
-    .demo1 [data-item]:last-child a {
-        margin-right: 0;
-    }
+  <style mip-custom>
+  .demo1 a {
+    display: block;
+    border: 1px solid #ccc;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+    margin-right: 20px;
+    border-radius: 5px;
+    white-space: nowrap;
+  }
+
+  .demo1 [data-item]:last-child a {
+    margin-right: 0;
+  }
 </style>
 <mip-scrollbox class="demo1" height="32" layout="fixed-height">
-    <div data-wrapper>
-        <div data-inner>
-            <div data-scroller>
-                <div data-item>
-                    <a href="https://www.baidu.com">百度一下，你就知道。</a>
-                </div>
-                <div data-item>
-                    <a href="https://www.mipengine.org">MIP 是移动网页加速器。</a>
-                </div>
-                <div data-item>
-                    <a href="https://github.com/mipengine">MIP 的 GitHub 地址是： https://github.com/mipengine</a>
-                </div>
-                <div data-item>
-                    <a href="https://www.mipengine.org">点击查看更多精彩内容>></a>
-                </div>
-            </div>
+  <div data-wrapper>
+    <div data-inner>
+      <div data-scroller>
+        <div data-item>
+          <a href="https://www.baidu.com">百度一下，你就知道。</a>
         </div>
+        <div data-item>
+          <a href="https://www.mipengine.org">MIP 是移动网页加速器。</a>
+        </div>
+        <div data-item>
+          <a href="https://github.com/mipengine">MIP 的 GitHub 地址是： https://github.com/mipengine</a>
+        </div>
+        <div data-item>
+          <a href="https://www.mipengine.org">点击查看更多精彩内容>></a>
+        </div>
+      </div>
     </div>
+  </div>
 </mip-scrollbox>
 
   <script type="data-x-preset" id="preset">
   
   </script>
   <script src="https://c.mipcdn.com/static/v2/mip.js"></script>
-  <script src="https://c.mipcdn.com/static/v1/mip-scrollbox/mip-scrollbox.js"></script>
+  <script src="https://c.mipcdn.com/static/v2/mip-scrollbox/mip-scrollbox.js"></script>
   <script>
   var preset;
   window.addEventListener('message', function (e) {

@@ -15,8 +15,9 @@
   <script type="application/json">
     {
       "ak": "hKhuzfFBrcL6zGm4s6b371NDxaUrhFPl",
-      "hide-map": false,
-      "get-position": true,
+      "hideMap": false,
+      "getPosition": false,
+      "dataOnlyGetSdk": false,
       "location": {
         "province": "北京",
         "city": "北京市",
@@ -24,8 +25,14 @@
         "street": "故宫博物馆"
       },
       "controls": {
-        "NavigationControl": {},
-        "MapTypeControl": {}
+        "NavigationControl": {
+          "showZoomInfo": true,
+          "enableGeolocation": true
+        },
+        "MapTypeControl": {
+          "type": "BMAP_MAPTYPE_CONTROL_HORIZONTAL",
+          "mapTypes": ["BMAP_NORMAL_MAP", "BMAP_SATELLITE_MAP", "BMAP_HYBRID_MAP"]
+        }
       },
       "info": {
         "width": 250,

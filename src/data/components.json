@@ -421,6 +421,13 @@
     "preview": false
   },
   {
+    "name": "mip-stats-mta",
+    "chinese": "腾讯 mta 统计组件",
+    "type": "统计",
+    "desc": "添加腾讯 mta 统计",
+    "preview": false
+  },
+  {
     "name": "mip-stats-tianrun",
     "chinese": "天润统计组件",
     "type": "统计",
