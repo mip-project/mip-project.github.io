@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html mip>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <title>MIP 文档_移动网页加速器_MIP(Mobile Instant Pages_)MIP.util.customStorage</title>
+    <meta name="description" content="MIP 提供了一套 MIP 站点内容储解决方案，其中包含 localStorage，request 到服务端，cookie 等方案，调用 MIP.util.customStorage() 方法将得到对应的存储对象，开发者可以用这些对象完成 MIP 站点内容存储的需求。">
+    <link rel="canonical" href="/v2/contribute/api/util/customStorage.html">
+    <link rel="stylesheet" type="text/css" href="https://c.mipcdn.com/static/v2/mip.css">
+    <link rel="icon" href="https://www.mipengine.org/favicon.ico">
+    <!-- <link rel="stylesheet" href="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.css"> -->
+    <!-- <link rel="stylesheet" href="http://172.18.19.102:8080/dist/mip.css"> -->
+    <link rel="stylesheet" type="text/css" href="/src/style/dist/index.css">
+  </head>
+  <body>
+<mip-fixed type="top" class="layout-navbar-fixed">
+  <div class="layout-navbar">
+    <a data-type="mip" href="/"><div class="navbar-logo"></div></a>
+    <div class="navbar-menu">
+      <ul class="navbar-menu-wrapper">
+        <li class="navbar-item" ><a data-type="mip" href="/v2/index.html" class="menu-name" title="首页">首页</a></li>
+        <li class="navbar-item">
+          <span class="menu-name" title="关于 MIP">关于 MIP<i class="arrow"></i></span>
+          <ul class="navbar-sub-menu">
+            <li class="navbar-sub-item"><a data-type="mip" href="/v2/about/what-is-mip.html" title="什么是 MIP">什么是 MIP</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="/v2/about/how-mip-works.html" title="MIP 是如何运作的">MIP 是如何运作的</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="/v2/about/who-uses-mip.html" title="MIP 使用场景">MIP 使用场景</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="/v2/about/announcement.html" title="MIP 内容声明">MIP 内容声明</a></li>
+          </ul>
+        </li>
+        <li class="navbar-item">
+          <span class="menu-name" title="学习">学习<i class="arrow"></i></span>
+          <ul class="navbar-sub-menu">
+            <li class="navbar-sub-item"><a data-type="mip" href="/v2/docs/getting-start/newbie.html" title="MIP 教程">MIP 教程</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="/v2/codelabs/index.html" title="Codelab">Codelab</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="https://bit.baidu.com/course/datalist/column/120.html" title="MIP 视频课程">MIP 视频课程</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="https://github.com/mipengine/mip/wiki/MIP-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%A4%A7%E5%85%A8" title="常见问题">常见问题</a></li>
+          </ul>
+        </li>
+        <li class="navbar-item active">
+          <span class="menu-name" title="贡献组件代码">贡献组件代码<i class="arrow"></i></span>
+          <ul class="navbar-sub-menu">
+            <li class="navbar-sub-item"><a data-type="mip" href="/v2/components/index.html" title="组件列表">组件列表</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="/v2/contribute/getting-start/how-to-contribute.html" title="贡献组件代码">贡献组件代码</a></li>
+          </ul>
+        </li>
+        <li class="navbar-item">
+          <span class="menu-name" title="工具">工具<i class="arrow"></i></span>
+          <ul class="navbar-sub-menu">
+            <li class="navbar-sub-item"><a data-type="mip" href="https://www.mipengine.org/validator/validate" title="MIP 代码校验工具">MIP 代码校验工具</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="https://www.mipengine.org/validator/preview" title="MIP 效果预览工具">MIP 效果预览工具</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="https://www.mipengine.org/mippath.html" title="MIP PATH 转换工具">MIP PATH 转换工具</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="https://www.mipengine.org/platform/mip" title="MIP 组件审核平台">MIP 组件审核平台</a></li>
+          </ul>
+        </li>
+        <li class="navbar-item" ><a target="_blank" href="https://github.com/mipengine/mip2" class="menu-name" title="GitHub">GitHub</a></li>
+        <li class="navbar-item" ><a target="_blank" href="https://www.mipengine.org/v1.html" class="menu-name" title="回到旧版">回到旧版</a></li>
+      </ul>
+      <div class="navbar-indicator" m-bind:style="navbarStyle"></div>
+    </div>
+    <div class="navbar-toggle" on="tap:nav-sidebar.open"><i class="iconfont icon-bars"></i></div>
+  </div>
+</mip-fixed>
+
+    <mip-sidebar
+      id="nav-sidebar"
+      layout="nodisplay"
+      side="right"
+      class="mip-hidden nav-sidebar"
+      on="close:MIP.setData({sidebarFragment:m.sidebarSecondFragment})"
+    >
+<div class="sidebar-fragment sidebar-nav-wrapper"
+  m-bind:class="{hide:sidebarFragment!=='nav'}"
+>
+  <!-- <h1 on="tap:MIP.setData({sidebarFragment:m.sidebarSecondFragment})"><span class="home-arrow">目录</span></h1> -->
+  <h1><span class="home-arrow">目录</span></h1>
+  <ul class="navbar-menu-wrapper">
+    <li class="navbar-item" ><a data-type="mip" href="/v2/index.html" class="menu-name">首页</a></li>
+    <li class="navbar-item">
+      <span class="menu-name">关于 MIP</span>
+      <ul class="navbar-sub-menu">
+        <li class="navbar-sub-item "><a data-type="mip" href="/v2/about/what-is-mip.html">什么是 MIP</a></li>
+        <li class="navbar-sub-item "><a data-type="mip" href="/v2/about/how-mip-works.html">MIP 是如何运作的</a></li>
+        <li class="navbar-sub-item "><a data-type="mip" href="/v2/about/who-uses-mip.html">MIP 使用场景</a></li>
+        <li class="navbar-sub-item "><a data-type="mip" href="/v2/about/announcement.html">MIP 内容声明</a></li>
+      </ul>
+    </li>
+    <li class="navbar-item">
+      <span class="menu-name">学习</span>
+      <ul class="navbar-sub-menu">
+        <li class="navbar-sub-item "><a data-type="mip" href="/v2/docs/getting-start/newbie.html">MIP 教程</a></li>
+        <li class="navbar-sub-item "><a data-type="mip" href="/v2/codelabs/index.html">Codelab</a></li>
+        <li class="navbar-sub-item "><a data-type="mip" href="https://bit.baidu.com/course/datalist/column/120.html">MIP 视频课程</a></li>
+        <li class="navbar-sub-item "><a data-type="mip" href="https://github.com/mipengine/mip/wiki/MIP-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%A4%A7%E5%85%A8">常见问题</a></li>
+      </ul>
+    </li>
+    <li class="navbar-item active">
+      <span class="menu-name">组件</span>
+      <ul class="navbar-sub-menu">
+        <li class="navbar-sub-item "><a data-type="mip" href="/v2/components/index.html">组件列表</a></li>
+        <li class="navbar-sub-item active"><a data-type="mip" href="/v2/contribute/getting-start/how-to-contribute.html">贡献组件代码</a></li>
+      </ul>
+    </li>
+    <li class="navbar-item">
+      <span class="menu-name">工具</span>
+      <ul class="navbar-sub-menu">
+        <li class="navbar-sub-item "><a data-type="mip" href="https://www.mipengine.org/validator/validate">MIP 代码校验工具</a></li>
+        <li class="navbar-sub-item "><a data-type="mip" href="https://www.mipengine.org/validator/preview">MIP 效果预览工具</a></li>
+        <li class="navbar-sub-item "><a data-type="mip" href="https://www.mipengine.org/mippath.html">MIP PATH 转换工具</a></li>
+        <li class="navbar-sub-item "><a data-type="mip" href="https://www.mipengine.org/platform/mip">MIP 组件审核平台</a></li>
+      </ul>
+    </li>
+    <li class="navbar-item" ><a data-type="mip" href="https://github.com/mipengine/mip2" class="menu-name">GitHub</a></li>
+    <li class="navbar-item" ><a data-type="mip" href="https://www.mipengine.org/v1.html" class="menu-name">回到旧版</a></li>
+  </ul>
+</div>
+<div class="sidebar-fragment navbar-secnav-wrapper"
+  m-bind:class="{hide:sidebarFragment!=='guide'}"
+>
+  <h1 on="tap:MIP.setData({sidebarFragment:'nav'})"><span></span></h1>
+  <mip-mipengine-sidenav m-bind:menu="menu" m-bind:chapters="chapters" m-bind:url="url" on="clicked:nav-sidebar.close"></mip-mipengine-sidenav>
+</div>
+    </mip-sidebar>
+
+<mip-fixed type="left" top="64px" class="layout-sidebar">
+  <mip-mipengine-sidenav m-bind:menu="menu" m-bind:chapters="chapters" m-bind:url="url">
+  </mip-mipengine-sidenav>
+</mip-fixed>
+<div class="layout-main-content">
+  <div class="content-wrapper">
+<!-- <p class="markdown-breadcrumb">
+  <span>工具</span><span class="split">/</span>  <span>MIP.util.customStorage</span></p> -->
+    <div class="markdown-body">
+      <h1 id="miputilcustomstorage"><a href="#miputilcustomstorage" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>MIP.util.customStorage</h1><p>MIP 提供了一套 MIP 站点内容储解决方案，其中包含 localStorage，request 到服务端，cookie 等方案，调用 <code>MIP.util.customStorage()</code> 方法将得到对应的存储对象，开发者可以用这些对象完成 MIP 站点内容存储的需求。</p><ul><li>用法</li></ul><pre><div class="code-index"><div>1</div></div><code class="lang-js">MIP.util.customStorage(type)</code></pre><ul><li>参数</li></ul><div class="md-table-wrapper"><table><thead><tr><th>类型</th><th>参数名</th><th>是否必选</th><th>描述</th></tr></thead><tbody><tr><td>number</td><td>type</td><td>是</td><td>存储对象的类型，取值为 0, 1, 2 中的一个</td></tr></tbody></table></div><ul><li>0: 表示返回的是 localStorage 对象</li><li>1: 表示返回的是 asyncStorage 对象</li><li>2: 表示返回的是 cookieStorage 对象</li></ul><p>下面我们详细介绍 localStorage, asyncStorage, cookieStorage 的具体 API 和用法。</p><h2 id="localstorage"><a href="#localstorage" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>localStorage</h2><p>通过调用 <code>MIP.util.customStorage(0)</code> 返回的对象，该对象封装了 localStorage 对象，提供了几个方法给开发者使用，下面我们详细介绍下这些方法。</p><h3 id="方法"><a href="#方法" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>方法</h3><h4 id="localstorageset"><a href="#localstorageset" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>localStorage.set</h4><ul><li>描述</li></ul><p>使用当前 MIP 站点域下的 MIP localStorage 存储内容</p><ul><li>参数</li></ul><div class="md-table-wrapper"><table><thead><tr><th>类型</th><th>参数名</th><th>是否必选</th><th>描述</th></tr></thead><tbody><tr><td>string</td><td>name</td><td>是</td><td>localStorage 存储的 key</td></tr><tr><td>string</td><td>value</td><td>是</td><td>localStorage 存储的内容</td></tr><tr><td>string</td><td>expire</td><td>否</td><td>localStorage 存储的过期时间</td></tr><tr><td>Function</td><td>callback</td><td>否</td><td>localStorage 存储成功后的回调</td></tr></tbody></table></div><ul><li>返回</li></ul><p><code>undefined</code></p><ul><li>用法</li></ul><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div></div><code class="lang-js"><span class="hljs-keyword">let</span> lsObject = MIP.util.customStorage(<span class="hljs-number">0</span>)
+lsObject.set(<span class="hljs-string">'test-ls-key'</span>, <span class="hljs-string">'storage content'</span>, <span class="hljs-number">24</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> , <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
+  <span class="hljs-comment">// 如果发生错误，将会执行回调</span>
+  <span class="hljs-built_in">console</span>.log(err)
+})</code></pre><blockquote><p>注意： 使用 MIP 提供的 localStorage 封装的对象存储的内容应该控制在 4K 以内</p></blockquote><h4 id="localstorageget"><a href="#localstorageget" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>localStorage.get</h4><ul><li>描述</li></ul><p>从当前 MIP 站点域下的 MIP localStorage 中获取内容</p><ul><li>参数</li></ul><div class="md-table-wrapper"><table><thead><tr><th>类型</th><th>参数名</th><th>是否必选</th><th>描述</th></tr></thead><tbody><tr><td>string</td><td>name</td><td>是</td><td>localStorage 存储的 key</td></tr></tbody></table></div><ul><li>返回</li></ul><div class="md-table-wrapper"><table><thead><tr><th>类型</th><th>描述</th></tr></thead><tbody><tr><td>string</td><td>返回的对应的 key 的 localStorage 存储的内容</td></tr></tbody></table></div><ul><li>用法</li></ul><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div></div><code class="lang-js"><span class="hljs-comment">// 结合前面的例子</span>
+<span class="hljs-keyword">let</span> lsObject = MIP.util.customStorage(<span class="hljs-number">0</span>)
+<span class="hljs-keyword">let</span> content = lsObject.get(<span class="hljs-string">'test-ls-key'</span>)
+<span class="hljs-built_in">console</span>.log(content)
+<span class="hljs-comment">// 返回的是存储的内容</span></code></pre><h4 id="localstoragerm"><a href="#localstoragerm" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>localStorage.rm</h4><ul><li>描述</li></ul><p>删除当前 MIP 站点域下的 MIP localStorage 中某一个存储的内容</p><ul><li>参数</li></ul><div class="md-table-wrapper"><table><thead><tr><th>类型</th><th>参数名</th><th>是否必选</th><th>描述</th></tr></thead><tbody><tr><td>string</td><td>name</td><td>是</td><td>localStorage 存储的 key</td></tr></tbody></table></div><ul><li>返回</li></ul><p><code>undefined</code></p><ul><li>用法</li></ul><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div></div><code class="lang-js"><span class="hljs-comment">// 结合前面的例子</span>
+<span class="hljs-keyword">let</span> lsObject = MIP.util.customStorage(<span class="hljs-number">0</span>)
+lsObject.set(<span class="hljs-string">'test-ls-key2'</span>, <span class="hljs-string">'storage content2'</span>)
+<span class="hljs-built_in">console</span>.log(lsObject.get(<span class="hljs-string">'test-ls-key2'</span>)) <span class="hljs-comment">// 这里返回 `storage content2`</span>
+lsObject.rm(<span class="hljs-string">'test-ls-key2'</span>)
+<span class="hljs-built_in">console</span>.log(lsObject.get(<span class="hljs-string">'test-ls-key2'</span>)) <span class="hljs-comment">// 这里返回 undefined</span></code></pre><h4 id="localstorageclear"><a href="#localstorageclear" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>localStorage.clear</h4><ul><li>描述</li></ul><p>清空当前 MIP 站点域下的所有的存储内容</p><ul><li>参数</li></ul><p>无</p><ul><li>返回</li></ul><p><code>undefined</code></p><ul><li>用法</li></ul><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div></div><code class="lang-js"><span class="hljs-comment">// 结合前面的例子</span>
+<span class="hljs-keyword">let</span> lsObject = MIP.util.customStorage(<span class="hljs-number">0</span>)
+<span class="hljs-built_in">console</span>.log(lsObject.get(<span class="hljs-string">'test-ls-key'</span>)) <span class="hljs-comment">// 返回 'storage content'</span>
+lsObject.clear()
+<span class="hljs-built_in">console</span>.log(lsObject.get(<span class="hljs-string">'test-ls-key'</span>)) <span class="hljs-comment">// 返回 undefined</span></code></pre><h4 id="localstoragermexpires"><a href="#localstoragermexpires" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>localStorage.rmExpires</h4><ul><li>描述</li></ul><p>删除当前 MIP 站点域下的 MIP localStorage 中所有过期的内容</p><ul><li>参数</li></ul><p>无</p><ul><li>返回</li></ul><p><code>undefined</code></p><ul><li>用法</li></ul><pre><div class="code-index"><div>1</div><div>2</div></div><code class="lang-js"><span class="hljs-keyword">let</span> lsObject = MIP.util.customStorage(<span class="hljs-number">0</span>)
+lsObject.rmExpires() <span class="hljs-comment">// 如果当前的 MIP localStorage 中含有过期的内容，就会被删除</span></code></pre><h2 id="asyncstorage"><a href="#asyncstorage" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>asyncStorage</h2><p>asyncStorage 是一个 MIP 封装的请求服务端的对象，用来和服务端交互，让服务端帮助前端进行持久化存储。</p><h3 id="方法1"><a href="#方法1" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>方法</h3><h4 id="asyncstoragerequest"><a href="#asyncstoragerequest" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>asyncStorage.request</h4><ul><li>描述</li></ul><p>MIP 页面域下，异步请求服务端接口。</p><ul><li>参数</li></ul><div class="md-table-wrapper"><table><thead><tr><th>类型</th><th>参数名</th><th>是否必选</th><th>描述</th></tr></thead><tbody><tr><td>Object</td><td>opt</td><td>是</td><td>请求参数对象</td></tr><tr><td>string</td><td>opt.utl</td><td>是</td><td>请求的 URL</td></tr><tr><td>string</td><td>opt.mode</td><td>否</td><td>请求的模式，默认为 <code>null</code>， 可取值：<code>no-cors</code>, <code>cors</code>, <code>*same-origin</code> 等</td></tr><tr><td>string</td><td>opt.method</td><td>否</td><td>请求的方法，默认为 <code>GET</code>, 可取值 <code>POST</code>, <code>PUT</code>, <code>DELETE</code> 等</td></tr><tr><td>string</td><td>opt.credentials</td><td>否</td><td>请求的凭证，默认为 <code>omit</code> 可取值 <code>include</code> 等</td></tr><tr><td>string</td><td>opt.cache</td><td>否</td><td>请求的缓存类型，默认为 <code>default</code>，可取值 <code>no-cache</code>, <code>reload</code>, <code>force-cache</code>, <code>only-if-cached</code>等</td></tr><tr><td>string</td><td>opt.headers</td><td>否</td><td>请求的请求头，默认为浏览器自带请求头，可以通过该参数指定自定义的请求头</td></tr><tr><td>string</td><td>opt.body</td><td>否</td><td>请求发送给服务端的内容</td></tr><tr><td>Function</td><td>opt.success</td><td>否</td><td>请求成功后的回调</td></tr><tr><td>Function</td><td>opt.error</td><td>否</td><td>请求失败后的回调</td></tr></tbody></table></div><blockquote><p><code>asyncStorage.request()</code> 方法是基于 <code>fetch()</code> 方法的封装，的参数基本和 <code>fetch()</code> 方法保持一致，详见：<a data-type="mip"   href="https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch" >https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch</a></p></blockquote><ul><li>返回</li></ul><p><code>undefined</code></p><ul><li>用法</li></ul><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div></div><code class="lang-js"><span class="hljs-keyword">let</span> asObject = MIP.util.customStorage(<span class="hljs-number">1</span>)
+asObject.request({
+  <span class="hljs-attr">url</span>: <span class="hljs-string">'https://same-origin-host.com/some/path'</span>,
+  <span class="hljs-attr">mode</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">method</span>: <span class="hljs-string">'POST'</span>,
+  <span class="hljs-attr">body</span>: <span class="hljs-built_in">JSON</span>.stringify({<span class="hljs-attr">a</span>: <span class="hljs-number">1</span>}),
+  success(ret) {
+    <span class="hljs-built_in">console</span>.log(ret)
+    <span class="hljs-comment">// 请求成功后的返回内容</span>
+  },
+  error(err) {
+    <span class="hljs-built_in">console</span>.log(err)
+    <span class="hljs-comment">// 请求失败后的内容</span>
+  }
+})</code></pre><blockquote><p>提示： 通常我们与服务端通信，不太会借助 <code>MIP.util.customStorage(1)</code> 提供的 asyncStorage，可以直接使用 <code>fetch()</code> 方法，MIP 已经集成了 <code>fetch()</code> 方法的 polyfil 保证所有浏览器都能使用。</p></blockquote><h2 id="cookiestorage"><a href="#cookiestorage" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>cookieStorage</h2><p>cookieStorage 是 MIP 提供的一个在前端操作 cookie 的对象，MIP 为了保证 web 安全，不建议直接在前端操作 cookie，所以在 cookieStorage 中只提供了一个清除过期 cookie 的方法。</p><h3 id="方法2"><a href="#方法2" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>方法</h3><h4 id="cookiestoragedelexceedcookie"><a href="#cookiestoragedelexceedcookie" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>cookieStorage.delExceedCookie</h4><ul><li>描述</li></ul><p>清除 MIP 页面域下的过期 cookie</p><ul><li>参数</li></ul><p>无</p><ul><li>返回</li></ul><p><code>undefined</code></p><ul><li>用法</li></ul><pre><div class="code-index"><div>1</div><div>2</div><div>3</div></div><code class="lang-js"><span class="hljs-keyword">let</span> cookieStorage = MIP.util.customStorage(<span class="hljs-number">2</span>)
+cookieStorage.delExceedCookie()
+<span class="hljs-comment">// 当前域下的所有过期的 cookie 都会被删除</span></code></pre>
+    </div>
+<div class="markdown-toolbar">
+  <a data-type="mip" href="https://github.com/mipengine/mip2/issues/new?title=反馈:docs/api/util/customStorage.md"><span>反馈</span></a>
+  <!-- <a data-type="mip" href="https://github.com/mipengine/mip2/edit/master/docs/api/util/customStorage.md"><span>编辑</span></a> -->
+</div>
+<div class="markdown-paginator">
+  <a class="markdown-paginator-item" data-type="mip" href="/v2/contribute/api/util/index.html">
+    <p class="label">上一页</p>
+    <p class="title">MIP.util</p>
+  </a>
+  <a class="markdown-paginator-item" data-type="mip" href="/v2/contribute/api/util/dom.html">
+    <p class="label">下一页</p>
+    <p class="title">MIP.util.dom</p>
+  </a>
+</div>
+  </div>
+</div>
+<mip-data>
+  <script type="application/json">
+    {
+      "navbar": [{"name":"首页","path":"docs/index","activeUrl":{},"url":"/v2/index.html"},{"name":"关于 MIP","activeUrl":{},"children":[{"name":"什么是 MIP","path":"docs/about/what-is-mip.md","url":"/v2/about/what-is-mip.html"},{"name":"MIP 是如何运作的","path":"docs/about/how-mip-works.md","url":"/v2/about/how-mip-works.html"},{"name":"MIP 使用场景","path":"docs/about/who-uses-mip.md","url":"/v2/about/who-uses-mip.html"},{"name":"MIP 内容声明","path":"docs/about/announcement.md","url":"/v2/about/announcement.html"}]},{"name":"学习","activeUrl":{},"children":[{"name":"MIP 教程","path":"docs/docs/getting-start/newbie.md","activeUrl":{},"url":"/v2/docs/getting-start/newbie.html"},{"name":"Codelab","path":"docs/codelabs","activeUrl":{},"url":"/v2/codelabs/index.html"},{"name":"MIP 视频课程","url":"https://bit.baidu.com/course/datalist/column/120.html","blank":true},{"name":"常见问题","url":"https://github.com/mipengine/mip/wiki/MIP-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%A4%A7%E5%85%A8","blank":true}]},{"name":"组件","activeUrl":{},"children":[{"name":"组件列表","path":"docs/components","activeUrl":{},"url":"/v2/components/index.html"},{"name":"贡献组件代码","path":"docs/contribute/getting-start/how-to-contribute.md","activeUrl":{},"url":"/v2/contribute/getting-start/how-to-contribute.html"}],"aliasName":"贡献组件代码"},{"name":"工具","children":[{"name":"MIP 代码校验工具","url":"https://www.mipengine.org/validator/validate","blank":true},{"name":"MIP 效果预览工具","url":"https://www.mipengine.org/validator/preview","blank":true},{"name":"MIP PATH 转换工具","url":"https://www.mipengine.org/mippath.html","blank":true},{"name":"MIP 组件审核平台","url":"https://www.mipengine.org/platform/mip","blank":true}]},{"name":"GitHub","url":"https://github.com/mipengine/mip2","blank":true},{"name":"回到旧版","url":"https://www.mipengine.org/v1.html","blank":true}],
+      "navIndex": "3",
+      "sidebarFragment": "guide",
+      "sidebarSecondFragment": "guide",
+      "menu": [{"name":"API","path":"docs/api/index.md","url":"/v2/contribute/api/index.html"},{"name":"全局 API","path":"docs/api/global","children":[{"name":"MIP 对象","path":"docs/api/global/mip.md","url":"/v2/contribute/api/global/mip.html"},{"name":"自定义元素实现接口","path":"docs/api/global/base-custom-element.md","url":"/v2/contribute/api/global/base-custom-element.html"},{"name":"viewer","path":"docs/api/global/viewer.md","url":"/v2/contribute/api/global/viewer.html"},{"name":"viewport","path":"docs/api/global/viewport.md","url":"/v2/contribute/api/global/viewport.html"},{"name":"MIP Shell","path":"docs/api/global/mip-shell.md","url":"/v2/contribute/api/global/mip-shell.html"}]},{"name":"工具","path":"docs/api/util","children":[{"name":"MIP.util","path":"docs/api/util/index.md","url":"/v2/contribute/api/util/index.html"},{"name":"MIP.util.customStorage","path":"docs/api/util/customStorage.md","url":"/v2/contribute/api/util/customStorage.html"},{"name":"MIP.util.dom","path":"docs/api/util/dom.md","url":"/v2/contribute/api/util/dom.html"},{"name":"MIP.util.event","path":"docs/api/util/event.md","url":"/v2/contribute/api/util/event.html"},{"name":"MIP.util.fn","path":"docs/api/util/fn.md","url":"/v2/contribute/api/util/fn.html"},{"name":"MIP.util.Gesture","path":"docs/api/util/gesture.md","url":"/v2/contribute/api/util/gesture.html"},{"name":"MIP.util.hash","path":"docs/api/util/hash.md","url":"/v2/contribute/api/util/hash.html"},{"name":"MIP.util.jsonParse","path":"docs/api/util/jsonParse.md","url":"/v2/contribute/api/util/jsonParse.html"},{"name":"MIP.util.naboo","path":"docs/api/util/naboo.md","url":"/v2/contribute/api/util/naboo.html"},{"name":"MIP.util.platform","path":"docs/api/util/platform.md","url":"/v2/contribute/api/util/platform.html"},{"name":"MIP.util.rect","path":"docs/api/util/rect.md","url":"/v2/contribute/api/util/rect.html"}]}],
+      "chapters": [{"level":1,"hash":"#miputilcustomstorage","text":"MIP.util.customStorage","children":[{"level":2,"hash":"#localstorage","text":"localStorage","children":[{"level":3,"hash":"#方法","text":"方法","children":[{"level":4,"hash":"#localstorageset","text":"localStorage.set"},{"level":4,"hash":"#localstorageget","text":"localStorage.get"},{"level":4,"hash":"#localstoragerm","text":"localStorage.rm"},{"level":4,"hash":"#localstorageclear","text":"localStorage.clear"},{"level":4,"hash":"#localstoragermexpires","text":"localStorage.rmExpires"}]}]},{"level":2,"hash":"#asyncstorage","text":"asyncStorage","children":[{"level":3,"hash":"#方法1","text":"方法","children":[{"level":4,"hash":"#asyncstoragerequest","text":"asyncStorage.request"}]}]},{"level":2,"hash":"#cookiestorage","text":"cookieStorage","children":[{"level":3,"hash":"#方法2","text":"方法","children":[{"level":4,"hash":"#cookiestoragedelexceedcookie","text":"cookieStorage.delExceedCookie"}]}]}]}],
+      'url': "/v2/contribute/api/util/customStorage.html"
+    }
+  </script>
+</mip-data>
+
+    <!-- <script src="http://172.18.19.102:8080/dist/mip.js"></script> -->
+    <script src="https://c.mipcdn.com/static/v2/mip.js"></script>
+    <!-- <script src="http://172.18.19.96:8060/byurl?mip-extensions=mip-sidebar/mip-sidebar,mip-showmore/mip-showmore&mip2-extensions=mip-accordion/mip-accordion"></script> -->
+    <script src="https://c.mipcdn.com/static/v2/mip-sidebar/mip-sidebar.js"></script>
+    <!-- <script src="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.js"></script> -->
+<!--     <script src="http://127.0.0.1:8111/mip-sidenav/mip-sidenav.js"></script> -->
+    <!-- <script src="https://bos.nj.bpc.baidu.com/assets/mip/temp/mip-sidenav.js?v=194253"></script> -->
+    <script src="https://c.mipcdn.com/static/v2/mipengine.org/mip-mipengine-sidenav/mip-mipengine-sidenav.js"></script>
+    <script src="https://c.mipcdn.com/static/v2/mipengine.org/mip-mipengine-stepper-tabs/mip-mipengine-stepper-tabs.js"></script>
+<!--     <script src="http://127.0.0.1:8111/mip-stepper-tabs/mip-stepper-tabs.js"></script> -->
+    <!-- <script src="https://c.mipcdn.com/static/v1/mip-fixed/mip-fixed.js"></script> -->
+    <!-- <script src="https://c.mipcdn.com/static/v2/mip-fastclick/mip-fastclick.js"></script> -->
+    <!-- <script src="https://c.mipcdn.com/static/v2/mip-showmore/mip-showmore.js"></script> -->
+    <!-- <script src="https://c.mipcdn.com/static/v2/mip-accordion/mip-accordion.js"></script> -->
+  </body>
+</html>

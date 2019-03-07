@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html mip>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <title>MIP 文档_移动网页加速器_MIP(Mobile Instant Pages_)自定义元素实现接口</title>
+    <meta name="description" content="MIP.CustomElement 是所有 MIP 自定义组件的基类，该基类提供如下生命周期钩子。所有 CustomElement 的生命周期钩子自动绑定 this 上下文到实例中，因此你可以访问数据，对属性和方法进行运算。">
+    <link rel="canonical" href="/v2/contribute/api/global/base-custom-element.html">
+    <link rel="stylesheet" type="text/css" href="https://c.mipcdn.com/static/v2/mip.css">
+    <link rel="icon" href="https://www.mipengine.org/favicon.ico">
+    <!-- <link rel="stylesheet" href="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.css"> -->
+    <!-- <link rel="stylesheet" href="http://172.18.19.102:8080/dist/mip.css"> -->
+    <link rel="stylesheet" type="text/css" href="/src/style/dist/index.css">
+  </head>
+  <body>
+<mip-fixed type="top" class="layout-navbar-fixed">
+  <div class="layout-navbar">
+    <a data-type="mip" href="/"><div class="navbar-logo"></div></a>
+    <div class="navbar-menu">
+      <ul class="navbar-menu-wrapper">
+        <li class="navbar-item" ><a data-type="mip" href="/v2/index.html" class="menu-name" title="首页">首页</a></li>
+        <li class="navbar-item">
+          <span class="menu-name" title="关于 MIP">关于 MIP<i class="arrow"></i></span>
+          <ul class="navbar-sub-menu">
+            <li class="navbar-sub-item"><a data-type="mip" href="/v2/about/what-is-mip.html" title="什么是 MIP">什么是 MIP</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="/v2/about/how-mip-works.html" title="MIP 是如何运作的">MIP 是如何运作的</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="/v2/about/who-uses-mip.html" title="MIP 使用场景">MIP 使用场景</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="/v2/about/announcement.html" title="MIP 内容声明">MIP 内容声明</a></li>
+          </ul>
+        </li>
+        <li class="navbar-item">
+          <span class="menu-name" title="学习">学习<i class="arrow"></i></span>
+          <ul class="navbar-sub-menu">
+            <li class="navbar-sub-item"><a data-type="mip" href="/v2/docs/getting-start/newbie.html" title="MIP 教程">MIP 教程</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="/v2/codelabs/index.html" title="Codelab">Codelab</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="https://bit.baidu.com/course/datalist/column/120.html" title="MIP 视频课程">MIP 视频课程</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="https://github.com/mipengine/mip/wiki/MIP-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%A4%A7%E5%85%A8" title="常见问题">常见问题</a></li>
+          </ul>
+        </li>
+        <li class="navbar-item active">
+          <span class="menu-name" title="贡献组件代码">贡献组件代码<i class="arrow"></i></span>
+          <ul class="navbar-sub-menu">
+            <li class="navbar-sub-item"><a data-type="mip" href="/v2/components/index.html" title="组件列表">组件列表</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="/v2/contribute/getting-start/how-to-contribute.html" title="贡献组件代码">贡献组件代码</a></li>
+          </ul>
+        </li>
+        <li class="navbar-item">
+          <span class="menu-name" title="工具">工具<i class="arrow"></i></span>
+          <ul class="navbar-sub-menu">
+            <li class="navbar-sub-item"><a data-type="mip" href="https://www.mipengine.org/validator/validate" title="MIP 代码校验工具">MIP 代码校验工具</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="https://www.mipengine.org/validator/preview" title="MIP 效果预览工具">MIP 效果预览工具</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="https://www.mipengine.org/mippath.html" title="MIP PATH 转换工具">MIP PATH 转换工具</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="https://www.mipengine.org/platform/mip" title="MIP 组件审核平台">MIP 组件审核平台</a></li>
+          </ul>
+        </li>
+        <li class="navbar-item" ><a target="_blank" href="https://github.com/mipengine/mip2" class="menu-name" title="GitHub">GitHub</a></li>
+        <li class="navbar-item" ><a target="_blank" href="https://www.mipengine.org/v1.html" class="menu-name" title="回到旧版">回到旧版</a></li>
+      </ul>
+      <div class="navbar-indicator" m-bind:style="navbarStyle"></div>
+    </div>
+    <div class="navbar-toggle" on="tap:nav-sidebar.open"><i class="iconfont icon-bars"></i></div>
+  </div>
+</mip-fixed>
+
+    <mip-sidebar
+      id="nav-sidebar"
+      layout="nodisplay"
+      side="right"
+      class="mip-hidden nav-sidebar"
+      on="close:MIP.setData({sidebarFragment:m.sidebarSecondFragment})"
+    >
+<div class="sidebar-fragment sidebar-nav-wrapper"
+  m-bind:class="{hide:sidebarFragment!=='nav'}"
+>
+  <!-- <h1 on="tap:MIP.setData({sidebarFragment:m.sidebarSecondFragment})"><span class="home-arrow">目录</span></h1> -->
+  <h1><span class="home-arrow">目录</span></h1>
+  <ul class="navbar-menu-wrapper">
+    <li class="navbar-item" ><a data-type="mip" href="/v2/index.html" class="menu-name">首页</a></li>
+    <li class="navbar-item">
+      <span class="menu-name">关于 MIP</span>
+      <ul class="navbar-sub-menu">
+        <li class="navbar-sub-item "><a data-type="mip" href="/v2/about/what-is-mip.html">什么是 MIP</a></li>
+        <li class="navbar-sub-item "><a data-type="mip" href="/v2/about/how-mip-works.html">MIP 是如何运作的</a></li>
+        <li class="navbar-sub-item "><a data-type="mip" href="/v2/about/who-uses-mip.html">MIP 使用场景</a></li>
+        <li class="navbar-sub-item "><a data-type="mip" href="/v2/about/announcement.html">MIP 内容声明</a></li>
+      </ul>
+    </li>
+    <li class="navbar-item">
+      <span class="menu-name">学习</span>
+      <ul class="navbar-sub-menu">
+        <li class="navbar-sub-item "><a data-type="mip" href="/v2/docs/getting-start/newbie.html">MIP 教程</a></li>
+        <li class="navbar-sub-item "><a data-type="mip" href="/v2/codelabs/index.html">Codelab</a></li>
+        <li class="navbar-sub-item "><a data-type="mip" href="https://bit.baidu.com/course/datalist/column/120.html">MIP 视频课程</a></li>
+        <li class="navbar-sub-item "><a data-type="mip" href="https://github.com/mipengine/mip/wiki/MIP-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%A4%A7%E5%85%A8">常见问题</a></li>
+      </ul>
+    </li>
+    <li class="navbar-item active">
+      <span class="menu-name">组件</span>
+      <ul class="navbar-sub-menu">
+        <li class="navbar-sub-item "><a data-type="mip" href="/v2/components/index.html">组件列表</a></li>
+        <li class="navbar-sub-item active"><a data-type="mip" href="/v2/contribute/getting-start/how-to-contribute.html">贡献组件代码</a></li>
+      </ul>
+    </li>
+    <li class="navbar-item">
+      <span class="menu-name">工具</span>
+      <ul class="navbar-sub-menu">
+        <li class="navbar-sub-item "><a data-type="mip" href="https://www.mipengine.org/validator/validate">MIP 代码校验工具</a></li>
+        <li class="navbar-sub-item "><a data-type="mip" href="https://www.mipengine.org/validator/preview">MIP 效果预览工具</a></li>
+        <li class="navbar-sub-item "><a data-type="mip" href="https://www.mipengine.org/mippath.html">MIP PATH 转换工具</a></li>
+        <li class="navbar-sub-item "><a data-type="mip" href="https://www.mipengine.org/platform/mip">MIP 组件审核平台</a></li>
+      </ul>
+    </li>
+    <li class="navbar-item" ><a data-type="mip" href="https://github.com/mipengine/mip2" class="menu-name">GitHub</a></li>
+    <li class="navbar-item" ><a data-type="mip" href="https://www.mipengine.org/v1.html" class="menu-name">回到旧版</a></li>
+  </ul>
+</div>
+<div class="sidebar-fragment navbar-secnav-wrapper"
+  m-bind:class="{hide:sidebarFragment!=='guide'}"
+>
+  <h1 on="tap:MIP.setData({sidebarFragment:'nav'})"><span></span></h1>
+  <mip-mipengine-sidenav m-bind:menu="menu" m-bind:chapters="chapters" m-bind:url="url" on="clicked:nav-sidebar.close"></mip-mipengine-sidenav>
+</div>
+    </mip-sidebar>
+
+<mip-fixed type="left" top="64px" class="layout-sidebar">
+  <mip-mipengine-sidenav m-bind:menu="menu" m-bind:chapters="chapters" m-bind:url="url">
+  </mip-mipengine-sidenav>
+</mip-fixed>
+<div class="layout-main-content">
+  <div class="content-wrapper">
+<!-- <p class="markdown-breadcrumb">
+  <span>全局 API</span><span class="split">/</span>  <span>自定义元素实现接口</span></p> -->
+    <div class="markdown-body">
+      <h1 id="自定义元素实现接口"><a href="#自定义元素实现接口" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>自定义元素实现接口</h1><p>MIP.CustomElement 是所有 MIP 自定义组件的基类，该基类提供如下生命周期钩子。所有 CustomElement 的生命周期钩子自动绑定 <code>this</code> 上下文到实例中，因此你可以访问数据，对属性和方法进行运算。</p><h2 id="实例-属性"><a href="#实例-属性" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>实例 / 属性</h2><h3 id="element"><a href="#element" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>element</h3><ul><li><p><strong>类型</strong>：<code>HTMLElement</code></p></li><li><p><strong>详细</strong>：</p><p>MIP 自定义元素的真实 element 实例。在 build 钩子执行之前，可以通过该实例获取原始的子元素及属性。</p></li><li><p><strong>示例</strong></p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div></div><code class="lang-js"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MIPExample</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">MIP</span>.<span class="hljs-title">CustomElement</span> </span>{
+  <span class="hljs-keyword">constructor</span> (element) {
+    <span class="hljs-keyword">super</span>(element)
+
+    <span class="hljs-comment">// &lt;div class="item1"&gt;&lt;/div&gt;</span>
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.element.querySelector(<span class="hljs-string">'.item1'</span>))
+
+    <span class="hljs-comment">// &lt;div class="wrap"&gt;&lt;/div&gt;</span>
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.element.firstChild)
+  }
+}</code></pre><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-example</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wrap"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"item1"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mip-example</span>&gt;</span></code></pre></li></ul><h2 id="实例-方法"><a href="#实例-方法" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>实例 / 方法</h2><h3 id="addeventaction"><a href="#addeventaction" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>addEventAction</h3><ul><li><p><strong>类型</strong>：<code>Function</code></p></li><li><p><strong>参数</strong></p><ul><li>name <code>{String}</code> 行为（action）名称</li><li>handler <code>{Function}</code> 行为对应的回调函数<ul><li>参数：<ul><li>event <code>{Object}</code> 事件触发时传递的事件对象</li><li>args <code>{String}</code> 通过 on 属性提取出来的参数原始字符串</li></ul></li></ul></li></ul></li><li><p><strong>详细</strong>：</p><p>添加一个事件行为，该事件行为可以通过组件外部触发。</p></li><li><p><strong>示例</strong></p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div></div><code class="lang-js"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MIPExample</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">MIP</span>.<span class="hljs-title">CustomElement</span> </span>{
+  connectedCallback () {
+    <span class="hljs-keyword">this</span>.addEventAction(<span class="hljs-string">'show'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event, args</span>) </span>{
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'show'</span>, event, args)
+      <span class="hljs-comment">// 'show' eventObject '1,2'</span>
+      <span class="hljs-comment">// 注意参数 `1,2` 未经过任何处理</span>
+    })
+  }
+}</code></pre><pre><div class="code-index"><div>1</div><div>2</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-example</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-example</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">on</span>=<span class="hljs-string">"tap:example.show(1,2)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></code></pre></li><li><p><strong>参考</strong>：<a data-type="mip"   href="../../guide/component/actions-and-events.html" >事件通信</a></p></li></ul><h2 id="static-方法"><a href="#static-方法" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>static 方法</h2><h3 id="observedattributes"><a href="#observedattributes" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>observedAttributes</h3><ul><li><p><strong>类型</strong>：<code>Function</code></p></li><li><p><strong>详细</strong>：</p><p>定义需要观察标签属性值变化的属性名列表。如果列表返回的属性值发生将会触发 <a href="#attributeChangedCallback">attributeChangedCallback</a></p></li><li><p><strong>示例</strong></p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div></div><code class="lang-js"><span class="hljs-keyword">static</span> get observedAttributes () {
+    <span class="hljs-keyword">return</span> [<span class="hljs-string">'name'</span>, <span class="hljs-string">'src'</span>]
+  },
+  attributeChangedCallback(name, oldVal, newVal) {
+    <span class="hljs-built_in">console</span>.log(name, oldVal, newVal)
+  }</code></pre><pre><div class="code-index"><div>1</div></div><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">mip-a</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"a"</span> <span class="hljs-attr">data</span>=<span class="hljs-string">"a"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mip-a</span>&gt;</span></code></pre><p>上述例子中标签 <code>mip-a</code> 属性 name 的值由 a 变成 b 会触发<code>attributeChangedCallback</code> 回调，并输出 <code>name, a, b</code>, 标签属性 data 值由 a 变成 b 将不会触发 <code>attributeChangedCallback</code> 回调。</p></li></ul><h2 id="生命周期钩子"><a href="#生命周期钩子" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>生命周期钩子</h2><p>生命周期钩子，即组件可重写的方法，自定义组件会在适当的时机调用钩子。</p><h3 id="constructor"><a href="#constructor" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>constructor</h3><ul><li><p><strong>类型</strong>：<code>Function</code></p></li><li><p><strong>参数</strong></p><ul><li>element <code>{Element}</code> Element 实例</li></ul></li><li><p><strong>详细</strong>：</p></li></ul><p>CustomElement 构造函数，MIP 组件在扩展基类如果要重写 constructor 记得调用 <code>super(element)</code></p><h3 id="connectedcallback"><a href="#connectedcallback" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>connectedCallback</h3><ul><li><p><strong>类型</strong>：<code>Function</code></p></li><li><p><strong>详细</strong>：</p><p>MIP 自定义元素挂载到 DOM 上时执行。</p><blockquote><p>注意和使用 Vue 组件提供的 connectedCallback <strong>钩子参数和上下文</strong>不一致。</p></blockquote></li></ul><h3 id="disconnectedcallback"><a href="#disconnectedcallback" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>disconnectedCallback</h3><ul><li><p><strong>类型</strong>：<code>Function</code></p></li><li><p><strong>详细</strong>：</p><p>元素从 DOM 上移除时执行。</p><blockquote><p>注意和使用 Vue 组件提供的 disconnectedCallback <strong>钩子参数和上下文</strong>不一致。</p></blockquote></li></ul><h3 id="firstinviewcallback"><a href="#firstinviewcallback" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>firstInviewCallback</h3><ul><li><p><strong>类型</strong>：<code>Function</code></p></li><li><p><strong>详细</strong>：</p><p>自定义元素的生命周期钩子，在元素挂载到 DOM 上之后，首次出现在视口内上时执行。适合做懒加载之类的功能。</p><blockquote><p>注意和使用 Vue 组件提供的 firstInviewCallback <strong>钩子参数和上下文</strong>不一致。</p></blockquote></li></ul><h3 id="attributechangedcallback"><a href="#attributechangedcallback" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>attributeChangedCallback</h3><ul><li><p><strong>类型</strong>：<code>Function</code></p></li><li><p><strong>参数</strong>：</p><ul><li>name <code>{String}</code> 发生变化的属性名</li><li>oldVal <code>{String}</code> 变化前的属性值</li><li>newVal <code>{String}</code> 变化后的属性值</li></ul></li><li><p><strong>详细</strong>：</p><p>依赖 <a href="#observedAttributes"><code>observedAttributes</code></a> 方法指定的属性值列表，当列表中的属性值发生改变时触发该回调。</p></li></ul><h3 id="viewportcallback"><a href="#viewportcallback" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>viewportCallback</h3><ul><li><p><strong>类型</strong>：<code>Function</code></p></li><li><p><strong>参数</strong>：</p><ul><li>inViewport <code>{Boolean}</code> 当前是否在视口内</li></ul></li><li><p><strong>详细</strong>：</p><p>当自定义元素从视口内消失或者重新进入视口时触发改回调。</p></li></ul><h3 id="build"><a href="#build" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>build</h3><ul><li><p><strong>类型</strong>：<code>Function</code></p></li><li><p><strong>详细</strong>：</p><p>自定义元素内部结构渲染时执行。该执行实际根据 <code>prerenderAllowed</code> 返回值决定执行时机。如果返回 true，则在 <code>connectedCallback</code> 钩子中执行，为 false 则在 <code>firstInviewCallback</code> 中执行。</p><p>建议将页面结构的渲染逻辑放到 build 钩子中执行，让 MIP 检测自定义组件第一次进入视口时执行 build。避免页面一开始执行大量 JS 逻辑。</p></li></ul>
+    </div>
+<div class="markdown-toolbar">
+  <a data-type="mip" href="https://github.com/mipengine/mip2/issues/new?title=反馈:docs/api/global/base-custom-element.md"><span>反馈</span></a>
+  <!-- <a data-type="mip" href="https://github.com/mipengine/mip2/edit/master/docs/api/global/base-custom-element.md"><span>编辑</span></a> -->
+</div>
+<div class="markdown-paginator">
+  <a class="markdown-paginator-item" data-type="mip" href="/v2/contribute/api/global/mip.html">
+    <p class="label">上一页</p>
+    <p class="title">MIP 对象</p>
+  </a>
+  <a class="markdown-paginator-item" data-type="mip" href="/v2/contribute/api/global/viewer.html">
+    <p class="label">下一页</p>
+    <p class="title">viewer</p>
+  </a>
+</div>
+  </div>
+</div>
+<mip-data>
+  <script type="application/json">
+    {
+      "navbar": [{"name":"首页","path":"docs/index","activeUrl":{},"url":"/v2/index.html"},{"name":"关于 MIP","activeUrl":{},"children":[{"name":"什么是 MIP","path":"docs/about/what-is-mip.md","url":"/v2/about/what-is-mip.html"},{"name":"MIP 是如何运作的","path":"docs/about/how-mip-works.md","url":"/v2/about/how-mip-works.html"},{"name":"MIP 使用场景","path":"docs/about/who-uses-mip.md","url":"/v2/about/who-uses-mip.html"},{"name":"MIP 内容声明","path":"docs/about/announcement.md","url":"/v2/about/announcement.html"}]},{"name":"学习","activeUrl":{},"children":[{"name":"MIP 教程","path":"docs/docs/getting-start/newbie.md","activeUrl":{},"url":"/v2/docs/getting-start/newbie.html"},{"name":"Codelab","path":"docs/codelabs","activeUrl":{},"url":"/v2/codelabs/index.html"},{"name":"MIP 视频课程","url":"https://bit.baidu.com/course/datalist/column/120.html","blank":true},{"name":"常见问题","url":"https://github.com/mipengine/mip/wiki/MIP-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%A4%A7%E5%85%A8","blank":true}]},{"name":"组件","activeUrl":{},"children":[{"name":"组件列表","path":"docs/components","activeUrl":{},"url":"/v2/components/index.html"},{"name":"贡献组件代码","path":"docs/contribute/getting-start/how-to-contribute.md","activeUrl":{},"url":"/v2/contribute/getting-start/how-to-contribute.html"}],"aliasName":"贡献组件代码"},{"name":"工具","children":[{"name":"MIP 代码校验工具","url":"https://www.mipengine.org/validator/validate","blank":true},{"name":"MIP 效果预览工具","url":"https://www.mipengine.org/validator/preview","blank":true},{"name":"MIP PATH 转换工具","url":"https://www.mipengine.org/mippath.html","blank":true},{"name":"MIP 组件审核平台","url":"https://www.mipengine.org/platform/mip","blank":true}]},{"name":"GitHub","url":"https://github.com/mipengine/mip2","blank":true},{"name":"回到旧版","url":"https://www.mipengine.org/v1.html","blank":true}],
+      "navIndex": "3",
+      "sidebarFragment": "guide",
+      "sidebarSecondFragment": "guide",
+      "menu": [{"name":"API","path":"docs/api/index.md","url":"/v2/contribute/api/index.html"},{"name":"全局 API","path":"docs/api/global","children":[{"name":"MIP 对象","path":"docs/api/global/mip.md","url":"/v2/contribute/api/global/mip.html"},{"name":"自定义元素实现接口","path":"docs/api/global/base-custom-element.md","url":"/v2/contribute/api/global/base-custom-element.html"},{"name":"viewer","path":"docs/api/global/viewer.md","url":"/v2/contribute/api/global/viewer.html"},{"name":"viewport","path":"docs/api/global/viewport.md","url":"/v2/contribute/api/global/viewport.html"},{"name":"MIP Shell","path":"docs/api/global/mip-shell.md","url":"/v2/contribute/api/global/mip-shell.html"}]},{"name":"工具","path":"docs/api/util","children":[{"name":"MIP.util","path":"docs/api/util/index.md","url":"/v2/contribute/api/util/index.html"},{"name":"MIP.util.customStorage","path":"docs/api/util/customStorage.md","url":"/v2/contribute/api/util/customStorage.html"},{"name":"MIP.util.dom","path":"docs/api/util/dom.md","url":"/v2/contribute/api/util/dom.html"},{"name":"MIP.util.event","path":"docs/api/util/event.md","url":"/v2/contribute/api/util/event.html"},{"name":"MIP.util.fn","path":"docs/api/util/fn.md","url":"/v2/contribute/api/util/fn.html"},{"name":"MIP.util.Gesture","path":"docs/api/util/gesture.md","url":"/v2/contribute/api/util/gesture.html"},{"name":"MIP.util.hash","path":"docs/api/util/hash.md","url":"/v2/contribute/api/util/hash.html"},{"name":"MIP.util.jsonParse","path":"docs/api/util/jsonParse.md","url":"/v2/contribute/api/util/jsonParse.html"},{"name":"MIP.util.naboo","path":"docs/api/util/naboo.md","url":"/v2/contribute/api/util/naboo.html"},{"name":"MIP.util.platform","path":"docs/api/util/platform.md","url":"/v2/contribute/api/util/platform.html"},{"name":"MIP.util.rect","path":"docs/api/util/rect.md","url":"/v2/contribute/api/util/rect.html"}]}],
+      "chapters": [{"level":1,"hash":"#自定义元素实现接口","text":"自定义元素实现接口","children":[{"level":2,"hash":"#实例-属性","text":"实例 / 属性","children":[{"level":3,"hash":"#element","text":"element"}]},{"level":2,"hash":"#实例-方法","text":"实例 / 方法","children":[{"level":3,"hash":"#addeventaction","text":"addEventAction"}]},{"level":2,"hash":"#static-方法","text":"static 方法","children":[{"level":3,"hash":"#observedattributes","text":"observedAttributes"}]},{"level":2,"hash":"#生命周期钩子","text":"生命周期钩子","children":[{"level":3,"hash":"#constructor","text":"constructor"},{"level":3,"hash":"#connectedcallback","text":"connectedCallback"},{"level":3,"hash":"#disconnectedcallback","text":"disconnectedCallback"},{"level":3,"hash":"#firstinviewcallback","text":"firstInviewCallback"},{"level":3,"hash":"#attributechangedcallback","text":"attributeChangedCallback"},{"level":3,"hash":"#viewportcallback","text":"viewportCallback"},{"level":3,"hash":"#build","text":"build"}]}]}],
+      'url': "/v2/contribute/api/global/base-custom-element.html"
+    }
+  </script>
+</mip-data>
+
+    <!-- <script src="http://172.18.19.102:8080/dist/mip.js"></script> -->
+    <script src="https://c.mipcdn.com/static/v2/mip.js"></script>
+    <!-- <script src="http://172.18.19.96:8060/byurl?mip-extensions=mip-sidebar/mip-sidebar,mip-showmore/mip-showmore&mip2-extensions=mip-accordion/mip-accordion"></script> -->
+    <script src="https://c.mipcdn.com/static/v2/mip-sidebar/mip-sidebar.js"></script>
+    <!-- <script src="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.js"></script> -->
+<!--     <script src="http://127.0.0.1:8111/mip-sidenav/mip-sidenav.js"></script> -->
+    <!-- <script src="https://bos.nj.bpc.baidu.com/assets/mip/temp/mip-sidenav.js?v=194253"></script> -->
+    <script src="https://c.mipcdn.com/static/v2/mipengine.org/mip-mipengine-sidenav/mip-mipengine-sidenav.js"></script>
+    <script src="https://c.mipcdn.com/static/v2/mipengine.org/mip-mipengine-stepper-tabs/mip-mipengine-stepper-tabs.js"></script>
+<!--     <script src="http://127.0.0.1:8111/mip-stepper-tabs/mip-stepper-tabs.js"></script> -->
+    <!-- <script src="https://c.mipcdn.com/static/v1/mip-fixed/mip-fixed.js"></script> -->
+    <!-- <script src="https://c.mipcdn.com/static/v2/mip-fastclick/mip-fastclick.js"></script> -->
+    <!-- <script src="https://c.mipcdn.com/static/v2/mip-showmore/mip-showmore.js"></script> -->
+    <!-- <script src="https://c.mipcdn.com/static/v2/mip-accordion/mip-accordion.js"></script> -->
+  </body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html mip>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <title>MIP 文档_移动网页加速器_MIP(Mobile Instant Pages_)MIP.util.naboo</title>
+    <meta name="description" content="naboo 是 MIP 的一个动画解决方案，它提供了丰富的功能点，旨在解决开发者动画使用问题，提供简单易用的动画功能。">
+    <link rel="canonical" href="/v2/contribute/api/util/naboo.html">
+    <link rel="stylesheet" type="text/css" href="https://c.mipcdn.com/static/v2/mip.css">
+    <link rel="icon" href="https://www.mipengine.org/favicon.ico">
+    <!-- <link rel="stylesheet" href="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.css"> -->
+    <!-- <link rel="stylesheet" href="http://172.18.19.102:8080/dist/mip.css"> -->
+    <link rel="stylesheet" type="text/css" href="/src/style/dist/index.css">
+  </head>
+  <body>
+<mip-fixed type="top" class="layout-navbar-fixed">
+  <div class="layout-navbar">
+    <a data-type="mip" href="/"><div class="navbar-logo"></div></a>
+    <div class="navbar-menu">
+      <ul class="navbar-menu-wrapper">
+        <li class="navbar-item" ><a data-type="mip" href="/v2/index.html" class="menu-name" title="首页">首页</a></li>
+        <li class="navbar-item">
+          <span class="menu-name" title="关于 MIP">关于 MIP<i class="arrow"></i></span>
+          <ul class="navbar-sub-menu">
+            <li class="navbar-sub-item"><a data-type="mip" href="/v2/about/what-is-mip.html" title="什么是 MIP">什么是 MIP</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="/v2/about/how-mip-works.html" title="MIP 是如何运作的">MIP 是如何运作的</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="/v2/about/who-uses-mip.html" title="MIP 使用场景">MIP 使用场景</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="/v2/about/announcement.html" title="MIP 内容声明">MIP 内容声明</a></li>
+          </ul>
+        </li>
+        <li class="navbar-item">
+          <span class="menu-name" title="学习">学习<i class="arrow"></i></span>
+          <ul class="navbar-sub-menu">
+            <li class="navbar-sub-item"><a data-type="mip" href="/v2/docs/getting-start/newbie.html" title="MIP 教程">MIP 教程</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="/v2/codelabs/index.html" title="Codelab">Codelab</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="https://bit.baidu.com/course/datalist/column/120.html" title="MIP 视频课程">MIP 视频课程</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="https://github.com/mipengine/mip/wiki/MIP-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%A4%A7%E5%85%A8" title="常见问题">常见问题</a></li>
+          </ul>
+        </li>
+        <li class="navbar-item active">
+          <span class="menu-name" title="贡献组件代码">贡献组件代码<i class="arrow"></i></span>
+          <ul class="navbar-sub-menu">
+            <li class="navbar-sub-item"><a data-type="mip" href="/v2/components/index.html" title="组件列表">组件列表</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="/v2/contribute/getting-start/how-to-contribute.html" title="贡献组件代码">贡献组件代码</a></li>
+          </ul>
+        </li>
+        <li class="navbar-item">
+          <span class="menu-name" title="工具">工具<i class="arrow"></i></span>
+          <ul class="navbar-sub-menu">
+            <li class="navbar-sub-item"><a data-type="mip" href="https://www.mipengine.org/validator/validate" title="MIP 代码校验工具">MIP 代码校验工具</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="https://www.mipengine.org/validator/preview" title="MIP 效果预览工具">MIP 效果预览工具</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="https://www.mipengine.org/mippath.html" title="MIP PATH 转换工具">MIP PATH 转换工具</a></li>
+            <li class="navbar-sub-item"><a data-type="mip" href="https://www.mipengine.org/platform/mip" title="MIP 组件审核平台">MIP 组件审核平台</a></li>
+          </ul>
+        </li>
+        <li class="navbar-item" ><a target="_blank" href="https://github.com/mipengine/mip2" class="menu-name" title="GitHub">GitHub</a></li>
+        <li class="navbar-item" ><a target="_blank" href="https://www.mipengine.org/v1.html" class="menu-name" title="回到旧版">回到旧版</a></li>
+      </ul>
+      <div class="navbar-indicator" m-bind:style="navbarStyle"></div>
+    </div>
+    <div class="navbar-toggle" on="tap:nav-sidebar.open"><i class="iconfont icon-bars"></i></div>
+  </div>
+</mip-fixed>
+
+    <mip-sidebar
+      id="nav-sidebar"
+      layout="nodisplay"
+      side="right"
+      class="mip-hidden nav-sidebar"
+      on="close:MIP.setData({sidebarFragment:m.sidebarSecondFragment})"
+    >
+<div class="sidebar-fragment sidebar-nav-wrapper"
+  m-bind:class="{hide:sidebarFragment!=='nav'}"
+>
+  <!-- <h1 on="tap:MIP.setData({sidebarFragment:m.sidebarSecondFragment})"><span class="home-arrow">目录</span></h1> -->
+  <h1><span class="home-arrow">目录</span></h1>
+  <ul class="navbar-menu-wrapper">
+    <li class="navbar-item" ><a data-type="mip" href="/v2/index.html" class="menu-name">首页</a></li>
+    <li class="navbar-item">
+      <span class="menu-name">关于 MIP</span>
+      <ul class="navbar-sub-menu">
+        <li class="navbar-sub-item "><a data-type="mip" href="/v2/about/what-is-mip.html">什么是 MIP</a></li>
+        <li class="navbar-sub-item "><a data-type="mip" href="/v2/about/how-mip-works.html">MIP 是如何运作的</a></li>
+        <li class="navbar-sub-item "><a data-type="mip" href="/v2/about/who-uses-mip.html">MIP 使用场景</a></li>
+        <li class="navbar-sub-item "><a data-type="mip" href="/v2/about/announcement.html">MIP 内容声明</a></li>
+      </ul>
+    </li>
+    <li class="navbar-item">
+      <span class="menu-name">学习</span>
+      <ul class="navbar-sub-menu">
+        <li class="navbar-sub-item "><a data-type="mip" href="/v2/docs/getting-start/newbie.html">MIP 教程</a></li>
+        <li class="navbar-sub-item "><a data-type="mip" href="/v2/codelabs/index.html">Codelab</a></li>
+        <li class="navbar-sub-item "><a data-type="mip" href="https://bit.baidu.com/course/datalist/column/120.html">MIP 视频课程</a></li>
+        <li class="navbar-sub-item "><a data-type="mip" href="https://github.com/mipengine/mip/wiki/MIP-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%A4%A7%E5%85%A8">常见问题</a></li>
+      </ul>
+    </li>
+    <li class="navbar-item active">
+      <span class="menu-name">组件</span>
+      <ul class="navbar-sub-menu">
+        <li class="navbar-sub-item "><a data-type="mip" href="/v2/components/index.html">组件列表</a></li>
+        <li class="navbar-sub-item active"><a data-type="mip" href="/v2/contribute/getting-start/how-to-contribute.html">贡献组件代码</a></li>
+      </ul>
+    </li>
+    <li class="navbar-item">
+      <span class="menu-name">工具</span>
+      <ul class="navbar-sub-menu">
+        <li class="navbar-sub-item "><a data-type="mip" href="https://www.mipengine.org/validator/validate">MIP 代码校验工具</a></li>
+        <li class="navbar-sub-item "><a data-type="mip" href="https://www.mipengine.org/validator/preview">MIP 效果预览工具</a></li>
+        <li class="navbar-sub-item "><a data-type="mip" href="https://www.mipengine.org/mippath.html">MIP PATH 转换工具</a></li>
+        <li class="navbar-sub-item "><a data-type="mip" href="https://www.mipengine.org/platform/mip">MIP 组件审核平台</a></li>
+      </ul>
+    </li>
+    <li class="navbar-item" ><a data-type="mip" href="https://github.com/mipengine/mip2" class="menu-name">GitHub</a></li>
+    <li class="navbar-item" ><a data-type="mip" href="https://www.mipengine.org/v1.html" class="menu-name">回到旧版</a></li>
+  </ul>
+</div>
+<div class="sidebar-fragment navbar-secnav-wrapper"
+  m-bind:class="{hide:sidebarFragment!=='guide'}"
+>
+  <h1 on="tap:MIP.setData({sidebarFragment:'nav'})"><span></span></h1>
+  <mip-mipengine-sidenav m-bind:menu="menu" m-bind:chapters="chapters" m-bind:url="url" on="clicked:nav-sidebar.close"></mip-mipengine-sidenav>
+</div>
+    </mip-sidebar>
+
+<mip-fixed type="left" top="64px" class="layout-sidebar">
+  <mip-mipengine-sidenav m-bind:menu="menu" m-bind:chapters="chapters" m-bind:url="url">
+  </mip-mipengine-sidenav>
+</mip-fixed>
+<div class="layout-main-content">
+  <div class="content-wrapper">
+<!-- <p class="markdown-breadcrumb">
+  <span>工具</span><span class="split">/</span>  <span>MIP.util.naboo</span></p> -->
+    <div class="markdown-body">
+      <h1 id="miputilnaboo"><a href="#miputilnaboo" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>MIP.util.naboo</h1><p>naboo 是 MIP 的一个动画解决方案，它提供了丰富的功能点，旨在解决开发者动画使用问题，提供简单易用的动画功能。</p><h2 id="方法"><a href="#方法" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>方法</h2><h3 id="animate"><a href="#animate" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>animate</h3><ul><li><p>描述：</p><p><code>animate</code> 方法是 Naboo 模块提供的执行 CSS3 transiton 动画的函数。</p></li><li><p>参数：</p></li></ul><div class="md-table-wrapper"><table><thead><tr><th>参 数</th><th>类 型</th><th>必 填</th><th>说 明</th></tr></thead><tbody><tr><td>dom</td><td>Object</td><td>是</td><td>需要进行动画的 DOM 元素</td></tr><tr><td>property</td><td>Object</td><td>是</td><td>需要进行动画的 CSS 属性键值对对象</td></tr><tr><td>opt</td><td>Object</td><td>否</td><td>可选的动画参数对象</td></tr><tr><td>opt.duration</td><td>Number</td><td>否</td><td>动画时长，默认值 400，单位 ms</td></tr><tr><td>opt.ease</td><td>String</td><td>否</td><td>动画的缓动函数名，默认值 <code>ease</code>，可选值包括 <code>ease</code>、<code>linear</code>、<code>ease-in</code>、<code>ease-out</code>、<code>ease-in-out</code></td></tr><tr><td>opt.delay</td><td>Number</td><td>否</td><td>动画延迟执行的时间，默认值 0，单位 ms</td></tr><tr><td>opt.cb</td><td>Function</td><td>否</td><td>动画完成后的回调函数</td></tr></tbody></table></div><ul><li>返回值：</li></ul><div class="md-table-wrapper"><table><thead><tr><th>类 型</th><th>说 明</th></tr></thead><tbody><tr><td>Object</td><td>返回当前 naboo 实例</td></tr></tbody></table></div><ul><li><p>用法</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div></div><code class="lang-javascript"><span class="hljs-comment">// 参数对照</span>
+MIP.util.naboo.animate(dom, property, [opt])
+<span class="hljs-comment">// 具体实例</span>
+MIP.util.naboo.animate(element, {
+    <span class="hljs-attr">transform</span>: <span class="hljs-string">'translate('</span> + x + <span class="hljs-string">'px,'</span> + y + <span class="hljs-string">'px)'</span>,
+  <span class="hljs-attr">opacity</span>: <span class="hljs-number">0</span>
+}, {
+  <span class="hljs-attr">duration</span>: <span class="hljs-number">1000</span>,
+  <span class="hljs-attr">ease</span>: <span class="hljs-string">'ease'</span>,
+  <span class="hljs-attr">delay</span>: <span class="hljs-number">500</span>,
+  <span class="hljs-attr">cb</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'动画执行完成'</span>)
+  }
+}).start()</code></pre></li></ul><h3 id="start"><a href="#start" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>start</h3><ul><li><p>描述：</p><p>开始执行动画的指令函数，只要在 <code>start</code> 调用之后动画才会开始执行。</p></li><li><p>参数：</p></li></ul><div class="md-table-wrapper"><table><thead><tr><th>参 数</th><th>类 型</th><th>必 填</th><th>说 明</th></tr></thead><tbody><tr><td>fn</td><td>Function</td><td>否</td><td>动画完成后的回调函数</td></tr></tbody></table></div><ul><li>返回值：</li></ul><div class="md-table-wrapper"><table><thead><tr><th>类 型</th><th>说 明</th></tr></thead><tbody><tr><td>Object</td><td>返回当前 naboo 实例</td></tr></tbody></table></div><ul><li><p>用法：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div></div><code class="lang-javascript">MIP.util.naboo.animate(ele, {
+  <span class="hljs-attr">width</span>: <span class="hljs-string">"90%"</span>
+}, {
+  <span class="hljs-attr">duration</span>: <span class="hljs-number">2000</span>,
+  <span class="hljs-attr">cb</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'动画结束'</span>)
+  }
+}).start()</code></pre></li></ul><h3 id="next"><a href="#next" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>next</h3><ul><li><p>描述：</p><p>让动画进入下一步的指令函数，一般在 Naboo 插件中调用。</p></li><li><p>参数：</p><p>无</p></li><li><p>返回值：</p></li></ul><div class="md-table-wrapper"><table><thead><tr><th>类 型</th><th>说 明</th></tr></thead><tbody><tr><td>Object</td><td>返回当前 naboo 实例</td></tr></tbody></table></div><ul><li><p>用法：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div></div><code class="lang-javascript">MIP.util.noboo.animate(ele, {
+  <span class="hljs-attr">width</span>: <span class="hljs-string">"90%"</span>
+}, {
+  <span class="hljs-attr">duration</span>: <span class="hljs-number">2000</span>,
+  <span class="hljs-attr">cb</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'动画1结束'</span>)
+  }
+})
+.done(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">next</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'done 调用完成'</span>)
+  <span class="hljs-comment">// 调用下一个动画</span>
+  next()
+})
+.animate(ele, {
+  <span class="hljs-string">'transform'</span>: <span class="hljs-string">'translateX(200px)'</span>
+}, {
+  <span class="hljs-attr">duration</span>: <span class="hljs-number">2000</span>,
+  <span class="hljs-attr">ease</span>: <span class="hljs-string">"ease"</span>,
+  <span class="hljs-attr">cb</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'动画2结束'</span>)
+  }
+}).start()</code></pre></li></ul><h3 id="cancel"><a href="#cancel" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>cancel</h3><ul><li><p>描述：</p><p>取消动画的指令，调用该函数后，当前未执行完的动画仍会继续执行完成，后续的动画不会执行。</p></li><li><p>参数：</p><p>无</p></li><li><p>返回值：</p></li></ul><div class="md-table-wrapper"><table><thead><tr><th>类 型</th><th>说 明</th></tr></thead><tbody><tr><td>Object</td><td>返回当前 naboo 实例</td></tr></tbody></table></div><ul><li><p>用法：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div></div><code class="lang-javascript"><span class="hljs-keyword">let</span> instance
+<span class="hljs-comment">// 点击按钮1开始执行动画</span>
+startBtn.onclick = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  instance = MIP.util.naboo.animate(ele1, {
+    <span class="hljs-string">'transform'</span>: <span class="hljs-string">'translateX(10px)'</span>
+  }, {
+    <span class="hljs-attr">duration</span>: <span class="hljs-number">3000</span>,
+    <span class="hljs-attr">cb</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'动画1结束'</span>)
+    }
+  })
+  .animate(ele2, {
+    <span class="hljs-string">'transform'</span>: <span class="hljs-string">'translateX(20px)'</span>
+  }, {
+    <span class="hljs-attr">duration</span>: <span class="hljs-number">3000</span>,
+    <span class="hljs-attr">cb</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'动画2结束'</span>)
+    }
+  })
+  .start(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    animate4text.innerHTML += <span class="hljs-string">"&lt;p&gt;start回调&lt;/p&gt;"</span>
+  })
+}
+
+<span class="hljs-comment">//在元素 ele1 动画未执行完成时，点击按钮2后会终止后续动画执行，</span>
+<span class="hljs-comment">//即 ele1 动画执行完成后不会执行 ele2的动画</span>
+cancelBtn.onclick = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  instance.cancel()
+}</code></pre></li></ul><h3 id="p"><a href="#p" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>p</h3><ul><li><p>描述：</p><p>Naboo 的并行插件，可以同时执行多个动画。</p></li><li><p>参数：</p></li></ul><div class="md-table-wrapper"><table><thead><tr><th>参 数</th><th>类 型</th><th>必 填</th><th>说 明</th></tr></thead><tbody><tr><td>list</td><td>Object</td><td>是</td><td>naboo 对象，可填多个，逗号隔开</td></tr></tbody></table></div><ul><li>返回值：</li></ul><div class="md-table-wrapper"><table><thead><tr><th>类 型</th><th>说 明</th></tr></thead><tbody><tr><td>Object</td><td>返回当前 naboo 实例</td></tr></tbody></table></div><ul><li><p>用法：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div></div><code class="lang-javascript">MIP.util.naboo.p(
+  MIP.util.naboo.animate(ele1, {
+    <span class="hljs-string">'transform'</span>: <span class="hljs-string">'translateX(200px)'</span>
+  }, {
+    <span class="hljs-attr">duration</span>: <span class="hljs-number">2000</span>,
+    <span class="hljs-attr">cb</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'动画1结束'</span>)
+    }
+  }),
+  MIP.util.naboo.animate(ele2, {
+    <span class="hljs-string">'transform'</span>: <span class="hljs-string">'translateX(200px)'</span>
+  }, {
+    <span class="hljs-attr">duration</span>: <span class="hljs-number">3000</span>,
+    <span class="hljs-attr">cb</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'动画2结束'</span>)
+    }
+  })
+).start()</code></pre></li></ul><h3 id="done"><a href="#done" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>done</h3><ul><li><p>描述：</p><p>Naboo 的 <code>done</code> 插件，可用于在任何一个动画插件后进行回调。</p></li><li><p>参数：</p></li></ul><div class="md-table-wrapper"><table><thead><tr><th>参 数</th><th>类 型</th><th>必 填</th><th>说 明</th></tr></thead><tbody><tr><td>fn</td><td>Function</td><td>是</td><td>回调函数</td></tr></tbody></table></div><ul><li>返回值：</li></ul><div class="md-table-wrapper"><table><thead><tr><th>类 型</th><th>说 明</th></tr></thead><tbody><tr><td>Object</td><td>返回当前 naboo 实例</td></tr></tbody></table></div><ul><li><p>用法：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div></div><code class="lang-javascript">MIP.naboo.animate(ele1, {
+  <span class="hljs-attr">width</span>: <span class="hljs-string">"90%"</span>
+}, {
+  <span class="hljs-attr">duration</span>: <span class="hljs-number">2000</span>,
+  <span class="hljs-attr">cb</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'动画1结束'</span>)
+  }
+})
+.done(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">next</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'done调用完成'</span>)
+  next()
+})
+.animate(ele2, {
+  <span class="hljs-string">'transform'</span>: <span class="hljs-string">'translateX(200px)'</span>
+}, {
+  <span class="hljs-attr">duration</span>: <span class="hljs-number">2000</span>,
+  <span class="hljs-attr">ease</span>: <span class="hljs-string">"ease"</span>,
+  <span class="hljs-attr">cb</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'动画2结束'</span>)
+  }
+}).start()</code></pre></li></ul><h3 id="register"><a href="#register" class="heading-link"><i class="fa fa-link" aria-hidden="true"></i></a>register</h3><ul><li><p>描述：</p><p>Naboo 的静态方法：插件注册函数，如果animate不能满足需求，亦或是站长需要封装自己的插件来做到方便调用，可以通过该方式来进行方法注册。</p></li><li><p>参数：</p></li></ul><div class="md-table-wrapper"><table><thead><tr><th>参 数</th><th>类 型</th><th>必 填</th><th>说 明</th></tr></thead><tbody><tr><td>name</td><td>string</td><td>是</td><td>动画插件名称</td></tr><tr><td>fn</td><td>Function</td><td>是</td><td>插件函数，用于定义插件的执行逻辑</td></tr></tbody></table></div><ul><li><p>返回值：</p><p>无</p></li><li><p>用法：</p><pre><div class="code-index"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div></div><code class="lang-javascript">Naboo.register(<span class="hljs-string">'p'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">next</span>) </span>{
+  <span class="hljs-keyword">let</span> args = <span class="hljs-built_in">Array</span>.prototype.slice.call(<span class="hljs-built_in">arguments</span>, <span class="hljs-number">1</span>)
+  <span class="hljs-keyword">let</span> n = args.length
+  args.forEach(<span class="hljs-function"><span class="hljs-params">naboo</span> =&gt;</span> naboo.start(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (n-- === <span class="hljs-number">0</span> &amp;&amp; next())))
+})</code></pre><blockquote><p>注意：在实现register fn时需调用next()才能执行下一个动画。</p></blockquote></li></ul>
+    </div>
+<div class="markdown-toolbar">
+  <a data-type="mip" href="https://github.com/mipengine/mip2/issues/new?title=反馈:docs/api/util/naboo.md"><span>反馈</span></a>
+  <!-- <a data-type="mip" href="https://github.com/mipengine/mip2/edit/master/docs/api/util/naboo.md"><span>编辑</span></a> -->
+</div>
+<div class="markdown-paginator">
+  <a class="markdown-paginator-item" data-type="mip" href="/v2/contribute/api/util/jsonParse.html">
+    <p class="label">上一页</p>
+    <p class="title">MIP.util.jsonParse</p>
+  </a>
+  <a class="markdown-paginator-item" data-type="mip" href="/v2/contribute/api/util/platform.html">
+    <p class="label">下一页</p>
+    <p class="title">MIP.util.platform</p>
+  </a>
+</div>
+  </div>
+</div>
+<mip-data>
+  <script type="application/json">
+    {
+      "navbar": [{"name":"首页","path":"docs/index","activeUrl":{},"url":"/v2/index.html"},{"name":"关于 MIP","activeUrl":{},"children":[{"name":"什么是 MIP","path":"docs/about/what-is-mip.md","url":"/v2/about/what-is-mip.html"},{"name":"MIP 是如何运作的","path":"docs/about/how-mip-works.md","url":"/v2/about/how-mip-works.html"},{"name":"MIP 使用场景","path":"docs/about/who-uses-mip.md","url":"/v2/about/who-uses-mip.html"},{"name":"MIP 内容声明","path":"docs/about/announcement.md","url":"/v2/about/announcement.html"}]},{"name":"学习","activeUrl":{},"children":[{"name":"MIP 教程","path":"docs/docs/getting-start/newbie.md","activeUrl":{},"url":"/v2/docs/getting-start/newbie.html"},{"name":"Codelab","path":"docs/codelabs","activeUrl":{},"url":"/v2/codelabs/index.html"},{"name":"MIP 视频课程","url":"https://bit.baidu.com/course/datalist/column/120.html","blank":true},{"name":"常见问题","url":"https://github.com/mipengine/mip/wiki/MIP-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%A4%A7%E5%85%A8","blank":true}]},{"name":"组件","activeUrl":{},"children":[{"name":"组件列表","path":"docs/components","activeUrl":{},"url":"/v2/components/index.html"},{"name":"贡献组件代码","path":"docs/contribute/getting-start/how-to-contribute.md","activeUrl":{},"url":"/v2/contribute/getting-start/how-to-contribute.html"}],"aliasName":"贡献组件代码"},{"name":"工具","children":[{"name":"MIP 代码校验工具","url":"https://www.mipengine.org/validator/validate","blank":true},{"name":"MIP 效果预览工具","url":"https://www.mipengine.org/validator/preview","blank":true},{"name":"MIP PATH 转换工具","url":"https://www.mipengine.org/mippath.html","blank":true},{"name":"MIP 组件审核平台","url":"https://www.mipengine.org/platform/mip","blank":true}]},{"name":"GitHub","url":"https://github.com/mipengine/mip2","blank":true},{"name":"回到旧版","url":"https://www.mipengine.org/v1.html","blank":true}],
+      "navIndex": "3",
+      "sidebarFragment": "guide",
+      "sidebarSecondFragment": "guide",
+      "menu": [{"name":"API","path":"docs/api/index.md","url":"/v2/contribute/api/index.html"},{"name":"全局 API","path":"docs/api/global","children":[{"name":"MIP 对象","path":"docs/api/global/mip.md","url":"/v2/contribute/api/global/mip.html"},{"name":"自定义元素实现接口","path":"docs/api/global/base-custom-element.md","url":"/v2/contribute/api/global/base-custom-element.html"},{"name":"viewer","path":"docs/api/global/viewer.md","url":"/v2/contribute/api/global/viewer.html"},{"name":"viewport","path":"docs/api/global/viewport.md","url":"/v2/contribute/api/global/viewport.html"},{"name":"MIP Shell","path":"docs/api/global/mip-shell.md","url":"/v2/contribute/api/global/mip-shell.html"}]},{"name":"工具","path":"docs/api/util","children":[{"name":"MIP.util","path":"docs/api/util/index.md","url":"/v2/contribute/api/util/index.html"},{"name":"MIP.util.customStorage","path":"docs/api/util/customStorage.md","url":"/v2/contribute/api/util/customStorage.html"},{"name":"MIP.util.dom","path":"docs/api/util/dom.md","url":"/v2/contribute/api/util/dom.html"},{"name":"MIP.util.event","path":"docs/api/util/event.md","url":"/v2/contribute/api/util/event.html"},{"name":"MIP.util.fn","path":"docs/api/util/fn.md","url":"/v2/contribute/api/util/fn.html"},{"name":"MIP.util.Gesture","path":"docs/api/util/gesture.md","url":"/v2/contribute/api/util/gesture.html"},{"name":"MIP.util.hash","path":"docs/api/util/hash.md","url":"/v2/contribute/api/util/hash.html"},{"name":"MIP.util.jsonParse","path":"docs/api/util/jsonParse.md","url":"/v2/contribute/api/util/jsonParse.html"},{"name":"MIP.util.naboo","path":"docs/api/util/naboo.md","url":"/v2/contribute/api/util/naboo.html"},{"name":"MIP.util.platform","path":"docs/api/util/platform.md","url":"/v2/contribute/api/util/platform.html"},{"name":"MIP.util.rect","path":"docs/api/util/rect.md","url":"/v2/contribute/api/util/rect.html"}]}],
+      "chapters": [{"level":1,"hash":"#miputilnaboo","text":"MIP.util.naboo","children":[{"level":2,"hash":"#方法","text":"方法","children":[{"level":3,"hash":"#animate","text":"animate"},{"level":3,"hash":"#start","text":"start"},{"level":3,"hash":"#next","text":"next"},{"level":3,"hash":"#cancel","text":"cancel"},{"level":3,"hash":"#p","text":"p"},{"level":3,"hash":"#done","text":"done"},{"level":3,"hash":"#register","text":"register"}]}]}],
+      'url': "/v2/contribute/api/util/naboo.html"
+    }
+  </script>
+</mip-data>
+
+    <!-- <script src="http://172.18.19.102:8080/dist/mip.js"></script> -->
+    <script src="https://c.mipcdn.com/static/v2/mip.js"></script>
+    <!-- <script src="http://172.18.19.96:8060/byurl?mip-extensions=mip-sidebar/mip-sidebar,mip-showmore/mip-showmore&mip2-extensions=mip-accordion/mip-accordion"></script> -->
+    <script src="https://c.mipcdn.com/static/v2/mip-sidebar/mip-sidebar.js"></script>
+    <!-- <script src="https://bos.nj.bpc.baidu.com/assets/mip/projects/mip.js"></script> -->
+<!--     <script src="http://127.0.0.1:8111/mip-sidenav/mip-sidenav.js"></script> -->
+    <!-- <script src="https://bos.nj.bpc.baidu.com/assets/mip/temp/mip-sidenav.js?v=194253"></script> -->
+    <script src="https://c.mipcdn.com/static/v2/mipengine.org/mip-mipengine-sidenav/mip-mipengine-sidenav.js"></script>
+    <script src="https://c.mipcdn.com/static/v2/mipengine.org/mip-mipengine-stepper-tabs/mip-mipengine-stepper-tabs.js"></script>
+<!--     <script src="http://127.0.0.1:8111/mip-stepper-tabs/mip-stepper-tabs.js"></script> -->
+    <!-- <script src="https://c.mipcdn.com/static/v1/mip-fixed/mip-fixed.js"></script> -->
+    <!-- <script src="https://c.mipcdn.com/static/v2/mip-fastclick/mip-fastclick.js"></script> -->
+    <!-- <script src="https://c.mipcdn.com/static/v2/mip-showmore/mip-showmore.js"></script> -->
+    <!-- <script src="https://c.mipcdn.com/static/v2/mip-accordion/mip-accordion.js"></script> -->
+  </body>
+</html>

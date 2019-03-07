@@ -34,17 +34,12 @@ module.exports = () => [
   },
   {
     "name": "学习",
-    "activeUrl": /^\/(v2\/)?(docs|api|codelabs)(.*)((\?|\#).*)?$/,
+    "activeUrl": /^\/(v2\/)?(docs|codelabs)(.*)((\?|\#).*)?$/,
     "children": [
       {
         "name": "MIP 教程",
         "path": "docs/docs/getting-start/newbie.md",
         "activeUrl": /^\/(v2\/)?docs/
-      },
-      {
-        "name": "MIP API",
-        "path": "docs/api",
-        "activeUrl": /^\/(v2\/)?api/
       },
       {
         "name": "Codelab",
@@ -72,7 +67,7 @@ module.exports = () => [
   },
   {
     "name": "组件",
-    "activeUrl": /^\/(v2\/)?(components|contribute)/,
+    "activeUrl": /^\/(v2\/)?(components|contribute|api)/,
     "children": [
       {
         "name": "组件列表",
@@ -83,6 +78,11 @@ module.exports = () => [
         "name": "贡献组件代码",
         "path": "docs/contribute/getting-start/how-to-contribute.md",
         "activeUrl": /^\/(v2\/)?contribute/
+      },
+      {
+        "name": "MIP API",
+        "path": "docs/api",
+        "activeUrl": /^\/(v2\/)?api/
       }
     ]
   },

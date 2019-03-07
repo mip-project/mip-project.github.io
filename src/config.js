@@ -52,7 +52,7 @@ module.exports = {
     {
       name: 'docs',
       loader: 'copy',
-      from: path.resolve(__dirname, '../../mip2/new-docs'),
+      from: path.resolve(__dirname, '../../mip2/docs'),
       to: path.resolve(docDir, 'docs')
     }
   ],
@@ -292,7 +292,7 @@ module.exports = {
 }
 
 async function copy ({to}) {
-  let main = path.resolve(__dirname, '../../mip2/new-docs')
+  let main = path.resolve(__dirname, '../../mip2/docs')
   let mip1 = path.resolve(__dirname, '../../mip-extensions/src')
   let mip2 = path.resolve(__dirname, '../../mip2-extensions/components')
   let mip2builtin = path.resolve(main, 'components/builtin')
