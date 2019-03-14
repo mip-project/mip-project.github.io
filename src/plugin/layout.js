@@ -118,9 +118,9 @@ module.exports = class Layout {
           navIndex: navIndex,
           content: html,
           css: css + style.join(''),
-          menu: menu,
+          menu: processMenu(menu, app),
           chapters: chapters || {},
-          url: url,
+          url: app.config.host + url,
           development: process.env.NODE_ENV === 'development',
           last: info.pre,
           next: info.next,
@@ -144,13 +144,13 @@ module.exports = class Layout {
         description: 'MIP（Mobile Instant Pages - 移动网页加速器）是一套应用于移动网页的开放性技术标准，使用 MIP无需等待加载，页面内容将以更友好的方式瞬时到达用户。',
         keywords: 'MIP2',
         originUrl: '',
-        host: 'https://mip-project.github.io',
+        host: app.config.host,
         navbar: indexNavbar,
         navIndex: 0,
         css: css,
         menu: {},
         chapters: {},
-        url: '',
+        url: app.config.host + '',
         development: process.env.NODE_ENV === 'development'
       })
 
@@ -198,13 +198,13 @@ module.exports = class Layout {
         description: '我们在 Codelab 中提供了一系列基于 MIP 的编程小项目，内容包括项目起步、配置教学、功能实现等等',
         keywords: 'Codelab',
         originUrl: '',
-        host: 'https://mip-project.github.io',
+        host: app.config.host,
         navbar: codelabNavbar,
         navIndex: navIndex,
         css: css,
-        menu: codelabsMenu,
+        menu: processMenu(codelabsMenu, app),
         chapters: {},
-        url: url,
+        url: app.config.host + url,
         development: process.env.NODE_ENV === 'development'
       })
 
@@ -212,7 +212,7 @@ module.exports = class Layout {
       let codelabsUrl = await app.getUrl(codelabsPath)
       await app.store.set('doc', codelabsPath, {
         path: codelabsPath,
-        url: codelabsUrl,
+        url: app.config.host + codelabsUrl,
         html: htmlCodelab
       })
 
@@ -447,7 +447,7 @@ async function getImageSize (src, basePath = '', logger) {
 async function processNavbar (navbar, app) {
   for (let i = 0; i < navbar.length; i++) {
     if (navbar[i].path) {
-      navbar[i].url = await app.getUrl(navbar[i].path)
+      navbar[i].url = app.config.host + await app.getUrl(navbar[i].path)
     }
 
     if (navbar[i].children && navbar[i].children.length) {
@@ -456,4 +456,24 @@ async function processNavbar (navbar, app) {
   }
 }
 
+function processMenu (menu, app, shouldDeepCopy = true) {
+  if (!menu) {
+    return
+  }
+  // deep copy 简单实现一下...
+  if (shouldDeepCopy) {
+    menu = JSON.parse(JSON.stringify(menu))
+  }
 
+  for (let i = 0; i < menu.length; i++) {
+    if (menu[i].url) {
+      menu[i].url = app.config.host + menu[i].url
+    }
+
+    if (menu[i].children && menu[i].children.length) {
+      processMenu(menu[i].children, app, false)
+    }
+  }
+
+  return menu
+}
