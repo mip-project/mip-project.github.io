@@ -212,7 +212,7 @@ module.exports = class Layout {
       let codelabsUrl = await app.getUrl(codelabsPath)
       await app.store.set('doc', codelabsPath, {
         path: codelabsPath,
-        url: app.config.host + codelabsUrl,
+        url: codelabsUrl,
         html: htmlCodelab
       })
 
