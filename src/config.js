@@ -44,8 +44,8 @@ let docDir = path.resolve(tmpDir, 'doc')
 const urlPrefix = '/v2/'
 
 module.exports = {
-  host: process.env.NODE_ENV === 'development' ? '' : 'https://mip-project.github.io',
-  // host: process.env.NODE_ENV === 'development' ? '' : 'https://www.mipengine.org',
+  // host: process.env.NODE_ENV === 'development' ? '' : 'https://mip-project.github.io',
+  host: process.env.NODE_ENV === 'development' ? '' : 'https://www.mipengine.org',
   basePath: docDir,
   rootPath: rootDir,
   sources: [
